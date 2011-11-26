@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="MarketingDomainServiceData" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="CraigslistPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostsElement" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="PostId" Type="Int64" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityContainer Name="MarketingDomainServiceDataObjectContext">
+    <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainServiceData.CraigslistPost" />
+  </EntityContainer>
+</Schema>

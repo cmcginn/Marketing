@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainServiceDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MarketingDomainServiceDataStore">
+    <EntitySet Name="GetCraigslistPosts" EntityType="MarketingDomainServiceDataStore.CraigslistPost" store:Type="Tables" Schema="dbo" Table="Marketing.Data.CraigslistPost" />
+  </EntityContainer>
+  <EntityType Name="CraigslistPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="PostsElement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostId" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+</Schema>

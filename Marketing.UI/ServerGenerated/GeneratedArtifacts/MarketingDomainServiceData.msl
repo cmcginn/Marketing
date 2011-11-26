@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="MarketingDomainServiceDataObjectContext" StorageEntityContainer="MarketingDomainServiceDataStore">
+    <EntitySetMapping Name="CraigslistPosts">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.CraigslistPost)">
+        <MappingFragment StoreEntitySet="GetCraigslistPosts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
