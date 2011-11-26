@@ -1,0 +1,13 @@
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\bin\Debug\LeadScraper.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\bin\Debug\LeadScraper.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\Activity1.g.xaml
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\_LeadScraper.WorkflowActivities.g.cs
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\Activity1.g.cs
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\LeadScraper.WorkflowActivities.csproj.XamlGeneratedCodeFileListAbsolute.txt
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\LeadScraper.WorkflowActivities.csproj.XamlGeneratedXamlFileListAbsolute.txt
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\InProcessTempFiles\Activity1.g.cs
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\InProcessTempFiles\Activity1.g.xaml
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\InProcessTempFiles\_LeadScraper.WorkflowActivities.g.cs
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\LeadScraper.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\obj\Debug\LeadScraper.WorkflowActivities.pdb
