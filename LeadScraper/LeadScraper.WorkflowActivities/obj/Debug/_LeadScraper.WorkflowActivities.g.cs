@@ -48,11 +48,21 @@ namespace XamlStaticHelperNamespace {
         
         private static System.Collections.Generic.IList<System.Reflection.Assembly> LoadAssemblies() {
             System.Collections.Generic.IList<System.Reflection.Assembly> assemblyList = new System.Collections.Generic.List<System.Reflection.Assembly>();
+            assemblyList.Add(Load("Common.Net, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
+            assemblyList.Add(Load("Common.Net.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
+            assemblyList.Add(Load("Common.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
+            assemblyList.Add(Load("LeadScraper.Utils, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
             assemblyList.Add(Load("Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a" +
                         "3a"));
             assemblyList.Add(Load("mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
+            assemblyList.Add(Load("PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e" +
+                        "35"));
+            assemblyList.Add(Load("PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856a" +
+                        "d364e35"));
             assemblyList.Add(Load("System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364" +
                         "e35"));
+            assemblyList.Add(Load("System.Activities.Presentation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=" +
+                        "31bf3856ad364e35"));
             assemblyList.Add(Load("System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
             assemblyList.Add(Load("System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
             assemblyList.Add(Load("System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
@@ -60,10 +70,12 @@ namespace XamlStaticHelperNamespace {
                         "31bf3856ad364e35"));
             assemblyList.Add(Load("System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c56193" +
                         "4e089"));
+            assemblyList.Add(Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"));
             assemblyList.Add(Load("System.Xaml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
             assemblyList.Add(Load("System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
             assemblyList.Add(Load("System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e08" +
                         "9"));
+            assemblyList.Add(Load("WindowsBase, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"));
             assemblyList.Add(System.Reflection.Assembly.GetExecutingAssembly());
             return assemblyList;
         }

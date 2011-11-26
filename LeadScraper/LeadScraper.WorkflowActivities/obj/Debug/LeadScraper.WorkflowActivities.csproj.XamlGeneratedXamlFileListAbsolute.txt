@@ -1,1 +1,2 @@
-obj\Debug\Activity1.g.xaml
+obj\Debug\Host.g.xaml
+obj\Debug\CraigslistLeadCollector.g.xaml

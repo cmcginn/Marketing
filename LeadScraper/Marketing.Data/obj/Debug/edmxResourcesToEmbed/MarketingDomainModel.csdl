@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="MarketingDomainModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.CraigslistPost" />
+  </EntityContainer>
+  <EntityType Name="CraigslistPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="DateTime" Name="PostDate" Nullable="false" />
+    <Property Type="String" Name="PostsElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
