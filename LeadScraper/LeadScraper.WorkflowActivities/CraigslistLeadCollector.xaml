@@ -1,15 +1,16 @@
-﻿<Activity mc:Ignorable="sap" x:Class="LeadScraper.WorkflowActivities.CraigslistLeadCollector" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:cn="clr-namespace:Common.Net;assembly=Common.Net" xmlns:cni="clr-namespace:Common.Net.Interfaces;assembly=Common.Net.Interfaces" xmlns:lu="clr-namespace:LeadScraper.Utils;assembly=LeadScraper.Utils" xmlns:lue="clr-namespace:LeadScraper.Utils.Extensions;assembly=LeadScraper.Utils" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:sx="clr-namespace:System.Xml;assembly=System.Data" xmlns:sx1="clr-namespace:System.Xml;assembly=System.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<Activity mc:Ignorable="sap" x:Class="LeadScraper.WorkflowActivities.CraigslistLeadCollector" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:cn="clr-namespace:Common.Net;assembly=Common.Net" xmlns:cni="clr-namespace:Common.Net.Interfaces;assembly=Common.Net.Interfaces" xmlns:lu="clr-namespace:LeadScraper.Utils;assembly=LeadScraper.Utils" xmlns:lue="clr-namespace:LeadScraper.Utils.Extensions;assembly=LeadScraper.Utils" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:md="clr-namespace:Marketing.Data;assembly=Marketing.Data" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sde="clr-namespace:System.Data.EntityClient;assembly=System.Data.Entity" xmlns:sdo="clr-namespace:System.Data.Objects;assembly=System.Data.Entity" xmlns:sdod="clr-namespace:System.Data.Objects.DataClasses;assembly=System.Data.Entity" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:sx="clr-namespace:System.Xml;assembly=System.Data" xmlns:sx1="clr-namespace:System.Xml;assembly=System.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="postsElement" Type="OutArgument(sxl:XElement)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>654,1063</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>668,1401</sap:VirtualizedContainerService.HintSize>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
-  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\CraigslistLeadCollector.xaml" sap:VirtualizedContainerService.HintSize="614,1023">
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\CraigslistLeadCollector.xaml" sap:VirtualizedContainerService.HintSize="628,1361">
     <Flowchart.Variables>
       <Variable x:TypeArguments="cn:HttpPost" Default="[New Common.Net.HttpPost]" Name="poster" />
       <Variable x:TypeArguments="s:Byte[]" Name="rawResponse" />
       <Variable x:TypeArguments="x:String" Name="responseString" />
       <Variable x:TypeArguments="scg3:List(x:String)" Name="postingUrls" />
+      <Variable x:TypeArguments="sxl:XDocument" Name="postsDocument" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg3:Dictionary x:TypeArguments="x:String, x:Object">
@@ -17,7 +18,8 @@
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 310,107.5 310,141.5</av:PointCollection>
-        <x:Double x:Key="Height">987</x:Double>
+        <x:Double x:Key="Height">1325.1786666666667</x:Double>
+        <x:Double x:Key="Width">614</x:Double>
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -93,10 +95,10 @@
                           <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">200,695.5</av:Point>
                             <av:Size x:Key="ShapeSize">200,49</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">300,618 300,648 304,648 304,709</av:PointCollection>
+                            <av:PointCollection x:Key="ConnectorLocation">300,744.5 300,774.5 300,816.5</av:PointCollection>
                           </scg3:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="200,49" Values="[postingUrls.Take(15)]">
+                        <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="200,49" Values="[postingUrls]">
                           <ActivityAction x:TypeArguments="x:String">
                             <ActivityAction.Argument>
                               <DelegateInArgument x:TypeArguments="x:String" Name="item" />
@@ -142,6 +144,61 @@
                             </Sequence>
                           </ActivityAction>
                         </ForEach>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">196,816.5</av:Point>
+                                <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">300,943.5 300,973.5 300,1049</av:PointCollection>
+                              </scg3:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <InvokeMethod DisplayName="InvokeMethod Transform Posts" sap:VirtualizedContainerService.HintSize="208,127" MethodName="TransformResponse" TargetType="lue:CraigslistExtensions">
+                              <InvokeMethod.Result>
+                                <OutArgument x:TypeArguments="sxl:XDocument">[postsDocument]</OutArgument>
+                              </InvokeMethod.Result>
+                              <InArgument x:TypeArguments="sxl:XElement">[postsElement]</InArgument>
+                            </InvokeMethod>
+                            <FlowStep.Next>
+                              <FlowStep x:Name="__ReferenceID6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <av:Point x:Key="ShapeLocation">200,1049</av:Point>
+                                    <av:Size x:Key="ShapeSize">200,49</av:Size>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ForEach x:TypeArguments="sxl:XElement" DisplayName="ForEach&lt;XElement&gt; Post" sap:VirtualizedContainerService.HintSize="282,521" Values="[postsDocument.Descendants(&quot;Post&quot;)]">
+                                  <ActivityAction x:TypeArguments="sxl:XElement">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
+                                    </ActivityAction.Argument>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="252,418">
+                                      <Sequence.Variables>
+                                        <Variable x:TypeArguments="md:CraigslistPost" Name="craigslistPost" />
+                                        <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer()]" Name="domain" />
+                                        <Variable x:TypeArguments="x:Int32" Name="existingCount" />
+                                      </Sequence.Variables>
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <InvokeMethod DisplayName="InvokeMethod Get New CraigslistPostEntity" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SavePost" TargetType="lue:CraigslistExtensions">
+                                        <InArgument x:TypeArguments="sxl:XElement">[item]</InArgument>
+                                        <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[domain]</InArgument>
+                                      </InvokeMethod>
+                                      <InvokeMethod DisplayName="InvokeMethod Save Changes" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SaveChanges">
+                                        <InvokeMethod.TargetObject>
+                                          <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[domain]</InArgument>
+                                        </InvokeMethod.TargetObject>
+                                      </InvokeMethod>
+                                    </Sequence>
+                                  </ActivityAction>
+                                </ForEach>
+                              </FlowStep>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
                       </FlowStep>
                     </FlowStep.Next>
                   </FlowStep>
@@ -157,5 +214,7 @@
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
   </Flowchart>
 </Activity>

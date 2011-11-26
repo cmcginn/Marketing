@@ -119,7 +119,7 @@ namespace Marketing.Data
         /// <param name="postId">Initial value of the PostId property.</param>
         /// <param name="title">Initial value of the Title property.</param>
         /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
-        public static CraigslistPost CreateCraigslistPost(global::System.Guid id, global::System.DateTime postDate, global::System.String postsElement, global::System.Int32 postId, global::System.String title, global::System.String emailAddress)
+        public static CraigslistPost CreateCraigslistPost(global::System.Guid id, global::System.DateTime postDate, global::System.String postsElement, global::System.Int64 postId, global::System.String title, global::System.String emailAddress)
         {
             CraigslistPost craigslistPost = new CraigslistPost();
             craigslistPost.Id = id;
@@ -214,7 +214,7 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 PostId
+        public global::System.Int64 PostId
         {
             get
             {
@@ -229,8 +229,8 @@ namespace Marketing.Data
                 OnPostIdChanged();
             }
         }
-        private global::System.Int32 _PostId;
-        partial void OnPostIdChanging(global::System.Int32 value);
+        private global::System.Int64 _PostId;
+        partial void OnPostIdChanging(global::System.Int64 value);
         partial void OnPostIdChanged();
     
         /// <summary>

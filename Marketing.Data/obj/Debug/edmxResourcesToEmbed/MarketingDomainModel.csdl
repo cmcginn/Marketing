@@ -10,7 +10,7 @@
     <Property Type="Guid" Name="Id" Nullable="false" />
     <Property Type="DateTime" Name="PostDate" Nullable="false" />
     <Property Type="String" Name="PostsElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="PostId" Nullable="false" />
+    <Property Type="Int64" Name="PostId" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>

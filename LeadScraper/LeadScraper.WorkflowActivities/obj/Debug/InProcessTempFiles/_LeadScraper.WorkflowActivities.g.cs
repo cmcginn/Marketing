@@ -52,6 +52,7 @@ namespace XamlStaticHelperNamespace {
             assemblyList.Add(Load("Common.Net.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
             assemblyList.Add(Load("Common.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
             assemblyList.Add(Load("LeadScraper.Utils, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
+            assemblyList.Add(Load("Marketing.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
             assemblyList.Add(Load("Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a" +
                         "3a"));
             assemblyList.Add(Load("mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
@@ -64,7 +65,11 @@ namespace XamlStaticHelperNamespace {
             assemblyList.Add(Load("System.Activities.Presentation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=" +
                         "31bf3856ad364e35"));
             assemblyList.Add(Load("System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
+            assemblyList.Add(Load("System.Data.DataSetExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b" +
+                        "77a5c561934e089"));
             assemblyList.Add(Load("System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
+            assemblyList.Add(Load("System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934" +
+                        "e089"));
             assemblyList.Add(Load("System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
             assemblyList.Add(Load("System.ServiceModel.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=" +
                         "31bf3856ad364e35"));

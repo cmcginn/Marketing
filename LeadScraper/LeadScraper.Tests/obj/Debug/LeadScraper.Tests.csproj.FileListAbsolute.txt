@@ -1,5 +1,5 @@
-C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Resources\craigslistResponse.xml
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.Tests.dll.config
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.Tests.dll
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.Tests.pdb
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Common.Net.dll
@@ -8,8 +8,11 @@ C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Common.Type
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Common.Utils.dll
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.Utils.dll
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.Utils.pdb
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\LeadScraper.WorkflowActivities.pdb
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Common.Utils.pdb
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\bin\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\obj\Debug\LeadScraper.Tests.dll
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\obj\Debug\LeadScraper.Tests.pdb

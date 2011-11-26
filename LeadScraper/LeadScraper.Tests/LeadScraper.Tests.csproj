@@ -85,6 +85,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <None Include="Resources\craigslistResponse.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

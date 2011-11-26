@@ -4,3 +4,9 @@ C:\Projects\Urbana\Marketing\LeadScraper\Marketing.Data\bin\Debug\Marketing.Data
 C:\Projects\Urbana\Marketing\LeadScraper\Marketing.Data\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\LeadScraper\Marketing.Data\obj\Debug\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\LeadScraper\Marketing.Data\obj\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\Marketing.Data\bin\Debug\Marketing.Data.dll.config
+C:\Projects\Urbana\Marketing\Marketing.Data\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Data\bin\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\Marketing.Data\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Data\obj\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Data\obj\Debug\Marketing.Data.pdb

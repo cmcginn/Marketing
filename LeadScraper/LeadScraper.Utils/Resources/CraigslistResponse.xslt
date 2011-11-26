@@ -9,9 +9,13 @@
     </xsl:element>
   </xsl:template>
   <xsl:template match="/Posts/Post">
-    <xsl:variable name="body" select="/Posts/Post/html/body//div[@id='userbody']"></xsl:variable>
+    <xsl:variable name="body" select ="/Posts/Post/html/body"></xsl:variable>
+    <xsl:variable name="userbody" select="/Posts/Post/html/body//div[@id='userbody']"></xsl:variable>
     <xsl:variable name="head" select="/Posts/Post/html/body//div[@class='bchead']"></xsl:variable>
     <xsl:element name="Post">
+      <xsl:attribute name="datetime">
+        <xsl:value-of select="substring-before(substring-after($body,'Date: '),'&#xA;')"/>
+      </xsl:attribute>
       <xsl:call-template name="head"></xsl:call-template>
       <xsl:call-template name="contact"></xsl:call-template>
       <xsl:element name="Title">
@@ -21,7 +25,7 @@
     <xsl:element name="Body">
       <xsl:call-template name="blurbs">
       </xsl:call-template>
-      <xsl:copy-of select="extensions:GetCraigslistJobDetails($body)"/>
+      <xsl:copy-of select="extensions:GetCraigslistJobDetails($userbody)"/>
     </xsl:element>
   </xsl:template>
   <xsl:template name="blurbs">
@@ -32,7 +36,7 @@
           <xsl:element name="Key">
             <xsl:value-of select="substring-before(text(),':')"/>
           </xsl:element>
-          <xsl:element name="Value">            
+          <xsl:element name="Value">
             <xsl:value-of select="normalize-space(substring-after(text(),':'))"/>
           </xsl:element>
         </xsl:element>
@@ -44,12 +48,12 @@
     <xsl:copy-of select="$head"/>
     <xsl:attribute name="id">
       <xsl:value-of select="substring-before(substring-after($head,'postingID='),'&amp;')"/>
-    </xsl:attribute>    
+    </xsl:attribute>
   </xsl:template>
   <xsl:template name="contact">
-    <xsl:variable name="contact" select="*//a[contains(text(),'job-')]"></xsl:variable>
+    <xsl:variable name="contact" select="*//a[contains(@href,'mailto:')]"></xsl:variable>
     <xsl:attribute name="contact">
-    <xsl:copy-of select="$contact/text()"/>
+      <xsl:value-of select="$contact/@href"/>
     </xsl:attribute>
   </xsl:template>
 </xsl:stylesheet>

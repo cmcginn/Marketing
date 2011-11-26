@@ -1,10 +1,12 @@
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\LeadScraper.Utils.dll
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\LeadScraper.Utils.pdb
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\Common.Utils.dll
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\obj\Debug\LeadScraper.Utils.TransformationResources.resources
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\obj\Debug\GenerateResource.read.1.tlog
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\obj\Debug\GenerateResource.write.1.tlog
-C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\LeadScraper.Utils.dll
-C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\LeadScraper.Utils.pdb
-C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\Common.Utils.dll
-C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\obj\Debug\LeadScraper.Utils.dll
 C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\obj\Debug\LeadScraper.Utils.pdb
