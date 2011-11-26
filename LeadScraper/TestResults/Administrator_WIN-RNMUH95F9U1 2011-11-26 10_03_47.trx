@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="82dd115d-42c9-4740-885e-5009b3d655ac" name="Administrator@WIN-RNMUH95F9U1 2011-11-26 10:03:47" runUser="WIN-RNMUH95F9U1\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="46322ecf-622c-46d6-9134-1578a914336a">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Projects\Urbana\Marketing\LeadScraper\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Administrator_WIN-RNMUH95F9U1 2011-11-26 10_03_47">
+      <DeploymentItem filename="LeadScraper.Tests\Resources\" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Types.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Net.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Net.Interfaces.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Utils.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\bin\Debug\LeadScraper.WorkflowActivities.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\LeadScraper.Utils.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution>
+            <TestDirectory useLoadContext="true" />
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-11-26T10:03:47.7436484-05:00" queuing="2011-11-26T10:03:49.7573203-05:00" start="2011-11-26T10:03:49.7739218-05:00" finish="2011-11-26T10:03:50.5043906-05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetCraigslistJobDetailsTest" storage="c:\projects\urbana\marketing\leadscraper\leadscraper.tests\bin\debug\leadscraper.tests.dll" id="66ca339c-eb6d-94d7-aefd-33caa834f581">
+      <Execution id="4a8a517d-0855-41d7-b9ea-a8159d58cb6e" />
+      <TestMethod codeBase="C:/Projects/Urbana/Marketing/LeadScraper/LeadScraper.Tests/bin/Debug/LeadScraper.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="LeadScraper.Tests.XsltExtensionsTest, LeadScraper.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetCraigslistJobDetailsTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="66ca339c-eb6d-94d7-aefd-33caa834f581" executionId="4a8a517d-0855-41d7-b9ea-a8159d58cb6e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4a8a517d-0855-41d7-b9ea-a8159d58cb6e" testId="66ca339c-eb6d-94d7-aefd-33caa834f581" testName="GetCraigslistJobDetailsTest" computerName="WIN-RNMUH95F9U1" duration="00:00:00.1286671" startTime="2011-11-26T10:03:49.7768515-05:00" endTime="2011-11-26T10:03:50.4750937-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4a8a517d-0855-41d7-b9ea-a8159d58cb6e">
+      <Output>
+        <StdOut>&lt;Posts&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2717799738&amp;amp;amp;token=U2FsdGVkX183MzQxNzM0MZwBt8ly-5QCY_l3xa7aKbEsFoMmFibTBbzARuRc1qSax2vJcCc9nJiP5W4FznXjuDP9S-gaLiOX" id="2717799738" contact="job-rg4bd-2717799738@craigslist.org"&gt;
+    &lt;Title&gt;Software Engineers (All levels)&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Highly competitive&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2717740937&amp;amp;amp;token=U2FsdGVkX18xNzQwNjE3NCsr7weYZryo7nu4Wjc8DBKbvx7BQwDi91zo7WCPknI32JxK7HZ3WoIkfOZSQ1Av_GVcTSYfdG1k" id="2717740937" contact="job-54kvj-2717740937@craigslist.org"&gt;
+    &lt;Title&gt;Software Quality Assurance Analyst &lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Lake Mary&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Negotiable&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2717701079&amp;amp;amp;token=U2FsdGVkX18yNzE4ODI3MWOemAb9L4h5t8AwGGhjua7JKzc8nocMho2QGyuBN_QLyPJ85VpzMDPnuiRygCZ43imswASgKLym" id="2717701079" contact=""&gt;
+    &lt;Title&gt;Programmer-VB.net, SQL, HTML&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Orlando&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;competitive&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2717483858&amp;amp;amp;token=U2FsdGVkX18zNjk1MzY5NQ0XYLWp4E-hAr_NESzuLaZGSPIkji8i5q0Psh87Ke8L3csmcsxw5lMxt5SfiQPHgMB8lr6-4wzb" id="2717483858" contact="job-rhem4-2717483858@craigslist.org"&gt;
+    &lt;Title&gt;Web Developer/Backend Engineer&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;San Francisco, CA&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Market Rate&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2717416106&amp;amp;amp;token=U2FsdGVkX18yODY4Mjg2OO1emiJ0YGKJefAlwHNf0ZkLIaj5oyd7P3xmNHLeJy7tSjOChSEnNHqijMY7FzgqJ5U1ZXV2Pa-e" id="2717416106" contact="job-vw72t-2717416106@craigslist.org"&gt;
+    &lt;Title&gt;Sr. Web Engineer&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;San Francisco, CA&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Market Rate&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2717266061&amp;amp;amp;token=U2FsdGVkX18zOTg3Mzk4Nh5dfDzix0iAIjYJH2b45B2qWnXf01_-XWRXDT3DozyX-Q943hOkWDHdEtbSAANv4blWpT9e9dTA" id="2717266061" contact=""&gt;
+    &lt;Title&gt;PHP Developer&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;DeLand, FL&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;TBD&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2690917050&amp;amp;amp;token=U2FsdGVkX18yNzE4ODI3MWOemAb9L4h5t8AwGGhjua7JKzc8nocMho2QGyuBN_QLByUnzHrfChdqW1WL6HWrQqV588sIo2le" id="2690917050" contact="job-9uuwr-2690917050@craigslist.org"&gt;
+    &lt;Title&gt;Asterisk FreePBX&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Oviedo&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Contracts and Depends on experience. Please state expected renumeration&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2715969373&amp;amp;amp;token=U2FsdGVkX18xNzQwNjE3NCsr7weYZryo7nu4Wjc8DBKbvx7BQwDi91zo7WCPknI3iF32844E_Mn7pHuoqEfy2Wx7-_OSpfGf" id="2715969373" contact="job-yvsvn-2715969373@craigslist.org"&gt;
+    &lt;Title&gt;Software Engineer level II(C++ and Java)&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Olrando, FL&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;$65k-$75k&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2681250179&amp;amp;amp;token=U2FsdGVkX182NzI1NjcyNflS-pIvfBVYAdglWBRGYlNpP6eE7hTJaxfnHkX_gFyKs2xUNndjD-jZLsrSSYHuHNQwtsoLmrfN" id="2681250179" contact="job-hrfra-2681250179@craigslist.org"&gt;
+    &lt;Title&gt;Java Application Tester 10274&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Orlando&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;$ 38.84 / hr&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2715922300&amp;amp;amp;token=U2FsdGVkX185MTYwOTE2MMiFQ4DvoBQb0t6FBvqTow7eNFma6D0XHBlEYnh-PXBMIRQ1R5ovkR2ZBlyO9_DRwZIc5FNQNuC-" id="2715922300" contact=""&gt;
+    &lt;Title&gt;RoR Software Engineer&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;San Francisco, CA&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Market Rate&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2697702202&amp;amp;amp;token=U2FsdGVkX18xNjA4ODE2MA-sQ0w6iA99BuQuBNqCVYoXC5Qj2pqBlIK7_wra1BpD0K9IT5IV6bJacRe7I_cEW7bR4uiDNSFr" id="2697702202" contact="job-2u7cf-2697702202@craigslist.org"&gt;
+    &lt;Title&gt;PeopleSoft Analyst 10569&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Orlando, FL&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;$ 38.50 / hr&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2715892405&amp;amp;amp;token=U2FsdGVkX185MTYwOTE2MMiFQ4DvoBQb0t6FBvqTow7eNFma6D0XHBlEYnh-PXBM_byICII1W163OiIaHGMM9IAnCNcn4VH2" id="2715892405" contact="job-kdt5a-2715892405@craigslist.org"&gt;
+    &lt;Title&gt; Applications Developer/Programmer III ASP.Net&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Orlando&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Hourly/ Contract&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2715848815&amp;amp;amp;token=U2FsdGVkX18zMDQ1MTMwNG58otiMpNg84Y63ruaMTtVz7n-Ub2XAeBV5ICIGzVAUuZCRo8cfU-L_97D30CaSXj8wVUnDXbVJ" id="2715848815" contact="job-xwejz-2715848815@craigslist.org"&gt;
+    &lt;Title&gt;Software Engineer&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;San Francisco, CA&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;Market Rate&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2715541550&amp;amp;amp;token=U2FsdGVkX18yODY4Mjg2OO1emiJ0YGKJefAlwHNf0ZkLIaj5oyd7P3xmNHLeJy7tbVh8fKxOjnmctfG9mnDct6B9NV9C8ffX" id="2715541550" contact="job-ewjep-2715541550@craigslist.org"&gt;
+    &lt;Title&gt;Quality Assurance Engineer&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Athens, Ga&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;DOE&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+  &lt;Post href="https://accounts.craigslist.org/eaf?postingID=2692001276&amp;amp;amp;token=U2FsdGVkX18xNzQwNjE3NCsr7weYZryo7nu4Wjc8DBKbvx7BQwDi91zo7WCPknI30aYL0eFc7qETRvuwuRIs4syTdVWRS1NL" id="2692001276" contact="job-zkfhq-2692001276@craigslist.org"&gt;
+    &lt;Title&gt;MS Dynamics GP Developer/Administrator&lt;/Title&gt;
+  &lt;/Post&gt;
+  &lt;Body&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Location&lt;/Key&gt;
+      &lt;Value&gt;Melbourne FL&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Blurb&gt;
+      &lt;Key&gt;Compensation&lt;/Key&gt;
+      &lt;Value&gt;DOE&lt;/Value&gt;
+    &lt;/Blurb&gt;
+    &lt;Details&gt;
+      &lt;Section sectionName="Develop With Us"&gt;
+	You will work in small focussed teams of highly motivated and talented developers
+	You will be part of a professional stable development environment that is not subject to the long periods of crunch time typically associated with game development
+	Each developer / programmer will be expected to take responsibility for, and strongly influence the products they develop and the customers they work with
+	You will have the opportunity to work on and gain experience with the expanding range of hardware platforms we support.
+	You will have the opportunity to work with some of the best games teams in the industry
+ 
+&lt;/Section&gt;
+      &lt;Section sectionName="Requirements"&gt;
+	Bachelor&amp;amp;amp;apos;s Degree in Computer Science or equivalent
+	Exceptional C++ skills and experience with Object Oriented Programming technique
+	Strong communication skills and the ability to work in a team environment
+	Proven ability to work in a team environment on a shared code base
+&lt;/Section&gt;
+      &lt;Section sectionName="Desirable Skills"&gt;
+	Background in game development
+	Experience developing 3D graphics applications and tools
+	Low level optimization skills, experience in middleware and physics
+	Experience working with established, large-scale software architectures
+	Experience working within and extending one or more scripting languages (e.g. Python, Perl and/or LUA)&lt;/Section&gt;
+    &lt;/Details&gt;
+  &lt;/Body&gt;
+&lt;/Posts&gt;</StdOut>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>
