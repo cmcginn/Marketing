@@ -13,6 +13,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="PostDate" Type="datetime" Nullable="false" />
           <Property Name="PostsElement" Type="xml" Nullable="false" />
         </EntityType>
@@ -30,6 +33,9 @@
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="DateTime" Name="PostDate" Nullable="false" />
           <Property Type="String" Name="PostsElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PostId" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -40,6 +46,9 @@
           <EntitySetMapping Name="CraigslistPosts">
             <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPost">
               <MappingFragment StoreEntitySet="CraigslistPosts">
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
                 <ScalarProperty Name="PostDate" ColumnName="PostDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

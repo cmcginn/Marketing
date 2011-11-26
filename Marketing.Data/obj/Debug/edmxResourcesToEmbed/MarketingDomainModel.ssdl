@@ -8,6 +8,9 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="PostsElement" Type="xml" Nullable="false" />
   </EntityType>

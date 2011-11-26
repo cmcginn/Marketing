@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
+using Marketing.Data;
 using System.Text.RegularExpressions;
 namespace LeadScraper.Utils.Extensions {
   public static class CraigslistExtensions {
@@ -10,10 +11,7 @@ namespace LeadScraper.Utils.Extensions {
     static Regex _requirements = new Regex( @"(?<first>Requirements:)([\W\w\S\s]+)(?<last>Desirable skills:)(?<first-last>)" );
     static Regex _desirableSkills = new Regex( @"(?<first>Desirable skills:)([\W\w\S\s]+)(?<last><!-- START CLTAGS -->)(?<first-last>)" );
     static Regex _htmlCleanup = new Regex( @"<br>" );
-    //public static ResponseToXml(this string response)
-    //{
-    //  var parser = new CraigslistParse();
-    //}
+    
     public static XElement GetDetails( this string response ) {
       response = _htmlCleanup.Replace( response, "" );
       var result = new XElement( "Details" );

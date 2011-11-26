@@ -116,12 +116,18 @@ namespace Marketing.Data
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="postDate">Initial value of the PostDate property.</param>
         /// <param name="postsElement">Initial value of the PostsElement property.</param>
-        public static CraigslistPost CreateCraigslistPost(global::System.Guid id, global::System.DateTime postDate, global::System.String postsElement)
+        /// <param name="postId">Initial value of the PostId property.</param>
+        /// <param name="title">Initial value of the Title property.</param>
+        /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
+        public static CraigslistPost CreateCraigslistPost(global::System.Guid id, global::System.DateTime postDate, global::System.String postsElement, global::System.Int32 postId, global::System.String title, global::System.String emailAddress)
         {
             CraigslistPost craigslistPost = new CraigslistPost();
             craigslistPost.Id = id;
             craigslistPost.PostDate = postDate;
             craigslistPost.PostsElement = postsElement;
+            craigslistPost.PostId = postId;
+            craigslistPost.Title = title;
+            craigslistPost.EmailAddress = emailAddress;
             return craigslistPost;
         }
 
@@ -202,6 +208,78 @@ namespace Marketing.Data
         private global::System.String _PostsElement;
         partial void OnPostsElementChanging(global::System.String value);
         partial void OnPostsElementChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PostId
+        {
+            get
+            {
+                return _PostId;
+            }
+            set
+            {
+                OnPostIdChanging(value);
+                ReportPropertyChanging("PostId");
+                _PostId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostId");
+                OnPostIdChanged();
+            }
+        }
+        private global::System.Int32 _PostId;
+        partial void OnPostIdChanging(global::System.Int32 value);
+        partial void OnPostIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String EmailAddress
+        {
+            get
+            {
+                return _EmailAddress;
+            }
+            set
+            {
+                OnEmailAddressChanging(value);
+                ReportPropertyChanging("EmailAddress");
+                _EmailAddress = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("EmailAddress");
+                OnEmailAddressChanged();
+            }
+        }
+        private global::System.String _EmailAddress;
+        partial void OnEmailAddressChanging(global::System.String value);
+        partial void OnEmailAddressChanged();
 
         #endregion
     
