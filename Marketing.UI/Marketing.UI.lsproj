@@ -4,7 +4,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>247fa0ed-8392-4ffc-bc41-2e719660c22e</ProjectGuid>
+    <ProjectGuid>919f7a6f-9472-474a-a3ba-85883d451c1c</ProjectGuid>
     <OutputType>WinEXE</OutputType>
     <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
     <RootNamespace>Marketing_UI</RootNamespace>
@@ -18,7 +18,7 @@
     <SignManifests>false</SignManifests>
     <BaseIntermediateOutputPath>bin</BaseIntermediateOutputPath>
     <ApplicationClientType>Desktop</ApplicationClientType>
-    <ApplicationServerType>LocalHost</ApplicationServerType>
+    <ApplicationServerType>IIS</ApplicationServerType>
     <RequireSecureConnection>true</RequireSecureConnection>
     <AuthenticationType>None</AuthenticationType>
     <ApplicationName>Marketing_UI</ApplicationName>
@@ -113,31 +113,31 @@
       <TypeGuid>{01074E5A-9000-460e-AB81-3A9263818D40}</TypeGuid>
       <BaseTypeGuid>{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</BaseTypeGuid>
       <Name>Common</Name>
-      <InstanceGuid>{95397292-b063-40b0-96d7-f1ae7c3a10ac}</InstanceGuid>
+      <InstanceGuid>{fcaf7e31-b5a2-40c8-9dcd-53bdde44809b}</InstanceGuid>
     </SubProject>
     <SubProject Include="Client\Client.csproj">
       <TypeGuid>{01074E5A-9000-460e-AB81-3A9263818D40}</TypeGuid>
       <BaseTypeGuid>{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</BaseTypeGuid>
       <Name>Client</Name>
-      <InstanceGuid>{9677bf60-b384-4e73-9bb4-a15b6920db17}</InstanceGuid>
+      <InstanceGuid>{64468c90-3e7f-4220-8f6b-d19e2c676693}</InstanceGuid>
     </SubProject>
     <SubProject Include="ClientGenerated\ClientGenerated.csproj">
       <TypeGuid>{01074E5A-9000-460e-AB81-3A9263818D40}</TypeGuid>
       <BaseTypeGuid>{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</BaseTypeGuid>
       <Name>ClientGenerated</Name>
-      <InstanceGuid>{ed2d6a50-65b6-4c88-9230-14f811650d74}</InstanceGuid>
+      <InstanceGuid>{0da986b3-7a78-4003-b578-a2cbc8d140b9}</InstanceGuid>
     </SubProject>
     <SubProject Include="Server\Server.csproj">
       <TypeGuid>{01074E5A-9000-460e-AB81-3A9263818D40}</TypeGuid>
       <BaseTypeGuid>{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</BaseTypeGuid>
       <Name>Server</Name>
-      <InstanceGuid>{bb8594b8-7252-474a-bcc3-4c59feaef438}</InstanceGuid>
+      <InstanceGuid>{8d8e1e37-937d-44f9-bebc-b5f8bdeef737}</InstanceGuid>
     </SubProject>
     <SubProject Include="ServerGenerated\ServerGenerated.csproj">
       <TypeGuid>{01074E5A-9000-460e-AB81-3A9263818D40}</TypeGuid>
       <BaseTypeGuid>{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</BaseTypeGuid>
       <Name>ServerGenerated</Name>
-      <InstanceGuid>{c6e0dec5-baeb-469e-94ed-c0608c08cb0e}</InstanceGuid>
+      <InstanceGuid>{360252da-4021-4567-830e-9c6dcbc38c43}</InstanceGuid>
     </SubProject>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

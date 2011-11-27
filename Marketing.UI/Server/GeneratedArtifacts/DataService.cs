@@ -11,5 +11,600 @@ namespace LightSwitchApplication
 {
     #region Data Services
     
+    /// <summary>
+    /// Provides members to query and update data in the MarketingDomainServiceData datasource.
+    /// </summary>
+    public sealed partial class MarketingDomainServiceDataService
+        : global::LightSwitchApplication.MarketingDomainServiceData
+    {
+        #region Constructors
+    
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public MarketingDomainServiceDataService() : base()
+        {
+        }
+    
+        #endregion
+    
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)this.Details.DataWorkspace;
+            }
+        }
+        
+        #endregion
+    
+        #region Server Interceptions Points
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Inserting(global::LightSwitchApplication.CraigslistPost entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Inserted(global::LightSwitchApplication.CraigslistPost entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Updating(global::LightSwitchApplication.CraigslistPost entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Updated(global::LightSwitchApplication.CraigslistPost entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Deleting(global::LightSwitchApplication.CraigslistPost entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Deleted(global::LightSwitchApplication.CraigslistPost entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Validate(global::LightSwitchApplication.CraigslistPost entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Inserting(global::LightSwitchApplication.CraigsListResponse entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Inserted(global::LightSwitchApplication.CraigsListResponse entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Updating(global::LightSwitchApplication.CraigsListResponse entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Updated(global::LightSwitchApplication.CraigsListResponse entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Deleting(global::LightSwitchApplication.CraigsListResponse entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Deleted(global::LightSwitchApplication.CraigsListResponse entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Validate(global::LightSwitchApplication.CraigsListResponse entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_Executed();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistPosts_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigsListResponse> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigsListResponse> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigsListResponse> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_All_ExecuteFailed(global::System.Exception exception);
+    
+        #endregion
+    
+        #region Details Class
+    
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+        public static new class DetailsClass
+        {
+    
+            static DetailsClass()
+            {
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>
+                __CraigslistPostsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>(
+                    "CraigslistPosts",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_CanInsert,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_CanUpdate,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_CanDelete,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_CanRead,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Inserting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Inserted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Updating,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Updated,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Deleting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Deleted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Validate);
+            private static bool __CraigslistPosts_CanInsert(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigslistPosts_CanInsert(ref result);
+                return result;
+            }
+            private static bool __CraigslistPosts_CanUpdate(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigslistPosts_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __CraigslistPosts_CanDelete(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigslistPosts_CanDelete(ref result);
+                return result;
+            }
+            private static bool __CraigslistPosts_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigslistPosts_CanRead(ref result);
+                return result;
+            }
+            private static void __CraigslistPosts_Inserting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e)
+            {
+                d.CraigslistPosts_Inserting(e);
+            }
+            private static void __CraigslistPosts_Inserted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e)
+            {
+                d.CraigslistPosts_Inserted(e);
+            }
+            private static void __CraigslistPosts_Updating(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e)
+            {
+                d.CraigslistPosts_Updating(e);
+            }
+            private static void __CraigslistPosts_Updated(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e)
+            {
+                d.CraigslistPosts_Updated(e);
+            }
+            private static void __CraigslistPosts_Deleting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e)
+            {
+                d.CraigslistPosts_Deleting(e);
+            }
+            private static void __CraigslistPosts_Deleted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e)
+            {
+                d.CraigslistPosts_Deleted(e);
+            }
+            private static void __CraigslistPosts_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigslistPost e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.CraigslistPosts_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>
+                __CraigsListResponsesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>(
+                    "CraigsListResponses",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_CanInsert,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_CanUpdate,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_CanDelete,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_CanRead,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Inserting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Inserted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Updating,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Updated,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Deleting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Deleted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Validate);
+            private static bool __CraigsListResponses_CanInsert(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigsListResponses_CanInsert(ref result);
+                return result;
+            }
+            private static bool __CraigsListResponses_CanUpdate(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigsListResponses_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __CraigsListResponses_CanDelete(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigsListResponses_CanDelete(ref result);
+                return result;
+            }
+            private static bool __CraigsListResponses_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.CraigsListResponses_CanRead(ref result);
+                return result;
+            }
+            private static void __CraigsListResponses_Inserting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e)
+            {
+                d.CraigsListResponses_Inserting(e);
+            }
+            private static void __CraigsListResponses_Inserted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e)
+            {
+                d.CraigsListResponses_Inserted(e);
+            }
+            private static void __CraigsListResponses_Updating(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e)
+            {
+                d.CraigsListResponses_Updating(e);
+            }
+            private static void __CraigsListResponses_Updated(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e)
+            {
+                d.CraigsListResponses_Updated(e);
+            }
+            private static void __CraigsListResponses_Deleting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e)
+            {
+                d.CraigsListResponses_Deleting(e);
+            }
+            private static void __CraigsListResponses_Deleted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e)
+            {
+                d.CraigsListResponses_Deleted(e);
+            }
+            private static void __CraigsListResponses_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.CraigsListResponse e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.CraigsListResponses_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.OperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService>
+                __SaveChangesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.OperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService>(
+                    "SaveChanges",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_Failed);
+            private static bool __SaveChanges_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.SaveChanges_CanExecute(ref r);
+                return r;
+            }
+            private static void __SaveChanges_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.SaveChanges_Executing();
+            }
+            private static void __SaveChanges_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.SaveChanges_Executed();
+            }
+            private static void __SaveChanges_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SaveChanges_ExecuteFailed(ex);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>
+                __CraigslistPosts_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>(
+                    "CraigslistPosts_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_Single_PreprocessQuery);
+            private static bool __CraigslistPosts_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.CraigslistPosts_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigslistPosts_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigslistPosts_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __CraigslistPosts_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigslistPosts_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost>)args[1]);
+            }
+            private static void __CraigslistPosts_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigslistPosts_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __CraigslistPosts_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost>)args[1];
+                d.CraigslistPosts_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>
+                __CraigslistPosts_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>(
+                    "CraigslistPosts_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_SingleOrDefault_PreprocessQuery);
+            private static bool __CraigslistPosts_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.CraigslistPosts_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigslistPosts_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigslistPosts_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __CraigslistPosts_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigslistPosts_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost>)args[1]);
+            }
+            private static void __CraigslistPosts_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigslistPosts_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __CraigslistPosts_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost>)args[1];
+                d.CraigslistPosts_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>
+                __CraigslistPosts_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigslistPost>(
+                    "CraigslistPosts_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigslistPosts_All_PreprocessQuery);
+            private static bool __CraigslistPosts_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.CraigslistPosts_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigslistPosts_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigslistPosts_All_Executing();
+            }
+            private static void __CraigslistPosts_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigslistPosts_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost>)args[0]);
+            }
+            private static void __CraigslistPosts_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigslistPosts_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __CraigslistPosts_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPost>)args[0];
+                d.CraigslistPosts_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>
+                __CraigsListResponses_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>(
+                    "CraigsListResponses_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_Single_PreprocessQuery);
+            private static bool __CraigsListResponses_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.CraigsListResponses_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigsListResponses_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigsListResponses_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __CraigsListResponses_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigsListResponses_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigsListResponse>)args[1]);
+            }
+            private static void __CraigsListResponses_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigsListResponses_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __CraigsListResponses_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse>)args[1];
+                d.CraigsListResponses_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>
+                __CraigsListResponses_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>(
+                    "CraigsListResponses_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_SingleOrDefault_PreprocessQuery);
+            private static bool __CraigsListResponses_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.CraigsListResponses_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigsListResponses_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigsListResponses_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __CraigsListResponses_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigsListResponses_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigsListResponse>)args[1]);
+            }
+            private static void __CraigsListResponses_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigsListResponses_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __CraigsListResponses_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse>)args[1];
+                d.CraigsListResponses_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>
+                __CraigsListResponses_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.CraigsListResponse>(
+                    "CraigsListResponses_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__CraigsListResponses_All_PreprocessQuery);
+            private static bool __CraigsListResponses_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.CraigsListResponses_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigsListResponses_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigsListResponses_All_Executing();
+            }
+            private static void __CraigsListResponses_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.CraigsListResponses_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigsListResponse>)args[0]);
+            }
+            private static void __CraigsListResponses_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigsListResponses_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __CraigsListResponses_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse>)args[0];
+                d.CraigsListResponses_All_PreprocessQuery(ref query);
+                return query;
+            }
+    
+        }
+    
+        #endregion
+    }
+    
     #endregion
 }

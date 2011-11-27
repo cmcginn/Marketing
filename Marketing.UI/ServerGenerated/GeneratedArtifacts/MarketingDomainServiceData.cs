@@ -16,6 +16,11 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
+#region EDM Relationship Metadata
+
+[assembly: EdmRelationshipAttribute("MarketingDomainServiceData", "CraigslistPost_CraigsListResponse", "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MarketingDomainServiceData.Implementation.CraigslistPost), "CraigsListResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MarketingDomainServiceData.Implementation.CraigsListResponse), true)]
+
+#endregion
 
 namespace MarketingDomainServiceData.Implementation
 {
@@ -77,6 +82,22 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<CraigslistPost> _CraigslistPosts;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CraigsListResponse> CraigsListResponses
+        {
+            get
+            {
+                if ((_CraigsListResponses == null))
+                {
+                    _CraigsListResponses = base.CreateObjectSet<CraigsListResponse>("CraigsListResponses");
+                }
+                return _CraigsListResponses;
+            }
+        }
+        private ObjectSet<CraigsListResponse> _CraigsListResponses;
 
         #endregion
         #region AddTo Methods
@@ -87,6 +108,14 @@ namespace MarketingDomainServiceData.Implementation
         public void AddToCraigslistPosts(CraigslistPost craigslistPost)
         {
             base.AddObject("CraigslistPosts", craigslistPost);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CraigsListResponses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCraigsListResponses(CraigsListResponse craigsListResponse)
+        {
+            base.AddObject("CraigsListResponses", craigsListResponse);
         }
 
         #endregion
@@ -280,6 +309,205 @@ namespace MarketingDomainServiceData.Implementation
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainServiceData", "CraigslistPost_CraigsListResponse", "CraigsListResponse")]
+        public EntityCollection<CraigsListResponse> CraigsListResponses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CraigsListResponse>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigsListResponse");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CraigsListResponse>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigsListResponse", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="CraigsListResponse")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CraigsListResponse : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CraigsListResponse object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="responseContent">Initial value of the ResponseContent property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        /// <param name="craigslitPostsId">Initial value of the CraigslitPostsId property.</param>
+        public static CraigsListResponse CreateCraigsListResponse(global::System.Guid id, global::System.String responseContent, global::System.DateTime created, global::System.Guid craigslitPostsId)
+        {
+            CraigsListResponse craigsListResponse = new CraigsListResponse();
+            craigsListResponse.Id = id;
+            craigsListResponse.ResponseContent = responseContent;
+            craigsListResponse.Created = created;
+            craigsListResponse.CraigslitPostsId = craigslitPostsId;
+            return craigsListResponse;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ResponseContent
+        {
+            get
+            {
+                return _ResponseContent;
+            }
+            set
+            {
+                OnResponseContentChanging(value);
+                ReportPropertyChanging("ResponseContent");
+                _ResponseContent = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ResponseContent");
+                OnResponseContentChanged();
+            }
+        }
+        private global::System.String _ResponseContent;
+        partial void OnResponseContentChanging(global::System.String value);
+        partial void OnResponseContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid CraigslitPostsId
+        {
+            get
+            {
+                return _CraigslitPostsId;
+            }
+            set
+            {
+                OnCraigslitPostsIdChanging(value);
+                ReportPropertyChanging("CraigslitPostsId");
+                _CraigslitPostsId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CraigslitPostsId");
+                OnCraigslitPostsIdChanged();
+            }
+        }
+        private global::System.Guid _CraigslitPostsId;
+        partial void OnCraigslitPostsIdChanging(global::System.Guid value);
+        partial void OnCraigslitPostsIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainServiceData", "CraigslistPost_CraigsListResponse", "CraigslistPost")]
+        public CraigslistPost CraigslistPost
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CraigslistPost> CraigslistPostReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion

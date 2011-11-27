@@ -21,4 +21,4 @@
   <UserCodeAssembly>Application.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_UI.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_UI.ClientGenerated, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
   <ExtensionAssemblies>
   </ExtensionAssemblies>
-<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129668934787231406</ManifestTimeStamp><ApplicationName>Marketing_UI</ApplicationName><Version>1.0.0.0</Version><RootProjectGuid>247fa0ed-8392-4ffc-bc41-2e719660c22e</RootProjectGuid></Configuration>
+<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129668956695190390</ManifestTimeStamp><ApplicationName>Marketing_UI</ApplicationName><Version>1.0.0.0</Version><RootProjectGuid>919f7a6f-9472-474a-a3ba-85883d451c1c</RootProjectGuid></Configuration>

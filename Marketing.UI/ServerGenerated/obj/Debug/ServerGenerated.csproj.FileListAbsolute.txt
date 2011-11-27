@@ -5,6 +5,7 @@ C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Application.
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Application.ServerGenerated.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Application.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Application.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Microsoft.LightSwitch.AppBridge.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Microsoft.LightSwitch.Base.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Microsoft.LightSwitch.CodeMarker.dll
@@ -21,6 +22,7 @@ C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\System.Servi
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\System.ServiceModel.DomainServices.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\System.ServiceModel.PollingDuplex.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Services.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Application.Server.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Microsoft.LightSwitch.xml
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Microsoft.LightSwitch.Server.xml
@@ -347,3 +349,7 @@ C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\zh-Hant\Syst
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\Application.ServerGenerated.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Services.Web.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Services.Web.pdb

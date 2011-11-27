@@ -8,7 +8,7 @@
     <SchemaVersion>
     </SchemaVersion>
     <ProjectTypeGuids>{01074E5A-9000-460e-AB81-3A9263818D40};{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{BB8594B8-7252-474A-BCC3-4C59FEAEF438}</ProjectGuid>
+    <ProjectGuid>{8D8E1E37-937D-44F9-BEBC-B5F8BDEEF737}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LightSwitchApplication</RootNamespace>
@@ -53,7 +53,6 @@
     <Reference Include="Microsoft.LightSwitch.Server">
       <HintPath>$(LightSwitchPath)\LightSwitch\1.0\Server\Microsoft.LightSwitch.Server.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup Condition="'$(BuildingInsideVisualStudio)' == 'true'">
     <Reference Include="Application.Common">
@@ -80,7 +79,12 @@
   <ItemGroup>
     <Folder Include="DataLogic\" />
     <Folder Include="DataSources\" />
-    <Folder Include="UserCode\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Marketing.Data\Marketing.Data.csproj">
+      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
+      <Name>Marketing.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />

@@ -1,2 +1,0 @@
-C:\Projects\Urbana\Marketing\Marketing.Services
-Generated_Code\Marketing.Services.Web.g.cs

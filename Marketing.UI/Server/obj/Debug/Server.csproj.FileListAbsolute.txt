@@ -6,3 +6,5 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Server\bin\Debug\Application.Common.dl
 C:\Projects\Urbana\Marketing\Marketing.UI\Server\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.UI\Server\obj\Debug\Application.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Server\obj\Debug\Application.Server.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\Server\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Server\bin\Debug\Marketing.Data.pdb

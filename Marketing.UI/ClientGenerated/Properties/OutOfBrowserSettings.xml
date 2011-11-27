@@ -1,7 +1,7 @@
-<OutOfBrowserSettings ShortName="Marketing_UI" EnableGPUAcceleration="False" ShowInstallMenuItem="False">
+<OutOfBrowserSettings ShortName="Marketing_UI" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
   <OutOfBrowserSettings.Blurb>Marketing_UI</OutOfBrowserSettings.Blurb>
   <OutOfBrowserSettings.WindowSettings>
-    <WindowSettings Title="Marketing_UI" WindowStartupLocation="Manual" Top="0" Left="0"/>
+    <WindowSettings Title="Marketing_UI" Top="0" Left="0" WindowStartupLocation="Manual" />
   </OutOfBrowserSettings.WindowSettings>
   <OutOfBrowserSettings.SecuritySettings>
     <SecuritySettings ElevatedPermissions="Required" />

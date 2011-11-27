@@ -8,7 +8,7 @@
     <SchemaVersion>
     </SchemaVersion>
     <ProjectTypeGuids>{01074E5A-9000-460e-AB81-3A9263818D40};{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{ED2D6A50-65B6-4C88-9230-14F811650D74}</ProjectGuid>
+    <ProjectGuid>{0DA986B3-7A78-4003-B578-A2CBC8D140B9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>LightSwitchApplication</RootNamespace>
     <AssemblyName>Marketing_UI.ClientGenerated</AssemblyName>
@@ -143,21 +143,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Marketing.Services\Marketing.Services.csproj">
-      <Project>{4DF90241-9A74-4A24-9019-FA5092F71F7C}</Project>
-      <Name>Marketing.Services %28Marketing.Services\Marketing.Services%29</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Marketing.UI.Controls\Marketing.UI.Controls.csproj">
-      <Project>{F9694BFA-55F2-4B86-8D31-5B5A757045D9}</Project>
-      <Name>Marketing.UI.Controls</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Client\Client.csproj">
       <Name>Client</Name>
-      <Project>{9677bf60-b384-4e73-9bb4-a15b6920db17}</Project>
+      <Project>{64468c90-3e7f-4220-8f6b-d19e2c676693}</Project>
     </ProjectReference>
     <ProjectReference Include="..\Common\Common.csproj">
       <Name>Common</Name>
-      <Project>{95397292-b063-40b0-96d7-f1ae7c3a10ac}</Project>
+      <Project>{fcaf7e31-b5a2-40c8-9dcd-53bdde44809b}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

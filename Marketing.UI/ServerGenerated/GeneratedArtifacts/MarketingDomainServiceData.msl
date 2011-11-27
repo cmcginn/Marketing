@@ -13,5 +13,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CraigsListResponses">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.CraigsListResponse)">
+        <MappingFragment StoreEntitySet="GetCraigsListResponses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
