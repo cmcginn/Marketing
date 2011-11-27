@@ -222,6 +222,24 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void EmailAddress_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string Body
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistPost.DetailsClass.GetValue(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.Body);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Body_Compute(ref string result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Body_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+
         #endregion
     
         #region Details Class
@@ -349,6 +367,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.EmailAddress) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string> Body
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.Body) as global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>;
                     }
                 }
                 
@@ -595,6 +621,28 @@ namespace LightSwitchApplication
                     e.EmailAddress_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Entry
+                    Body = new global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Entry(
+                        "Body",
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._Body_Stub,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._Body_Validate,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._Body_ComputeValue);
+                private static void _Body_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CraigslistPost.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Data> c, global::LightSwitchApplication.CraigslistPost.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Body, sf);
+                }
+                private static void _Body_Validate(global::LightSwitchApplication.CraigslistPost e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Body_Validate(r);
+                }
+                private static string _Body_ComputeValue(global::LightSwitchApplication.CraigslistPost e)
+                {
+                    string value = default(string);
+                    e.Body_Compute(ref value);
+                    return value;
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -614,6 +662,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Data _EmailAddress;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Data _Body;
             
         }
     

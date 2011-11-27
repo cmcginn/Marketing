@@ -102,6 +102,12 @@
           <MaxLength Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="Body"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 <EntityContainer Name="MarketingDomainServiceData"
@@ -335,7 +341,7 @@
               <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
                 <ScreenExpressionTree>
                   <ConstantExpression ResultType=":Double"
-                                      Value="700" />
+                                      Value="500" />
                 </ScreenExpressionTree>
               </ControlPropertySource>
             </ContentItem.PropertySources>
@@ -394,14 +400,6 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
               </ContentItem.PropertySources>
               <ContentItem DataType="CraigslistPost"
                            Kind="Details"
@@ -441,6 +439,20 @@
                 <ContentItem DataType=":DateTime"
                              Kind="Value"
                              Name="PostDate">
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Pixels" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":Double"
+                                            Value="130" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -503,6 +515,20 @@
                 <ContentItem DataType=":String"
                              Kind="Value"
                              Name="Title">
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":Double"
+                                            Value="250" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Left" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -570,18 +596,6 @@
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
-              <ContentItem DataType=":Guid"
-                           Kind="Value"
-                           Name="Id1"
-                           IsHidden="False">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="CraigslistPost/Properties[Id]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
               <ContentItem DataType=":DateTime"
                            Kind="Value"
                            Name="PostDate1">
@@ -589,31 +603,6 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="CraigslistPost/Properties[PostDate]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="PostElementDisplay"
-                           IsHidden="False"
-                           View=":Label">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="CraigslistPost/Properties[PostsElement]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Int64"
-                           Kind="Value"
-                           Name="PostId1"
-                           IsHidden="False">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="CraigslistPost/Properties[PostId]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -632,11 +621,57 @@
               <ContentItem DataType=":String"
                            Kind="Value"
                            Name="EmailAddress1"
-                           IsHidden="False">
+                           IsHidden="False"
+                           View=":Label">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[ShowAsLink]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Boolean"
+                                          Value="True" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="CraigslistPost/Properties[EmailAddress]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="Body">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:Label/Properties[Lines]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Int32"
+                                          Value="50" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Characters" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Left" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:Label/Properties[Characters]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Int32"
+                                          Value="40" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPost/Properties[Body]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>

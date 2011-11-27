@@ -13,10 +13,6 @@ namespace LightSwitchApplication {
   public partial class PostingListDetail {
 
 
-    partial void CraigslistPosts_SelectionChanged() {
-      var element = this.CraigslistPosts.SelectedItem.PostsElement as XElement;
-      var postContent = 
-     // this.FindControl("PostElementDisplay")
-    }
+
   }
 }

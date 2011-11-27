@@ -102,6 +102,12 @@
           <MaxLength Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="Body"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 <EntityContainer Name="MarketingDomainServiceData"
@@ -595,8 +601,9 @@
               </ContentItem>
               <ContentItem DataType=":String"
                            Kind="Value"
-                           Name="PostsElement1"
-                           IsHidden="False">
+                           Name="PostElementDisplay"
+                           IsHidden="False"
+                           View=":Label">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -636,6 +643,17 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="CraigslistPost/Properties[EmailAddress]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="Body">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPost/Properties[Body]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
