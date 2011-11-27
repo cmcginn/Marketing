@@ -2,6 +2,11 @@
 <Schema Namespace="MarketingDomainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingDomainModelStoreContainer">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.Store.CraigslistPosts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CraigsListResponse" EntityType="MarketingDomainModel.Store.CraigsListResponse" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigsListResponse_CraigslistPosts">
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+      <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPosts">
     <Key>
@@ -14,4 +19,25 @@
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="PostsElement" Type="xml" Nullable="false" />
   </EntityType>
+  <EntityType Name="CraigsListResponse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CraigsListResponse_CraigslistPosts">
+    <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
+    <End Role="CraigsListResponse" Type="MarketingDomainModel.Store.CraigsListResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigsListResponse">
+        <PropertyRef Name="CraigslitPostsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

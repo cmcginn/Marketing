@@ -7,6 +7,11 @@
     <Schema Namespace="MarketingDomainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="MarketingDomainModelStoreContainer">
           <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.Store.CraigslistPosts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CraigsListResponse" EntityType="MarketingDomainModel.Store.CraigsListResponse" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigsListResponse_CraigslistPosts">
+            <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+            <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CraigslistPosts">
           <Key>
@@ -19,12 +24,38 @@
           <Property Name="PostDate" Type="datetime" Nullable="false" />
           <Property Name="PostsElement" Type="xml" Nullable="false" />
         </EntityType>
+        <EntityType Name="CraigsListResponse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CraigsListResponse_CraigslistPosts">
+          <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
+          <End Role="CraigsListResponse" Type="MarketingDomainModel.Store.CraigsListResponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CraigslistPosts">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CraigsListResponse">
+              <PropertyRef Name="CraigslitPostsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
         <EntityContainer Name="MarketingDomainModelContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.CraigslistPost" />
+          <EntitySet Name="CraigsListResponses" EntityType="MarketingDomainModel.CraigsListResponse" />
+          <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts">
+            <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
+            <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="CraigslistPost">
           <Key>
@@ -36,7 +67,30 @@
           <Property Type="Int64" Name="PostId" Nullable="false" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CraigsListResponses" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigslistPost" ToRole="CraigsListResponse" />
         </EntityType>
+        <EntityType Name="CraigsListResponse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="CraigslitPostsId" Nullable="false" />
+          <Property Type="String" Name="ResponseContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
+        </EntityType>
+        <Association Name="FK_CraigsListResponse_CraigslistPosts">
+          <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
+          <End Type="MarketingDomainModel.CraigsListResponse" Role="CraigsListResponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CraigslistPost">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CraigsListResponse">
+              <PropertyRef Name="CraigslitPostsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -51,6 +105,16 @@
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
                 <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CraigsListResponses">
+            <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
+              <MappingFragment StoreEntitySet="CraigsListResponse">
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
+                <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -76,6 +140,11 @@
     <edmx:Diagrams>
       <Diagram Name="MarketingDomainModel" >
         <EntityTypeShape EntityType="MarketingDomainModel.CraigslistPost" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4279589843749996" />
+        <EntityTypeShape EntityType="MarketingDomainModel.CraigsListResponse" Width="1.5" PointX="3" PointY="0.875" Height="1.7566536458333335" />
+        <AssociationConnector Association="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" >
+          <ConnectorPoint PointX="2.25" PointY="1.7533268229166668" />
+          <ConnectorPoint PointX="3" PointY="1.7533268229166668" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

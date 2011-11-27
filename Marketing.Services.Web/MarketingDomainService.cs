@@ -24,6 +24,7 @@ namespace Marketing.Services.Web {
     // Consider constraining the results of your query method.  If you need additional input you can
     // add parameters to this method or create additional query methods with different names.
     // To support paging you will need to add ordering to the 'CraigslistPosts' query.
+    #region CraigsListPosts
     [Query( IsDefault = true )]
     public IQueryable<CraigslistPost> GetCraigslistPosts() {
       return this.ObjectContext.CraigslistPosts;
@@ -48,6 +49,12 @@ namespace Marketing.Services.Web {
         this.ObjectContext.CraigslistPosts.Attach( craigslistPost );
         this.ObjectContext.CraigslistPosts.DeleteObject( craigslistPost );
       }
+    } 
+    #endregion
+    [Query( IsDefault = true )]
+    public IQueryable<CraigsListResponse> GetCraigslistPostResponses()
+    {
+      return this.ObjectContext.CraigsListResponses;
     }
   }
 }

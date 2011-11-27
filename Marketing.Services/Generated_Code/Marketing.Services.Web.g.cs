@@ -19,6 +19,7 @@ namespace Marketing.Data
     using System.ServiceModel.DomainServices;
     using System.ServiceModel.DomainServices.Client;
     using System.ServiceModel.DomainServices.Client.ApplicationServices;
+    using System.Xml.Serialization;
     
     
     /// <summary>
@@ -27,6 +28,8 @@ namespace Marketing.Data
     [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Marketing.Data")]
     public sealed partial class CraigslistPost : Entity
     {
+        
+        private EntityCollection<CraigsListResponse> _craigsListResponses;
         
         private string _emailAddress;
         
@@ -69,6 +72,23 @@ namespace Marketing.Data
         public CraigslistPost()
         {
             this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets the collection of associated <see cref="CraigsListResponse"/> entity instances.
+        /// </summary>
+        [Association("CraigslistPost_CraigsListResponse", "Id", "CraigslitPostsId")]
+        [XmlIgnore()]
+        public EntityCollection<CraigsListResponse> CraigsListResponses
+        {
+            get
+            {
+                if ((this._craigsListResponses == null))
+                {
+                    this._craigsListResponses = new EntityCollection<CraigsListResponse>(this, "CraigsListResponses", this.FilterCraigsListResponses, this.AttachCraigsListResponses, this.DetachCraigsListResponses);
+                }
+                return this._craigsListResponses;
+            }
         }
         
         /// <summary>
@@ -222,6 +242,224 @@ namespace Marketing.Data
             }
         }
         
+        private void AttachCraigsListResponses(CraigsListResponse entity)
+        {
+            entity.CraigslistPost = this;
+        }
+        
+        private void DetachCraigsListResponses(CraigsListResponse entity)
+        {
+            entity.CraigslistPost = null;
+        }
+        
+        private bool FilterCraigsListResponses(CraigsListResponse entity)
+        {
+            return (entity.CraigslitPostsId == this.Id);
+        }
+        
+        /// <summary>
+        /// Computes a value from the key fields that uniquely identifies this entity instance.
+        /// </summary>
+        /// <returns>An object instance that uniquely identifies this entity instance.</returns>
+        public override object GetIdentity()
+        {
+            return this._id;
+        }
+    }
+    
+    /// <summary>
+    /// The 'CraigsListResponse' entity class.
+    /// </summary>
+    [DataContract(Namespace="http://schemas.datacontract.org/2004/07/Marketing.Data")]
+    public sealed partial class CraigsListResponse : Entity
+    {
+        
+        private EntityRef<CraigslistPost> _craigslistPost;
+        
+        private Guid _craigslitPostsId;
+        
+        private DateTime _created;
+        
+        private Guid _id;
+        
+        private string _responseContent;
+        
+        #region Extensibility Method Definitions
+
+        /// <summary>
+        /// This method is invoked from the constructor once initialization is complete and
+        /// can be used for further object setup.
+        /// </summary>
+        partial void OnCreated();
+        partial void OnCraigslitPostsIdChanging(Guid value);
+        partial void OnCraigslitPostsIdChanged();
+        partial void OnCreatedChanging(DateTime value);
+        partial void OnCreatedChanged();
+        partial void OnIdChanging(Guid value);
+        partial void OnIdChanged();
+        partial void OnResponseContentChanging(string value);
+        partial void OnResponseContentChanged();
+
+        #endregion
+        
+        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CraigsListResponse"/> class.
+        /// </summary>
+        public CraigsListResponse()
+        {
+            this.OnCreated();
+        }
+        
+        /// <summary>
+        /// Gets or sets the associated <see cref="CraigslistPost"/> entity.
+        /// </summary>
+        [Association("CraigslistPost_CraigsListResponse", "CraigslitPostsId", "Id", IsForeignKey=true)]
+        [XmlIgnore()]
+        public CraigslistPost CraigslistPost
+        {
+            get
+            {
+                if ((this._craigslistPost == null))
+                {
+                    this._craigslistPost = new EntityRef<CraigslistPost>(this, "CraigslistPost", this.FilterCraigslistPost);
+                }
+                return this._craigslistPost.Entity;
+            }
+            set
+            {
+                CraigslistPost previous = this.CraigslistPost;
+                if ((previous != value))
+                {
+                    this.ValidateProperty("CraigslistPost", value);
+                    if ((previous != null))
+                    {
+                        this._craigslistPost.Entity = null;
+                        previous.CraigsListResponses.Remove(this);
+                    }
+                    if ((value != null))
+                    {
+                        this.CraigslitPostsId = value.Id;
+                    }
+                    else
+                    {
+                        this.CraigslitPostsId = default(Guid);
+                    }
+                    this._craigslistPost.Entity = value;
+                    if ((value != null))
+                    {
+                        value.CraigsListResponses.Add(this);
+                    }
+                    this.RaisePropertyChanged("CraigslistPost");
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'CraigslitPostsId' value.
+        /// </summary>
+        [DataMember()]
+        [RoundtripOriginal()]
+        public Guid CraigslitPostsId
+        {
+            get
+            {
+                return this._craigslitPostsId;
+            }
+            set
+            {
+                if ((this._craigslitPostsId != value))
+                {
+                    this.OnCraigslitPostsIdChanging(value);
+                    this.RaiseDataMemberChanging("CraigslitPostsId");
+                    this.ValidateProperty("CraigslitPostsId", value);
+                    this._craigslitPostsId = value;
+                    this.RaiseDataMemberChanged("CraigslitPostsId");
+                    this.OnCraigslitPostsIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Created' value.
+        /// </summary>
+        [DataMember()]
+        public DateTime Created
+        {
+            get
+            {
+                return this._created;
+            }
+            set
+            {
+                if ((this._created != value))
+                {
+                    this.OnCreatedChanging(value);
+                    this.RaiseDataMemberChanging("Created");
+                    this.ValidateProperty("Created", value);
+                    this._created = value;
+                    this.RaiseDataMemberChanged("Created");
+                    this.OnCreatedChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'Id' value.
+        /// </summary>
+        [DataMember()]
+        [Editable(false, AllowInitialValue=true)]
+        [Key()]
+        [RoundtripOriginal()]
+        public Guid Id
+        {
+            get
+            {
+                return this._id;
+            }
+            set
+            {
+                if ((this._id != value))
+                {
+                    this.OnIdChanging(value);
+                    this.ValidateProperty("Id", value);
+                    this._id = value;
+                    this.RaisePropertyChanged("Id");
+                    this.OnIdChanged();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Gets or sets the 'ResponseContent' value.
+        /// </summary>
+        [DataMember()]
+        [Required()]
+        public string ResponseContent
+        {
+            get
+            {
+                return this._responseContent;
+            }
+            set
+            {
+                if ((this._responseContent != value))
+                {
+                    this.OnResponseContentChanging(value);
+                    this.RaiseDataMemberChanging("ResponseContent");
+                    this.ValidateProperty("ResponseContent", value);
+                    this._responseContent = value;
+                    this.RaiseDataMemberChanged("ResponseContent");
+                    this.OnResponseContentChanged();
+                }
+            }
+        }
+        
+        private bool FilterCraigslistPost(CraigslistPost entity)
+        {
+            return (entity.Id == this.CraigslitPostsId);
+        }
+        
         /// <summary>
         /// Computes a value from the key fields that uniquely identifies this entity instance.
         /// </summary>
@@ -292,6 +530,17 @@ namespace Marketing.Services.Web
         }
         
         /// <summary>
+        /// Gets the set of <see cref="CraigsListResponse"/> entity instances that have been loaded into this <see cref="MarketingDomainContext"/> instance.
+        /// </summary>
+        public EntitySet<CraigsListResponse> CraigsListResponses
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<CraigsListResponse>();
+            }
+        }
+        
+        /// <summary>
         /// Gets the set of <see cref="CraigslistPost"/> entity instances that have been loaded into this <see cref="MarketingDomainContext"/> instance.
         /// </summary>
         public EntitySet<CraigslistPost> CraigslistPosts
@@ -300,6 +549,16 @@ namespace Marketing.Services.Web
             {
                 return base.EntityContainer.GetEntitySet<CraigslistPost>();
             }
+        }
+        
+        /// <summary>
+        /// Gets an EntityQuery instance that can be used to load <see cref="CraigsListResponse"/> entity instances using the 'GetCraigslistPostResponses' query.
+        /// </summary>
+        /// <returns>An EntityQuery that can be loaded to retrieve <see cref="CraigsListResponse"/> entity instances.</returns>
+        public EntityQuery<CraigsListResponse> GetCraigslistPostResponsesQuery()
+        {
+            this.ValidateMethod("GetCraigslistPostResponsesQuery", null);
+            return base.CreateQuery<CraigsListResponse>("GetCraigslistPostResponses", null, false, true);
         }
         
         /// <summary>
@@ -327,6 +586,25 @@ namespace Marketing.Services.Web
         [ServiceContract()]
         public interface IMarketingDomainServiceContract
         {
+            
+            /// <summary>
+            /// Asynchronously invokes the 'GetCraigslistPostResponses' operation.
+            /// </summary>
+            /// <param name="callback">Callback to invoke on completion.</param>
+            /// <param name="asyncState">Optional state object.</param>
+            /// <returns>An IAsyncResult that can be used to monitor the request.</returns>
+            [FaultContract(typeof(DomainServiceFault), Action="http://tempuri.org/MarketingDomainService/GetCraigslistPostResponsesDomainService" +
+                "Fault", Name="DomainServiceFault", Namespace="DomainServices")]
+            [OperationContract(AsyncPattern=true, Action="http://tempuri.org/MarketingDomainService/GetCraigslistPostResponses", ReplyAction="http://tempuri.org/MarketingDomainService/GetCraigslistPostResponsesResponse")]
+            [WebGet()]
+            IAsyncResult BeginGetCraigslistPostResponses(AsyncCallback callback, object asyncState);
+            
+            /// <summary>
+            /// Completes the asynchronous operation begun by 'BeginGetCraigslistPostResponses'.
+            /// </summary>
+            /// <param name="result">The IAsyncResult returned from 'BeginGetCraigslistPostResponses'.</param>
+            /// <returns>The 'QueryResult' returned from the 'GetCraigslistPostResponses' operation.</returns>
+            QueryResult<CraigsListResponse> EndGetCraigslistPostResponses(IAsyncResult result);
             
             /// <summary>
             /// Asynchronously invokes the 'GetCraigslistPosts' operation.
@@ -371,6 +649,7 @@ namespace Marketing.Services.Web
             public MarketingDomainContextEntityContainer()
             {
                 this.CreateEntitySet<CraigslistPost>(EntitySetOperations.All);
+                this.CreateEntitySet<CraigsListResponse>(EntitySetOperations.None);
             }
         }
     }

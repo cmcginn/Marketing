@@ -347,7 +347,3 @@ C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\zh-Hant\Syst
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\Application.ServerGenerated.pdb
-C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Data.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Services.Web.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Data.pdb
-C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Services.Web.pdb

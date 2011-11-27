@@ -74,28 +74,6 @@ namespace LightSwitchApplication
         
         #endregion
  
-        partial void CraigslistPosts_SelectionChanged();
-
-        partial void CraigslistPosts_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CraigslistPosts_Loaded(bool succeeded);
-
-        /// <summary>
-        /// Gets the CraigslistPosts visual collection. The collection contains all records currently shown on the respective list or grid control.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.CraigslistPost> CraigslistPosts
-        {
-            get
-            {
-                return global::LightSwitchApplication.PostingListDetail.DetailsClass.GetValue(this, global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties.CraigslistPosts);
-            }
-        }
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CraigslistPosts_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
- 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -105,7 +83,6 @@ namespace LightSwitchApplication
 
             static DetailsClass()
             {
-                var initializePropertyEntry = global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties.CraigslistPosts;
             }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -181,29 +158,12 @@ namespace LightSwitchApplication
                 }
             }
 
-            private global::Microsoft.LightSwitch.IDataServiceQueryable CraigslistPostsQuery()
-            {
-                return this.Screen.DataWorkspace.MarketingDomainServiceData.CraigslistPosts;
-            }
-
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts;
-
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public sealed class PropertySet
                 : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass>
             {
-
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass, global::LightSwitchApplication.CraigslistPost>)base.GetItem(global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties.CraigslistPosts);
-                    }
-                }
-
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -227,41 +187,6 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal sealed class PropertySetProperties
             {
-
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
-                    CraigslistPosts = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
-                        "CraigslistPosts",
-                        global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties._CraigslistPosts_Stub,
-                        global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties._CraigslistPosts_Validate,
-                        global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties._CraigslistPosts_CreateQuery,
-                        global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties._CraigslistPosts_SelectionChanged,
-                        global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties._CraigslistPosts_OnCollectionChanged,
-                        global::LightSwitchApplication.PostingListDetail.DetailsClass.PropertySetProperties._CraigslistPosts_OnLoaded);
-                private static void _CraigslistPosts_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.PostingListDetail.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.PostingListDetail, global::LightSwitchApplication.PostingListDetail.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.PostingListDetail.DetailsClass d, object sf)
-                {
-                    c(d, ref d._CraigslistPosts, sf);
-                }
-                private static void _CraigslistPosts_Validate(global::LightSwitchApplication.PostingListDetail s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
-                {
-                    s.CraigslistPosts_Validate(r);
-                }
-                private static global::Microsoft.LightSwitch.IDataServiceQueryable _CraigslistPosts_CreateQuery(global::LightSwitchApplication.PostingListDetail.DetailsClass d, object[] args)
-                {
-                    return d.CraigslistPostsQuery();
-                }
-                private static void _CraigslistPosts_SelectionChanged(global::LightSwitchApplication.PostingListDetail s)
-                {
-                    s.CraigslistPosts_SelectionChanged();
-                }
-                private static void _CraigslistPosts_OnCollectionChanged(global::LightSwitchApplication.PostingListDetail s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-                {
-                    s.CraigslistPosts_Changed(e);
-                }
-                private static void _CraigslistPosts_OnLoaded(global::LightSwitchApplication.PostingListDetail s, bool succeeded)
-                {
-                    s.CraigslistPosts_Loaded(succeeded);
-                }
-
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]

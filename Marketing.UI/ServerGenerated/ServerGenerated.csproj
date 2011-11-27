@@ -119,16 +119,9 @@
       <HintPath>Common\Bin\Application.Common.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Marketing.Data\Marketing.Data.csproj">
-      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
-      <Name>Marketing.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Marketing.Services.Web\Marketing.Services.Web.csproj">
-      <Project>{AAEFFB1D-5DA4-47A2-AEFB-26BE9475DCFF}</Project>
-      <Name>Marketing.Services.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Server\Server.csproj">
       <Name>Server</Name>
       <Project>{bb8594b8-7252-474a-bcc3-4c59feaef438}</Project>

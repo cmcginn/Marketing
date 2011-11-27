@@ -13,5 +13,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CraigsListResponses">
+      <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
+        <MappingFragment StoreEntitySet="CraigsListResponse">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
+          <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

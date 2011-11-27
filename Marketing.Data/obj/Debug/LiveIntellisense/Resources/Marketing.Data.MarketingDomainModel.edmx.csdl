@@ -2,6 +2,11 @@
 <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
   <EntityContainer Name="MarketingDomainModelContainer" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.CraigslistPost" />
+    <EntitySet Name="CraigsListResponses" EntityType="MarketingDomainModel.CraigsListResponse" />
+    <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts">
+      <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
+      <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPost">
     <Key>
@@ -13,5 +18,28 @@
     <Property Type="Int64" Name="PostId" Nullable="false" />
     <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CraigsListResponses" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigslistPost" ToRole="CraigsListResponse" />
   </EntityType>
+  <EntityType Name="CraigsListResponse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CraigslitPostsId" Nullable="false" />
+    <Property Type="String" Name="ResponseContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created" Nullable="false" />
+    <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
+  </EntityType>
+  <Association Name="FK_CraigsListResponse_CraigslistPosts">
+    <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
+    <End Type="MarketingDomainModel.CraigsListResponse" Role="CraigsListResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigsListResponse">
+        <PropertyRef Name="CraigslitPostsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

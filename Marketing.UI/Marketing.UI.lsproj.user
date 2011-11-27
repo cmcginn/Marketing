@@ -2,9 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <EnableENC>False</EnableENC>
-    <ProjectView>ProjectFiles</ProjectView>
-    <ServerPort>16805</ServerPort>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <ServerPort>17220</ServerPort>
     <SchemaManagementSchemaBuildState>0</SchemaManagementSchemaBuildState>
-    <SchemaManagementLastModelWriteTime>634579406720190390</SchemaManagementLastModelWriteTime>
+    <SchemaManagementLastModelWriteTime>634580166622026328</SchemaManagementLastModelWriteTime>
   </PropertyGroup>
 </Project>

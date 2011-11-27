@@ -1,0 +1,3371 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DevExpress.Xpf.Ribbon.v11.1</name>
+    </assembly>
+    <members>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonStyle">
+
+            <summary>
+                <para>Enumerates available paint styles for a Ribbon Control.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStyle.Office2007">
+            <summary>
+                <para>A RibbonControl's elements are painted in the Office2007 paint style.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStyle.Office2010">
+            <summary>
+                <para>A RibbonControl's elements are painted in the Office2010 paint style.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonStatusBarControl">
+
+            <summary>
+                <para>Represents a status bar which is typically displayed at the bottom of the application window. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonStatusBarControl class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.IsSizeGripVisible">
+            <summary>
+                <para>Gets or sets whether the size grip is displayed within the status bar.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the size grip is displayed within the status bar; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.IsSizeGripVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemLinks">
+            <summary>
+                <para>Gets the collection of links displayed on the left of the RibbonStatusBar.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that stores the links displayed on the left of the RibbonStatusBar.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemLinksSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemLinksSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.LeftItemTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.Merge(DevExpress.Xpf.Ribbon.RibbonStatusBarControl)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="childStatusBar">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.OnApplyTemplate">
+            <summary>
+                <para>Called after the template is completely generated and attached to the visual tree.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemLinks">
+            <summary>
+                <para>Gets the collection of links displayed on the right of the RibbonStatusBar.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that stores the links displayed on the right of the RibbonStatusBar.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemLinksSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemLinksSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.RightItemTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonStatusBarControl.UnMerge(DevExpress.Xpf.Ribbon.RibbonStatusBarControl)">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <param name="childStatusBar">
+		 [To be supplied] 
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode">
+
+            <summary>
+                <para>Contains values that specify where a Ribbon Quick Access Toolbar is displayed within a Ribbon Control.
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode.Default">
+            <summary>
+                <para>The same as the <see cref="F:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode.ShowAbove"/> option.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode.Hide">
+            <summary>
+                <para>The Ribbon Quick Access Toolbar is hidden.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode.ShowAbove">
+            <summary>
+                <para>The Ribbon Quick Access Toolbar is displayed above the Ribbon Control.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode.ShowBelow">
+            <summary>
+                <para>The Ribbon Quick Access Toolbar is displayed below the Ribbon Control.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonPageGroup">
+
+            <summary>
+                <para>Represents a group of bar item links within a <see cref="T:DevExpress.Xpf.Ribbon.RibbonPage"/>. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonPageGroup.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonPageGroup class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.AllowCollapse">
+            <summary>
+                <para>Gets or sets whether the page group can be collapsed. 
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the page group automatically collapses when its size is reduced, so it can no longer display all its links simultaneously; otherwise, <b>false</b>.
+
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.AllowCollapseProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.Caption">
+            <summary>
+                <para>Gets or sets the text displayed within the group. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>A string which specifies the text displayed within the group.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonClick">
+            <summary>
+                <para>Occurs when the group's Caption Button is clicked.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonCommand">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonCommandParameter">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonCommandParameterProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonCommandProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonCommandTarget">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionButtonCommandTargetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.CaptionProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonPageGroup.GetDefaultItemsGlyphSize(DevExpress.Xpf.Bars.LinkContainerType)">
+            <summary>
+                <para>Implements the <see cref="M:DevExpress.Xpf.Bars.ILinksHolder.GetDefaultItemsGlyphSize"/> method.
+</para>
+            </summary>
+            <param name="linkContainerType">
+		A LinkContainerType value that specifies the type of bar item container.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.Xpf.Bars.GlyphSize"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonPageGroup.GetLogicalChildrenEnumerator">
+            <summary>
+                <para>Gets an enumerator used to iterate through bar item links.
+</para>
+            </summary>
+            <returns>An IEnumerator object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.Glyph">
+            <summary>
+                <para>Gets or sets the image displayed within the group in the minimized state.
+This is a dependency property.
+</para>
+            </summary>
+            <value>An ImageSource object that represents the image displayed within the group in the minimized state.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.GlyphProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.IsCaptionButtonEnabled">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.IsCaptionButtonEnabledProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.IsVisible">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.IsVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemLinks">
+            <summary>
+                <para>Gets the collection of bar item links displayed by the current page group.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that stores corresponding bar item links.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemLinksSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemLinksSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemsGlyphSize">
+            <summary>
+                <para>Gets the size of images used by bar item links owned by the current object.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.GlyphSize"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.ItemTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.Links">
+            <summary>
+                <para>Gets the collection of links owned by the current page group.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains links owned by the current page group.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.Page">
+            <summary>
+                <para>Gets the Ribbon Page that owns the current page group.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonPage"/> object that owns the current page group.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.PageProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.Ribbon">
+            <summary>
+                <para>Gets the <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the current RibbonPageGroup object belongs
+</para>
+            </summary>
+            <value>The <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the current RibbonPageGroup object belongs
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.ShowCaptionButton">
+            <summary>
+                <para>Gets or sets whether the Caption Button is visible.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the Caption Button is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.ShowCaptionButtonProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.SuperTip">
+            <summary>
+                <para>Gets or sets a SuperTip associated with the ribbon page group. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Core.SuperTip"/> object.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageGroup.SuperTipProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonPageCategoryCaptionAlignment">
+
+            <summary>
+                <para>Enumerates values that specify how custom page categories are aligned. 
+</para>
+            </summary>
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryCaptionAlignment.Default">
+            <summary>
+                <para>The same as the <see cref="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryCaptionAlignment.Left"/> option.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryCaptionAlignment.Left">
+            <summary>
+                <para>Headers of contextual page categories are aligned to a Ribbon Control's left edge. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryCaptionAlignment.Right">
+            <summary>
+                <para>Headers of contextual page categories are aligned to a Ribbon Control's right edge. 
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase">
+
+            <summary>
+                <para>Represents the base class for Ribbon categories.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonPageCategoryBase class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.Caption">
+            <summary>
+                <para>Gets or sets the category's caption. This property is not in effect for the default page category.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A string that specifies the category's caption.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.CaptionProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.Color">
+            <summary>
+                <para>Gets or sets the color that is used to paint the category's caption and its pages. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Drawing.Color"/> value that specifies the category's color. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.ColorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.IsDefault">
+            <summary>
+                <para>Gets whether the current category is default.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the current category is default; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.IsDefaultProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.IsSelected">
+            <summary>
+                <para>Gets whether the current category contains a selected page.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the current category contains a selected page; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.IsSelectedProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.IsVisible">
+            <summary>
+                <para>Gets or sets whether the current category is visible.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the current category is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.IsVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.Pages">
+            <summary>
+                <para>Provides access to the collection of pages owned by the category.
+</para>
+            </summary>
+            <value>A RibbonPageCollection object that specifies the collection of pages owned by the category.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PagesProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PagesSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PagesSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PageStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PageStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PageTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PageTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PageTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.PageTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase.Ribbon">
+            <summary>
+                <para>Gets the <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> that owns the current object.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> that owns the current object.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonPageCategory">
+
+            <summary>
+                <para>Represents a Ribbon custom page category, used to implement contextual Ribbon pages.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonPageCategory.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonPageCategory class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonPage">
+
+            <summary>
+                <para>Represents a Ribbon Page within a <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/>.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonPage.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonPage class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.ActualIsVisible">
+            <summary>
+                <para>Gets whether the page is displayed on-screen.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the page is displayed on-screen; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.ActualIsVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.Caption">
+            <summary>
+                <para>Gets or sets the object displayed within the page's header.
+This is a dependency property.
+</para>
+            </summary>
+            <value>An object displayed within the page's header.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.CaptionMinWidth">
+            <summary>
+                <para>Gets or sets the minimum allowed width of the current page header. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>The minimum allowed width of the current page header
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.CaptionMinWidthProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.CaptionProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.CaptionTemplate">
+            <summary>
+                <para>Gets or sets the template that presents the <see cref="P:DevExpress.Xpf.Ribbon.RibbonPage.Caption"/> in a custom manner.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A DataTemplate object that presents the Ribbon Page's caption in a custom manner.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.CaptionTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.Groups">
+            <summary>
+                <para>Gets the collection of page groups displayed by the current page.
+</para>
+            </summary>
+            <value>A collection of ribbon page groups.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.GroupsProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.GroupsSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.GroupsSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.GroupStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.GroupStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.GroupTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.GroupTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.GroupTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.GroupTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.IsSelected">
+            <summary>
+                <para>Gets or sets whether the current page is selected.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the current page is selected; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.IsSelectedProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.IsVisible">
+            <summary>
+                <para>Gets or sets the page's visibility.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the page is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.IsVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.PageCategory">
+            <summary>
+                <para>Gets the category that owns the current page.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonPageCategoryBase"/> object that owns the current page.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonPage.PageCategoryProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonPage.Ribbon">
+            <summary>
+                <para>Gets the <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the current RibbonPage object belongs.
+</para>
+            </summary>
+            <value>The <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the current RibbonPage object belongs
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonGalleryBarItemLink">
+
+            <summary>
+                <para>Represents a link to a <see cref="T:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem"/> object. 
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItemLink.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonGalleryBarItemLink class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem">
+
+            <summary>
+                <para>A bar item that displays a gallery. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonGalleryBarItem class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.ActualLinks">
+            <summary>
+                <para>Returns the links currently displayed by the link container.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains the links currently displayed by the link container.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGallery">
+            <summary>
+                <para>Gets or sets the item's dropdown gallery, which is invoked when clicking the RibbonGalleryBarItem's dropdown button.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.Gallery"/> object that represents the dropdown gallery.
+</value>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryClosed">
+            <summary>
+                <para>Fires when a popup window containing the dropdown gallery is closed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryEnabled">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryEnabledProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryInit">
+            <summary>
+                <para>Allows you to customize the dropdown gallery.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryMenuItemsGlyphSize">
+            <summary>
+                <para>Gets or sets the size of the images displayed for the menu items within the dropdown gallery.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.GlyphSize"/> value that specifies the size of the corresponding images.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryMenuItemsGlyphSizeProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownMenuItemLinks">
+            <summary>
+                <para>Gets the bar item links displayed below the dropdown gallery.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains the corresponding items.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.Gallery">
+            <summary>
+                <para>Gets or sets the in-ribbon gallery associated with the item.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.Gallery"/> object.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.GalleryProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.GetDefaultItemsGlyphSize(DevExpress.Xpf.Bars.LinkContainerType)">
+            <summary>
+                <para>Implements the <see cref="M:DevExpress.Xpf.Bars.ILinksHolder.GetDefaultItemsGlyphSize"/> method, and is not supposed to be used directly from your code.
+</para>
+            </summary>
+            <param name="linkContainerType">
+		A LinkContainerType value that specifies the type of bar item container.
+
+            </param>
+            <returns>A <see cref="T:DevExpress.Xpf.Bars.GlyphSize"/> value.
+</returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.GetLogicalChildrenEnumerator">
+            <summary>
+                <para>Gets an enumerator used to iterate through bar item links.
+</para>
+            </summary>
+            <returns>An IEnumerator object.
+</returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.IsMergedState">
+            <summary>
+                <para>Gets whether other link containers have been merged with the current container.
+</para>
+            </summary>
+            <value><b>true</b> if other link containers have been merged with the current container; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.ItemsGlyphSize">
+            <summary>
+                <para>Gets the size of images used by bar item links owned by the current object.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.GlyphSize"/> value.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.Links">
+            <summary>
+                <para>Gets or sets the bar item links displayed below the dropdown gallery.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains the corresponding bar item links.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.Merge(DevExpress.Xpf.Bars.ILinksHolder)">
+            <summary>
+                <para>Adds the visible links from the specified link container onto the current link container. 
+</para>
+            </summary>
+            <param name="holder">
+		A <see cref="T:DevExpress.Xpf.Bars.ILinksHolder"/> object whose visible links are merged with the current link container.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.MergedLinks">
+            <summary>
+                <para>Gets the links currently displayed by the link container, including the links that have been merged with the container.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains the links currently displayed by the link container.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.OnLinkAdded(DevExpress.Xpf.Bars.BarItemLinkBase)">
+            <summary>
+                <para>This method is called before a bar item link is added to the current link holder.
+</para>
+            </summary>
+            <param name="link">
+		A <see cref="T:DevExpress.Xpf.Bars.BarItemLink"/> object being added.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.OnLinkRemoved(DevExpress.Xpf.Bars.BarItemLinkBase)">
+            <summary>
+                <para>This method is called before a bar item link is removed from the current link holder.
+</para>
+            </summary>
+            <param name="link">
+		A <see cref="T:DevExpress.Xpf.Bars.BarItemLink"/> object being removed.
+
+            </param>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.UnMerge">
+            <summary>
+                <para>Removes the links of other link containers from the current link container. This method is in effect when other link containers have been merged with the current container.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.UnMerge(DevExpress.Xpf.Bars.ILinksHolder)">
+            <summary>
+                <para>Removes the links of the specified link container from the current link container. This method is in effect when the specified link container has been merged with the current container.
+
+</para>
+            </summary>
+            <param name="holder">
+		A <see cref="T:DevExpress.Xpf.Bars.ILinksHolder"/> object whose links must be removed from the current link container.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonDefaultPageCategory">
+
+            <summary>
+                <para>Represents the Ribbon default page category.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonDefaultPageCategory.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonDefaultPageCategory class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.RibbonControl">
+
+            <summary>
+                <para>Represents the Ribbon Control. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonControl.#ctor">
+            <summary>
+                <para>Initializes a new instance of the RibbonControl class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonLargeIcon">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonLargeIconProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonSmallIcon">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonSmallIconProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonStyle">
+            <summary>
+                <para>Gets the actual style applied to the Application Button.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Style object that represents the corresponding style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonWidth">
+            <summary>
+                <para>Gets the actual width of the Application Button.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Double value that specifies the actual width of the Application Button.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualApplicationButtonWidthProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualCategories">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualCategoriesProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualHeaderBorderTemplate">
+            <summary>
+                <para>Gets or sets the actual template applied to the RibbonControl's header.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A ControlTemplate object that specifies the actual template applied to the RibbonControl's header.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualHeaderBorderTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualHeaderQuickAccessToolbarContainerStyle">
+            <summary>
+                <para>Gets the style of the container that displays the Ribbon Quick Access Toolbar.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Style object applied to the container that displays the Ribbon Quick Access Toolbar.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualHeaderQuickAccessToolbarContainerStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ActualIsApplicationButtonTextVisible">
+            <summary>
+                <para>Gets whether a non-empty string is assigned to the <see cref="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonText"/> property.
+</para>
+            </summary>
+            <value><b>true</b> if a non-empty string is assigned to the <see cref="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonText"/> property; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ActualIsApplicationButtonTextVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.AllowMinimizeRibbon">
+            <summary>
+                <para>Gets or sets whether the Ribbon Control's context menu displays the <b>Minimize the Ribbon</b> command, allowing an end-user to minimize the Ribbon Control.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the RibbonControl can be minimized; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.AllowMinimizeRibbonProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2007Style">
+            <summary>
+                <para>Gets or sets the style applied to the Application Button in the Office 2007 style.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Style object that represents the corresponding style.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2007StyleInPopup">
+            <summary>
+                <para>Gets or sets the style applied to the Application Button in the Office 2007 style, when the Application Menu is opened, displaying the button in the menu.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Style object that represents the corresponding style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2007StyleInPopupProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2007StyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010PopupHorizontalOffset">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010PopupHorizontalOffsetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010PopupVerticalOffset">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010PopupVerticalOffsetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010Style">
+            <summary>
+                <para>Gets or sets the style applied to the Application Button in the Office 2010 style.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Style object that represents the corresponding style.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010StyleInPopup">
+            <summary>
+                <para>Gets or sets the style applied to the Application Button in the Office 2010 style, when the Application Menu is opened, displaying the button in the menu.
+
+</para>
+            </summary>
+            <value>A Style object that represents the corresponding style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010StyleInPopupProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButton2010StyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonLargeIcon">
+            <summary>
+                <para>Gets or sets the image displayed within the Application Button in the Office2007 paint style.
+This is a dependency property.
+</para>
+            </summary>
+            <value>An ImageSource value that specifies the image displayed within the Application Button in the Office2007 paint style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonLargeIconProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonPopupHorizontalOffset">
+            <summary>
+                <para>Gets or sets the horizontal offset of the control assigned to the <see cref="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenu"/> property, relative to the top left corner of the RibbonControl.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Double value that specifies the popup control's horizontal offset.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonPopupHorizontalOffsetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonPopupVerticalOffset">
+            <summary>
+                <para>Gets or sets the vertical offset of the control assigned to the <see cref="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenu"/> property, relative to the top left corner of the RibbonControl.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Double value that specifies the popup control's vertical offset.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonPopupVerticalOffsetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonSmallIcon">
+            <summary>
+                <para>Gets or sets the image displayed within the Application Button in the Office2010 paint style.
+This is a dependency property.
+</para>
+            </summary>
+            <value>An ImageSource value that specifies the image displayed within the Application Button in the Office2010 paint style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonSmallIconProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonText">
+            <summary>
+                <para>Gets or sets the text displayed within the Application Button in the Office2010 paint style.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A string that specifies text displayed within the Application Button in the Office2010 paint style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationButtonTextProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenu">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenuHorizontalOffset">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenuHorizontalOffsetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenuProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenuVerticalOffset">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ApplicationMenuVerticalOffsetProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.BackstageClosed">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.BackstageOpened">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ButtonGroupsIndent">
+            <summary>
+                <para>Gets or sets the indent between <see cref="T:DevExpress.Xpf.Ribbon.BarButtonGroupLink"/>.
+This is a dependency property.
+</para>
+            </summary>
+            <value>The indent between button groups in pixels.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ButtonGroupsIndentProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ButtonGroupVertAlign">
+            <summary>
+                <para>Gets or sets the vertical alignment of <see cref="T:DevExpress.Xpf.Ribbon.BarButtonGroupLink"/> objects within Ribbon page groups. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>A VerticalAlignment value that specifies the vertical alignment of button groups within Ribbon page groups. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ButtonGroupVertAlignProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.Categories">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.CategoriesProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.CategoriesSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.CategoriesSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.CategoryStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.CategoryStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.CategoryTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.CategoryTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.CategoryTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.CategoryTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonControl.CloseApplicationMenu">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonControl.CollapseMinimizedRibbon">
+            <summary>
+                <para>Collapses the expanded ribbon, when it's in the minimized state.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ColumnIndent">
+            <summary>
+                <para>Gets or sets the horizontal indent between bar item links within the Ribbon Control.
+This is a dependency property.
+</para>
+            </summary>
+            <value>The horizontal indent between bar item links within the Ribbon Control in pixels.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ColumnIndentProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonControl.ExpandMinimizedRibbon">
+            <summary>
+                <para>Shows the contents of the currently selected page, when the RibbonControl is in the minimized state.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.GroupCaptionTextStyle">
+            <summary>
+                <para>Gets or sets the style applied to captions (<see cref="P:DevExpress.Xpf.Ribbon.RibbonPageGroup.Caption"/>) of Ribbon groups.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Style"/> object applied to Ribbon groups' captions.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.GroupCaptionTextStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2007ContainerStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2007ContainerStyleInRibbonWindow">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2007ContainerStyleInRibbonWindowProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2007ContainerStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2010ContainerStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2010ContainerStyleInRibbonWindow">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2010ContainerStyleInRibbonWindowProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQAT2010ContainerStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQATContainerStyleWithoutApplicationIcon">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.HeaderQATContainerStyleWithoutApplicationIconProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsBackStageViewOpened">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsBackStageViewOpenedProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsHeaderBorderVisible">
+            <summary>
+                <para>This member supports the internal infrastructure, and is not intended to be used directly from your code.
+</para>
+            </summary>
+            <value>@nbsp;
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsHeaderBorderVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsMerged">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsMergedProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsMinimizationButtonVisible">
+            <summary>
+                <para>Gets the actual visibility state of the Ribbon Control's Minimize button.
+</para>
+            </summary>
+            <value><b>true</b> if the Minimize button is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsMinimizationButtonVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsMinimized">
+            <summary>
+                <para>Gets or sets whether the Ribbon Control is minimized.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the Ribbon Control is minimized; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsMinimizedProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsMinimizedRibbonCollapsed">
+            <summary>
+                <para>Gets whether the minimized Ribbon is collapsed.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the minimized Ribbon is collapsed; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsMinimizedRibbonCollapsedProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsOffice2010Style">
+            <summary>
+                <para>Gets whether the RibbonControl is painted in the Office 2010 style.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the RibbonControl is painted in the Office 2010 style; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsOffice2010StyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.IsRibbonTitleBarActualVisible">
+            <summary>
+                <para>Gets whether the ribbon title bar is visible.
+</para>
+            </summary>
+            <value><b>true</b> if the ribbon title bar is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.IsRibbonTitleBarActualVisibleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.Items">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ItemsProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.Manager">
+            <summary>
+                <para>Gets or sets the <see cref="T:DevExpress.Xpf.Bars.BarManager"/> that manages bar items displayed by the RibbonControl.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarManager"/> object.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.MaxPageCaptionTextIndent">
+            <summary>
+                <para>Gets or sets the maximum distance between a ribbon page's caption and vertical tab header borders.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A Double value that specifies the maximum distance between a ribbon page's caption and vertical tab header borders.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.MaxPageCaptionTextIndentProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.MinimizationButtonVisibility">
+            <summary>
+                <para>Gets or sets the visibility of the Ribbon Control's Minimize button.
+</para>
+            </summary>
+            <value>A RibbonMinimizationButtonVisibility value that specifies the Minimize button's visibility.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.MinimizationButtonVisibilityProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.NormalPageCaptionTextStyle">
+            <summary>
+                <para>Gets or sets the style applied to a Ribbon page's caption (<see cref="P:DevExpress.Xpf.Ribbon.RibbonPage.Caption"/>), when the page is not selected.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Style"/> object applied to non-selected Ribbon page captions.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.NormalPageCaptionTextStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.RibbonControl.OnApplyTemplate">
+            <summary>
+                <para>Called after the template is completely generated and attached to the visual tree.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageCaptionMinWidth">
+            <summary>
+                <para>Gets or sets the minimum allowed width of page headers. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>The minimum allowed width of page headers.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.PageCaptionMinWidthProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageCategoryAlignment">
+            <summary>
+                <para>Gets or sets the alignment of custom page categories, which display contextual tab pages. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonPageCategoryCaptionAlignment"/> value that specifies the alignment of custom page categories.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.PageCategoryAlignmentProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemLinks">
+            <summary>
+                <para>Gets a collection of bar item links displayed at the right edge of the Ribbon Control in the same row with tab headers.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object representing the collection of bar item links. 
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemLinksSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemLinksSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.PageHeaderItemTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.RibbonHeaderVisibility">
+            <summary>
+                <para>Gets or sets whether to show the Ribbon's page headers and the region above the headers.
+</para>
+            </summary>
+            <value>A RibbonHeaderVisibility value that specifies the visibility of the Ribbon's header region.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.RibbonHeaderVisibilityProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.RibbonPopupMenuClosed">
+            <summary>
+                <para>Fires after the Ribbon's context menu is closed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.RibbonPopupMenuShowing">
+            <summary>
+                <para>Fires before the Ribbon's context menu is displayed.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.RibbonStyle">
+            <summary>
+                <para>Gets or sets the style of the RibbonControl.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonStyle"/> enumeration value that specifies the paint style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.RibbonStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.RibbonTitleBarVisibility">
+            <summary>
+                <para>Gets or sets whether to show a bar that displays the Ribbon Quick Access Toolbar. 
+</para>
+            </summary>
+            <value>A RibbonTitleBarVisibility value that specifies the visibility of the ribbon's bar that displays the Quick Access Toolbar.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.RibbonTitleBarVisibilityProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.RowIndent">
+            <summary>
+                <para>Gets or sets the vertical indent between bar item links within the Ribbon Control.
+This is a dependency property.
+</para>
+            </summary>
+            <value>The vertical indent between bar item links within the Ribbon Control in pixels.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.RowIndentProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPage">
+            <summary>
+                <para>Gets or sets the RibbonControl's selected page.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonPage"/> object that specifies the selected page.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPageCaptionTextStyle">
+            <summary>
+                <para>Gets or sets the style applied to a Ribbon page's caption (<see cref="P:DevExpress.Xpf.Ribbon.RibbonPage.Caption"/>), when the page is selected.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:System.Windows.Style"/> object applied to the selected Ribbon page's caption.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPageCaptionTextStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPageChanged">
+            <summary>
+                <para>Fires when a page is selected.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPageName">
+            <summary>
+                <para>Specifies the selected page by its name.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A string that specifies the selected page's name.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPageNameProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.SelectedPageProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ShowApplicationButton">
+            <summary>
+                <para>Gets or sets whether the Application Button is visible.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the Application Button is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ShowApplicationButtonProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.StandaloneHeaderBorderTemplate">
+            <summary>
+                <para>Gets or sets the template applied to the RibbonControl's header, when the RibbonControl is used as a standalone control.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A ControlTemplate object that specifies the template applied to the RibbonControl's header, when the RibbonControl is used as a standalone control.
+
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.StandaloneHeaderBorderTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarCustomizationMenuClosed">
+            <summary>
+                <para>Fires when the Customization menu is closed (This menu is available when clicking the Customization button displayed next to the Ribbon Quick Access Toolbar).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="E:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarCustomizationMenuShowing">
+            <summary>
+                <para>Fires when a Customization menu is about to be invoked (when clicking the Customization button displayed next to the Ribbon Quick Access Toolbar).
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemLinks">
+            <summary>
+                <para>Gets the bar item links displayed within the Ribbon Quick Access Toolbar.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that stores bar item links displayed within the Ribbon Quick Access Toolbar.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemLinksSource">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemLinksSourceProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemStyle">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemTemplateProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemTemplateSelector">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+            <value> [To be supplied] </value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarItemTemplateSelectorProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarShowCustomizationButton">
+            <summary>
+                <para>Gets or sets whether a Customization button is displayed to the right of the Ribbon Quick Access Toolbar.
+</para>
+            </summary>
+            <value><b>true</b> if the Customization button is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarShowCustomizationButtonProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarShowMode">
+            <summary>
+                <para>Gets or sets where and whether the Ribbon Quick Access Toolbar is displayed.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonQuickAccessToolbarShowMode"/> value that specifies the Toolbar's display mode 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.RibbonControl.ToolbarShowModeProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu">
+
+            <summary>
+                <para>Represents a popup menu capable of displaying a gallery.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.#ctor">
+            <summary>
+                <para>Initializes a new instance of the GalleryDropDownPopupMenu class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.#ctor(DevExpress.Xpf.Bars.BarItemLinkCollection)">
+            <summary>
+                <para>Initializes a new instance of the GalleryDropDownPopupMenu class with specified settings.
+</para>
+            </summary>
+            <param name="itemLinks">
+		A collection of item links to be displayed within the menu.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.Gallery">
+            <summary>
+                <para>Gets or sets the gallery displayed by the GalleryDropDownPopupMenu.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.Gallery"/> object displayed by the current GalleryDropDownPopupMenu.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.GalleryProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.InitialVisibleColCount">
+            <summary>
+                <para>Gets the number of initially visible columns in the gallery.
+This is a dependency property.
+</para>
+            </summary>
+            <value>An integer value that specifies the number of initially visible columns in the gallery.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.InitialVisibleColCountProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.InitialVisibleRowCount">
+            <summary>
+                <para>Gets the number of initially visible rows in the gallery.
+This is a dependency property.
+</para>
+            </summary>
+            <value>An integer value that specifies the number of initially visible rows in the gallery.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.InitialVisibleRowCountProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu.ItemLinks">
+            <summary>
+                <para>Gets the bar item links displayed below the gallery.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains the corresponding items.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.DropDownGalleryEventHandler">
+
+            <summary>
+                <para>Represents the method that will handle events relating to dropdown galleries.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.DropDownGalleryEventHandler.Invoke(System.Object,DevExpress.Xpf.Ribbon.DropDownGalleryEventArgs)">
+            <summary>
+                <para>Represents the method that will handle events relating to dropdown galleries.
+</para>
+            </summary>
+            <param name="sender">
+		An object that fires the event.
+
+            </param>
+            <param name="e">
+		A <see cref="T:DevExpress.Xpf.Ribbon.DropDownGalleryEventArgs"/> object that provides the event's data.
+
+            </param>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.DropDownGalleryEventArgs">
+
+            <summary>
+                <para>Provides data for the <see cref="E:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryInit"/> and
+<see cref="E:DevExpress.Xpf.Ribbon.RibbonGalleryBarItem.DropDownGalleryClosed"/> events.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.DropDownGalleryEventArgs.#ctor(DevExpress.Xpf.Ribbon.GalleryDropDownPopupMenu)">
+            <summary>
+                <para>Initializes a new instance of the DropDownGalleryEventArgs class with specified settings.
+</para>
+            </summary>
+            <param name="dropDownGallery">
+		A GalleryDropDownPopupMenu object.
+
+            </param>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.DropDownGalleryEventArgs.DropDownGallery">
+            <summary>
+                <para>Gets or sets the dropdown window displaying a gallery.
+</para>
+            </summary>
+            <value>A GalleryDropDownPopupMenu object that represents the dropdown window displaying a gallery.
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.BarButtonGroupLink">
+
+            <summary>
+                <para>Represents a link to the <see cref="T:DevExpress.Xpf.Ribbon.BarButtonGroup"/> item. 
+
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.BarButtonGroupLink.#ctor">
+            <summary>
+                <para>Initializes a new instance of the BarButtonGroupLink class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.BarButtonGroupLink.ButtonGroup">
+            <summary>
+                <para>Gets the button group to which the current link corresponds.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.BarButtonGroup"/> object that represents the button group to which the current link corresponds
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.BarButtonGroup">
+
+            <summary>
+                <para>Represents a group of links that correspond to the bar button items. 
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.BarButtonGroup.#ctor">
+            <summary>
+                <para>Initializes a new instance of the BarButtonGroup class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.BarButtonGroup.ItemLinks">
+            <summary>
+                <para>Provides access to links that are owned by the current group.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Bars.BarItemLinkCollection"/> object that contains links owned by the container item. 
+</value>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.ApplicationMenuInfo">
+
+            <summary>
+                <para>This class is used as a substitute for an <see cref="T:DevExpress.Xpf.Ribbon.ApplicationMenu"/> object, when it's required to initialize a property with a <see cref="T:DevExpress.Xpf.Ribbon.ApplicationMenu"/> object in XAML.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ApplicationMenuInfo class with default settings.
+
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.BottomPane">
+            <summary>
+                <para>Gets or sets the control displayed along the bottom edge of the ApplicationMenu. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>The control displayed along the bottom edge of the ApplicationMenu. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.BottomPaneProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.ItemLinks">
+            <summary>
+                <para>Gets the collection of item links displayed in the Application Menu's left pane.
+</para>
+            </summary>
+            <value>The collection of item links displayed in the Application Menu's left pane.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.Ribbon">
+            <summary>
+                <para>Gets or sets the <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the ApplicationMenu object belongs.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> object to which the ApplicationMenu object belongs.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.RightPane">
+            <summary>
+                <para>Gets or sets the control displayed within the ApplicationMenu's right pane.
+This is a dependency property.
+</para>
+            </summary>
+            <value>The control displayed within the ApplicationMenu's right pane.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.RightPaneProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.RightPaneWidth">
+            <summary>
+                <para>Gets or sets the right pane's width. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>An integer value which specifies the right pane's width in pixels. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.RightPaneWidthProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.ShowRightPane">
+            <summary>
+                <para>Gets or sets whether the ApplicationMenu's right pane is visible.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the ApplicationMenu's right pane is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenuInfo.ShowRightPaneProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="T:DevExpress.Xpf.Ribbon.ApplicationMenu">
+
+            <summary>
+                <para>Represents a popup menu which complies with the MS Ribbon UI.
+</para>
+            </summary>
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.ApplicationMenu.#ctor">
+            <summary>
+                <para>Initializes a new instance of the ApplicationMenu class with default settings.
+</para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.BottomPane">
+            <summary>
+                <para>Gets or sets the control displayed along the bottom edge of the ApplicationMenu. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>The control displayed along the bottom edge of the ApplicationMenu. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenu.BottomPaneProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.IsMenuEmpty">
+            <summary>
+                <para>Gets whether the ApplicationMenu contains visible items.
+</para>
+            </summary>
+            <value><b>true</b> if the application menu contains visible items; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="M:DevExpress.Xpf.Ribbon.ApplicationMenu.OnApplyTemplate">
+            <summary>
+                <para> [To be supplied] </para>
+            </summary>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.Ribbon">
+            <summary>
+                <para>Gets the <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the current ApplicationMenu object belongs.
+</para>
+            </summary>
+            <value>The <see cref="T:DevExpress.Xpf.Ribbon.RibbonControl"/> to which the current ApplicationMenu object belongs.
+</value>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.RibbonStyle">
+            <summary>
+                <para>Gets the ApplicationMenu's paint style.
+This is a dependency property.
+</para>
+            </summary>
+            <value>A <see cref="T:DevExpress.Xpf.Ribbon.RibbonStyle"/> value that specifies the ApplicationMenu's paint style.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenu.RibbonStyleProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.RightPane">
+            <summary>
+                <para>Gets or sets the control displayed within the ApplicationMenu's right pane.
+This is a dependency property.
+</para>
+            </summary>
+            <value>The control displayed within the ApplicationMenu's right pane. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenu.RightPaneProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.RightPaneWidth">
+            <summary>
+                <para>Gets or sets the right pane's width. 
+This is a dependency property.
+</para>
+            </summary>
+            <value>An integer value which specifies the right pane's width in pixels. 
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenu.RightPaneWidthProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+        <member name="P:DevExpress.Xpf.Ribbon.ApplicationMenu.ShowRightPane">
+            <summary>
+                <para>Gets or sets whether the ApplicationMenu's right pane is visible.
+This is a dependency property.
+</para>
+            </summary>
+            <value><b>true</b> if the ApplicationMenu's right pane is visible; otherwise, <b>false</b>.
+</value>
+
+
+        </member>
+        <member name="F:DevExpress.Xpf.Ribbon.ApplicationMenu.ShowRightPaneProperty">
+            <summary>
+                <para>Identifies the  dependency property.
+</para>
+            </summary>
+            <returns> [To be supplied] </returns>
+
+
+        </member>
+    </members>
+</doc>

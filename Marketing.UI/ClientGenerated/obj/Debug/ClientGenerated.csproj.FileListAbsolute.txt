@@ -646,3 +646,5 @@ C:\Projects\Urbana\Marketing\Marketing.UI\ClientGenerated\obj\Debug\Marketing_UI
 C:\Projects\Urbana\Marketing\Marketing.UI\ClientGenerated\obj\Debug\Marketing_UI.ClientGenerated.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\ClientGenerated\Bin\Debug\Marketing.UI.Controls.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ClientGenerated\Bin\Debug\Marketing.UI.Controls.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ClientGenerated\Bin\Debug\Marketing.Services.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ClientGenerated\Bin\Debug\Marketing.Services.pdb
