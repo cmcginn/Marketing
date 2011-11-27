@@ -70,7 +70,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\CraigslistResponse.xslt" />
+    <Content Include="Resources\CraigslistResponse.xslt">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Marketing.Data\Marketing.Data.csproj">

@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketing.Services", "Marke
 		{AAEFFB1D-5DA4-47A2-AEFB-26BE9475DCFF} = {AAEFFB1D-5DA4-47A2-AEFB-26BE9475DCFF}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketing.UI.Controls", "Marketing.UI.Controls\Marketing.UI.Controls.csproj", "{F9694BFA-55F2-4B86-8D31-5B5A757045D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{4DF90241-9A74-4A24-9019-FA5092F71F7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DF90241-9A74-4A24-9019-FA5092F71F7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DF90241-9A74-4A24-9019-FA5092F71F7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9694BFA-55F2-4B86-8D31-5B5A757045D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9694BFA-55F2-4B86-8D31-5B5A757045D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9694BFA-55F2-4B86-8D31-5B5A757045D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9694BFA-55F2-4B86-8D31-5B5A757045D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,9 +2,9 @@
   <x:Members>
     <x:Property Name="postsElement" Type="OutArgument(sxl:XElement)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>668,1401</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>748,1401</sap:VirtualizedContainerService.HintSize>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
-  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\CraigslistLeadCollector.xaml" sap:VirtualizedContainerService.HintSize="628,1361">
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\CraigslistLeadCollector.xaml" sap:VirtualizedContainerService.HintSize="708,1361">
     <Flowchart.Variables>
       <Variable x:TypeArguments="cn:HttpPost" Default="[New Common.Net.HttpPost]" Name="poster" />
       <Variable x:TypeArguments="s:Byte[]" Name="rawResponse" />
@@ -19,7 +19,7 @@
         <av:Size x:Key="ShapeSize">60,75</av:Size>
         <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 310,107.5 310,141.5</av:PointCollection>
         <x:Double x:Key="Height">1325.1786666666667</x:Double>
-        <x:Double x:Key="Width">614</x:Double>
+        <x:Double x:Key="Width">694</x:Double>
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
@@ -95,7 +95,7 @@
                           <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                             <av:Point x:Key="ShapeLocation">200,695.5</av:Point>
                             <av:Size x:Key="ShapeSize">200,49</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">300,744.5 300,774.5 300,816.5</av:PointCollection>
+                            <av:PointCollection x:Key="ConnectorLocation">300,744.5 300,774.5 300,896.5</av:PointCollection>
                           </scg3:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="200,49" Values="[postingUrls]">
@@ -148,9 +148,9 @@
                           <FlowStep x:Name="__ReferenceID5">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">196,816.5</av:Point>
+                                <av:Point x:Key="ShapeLocation">196,896.5</av:Point>
                                 <av:Size x:Key="ShapeSize">208,127</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">300,943.5 300,973.5 300,1049</av:PointCollection>
+                                <av:PointCollection x:Key="ConnectorLocation">300,1023.5 300,1049</av:PointCollection>
                               </scg3:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <InvokeMethod DisplayName="InvokeMethod Transform Posts" sap:VirtualizedContainerService.HintSize="208,127" MethodName="TransformResponse" TargetType="lue:CraigslistExtensions">
@@ -167,7 +167,7 @@
                                     <av:Size x:Key="ShapeSize">200,49</av:Size>
                                   </scg3:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ForEach x:TypeArguments="sxl:XElement" DisplayName="ForEach&lt;XElement&gt; Post" sap:VirtualizedContainerService.HintSize="282,521" Values="[postsDocument.Descendants(&quot;Post&quot;)]">
+                                <ForEach x:TypeArguments="sxl:XElement" DisplayName="ForEach&lt;XElement&gt; Post" sap:VirtualizedContainerService.HintSize="200,49" Values="[postsDocument.Descendants(&quot;Post&quot;)]">
                                   <ActivityAction x:TypeArguments="sxl:XElement">
                                     <ActivityAction.Argument>
                                       <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />

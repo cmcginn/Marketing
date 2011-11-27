@@ -71,8 +71,9 @@ namespace LeadScraper.Tests
       XsltExtensions target = new XsltExtensions(); 
       var source = XDocument.Load( AppDomain.CurrentDomain.BaseDirectory + "\\craigslistResponse.xml" );
       var args = new System.Xml.Xsl.XsltArgumentList();
+      
       args.AddExtensionObject( "urn:extensions", target );
-      var actual = source.Transform( args, XDocument.Parse( LeadScraper.Utils.TransformationResources.CraigslistResponse ) );
+      var actual = source.Transform( args, XDocument.Load( @"C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\Resources\CraigslistResponse.xslt" ), true );
       Console.Out.Write( actual.ToString() );
     }
   }

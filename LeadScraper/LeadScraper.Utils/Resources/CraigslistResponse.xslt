@@ -5,13 +5,13 @@
 
   <xsl:template match="/">
     <xsl:element name="Posts">
-      <xsl:apply-templates select="/Posts/Post"/>
+      <xsl:apply-templates select="/Posts//Post"/>
     </xsl:element>
   </xsl:template>
   <xsl:template match="/Posts/Post">
-    <xsl:variable name="body" select ="/Posts/Post/html/body"></xsl:variable>
-    <xsl:variable name="userbody" select="/Posts/Post/html/body//div[@id='userbody']"></xsl:variable>
-    <xsl:variable name="head" select="/Posts/Post/html/body//div[@class='bchead']"></xsl:variable>
+    <xsl:variable name="body" select ="./html/body"></xsl:variable>
+    <xsl:variable name="userbody" select="./html/body//div[@id='userbody']"></xsl:variable>
+    <xsl:variable name="head" select="./html/body//div[@class='bchead']"></xsl:variable>
     <xsl:element name="Post">
       <xsl:attribute name="datetime">
         <xsl:value-of select="substring-before(substring-after($body,'Date: '),'&#xA;')"/>
@@ -21,11 +21,11 @@
       <xsl:element name="Title">
         <xsl:value-of select="./html/head/title/text()"/>
       </xsl:element>
-    </xsl:element>
-    <xsl:element name="Body">
-      <xsl:call-template name="blurbs">
-      </xsl:call-template>
-      <xsl:copy-of select="extensions:GetCraigslistJobDetails($userbody)"/>
+      <xsl:element name="Body">
+        <xsl:value-of select="extensions:GetCraigslistJobDetails($userbody)"/>
+        <xsl:call-template name="blurbs">
+        </xsl:call-template>
+      </xsl:element>
     </xsl:element>
   </xsl:template>
   <xsl:template name="blurbs">

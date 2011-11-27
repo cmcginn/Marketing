@@ -595,8 +595,9 @@
               </ContentItem>
               <ContentItem DataType=":String"
                            Kind="Value"
-                           Name="PostsElement1"
-                           IsHidden="False">
+                           Name="PostElementDisplay"
+                           IsHidden="False"
+                           View=":Label">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>

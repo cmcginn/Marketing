@@ -14,26 +14,27 @@ namespace LeadScraper.Utils.Extensions {
     static Regex _desirableSkills = new Regex( @"(?<first>Desirable skills:)([\W\w\S\s]+)(?<last><!-- START CLTAGS -->)(?<first-last>)" );
     static Regex _postDate = new Regex( @"(?:Date:[\s]+)(20[0-9]{2}-[0-9]{1,2}-[0-9]{1,2},[\s]+[0-9]{1,2}:[0-9]{2}[AM|PM]+)" );
     static Regex _htmlCleanup = new Regex( @"<br>" );
-    
+    static Regex _description = new Regex( @"(?<first><div id=""userbody"">)([\W\w\S\s]+)(?<last><!-- START CLTAGS -->)(?<first-last>)" );
     public static XElement GetDetails( this string response ) {
       response = _htmlCleanup.Replace( response, "" );
       var result = new XElement( "Details" );
       result.Add( new XAttribute( "datetime", _postDate.Match( response ).Groups[ 1 ].Value ) );
-      var developWithUs = new XElement( "Section" );
-      developWithUs.Add( new XAttribute( "sectionName", "Develop With Us" ) );
-      developWithUs.Value = _developmentWithUs.Match( response ).Groups[ 1 ].Value;
-      result.Add( developWithUs );
+      result.Value = _description.Match(response).Groups[1].Value.Trim();
+      //var developWithUs = new XElement( "Section" );
+      //developWithUs.Add( new XAttribute( "sectionName", "Develop With Us" ) );
+      //developWithUs.Value = _developmentWithUs.Match( response ).Groups[ 1 ].Value;
+      //result.Add( developWithUs );
 
-      var requirements = new XElement("Section");
-      requirements.Add( new XAttribute( "sectionName", "Requirements" ) );
-      requirements.Value = _requirements.Match( response ).Groups[ 1 ].Value;
-      result.Add( requirements );
+      //var requirements = new XElement("Section");
+      //requirements.Add( new XAttribute( "sectionName", "Requirements" ) );
+      //requirements.Value = _requirements.Match( response ).Groups[ 1 ].Value;
+      //result.Add( requirements );
 
-      var desirableSkills = new XElement( "Section" );
-      desirableSkills.Add( new XAttribute( "sectionName", "Desirable Skills" ) );
-      desirableSkills.Value = _desirableSkills.Match( response ).Groups[ 1 ].Value;
+      //var desirableSkills = new XElement( "Section" );
+      //desirableSkills.Add( new XAttribute( "sectionName", "Desirable Skills" ) );
+      //desirableSkills.Value = _desirableSkills.Match( response ).Groups[ 1 ].Value;
 
-      result.Add(desirableSkills);
+      //result.Add(desirableSkills);
 
       return result;
     }

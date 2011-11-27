@@ -307,6 +307,20 @@
         <ContentItem Kind="Group"
                      Name="ScreenLayout"
                      View="Microsoft.LightSwitch:ColumnsLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+              <ScreenExpressionTree>
+                <ConstantExpression ResultType=":String"
+                                    Value="Left" />
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+            <ControlPropertySource Property="Microsoft.LightSwitch:LabeledGroup/Properties[MaxLabelWidth]">
+              <ScreenExpressionTree>
+                <ConstantExpression ResultType=":Double"
+                                    Value="350" />
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
           <ContentItem Kind="Group"
                        Name="ListColumn">
             <ContentItem.PropertySources>
@@ -316,6 +330,12 @@
                     <ConstantExpression ResultType=":Double"
                                         Value="2" />
                   </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Double"
+                                      Value="700" />
                 </ScreenExpressionTree>
               </ControlPropertySource>
             </ContentItem.PropertySources>
@@ -385,7 +405,8 @@
               </ContentItem.PropertySources>
               <ContentItem DataType="CraigslistPost"
                            Kind="Details"
-                           Name="RowTemplate">
+                           Name="RowTemplate"
+                           View=":ColumnsLayout">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression />
@@ -393,7 +414,22 @@
                 </ContentItem.DataSource>
                 <ContentItem DataType=":Guid"
                              Kind="Value"
-                             Name="Id">
+                             Name="Id"
+                             IsHidden="True">
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":Double"
+                                            Value="0" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Left" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -415,7 +451,22 @@
                 </ContentItem>
                 <ContentItem DataType=":String"
                              Kind="Value"
-                             Name="PostsElement">
+                             Name="PostsElement"
+                             IsHidden="True">
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":Double"
+                                            Value="0" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Left" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -427,6 +478,20 @@
                 <ContentItem DataType=":Int64"
                              Kind="Value"
                              Name="PostId">
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Left" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":Double"
+                                            Value="85" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -448,7 +513,8 @@
                 </ContentItem>
                 <ContentItem DataType=":String"
                              Kind="Value"
-                             Name="EmailAddress">
+                             Name="EmailAddress"
+                             IsHidden="True">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -506,7 +572,8 @@
               </ContentItem.PropertySources>
               <ContentItem DataType=":Guid"
                            Kind="Value"
-                           Name="Id1">
+                           Name="Id1"
+                           IsHidden="False">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -528,7 +595,8 @@
               </ContentItem>
               <ContentItem DataType=":String"
                            Kind="Value"
-                           Name="PostsElement1">
+                           Name="PostsElement1"
+                           IsHidden="False">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -539,7 +607,8 @@
               </ContentItem>
               <ContentItem DataType=":Int64"
                            Kind="Value"
-                           Name="PostId1">
+                           Name="PostId1"
+                           IsHidden="False">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -561,7 +630,8 @@
               </ContentItem>
               <ContentItem DataType=":String"
                            Kind="Value"
-                           Name="EmailAddress1">
+                           Name="EmailAddress1"
+                           IsHidden="False">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
