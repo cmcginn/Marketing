@@ -290,6 +290,13 @@
                           FromEnd="CraigslistPost"
                           Name="CraigsListResponses"
                           ToEnd="CraigsListResponse" />
+      <EntityProperty Name="RespondedTo"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -742,6 +749,18 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="CraigslistPost/Properties[EmailAddress]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Boolean"
+                           Kind="Value"
+                           Name="RespondedTo"
+                           View=":CheckBox">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPost/Properties[RespondedTo]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>

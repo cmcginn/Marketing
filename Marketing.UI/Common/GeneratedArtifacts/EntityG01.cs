@@ -227,6 +227,24 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool RespondedTo
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistPost.DetailsClass.GetValue(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.RespondedTo);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RespondedTo_Compute(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RespondedTo_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::Microsoft.LightSwitch.Framework.EntityCollection<global::LightSwitchApplication.CraigsListResponse> CraigsListResponses
         {
             get
@@ -372,6 +390,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.EmailAddress) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, bool> RespondedTo
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.RespondedTo) as global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, bool>;
                     }
                 }
                 
@@ -628,6 +654,28 @@ namespace LightSwitchApplication
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, bool>.Entry
+                    RespondedTo = new global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, bool>.Entry(
+                        "RespondedTo",
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._RespondedTo_Stub,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._RespondedTo_Validate,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._RespondedTo_ComputeValue);
+                private static void _RespondedTo_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CraigslistPost.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, bool>.Data> c, global::LightSwitchApplication.CraigslistPost.DetailsClass d, object sf)
+                {
+                    c(d, ref d._RespondedTo, sf);
+                }
+                private static void _RespondedTo_Validate(global::LightSwitchApplication.CraigslistPost e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.RespondedTo_Validate(r);
+                }
+                private static bool _RespondedTo_ComputeValue(global::LightSwitchApplication.CraigslistPost e)
+                {
+                    bool value = default(bool);
+                    e.RespondedTo_Compute(ref value);
+                    return value;
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
                     CraigsListResponses = new global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
                         "CraigsListResponses",
@@ -666,6 +714,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Data _EmailAddress;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, bool>.Data _RespondedTo;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;
