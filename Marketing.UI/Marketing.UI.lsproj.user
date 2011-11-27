@@ -3,6 +3,6 @@
   <PropertyGroup>
     <EnableENC>False</EnableENC>
     <ProjectView>ProjectFiles</ProjectView>
-    <ServerPort>17818</ServerPort>
+    <ServerPort>17959</ServerPort>
   </PropertyGroup>
 </Project>
