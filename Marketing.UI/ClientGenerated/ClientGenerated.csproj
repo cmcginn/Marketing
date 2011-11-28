@@ -143,6 +143,10 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Marketing.UI.Controls\Marketing.UI.Controls.csproj">
+      <Project>{F9694BFA-55F2-4B86-8D31-5B5A757045D9}</Project>
+      <Name>Marketing.UI.Controls</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Client\Client.csproj">
       <Name>Client</Name>
       <Project>{64468c90-3e7f-4220-8f6b-d19e2c676693}</Project>

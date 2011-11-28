@@ -129,10 +129,6 @@
       <Project>{AAA92878-4534-4344-9AAF-64BBBF949E12}</Project>
       <Name>Marketing.Services.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Marketing.Services\Marketing.Services.csproj">
-      <Project>{9D546DD7-455C-4F90-A3FE-07652B12FBE8}</Project>
-      <Name>Marketing.Services %28Marketing.Services\Marketing.Services%29</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Server\Server.csproj">
       <Name>Server</Name>
       <Project>{8d8e1e37-937d-44f9-bebc-b5f8bdeef737}</Project>

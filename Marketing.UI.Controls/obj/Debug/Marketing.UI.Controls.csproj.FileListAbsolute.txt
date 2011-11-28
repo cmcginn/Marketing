@@ -16,3 +16,15 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\ko\System.Xml.Linq.
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\ru\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Data.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.RichEdit.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.Core.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Printing.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Data.v11.1.Linq.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Data.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.RichEdit.v11.1.Core.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.Core.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.xml

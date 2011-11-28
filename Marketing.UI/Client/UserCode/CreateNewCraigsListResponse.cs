@@ -17,6 +17,7 @@ namespace LightSwitchApplication
             // Write your code here.
             this.CraigsListResponseProperty = new CraigsListResponse();
             this.CraigsListResponseProperty.CraigslistPost = this.DataWorkspace.MarketingDomainServiceData.CraigslistPosts.Where( x => x.Id == this.SelectedCraigslistPostId ).Single();
+            
         }
 
         partial void CreateNewCraigsListResponse_Saved()
@@ -24,6 +25,11 @@ namespace LightSwitchApplication
             // Write your code here.
             this.Close(false);
             Application.Current.ShowDefaultScreen(this.CraigsListResponseProperty);
+        }
+
+        partial void CraigsListResponseProperty_Validate( ScreenValidationResultsBuilder results ) {
+          // results.AddPropertyError("<Error-Message>");
+          var x = "Y";
         }
     }
 }

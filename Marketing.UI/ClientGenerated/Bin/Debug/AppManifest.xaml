@@ -14,6 +14,7 @@
   <Deployment.Parts>
     <AssemblyPart x:Name="Marketing_UI.ClientGenerated" Source="Marketing_UI.ClientGenerated.dll" />
     <AssemblyPart x:Name="Application.Common" Source="Application.Common.dll" />
+    <AssemblyPart x:Name="Marketing.UI.Controls" Source="Marketing.UI.Controls.dll" />
     <AssemblyPart x:Name="Marketing_UI.Client" Source="Marketing_UI.Client.dll" />
     <AssemblyPart x:Name="Microsoft.CSharp" Source="Microsoft.CSharp.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.Base.Client" Source="Microsoft.LightSwitch.Base.Client.dll" />

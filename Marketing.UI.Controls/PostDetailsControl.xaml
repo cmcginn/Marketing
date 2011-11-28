@@ -4,15 +4,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit">
     
     <Grid x:Name="LayoutRoot" Background="White">
     <Grid.RowDefinitions>
-      <RowDefinition></RowDefinition>
+      <!--<RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>-->
     </Grid.RowDefinitions>
-    <StackPanel Orientation="Horizontal" Grid.Row="0">
-      <TextBlock Text="Title"></TextBlock>
-      <TextBlock Text="{Binding Path=Title}"></TextBlock>
-    </StackPanel>
+    <TextBox Name="ResponseEdit"  Text="{Binding Screen.CraigsListResponseProperty.ResponseContent,Mode=TwoWay}" Width="200" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE6FFFF"></TextBox>
+    <!--<dxre:RichEditControl HorizontalAlignment="Stretch" Grid.Row="1"  Name="richEditControl" VerticalAlignment="Stretch" />-->
   </Grid>
 </UserControl>

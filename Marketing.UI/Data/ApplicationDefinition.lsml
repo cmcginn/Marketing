@@ -283,14 +283,16 @@
                       PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
-          <MaxLength Value="255" />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty Name="EmailAddress"
                       PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
-          <MaxLength Value="255" />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty Association="CraigslistPost_CraigsListResponse"
@@ -356,72 +358,11 @@
                     Name="CraigsListResponse" />
   </Association>
 
-  <DataService DataProvider="CustomDataProvider"
-               EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="AssemblyName"
-                          Value="Marketing.Services.Web" />
-      <ConnectionProperty Name="FullClassName"
-                          Value="Marketing.Services.Web.MarketingDomainService" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="15b1fddb-3a0a-4786-a869-a6eb77e427a4" />
-      <ConnectionProperty Name="ConnectionStringDescription"
-                          Value="" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="CraigslistPosts">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="GetCraigslistPosts"
-                         EntityTypeName="Marketing.Data.CraigslistPost" />
-        <WcfRiaProperty Name="Id"
-                        Property="CraigslistPost/Properties[Id]" />
-        <WcfRiaProperty Name="PostDate"
-                        Property="CraigslistPost/Properties[PostDate]" />
-        <WcfRiaProperty Name="PostsElement"
-                        Property="CraigslistPost/Properties[PostsElement]" />
-        <WcfRiaProperty Name="PostId"
-                        Property="CraigslistPost/Properties[PostId]" />
-        <WcfRiaProperty Name="Title"
-                        Property="CraigslistPost/Properties[Title]" />
-        <WcfRiaProperty Name="EmailAddress"
-                        Property="CraigslistPost/Properties[EmailAddress]" />
-        <WcfRiaProperty Name="CraigsListResponses"
-                        Property="CraigslistPost/Properties[CraigsListResponses]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="CraigsListResponses">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="GetCraigsListResponses"
-                         EntityTypeName="Marketing.Data.CraigsListResponse" />
-        <WcfRiaProperty Name="Id"
-                        Property="CraigsListResponse/Properties[Id]" />
-        <WcfRiaProperty Name="ResponseContent"
-                        Property="CraigsListResponse/Properties[ResponseContent]" />
-        <WcfRiaProperty Name="Created"
-                        Property="CraigsListResponse/Properties[Created]" />
-        <WcfRiaProperty Name="CraigslistPost"
-                        Property="CraigsListResponse/Properties[CraigslistPost]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <AssociationSetMapping AssociationSet="CraigslistPost_CraigsListResponse">
-      <AssociationSetMapping.Attributes>
-        <WcfRiaAssociationSetEnd End="MarketingDomainServiceData/Members[CraigslistPost_CraigsListResponse]/Members[CraigslistPost]">
-          <WcfRiaAssociationSetEnd.Attributes>
-            <WcfRiaPropertyRef Name="Id" />
-          </WcfRiaAssociationSetEnd.Attributes>
-        </WcfRiaAssociationSetEnd>
-        <WcfRiaAssociationSetEnd End="MarketingDomainServiceData/Members[CraigslistPost_CraigsListResponse]/Members[CraigsListResponse]">
-          <WcfRiaAssociationSetEnd.Attributes>
-            <WcfRiaPropertyRef Name="CraigslitPostsId" />
-          </WcfRiaAssociationSetEnd.Attributes>
-        </WcfRiaAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-  </DataService>
+  
 
   <Screen Name="CraigslistDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -795,7 +736,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewCraigsListResponse">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -900,46 +841,6 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
             </ContentItem>
-            <ContentItem DataType=":String"
-                         Kind="Value"
-                         Name="ResponseContent">
-              <ContentItem.Attributes>
-                <DisplayName Value="Response" />
-              </ContentItem.Attributes>
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Characters" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Characters]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":Int32"
-                                        Value="100" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HeightSizingMode]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Lines" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Lines]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":Int32"
-                                        Value="20" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="CraigsListResponse/Properties[ResponseContent]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
             <ContentItem DataType=":DateTime"
                          Kind="Value"
                          Name="Created"
@@ -983,10 +884,86 @@
                 </ContentItem.DataSource>
               </ContentItem>
             </ContentItem>
+            <ContentItem Kind="ScreenContent"
+                         Name="CraigsListResponseProperty_ResponseContent">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.PostDetailsControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
           </ContentItem>
         </ContentItem>
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services.Web" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.Web.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="15b1fddb-3a0a-4786-a869-a6eb77e427a4" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="CraigslistPosts">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetCraigslistPosts"
+                         EntityTypeName="Marketing.Data.CraigslistPost" />
+        <WcfRiaProperty Name="Id"
+                        Property="CraigslistPost/Properties[Id]" />
+        <WcfRiaProperty Name="PostDate"
+                        Property="CraigslistPost/Properties[PostDate]" />
+        <WcfRiaProperty Name="PostsElement"
+                        Property="CraigslistPost/Properties[PostsElement]" />
+        <WcfRiaProperty Name="PostId"
+                        Property="CraigslistPost/Properties[PostId]" />
+        <WcfRiaProperty Name="Title"
+                        Property="CraigslistPost/Properties[Title]" />
+        <WcfRiaProperty Name="EmailAddress"
+                        Property="CraigslistPost/Properties[EmailAddress]" />
+        <WcfRiaProperty Name="CraigsListResponses"
+                        Property="CraigslistPost/Properties[CraigsListResponses]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="CraigsListResponses">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetCraigsListResponses"
+                         EntityTypeName="Marketing.Data.CraigsListResponse" />
+        <WcfRiaProperty Name="Id"
+                        Property="CraigsListResponse/Properties[Id]" />
+        <WcfRiaProperty Name="ResponseContent"
+                        Property="CraigsListResponse/Properties[ResponseContent]" />
+        <WcfRiaProperty Name="Created"
+                        Property="CraigsListResponse/Properties[Created]" />
+        <WcfRiaProperty Name="CraigslistPost"
+                        Property="CraigsListResponse/Properties[CraigslistPost]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping AssociationSet="CraigslistPost_CraigsListResponse">
+      <AssociationSetMapping.Attributes>
+        <WcfRiaAssociationSetEnd End="MarketingDomainServiceData/Members[CraigslistPost_CraigsListResponse]/Members[CraigslistPost]">
+          <WcfRiaAssociationSetEnd.Attributes>
+            <WcfRiaPropertyRef Name="Id" />
+          </WcfRiaAssociationSetEnd.Attributes>
+        </WcfRiaAssociationSetEnd>
+        <WcfRiaAssociationSetEnd End="MarketingDomainServiceData/Members[CraigslistPost_CraigsListResponse]/Members[CraigsListResponse]">
+          <WcfRiaAssociationSetEnd.Attributes>
+            <WcfRiaPropertyRef Name="CraigslitPostsId" />
+          </WcfRiaAssociationSetEnd.Attributes>
+        </WcfRiaAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+
 
 </ModelFragment>
