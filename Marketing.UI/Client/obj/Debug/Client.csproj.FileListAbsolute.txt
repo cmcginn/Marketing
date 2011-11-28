@@ -30,3 +30,15 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Client\obj\Debug\Marketing_UI.Client.d
 C:\Projects\Urbana\Marketing\Marketing.UI\Client\obj\Debug\Marketing_UI.Client.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\Marketing.UI.Controls.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\Marketing.UI.Controls.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Data.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Xpf.Core.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.RichEdit.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Data.v11.1.Linq.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Printing.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Data.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Xpf.Core.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.RichEdit.v11.1.Core.xml
+C:\Projects\Urbana\Marketing\Marketing.UI\Client\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.xml

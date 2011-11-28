@@ -16,7 +16,12 @@ namespace Marketing.UI.Controls {
 
   public partial class PostDetailsControl : UserControl {
     public PostDetailsControl() {     
-      InitializeComponent();    
+      InitializeComponent();
+      this.richEditControl.TextChanged += new EventHandler( richEditControl_TextChanged );
+    }
+
+    void richEditControl_TextChanged( object sender, EventArgs e ) {
+      ResponseEdit.Text = this.richEditControl.HtmlText;
     }
 
 

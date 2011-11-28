@@ -895,6 +895,18 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="800" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinHeight]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="600" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
               </ContentItem.PropertySources>
             </ContentItem>
           </ContentItem>

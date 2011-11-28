@@ -4,14 +4,110 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit">
-    
-    <Grid x:Name="LayoutRoot" Background="White">
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon" xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core">
+  <UserControl.Resources>
+    <ResourceDictionary>
+      <dxre:RichEditUICommand x:Key="commands" />
+      <dxre:RichEditStringIdConverter x:Key="stringIdConverter" />
+      <dxre:DefaultBarItemDataTemplates x:Key="defaultBarItemTemplates" />
+    </ResourceDictionary>
+  </UserControl.Resources>
+  <Grid x:Name="LayoutRoot" Background="White">
     <Grid.RowDefinitions>
       <!--<RowDefinition></RowDefinition>
       <RowDefinition></RowDefinition>-->
     </Grid.RowDefinitions>
     <TextBox Name="ResponseEdit"  Text="{Binding Screen.CraigsListResponseProperty.ResponseContent,Mode=TwoWay}" Width="200" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE6FFFF"></TextBox>
-    <!--<dxre:RichEditControl HorizontalAlignment="Stretch" Grid.Row="1"  Name="richEditControl" VerticalAlignment="Stretch" />-->
+    <dxb:BarManager Name="barManager1" ToolbarGlyphSize="Small">
+      <dxb:BarManager.Items>
+        <dxb:BarSubItem Command="{Binding Path=PageLayoutMargins, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutMargins">
+          <dxb:BarSubItem.ItemLinks>
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutNormalMargins" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutNarrowMargins" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutModerateMargins" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutWideMargins" />
+          </dxb:BarSubItem.ItemLinks>
+        </dxb:BarSubItem>
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutNormalMargins, Mode=OneTime, Source={StaticResource commands}}" ContentTemplate="{Binding Path=SectionMarginBarItemContentTemplate, Mode=OneTime, Source={StaticResource defaultBarItemTemplates}}" GlyphSize="Large" Name="biPageLayoutNormalMargins" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutNarrowMargins, Mode=OneTime, Source={StaticResource commands}}" ContentTemplate="{Binding Path=SectionMarginBarItemContentTemplate, Mode=OneTime, Source={StaticResource defaultBarItemTemplates}}" GlyphSize="Large" Name="biPageLayoutNarrowMargins" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutModerateMargins, Mode=OneTime, Source={StaticResource commands}}" ContentTemplate="{Binding Path=SectionMarginBarItemContentTemplate, Mode=OneTime, Source={StaticResource defaultBarItemTemplates}}" GlyphSize="Large" Name="biPageLayoutModerateMargins" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutWideMargins, Mode=OneTime, Source={StaticResource commands}}" ContentTemplate="{Binding Path=SectionMarginBarItemContentTemplate, Mode=OneTime, Source={StaticResource defaultBarItemTemplates}}" GlyphSize="Large" Name="biPageLayoutWideMargins" />
+        <dxb:BarSubItem Command="{Binding Path=PageLayoutOrientation, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutOrientation">
+          <dxb:BarSubItem.ItemLinks>
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutPortraitOrientation" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutLandscapeOrientation" />
+          </dxb:BarSubItem.ItemLinks>
+        </dxb:BarSubItem>
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutPortraitOrientation, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutPortraitOrientation" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutLandscapeOrientation, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLandscapeOrientation" />
+        <dxb:BarSubItem Command="{Binding Path=PageLayoutSize, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutSize">
+          <dxb:BarSubItem.ItemLinks>
+            <dxre:PaperKindBarListItemLink BarItemName="biPageLayoutSizeList" />
+          </dxb:BarSubItem.ItemLinks>
+        </dxb:BarSubItem>
+        <dxre:PaperKindBarListItem Name="biPageLayoutSizeList" RichEditControl="{Binding ElementName=richEditControl}" />
+        <dxb:BarSubItem Command="{Binding Path=PageLayoutColumns, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutColumns">
+          <dxb:BarSubItem.ItemLinks>
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutOneColumn" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutTwoColumns" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutThreeColumns" />
+            <dxb:BarButtonItemLink BarItemName="biPageLayoutColumnsOptions" />
+          </dxb:BarSubItem.ItemLinks>
+        </dxb:BarSubItem>
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutOneColumn, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biPageLayoutOneColumn" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutTwoColumns, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biPageLayoutTwoColumns" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutThreeColumns, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biPageLayoutThreeColumns" />
+        <dxb:BarButtonItem Command="{Binding Path=PageLayoutColumnsOptions, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutColumnsOptions" />
+        <dxb:BarSubItem Command="{Binding Path=InsertBreak, Mode=OneTime, Source={StaticResource commands}}" Name="biInsertBreak">
+          <dxb:BarSubItem.ItemLinks>
+            <dxb:BarButtonItemLink BarItemName="biInsertPageBreak" />
+            <dxb:BarButtonItemLink BarItemName="biInsertColumnBreak" />
+            <dxb:BarButtonItemLink BarItemName="biInsertSectionBreakNextPage" />
+            <dxb:BarButtonItemLink BarItemName="biInsertSectionBreakContinuous" />
+            <dxb:BarButtonItemLink BarItemName="biInsertSectionBreakEvenPage" />
+            <dxb:BarButtonItemLink BarItemName="biInsertSectionBreakOddPage" />
+          </dxb:BarSubItem.ItemLinks>
+        </dxb:BarSubItem>
+        <dxb:BarButtonItem Command="{Binding Path=InsertPageBreak, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biInsertPageBreak" />
+        <dxb:BarButtonItem Command="{Binding Path=InsertColumnBreak, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biInsertColumnBreak" />
+        <dxb:BarButtonItem Command="{Binding Path=InsertSectionBreakNextPage, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biInsertSectionBreakNextPage" />
+        <dxb:BarButtonItem Command="{Binding Path=InsertSectionBreakContinuous, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biInsertSectionBreakContinuous" />
+        <dxb:BarButtonItem Command="{Binding Path=InsertSectionBreakEvenPage, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biInsertSectionBreakEvenPage" />
+        <dxb:BarButtonItem Command="{Binding Path=InsertSectionBreakOddPage, Mode=OneTime, Source={StaticResource commands}}" GlyphSize="Large" Name="biInsertSectionBreakOddPage" />
+        <dxb:BarSubItem Command="{Binding Path=PageLayoutLineNumbering, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumbering">
+          <dxb:BarSubItem.ItemLinks>
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutLineNumberingNone" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutLineNumberingContinuous" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutLineNumberingRestartNewPage" />
+            <dxb:BarCheckItemLink BarItemName="biPageLayoutLineNumberingRestartNewSection" />
+            <dxb:BarCheckItemLink BarItemName="biFormatParagraphSuppressLineNumbers" />
+            <dxb:BarButtonItemLink BarItemName="biPageLayoutLineNumberingOptions" />
+          </dxb:BarSubItem.ItemLinks>
+        </dxb:BarSubItem>
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutLineNumberingNone, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingNone" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutLineNumberingContinuous, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingContinuous" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutLineNumberingRestartNewPage, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingRestartNewPage" />
+        <dxb:BarCheckItem Command="{Binding Path=PageLayoutLineNumberingRestartNewSection, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingRestartNewSection" />
+        <dxb:BarCheckItem Command="{Binding Path=FormatParagraphSuppressLineNumbers, Mode=OneTime, Source={StaticResource commands}}" Name="biFormatParagraphSuppressLineNumbers" />
+        <dxb:BarButtonItem Command="{Binding Path=PageLayoutLineNumberingOptions, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingOptions" />
+      </dxb:BarManager.Items>
+      <dx:DockPanel>
+        <dxr:RibbonControl dx:DockPanel.Dock="Top" Name="ribbonControl1">
+          <dxr:RibbonDefaultPageCategory>
+            <dxr:RibbonPage Caption="{Binding Source={StaticResource stringIdConverter}, ConverterParameter=Caption_PagePageLayout, Converter={StaticResource stringIdConverter}, Mode=OneTime}" Name="pagePageLayout">
+              <dxr:RibbonPageGroup Caption="{Binding Source={StaticResource stringIdConverter}, ConverterParameter=Caption_GroupPageSetup, Converter={StaticResource stringIdConverter}, Mode=OneTime}" CaptionButtonCommand="{Binding Path=PageLayoutPageOptions, Mode=OneTime, Source={StaticResource commands}}" Name="grpPageSetup">
+                <dxb:BarSubItemLink BarItemName="biPageLayoutMargins" />
+                <dxb:BarSubItemLink BarItemName="biPageLayoutOrientation" />
+                <dxb:BarSubItemLink BarItemName="biPageLayoutSize" />
+                <dxb:BarSubItemLink BarItemName="biPageLayoutColumns" />
+                <dxb:BarSubItemLink BarItemName="biInsertBreak" />
+                <dxb:BarSubItemLink BarItemName="biPageLayoutLineNumbering" />
+              </dxr:RibbonPageGroup>
+            </dxr:RibbonPage>
+          </dxr:RibbonDefaultPageCategory>
+        </dxr:RibbonControl>
+        <dxre:RichEditControl Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}" Ribbon="{Binding ElementName=ribbonControl1, Mode=OneTime}" />
+      </dx:DockPanel>
+    </dxb:BarManager>
   </Grid>
 </UserControl>

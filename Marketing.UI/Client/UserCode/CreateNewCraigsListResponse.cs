@@ -27,9 +27,6 @@ namespace LightSwitchApplication
             Application.Current.ShowDefaultScreen(this.CraigsListResponseProperty);
         }
 
-        partial void CraigsListResponseProperty_Validate( ScreenValidationResultsBuilder results ) {
-          // results.AddPropertyError("<Error-Message>");
-          var x = "Y";
-        }
+
     }
 }
