@@ -269,6 +269,7 @@ namespace LightSwitchApplication.Implementation
                 result.Id = craigsListResponse.Id;
                 result.ResponseContent = craigsListResponse.ResponseContent;
                 result.Created = craigsListResponse.Created;
+                result.ResponseHtmlContent = craigsListResponse.ResponseHtmlContent;
                 result.CraigslitPostsId = craigsListResponse.CraigslitPostsId;
                 return result;
             }
@@ -297,6 +298,7 @@ namespace LightSwitchApplication.Implementation
                 outerCraigsListResponse.Id = innerCraigsListResponse.Id;
                 outerCraigsListResponse.ResponseContent = innerCraigsListResponse.ResponseContent;
                 outerCraigsListResponse.Created = innerCraigsListResponse.Created;
+                outerCraigsListResponse.ResponseHtmlContent = innerCraigsListResponse.ResponseHtmlContent;
                 outerCraigsListResponse.CraigslitPostsId = innerCraigsListResponse.CraigslitPostsId;
                 return;
             }

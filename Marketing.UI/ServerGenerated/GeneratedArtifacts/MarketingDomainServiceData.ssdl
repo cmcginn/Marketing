@@ -26,6 +26,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="CraigslistPost_CraigsListResponse">

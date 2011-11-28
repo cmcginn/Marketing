@@ -31,6 +31,7 @@
     <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="ResponseContent" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseHtmlContent" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="CraigslitPostsId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainServiceData.CraigslistPost_CraigsListResponse" ToRole="CraigslistPost" FromRole="CraigsListResponse" />
   </EntityType>

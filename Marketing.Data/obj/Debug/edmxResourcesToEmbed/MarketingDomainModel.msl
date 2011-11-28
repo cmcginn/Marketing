@@ -16,6 +16,7 @@
     <EntitySetMapping Name="CraigsListResponses">
       <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
         <MappingFragment StoreEntitySet="CraigsListResponse">
+          <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
           <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />

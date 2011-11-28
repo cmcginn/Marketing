@@ -342,6 +342,12 @@
                           FromEnd="CraigsListResponse"
                           Name="CraigslistPost"
                           ToEnd="CraigslistPost" />
+      <EntityProperty Name="ResponseHtmlContent"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -362,7 +368,7 @@
 
   <Screen Name="CraigslistDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -736,7 +742,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewCraigsListResponse">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -916,7 +922,7 @@
   </Screen>
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
+               Name="MarketingDomainServiceDataDataService1">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services.Web" />
@@ -957,6 +963,8 @@
                         Property="CraigsListResponse/Properties[ResponseContent]" />
         <WcfRiaProperty Name="Created"
                         Property="CraigsListResponse/Properties[Created]" />
+        <WcfRiaProperty Name="ResponseHtmlContent"
+                        Property="CraigsListResponse/Properties[ResponseHtmlContent]" />
         <WcfRiaProperty Name="CraigslistPost"
                         Property="CraigsListResponse/Properties[CraigslistPost]" />
       </EntitySetMapping.Attributes>
@@ -976,6 +984,8 @@
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
   </DataService>
+
+  
 
 
 </ModelFragment>

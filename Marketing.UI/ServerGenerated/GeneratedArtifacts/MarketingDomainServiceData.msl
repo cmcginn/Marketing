@@ -20,6 +20,7 @@
           <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
+          <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -352,13 +352,15 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="responseContent">Initial value of the ResponseContent property.</param>
         /// <param name="created">Initial value of the Created property.</param>
+        /// <param name="responseHtmlContent">Initial value of the ResponseHtmlContent property.</param>
         /// <param name="craigslitPostsId">Initial value of the CraigslitPostsId property.</param>
-        public static CraigsListResponse CreateCraigsListResponse(global::System.Guid id, global::System.String responseContent, global::System.DateTime created, global::System.Guid craigslitPostsId)
+        public static CraigsListResponse CreateCraigsListResponse(global::System.Guid id, global::System.String responseContent, global::System.DateTime created, global::System.String responseHtmlContent, global::System.Guid craigslitPostsId)
         {
             CraigsListResponse craigsListResponse = new CraigsListResponse();
             craigsListResponse.Id = id;
             craigsListResponse.ResponseContent = responseContent;
             craigsListResponse.Created = created;
+            craigsListResponse.ResponseHtmlContent = responseHtmlContent;
             craigsListResponse.CraigslitPostsId = craigslitPostsId;
             return craigsListResponse;
         }
@@ -440,6 +442,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.DateTime _Created;
         partial void OnCreatedChanging(global::System.DateTime value);
         partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ResponseHtmlContent
+        {
+            get
+            {
+                return _ResponseHtmlContent;
+            }
+            set
+            {
+                OnResponseHtmlContentChanging(value);
+                ReportPropertyChanging("ResponseHtmlContent");
+                _ResponseHtmlContent = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ResponseHtmlContent");
+                OnResponseHtmlContentChanged();
+            }
+        }
+        private global::System.String _ResponseHtmlContent;
+        partial void OnResponseHtmlContentChanging(global::System.String value);
+        partial void OnResponseHtmlContentChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

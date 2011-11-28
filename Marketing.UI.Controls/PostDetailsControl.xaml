@@ -17,7 +17,8 @@
       <!--<RowDefinition></RowDefinition>
       <RowDefinition></RowDefinition>-->
     </Grid.RowDefinitions>
-    <TextBox Name="ResponseEdit"  Text="{Binding Screen.CraigsListResponseProperty.ResponseContent,Mode=TwoWay}" Width="200" Height="27" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#FFE6FFFF"></TextBox>
+    <TextBox Name="ResponseEdit"  Text="{Binding Screen.CraigsListResponseProperty.ResponseContent,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+    <TextBox Name="ResponseHtmlEdit"  Text="{Binding Screen.CraigsListResponseProperty.ResponseHtmlContent,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
     <dxb:BarManager Name="barManager1" ToolbarGlyphSize="Small">
       <dxb:BarManager.Items>
         <dxb:BarSubItem Command="{Binding Path=PageLayoutMargins, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutMargins">

@@ -299,6 +299,27 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string ResponseHtmlContent
+        {
+            get
+            {
+                return this._ResponseHtmlContent;
+            }
+            set
+            {
+                if (this._ResponseHtmlContent != value)
+                {
+                    this.RaiseDataMemberChanging("ResponseHtmlContent");
+                    this.ValidateProperty("ResponseHtmlContent", value);
+                    this._ResponseHtmlContent = value;
+                    this.RaiseDataMemberChanged("ResponseHtmlContent");
+                }
+            }
+        }
+        private string _ResponseHtmlContent;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public global::System.Guid CraigslitPostsId
         {
             get
