@@ -28,3 +28,4 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.RichEdit
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.Core.v11.1.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PostViewControl.g.i.cs

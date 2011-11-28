@@ -65,10 +65,17 @@
     <Compile Include="PostDetailsControl.xaml.cs">
       <DependentUpon>PostDetailsControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PostViewControl.xaml.cs">
+      <DependentUpon>PostViewControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="PostDetailsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PostViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
