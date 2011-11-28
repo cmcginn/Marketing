@@ -654,16 +654,6 @@
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Top" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
               <ContentItem DataType=":Int64"
                            Kind="Value"
                            Name="PostId1">
@@ -686,17 +676,6 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="EmailAddress1">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="CraigslistPost/Properties[EmailAddress]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
               <ContentItem DataType=":Boolean"
                            Kind="Value"
                            Name="RespondedTo"
@@ -711,6 +690,9 @@
               </ContentItem>
               <ContentItem Kind="ScreenContent"
                            Name="ScreenContent">
+                <ContentItem.Attributes>
+                  <DisplayName Value="Body" />
+                </ContentItem.Attributes>
                 <ContentItem.PropertySources>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
                     <ScreenExpressionTree>
@@ -718,6 +700,18 @@
                         <ConstantExpression ResultType=":String"
                                             Value="Marketing.UI.Controls.PostViewControl, Marketing.UI.Controls" />
                       </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -803,6 +797,12 @@
                 </ChainExpression>
               </ScreenExpressionTree>
             </ControlPropertySource>
+            <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+              <ScreenExpressionTree>
+                <ConstantExpression ResultType=":String"
+                                    Value="None" />
+              </ScreenExpressionTree>
+            </ControlPropertySource>
           </ContentItem.PropertySources>
           <ContentItem DataType="CraigsListResponse"
                        Kind="Details"
@@ -815,16 +815,6 @@
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
-            <ContentItem.PropertySources>
-              <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Top" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
             <ContentItem DataType=":Guid"
                          Kind="Value"
                          Name="Id"
@@ -891,16 +881,16 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
                   <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":Double"
-                                        Value="800" />
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinHeight]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
                   <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":Double"
-                                        Value="600" />
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
