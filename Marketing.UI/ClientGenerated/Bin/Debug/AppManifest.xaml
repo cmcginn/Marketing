@@ -23,6 +23,8 @@
     <AssemblyPart x:Name="Microsoft.LightSwitch.CodeMarker" Source="Microsoft.LightSwitch.CodeMarker.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch" Source="Microsoft.LightSwitch.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.ExportProvider" Source="Microsoft.LightSwitch.ExportProvider.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Extensions.Client" Source="Microsoft.LightSwitch.Extensions.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Extensions.Design.Client" Source="Microsoft.LightSwitch.Extensions.Design.Client.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.ManifestService.Client" Source="Microsoft.LightSwitch.ManifestService.Client.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.Model.Xaml.Client" Source="Microsoft.LightSwitch.Model.Xaml.Client.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.RuntimeEditor.Internal" Source="Microsoft.LightSwitch.RuntimeEditor.Internal.dll" />
@@ -42,11 +44,11 @@
     <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
     <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.RichEdit.v11.1" Source="DevExpress.Xpf.RichEdit.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Core.v11.1" Source="DevExpress.Xpf.Core.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v11.1" Source="DevExpress.Xpf.Ribbon.v11.1.dll" />
     <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
     <AssemblyPart x:Name="DevExpress.Data.v11.1" Source="DevExpress.Data.v11.1.dll" />
-    <AssemblyPart x:Name="DevExpress.Xpf.Core.v11.1" Source="DevExpress.Xpf.Core.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.RichEdit.v11.1.Core" Source="DevExpress.RichEdit.v11.1.Core.dll" />
-    <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v11.1" Source="DevExpress.Xpf.Ribbon.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.Data.v11.1.Linq" Source="DevExpress.Data.v11.1.Linq.dll" />
     <AssemblyPart x:Name="DevExpress.Printing.v11.1.Core" Source="DevExpress.Printing.v11.1.Core.dll" />
     <AssemblyPart x:Name="Microsoft.VisualStudio.Debugger.Runtime.dll" Source="Microsoft.VisualStudio.Debugger.Runtime.dll.dll" />

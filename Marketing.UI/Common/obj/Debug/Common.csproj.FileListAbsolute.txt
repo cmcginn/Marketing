@@ -1,3 +1,7 @@
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\LSCodeGeneratorsTask.mcs
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\Application.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\Application.Common.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\Microsoft.CSharp.dll
@@ -22,18 +26,3 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ko\Microsoft.CSharp.resourc
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ru\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\zh-Hans\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\zh-Hant\Microsoft.CSharp.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.pdb
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\LSCodeGeneratorsTask.mcs
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\System.Xml.Linq.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\System.Xml.Linq.xml
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\de\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\es\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\fr\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\it\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ja\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ko\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ru\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\zh-Hans\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\zh-Hant\System.Xml.Linq.resources.dll

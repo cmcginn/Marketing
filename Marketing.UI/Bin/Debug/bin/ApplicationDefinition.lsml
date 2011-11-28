@@ -536,6 +536,26 @@
                     <ChainExpression />
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
+                <ContentItem DataType=":Boolean"
+                             Kind="Value"
+                             Name="RespondedTo1"
+                             View=":CheckBox">
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                      <ScreenExpressionTree>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Left" />
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="CraigslistPost/Properties[RespondedTo]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
                 <ContentItem DataType=":DateTime"
                              Kind="Value"
                              Name="PostDate">

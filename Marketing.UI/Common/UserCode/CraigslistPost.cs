@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Xml;
-using System.Xml.Linq;
+//using System.Xml;
+//using System.Xml.Linq;
 using Microsoft.LightSwitch;
 namespace LightSwitchApplication {
   public partial class CraigslistPost {
@@ -14,8 +14,8 @@ namespace LightSwitchApplication {
 
     partial void PostElementBody_Compute( ref string result ) {
       // Set result to the desired field value
-      var element = XElement.Parse( this.PostsElement );
-      result = element.Descendants( "Body" ).First().Value;
+      //var element = XElement.Parse( this.PostsElement );
+      //result = element.Descendants( "Body" ).First().Value;
     }
   }
 }

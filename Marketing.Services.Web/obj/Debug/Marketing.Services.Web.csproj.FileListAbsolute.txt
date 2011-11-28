@@ -1,7 +1,7 @@
 C:\Projects\Urbana\Marketing\Marketing.Services.Web\bin\Debug\Marketing.Services.Web.dll
 C:\Projects\Urbana\Marketing\Marketing.Services.Web\bin\Debug\Marketing.Services.Web.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services.Web\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Services.Web\bin\Debug\Marketing.Data.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services.Web\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.Services.Web\obj\Debug\Marketing.Services.Web.dll
 C:\Projects\Urbana\Marketing\Marketing.Services.Web\obj\Debug\Marketing.Services.Web.pdb
-C:\Projects\Urbana\Marketing\Marketing.Services.Web\bin\Debug\Marketing.Data.dll
-C:\Projects\Urbana\Marketing\Marketing.Services.Web\bin\Debug\Marketing.Data.pdb
