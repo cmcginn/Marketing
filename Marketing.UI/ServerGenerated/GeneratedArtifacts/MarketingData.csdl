@@ -35,9 +35,29 @@
     <Property Name="CraigslitPostsId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingData.FK_CraigsListResponse_CraigslistPosts" ToRole="CraigslistPosts" FromRole="CraigsListResponse" />
   </EntityType>
+  <EntityType Name="CraigslistCity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="CityUrl" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="Keyword1" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Keyword1" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Score" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDataObjectContext">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
     <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
+    <EntitySet Name="CraigslistCities" EntityType="MarketingData.CraigslistCity" />
+    <EntitySet Name="Keywords" EntityType="MarketingData.Keyword" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />

@@ -98,6 +98,38 @@ namespace MarketingData.Implementation
             }
         }
         private ObjectSet<CraigsListResponse> _CraigsListResponses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CraigslistCity> CraigslistCities
+        {
+            get
+            {
+                if ((_CraigslistCities == null))
+                {
+                    _CraigslistCities = base.CreateObjectSet<CraigslistCity>("CraigslistCities");
+                }
+                return _CraigslistCities;
+            }
+        }
+        private ObjectSet<CraigslistCity> _CraigslistCities;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Keyword> Keywords
+        {
+            get
+            {
+                if ((_Keywords == null))
+                {
+                    _Keywords = base.CreateObjectSet<Keyword>("Keywords");
+                }
+                return _Keywords;
+            }
+        }
+        private ObjectSet<Keyword> _Keywords;
 
         #endregion
         #region AddTo Methods
@@ -117,6 +149,22 @@ namespace MarketingData.Implementation
         {
             base.AddObject("CraigsListResponses", craigsListResponse);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CraigslistCities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCraigslistCities(CraigslistCity craigslistCity)
+        {
+            base.AddObject("CraigslistCities", craigslistCity);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Keywords EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToKeywords(Keyword keyword)
+        {
+            base.AddObject("Keywords", keyword);
+        }
 
         #endregion
     }
@@ -125,6 +173,165 @@ namespace MarketingData.Implementation
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingData", Name="CraigslistCity")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CraigslistCity : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CraigslistCity object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="cityName">Initial value of the CityName property.</param>
+        /// <param name="cityUrl">Initial value of the CityUrl property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
+        /// <param name="region">Initial value of the Region property.</param>
+        public static CraigslistCity CreateCraigslistCity(global::System.Guid id, global::System.String cityName, global::System.String cityUrl, global::System.Boolean active, global::System.String region)
+        {
+            CraigslistCity craigslistCity = new CraigslistCity();
+            craigslistCity.Id = id;
+            craigslistCity.CityName = cityName;
+            craigslistCity.CityUrl = cityUrl;
+            craigslistCity.Active = active;
+            craigslistCity.Region = region;
+            return craigslistCity;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CityName
+        {
+            get
+            {
+                return _CityName;
+            }
+            set
+            {
+                OnCityNameChanging(value);
+                ReportPropertyChanging("CityName");
+                _CityName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CityName");
+                OnCityNameChanged();
+            }
+        }
+        private global::System.String _CityName;
+        partial void OnCityNameChanging(global::System.String value);
+        partial void OnCityNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CityUrl
+        {
+            get
+            {
+                return _CityUrl;
+            }
+            set
+            {
+                OnCityUrlChanging(value);
+                ReportPropertyChanging("CityUrl");
+                _CityUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CityUrl");
+                OnCityUrlChanged();
+            }
+        }
+        private global::System.String _CityUrl;
+        partial void OnCityUrlChanging(global::System.String value);
+        partial void OnCityUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.Boolean _Active;
+        partial void OnActiveChanging(global::System.Boolean value);
+        partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Region
+        {
+            get
+            {
+                return _Region;
+            }
+            set
+            {
+                OnRegionChanging(value);
+                ReportPropertyChanging("Region");
+                _Region = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Region");
+                OnRegionChanged();
+            }
+        }
+        private global::System.String _Region;
+        partial void OnRegionChanging(global::System.String value);
+        partial void OnRegionChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -534,6 +741,113 @@ namespace MarketingData.Implementation
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingData", Name="Keyword")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Keyword : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Keyword object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="keyword1">Initial value of the Keyword1 property.</param>
+        /// <param name="score">Initial value of the Score property.</param>
+        public static Keyword CreateKeyword(global::System.Guid id, global::System.String keyword1, global::System.Int32 score)
+        {
+            Keyword keyword = new Keyword();
+            keyword.Id = id;
+            keyword.Keyword1 = keyword1;
+            keyword.Score = score;
+            return keyword;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                OnIdChanging(value);
+                ReportPropertyChanging("Id");
+                _Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id");
+                OnIdChanged();
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Keyword1
+        {
+            get
+            {
+                return _Keyword1;
+            }
+            set
+            {
+                if (_Keyword1 != value)
+                {
+                    OnKeyword1Changing(value);
+                    ReportPropertyChanging("Keyword1");
+                    _Keyword1 = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Keyword1");
+                    OnKeyword1Changed();
+                }
+            }
+        }
+        private global::System.String _Keyword1;
+        partial void OnKeyword1Changing(global::System.String value);
+        partial void OnKeyword1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Score
+        {
+            get
+            {
+                return _Score;
+            }
+            set
+            {
+                OnScoreChanging(value);
+                ReportPropertyChanging("Score");
+                _Score = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Score");
+                OnScoreChanged();
+            }
+        }
+        private global::System.Int32 _Score;
+        partial void OnScoreChanging(global::System.Int32 value);
+        partial void OnScoreChanged();
+
+        #endregion
+    
     }
 
     #endregion

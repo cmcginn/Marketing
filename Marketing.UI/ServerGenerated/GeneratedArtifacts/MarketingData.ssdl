@@ -3,6 +3,8 @@
   <EntityContainer Name="MarketingDataStore">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingDataStore.CraigslistPost" store:Type="Tables" Schema="dbo" Table="CraigslistPosts" />
     <EntitySet Name="CraigsListResponse" EntityType="MarketingDataStore.CraigsListResponse" store:Type="Tables" Schema="dbo" Table="CraigsListResponse" />
+    <EntitySet Name="CraigslistCity" EntityType="MarketingDataStore.CraigslistCity" store:Type="Tables" Schema="dbo" Table="CraigslistCity" />
+    <EntitySet Name="Keyword" EntityType="MarketingDataStore.Keyword" store:Type="Tables" Schema="dbo" Table="Keyword" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
@@ -28,6 +30,24 @@
     <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CraigslistCity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="Keyword" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Keyword" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Score" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />

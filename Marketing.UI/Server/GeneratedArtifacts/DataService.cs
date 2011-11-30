@@ -126,6 +126,72 @@ namespace LightSwitchApplication
         partial void CraigsListResponses_Validate(global::LightSwitchApplication.CraigsListResponse entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Inserting(global::LightSwitchApplication.CraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Inserted(global::LightSwitchApplication.CraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Updating(global::LightSwitchApplication.CraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Updated(global::LightSwitchApplication.CraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Deleting(global::LightSwitchApplication.CraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Deleted(global::LightSwitchApplication.CraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Validate(global::LightSwitchApplication.CraigslistCity entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Inserting(global::LightSwitchApplication.Keyword entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Inserted(global::LightSwitchApplication.Keyword entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Updating(global::LightSwitchApplication.Keyword entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Updated(global::LightSwitchApplication.Keyword entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Deleting(global::LightSwitchApplication.Keyword entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Deleted(global::LightSwitchApplication.Keyword entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Validate(global::LightSwitchApplication.Keyword entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -226,6 +292,96 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void CraigsListResponses_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCities_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Single_Executing(string Keyword1);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Single_PreprocessQuery(string Keyword1, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Single_Executed(string Keyword1, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Keyword> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_Single_ExecuteFailed(string Keyword1, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_SingleOrDefault_Executing(string Keyword1);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_SingleOrDefault_PreprocessQuery(string Keyword1, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_SingleOrDefault_Executed(string Keyword1, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Keyword> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_SingleOrDefault_ExecuteFailed(string Keyword1, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Keyword> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Keywords_All_ExecuteFailed(global::System.Exception exception);
     
         #endregion
     
@@ -375,6 +531,142 @@ namespace LightSwitchApplication
             private static void __CraigsListResponses_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigsListResponse e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.CraigsListResponses_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>
+                __CraigslistCitiesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>(
+                    "CraigslistCities",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Validate);
+            private static bool __CraigslistCities_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.CraigslistCities_CanInsert(ref result);
+                return result;
+            }
+            private static bool __CraigslistCities_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.CraigslistCities_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __CraigslistCities_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.CraigslistCities_CanDelete(ref result);
+                return result;
+            }
+            private static bool __CraigslistCities_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.CraigslistCities_CanRead(ref result);
+                return result;
+            }
+            private static void __CraigslistCities_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e)
+            {
+                d.CraigslistCities_Inserting(e);
+            }
+            private static void __CraigslistCities_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e)
+            {
+                d.CraigslistCities_Inserted(e);
+            }
+            private static void __CraigslistCities_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e)
+            {
+                d.CraigslistCities_Updating(e);
+            }
+            private static void __CraigslistCities_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e)
+            {
+                d.CraigslistCities_Updated(e);
+            }
+            private static void __CraigslistCities_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e)
+            {
+                d.CraigslistCities_Deleting(e);
+            }
+            private static void __CraigslistCities_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e)
+            {
+                d.CraigslistCities_Deleted(e);
+            }
+            private static void __CraigslistCities_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistCity e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.CraigslistCities_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>
+                __KeywordsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>(
+                    "Keywords",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Validate);
+            private static bool __Keywords_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.Keywords_CanInsert(ref result);
+                return result;
+            }
+            private static bool __Keywords_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.Keywords_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __Keywords_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.Keywords_CanDelete(ref result);
+                return result;
+            }
+            private static bool __Keywords_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.Keywords_CanRead(ref result);
+                return result;
+            }
+            private static void __Keywords_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e)
+            {
+                d.Keywords_Inserting(e);
+            }
+            private static void __Keywords_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e)
+            {
+                d.Keywords_Inserted(e);
+            }
+            private static void __Keywords_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e)
+            {
+                d.Keywords_Updating(e);
+            }
+            private static void __Keywords_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e)
+            {
+                d.Keywords_Updated(e);
+            }
+            private static void __Keywords_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e)
+            {
+                d.Keywords_Deleting(e);
+            }
+            private static void __Keywords_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e)
+            {
+                d.Keywords_Deleted(e);
+            }
+            private static void __Keywords_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.Keyword e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.Keywords_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -598,6 +890,204 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigsListResponse>)args[0];
                 d.CraigsListResponses_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>
+                __CraigslistCities_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>(
+                    "CraigslistCities_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_Single_PreprocessQuery);
+            private static bool __CraigslistCities_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.CraigslistCities_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigslistCities_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.CraigslistCities_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __CraigslistCities_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.CraigslistCities_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistCity>)args[1]);
+            }
+            private static void __CraigslistCities_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigslistCities_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __CraigslistCities_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity>)args[1];
+                d.CraigslistCities_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>
+                __CraigslistCities_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>(
+                    "CraigslistCities_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_SingleOrDefault_PreprocessQuery);
+            private static bool __CraigslistCities_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.CraigslistCities_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigslistCities_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.CraigslistCities_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __CraigslistCities_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.CraigslistCities_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistCity>)args[1]);
+            }
+            private static void __CraigslistCities_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigslistCities_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __CraigslistCities_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity>)args[1];
+                d.CraigslistCities_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>
+                __CraigslistCities_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.CraigslistCity>(
+                    "CraigslistCities_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__CraigslistCities_All_PreprocessQuery);
+            private static bool __CraigslistCities_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.CraigslistCities_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __CraigslistCities_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.CraigslistCities_All_Executing();
+            }
+            private static void __CraigslistCities_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.CraigslistCities_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistCity>)args[0]);
+            }
+            private static void __CraigslistCities_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.CraigslistCities_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __CraigslistCities_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistCity>)args[0];
+                d.CraigslistCities_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>
+                __Keywords_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>(
+                    "Keywords_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_Single_PreprocessQuery);
+            private static bool __Keywords_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.Keywords_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __Keywords_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.Keywords_Single_Executing((string)args[0]);
+            }
+            private static void __Keywords_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.Keywords_Single_Executed((string)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Keyword>)args[1]);
+            }
+            private static void __Keywords_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.Keywords_Single_ExecuteFailed((string)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __Keywords_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword>)args[1];
+                d.Keywords_Single_PreprocessQuery((string)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>
+                __Keywords_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>(
+                    "Keywords_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_SingleOrDefault_PreprocessQuery);
+            private static bool __Keywords_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.Keywords_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __Keywords_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.Keywords_SingleOrDefault_Executing((string)args[0]);
+            }
+            private static void __Keywords_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.Keywords_SingleOrDefault_Executed((string)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Keyword>)args[1]);
+            }
+            private static void __Keywords_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.Keywords_SingleOrDefault_ExecuteFailed((string)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __Keywords_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword>)args[1];
+                d.Keywords_SingleOrDefault_PreprocessQuery((string)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>
+                __Keywords_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.Keyword>(
+                    "Keywords_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__Keywords_All_PreprocessQuery);
+            private static bool __Keywords_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.Keywords_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __Keywords_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.Keywords_All_Executing();
+            }
+            private static void __Keywords_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.Keywords_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Keyword>)args[0]);
+            }
+            private static void __Keywords_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.Keywords_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __Keywords_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Keyword>)args[0];
+                d.Keywords_All_PreprocessQuery(ref query);
                 return query;
             }
     

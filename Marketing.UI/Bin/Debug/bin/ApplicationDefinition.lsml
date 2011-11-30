@@ -19,6 +19,11 @@
         <ApplicationMethodParameter Name="CraigslistPostId"
                                     ParameterType=":Guid" />
       </ApplicationMethod>
+      <ApplicationMethod Name="ShowSystemSettings">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="SystemSettings" />
+        </ApplicationMethod.Attributes>
+      </ApplicationMethod>
     </Application.Methods>
     <Application.Attributes>
       <AutomaticDisplayName Expression="(\p{Ll})(\p{Lu})|_+"
@@ -32,6 +37,8 @@
         </ApplicationNavigationGroup.Attributes>
         <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowCraigsListPosts]"
                                    Name="CraigsListPosts" />
+        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowSystemSettings]"
+                                   Name="SystemSettings" />
       </ApplicationNavigationGroup>
       <ApplicationNavigationGroup Name="Administration">
         <ApplicationNavigationGroup.Attributes>
@@ -45,6 +52,8 @@
     </Application.NavigationItems>
     <ApplicationCommand Name="ScreenCommandShowCraigsListPosts"
                         Target="!module/Methods[ShowCraigsListPosts]" />
+    <ApplicationCommand Name="ScreenCommandShowSystemSettings"
+                        Target="!module/Methods[ShowSystemSettings]" />
   </Application>
 
   <EntityContainerGroup Name="DataWorkspace">
@@ -86,14 +95,16 @@
                       PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
-          <MaxLength Value="255" />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty Name="EmailAddress"
                       PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
-          <MaxLength Value="255" />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty Name="PostDate"
@@ -101,7 +112,8 @@
         <EntityProperty.Attributes>
           <Required />
           <DateTimeConstraint Precision="3"
-                              PreserveSeconds="True" />
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
@@ -111,7 +123,7 @@
           <NotSortable />
           <NotSearchable />
           <Required />
-          <MaxLength />
+          <MaxLength  IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty Association="FK_CraigsListResponse_CraigslistPosts"
@@ -135,6 +147,14 @@
   </EntityType>
 
   <EntityType Name="CraigsListResponse">
+    <EntityType.Attributes>
+      <DefaultScreen Value="CreateNewCraigslistResponse">
+        <DefaultScreen.Attributes>
+          <ScreenParameterMapping KeyProperty="CraigsListResponse/Properties[Id]"
+                                  ScreenParameter="CreateNewCraigslistResponse/Properties[CraigslistPostId]" />
+        </DefaultScreen.Attributes>
+      </DefaultScreen>
+    </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod Name="Delete">
         <EntityMethod.Attributes>
@@ -154,14 +174,14 @@
                       PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
-          <MaxLength />
+          <MaxLength  IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty Name="ResponseHtmlContent"
                       PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
-          <MaxLength />
+          <MaxLength  IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty Name="Created"
@@ -169,7 +189,8 @@
         <EntityProperty.Attributes>
           <Required />
           <DateTimeConstraint Precision="3"
-                              PreserveSeconds="True" />
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
@@ -374,98 +395,180 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
     </QueryOperation>
+    <EntitySet CanDelete="True"
+               CanInsert="True"
+               CanUpdate="True"
+               EntityType="CraigslistCity"
+               Name="CraigslistCities" />
+  
+    <QueryOperation Name="CraigslistCities_Single"
+                    ReturnType="CraigslistCity">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistCities" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="CraigslistCities_SingleOrDefault"
+                    ReturnType="CraigslistCity">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistCities" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="CraigslistCities_All"
+                    ReturnType="CraigslistCity*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistCities" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
+    <EntitySet CanDelete="True"
+               CanInsert="True"
+               CanUpdate="True"
+               EntityType="Keyword"
+               Name="Keywords" />
+  
+    <QueryOperation Name="Keywords_Single"
+                    ReturnType="Keyword">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Keyword1" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Keyword1" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Keywords" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Keyword1"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Keyword1' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="Keywords_SingleOrDefault"
+                    ReturnType="Keyword">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Keyword1" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Keyword1" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Keywords" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Keyword1"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Keyword1' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="Keywords_All"
+                    ReturnType="Keyword*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Keywords" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
   </EntityContainer>
 
   
-  <DataService DataProvider="EntityFrameworkDataProvider"
-               EntityContainer="MarketingData"
-               Name="MarketingDataDataService">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="DataProviderName"
-                          Value="91510608-8809-4020-8897-fba057e22d54" />
-      <ConnectionProperty Name="DataSourceName"
-                          Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
-      <ConnectionProperty Name="ProviderInvariantName"
-                          Value="System.Data.SqlClient" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="d476399c-874b-4da8-9fd8-2067c0744083" />
-      <ConnectionProperty Name="ProviderManifestToken"
-                          Value="2008" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="CraigslistPosts">
-      <EntitySetMapping.Attributes>
-        <SsdlEntitySet Schema="dbo"
-                       Table="CraigslistPosts" />
-        <SsdlProperty Name="Id"
-                      Nullable="False"
-                      Property="CraigslistPost/Properties[Id]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty Name="PostId"
-                      Nullable="False"
-                      Property="CraigslistPost/Properties[PostId]"
-                      Type="bigint" />
-        <SsdlProperty MaxLength="255"
-                      Name="Title"
-                      Nullable="False"
-                      Property="CraigslistPost/Properties[Title]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="255"
-                      Name="EmailAddress"
-                      Nullable="False"
-                      Property="CraigslistPost/Properties[EmailAddress]"
-                      Type="nvarchar" />
-        <SsdlProperty Name="PostDate"
-                      Nullable="False"
-                      Property="CraigslistPost/Properties[PostDate]"
-                      Type="datetime" />
-        <SsdlProperty Name="PostsElement"
-                      Nullable="False"
-                      Property="CraigslistPost/Properties[PostsElement]"
-                      Type="xml" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="CraigsListResponses">
-      <EntitySetMapping.Attributes>
-        <SsdlEntitySet Schema="dbo"
-                       Table="CraigsListResponse" />
-        <SsdlProperty Name="Id"
-                      Nullable="False"
-                      Property="CraigsListResponse/Properties[Id]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty Name="ResponseContent"
-                      Nullable="False"
-                      Property="CraigsListResponse/Properties[ResponseContent]"
-                      Type="nvarchar(max)" />
-        <SsdlProperty Name="ResponseHtmlContent"
-                      Nullable="False"
-                      Property="CraigsListResponse/Properties[ResponseHtmlContent]"
-                      Type="nvarchar(max)" />
-        <SsdlProperty Name="Created"
-                      Nullable="False"
-                      Property="CraigsListResponse/Properties[Created]"
-                      Type="datetime" />
-        <SsdlForeignKeyProperty Name="CraigslitPostsId"
-                                Nullable="False"
-                                PropertyName="CraigslitPostsId"
-                                Type="uniqueidentifier" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <AssociationSetMapping AssociationSet="FK_CraigsListResponse_CraigslistPosts">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet Name="FK_CraigsListResponse_CraigslistPosts" />
-        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigsListResponse_CraigslistPosts]/Members[CraigslistPosts]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigsListResponse_CraigslistPosts]/Members[CraigsListResponse]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef Name="CraigslitPostsId" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-  </DataService>
+  
 
   <Screen Name="CraigsListPosts">
     <Screen.Attributes>
@@ -523,16 +626,6 @@
                    Name="RootContentItem">
         <ContentItem.CommandItems>
           <ContentItem Kind="Command"
-                       Name="Save">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="CraigsListPosts/Methods[Save]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-          <ContentItem Kind="Command"
                        Name="Refresh">
             <ContentItem.DataSource>
               <ScreenExpressionTree>
@@ -546,6 +639,16 @@
         <ContentItem Kind="Group"
                      Name="ScreenLayout"
                      View="Microsoft.LightSwitch:ColumnsLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[BrowseOnly]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
           <ContentItem Kind="Group"
                        Name="ListColumn">
             <ContentItem.PropertySources>
@@ -562,41 +665,6 @@
                          Kind="Collection"
                          Name="CraigslistPostList"
                          View="Microsoft.LightSwitch:List">
-              <ContentItem.CommandItems>
-                <ContentItem Kind="Command"
-                             Name="CraigslistPosts1_AddAndEditNew">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostsDataSource]" />
-                        <CallExpression Target="AddAndEditNew" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem Kind="Command"
-                             Name="CraigslistPosts1_EditSelected">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostsDataSource]" />
-                        <CallExpression Target="EditSelected" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem Kind="Command"
-                             Name="CraigslistPosts1_DeleteSelected">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostsDataSource]" />
-                        <CallExpression Target="DeleteSelected" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem.CommandItems>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -954,6 +1022,498 @@
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+  <EntityType Name="CraigslistCity">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="CityName"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="CityUrl"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength  IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Active"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Region"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+
+  <Screen Name="SystemSettings">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDataDataService" />
+    </Screen.Attributes>
+    <Screen.Properties>
+      <ScreenCollectionProperty Name="CraigslistCities"
+                                PageSize="45"
+                                PropertyType="CollectionView$CraigslistCity">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="CraigslistCitiesQuery"
+                                 ReturnType="CraigslistCity*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingData/Members[CraigslistCities]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="SystemSettings/Properties[CraigslistCities]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty Name="Keywords"
+                                PageSize="45"
+                                PropertyType="CollectionView$Keyword">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="KeywordsQuery"
+                                 ReturnType="Keyword*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingData/Members[Keywords]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="SystemSettings/Properties[Keywords]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="SystemSettings/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="SystemSettings/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem DataType="CollectionView$CraigslistCity"
+                       Kind="Collection"
+                       Name="CraigslistCities">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="CraigslistCities_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="SystemSettings/Properties[CraigslistCities]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="CraigslistCities_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="SystemSettings/Properties[CraigslistCities]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="CraigslistCities_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="SystemSettings/Properties[CraigslistCities]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="SystemSettings/Properties[CraigslistCities]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType="CraigslistCity"
+                         Kind="Details"
+                         Name="CraigslistCitiesTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="Region"
+                           View=":Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistCity/Properties[Region]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="CityName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistCity/Properties[CityName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Boolean"
+                           Kind="Value"
+                           Name="Active">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistCity/Properties[Active]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem Kind="Group"
+                       Name="Group">
+            <ContentItem DataType="CollectionView$Keyword"
+                         Kind="Collection"
+                         Name="Keywords">
+              <ContentItem.CommandItems>
+                <ContentItem Kind="Command"
+                             Name="Keywords_AddAndEditNew">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="SystemSettings/Properties[Keywords]" />
+                        <CallExpression Target="AddAndEditNew" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem Kind="Command"
+                             Name="Keywords_EditSelected">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="SystemSettings/Properties[Keywords]" />
+                        <CallExpression Target="EditSelected" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem Kind="Command"
+                             Name="Keywords_DeleteSelected">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="SystemSettings/Properties[Keywords]" />
+                        <CallExpression Target="DeleteSelected" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem.CommandItems>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="SystemSettings/Properties[Keywords]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType="Keyword"
+                           Kind="Details"
+                           Name="KeywordsTemplate">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem DataType=":String"
+                             Kind="Value"
+                             Name="Keyword1">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="Keyword/Properties[Keyword1]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem DataType=":Int32"
+                             Kind="Value"
+                             Name="Score">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="Keyword/Properties[Score]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
+  <EntityType Name="Keyword">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <EntityProperty Name="Id"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <KeyProperty Name="Keyword1"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength Value="255" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Score"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+
+  <DataService DataProvider="EntityFrameworkDataProvider"
+               EntityContainer="MarketingData"
+               Name="MarketingDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="DataProviderName"
+                          Value="91510608-8809-4020-8897-fba057e22d54" />
+      <ConnectionProperty Name="DataSourceName"
+                          Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
+      <ConnectionProperty Name="ProviderInvariantName"
+                          Value="System.Data.SqlClient" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="d476399c-874b-4da8-9fd8-2067c0744083" />
+      <ConnectionProperty Name="ProviderManifestToken"
+                          Value="2008" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="CraigslistCities">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="CraigslistCity" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="CraigslistCity/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty MaxLength="50"
+                      Name="Region"
+                      Nullable="False"
+                      Property="CraigslistCity/Properties[Region]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="50"
+                      Name="CityName"
+                      Nullable="False"
+                      Property="CraigslistCity/Properties[CityName]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="CityUrl"
+                      Nullable="False"
+                      Property="CraigslistCity/Properties[CityUrl]"
+                      Type="nvarchar(max)" />
+        <SsdlProperty Name="Active"
+                      Nullable="False"
+                      Property="CraigslistCity/Properties[Active]"
+                      Type="bit" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="CraigslistPosts">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="CraigslistPosts" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="CraigslistPost/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="PostId"
+                      Nullable="False"
+                      Property="CraigslistPost/Properties[PostId]"
+                      Type="bigint" />
+        <SsdlProperty MaxLength="255"
+                      Name="Title"
+                      Nullable="False"
+                      Property="CraigslistPost/Properties[Title]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="255"
+                      Name="EmailAddress"
+                      Nullable="False"
+                      Property="CraigslistPost/Properties[EmailAddress]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="PostDate"
+                      Nullable="False"
+                      Property="CraigslistPost/Properties[PostDate]"
+                      Type="datetime" />
+        <SsdlProperty Name="PostsElement"
+                      Nullable="False"
+                      Property="CraigslistPost/Properties[PostsElement]"
+                      Type="xml" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="CraigsListResponses">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="CraigsListResponse" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="CraigsListResponse/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="ResponseContent"
+                      Nullable="False"
+                      Property="CraigsListResponse/Properties[ResponseContent]"
+                      Type="nvarchar(max)" />
+        <SsdlProperty Name="ResponseHtmlContent"
+                      Nullable="False"
+                      Property="CraigsListResponse/Properties[ResponseHtmlContent]"
+                      Type="nvarchar(max)" />
+        <SsdlProperty Name="Created"
+                      Nullable="False"
+                      Property="CraigsListResponse/Properties[Created]"
+                      Type="datetime" />
+        <SsdlForeignKeyProperty Name="CraigslitPostsId"
+                                Nullable="False"
+                                PropertyName="CraigslitPostsId"
+                                Type="uniqueidentifier" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="Keywords">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="Keyword" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="Keyword/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty MaxLength="255"
+                      Name="Keyword"
+                      Nullable="False"
+                      Property="Keyword/Properties[Keyword1]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="Score"
+                      Nullable="False"
+                      Property="Keyword/Properties[Score]"
+                      Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping AssociationSet="FK_CraigsListResponse_CraigslistPosts">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet Name="FK_CraigsListResponse_CraigslistPosts" />
+        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigsListResponse_CraigslistPosts]/Members[CraigslistPosts]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigsListResponse_CraigslistPosts]/Members[CraigsListResponse]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef Name="CraigslitPostsId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+
 
  
   

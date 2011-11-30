@@ -85,6 +85,66 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region CraigslistCity
+    
+        public void InsertCraigslistCity(global::MarketingData.Implementation.CraigslistCity entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.CraigslistCities.AddObject(entity);
+            }
+        }
+    
+        public void UpdateCraigslistCity(global::MarketingData.Implementation.CraigslistCity currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.CraigslistCities, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteCraigslistCity(global::MarketingData.Implementation.CraigslistCity entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.CraigslistCities.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
+    #region Keyword
+    
+        public void InsertKeyword(global::MarketingData.Implementation.Keyword entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.Keywords.AddObject(entity);
+            }
+        }
+    
+        public void UpdateKeyword(global::MarketingData.Implementation.Keyword currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.Keywords, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteKeyword(global::MarketingData.Implementation.Keyword entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.Keywords.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -114,6 +174,36 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingData.Implementation.CraigsListResponse>("CraigsListResponses_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> CraigslistCities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistCity>("CraigslistCities_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> CraigslistCities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistCity>("CraigslistCities_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> CraigslistCities_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistCity>("CraigslistCities_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> Keywords_Single(string frameworkOperators, string Keyword1)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.Keyword>("Keywords_Single", frameworkOperators, Keyword1);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> Keywords_SingleOrDefault(string frameworkOperators, string Keyword1)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.Keyword>("Keywords_SingleOrDefault", frameworkOperators, Keyword1);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> Keywords_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.Keyword>("Keywords_All", frameworkOperators);
         }
     
     #endregion
@@ -199,6 +289,56 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> CraigslistCities_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.CraigslistCity>("CraigslistCities_All"),
+                (c) => (Id.HasValue && (c.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> CraigslistCities_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.CraigslistCity>("CraigslistCities_All"),
+                (c) => (Id.HasValue && (c.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> CraigslistCities_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistCity> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.CraigslistCity>("[CraigslistCities]").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> Keywords_Single(string Keyword1)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.Keyword>("Keywords_All"),
+                (k) => (k.Keyword1.CompareTo(Keyword1) == 0));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> Keywords_SingleOrDefault(string Keyword1)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.Keyword>("Keywords_All"),
+                (k) => (k.Keyword1.CompareTo(Keyword1) == 0));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> Keywords_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.Keyword> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.Keyword>("[Keywords]").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -211,6 +351,14 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingData.Implementation.CraigsListResponse))
             {
                 return new global::MarketingData.Implementation.CraigsListResponse();
+            }
+            if (type == typeof(global::MarketingData.Implementation.CraigslistCity))
+            {
+                return new global::MarketingData.Implementation.CraigslistCity();
+            }
+            if (type == typeof(global::MarketingData.Implementation.Keyword))
+            {
+                return new global::MarketingData.Implementation.Keyword();
             }
     
             return base.CreateObject(type);
@@ -233,6 +381,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigsListResponse))
             {
                 return new global::MarketingData.Implementation.CraigsListResponse();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistCity))
+            {
+                return new global::MarketingData.Implementation.CraigslistCity();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.Keyword))
+            {
+                return new global::MarketingData.Implementation.Keyword();
             }
             return null;
         }
@@ -286,6 +442,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.CraigsListResponse) == definitionType)
             {
                 return typeof(global::MarketingData.Implementation.CraigsListResponse);
+            }
+            if (typeof(global::LightSwitchApplication.CraigslistCity) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.CraigslistCity);
+            }
+            if (typeof(global::LightSwitchApplication.Keyword) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.Keyword);
             }
             return null;
         }
@@ -399,6 +563,72 @@ namespace MarketingData.Implementation
             public global::MarketingData.Implementation.CraigslistPost CraigslistPost { get; set; }
         
         }
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class CraigslistCity :
+        global::LightSwitchApplication.CraigslistCity.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class Keyword :
+        global::LightSwitchApplication.Keyword.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
     }
     
 }
