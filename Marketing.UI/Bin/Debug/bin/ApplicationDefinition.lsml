@@ -12,6 +12,13 @@
           <ShowScreenMethod TargetScreen="CraigsListPosts" />
         </ApplicationMethod.Attributes>
       </ApplicationMethod>
+      <ApplicationMethod Name="ShowCreateNewCraigslistResponse">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="CreateNewCraigslistResponse" />
+        </ApplicationMethod.Attributes>
+        <ApplicationMethodParameter Name="CraigslistPostId"
+                                    ParameterType=":Guid" />
+      </ApplicationMethod>
     </Application.Methods>
     <Application.Attributes>
       <AutomaticDisplayName Expression="(\p{Ll})(\p{Lu})|_+"
@@ -485,6 +492,7 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod Name="CreateNewResponse" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty Name="CraigslistPostsDataSource"
@@ -711,6 +719,18 @@
           </ContentItem>
           <ContentItem Kind="Group"
                        Name="DetailsColumn">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="CreateNewResponse">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression Target="CraigsListPosts/Methods[CreateNewResponse]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
             <ContentItem.PropertySources>
               <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
                 <ScreenExpressionTree>
@@ -785,6 +805,156 @@
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+  <Screen LaunchMode="Multiple"
+          Name="CreateNewCraigslistResponse">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty Name="CraigsListResponseProperty"
+                      PropertyType="CraigsListResponse" />
+      <ScreenProperty Name="CraigslistPostId"
+                      PropertyType=":Guid">
+        <ScreenProperty.Attributes>
+          <Required />
+          <IsParameter />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="CreateNewCraigslistResponse/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="CreateNewCraigslistResponse/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+          <ContentItem DataType="CraigsListResponse"
+                       Kind="Details"
+                       Name="details"
+                       View="Microsoft.LightSwitch:RowsLayout">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="CreateNewCraigslistResponse/Properties[CraigsListResponseProperty]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[BrowseOnly]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="True" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem DataType="CraigslistPost"
+                         Kind="Details"
+                         Name="CraigslistPost">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="CraigsListResponse/Properties[CraigslistPost]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType="CraigslistPost"
+                           Kind="Details"
+                           Name="RowTemplate">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+            <ContentItem Kind="ScreenContent"
+                         Name="ScreenContent">
+              <ContentItem.Attributes>
+                <DisplayName Value="Response" />
+              </ContentItem.Attributes>
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.PostDetailsControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
  
   
     

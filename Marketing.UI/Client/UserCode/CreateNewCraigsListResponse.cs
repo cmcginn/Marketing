@@ -9,20 +9,15 @@ using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
 
 namespace LightSwitchApplication {
-  public partial class CreateNewCraigsListResponse {
-    partial void CreateNewCraigsListResponse_InitializeDataWorkspace( global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo ) {
-      // Write your code here.
+
+  public partial class CreateNewCraigslistResponse {
+    partial void CreateNewCraigslistResponse_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       this.CraigsListResponseProperty = new CraigsListResponse();
-      this.CraigsListResponseProperty.CraigslistPost = this.DataWorkspace.MarketingDomainServiceData.CraigslistPosts.Where( x => x.Id == this.SelectedCraigslistPostId ).Single();
-
+      this.CraigsListResponseProperty.CraigslistPost = this.DataWorkspace.MarketingData.CraigslistPosts.Where( x => x.Id == this.CraigslistPostId ).Single();
+    }   
+    partial void CreateNewCraigslistResponse_Saved() {
+      this.Application.OnCraigslistResponseAdded( this, EventArgs.Empty );
+      this.Close( false );
     }
-
-    partial void CreateNewCraigsListResponse_Saved() {
-      // Write your code here.
-      this.Close( true );
-
-    }
-
-
   }
 }
