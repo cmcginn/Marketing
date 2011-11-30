@@ -30,15 +30,15 @@ namespace LightSwitchApplication
         #region Public Properties
     
         /// <summary>
-        /// Gets the MarketingDomainServiceData datasource.  This provides members to query and update data in the data source.
+        /// Gets the MarketingData datasource.  This provides members to query and update data in the data source.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::LightSwitchApplication.MarketingDomainServiceData MarketingDomainServiceData
+        public global::LightSwitchApplication.MarketingData MarketingData
         {
             get
             {
-                return global::LightSwitchApplication.DataWorkspace.DetailsClass.GetValue(this, global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingDomainServiceData);
+                return global::LightSwitchApplication.DataWorkspace.DetailsClass.GetValue(this, global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingData);
             }
         }
         
@@ -55,7 +55,7 @@ namespace LightSwitchApplication
     
             static DetailsClass()
             {
-                var initializeEntry = global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingDomainServiceData;
+                var initializeEntry = global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingData;
             }
     
             public DetailsClass() : base()
@@ -81,11 +81,11 @@ namespace LightSwitchApplication
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData> MarketingDomainServiceData
+                public global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingData> MarketingData
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingDomainServiceData) as global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>;
+                        return base.GetItem(global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingData) as global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingData>;
                     }
                 }
                 
@@ -98,19 +98,19 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Entry
-                    MarketingDomainServiceData = new global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Entry(
-                        "MarketingDomainServiceData",
-                        global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties._MarketingDomainServiceData_Stub);
-                private static void _MarketingDomainServiceData_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.DataWorkspace.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Data> c, global::LightSwitchApplication.DataWorkspace.DetailsClass d, object sf)
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingData>.Entry
+                    MarketingData = new global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingData>.Entry(
+                        "MarketingData",
+                        global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties._MarketingData_Stub);
+                private static void _MarketingData_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.DataWorkspace.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingData>.Data> c, global::LightSwitchApplication.DataWorkspace.DetailsClass d, object sf)
                 {
-                    c(d, ref d._MarketingDomainServiceData, sf);
+                    c(d, ref d._MarketingData, sf);
                 }
                  
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Data _MarketingDomainServiceData;
+            private global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingData>.Data _MarketingData;
             
         }
     
@@ -122,15 +122,15 @@ namespace LightSwitchApplication
     #region Data Services
     
     /// <summary>
-    /// Provides members to query and update data in the MarketingDomainServiceData datasource.
+    /// Provides members to query and update data in the MarketingData datasource.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public class MarketingDomainServiceData : global::Microsoft.LightSwitch.Framework.Base.DataService<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass>
+    public class MarketingData : global::Microsoft.LightSwitch.Framework.Base.DataService<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass>
     {
         #region Constructors
     
-        public MarketingDomainServiceData() : base()
+        public MarketingData() : base()
         {
         }
     
@@ -147,7 +147,7 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.CraigslistPosts);
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigslistPosts);
             }
         }
         
@@ -160,7 +160,7 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.CraigsListResponses);
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigsListResponses);
             }
         }
         
@@ -220,20 +220,20 @@ namespace LightSwitchApplication
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.DataServiceDetails<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySet, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSet>
+        public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.DataServiceDetails<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySet, global::LightSwitchApplication.MarketingData.DetailsClass.MethodSet>
         {
     
             static DetailsClass()
             {
-                var initializeMethodEntry = global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.CraigslistPosts_Single;
-                var initializePropertyEntry = global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.CraigslistPosts;
+                var initializeMethodEntry = global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigslistPosts_Single;
+                var initializePropertyEntry = global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigslistPosts;
             }
     
             public DetailsClass() : base()
             {
             }
     
-            public new global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSet Methods
+            public new global::LightSwitchApplication.MarketingData.DetailsClass.MethodSet Methods
             {
                 get
                 {
@@ -241,7 +241,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySet Properties
+            public new global::LightSwitchApplication.MarketingData.DetailsClass.PropertySet Properties
             {
                 get
                 {
@@ -253,42 +253,42 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class MethodSet : global::Microsoft.LightSwitch.Details.Framework.Base.DataServiceMethodSet<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass>
+            public sealed class MethodSet : global::Microsoft.LightSwitch.Details.Framework.Base.DataServiceMethodSet<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass>
             {
     
                 public MethodSet() : base()
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts_Single
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts_Single
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.CraigslistPosts_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigslistPosts_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts_SingleOrDefault
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts_SingleOrDefault
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.CraigslistPosts_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigslistPosts_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses_Single
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses_Single
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.CraigsListResponses_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigsListResponses_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses_SingleOrDefault
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses_SingleOrDefault
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.CraigsListResponses_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigsListResponses_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>;
                     }
                 }
                 
@@ -298,26 +298,26 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.DataServicePropertySet<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass>
+            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.DataServicePropertySet<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass>
             {
     
                 public PropertySet() : base()
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.CraigslistPosts) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigslistPosts) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.CraigsListResponses) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigsListResponses) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>;
                     }
                 }
                 
@@ -330,41 +330,41 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
-                    CraigslistPosts_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
+                    CraigslistPosts_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
                         "CraigslistPosts_Single",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._CraigslistPosts_Single_Stub);
-                private static void _CraigslistPosts_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._CraigslistPosts_Single_Stub);
+                private static void _CraigslistPosts_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigslistPosts_Single, sf);
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
-                    CraigslistPosts_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
+                    CraigslistPosts_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
                         "CraigslistPosts_SingleOrDefault",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._CraigslistPosts_SingleOrDefault_Stub);
-                private static void _CraigslistPosts_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._CraigslistPosts_SingleOrDefault_Stub);
+                private static void _CraigslistPosts_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigslistPosts_SingleOrDefault, sf);
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
-                    CraigsListResponses_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
+                    CraigsListResponses_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
                         "CraigsListResponses_Single",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._CraigsListResponses_Single_Stub);
-                private static void _CraigsListResponses_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._CraigsListResponses_Single_Stub);
+                private static void _CraigsListResponses_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigsListResponses_Single, sf);
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
-                    CraigsListResponses_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
+                    CraigsListResponses_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
                         "CraigsListResponses_SingleOrDefault",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._CraigsListResponses_SingleOrDefault_Stub);
-                private static void _CraigsListResponses_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._CraigsListResponses_SingleOrDefault_Stub);
+                private static void _CraigsListResponses_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigsListResponses_SingleOrDefault, sf);
                 }
@@ -378,21 +378,21 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
-                    CraigslistPosts = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
+                    CraigslistPosts = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
                         "CraigslistPosts",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties._CraigslistPosts_Stub);
-                private static void _CraigslistPosts_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._CraigslistPosts_Stub);
+                private static void _CraigslistPosts_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigslistPosts, sf);
                 }
      
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
-                    CraigsListResponses = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
+                    CraigsListResponses = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
                         "CraigsListResponses",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties._CraigsListResponses_Stub);
-                private static void _CraigsListResponses_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._CraigsListResponses_Stub);
+                private static void _CraigsListResponses_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigsListResponses, sf);
                 }
@@ -400,22 +400,22 @@ namespace LightSwitchApplication
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts;
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_Single;
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_Single;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_SingleOrDefault;
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_SingleOrDefault;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses_Single;
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses_Single;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses_SingleOrDefault;
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses_SingleOrDefault;
             
         }
     

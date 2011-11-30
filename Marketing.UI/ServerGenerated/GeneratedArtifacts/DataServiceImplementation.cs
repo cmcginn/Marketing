@@ -15,11 +15,11 @@ namespace LightSwitchApplication.Implementation
     [global::System.ServiceModel.DomainServices.Hosting.EnableClientAccess()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public class MarketingDomainServiceDataDomainService
-        : global::Microsoft.LightSwitch.ServerGenerated.Implementation.DomainService<global::MarketingDomainServiceData.Implementation.MarketingDomainServiceDataObjectContext>
+    public class MarketingDataDomainService
+        : global::Microsoft.LightSwitch.ServerGenerated.Implementation.DomainService<global::MarketingData.Implementation.MarketingDataObjectContext>
     {
     
-        public MarketingDomainServiceDataDomainService() : base()
+        public MarketingDataDomainService() : base()
         {
         }
     
@@ -27,7 +27,7 @@ namespace LightSwitchApplication.Implementation
     
     #region CraigslistPost
     
-        public void InsertCraigslistPost(global::MarketingDomainServiceData.Implementation.CraigslistPost entity)
+        public void InsertCraigslistPost(global::MarketingData.Implementation.CraigslistPost entity)
         {
             if (entity.EntityState != global::System.Data.EntityState.Detached)
             {
@@ -39,12 +39,12 @@ namespace LightSwitchApplication.Implementation
             }
         }
     
-        public void UpdateCraigslistPost(global::MarketingDomainServiceData.Implementation.CraigslistPost currentEntity)
+        public void UpdateCraigslistPost(global::MarketingData.Implementation.CraigslistPost currentEntity)
         {
             global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.CraigslistPosts, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
         }
     
-        public void DeleteCraigslistPost(global::MarketingDomainServiceData.Implementation.CraigslistPost entity)
+        public void DeleteCraigslistPost(global::MarketingData.Implementation.CraigslistPost entity)
         {
             if (entity.EntityState == global::System.Data.EntityState.Detached)
             {
@@ -57,7 +57,7 @@ namespace LightSwitchApplication.Implementation
     
     #region CraigsListResponse
     
-        public void InsertCraigsListResponse(global::MarketingDomainServiceData.Implementation.CraigsListResponse entity)
+        public void InsertCraigsListResponse(global::MarketingData.Implementation.CraigsListResponse entity)
         {
             if (entity.EntityState != global::System.Data.EntityState.Detached)
             {
@@ -69,12 +69,12 @@ namespace LightSwitchApplication.Implementation
             }
         }
     
-        public void UpdateCraigsListResponse(global::MarketingDomainServiceData.Implementation.CraigsListResponse currentEntity)
+        public void UpdateCraigsListResponse(global::MarketingData.Implementation.CraigsListResponse currentEntity)
         {
             global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.CraigsListResponses, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
         }
     
-        public void DeleteCraigsListResponse(global::MarketingDomainServiceData.Implementation.CraigsListResponse entity)
+        public void DeleteCraigsListResponse(global::MarketingData.Implementation.CraigsListResponse entity)
         {
             if (entity.EntityState == global::System.Data.EntityState.Detached)
             {
@@ -86,34 +86,34 @@ namespace LightSwitchApplication.Implementation
     #endregion
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigslistPost>("CraigslistPosts_Single", frameworkOperators, Id);
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistPost>("CraigslistPosts_Single", frameworkOperators, Id);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> CraigslistPosts_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigslistPost>("CraigslistPosts_SingleOrDefault", frameworkOperators, Id);
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistPost>("CraigslistPosts_SingleOrDefault", frameworkOperators, Id);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> CraigslistPosts_All(string frameworkOperators)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_All(string frameworkOperators)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigslistPost>("CraigslistPosts_All", frameworkOperators);
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistPost>("CraigslistPosts_All", frameworkOperators);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> CraigsListResponses_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigsListResponse>("CraigsListResponses_Single", frameworkOperators, Id);
+            return this.GetQuery<global::MarketingData.Implementation.CraigsListResponse>("CraigsListResponses_Single", frameworkOperators, Id);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> CraigsListResponses_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigsListResponse>("CraigsListResponses_SingleOrDefault", frameworkOperators, Id);
+            return this.GetQuery<global::MarketingData.Implementation.CraigsListResponse>("CraigsListResponses_SingleOrDefault", frameworkOperators, Id);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> CraigsListResponses_All(string frameworkOperators)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_All(string frameworkOperators)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigsListResponse>("CraigsListResponses_All", frameworkOperators);
+            return this.GetQuery<global::MarketingData.Implementation.CraigsListResponse>("CraigsListResponses_All", frameworkOperators);
         }
     
     #endregion
@@ -134,68 +134,68 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.IDataService CreateDataService()
         {
-            return new global::LightSwitchApplication.DataWorkspace().MarketingDomainServiceData;
+            return new global::LightSwitchApplication.DataWorkspace().MarketingData;
         }
     
     }
     
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public class MarketingDomainServiceDataServiceImplementation
-        : global::Microsoft.LightSwitch.ServerGenerated.Implementation.RiaDataServiceImplementation<global::MarketingDomainServiceData.Implementation.MarketingDomainServiceDataObjectContext, global::Marketing.Services.Web.MarketingDomainService>
+    public class MarketingDataServiceImplementation
+        : global::Microsoft.LightSwitch.ServerGenerated.Implementation.DataServiceImplementation<global::MarketingData.Implementation.MarketingDataObjectContext>
     {
-        public MarketingDomainServiceDataServiceImplementation(global::Microsoft.LightSwitch.IDataService dataService) : base(dataService)
+        public MarketingDataServiceImplementation(global::Microsoft.LightSwitch.IDataService dataService) : base(dataService)
         {
         }
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> CraigslistPosts_Single(global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(global::System.Nullable<global::System.Guid> Id)
         {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> query;
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> query;
             query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigslistPost>("CraigslistPosts_All"),
+                this.GetQuery<global::MarketingData.Implementation.CraigslistPost>("CraigslistPosts_All"),
                 (c) => (Id.HasValue && (c.Id == Id)));
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> CraigslistPosts_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> query;
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> query;
             query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigslistPost>("CraigslistPosts_All"),
+                this.GetQuery<global::MarketingData.Implementation.CraigslistPost>("CraigslistPosts_All"),
                 (c) => (Id.HasValue && (c.Id == Id)));
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> CraigslistPosts_All()
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_All()
         {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigslistPost> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.CraigslistPost>("GetCraigslistPosts").AsQueryable();
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.CraigslistPost>("[CraigslistPosts]").AsQueryable();
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> CraigsListResponses_Single(global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_Single(global::System.Nullable<global::System.Guid> Id)
         {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> query;
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> query;
             query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigsListResponse>("CraigsListResponses_All"),
+                this.GetQuery<global::MarketingData.Implementation.CraigsListResponse>("CraigsListResponses_All"),
                 (c) => (Id.HasValue && (c.Id == Id)));
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> CraigsListResponses_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> query;
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> query;
             query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::MarketingDomainServiceData.Implementation.CraigsListResponse>("CraigsListResponses_All"),
+                this.GetQuery<global::MarketingData.Implementation.CraigsListResponse>("CraigsListResponses_All"),
                 (c) => (Id.HasValue && (c.Id == Id)));
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> CraigsListResponses_All()
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> CraigsListResponses_All()
         {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.CraigsListResponse> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.CraigsListResponse>("GetCraigsListResponses").AsQueryable();
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigsListResponse> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.CraigsListResponse>("[CraigsListResponses]").AsQueryable();
             return query;
         }
     
@@ -204,23 +204,23 @@ namespace LightSwitchApplication.Implementation
     #region Protected Methods
         protected override object CreateObject(global::System.Type type)
         {
-            if (type == typeof(global::MarketingDomainServiceData.Implementation.CraigslistPost))
+            if (type == typeof(global::MarketingData.Implementation.CraigslistPost))
             {
-                return new global::MarketingDomainServiceData.Implementation.CraigslistPost();
+                return new global::MarketingData.Implementation.CraigslistPost();
             }
-            if (type == typeof(global::MarketingDomainServiceData.Implementation.CraigsListResponse))
+            if (type == typeof(global::MarketingData.Implementation.CraigsListResponse))
             {
-                return new global::MarketingDomainServiceData.Implementation.CraigsListResponse();
+                return new global::MarketingData.Implementation.CraigsListResponse();
             }
     
             return base.CreateObject(type);
         }
     
-        protected override global::MarketingDomainServiceData.Implementation.MarketingDomainServiceDataObjectContext CreateObjectContext()
+        protected override global::MarketingData.Implementation.MarketingDataObjectContext CreateObjectContext()
         {
-            return new global::MarketingDomainServiceData.Implementation.MarketingDomainServiceDataObjectContext(base.GetEntityConnectionString(
-                "MarketingDomainServiceData", 
-                "res://*/MarketingDomainServiceData.csdl|res://*/MarketingDomainServiceData.ssdl|res://*/MarketingDomainServiceData.msl",
+            return new global::MarketingData.Implementation.MarketingDataObjectContext(base.GetEntityConnectionString(
+                "MarketingData", 
+                "res://*/MarketingData.csdl|res://*/MarketingData.ssdl|res://*/MarketingData.msl",
                 "System.Data.SqlClient"));
         }
     
@@ -228,80 +228,13 @@ namespace LightSwitchApplication.Implementation
         {
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPost))
             {
-                return new global::MarketingDomainServiceData.Implementation.CraigslistPost();
+                return new global::MarketingData.Implementation.CraigslistPost();
             }
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigsListResponse))
             {
-                return new global::MarketingDomainServiceData.Implementation.CraigsListResponse();
+                return new global::MarketingData.Implementation.CraigsListResponse();
             }
             return null;
-        }
-        protected override global::System.Type ConvertType(global::System.Type outerType)
-        {
-            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.CraigslistPost))
-            {
-                return typeof(global::Marketing.Data.CraigslistPost);
-            }
-            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.CraigsListResponse))
-            {
-                return typeof(global::Marketing.Data.CraigsListResponse);
-            }
-            return base.ConvertType(outerType);
-        }
-        protected override object ConvertEntity(object outerEntity)
-        {
-            global::MarketingDomainServiceData.Implementation.CraigslistPost craigslistPost = outerEntity as global::MarketingDomainServiceData.Implementation.CraigslistPost;
-            if (craigslistPost != null)
-            {
-                global::Marketing.Data.CraigslistPost result = new global::Marketing.Data.CraigslistPost();
-                result.Id = craigslistPost.Id;
-                result.PostDate = craigslistPost.PostDate;
-                result.PostsElement = craigslistPost.PostsElement;
-                result.PostId = craigslistPost.PostId;
-                result.Title = craigslistPost.Title;
-                result.EmailAddress = craigslistPost.EmailAddress;
-                return result;
-            }
-            global::MarketingDomainServiceData.Implementation.CraigsListResponse craigsListResponse = outerEntity as global::MarketingDomainServiceData.Implementation.CraigsListResponse;
-            if (craigsListResponse != null)
-            {
-                global::Marketing.Data.CraigsListResponse result = new global::Marketing.Data.CraigsListResponse();
-                result.Id = craigsListResponse.Id;
-                result.ResponseContent = craigsListResponse.ResponseContent;
-                result.Created = craigsListResponse.Created;
-                result.ResponseHtmlContent = craigsListResponse.ResponseHtmlContent;
-                result.CraigslitPostsId = craigsListResponse.CraigslitPostsId;
-                return result;
-            }
-            return null;
-        }
-       
-    
-        protected override void UpdateResult(object outerEntity, object innerResult)
-        {
-            global::MarketingDomainServiceData.Implementation.CraigslistPost outerCraigslistPost = outerEntity as global::MarketingDomainServiceData.Implementation.CraigslistPost;
-            global::Marketing.Data.CraigslistPost innerCraigslistPost = innerResult as global::Marketing.Data.CraigslistPost;
-            if ((outerCraigslistPost != null) && (innerCraigslistPost != null))
-            {
-                outerCraigslistPost.Id = innerCraigslistPost.Id;
-                outerCraigslistPost.PostDate = innerCraigslistPost.PostDate;
-                outerCraigslistPost.PostsElement = innerCraigslistPost.PostsElement;
-                outerCraigslistPost.PostId = innerCraigslistPost.PostId;
-                outerCraigslistPost.Title = innerCraigslistPost.Title;
-                outerCraigslistPost.EmailAddress = innerCraigslistPost.EmailAddress;
-                return;
-            }
-            global::MarketingDomainServiceData.Implementation.CraigsListResponse outerCraigsListResponse = outerEntity as global::MarketingDomainServiceData.Implementation.CraigsListResponse;
-            global::Marketing.Data.CraigsListResponse innerCraigsListResponse = innerResult as global::Marketing.Data.CraigsListResponse;
-            if ((outerCraigsListResponse != null) && (innerCraigsListResponse != null))
-            {
-                outerCraigsListResponse.Id = innerCraigsListResponse.Id;
-                outerCraigsListResponse.ResponseContent = innerCraigsListResponse.ResponseContent;
-                outerCraigsListResponse.Created = innerCraigsListResponse.Created;
-                outerCraigsListResponse.ResponseHtmlContent = innerCraigsListResponse.ResponseHtmlContent;
-                outerCraigsListResponse.CraigslitPostsId = innerCraigsListResponse.CraigslitPostsId;
-                return;
-            }
         }
     
     #endregion
@@ -319,18 +252,18 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.IDataService CreateDataService(global::System.Type dataServiceType)
         {
-            if (dataServiceType == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
+            if (dataServiceType == typeof(global::LightSwitchApplication.MarketingData))
             {
-                return new global::LightSwitchApplication.MarketingDomainServiceDataService();
+                return new global::LightSwitchApplication.MarketingDataService();
             }
             return base.CreateDataService(dataServiceType);
         }
     
         protected override global::Microsoft.LightSwitch.Internal.IDataServiceImplementation CreateDataServiceImplementation<TDataService>(TDataService dataService)
         {
-            if (typeof(TDataService) == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
+            if (typeof(TDataService) == typeof(global::LightSwitchApplication.MarketingData))
             {
-                return new global::LightSwitchApplication.Implementation.MarketingDomainServiceDataServiceImplementation(dataService);
+                return new global::LightSwitchApplication.Implementation.MarketingDataServiceImplementation(dataService);
             }
             return base.CreateDataServiceImplementation(dataService);
         }
@@ -348,18 +281,18 @@ namespace LightSwitchApplication.Implementation
         {
             if (typeof(global::LightSwitchApplication.CraigslistPost) == definitionType)
             {
-                return typeof(global::MarketingDomainServiceData.Implementation.CraigslistPost);
+                return typeof(global::MarketingData.Implementation.CraigslistPost);
             }
             if (typeof(global::LightSwitchApplication.CraigsListResponse) == definitionType)
             {
-                return typeof(global::MarketingDomainServiceData.Implementation.CraigsListResponse);
+                return typeof(global::MarketingData.Implementation.CraigsListResponse);
             }
             return null;
         }
     }
 }
 
-namespace MarketingDomainServiceData.Implementation
+namespace MarketingData.Implementation
 {
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -405,7 +338,7 @@ namespace MarketingDomainServiceData.Implementation
     
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    [global::System.ComponentModel.DataAnnotations.MetadataType(typeof(global::MarketingDomainServiceData.Implementation.CraigsListResponse.Metadata))]
+    [global::System.ComponentModel.DataAnnotations.MetadataType(typeof(global::MarketingData.Implementation.CraigsListResponse.Metadata))]
     public partial class CraigsListResponse :
         global::LightSwitchApplication.CraigsListResponse.DetailsClass.IImplementation
     {
@@ -418,7 +351,7 @@ namespace MarketingDomainServiceData.Implementation
             }
             set
             {
-                this.CraigslistPost = (global::MarketingDomainServiceData.Implementation.CraigslistPost)value;
+                this.CraigslistPost = (global::MarketingData.Implementation.CraigslistPost)value;
                 if (this.__host != null)
                 {
                     this.__host.RaisePropertyChanged("CraigslistPost");
@@ -463,7 +396,7 @@ namespace MarketingDomainServiceData.Implementation
         internal class Metadata
         {
             [global::System.ServiceModel.DomainServices.Server.Include]
-            public global::MarketingDomainServiceData.Implementation.CraigslistPost CraigslistPost { get; set; }
+            public global::MarketingData.Implementation.CraigslistPost CraigslistPost { get; set; }
         
         }
     }

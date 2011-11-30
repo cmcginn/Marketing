@@ -17,5 +17,7 @@ namespace LightSwitchApplication {
       var element = XElement.Parse( this.PostsElement );
       result = element.Descendants( "Body" ).First().Value;
     }
+
+
   }
 }

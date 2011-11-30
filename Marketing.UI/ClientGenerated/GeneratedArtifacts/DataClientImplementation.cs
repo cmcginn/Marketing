@@ -11,7 +11,7 @@ namespace LightSwitchApplication.Implementation
 {
     
     #region CraigslistPost
-    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingData.Implementation")]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class CraigslistPost :
@@ -48,48 +48,6 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private global::System.Guid _Id;
-        
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public global::System.DateTime PostDate
-        {
-            get
-            {
-                return this._PostDate;
-            }
-            set
-            {
-                if (this._PostDate != value)
-                {
-                    this.RaiseDataMemberChanging("PostDate");
-                    this.ValidateProperty("PostDate", value);
-                    this._PostDate = value;
-                    this.RaiseDataMemberChanged("PostDate");
-                }
-            }
-        }
-        private global::System.DateTime _PostDate;
-        
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public string PostsElement
-        {
-            get
-            {
-                return this._PostsElement;
-            }
-            set
-            {
-                if (this._PostsElement != value)
-                {
-                    this.RaiseDataMemberChanging("PostsElement");
-                    this.ValidateProperty("PostsElement", value);
-                    this._PostsElement = value;
-                    this.RaiseDataMemberChanged("PostsElement");
-                }
-            }
-        }
-        private string _PostsElement;
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
@@ -154,7 +112,49 @@ namespace LightSwitchApplication.Implementation
         }
         private string _EmailAddress;
         
-        [global::System.ComponentModel.DataAnnotations.Association("CraigslistPost_CraigsListResponse", "Id", "CraigslitPostsId")]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime PostDate
+        {
+            get
+            {
+                return this._PostDate;
+            }
+            set
+            {
+                if (this._PostDate != value)
+                {
+                    this.RaiseDataMemberChanging("PostDate");
+                    this.ValidateProperty("PostDate", value);
+                    this._PostDate = value;
+                    this.RaiseDataMemberChanged("PostDate");
+                }
+            }
+        }
+        private global::System.DateTime _PostDate;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string PostsElement
+        {
+            get
+            {
+                return this._PostsElement;
+            }
+            set
+            {
+                if (this._PostsElement != value)
+                {
+                    this.RaiseDataMemberChanging("PostsElement");
+                    this.ValidateProperty("PostsElement", value);
+                    this._PostsElement = value;
+                    this.RaiseDataMemberChanged("PostsElement");
+                }
+            }
+        }
+        private string _PostsElement;
+        
+        [global::System.ComponentModel.DataAnnotations.Association("FK_CraigsListResponse_CraigslistPosts", "Id", "CraigslitPostsId")]
         [global::System.Xml.Serialization.XmlIgnore()]
         public global::System.ServiceModel.DomainServices.Client.EntityCollection<CraigsListResponse> CraigsListResponses
         {
@@ -217,7 +217,7 @@ namespace LightSwitchApplication.Implementation
     #endregion
     
     #region CraigsListResponse
-    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingData.Implementation")]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public sealed class CraigsListResponse :
@@ -278,27 +278,6 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public global::System.DateTime Created
-        {
-            get
-            {
-                return this._Created;
-            }
-            set
-            {
-                if (this._Created != value)
-                {
-                    this.RaiseDataMemberChanging("Created");
-                    this.ValidateProperty("Created", value);
-                    this._Created = value;
-                    this.RaiseDataMemberChanged("Created");
-                }
-            }
-        }
-        private global::System.DateTime _Created;
-        
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public string ResponseHtmlContent
         {
             get
@@ -317,6 +296,27 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _ResponseHtmlContent;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return this._Created;
+            }
+            set
+            {
+                if (this._Created != value)
+                {
+                    this.RaiseDataMemberChanging("Created");
+                    this.ValidateProperty("Created", value);
+                    this._Created = value;
+                    this.RaiseDataMemberChanged("Created");
+                }
+            }
+        }
+        private global::System.DateTime _Created;
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
@@ -339,7 +339,7 @@ namespace LightSwitchApplication.Implementation
         }
         private global::System.Guid _CraigslitPostsId;
         
-        [global::System.ComponentModel.DataAnnotations.Association("CraigslistPost_CraigsListResponse", "CraigslitPostsId", "Id", IsForeignKey = true)]
+        [global::System.ComponentModel.DataAnnotations.Association("FK_CraigsListResponse_CraigslistPosts", "CraigslitPostsId", "Id", IsForeignKey = true)]
         [global::System.Xml.Serialization.XmlIgnore()]
         public global::LightSwitchApplication.Implementation.CraigslistPost CraigslistPost
         {
@@ -424,14 +424,14 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
-    #region MarketingDomainServiceData
+    #region MarketingData
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public class MarketingDomainServiceData
+    public class MarketingData
         : global::Microsoft.LightSwitch.ClientGenerated.Implementation.DomainContext
     {
-        public MarketingDomainServiceData(global::Microsoft.LightSwitch.IDataService dataService)
-            : base(dataService, global::Microsoft.LightSwitch.ClientGenerated.Implementation.DomainContext.CreateWcfDomainClient<IMarketingDomainServiceDataContract>(new global::System.Uri("LightSwitchApplication-Implementation-MarketingDomainServiceDataDomainService.svc", global::System.UriKind.Relative)))
+        public MarketingData(global::Microsoft.LightSwitch.IDataService dataService)
+            : base(dataService, global::Microsoft.LightSwitch.ClientGenerated.Implementation.DomainContext.CreateWcfDomainClient<IMarketingDataContract>(new global::System.Uri("LightSwitchApplication-Implementation-MarketingDataDomainService.svc", global::System.UriKind.Relative)))
         {
         }
     
@@ -451,12 +451,12 @@ namespace LightSwitchApplication.Implementation
         }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
-            return new MarketingDomainServiceDataEntityContainer();
+            return new MarketingDataEntityContainer();
         }
     
-        internal sealed class MarketingDomainServiceDataEntityContainer : global::System.ServiceModel.DomainServices.Client.EntityContainer
+        internal sealed class MarketingDataEntityContainer : global::System.ServiceModel.DomainServices.Client.EntityContainer
         {
-            public MarketingDomainServiceDataEntityContainer()
+            public MarketingDataEntityContainer()
             {
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigslistPost>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigsListResponse>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
@@ -466,58 +466,58 @@ namespace LightSwitchApplication.Implementation
         #region Service Contract Interface
     
         [global::System.ServiceModel.ServiceContract]
-        public interface IMarketingDomainServiceDataContract
+        public interface IMarketingDataContract
         {
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_SingleResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginCraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPost> EndCraigslistPosts_Single(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_SingleOrDefaultResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_SingleOrDefaultResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginCraigslistPosts_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPost> EndCraigslistPosts_SingleOrDefault(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_AllResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_AllResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigslistPosts_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPosts_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginCraigslistPosts_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPost> EndCraigslistPosts_All(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_SingleResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginCraigsListResponses_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigsListResponse> EndCraigsListResponses_Single(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_SingleOrDefaultResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_SingleOrDefaultResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginCraigsListResponses_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigsListResponse> EndCraigsListResponses_SingleOrDefault(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_AllResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_AllResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/CraigsListResponses_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigsListResponses_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginCraigsListResponses_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigsListResponse> EndCraigsListResponses_All(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SubmitChangesResponse"),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> EndSubmitChanges(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__GetEntitySetCanInformation", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/__GetEntitySetCanInformationResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/__GetEntitySetCanInformation", ReplyAction = "http://tempuri.org/MarketingDataDomainService/__GetEntitySetCanInformationResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__GetEntitySetCanInformationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/__GetEntitySetCanInformationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult Begin__GetEntitySetCanInformation(string entitySetName, global::System.AsyncCallback callback, global::System.Object asyncState);
             int End__GetEntitySetCanInformation(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__CanExecuteOperation", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/__CanExecuteOperationResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/__CanExecuteOperation", ReplyAction = "http://tempuri.org/MarketingDataDomainService/__CanExecuteOperationResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__CanExecuteOperationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/__CanExecuteOperationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult Begin__CanExecuteOperation(string operationName, global::System.AsyncCallback callback, global::System.Object asyncState);
             bool End__CanExecuteOperation(global::System.IAsyncResult result);
             
@@ -551,18 +551,18 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.IDataService CreateDataService(global::System.Type dataServiceType)
         {
-            if (dataServiceType == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
+            if (dataServiceType == typeof(global::LightSwitchApplication.MarketingData))
             {
-                return new global::LightSwitchApplication.MarketingDomainServiceData();
+                return new global::LightSwitchApplication.MarketingData();
             }
             return base.CreateDataService(dataServiceType);
         }
     
         protected override global::Microsoft.LightSwitch.Internal.IDataServiceImplementation CreateDataServiceImplementation<TDataService>(TDataService dataService)
         {
-            if (typeof(TDataService) == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
+            if (typeof(TDataService) == typeof(global::LightSwitchApplication.MarketingData))
             {
-                return new global::LightSwitchApplication.Implementation.MarketingDomainServiceData(dataService);
+                return new global::LightSwitchApplication.Implementation.MarketingData(dataService);
             }
             return base.CreateDataServiceImplementation(dataService);
         }

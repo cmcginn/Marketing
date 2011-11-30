@@ -7,7 +7,7 @@
     d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit">
     
     <Grid x:Name="LayoutRoot" Background="White" >
-    <TextBox Name="BodyText" Width="0" Height="0" Text="{Binding Screen.CraigslistPosts.SelectedItem.PostElementBody}" TextChanged="BodyText_TextChanged"></TextBox>
+    <TextBox Name="BodyText" Width="0" Height="0" Text="{Binding Screen.CraigslistPostsDataSource.SelectedItem.PostElementBody}" TextChanged="BodyText_TextChanged"></TextBox>
       <dxre:RichEditControl HorizontalAlignment="Left"  Name="richEditControl" />
   </Grid>
 </UserControl>

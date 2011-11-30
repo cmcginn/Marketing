@@ -1,2 +1,0 @@
-C:\Projects\Urbana\Marketing\Marketing.Services.Web\Marketing.Services.Web.csproj,634579996323286093,MarketingDomainService.cs,Properties\AssemblyInfo.cs,
-C:\Projects\Urbana\Marketing\Marketing.Data\Marketing.Data.csproj,634579974500707968,MarketingDomainModel.Designer.cs,Properties\AssemblyInfo.cs,

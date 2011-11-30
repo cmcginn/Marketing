@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping CdmEntityContainer="MarketingDataObjectContext" StorageEntityContainer="MarketingDataStore">
+    <EntitySetMapping Name="CraigslistPosts">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.CraigslistPost)">
+        <MappingFragment StoreEntitySet="CraigslistPosts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CraigsListResponses">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.CraigsListResponse)">
+        <MappingFragment StoreEntitySet="CraigsListResponse">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
+          <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

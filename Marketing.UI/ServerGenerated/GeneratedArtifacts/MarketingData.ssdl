@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MarketingDataStore">
+    <EntitySet Name="CraigslistPosts" EntityType="MarketingDataStore.CraigslistPost" store:Type="Tables" Schema="dbo" Table="CraigslistPosts" />
+    <EntitySet Name="CraigsListResponse" EntityType="MarketingDataStore.CraigsListResponse" store:Type="Tables" Schema="dbo" Table="CraigsListResponse" />
+    <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+      <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CraigslistPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostId" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="PostsElement" Type="xml" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CraigsListResponse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CraigsListResponse_CraigslistPosts">
+    <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />
+    <End Role="CraigsListResponse" Type="MarketingDataStore.CraigsListResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigsListResponse">
+        <PropertyRef Name="CraigslitPostsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

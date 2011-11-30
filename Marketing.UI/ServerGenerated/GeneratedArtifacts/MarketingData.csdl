@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="MarketingData" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <Association Name="FK_CraigsListResponse_CraigslistPosts">
+    <End Role="CraigslistPosts" Type="MarketingData.CraigslistPost" Multiplicity="1" />
+    <End Role="CraigsListResponse" Type="MarketingData.CraigsListResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigsListResponse">
+        <PropertyRef Name="CraigslitPostsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CraigslistPost">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostId" Type="Int64" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="PostsElement" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="None" />
+    <NavigationProperty Name="CraigsListResponses" Relationship="MarketingData.FK_CraigsListResponse_CraigslistPosts" ToRole="CraigsListResponse" FromRole="CraigslistPosts" />
+  </EntityType>
+  <EntityType Name="CraigsListResponse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseContent" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseHtmlContent" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="CraigslitPostsId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="CraigslistPost" Relationship="MarketingData.FK_CraigsListResponse_CraigslistPosts" ToRole="CraigslistPosts" FromRole="CraigsListResponse" />
+  </EntityType>
+  <EntityContainer Name="MarketingDataObjectContext">
+    <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
+    <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
+    <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+      <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

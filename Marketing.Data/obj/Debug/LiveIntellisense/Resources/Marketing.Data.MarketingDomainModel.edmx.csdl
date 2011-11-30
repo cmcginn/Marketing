@@ -29,6 +29,7 @@
     <Property Type="String" Name="ResponseContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="Created" Nullable="false" />
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
+    <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
