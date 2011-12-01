@@ -6,6 +6,8 @@
     <EntitySet Name="CraigslistCity" EntityType="MarketingDataStore.CraigslistCity" store:Type="Tables" Schema="dbo" Table="CraigslistCity" />
     <EntitySet Name="Keyword" EntityType="MarketingDataStore.Keyword" store:Type="Tables" Schema="dbo" Table="Keyword" />
     <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDataStore.CraigslistPostKeyword" store:Type="Tables" Schema="dbo" Table="CraigslistPostKeywords" />
+    <EntitySet Name="ServerOperation" EntityType="MarketingDataStore.ServerOperation" store:Type="Tables" Schema="dbo" Table="ServerOperation" />
+    <EntitySet Name="ServerOperationHistory" EntityType="MarketingDataStore.ServerOperationHistory" store:Type="Tables" Schema="dbo" Table="ServerOperationHistory" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
@@ -17,6 +19,10 @@
     <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingDataStore.FK_CraigslistPosts_CraigslistCity">
       <End Role="CraigslistCity" EntitySet="CraigslistCity" />
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDataStore.FK_ServerOperationHistory_ServerOperation">
+      <End Role="ServerOperation" EntitySet="ServerOperation" />
+      <End Role="ServerOperationHistory" EntitySet="ServerOperationHistory" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPost">
@@ -67,6 +73,23 @@
     <Property Name="CraigslistPostId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="KeywordId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <EntityType Name="ServerOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OperationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ServerOperationHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Started" Type="datetime" />
+    <Property Name="Completed" Type="datetime" />
+    <Property Name="Scheduled" Type="datetime" Nullable="false" />
+    <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />
     <End Role="CraigsListResponse" Type="MarketingDataStore.CraigsListResponse" Multiplicity="*" />
@@ -100,6 +123,18 @@
       </Principal>
       <Dependent Role="CraigslistPosts">
         <PropertyRef Name="CraigslistCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServerOperationHistory_ServerOperation">
+    <End Role="ServerOperation" Type="MarketingDataStore.ServerOperation" Multiplicity="1" />
+    <End Role="ServerOperationHistory" Type="MarketingDataStore.ServerOperationHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServerOperation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServerOperationHistory">
+        <PropertyRef Name="ServerOperationId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -53,5 +53,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ServerOperations">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.ServerOperation)">
+        <MappingFragment StoreEntitySet="ServerOperation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerOperationHistories">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.ServerOperationHistory)">
+        <MappingFragment StoreEntitySet="ServerOperationHistory">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Started" ColumnName="Started" />
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
+          <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

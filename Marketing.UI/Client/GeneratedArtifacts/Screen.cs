@@ -653,39 +653,39 @@ namespace LightSwitchApplication
         }
     }
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    public sealed partial class SystemSettings
-        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>
+    public sealed partial class Administration
+        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private SystemSettings() : base("LightSwitchApplication:SystemSettings")
+        private Administration() : base("LightSwitchApplication:Administration")
         {
-            global::LightSwitchApplication.SystemSettings.DetailsClass.Initialize(this);
+            global::LightSwitchApplication.Administration.DetailsClass.Initialize(this);
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public static SystemSettings CreateInstance()
+        public static Administration CreateInstance()
         {
-            return new global::LightSwitchApplication.SystemSettings(
+            return new global::LightSwitchApplication.Administration(
             );
         }
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
+        partial void Administration_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_Created();
+        partial void Administration_Created();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_Activated();
+        partial void Administration_Activated();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_Saving(ref bool handled);
+        partial void Administration_Saving(ref bool handled);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_Saved();
+        partial void Administration_Saved();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_Closing(ref bool cancel);
+        partial void Administration_Closing(ref bool cancel);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SystemSettings_SaveError(global::System.Exception exception, ref bool handled);
+        partial void Administration_SaveError(global::System.Exception exception, ref bool handled);
      
         #region Private Properties
         
@@ -731,6 +731,13 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Keywords_Loaded(bool succeeded);
 
+        partial void ServerOperationHistories_SelectionChanged();
+
+        partial void ServerOperationHistories_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Loaded(bool succeeded);
+
         /// <summary>
         /// Gets the CraigslistCities visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
@@ -740,7 +747,7 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.SystemSettings.DetailsClass.GetValue(this, global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties.CraigslistCities);
+                return global::LightSwitchApplication.Administration.DetailsClass.GetValue(this, global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.CraigslistCities);
             }
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -755,11 +762,26 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.SystemSettings.DetailsClass.GetValue(this, global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties.Keywords);
+                return global::LightSwitchApplication.Administration.DetailsClass.GetValue(this, global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.Keywords);
             }
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Keywords_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        /// <summary>
+        /// Gets the ServerOperationHistories visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.ServerOperationHistory> ServerOperationHistories
+        {
+            get
+            {
+                return global::LightSwitchApplication.Administration.DetailsClass.GetValue(this, global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.ServerOperationHistories);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         /// <summary>
         /// Calls the RunOperation screen method.
@@ -777,58 +799,58 @@ namespace LightSwitchApplication
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public sealed class DetailsClass
-            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySet, global::LightSwitchApplication.SystemSettings.DetailsClass.CommandSet, global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSet>
+            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Administration.DetailsClass.PropertySet, global::LightSwitchApplication.Administration.DetailsClass.CommandSet, global::LightSwitchApplication.Administration.DetailsClass.MethodSet>
         {
 
             static DetailsClass()
             {
-                var initializePropertyEntry = global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties.CraigslistCities;
-                var initializeCommandEntry = global::LightSwitchApplication.SystemSettings.DetailsClass.CommandSetProperties.RunOperation;
-                var initializeMethodEntry = global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSetProperties.RunOperation;
+                var initializePropertyEntry = global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.CraigslistCities;
+                var initializeCommandEntry = global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties.RunOperation;
+                var initializeMethodEntry = global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties.RunOperation;
             }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Entry
-                __SystemSettingsEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Entry(
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeInitializeDataWorkspace,
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeSavingEvent,
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeSavedEvent,
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeClosingEvent,
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeCreated,
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeActivated,
-                    global::LightSwitchApplication.SystemSettings.DetailsClass.__SystemSettings_InvokeSaveErrorEvent);
-            private static void __SystemSettings_InvokeInitializeDataWorkspace(global::LightSwitchApplication.SystemSettings s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
+            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry
+                __AdministrationEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry(
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeInitializeDataWorkspace,
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeSavingEvent,
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeSavedEvent,
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeClosingEvent,
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeCreated,
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeActivated,
+                    global::LightSwitchApplication.Administration.DetailsClass.__Administration_InvokeSaveErrorEvent);
+            private static void __Administration_InvokeInitializeDataWorkspace(global::LightSwitchApplication.Administration s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
             {
-                s.SystemSettings_InitializeDataWorkspace(saveChangesTo);
+                s.Administration_InitializeDataWorkspace(saveChangesTo);
             }
-            private static bool __SystemSettings_InvokeSavingEvent(global::LightSwitchApplication.SystemSettings s)
+            private static bool __Administration_InvokeSavingEvent(global::LightSwitchApplication.Administration s)
             {
                 bool handled = false;
-                s.SystemSettings_Saving(ref handled);
+                s.Administration_Saving(ref handled);
                 return handled;
             }
-            private static void __SystemSettings_InvokeSavedEvent(global::LightSwitchApplication.SystemSettings s)
+            private static void __Administration_InvokeSavedEvent(global::LightSwitchApplication.Administration s)
             {
-                s.SystemSettings_Saved();
+                s.Administration_Saved();
             }
-            private static bool __SystemSettings_InvokeClosingEvent(global::LightSwitchApplication.SystemSettings s)
+            private static bool __Administration_InvokeClosingEvent(global::LightSwitchApplication.Administration s)
             {
                 bool cancel = false;
-                s.SystemSettings_Closing(ref cancel);
+                s.Administration_Closing(ref cancel);
                 return cancel;
             }
-            private static void __SystemSettings_InvokeCreated(global::LightSwitchApplication.SystemSettings s)
+            private static void __Administration_InvokeCreated(global::LightSwitchApplication.Administration s)
             {
-                s.SystemSettings_Created();
+                s.Administration_Created();
             }
-            private static void __SystemSettings_InvokeActivated(global::LightSwitchApplication.SystemSettings s)
+            private static void __Administration_InvokeActivated(global::LightSwitchApplication.Administration s)
             {
-                s.SystemSettings_Activated();
+                s.Administration_Activated();
             }
-            private static bool __SystemSettings_InvokeSaveErrorEvent(global::LightSwitchApplication.SystemSettings s, global::System.Exception ex)
+            private static bool __Administration_InvokeSaveErrorEvent(global::LightSwitchApplication.Administration s, global::System.Exception ex)
             {
                 bool handled = false;
-                s.SystemSettings_SaveError(ex, ref handled);
+                s.Administration_SaveError(ex, ref handled);
                 return handled;
             }
 
@@ -836,7 +858,7 @@ namespace LightSwitchApplication
             {
             }
 
-            public new global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySet Properties
+            public new global::LightSwitchApplication.Administration.DetailsClass.PropertySet Properties
             {
                 get
                 {
@@ -844,7 +866,7 @@ namespace LightSwitchApplication
                 }
             }
 
-            public new global::LightSwitchApplication.SystemSettings.DetailsClass.CommandSet Commands
+            public new global::LightSwitchApplication.Administration.DetailsClass.CommandSet Commands
             {
                 get
                 {
@@ -852,7 +874,7 @@ namespace LightSwitchApplication
                 }
             }
 
-            public new global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSet Methods
+            public new global::LightSwitchApplication.Administration.DetailsClass.MethodSet Methods
             {
                 get
                 {
@@ -870,38 +892,56 @@ namespace LightSwitchApplication
                 return this.Screen.DataWorkspace.MarketingData.Keywords;
             }
 
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCities;
+            private global::Microsoft.LightSwitch.IDataServiceQueryable ServerOperationHistoriesQuery()
+            {
+                return global::Microsoft.LightSwitch.DataServiceQueryable.Include(
+                    this.Screen.DataWorkspace.MarketingData.ServerOperationHistories,
+                    "ServerOperation");
+            }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.Keyword>.Data _Keywords;
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCities;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Data _RunOperationCommand;
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Keyword>.Data _Keywords;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Data _RunOperationMethod;
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data _ServerOperationHistories;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _RunOperationCommand;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _RunOperationMethod;
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public sealed class PropertySet
-                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>
             {
 
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.CraigslistCity> CraigslistCities
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity> CraigslistCities
                 {
                     get
                     {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.CraigslistCity>)base.GetItem(global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties.CraigslistCities);
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.CraigslistCities);
                     }
                 }
 
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.Keyword> Keywords
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Keyword> Keywords
                 {
                     get
                     {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.Keyword>)base.GetItem(global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties.Keywords);
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Keyword>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.Keywords);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperationHistory> ServerOperationHistories
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.ServerOperationHistories);
                     }
                 }
 
@@ -911,14 +951,14 @@ namespace LightSwitchApplication
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public sealed class CommandSet
-                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>
             {
 
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass> RunOperation
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass> RunOperation
                 {
                     get
                     {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>)base.GetItem(global::LightSwitchApplication.SystemSettings.DetailsClass.CommandSetProperties.RunOperation);
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties.RunOperation);
                     }
                 }
 
@@ -928,14 +968,14 @@ namespace LightSwitchApplication
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public sealed class MethodSet
-                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>
             {
 
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass> RunOperation
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass> RunOperation
                 {
                     get
                     {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>)base.GetItem(global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSetProperties.RunOperation);
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties.RunOperation);
                     }
                 }
 
@@ -947,72 +987,106 @@ namespace LightSwitchApplication
             internal sealed class PropertySetProperties
             {
 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry
-                    CraigslistCities = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry
+                    CraigslistCities = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry(
                         "CraigslistCities",
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._CraigslistCities_Stub,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._CraigslistCities_Validate,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._CraigslistCities_CreateQuery,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._CraigslistCities_SelectionChanged,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._CraigslistCities_OnCollectionChanged,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._CraigslistCities_OnLoaded);
-                private static void _CraigslistCities_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SystemSettings.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data> c, global::LightSwitchApplication.SystemSettings.DetailsClass d, object sf)
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigslistCities_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigslistCities_Validate,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigslistCities_CreateQuery,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigslistCities_SelectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigslistCities_OnCollectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigslistCities_OnLoaded);
+                private static void _CraigslistCities_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
                 {
                     c(d, ref d._CraigslistCities, sf);
                 }
-                private static void _CraigslistCities_Validate(global::LightSwitchApplication.SystemSettings s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                private static void _CraigslistCities_Validate(global::LightSwitchApplication.Administration s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
                 {
                     s.CraigslistCities_Validate(r);
                 }
-                private static global::Microsoft.LightSwitch.IDataServiceQueryable _CraigslistCities_CreateQuery(global::LightSwitchApplication.SystemSettings.DetailsClass d, object[] args)
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _CraigslistCities_CreateQuery(global::LightSwitchApplication.Administration.DetailsClass d, object[] args)
                 {
                     return d.CraigslistCitiesQuery();
                 }
-                private static void _CraigslistCities_SelectionChanged(global::LightSwitchApplication.SystemSettings s)
+                private static void _CraigslistCities_SelectionChanged(global::LightSwitchApplication.Administration s)
                 {
                     s.CraigslistCities_SelectionChanged();
                 }
-                private static void _CraigslistCities_OnCollectionChanged(global::LightSwitchApplication.SystemSettings s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                private static void _CraigslistCities_OnCollectionChanged(global::LightSwitchApplication.Administration s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
                 {
                     s.CraigslistCities_Changed(e);
                 }
-                private static void _CraigslistCities_OnLoaded(global::LightSwitchApplication.SystemSettings s, bool succeeded)
+                private static void _CraigslistCities_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
                 {
                     s.CraigslistCities_Loaded(succeeded);
                 }
 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.Keyword>.Entry
-                    Keywords = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.Keyword>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Keyword>.Entry
+                    Keywords = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Keyword>.Entry(
                         "Keywords",
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._Keywords_Stub,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._Keywords_Validate,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._Keywords_CreateQuery,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._Keywords_SelectionChanged,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._Keywords_OnCollectionChanged,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.PropertySetProperties._Keywords_OnLoaded);
-                private static void _Keywords_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SystemSettings.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass, global::LightSwitchApplication.Keyword>.Data> c, global::LightSwitchApplication.SystemSettings.DetailsClass d, object sf)
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._Keywords_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._Keywords_Validate,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._Keywords_CreateQuery,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._Keywords_SelectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._Keywords_OnCollectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._Keywords_OnLoaded);
+                private static void _Keywords_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.Keyword>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
                 {
                     c(d, ref d._Keywords, sf);
                 }
-                private static void _Keywords_Validate(global::LightSwitchApplication.SystemSettings s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                private static void _Keywords_Validate(global::LightSwitchApplication.Administration s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
                 {
                     s.Keywords_Validate(r);
                 }
-                private static global::Microsoft.LightSwitch.IDataServiceQueryable _Keywords_CreateQuery(global::LightSwitchApplication.SystemSettings.DetailsClass d, object[] args)
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _Keywords_CreateQuery(global::LightSwitchApplication.Administration.DetailsClass d, object[] args)
                 {
                     return d.KeywordsQuery();
                 }
-                private static void _Keywords_SelectionChanged(global::LightSwitchApplication.SystemSettings s)
+                private static void _Keywords_SelectionChanged(global::LightSwitchApplication.Administration s)
                 {
                     s.Keywords_SelectionChanged();
                 }
-                private static void _Keywords_OnCollectionChanged(global::LightSwitchApplication.SystemSettings s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                private static void _Keywords_OnCollectionChanged(global::LightSwitchApplication.Administration s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
                 {
                     s.Keywords_Changed(e);
                 }
-                private static void _Keywords_OnLoaded(global::LightSwitchApplication.SystemSettings s, bool succeeded)
+                private static void _Keywords_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
                 {
                     s.Keywords_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry
+                    ServerOperationHistories = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry(
+                        "ServerOperationHistories",
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._ServerOperationHistories_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._ServerOperationHistories_Validate,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._ServerOperationHistories_CreateQuery,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._ServerOperationHistories_SelectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._ServerOperationHistories_OnCollectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._ServerOperationHistories_OnLoaded);
+                private static void _ServerOperationHistories_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperationHistories, sf);
+                }
+                private static void _ServerOperationHistories_Validate(global::LightSwitchApplication.Administration s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.ServerOperationHistories_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _ServerOperationHistories_CreateQuery(global::LightSwitchApplication.Administration.DetailsClass d, object[] args)
+                {
+                    return d.ServerOperationHistoriesQuery();
+                }
+                private static void _ServerOperationHistories_SelectionChanged(global::LightSwitchApplication.Administration s)
+                {
+                    s.ServerOperationHistories_SelectionChanged();
+                }
+                private static void _ServerOperationHistories_OnCollectionChanged(global::LightSwitchApplication.Administration s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    s.ServerOperationHistories_Changed(e);
+                }
+                private static void _ServerOperationHistories_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
+                {
+                    s.ServerOperationHistories_Loaded(succeeded);
                 }
 
             }
@@ -1023,18 +1097,18 @@ namespace LightSwitchApplication
             internal sealed class CommandSetProperties
             {
 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Entry
-                    RunOperation = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry
+                    RunOperation = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry(
                         "RunOperation",
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.CommandSetProperties._RunOperation_Stub,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.CommandSetProperties._RunOperation_CreateExecutableObject);
-                private static void _RunOperation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SystemSettings.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Data> c, global::LightSwitchApplication.SystemSettings.DetailsClass d, object sf)
+                        global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties._RunOperation_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties._RunOperation_CreateExecutableObject);
+                private static void _RunOperation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
                 {
                     c(d, ref d._RunOperationCommand, sf);
                 }
-                private static global::Microsoft.LightSwitch.IExecutable _RunOperation_CreateExecutableObject(global::LightSwitchApplication.SystemSettings.DetailsClass d)
+                private static global::Microsoft.LightSwitch.IExecutable _RunOperation_CreateExecutableObject(global::LightSwitchApplication.Administration.DetailsClass d)
                 {
-                    return ((global::LightSwitchApplication.SystemSettings.DetailsClass)d).Methods.RunOperation.CreateInvocation();
+                    return ((global::LightSwitchApplication.Administration.DetailsClass)d).Methods.RunOperation.CreateInvocation();
                 }
 
             }
@@ -1045,274 +1119,27 @@ namespace LightSwitchApplication
             internal sealed class MethodSetProperties
             {
 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Entry
-                    RunOperation = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry
+                    RunOperation = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry(
                         "RunOperation",
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSetProperties._RunOperation_Stub,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSetProperties._RunOperation_CanInvoke,
-                        global::LightSwitchApplication.SystemSettings.DetailsClass.MethodSetProperties._RunOperation_InvokeMethod);
-                private static void _RunOperation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SystemSettings.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.SystemSettings, global::LightSwitchApplication.SystemSettings.DetailsClass>.Data> c, global::LightSwitchApplication.SystemSettings.DetailsClass d, object sf)
+                        global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties._RunOperation_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties._RunOperation_CanInvoke,
+                        global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties._RunOperation_InvokeMethod);
+                private static void _RunOperation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
                 {
                     c(d, ref d._RunOperationMethod, sf);
                 }
-                private static global::System.Exception _RunOperation_CanInvoke(global::LightSwitchApplication.SystemSettings.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                private static global::System.Exception _RunOperation_CanInvoke(global::LightSwitchApplication.Administration.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
                 {
                     bool result = true;
                     d.Screen.RunOperation_CanExecute(ref result);
                     return result ? null : ex;
                 }
-                private static void _RunOperation_InvokeMethod(global::LightSwitchApplication.SystemSettings.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                private static void _RunOperation_InvokeMethod(global::LightSwitchApplication.Administration.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
                 {
                     d.Screen.RunOperation_Execute();
                 }
 
-            }
-        }
-    }
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    public sealed partial class CreateNewOperation
-        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass>
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private CreateNewOperation() : base("LightSwitchApplication:CreateNewOperation")
-        {
-            global::LightSwitchApplication.CreateNewOperation.DetailsClass.Initialize(this);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        public static CreateNewOperation CreateInstance()
-        {
-            return new global::LightSwitchApplication.CreateNewOperation(
-            );
-        }
-
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_Created();
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_Activated();
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_Saving(ref bool handled);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_Saved();
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_Closing(ref bool cancel);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CreateNewOperation_SaveError(global::System.Exception exception, ref bool handled);
-     
-        #region Private Properties
-        
-        /// <summary>
-        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::LightSwitchApplication.Application Application
-        {
-            get
-            {
-                return global::LightSwitchApplication.Application.Current;
-            }
-        }
-        
-        /// <summary>
-        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private global::LightSwitchApplication.DataWorkspace DataWorkspace
-        {
-            get
-            {
-                return (global::LightSwitchApplication.DataWorkspace)((global::Microsoft.LightSwitch.Details.Client.IScreenDetails)this.Details).DataWorkspace;
-            }
-        }
-        
-        #endregion
- 
-        partial void OperationProperty_Changed();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::LightSwitchApplication.Operation OperationProperty
-        {
-            get 
-            {
-                return global::LightSwitchApplication.CreateNewOperation.DetailsClass.GetValue(this, global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties.OperationProperty);
-            }
-            set
-            {
-                global::LightSwitchApplication.CreateNewOperation.DetailsClass.SetValue(this, global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties.OperationProperty, value);
-            }
-        }
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void OperationProperty_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
- 
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public sealed class DetailsClass
-            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySet, global::LightSwitchApplication.CreateNewOperation.DetailsClass.CommandSet, global::LightSwitchApplication.CreateNewOperation.DetailsClass.MethodSet>
-        {
-
-            static DetailsClass()
-            {
-                var initializePropertyEntry = global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties.OperationProperty;
-            }
-
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass>.Entry
-                __CreateNewOperationEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass>.Entry(
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeInitializeDataWorkspace,
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeSavingEvent,
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeSavedEvent,
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeClosingEvent,
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeCreated,
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeActivated,
-                    global::LightSwitchApplication.CreateNewOperation.DetailsClass.__CreateNewOperation_InvokeSaveErrorEvent);
-            private static void __CreateNewOperation_InvokeInitializeDataWorkspace(global::LightSwitchApplication.CreateNewOperation s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
-            {
-                s.CreateNewOperation_InitializeDataWorkspace(saveChangesTo);
-            }
-            private static bool __CreateNewOperation_InvokeSavingEvent(global::LightSwitchApplication.CreateNewOperation s)
-            {
-                bool handled = false;
-                s.CreateNewOperation_Saving(ref handled);
-                return handled;
-            }
-            private static void __CreateNewOperation_InvokeSavedEvent(global::LightSwitchApplication.CreateNewOperation s)
-            {
-                s.CreateNewOperation_Saved();
-            }
-            private static bool __CreateNewOperation_InvokeClosingEvent(global::LightSwitchApplication.CreateNewOperation s)
-            {
-                bool cancel = false;
-                s.CreateNewOperation_Closing(ref cancel);
-                return cancel;
-            }
-            private static void __CreateNewOperation_InvokeCreated(global::LightSwitchApplication.CreateNewOperation s)
-            {
-                s.CreateNewOperation_Created();
-            }
-            private static void __CreateNewOperation_InvokeActivated(global::LightSwitchApplication.CreateNewOperation s)
-            {
-                s.CreateNewOperation_Activated();
-            }
-            private static bool __CreateNewOperation_InvokeSaveErrorEvent(global::LightSwitchApplication.CreateNewOperation s, global::System.Exception ex)
-            {
-                bool handled = false;
-                s.CreateNewOperation_SaveError(ex, ref handled);
-                return handled;
-            }
-
-            public DetailsClass() : base()
-            {
-            }
-
-            public new global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySet Properties
-            {
-                get
-                {
-                    return base.Properties;
-                }
-            }
-
-            public new global::LightSwitchApplication.CreateNewOperation.DetailsClass.CommandSet Commands
-            {
-                get
-                {
-                    return base.Commands;
-                }
-            }
-
-            public new global::LightSwitchApplication.CreateNewOperation.DetailsClass.MethodSet Methods
-            {
-                get
-                {
-                    return base.Methods;
-                }
-            }
-
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.Operation>.Data _OperationProperty;
-
-            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class PropertySet
-                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass>
-            {
-
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.Operation> OperationProperty
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.Operation>)base.GetItem(global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties.OperationProperty);
-                    }
-                }
-
-            }
-
-            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class CommandSet
-                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass>
-            {
-            }
-
-            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class MethodSet
-                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass>
-            {
-            }
-
-            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal sealed class PropertySetProperties
-            {
-
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.Operation>.Entry
-                    OperationProperty = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.Operation>.Entry(
-                        "OperationProperty",
-                        false,
-                        global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties._OperationProperty_Stub,
-                        global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties._OperationProperty_Validate,
-                        global::LightSwitchApplication.CreateNewOperation.DetailsClass.PropertySetProperties._OperationProperty_OnValueChanged);
-                private static void _OperationProperty_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.CreateNewOperation, global::LightSwitchApplication.CreateNewOperation.DetailsClass, global::LightSwitchApplication.Operation>.Data> c, global::LightSwitchApplication.CreateNewOperation.DetailsClass d, object sf)
-                {
-                    c(d, ref d._OperationProperty, sf);
-                }
-                private static void _OperationProperty_Validate(global::LightSwitchApplication.CreateNewOperation s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
-                {
-                    s.OperationProperty_Validate(r);
-                }
-                private static void _OperationProperty_OnValueChanged(global::LightSwitchApplication.CreateNewOperation s)
-                {
-                    s.OperationProperty_Changed();
-                }
-
-            }
-
-            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal sealed class CommandSetProperties
-            {
-            }
-
-            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal sealed class MethodSetProperties
-            {
             }
         }
     }

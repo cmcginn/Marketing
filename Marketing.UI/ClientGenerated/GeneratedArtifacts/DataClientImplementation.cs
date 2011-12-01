@@ -977,13 +977,13 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
-    #region Operation
-    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    #region ServerOperation
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingData.Implementation")]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public sealed class Operation :
+    public sealed class ServerOperation :
         global::System.ServiceModel.DomainServices.Client.Entity,
-        global::LightSwitchApplication.Operation.DetailsClass.IImplementation
+        global::LightSwitchApplication.ServerOperation.DetailsClass.IImplementation
     {
         public override object GetIdentity()
         {
@@ -998,7 +998,7 @@ namespace LightSwitchApplication.Implementation
         [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public int Id
+        public global::System.Guid Id
         {
             get
             {
@@ -1014,28 +1014,7 @@ namespace LightSwitchApplication.Implementation
                 }
             }
         }
-        private int _Id;
-        
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public global::System.DateTime Created
-        {
-            get
-            {
-                return this._Created;
-            }
-            set
-            {
-                if (this._Created != value)
-                {
-                    this.RaiseDataMemberChanging("Created");
-                    this.ValidateProperty("Created", value);
-                    this._Created = value;
-                    this.RaiseDataMemberChanged("Created");
-                }
-            }
-        }
-        private global::System.DateTime _Created;
+        private global::System.Guid _Id;
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
@@ -1057,6 +1036,315 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _OperationName;
+        
+        [global::System.ComponentModel.DataAnnotations.Association("FK_ServerOperationHistory_ServerOperation", "Id", "ServerOperationId")]
+        [global::System.Xml.Serialization.XmlIgnore()]
+        public global::System.ServiceModel.DomainServices.Client.EntityCollection<ServerOperationHistory> ServerOperationHistories
+        {
+            get
+            {
+                if (this._ServerOperationHistories == null)
+                {
+                    this._ServerOperationHistories = new global::System.ServiceModel.DomainServices.Client.EntityCollection<global::LightSwitchApplication.Implementation.ServerOperationHistory>(this, "ServerOperationHistories", this.FilterServerOperationHistories, this.AttachServerOperationHistories, this.DetachServerOperationHistories);
+                }
+                return this._ServerOperationHistories;
+            }
+        }
+        private global::System.ServiceModel.DomainServices.Client.EntityCollection<global::LightSwitchApplication.Implementation.ServerOperationHistory> _ServerOperationHistories;
+        private void AttachServerOperationHistories(global::LightSwitchApplication.Implementation.ServerOperationHistory entity)
+        {
+            entity.ServerOperation = this;
+        }
+        private void DetachServerOperationHistories(global::LightSwitchApplication.Implementation.ServerOperationHistory entity)
+        {
+            entity.ServerOperation = null;
+        }
+        private bool FilterServerOperationHistories(global::LightSwitchApplication.Implementation.ServerOperationHistory entity)
+        {
+            return global::System.Object.Equals(entity.ServerOperationId, this.Id);
+        }
+        global::System.Collections.IEnumerable global::LightSwitchApplication.ServerOperation.DetailsClass.IImplementation.ServerOperationHistories
+        {
+            get
+            {
+                return this.ServerOperationHistories;
+            }
+        }
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
+    #region ServerOperationHistory
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class ServerOperationHistory :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.ServerOperationHistory.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> Started
+        {
+            get
+            {
+                return this._Started;
+            }
+            set
+            {
+                if (this._Started != value)
+                {
+                    this.RaiseDataMemberChanging("Started");
+                    this.ValidateProperty("Started", value);
+                    this._Started = value;
+                    this.RaiseDataMemberChanged("Started");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _Started;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> Completed
+        {
+            get
+            {
+                return this._Completed;
+            }
+            set
+            {
+                if (this._Completed != value)
+                {
+                    this.RaiseDataMemberChanging("Completed");
+                    this.ValidateProperty("Completed", value);
+                    this._Completed = value;
+                    this.RaiseDataMemberChanged("Completed");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _Completed;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime Scheduled
+        {
+            get
+            {
+                return this._Scheduled;
+            }
+            set
+            {
+                if (this._Scheduled != value)
+                {
+                    this.RaiseDataMemberChanging("Scheduled");
+                    this.ValidateProperty("Scheduled", value);
+                    this._Scheduled = value;
+                    this.RaiseDataMemberChanged("Scheduled");
+                }
+            }
+        }
+        private global::System.DateTime _Scheduled;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid ServerOperationId
+        {
+            get
+            {
+                return this._ServerOperationId;
+            }
+            set
+            {
+                if (this._ServerOperationId != value)
+                {
+                    this.RaiseDataMemberChanging("ServerOperationId");
+                    this.ValidateProperty("ServerOperationId", value);
+                    this._ServerOperationId = value;
+                    this.RaiseDataMemberChanged("ServerOperationId");
+                }
+            }
+        }
+        private global::System.Guid _ServerOperationId;
+        
+        [global::System.ComponentModel.DataAnnotations.Association("FK_ServerOperationHistory_ServerOperation", "ServerOperationId", "Id", IsForeignKey = true)]
+        [global::System.Xml.Serialization.XmlIgnore()]
+        public global::LightSwitchApplication.Implementation.ServerOperation ServerOperation
+        {
+            get
+            {
+                if (this._ServerOperation == null)
+                {
+                    this._ServerOperation = new global::System.ServiceModel.DomainServices.Client.EntityRef<global::LightSwitchApplication.Implementation.ServerOperation>(this, "ServerOperation", this.FilterServerOperation);
+                }
+                return this._ServerOperation.Entity;
+            }
+            set
+            {
+                ServerOperation previous = this.ServerOperation;
+                if (previous != value)
+                {
+                    this.ValidateProperty("ServerOperation", value);
+                    if (previous != null)
+                    {
+                        this._ServerOperation.Entity = null;
+                        previous.ServerOperationHistories.Remove(this);
+                    }
+                    if (value != null)
+                    {
+                        this.ServerOperationId = value.Id;
+                    }
+                    else
+                    {
+                        this.ServerOperationId = default(global::System.Guid);
+                    }
+                    this._ServerOperation.Entity = value;
+                    if (value != null)
+                    {
+                        value.ServerOperationHistories.Add(this);
+                    }
+                    this.RaisePropertyChanged("ServerOperation");
+                }
+            }
+        }
+        private global::System.ServiceModel.DomainServices.Client.EntityRef<global::LightSwitchApplication.Implementation.ServerOperation> _ServerOperation;
+        private bool FilterServerOperation(global::LightSwitchApplication.Implementation.ServerOperation entity)
+        {
+            return global::System.Object.Equals(entity.Id, this.ServerOperationId);
+        }
+        global::Microsoft.LightSwitch.Internal.IEntityImplementation global::LightSwitchApplication.ServerOperationHistory.DetailsClass.IImplementation.ServerOperation
+        {
+            get
+            {
+                return this.ServerOperation;
+            }
+            set
+            {
+                this.ServerOperation = (global::LightSwitchApplication.Implementation.ServerOperation)value;
+            }
+        }
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
+    #region Operation
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class Operation :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.Operation.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
@@ -1132,6 +1420,20 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.CraigslistPostKeyword>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.ServerOperation> ServerOperationEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.ServerOperation>();
+            }
+        }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.ServerOperationHistory> ServerOperationHistoryEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.ServerOperationHistory>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDataEntityContainer();
@@ -1146,6 +1448,8 @@ namespace LightSwitchApplication.Implementation
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigslistCity>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.Keyword>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigslistPostKeyword>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.ServerOperation>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.ServerOperationHistory>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -1244,6 +1548,42 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginCraigslistPostKeywords_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPostKeyword> EndCraigslistPostKeywords_All(global::System.IAsyncResult result);
             
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/ServerOperations_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/ServerOperations_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/ServerOperations_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginServerOperations_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ServerOperation> EndServerOperations_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/ServerOperations_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/ServerOperations_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/ServerOperations_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginServerOperations_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ServerOperation> EndServerOperations_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/ServerOperations_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/ServerOperations_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/ServerOperations_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginServerOperations_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ServerOperation> EndServerOperations_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginServerOperationHistories_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ServerOperationHistory> EndServerOperationHistories_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginServerOperationHistories_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ServerOperationHistory> EndServerOperationHistories_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/ServerOperationHistories_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginServerOperationHistories_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ServerOperationHistory> EndServerOperationHistories_All(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
@@ -1286,6 +1626,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPostKeyword))
             {
                 return new global::LightSwitchApplication.Implementation.CraigslistPostKeyword();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.ServerOperation))
+            {
+                return new global::LightSwitchApplication.Implementation.ServerOperation();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.ServerOperationHistory))
+            {
+                return new global::LightSwitchApplication.Implementation.ServerOperationHistory();
             }
             return null;
         }
@@ -1331,13 +1679,13 @@ namespace LightSwitchApplication.Implementation
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginOperations_Single(string frameworkOperators, global::System.Nullable<int> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginOperations_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Operation> EndOperations_Single(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_SingleOrDefaultResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginOperations_SingleOrDefault(string frameworkOperators, global::System.Nullable<int> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginOperations_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Operation> EndOperations_SingleOrDefault(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_AllResponse"),
@@ -1346,11 +1694,11 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginOperations_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Operation> EndOperations_All(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/RunOperation", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/RunOperationResponse"),
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/RunServerOperations", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/RunServerOperationsResponse"),
              global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/RunOperationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginRunOperation(string frameworkOperators, global::System.Nullable<int> id, global::System.AsyncCallback callback, global::System.Object asyncState);
-            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Operation> EndRunOperation(global::System.IAsyncResult result);
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/RunServerOperationsDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginRunServerOperations(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Operation> EndRunServerOperations(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
@@ -1449,6 +1797,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.CraigslistPostKeyword) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.CraigslistPostKeyword);
+            }
+            if (typeof(global::LightSwitchApplication.ServerOperation) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.ServerOperation);
+            }
+            if (typeof(global::LightSwitchApplication.ServerOperationHistory) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.ServerOperationHistory);
             }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {

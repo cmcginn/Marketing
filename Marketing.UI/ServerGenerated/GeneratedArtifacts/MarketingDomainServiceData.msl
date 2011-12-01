@@ -5,8 +5,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.Operation)">
         <MappingFragment StoreEntitySet="GetOperations">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="OperationName" ColumnName="OperationName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

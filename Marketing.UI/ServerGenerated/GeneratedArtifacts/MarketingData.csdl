@@ -36,6 +36,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ServerOperationHistory_ServerOperation">
+    <End Role="ServerOperation" Type="MarketingData.ServerOperation" Multiplicity="1" />
+    <End Role="ServerOperationHistory" Type="MarketingData.ServerOperationHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServerOperation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServerOperationHistory">
+        <PropertyRef Name="ServerOperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="CraigslistPost">
     <Key>
       <PropertyRef Name="Id" />
@@ -90,12 +102,33 @@
     <Property Name="KeywordId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingData.FK_CraigslistPostKeywords_CraigslistPosts" ToRole="CraigslistPosts" FromRole="CraigslistPostKeywords" />
   </EntityType>
+  <EntityType Name="ServerOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="OperationName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="ServerOperationHistories" Relationship="MarketingData.FK_ServerOperationHistory_ServerOperation" ToRole="ServerOperationHistory" FromRole="ServerOperation" />
+  </EntityType>
+  <EntityType Name="ServerOperationHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Started" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Completed" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Scheduled" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="ServerOperationId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="ServerOperation" Relationship="MarketingData.FK_ServerOperationHistory_ServerOperation" ToRole="ServerOperation" FromRole="ServerOperationHistory" />
+  </EntityType>
   <EntityContainer Name="MarketingDataObjectContext">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
     <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
     <EntitySet Name="CraigslistCities" EntityType="MarketingData.CraigslistCity" />
     <EntitySet Name="Keywords" EntityType="MarketingData.Keyword" />
     <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingData.CraigslistPostKeyword" />
+    <EntitySet Name="ServerOperations" EntityType="MarketingData.ServerOperation" />
+    <EntitySet Name="ServerOperationHistories" EntityType="MarketingData.ServerOperationHistory" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
@@ -107,6 +140,10 @@
     <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingData.FK_CraigslistPosts_CraigslistCity">
       <End Role="CraigslistCity" EntitySet="CraigslistCities" />
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingData.FK_ServerOperationHistory_ServerOperation">
+      <End Role="ServerOperation" EntitySet="ServerOperations" />
+      <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

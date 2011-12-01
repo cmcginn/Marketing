@@ -3,7 +3,7 @@
   <PropertyGroup>
     <EnableENC>False</EnableENC>
     <ProjectView>ShowAllFiles</ProjectView>
-    <ServerPort>21887</ServerPort>
+    <ServerPort>23640</ServerPort>
     <SchemaManagementSchemaBuildState>0</SchemaManagementSchemaBuildState>
     <SchemaManagementLastModelWriteTime>634582529970332031</SchemaManagementLastModelWriteTime>
   </PropertyGroup>

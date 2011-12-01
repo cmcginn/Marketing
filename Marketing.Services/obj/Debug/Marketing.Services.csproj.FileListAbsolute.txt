@@ -10,3 +10,5 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Net.Interfaces.
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Types.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Data.pdb

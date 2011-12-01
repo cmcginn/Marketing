@@ -175,6 +175,66 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region ServerOperation
+    
+        public void InsertServerOperation(global::MarketingData.Implementation.ServerOperation entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.ServerOperations.AddObject(entity);
+            }
+        }
+    
+        public void UpdateServerOperation(global::MarketingData.Implementation.ServerOperation currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.ServerOperations, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteServerOperation(global::MarketingData.Implementation.ServerOperation entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ServerOperations.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
+    #region ServerOperationHistory
+    
+        public void InsertServerOperationHistory(global::MarketingData.Implementation.ServerOperationHistory entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.ServerOperationHistories.AddObject(entity);
+            }
+        }
+    
+        public void UpdateServerOperationHistory(global::MarketingData.Implementation.ServerOperationHistory currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.ServerOperationHistories, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteServerOperationHistory(global::MarketingData.Implementation.ServerOperationHistory entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ServerOperationHistories.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -249,6 +309,36 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostKeyword> CraigslistPostKeywords_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingData.Implementation.CraigslistPostKeyword>("CraigslistPostKeywords_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> ServerOperations_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.ServerOperation>("ServerOperations_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> ServerOperations_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.ServerOperation>("ServerOperations_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> ServerOperations_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.ServerOperation>("ServerOperations_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.ServerOperationHistory>("ServerOperationHistories_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.ServerOperationHistory>("ServerOperationHistories_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.ServerOperationHistory>("ServerOperationHistories_All", frameworkOperators);
         }
     
     #endregion
@@ -409,6 +499,56 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> ServerOperations_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.ServerOperation>("ServerOperations_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> ServerOperations_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.ServerOperation>("ServerOperations_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> ServerOperations_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperation> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.ServerOperation>("[ServerOperations]").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.ServerOperationHistory>("ServerOperationHistories_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.ServerOperationHistory>("ServerOperationHistories_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.ServerOperationHistory>("[ServerOperationHistories]").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -433,6 +573,14 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingData.Implementation.CraigslistPostKeyword))
             {
                 return new global::MarketingData.Implementation.CraigslistPostKeyword();
+            }
+            if (type == typeof(global::MarketingData.Implementation.ServerOperation))
+            {
+                return new global::MarketingData.Implementation.ServerOperation();
+            }
+            if (type == typeof(global::MarketingData.Implementation.ServerOperationHistory))
+            {
+                return new global::MarketingData.Implementation.ServerOperationHistory();
             }
     
             return base.CreateObject(type);
@@ -467,6 +615,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPostKeyword))
             {
                 return new global::MarketingData.Implementation.CraigslistPostKeyword();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.ServerOperation))
+            {
+                return new global::MarketingData.Implementation.ServerOperation();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.ServerOperationHistory))
+            {
+                return new global::MarketingData.Implementation.ServerOperationHistory();
             }
             return null;
         }
@@ -519,12 +675,12 @@ namespace LightSwitchApplication.Implementation
     #endregion
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_Single(string frameworkOperators, global::System.Nullable<int> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_Single", frameworkOperators, Id);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_SingleOrDefault(string frameworkOperators, global::System.Nullable<int> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_SingleOrDefault", frameworkOperators, Id);
         }
@@ -534,9 +690,9 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_All", frameworkOperators);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunOperation(string frameworkOperators, global::System.Nullable<int> id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunServerOperations(string frameworkOperators)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunOperation", frameworkOperators, id);
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunServerOperations", frameworkOperators);
         }
     
     #endregion
@@ -572,7 +728,7 @@ namespace LightSwitchApplication.Implementation
         }
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_Single(global::System.Nullable<int> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_Single(global::System.Nullable<global::System.Guid> Id)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
             query = global::System.Linq.Queryable.Where(
@@ -581,7 +737,7 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_SingleOrDefault(global::System.Nullable<int> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
             query = global::System.Linq.Queryable.Where(
@@ -597,10 +753,10 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunOperation(global::System.Nullable<int> id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunServerOperations()
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunOperation", id).AsQueryable();
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunServerOperations").AsQueryable();
             return query;
         }
     
@@ -648,8 +804,6 @@ namespace LightSwitchApplication.Implementation
             {
                 global::Marketing.Services.Operation result = new global::Marketing.Services.Operation();
                 result.Id = operation.Id;
-                result.Created = operation.Created;
-                result.OperationName = operation.OperationName;
                 return result;
             }
             return null;
@@ -663,8 +817,6 @@ namespace LightSwitchApplication.Implementation
             if ((outerOperation != null) && (innerOperation != null))
             {
                 outerOperation.Id = innerOperation.Id;
-                outerOperation.Created = innerOperation.Created;
-                outerOperation.OperationName = innerOperation.OperationName;
                 return;
             }
         }
@@ -738,6 +890,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.CraigslistPostKeyword) == definitionType)
             {
                 return typeof(global::MarketingData.Implementation.CraigslistPostKeyword);
+            }
+            if (typeof(global::LightSwitchApplication.ServerOperation) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.ServerOperation);
+            }
+            if (typeof(global::LightSwitchApplication.ServerOperationHistory) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.ServerOperationHistory);
             }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {
@@ -1032,6 +1192,112 @@ namespace MarketingData.Implementation
         {
             [global::System.ServiceModel.DomainServices.Server.Include]
             public global::MarketingData.Implementation.CraigslistPost CraigslistPost { get; set; }
+        
+        }
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class ServerOperation :
+        global::LightSwitchApplication.ServerOperation.DetailsClass.IImplementation
+    {
+    
+        global::System.Collections.IEnumerable global::LightSwitchApplication.ServerOperation.DetailsClass.IImplementation.ServerOperationHistories
+        {
+            get
+            {
+                return this.ServerOperationHistories;
+            }
+        }
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.ComponentModel.DataAnnotations.MetadataType(typeof(global::MarketingData.Implementation.ServerOperationHistory.Metadata))]
+    public partial class ServerOperationHistory :
+        global::LightSwitchApplication.ServerOperationHistory.DetailsClass.IImplementation
+    {
+    
+        global::Microsoft.LightSwitch.Internal.IEntityImplementation global::LightSwitchApplication.ServerOperationHistory.DetailsClass.IImplementation.ServerOperation
+        {
+            get
+            {
+                return this.ServerOperation;
+            }
+            set
+            {
+                this.ServerOperation = (global::MarketingData.Implementation.ServerOperation)value;
+                if (this.__host != null)
+                {
+                    this.__host.RaisePropertyChanged("ServerOperation");
+                }
+            }
+        }
+        
+        partial void OnServerOperationIdChanged()
+        {
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged("ServerOperation");
+            }
+        }
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+        
+        internal class Metadata
+        {
+            [global::System.ServiceModel.DomainServices.Server.Include]
+            public global::MarketingData.Implementation.ServerOperation ServerOperation { get; set; }
         
         }
     }

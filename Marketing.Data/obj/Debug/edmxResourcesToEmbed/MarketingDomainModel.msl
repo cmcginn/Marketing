@@ -53,5 +53,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ServerOperations">
+      <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperation">
+        <MappingFragment StoreEntitySet="ServerOperation">
+          <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ServerOperationHistories">
+      <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
+        <MappingFragment StoreEntitySet="ServerOperationHistory">
+          <ScalarProperty Name="Completed" ColumnName="Completed" />
+          <ScalarProperty Name="Started" ColumnName="Started" />
+          <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

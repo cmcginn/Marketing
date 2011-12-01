@@ -18,6 +18,12 @@
       <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
       <End Role="CraigslistPostKeyword" EntitySet="CraigslistPostKeywords" />
     </AssociationSet>
+    <EntitySet Name="ServerOperations" EntityType="MarketingDomainModel.ServerOperation" />
+    <EntitySet Name="ServerOperationHistories" EntityType="MarketingDomainModel.ServerOperationHistory" />
+    <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation">
+      <End Role="ServerOperation" EntitySet="ServerOperations" />
+      <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPost">
     <Key>
@@ -106,6 +112,36 @@
       </Principal>
       <Dependent Role="CraigslistPostKeyword">
         <PropertyRef Name="CraigslistPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ServerOperation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="OperationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ServerOperationHistories" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperation" ToRole="ServerOperationHistory" />
+  </EntityType>
+  <EntityType Name="ServerOperationHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="ServerOperationId" Nullable="false" />
+    <Property Type="DateTime" Name="Started" Nullable="false" />
+    <Property Type="DateTime" Name="Completed" />
+    <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
+  </EntityType>
+  <Association Name="FK_ServerOperationHistory_ServerOperation">
+    <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />
+    <End Type="MarketingDomainModel.ServerOperationHistory" Role="ServerOperationHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ServerOperation">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ServerOperationHistory">
+        <PropertyRef Name="ServerOperationId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -11,6 +11,8 @@
           <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.Store.CraigslistPosts" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CraigsListResponse" EntityType="MarketingDomainModel.Store.CraigsListResponse" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Keyword" EntityType="MarketingDomainModel.Store.Keyword" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServerOperation" EntityType="MarketingDomainModel.Store.ServerOperation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ServerOperationHistory" EntityType="MarketingDomainModel.Store.ServerOperationHistory" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigslistPostKeywords_CraigslistPosts">
             <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
             <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
@@ -22,6 +24,10 @@
           <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigsListResponse_CraigslistPosts">
             <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
             <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDomainModel.Store.FK_ServerOperationHistory_ServerOperation">
+            <End Role="ServerOperation" EntitySet="ServerOperation" />
+            <End Role="ServerOperationHistory" EntitySet="ServerOperationHistory" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="CraigslistCity">
@@ -72,6 +78,22 @@
           <Property Name="KeywordValue" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Score" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="ServerOperation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OperationName" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ServerOperationHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Started" Type="datetime" Nullable="false" />
+          <Property Name="Completed" Type="datetime" />
+        </EntityType>
         <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
           <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
           <End Role="CraigslistPostKeywords" Type="MarketingDomainModel.Store.CraigslistPostKeywords" Multiplicity="*" />
@@ -108,6 +130,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ServerOperationHistory_ServerOperation">
+          <End Role="ServerOperation" Type="MarketingDomainModel.Store.ServerOperation" Multiplicity="1" />
+          <End Role="ServerOperationHistory" Type="MarketingDomainModel.Store.ServerOperationHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServerOperation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServerOperationHistory">
+              <PropertyRef Name="ServerOperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -129,6 +163,12 @@
           <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts">
             <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
             <End Role="CraigslistPostKeyword" EntitySet="CraigslistPostKeywords" />
+          </AssociationSet>
+          <EntitySet Name="ServerOperations" EntityType="MarketingDomainModel.ServerOperation" />
+          <EntitySet Name="ServerOperationHistories" EntityType="MarketingDomainModel.ServerOperationHistory" />
+          <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation">
+            <End Role="ServerOperation" EntitySet="ServerOperations" />
+            <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="CraigslistPost">
@@ -221,6 +261,36 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ServerOperation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="OperationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ServerOperationHistories" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperation" ToRole="ServerOperationHistory" />
+        </EntityType>
+        <EntityType Name="ServerOperationHistory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ServerOperationId" Nullable="false" />
+          <Property Type="DateTime" Name="Started" Nullable="false" />
+          <Property Type="DateTime" Name="Completed" />
+          <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
+        </EntityType>
+        <Association Name="FK_ServerOperationHistory_ServerOperation">
+          <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />
+          <End Type="MarketingDomainModel.ServerOperationHistory" Role="ServerOperationHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServerOperation">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ServerOperationHistory">
+              <PropertyRef Name="ServerOperationId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -279,6 +349,24 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ServerOperations">
+            <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperation">
+              <MappingFragment StoreEntitySet="ServerOperation">
+                <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServerOperationHistories">
+            <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
+              <MappingFragment StoreEntitySet="ServerOperationHistory">
+                <ScalarProperty Name="Completed" ColumnName="Completed" />
+                <ScalarProperty Name="Started" ColumnName="Started" />
+                <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -318,6 +406,12 @@
           <ConnectorPoint PointX="2.5" PointY="3.5783902994791674" />
           <ConnectorPoint PointX="2.5" PointY="7.0889794921875" />
           <ConnectorPoint PointX="3" PointY="7.0889794921875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="MarketingDomainModel.ServerOperation" Width="1.5" PointX="5.375" PointY="0.75" Height="1.2636116536458326" />
+        <EntityTypeShape EntityType="MarketingDomainModel.ServerOperationHistory" Width="1.5" PointX="5.375" PointY="3.75" Height="1.5923063151041674" />
+        <AssociationConnector Association="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" >
+          <ConnectorPoint PointX="6.125" PointY="2.177958984375" />
+          <ConnectorPoint PointX="6.125" PointY="3.75" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

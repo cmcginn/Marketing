@@ -12,36 +12,48 @@ namespace Marketing.Services {
   using System.Workflow.Runtime;
   using LeadScraper.WorkflowActivities;
   using System.Threading.Tasks;
+  using Marketing.Data;
   // TODO: Create methods containing your application logic.
   public class Operation {
 
     [Key]
-    public int Id { get; set; }
-    public DateTime Created { get; set; }
-    public string OperationName { get; set; }
-    public List<String> Parameters;
+    public Guid Id { get; set; }
+    public List<Guid> ScheduledOperations{get;set;}
   }
   public class MarketingDomainService : DomainService {
+    
+    //public ServeeOper
     List<Operation> _Operations = new List<Operation>();
-    public MarketingDomainService() {
-      _Operations.Add( new Operation {Id=1,OperationName="CraigslistRefresh" } );
-    }
-    [Query(IsDefault=true)]
-    public IQueryable<Operation> GetOperations()
-    {
-       return _Operations.AsQueryable();
+
+    [Query( IsDefault = true )]
+    public IQueryable<Operation> GetOperations() {
+      return _Operations.AsQueryable();
     }
 
+    public Operation RunServerOperations() {
+      using (var ctx = new MarketingDomainModelContainer())
+      {
+        //call host eventually
+        var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
+         Task t = new Task( () => {
+          invoker.Invoke();
+          //ctx.ServerOperationHistories.ToList().ForEach(n=>n.Completed=System.DateTime.Now);
+          //ctx.SaveChanges();
+         } );
+         t.Start();
+      }
 
-    public Operation RunOperation(int? id) {
-      var result = _Operations.SingleOrDefault( n => n.Id == id.GetValueOrDefault() );
-      var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
-      Task t = new Task( () => {
-        invoker.Invoke();
-      } );
-      t.Start();
-      return result;
+      return new Operation { Id = Guid.NewGuid() };
     }
+    //public Operation RunOperation(int? id) {
+    //  var result = _Operations.SingleOrDefault( n => n.Id == id.GetValueOrDefault() );
+    //  var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
+    //  Task t = new Task( () => {
+    //    invoker.Invoke();
+    //  } );
+    //  t.Start();
+    //  return result;
+    //}
   }
 }
 

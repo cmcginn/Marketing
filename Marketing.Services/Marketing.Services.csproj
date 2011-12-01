@@ -73,6 +73,10 @@
       <Project>{D957BDC9-39AC-4D95-9179-17E1D23D69B2}</Project>
       <Name>LeadScraper.WorkflowActivities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Marketing.Data\Marketing.Data.csproj">
+      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
+      <Name>Marketing.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

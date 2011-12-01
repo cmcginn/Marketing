@@ -7,8 +7,6 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Created" Type="datetime" Nullable="false" />
-    <Property Name="OperationName" Type="nvarchar(max)" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
 </Schema>

@@ -21,6 +21,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_CraigsListResponse_CraigslistPosts", "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.CraigslistPost), "CraigsListResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CraigsListResponse), true)]
 [assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_CraigslistPosts_CraigslistCity", "CraigslistCity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.CraigslistCity), "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CraigslistPost), true)]
 [assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.CraigslistPost), "CraigslistPostKeyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CraigslistPostKeyword), true)]
+[assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_ServerOperationHistory_ServerOperation", "ServerOperation", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ServerOperation), "ServerOperationHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ServerOperationHistory), true)]
 
 #endregion
 
@@ -151,6 +152,38 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<CraigslistPostKeyword> _CraigslistPostKeywords;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ServerOperation> ServerOperations
+        {
+            get
+            {
+                if ((_ServerOperations == null))
+                {
+                    _ServerOperations = base.CreateObjectSet<ServerOperation>("ServerOperations");
+                }
+                return _ServerOperations;
+            }
+        }
+        private ObjectSet<ServerOperation> _ServerOperations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ServerOperationHistory> ServerOperationHistories
+        {
+            get
+            {
+                if ((_ServerOperationHistories == null))
+                {
+                    _ServerOperationHistories = base.CreateObjectSet<ServerOperationHistory>("ServerOperationHistories");
+                }
+                return _ServerOperationHistories;
+            }
+        }
+        private ObjectSet<ServerOperationHistory> _ServerOperationHistories;
 
         #endregion
         #region AddTo Methods
@@ -193,6 +226,22 @@ namespace Marketing.Data
         public void AddToCraigslistPostKeywords(CraigslistPostKeyword craigslistPostKeyword)
         {
             base.AddObject("CraigslistPostKeywords", craigslistPostKeyword);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ServerOperations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToServerOperations(ServerOperation serverOperation)
+        {
+            base.AddObject("ServerOperations", serverOperation);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ServerOperationHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToServerOperationHistories(ServerOperationHistory serverOperationHistory)
+        {
+            base.AddObject("ServerOperationHistories", serverOperationHistory);
         }
 
         #endregion
@@ -1113,6 +1162,284 @@ namespace Marketing.Data
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="ServerOperation")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ServerOperation : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ServerOperation object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="operationName">Initial value of the OperationName property.</param>
+        public static ServerOperation CreateServerOperation(global::System.Guid id, global::System.String operationName)
+        {
+            ServerOperation serverOperation = new ServerOperation();
+            serverOperation.Id = id;
+            serverOperation.OperationName = operationName;
+            return serverOperation;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OperationName
+        {
+            get
+            {
+                return _OperationName;
+            }
+            set
+            {
+                OnOperationNameChanging(value);
+                ReportPropertyChanging("OperationName");
+                _OperationName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("OperationName");
+                OnOperationNameChanged();
+            }
+        }
+        private global::System.String _OperationName;
+        partial void OnOperationNameChanging(global::System.String value);
+        partial void OnOperationNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_ServerOperationHistory_ServerOperation", "ServerOperationHistory")]
+        public EntityCollection<ServerOperationHistory> ServerOperationHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ServerOperationHistory>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperationHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ServerOperationHistory>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperationHistory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="ServerOperationHistory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ServerOperationHistory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ServerOperationHistory object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="serverOperationId">Initial value of the ServerOperationId property.</param>
+        /// <param name="started">Initial value of the Started property.</param>
+        public static ServerOperationHistory CreateServerOperationHistory(global::System.Guid id, global::System.Guid serverOperationId, global::System.DateTime started)
+        {
+            ServerOperationHistory serverOperationHistory = new ServerOperationHistory();
+            serverOperationHistory.Id = id;
+            serverOperationHistory.ServerOperationId = serverOperationId;
+            serverOperationHistory.Started = started;
+            return serverOperationHistory;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ServerOperationId
+        {
+            get
+            {
+                return _ServerOperationId;
+            }
+            set
+            {
+                OnServerOperationIdChanging(value);
+                ReportPropertyChanging("ServerOperationId");
+                _ServerOperationId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ServerOperationId");
+                OnServerOperationIdChanged();
+            }
+        }
+        private global::System.Guid _ServerOperationId;
+        partial void OnServerOperationIdChanging(global::System.Guid value);
+        partial void OnServerOperationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Started
+        {
+            get
+            {
+                return _Started;
+            }
+            set
+            {
+                OnStartedChanging(value);
+                ReportPropertyChanging("Started");
+                _Started = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Started");
+                OnStartedChanged();
+            }
+        }
+        private global::System.DateTime _Started;
+        partial void OnStartedChanging(global::System.DateTime value);
+        partial void OnStartedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Completed
+        {
+            get
+            {
+                return _Completed;
+            }
+            set
+            {
+                OnCompletedChanging(value);
+                ReportPropertyChanging("Completed");
+                _Completed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Completed");
+                OnCompletedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Completed;
+        partial void OnCompletedChanging(Nullable<global::System.DateTime> value);
+        partial void OnCompletedChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_ServerOperationHistory_ServerOperation", "ServerOperation")]
+        public ServerOperation ServerOperation
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ServerOperation> ServerOperationReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation", value);
+                }
+            }
+        }
+
+        #endregion
     }
 
     #endregion

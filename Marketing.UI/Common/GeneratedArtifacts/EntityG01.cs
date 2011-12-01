@@ -263,6 +263,24 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int Score
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistPost.DetailsClass.GetValue(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.Score);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Score_Compute(ref int result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Score_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::Microsoft.LightSwitch.Framework.EntityCollection<global::LightSwitchApplication.CraigsListResponse> CraigsListResponses
         {
             get
@@ -471,6 +489,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.PostElementBody) as global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, int> Score
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.Score) as global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, int>;
                     }
                 }
                 
@@ -789,6 +815,28 @@ namespace LightSwitchApplication
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, int>.Entry
+                    Score = new global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, int>.Entry(
+                        "Score",
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._Score_Stub,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._Score_Validate,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._Score_ComputeValue);
+                private static void _Score_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CraigslistPost.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, int>.Data> c, global::LightSwitchApplication.CraigslistPost.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Score, sf);
+                }
+                private static void _Score_Validate(global::LightSwitchApplication.CraigslistPost e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Score_Validate(r);
+                }
+                private static int _Score_ComputeValue(global::LightSwitchApplication.CraigslistPost e)
+                {
+                    int value = default(int);
+                    e.Score_Compute(ref value);
+                    return value;
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
                     CraigsListResponses = new global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
                         "CraigsListResponses",
@@ -900,6 +948,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, string>.Data _PostElementBody;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, int>.Data _Score;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;

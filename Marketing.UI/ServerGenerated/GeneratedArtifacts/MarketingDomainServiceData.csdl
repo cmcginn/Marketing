@@ -4,9 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
-    <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
-    <Property Name="OperationName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="Operations" EntityType="MarketingDomainServiceData.Operation" />

@@ -18,6 +18,11 @@ namespace LightSwitchApplication {
       result = element.Descendants( "Body" ).First().Value;
     }
 
+    partial void Score_Compute( ref int result ) {
+      // Set result to the desired field value
+      
+    }
+
 
   }
 }

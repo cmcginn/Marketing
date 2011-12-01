@@ -111,12 +111,10 @@ namespace MarketingDomainServiceData.Implementation
         /// Create a new Operation object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="created">Initial value of the Created property.</param>
-        public static Operation CreateOperation(global::System.Int32 id, global::System.DateTime created)
+        public static Operation CreateOperation(global::System.Guid id)
         {
             Operation operation = new Operation();
             operation.Id = id;
-            operation.Created = created;
             return operation;
         }
 
@@ -128,7 +126,7 @@ namespace MarketingDomainServiceData.Implementation
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 Id
+        public global::System.Guid Id
         {
             get
             {
@@ -146,57 +144,9 @@ namespace MarketingDomainServiceData.Implementation
                 }
             }
         }
-        private global::System.Int32 _Id;
-        partial void OnIdChanging(global::System.Int32 value);
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Created
-        {
-            get
-            {
-                return _Created;
-            }
-            set
-            {
-                OnCreatedChanging(value);
-                ReportPropertyChanging("Created");
-                _Created = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Created");
-                OnCreatedChanged();
-            }
-        }
-        private global::System.DateTime _Created;
-        partial void OnCreatedChanging(global::System.DateTime value);
-        partial void OnCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String OperationName
-        {
-            get
-            {
-                return _OperationName;
-            }
-            set
-            {
-                OnOperationNameChanging(value);
-                ReportPropertyChanging("OperationName");
-                _OperationName = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("OperationName");
-                OnOperationNameChanged();
-            }
-        }
-        private global::System.String _OperationName;
-        partial void OnOperationNameChanging(global::System.String value);
-        partial void OnOperationNameChanged();
 
         #endregion
     

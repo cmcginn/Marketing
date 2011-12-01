@@ -225,6 +225,72 @@ namespace LightSwitchApplication
         partial void CraigslistPostKeywords_Validate(global::LightSwitchApplication.CraigslistPostKeyword entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Inserting(global::LightSwitchApplication.ServerOperation entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Inserted(global::LightSwitchApplication.ServerOperation entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Updating(global::LightSwitchApplication.ServerOperation entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Updated(global::LightSwitchApplication.ServerOperation entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Deleting(global::LightSwitchApplication.ServerOperation entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Deleted(global::LightSwitchApplication.ServerOperation entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Validate(global::LightSwitchApplication.ServerOperation entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Inserting(global::LightSwitchApplication.ServerOperationHistory entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Inserted(global::LightSwitchApplication.ServerOperationHistory entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Updating(global::LightSwitchApplication.ServerOperationHistory entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Updated(global::LightSwitchApplication.ServerOperationHistory entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Deleting(global::LightSwitchApplication.ServerOperationHistory entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Deleted(global::LightSwitchApplication.ServerOperationHistory entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Validate(global::LightSwitchApplication.ServerOperationHistory entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -460,6 +526,96 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void CraigslistPostKeywords_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperations_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperationHistory> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperationHistory> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperationHistory> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ServerOperationHistories_All_ExecuteFailed(global::System.Exception exception);
     
         #endregion
     
@@ -813,6 +969,142 @@ namespace LightSwitchApplication
             private static void __CraigslistPostKeywords_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistPostKeyword e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.CraigslistPostKeywords_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>
+                __ServerOperationsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>(
+                    "ServerOperations",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Validate);
+            private static bool __ServerOperations_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperations_CanInsert(ref result);
+                return result;
+            }
+            private static bool __ServerOperations_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperations_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __ServerOperations_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperations_CanDelete(ref result);
+                return result;
+            }
+            private static bool __ServerOperations_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperations_CanRead(ref result);
+                return result;
+            }
+            private static void __ServerOperations_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e)
+            {
+                d.ServerOperations_Inserting(e);
+            }
+            private static void __ServerOperations_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e)
+            {
+                d.ServerOperations_Inserted(e);
+            }
+            private static void __ServerOperations_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e)
+            {
+                d.ServerOperations_Updating(e);
+            }
+            private static void __ServerOperations_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e)
+            {
+                d.ServerOperations_Updated(e);
+            }
+            private static void __ServerOperations_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e)
+            {
+                d.ServerOperations_Deleting(e);
+            }
+            private static void __ServerOperations_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e)
+            {
+                d.ServerOperations_Deleted(e);
+            }
+            private static void __ServerOperations_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperation e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.ServerOperations_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>
+                __ServerOperationHistoriesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>(
+                    "ServerOperationHistories",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Validate);
+            private static bool __ServerOperationHistories_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperationHistories_CanInsert(ref result);
+                return result;
+            }
+            private static bool __ServerOperationHistories_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperationHistories_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __ServerOperationHistories_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperationHistories_CanDelete(ref result);
+                return result;
+            }
+            private static bool __ServerOperationHistories_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.ServerOperationHistories_CanRead(ref result);
+                return result;
+            }
+            private static void __ServerOperationHistories_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e)
+            {
+                d.ServerOperationHistories_Inserting(e);
+            }
+            private static void __ServerOperationHistories_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e)
+            {
+                d.ServerOperationHistories_Inserted(e);
+            }
+            private static void __ServerOperationHistories_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e)
+            {
+                d.ServerOperationHistories_Updating(e);
+            }
+            private static void __ServerOperationHistories_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e)
+            {
+                d.ServerOperationHistories_Updated(e);
+            }
+            private static void __ServerOperationHistories_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e)
+            {
+                d.ServerOperationHistories_Deleting(e);
+            }
+            private static void __ServerOperationHistories_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e)
+            {
+                d.ServerOperationHistories_Deleted(e);
+            }
+            private static void __ServerOperationHistories_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.ServerOperationHistory e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.ServerOperationHistories_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1335,6 +1627,204 @@ namespace LightSwitchApplication
                 d.CraigslistPostKeywords_All_PreprocessQuery(ref query);
                 return query;
             }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>
+                __ServerOperations_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>(
+                    "ServerOperations_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_Single_PreprocessQuery);
+            private static bool __ServerOperations_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.ServerOperations_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __ServerOperations_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperations_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __ServerOperations_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperations_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperation>)args[1]);
+            }
+            private static void __ServerOperations_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.ServerOperations_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __ServerOperations_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation>)args[1];
+                d.ServerOperations_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>
+                __ServerOperations_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>(
+                    "ServerOperations_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_SingleOrDefault_PreprocessQuery);
+            private static bool __ServerOperations_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.ServerOperations_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __ServerOperations_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperations_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __ServerOperations_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperations_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperation>)args[1]);
+            }
+            private static void __ServerOperations_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.ServerOperations_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __ServerOperations_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation>)args[1];
+                d.ServerOperations_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>
+                __ServerOperations_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperation>(
+                    "ServerOperations_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperations_All_PreprocessQuery);
+            private static bool __ServerOperations_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.ServerOperations_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __ServerOperations_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperations_All_Executing();
+            }
+            private static void __ServerOperations_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperations_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperation>)args[0]);
+            }
+            private static void __ServerOperations_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.ServerOperations_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __ServerOperations_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperation>)args[0];
+                d.ServerOperations_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>
+                __ServerOperationHistories_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>(
+                    "ServerOperationHistories_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_Single_PreprocessQuery);
+            private static bool __ServerOperationHistories_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.ServerOperationHistories_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __ServerOperationHistories_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperationHistories_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __ServerOperationHistories_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperationHistories_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperationHistory>)args[1]);
+            }
+            private static void __ServerOperationHistories_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.ServerOperationHistories_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __ServerOperationHistories_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory>)args[1];
+                d.ServerOperationHistories_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>
+                __ServerOperationHistories_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>(
+                    "ServerOperationHistories_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_SingleOrDefault_PreprocessQuery);
+            private static bool __ServerOperationHistories_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.ServerOperationHistories_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __ServerOperationHistories_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperationHistories_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __ServerOperationHistories_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperationHistories_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperationHistory>)args[1]);
+            }
+            private static void __ServerOperationHistories_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.ServerOperationHistories_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __ServerOperationHistories_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory>)args[1];
+                d.ServerOperationHistories_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>
+                __ServerOperationHistories_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.ServerOperationHistory>(
+                    "ServerOperationHistories_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__ServerOperationHistories_All_PreprocessQuery);
+            private static bool __ServerOperationHistories_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.ServerOperationHistories_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __ServerOperationHistories_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperationHistories_All_Executing();
+            }
+            private static void __ServerOperationHistories_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.ServerOperationHistories_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.ServerOperationHistory>)args[0]);
+            }
+            private static void __ServerOperationHistories_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.ServerOperationHistories_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __ServerOperationHistories_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.ServerOperationHistory>)args[0];
+                d.ServerOperationHistories_All_PreprocessQuery(ref query);
+                return query;
+            }
     
         }
     
@@ -1411,31 +1901,31 @@ namespace LightSwitchApplication
         partial void Operations_Single_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_Single_Executing(global::System.Nullable<int> Id);
+        partial void Operations_Single_Executing(global::System.Nullable<global::System.Guid> Id);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_Single_PreprocessQuery(global::System.Nullable<int> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+        partial void Operations_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_Single_Executed(global::System.Nullable<int> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+        partial void Operations_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_Single_ExecuteFailed(global::System.Nullable<int> Id, global::System.Exception exception);
+        partial void Operations_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Operations_SingleOrDefault_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_SingleOrDefault_Executing(global::System.Nullable<int> Id);
+        partial void Operations_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_SingleOrDefault_PreprocessQuery(global::System.Nullable<int> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+        partial void Operations_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_SingleOrDefault_Executed(global::System.Nullable<int> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+        partial void Operations_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operations_SingleOrDefault_ExecuteFailed(global::System.Nullable<int> Id, global::System.Exception exception);
+        partial void Operations_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Operations_All_CanExecute(ref bool result);
@@ -1453,19 +1943,19 @@ namespace LightSwitchApplication
         partial void Operations_All_ExecuteFailed(global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunOperation_CanExecute(ref bool result);
+        partial void RunServerOperations_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunOperation_Executing(global::System.Nullable<int> id);
+        partial void RunServerOperations_Executing();
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunOperation_PreprocessQuery(global::System.Nullable<int> id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+        partial void RunServerOperations_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunOperation_Executed(global::System.Nullable<int> id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+        partial void RunServerOperations_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunOperation_ExecuteFailed(global::System.Nullable<int> id, global::System.Exception exception);
+        partial void RunServerOperations_ExecuteFailed(global::System.Exception exception);
     
         #endregion
     
@@ -1549,20 +2039,20 @@ namespace LightSwitchApplication
             }
             private static void __Operations_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.Operations_Single_Executing((global::System.Nullable<int>)args[0]);
+                d.Operations_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
             }
             private static void __Operations_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.Operations_Single_Executed((global::System.Nullable<int>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
+                d.Operations_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
             }
             private static void __Operations_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
             {
-                d.Operations_Single_ExecuteFailed((global::System.Nullable<int>)args[0], ex);
+                d.Operations_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
             }
             private static global::System.Linq.IQueryable __Operations_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[1];
-                d.Operations_Single_PreprocessQuery((global::System.Nullable<int>)args[0], ref query);
+                d.Operations_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
                 return query;
             }
             
@@ -1582,20 +2072,20 @@ namespace LightSwitchApplication
             }
             private static void __Operations_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.Operations_SingleOrDefault_Executing((global::System.Nullable<int>)args[0]);
+                d.Operations_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
             }
             private static void __Operations_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.Operations_SingleOrDefault_Executed((global::System.Nullable<int>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
+                d.Operations_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
             }
             private static void __Operations_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
             {
-                d.Operations_SingleOrDefault_ExecuteFailed((global::System.Nullable<int>)args[0], ex);
+                d.Operations_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
             }
             private static global::System.Linq.IQueryable __Operations_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[1];
-                d.Operations_SingleOrDefault_PreprocessQuery((global::System.Nullable<int>)args[0], ref query);
+                d.Operations_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
                 return query;
             }
             
@@ -1634,34 +2124,34 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
-                __RunOperationEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
-                    "RunOperation",
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_CanExecute,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_Executing,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_Executed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_Failed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_PreprocessQuery);
-            private static bool __RunOperation_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+                __RunServerOperationsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
+                    "RunServerOperations",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunServerOperations_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunServerOperations_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunServerOperations_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunServerOperations_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunServerOperations_PreprocessQuery);
+            private static bool __RunServerOperations_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
             {
-                d.RunOperation_CanExecute(ref r);
+                d.RunServerOperations_CanExecute(ref r);
                 return r;
             }
-            private static void __RunOperation_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            private static void __RunServerOperations_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.RunOperation_Executing((global::System.Nullable<int>)args[0]);
+                d.RunServerOperations_Executing();
             }
-            private static void __RunOperation_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            private static void __RunServerOperations_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.RunOperation_Executed((global::System.Nullable<int>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
+                d.RunServerOperations_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[0]);
             }
-            private static void __RunOperation_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            private static void __RunServerOperations_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
             {
-                d.RunOperation_ExecuteFailed((global::System.Nullable<int>)args[0], ex);
+                d.RunServerOperations_ExecuteFailed(ex);
             }
-            private static global::System.Linq.IQueryable __RunOperation_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            private static global::System.Linq.IQueryable __RunServerOperations_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[1];
-                d.RunOperation_PreprocessQuery((global::System.Nullable<int>)args[0], ref query);
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[0];
+                d.RunServerOperations_PreprocessQuery(ref query);
                 return query;
             }
     

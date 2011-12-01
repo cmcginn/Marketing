@@ -237,6 +237,32 @@ namespace LightSwitchApplication
             }
         }
         
+        /// <summary>
+        /// Gets the ServerOperations entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.ServerOperation> ServerOperations
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.ServerOperations);
+            }
+        }
+        
+        /// <summary>
+        /// Gets the ServerOperationHistories entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.ServerOperationHistory> ServerOperationHistories
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.ServerOperationHistories);
+            }
+        }
+        
         #endregion
     
         #region Queries
@@ -355,6 +381,50 @@ namespace LightSwitchApplication
         public global::LightSwitchApplication.CraigslistPostKeyword CraigslistPostKeywords_SingleOrDefault(global::System.Nullable<global::System.Guid> CraigslistPostId, global::System.Nullable<global::System.Guid> KeywordId)
         {
             return this.Details.Methods.CraigslistPostKeywords_SingleOrDefault.CreateInvocation(CraigslistPostId, KeywordId).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.ServerOperation ServerOperations_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.ServerOperations_Single.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.ServerOperation ServerOperations_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.ServerOperations_SingleOrDefault.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.ServerOperationHistory ServerOperationHistories_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.ServerOperationHistories_Single.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.ServerOperationHistory ServerOperationHistories_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.ServerOperationHistories_SingleOrDefault.CreateInvocation(Id).Execute();
         }
         
         #endregion
@@ -485,6 +555,38 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation> ServerOperations_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.ServerOperations_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation> ServerOperations_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.ServerOperations_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory> ServerOperationHistories_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.ServerOperationHistories_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory> ServerOperationHistories_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.ServerOperationHistories_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>;
+                    }
+                }
+                
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -535,6 +637,22 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigslistPostKeywords) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation> ServerOperations
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.ServerOperations) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory> ServerOperationHistories
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.ServerOperationHistories) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>;
                     }
                 }
                 
@@ -646,6 +764,46 @@ namespace LightSwitchApplication
                     c(d, ref d._CraigslistPostKeywords_SingleOrDefault, sf);
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Entry
+                    ServerOperations_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Entry(
+                        "ServerOperations_Single",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._ServerOperations_Single_Stub);
+                private static void _ServerOperations_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperations_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Entry
+                    ServerOperations_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Entry(
+                        "ServerOperations_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._ServerOperations_SingleOrDefault_Stub);
+                private static void _ServerOperations_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperations_SingleOrDefault, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry
+                    ServerOperationHistories_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry(
+                        "ServerOperationHistories_Single",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._ServerOperationHistories_Single_Stub);
+                private static void _ServerOperationHistories_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperationHistories_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry
+                    ServerOperationHistories_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry(
+                        "ServerOperationHistories_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._ServerOperationHistories_SingleOrDefault_Stub);
+                private static void _ServerOperationHistories_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperationHistories_SingleOrDefault, sf);
+                }
+    
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -704,6 +862,26 @@ namespace LightSwitchApplication
                     c(d, ref d._CraigslistPostKeywords, sf);
                 }
      
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Entry
+                    ServerOperations = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Entry(
+                        "ServerOperations",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._ServerOperations_Stub);
+                private static void _ServerOperations_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperations, sf);
+                }
+     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry
+                    ServerOperationHistories = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Entry(
+                        "ServerOperationHistories",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._ServerOperationHistories_Stub);
+                private static void _ServerOperationHistories_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ServerOperationHistories, sf);
+                }
+     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -720,6 +898,12 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data _CraigslistPostKeywords;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data _ServerOperations;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data _ServerOperationHistories;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_Single;
@@ -750,6 +934,18 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data _CraigslistPostKeywords_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data _ServerOperations_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data _ServerOperations_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data _ServerOperationHistories_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.ServerOperationHistory>.Data _ServerOperationHistories_SingleOrDefault;
             
         }
     
@@ -796,7 +992,7 @@ namespace LightSwitchApplication
         /// <param name="Id">
         /// The value of the 'Id' key property of the entity to retrieve.
         /// </param>
-        public global::LightSwitchApplication.Operation Operations_Single(global::System.Nullable<int> Id)
+        public global::LightSwitchApplication.Operation Operations_Single(global::System.Nullable<global::System.Guid> Id)
         {
             return this.Details.Methods.Operations_Single.CreateInvocation(Id).Execute();
         }
@@ -807,7 +1003,7 @@ namespace LightSwitchApplication
         /// <param name="Id">
         /// The value of the 'Id' key property of the entity to retrieve.
         /// </param>
-        public global::LightSwitchApplication.Operation Operations_SingleOrDefault(global::System.Nullable<int> Id)
+        public global::LightSwitchApplication.Operation Operations_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
             return this.Details.Methods.Operations_SingleOrDefault.CreateInvocation(Id).Execute();
         }
@@ -815,12 +1011,9 @@ namespace LightSwitchApplication
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
-        /// <param name="id">
-        /// No Modeled Description Available
-        /// </param>
-        public global::LightSwitchApplication.Operation RunOperation(global::System.Nullable<int> id)
+        public global::LightSwitchApplication.Operation RunServerOperations()
         {
-            return this.Details.Methods.RunOperation.CreateInvocation(id).Execute();
+            return this.Details.Methods.RunServerOperations.CreateInvocation().Execute();
         }
         
         #endregion
@@ -887,11 +1080,11 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation> RunOperation
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation> RunServerOperations
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.RunOperation) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>;
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.RunServerOperations) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>;
                     }
                 }
                 
@@ -946,12 +1139,12 @@ namespace LightSwitchApplication
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Entry
-                    RunOperation = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Entry(
-                        "RunOperation",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._RunOperation_Stub);
-                private static void _RunOperation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                    RunServerOperations = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Entry(
+                        "RunServerOperations",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._RunServerOperations_Stub);
+                private static void _RunServerOperations_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
                 {
-                    c(d, ref d._RunOperation, sf);
+                    c(d, ref d._RunServerOperations, sf);
                 }
     
             }
@@ -984,7 +1177,7 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Data _Operations_SingleOrDefault;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Data _RunOperation;
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.Operation>.Data _RunServerOperations;
             
         }
     
