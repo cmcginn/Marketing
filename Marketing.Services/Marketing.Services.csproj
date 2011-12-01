@@ -31,7 +31,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Net">
+      <HintPath>..\LeadScraper\Dependencies\Common.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Net.Interfaces">
+      <HintPath>..\LeadScraper\Dependencies\Common.Net.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Types">
+      <HintPath>..\LeadScraper\Dependencies\Common.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Utils">
+      <HintPath>..\LeadScraper\Dependencies\Common.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -41,6 +54,10 @@
     <Reference Include="System.ServiceModel.DomainServices.Hosting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.ServiceModel.DomainServices.Hosting.OData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.ServiceModel.DomainServices.Server, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Workflow.Activities" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Workflow.Runtime" />
+    <Reference Include="System.WorkflowServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,6 +67,12 @@
   <ItemGroup>
     <Compile Include="MarketingDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LeadScraper\LeadScraper.WorkflowActivities\LeadScraper.WorkflowActivities.csproj">
+      <Project>{D957BDC9-39AC-4D95-9179-17E1D23D69B2}</Project>
+      <Name>LeadScraper.WorkflowActivities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

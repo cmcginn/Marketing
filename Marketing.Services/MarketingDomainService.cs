@@ -7,8 +7,11 @@ namespace Marketing.Services {
   using System.Linq;
   using System.ServiceModel.DomainServices.Hosting;
   using System.ServiceModel.DomainServices.Server;
-  using System.Data.Entity;
-
+  using System.Workflow.Activities;
+  using System.Activities;
+  using System.Workflow.Runtime;
+  using LeadScraper.WorkflowActivities;
+  using System.Threading.Tasks;
   // TODO: Create methods containing your application logic.
   public class Operation {
 
@@ -28,8 +31,15 @@ namespace Marketing.Services {
     {
        return _Operations.AsQueryable();
     }
+
+
     public Operation RunOperation(int? id) {
       var result = _Operations.SingleOrDefault( n => n.Id == id.GetValueOrDefault() );
+      var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
+      Task t = new Task( () => {
+        invoker.Invoke();
+      } );
+      t.Start();
       return result;
     }
   }

@@ -349,3 +349,14 @@ C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\zh-Hant\Syst
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\obj\Debug\Application.ServerGenerated.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\LeadScraper.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\LeadScraper.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Common.Net.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Common.Net.Interfaces.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Common.Types.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Common.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Common.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\LeadScraper.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\LeadScraper.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\ServerGenerated\bin\Debug\Marketing.Data.pdb

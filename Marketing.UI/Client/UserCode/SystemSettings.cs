@@ -12,6 +12,7 @@ namespace LightSwitchApplication {
 
 
     partial void RunOperation_Execute() {
+
       this.DataWorkspace.MarketingDomainServiceData.RunOperation( this.DataWorkspace.MarketingDomainServiceData.Operations.Where(n=>n.OperationName=="CraigslistRefresh").Single().Id);
 
     }

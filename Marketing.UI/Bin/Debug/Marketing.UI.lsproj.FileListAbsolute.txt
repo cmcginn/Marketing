@@ -375,3 +375,10 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\zh-Hant\System.Component
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\zh-Hant\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\zh-Hant\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\web\Marketing_UI.Client.xap
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\LeadScraper.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Common.Net.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Common.Net.Interfaces.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Common.Types.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Common.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\LeadScraper.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Marketing.Data.dll

@@ -3,3 +3,10 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Services.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\LeadScraper.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\LeadScraper.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Net.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Net.Interfaces.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Types.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.pdb
