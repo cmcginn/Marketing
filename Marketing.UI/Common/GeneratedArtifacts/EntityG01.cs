@@ -281,6 +281,53 @@ namespace LightSwitchApplication
             }
         }
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntityCollection<global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywords
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistPost.DetailsClass.GetValue(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistPostKeywords);
+            }
+        }
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywordsQuery
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistPost.DetailsClass.GetQuery(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistPostKeywords);
+            }
+        }
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.CraigslistCity CraigslistCity
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistPost.DetailsClass.GetValue(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistCity);
+            }
+            set
+            {
+                global::LightSwitchApplication.CraigslistPost.DetailsClass.SetValue(this, global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistCity, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCity_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCity_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCity_Changed();
+
         #endregion
     
         #region Details Class
@@ -435,6 +482,22 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywords
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistPostKeywords) as global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistCity> CraigslistCity
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistCity) as global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistCity>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -448,6 +511,8 @@ namespace LightSwitchApplication
                 new global::System.DateTime PostDate { get; set; }
                 new string PostsElement { get; set; }
                 new global::System.Collections.IEnumerable CraigsListResponses { get; }
+                new global::System.Collections.IEnumerable CraigslistPostKeywords { get; }
+                new global::Microsoft.LightSwitch.Internal.IEntityImplementation CraigslistCity { get; set; }
             }
             #pragma warning restore 109
     
@@ -743,6 +808,73 @@ namespace LightSwitchApplication
                     return d.ImplementationEntity.CraigsListResponses;
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry
+                    CraigslistPostKeywords = new global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry(
+                        "CraigslistPostKeywords",
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistPostKeywords_Stub,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistPostKeywords_GetReferencedEntities,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistPostKeywords_GetEntityCollection);
+                private static void _CraigslistPostKeywords_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CraigslistPost.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data> c, global::LightSwitchApplication.CraigslistPost.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistPostKeywords, sf);
+                }
+                private static global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPostKeyword> _CraigslistPostKeywords_GetReferencedEntities(global::LightSwitchApplication.CraigslistPost.DetailsClass d)
+                {
+                    return d.GetReferencedEntities<global::LightSwitchApplication.CraigslistPostKeyword, global::LightSwitchApplication.CraigslistPostKeyword.DetailsClass>(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistPostKeywords, ref d._CraigslistPostKeywords);
+                }
+                private static global::System.Collections.IEnumerable _CraigslistPostKeywords_GetEntityCollection(global::LightSwitchApplication.CraigslistPost.DetailsClass d)
+                {
+                    return d.ImplementationEntity.CraigslistPostKeywords;
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry
+                    CraigslistCity = new global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry(
+                        "CraigslistCity",
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_Stub,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_ComputeIsReadOnly,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_Validate,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_GetCoreImplementationValue,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_GetImplementationValue,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_SetImplementationValue,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_Refresh,
+                        global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties._CraigslistCity_OnValueChanged);
+                private static void _CraigslistCity_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CraigslistPost.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data> c, global::LightSwitchApplication.CraigslistPost.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistCity, sf);
+                }
+                private static bool _CraigslistCity_ComputeIsReadOnly(global::LightSwitchApplication.CraigslistPost e)
+                {
+                    bool result = false;
+                    e.CraigslistCity_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _CraigslistCity_Validate(global::LightSwitchApplication.CraigslistPost e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.CraigslistCity_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.Internal.IEntityImplementation _CraigslistCity_GetCoreImplementationValue(global::LightSwitchApplication.CraigslistPost.DetailsClass d)
+                {
+                    return d.ImplementationEntity.CraigslistCity;
+                }
+                private static global::LightSwitchApplication.CraigslistCity _CraigslistCity_GetImplementationValue(global::LightSwitchApplication.CraigslistPost.DetailsClass d)
+                {
+                    return d.GetImplementationValue<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass>(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistCity, ref d._CraigslistCity);
+                }
+                private static void _CraigslistCity_SetImplementationValue(global::LightSwitchApplication.CraigslistPost.DetailsClass d, global::LightSwitchApplication.CraigslistCity v)
+                {
+                    d.SetImplementationValue(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistCity, ref d._CraigslistCity, (i, ev) => i.CraigslistCity = ev, v);
+                }
+                private static void _CraigslistCity_Refresh(global::LightSwitchApplication.CraigslistPost.DetailsClass d)
+                {
+                    d.RefreshNavigationProperty(global::LightSwitchApplication.CraigslistPost.DetailsClass.PropertySetProperties.CraigslistCity, ref d._CraigslistCity);
+                }
+                private static void _CraigslistCity_OnValueChanged(global::LightSwitchApplication.CraigslistPost e)
+                {
+                    e.CraigslistCity_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -771,6 +903,12 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data _CraigslistPostKeywords;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCity;
             
         }
     

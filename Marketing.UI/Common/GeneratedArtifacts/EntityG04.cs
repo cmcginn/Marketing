@@ -107,30 +107,6 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string Keyword1
-        {
-            get
-            {
-                return global::LightSwitchApplication.Keyword.DetailsClass.GetValue(this, global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.Keyword1);
-            }
-            set
-            {
-                global::LightSwitchApplication.Keyword.DetailsClass.SetValue(this, global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.Keyword1, value);
-            }
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Keyword1_IsReadOnly(ref bool result);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Keyword1_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Keyword1_Changed();
-
-        /// <summary>
-        /// No Modeled Description Available
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public int Score
         {
             get
@@ -149,6 +125,30 @@ namespace LightSwitchApplication
         partial void Score_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Score_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string KeywordValue
+        {
+            get
+            {
+                return global::LightSwitchApplication.Keyword.DetailsClass.GetValue(this, global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.KeywordValue);
+            }
+            set
+            {
+                global::LightSwitchApplication.Keyword.DetailsClass.SetValue(this, global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.KeywordValue, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void KeywordValue_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void KeywordValue_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void KeywordValue_Changed();
 
         #endregion
     
@@ -240,19 +240,19 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string> Keyword1
-                {
-                    get
-                    {
-                        return base.GetItem(global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.Keyword1) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>;
-                    }
-                }
-                
                 public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, int> Score
                 {
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.Score) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, int>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string> KeywordValue
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties.KeywordValue) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>;
                     }
                 }
                 
@@ -263,8 +263,8 @@ namespace LightSwitchApplication
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
                 new global::System.Guid Id { get; set; }
-                new string Keyword1 { get; set; }
                 new int Score { get; set; }
+                new string KeywordValue { get; set; }
             }
             #pragma warning restore 109
     
@@ -312,43 +312,6 @@ namespace LightSwitchApplication
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Entry
-                    Keyword1 = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Entry(
-                        "Keyword1",
-                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._Keyword1_Stub,
-                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._Keyword1_ComputeIsReadOnly,
-                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._Keyword1_Validate,
-                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._Keyword1_GetImplementationValue,
-                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._Keyword1_SetImplementationValue,
-                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._Keyword1_OnValueChanged);
-                private static void _Keyword1_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Keyword.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Data> c, global::LightSwitchApplication.Keyword.DetailsClass d, object sf)
-                {
-                    c(d, ref d._Keyword1, sf);
-                }
-                private static bool _Keyword1_ComputeIsReadOnly(global::LightSwitchApplication.Keyword e)
-                {
-                    bool result = false;
-                    e.Keyword1_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _Keyword1_Validate(global::LightSwitchApplication.Keyword e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.Keyword1_Validate(r);
-                }
-                private static string _Keyword1_GetImplementationValue(global::LightSwitchApplication.Keyword.DetailsClass d)
-                {
-                    return d.ImplementationEntity.Keyword1;
-                }
-                private static void _Keyword1_SetImplementationValue(global::LightSwitchApplication.Keyword.DetailsClass d, string v)
-                {
-                    d.ImplementationEntity.Keyword1 = v;
-                }
-                private static void _Keyword1_OnValueChanged(global::LightSwitchApplication.Keyword e)
-                {
-                    e.Keyword1_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, int>.Entry
                     Score = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, int>.Entry(
                         "Score",
@@ -385,16 +348,53 @@ namespace LightSwitchApplication
                     e.Score_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Entry
+                    KeywordValue = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Entry(
+                        "KeywordValue",
+                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._KeywordValue_Stub,
+                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._KeywordValue_ComputeIsReadOnly,
+                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._KeywordValue_Validate,
+                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._KeywordValue_GetImplementationValue,
+                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._KeywordValue_SetImplementationValue,
+                        global::LightSwitchApplication.Keyword.DetailsClass.PropertySetProperties._KeywordValue_OnValueChanged);
+                private static void _KeywordValue_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Keyword.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Data> c, global::LightSwitchApplication.Keyword.DetailsClass d, object sf)
+                {
+                    c(d, ref d._KeywordValue, sf);
+                }
+                private static bool _KeywordValue_ComputeIsReadOnly(global::LightSwitchApplication.Keyword e)
+                {
+                    bool result = false;
+                    e.KeywordValue_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _KeywordValue_Validate(global::LightSwitchApplication.Keyword e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.KeywordValue_Validate(r);
+                }
+                private static string _KeywordValue_GetImplementationValue(global::LightSwitchApplication.Keyword.DetailsClass d)
+                {
+                    return d.ImplementationEntity.KeywordValue;
+                }
+                private static void _KeywordValue_SetImplementationValue(global::LightSwitchApplication.Keyword.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.KeywordValue = v;
+                }
+                private static void _KeywordValue_OnValueChanged(global::LightSwitchApplication.Keyword e)
+                {
+                    e.KeywordValue_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, global::System.Guid>.Data _Id;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Data _Keyword1;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, int>.Data _Score;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, int>.Data _Score;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Keyword, global::LightSwitchApplication.Keyword.DetailsClass, string>.Data _KeywordValue;
             
         }
     

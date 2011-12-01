@@ -5,9 +5,18 @@
     <EntitySet Name="CraigsListResponse" EntityType="MarketingDataStore.CraigsListResponse" store:Type="Tables" Schema="dbo" Table="CraigsListResponse" />
     <EntitySet Name="CraigslistCity" EntityType="MarketingDataStore.CraigslistCity" store:Type="Tables" Schema="dbo" Table="CraigslistCity" />
     <EntitySet Name="Keyword" EntityType="MarketingDataStore.Keyword" store:Type="Tables" Schema="dbo" Table="Keyword" />
+    <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDataStore.CraigslistPostKeyword" store:Type="Tables" Schema="dbo" Table="CraigslistPostKeywords" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDataStore.FK_CraigslistPostKeywords_CraigslistPosts">
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+      <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingDataStore.FK_CraigslistPosts_CraigslistCity">
+      <End Role="CraigslistCity" EntitySet="CraigslistCity" />
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPost">
@@ -20,6 +29,7 @@
     <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="PostsElement" Type="xml" Nullable="false" />
+    <Property Name="CraigslistCityId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="CraigsListResponse">
     <Key>
@@ -43,11 +53,19 @@
   </EntityType>
   <EntityType Name="Keyword">
     <Key>
-      <PropertyRef Name="Keyword" />
+      <PropertyRef Name="KeywordValue" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Keyword" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Score" Type="int" Nullable="false" />
+    <Property Name="KeywordValue" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="CraigslistPostKeyword">
+    <Key>
+      <PropertyRef Name="CraigslistPostId" />
+      <PropertyRef Name="KeywordId" />
+    </Key>
+    <Property Name="CraigslistPostId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeywordId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />
@@ -58,6 +76,30 @@
       </Principal>
       <Dependent Role="CraigsListResponse">
         <PropertyRef Name="CraigslitPostsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
+    <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />
+    <End Role="CraigslistPostKeywords" Type="MarketingDataStore.CraigslistPostKeyword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigslistPostKeywords">
+        <PropertyRef Name="CraigslistPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CraigslistPosts_CraigslistCity">
+    <End Role="CraigslistCity" Type="MarketingDataStore.CraigslistCity" Multiplicity="1" />
+    <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigslistPosts">
+        <PropertyRef Name="CraigslistCityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

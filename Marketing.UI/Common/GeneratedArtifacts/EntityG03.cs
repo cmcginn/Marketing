@@ -198,6 +198,29 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Region_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntityCollection<global::LightSwitchApplication.CraigslistPost> CraigslistPosts
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistCity.DetailsClass.GetValue(this, global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties.CraigslistPosts);
+            }
+        }
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.CraigslistPost> CraigslistPostsQuery
+        {
+            get
+            {
+                return global::LightSwitchApplication.CraigslistCity.DetailsClass.GetQuery(this, global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties.CraigslistPosts);
+            }
+        }
+
         #endregion
     
         #region Details Class
@@ -320,6 +343,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistPost> CraigslistPosts
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties.CraigslistPosts) as global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistPost>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -331,6 +362,7 @@ namespace LightSwitchApplication
                 new string CityUrl { get; set; }
                 new bool Active { get; set; }
                 new string Region { get; set; }
+                new global::System.Collections.IEnumerable CraigslistPosts { get; }
             }
             #pragma warning restore 109
     
@@ -525,6 +557,26 @@ namespace LightSwitchApplication
                     e.Region_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry
+                    CraigslistPosts = new global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Entry(
+                        "CraigslistPosts",
+                        global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties._CraigslistPosts_Stub,
+                        global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties._CraigslistPosts_GetReferencedEntities,
+                        global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties._CraigslistPosts_GetEntityCollection);
+                private static void _CraigslistPosts_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.CraigslistCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data> c, global::LightSwitchApplication.CraigslistCity.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistPosts, sf);
+                }
+                private static global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.CraigslistPost> _CraigslistPosts_GetReferencedEntities(global::LightSwitchApplication.CraigslistCity.DetailsClass d)
+                {
+                    return d.GetReferencedEntities<global::LightSwitchApplication.CraigslistPost, global::LightSwitchApplication.CraigslistPost.DetailsClass>(global::LightSwitchApplication.CraigslistCity.DetailsClass.PropertySetProperties.CraigslistPosts, ref d._CraigslistPosts);
+                }
+                private static global::System.Collections.IEnumerable _CraigslistPosts_GetEntityCollection(global::LightSwitchApplication.CraigslistCity.DetailsClass d)
+                {
+                    return d.ImplementationEntity.CraigslistPosts;
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -541,6 +593,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, string>.Data _Region;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityCollectionProperty<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts;
             
         }
     

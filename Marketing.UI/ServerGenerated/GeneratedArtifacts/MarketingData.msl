@@ -10,6 +10,7 @@
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="PostDate" ColumnName="PostDate" />
           <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
+          <ScalarProperty Name="CraigslistCityId" ColumnName="CraigslistCityId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -39,8 +40,16 @@
       <EntityTypeMapping TypeName="IsTypeOf(MarketingData.Keyword)">
         <MappingFragment StoreEntitySet="Keyword">
           <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="Keyword1" ColumnName="Keyword" />
           <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="KeywordValue" ColumnName="KeywordValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CraigslistPostKeywords">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.CraigslistPostKeyword)">
+        <MappingFragment StoreEntitySet="CraigslistPostKeywords">
+          <ScalarProperty Name="CraigslistPostId" ColumnName="CraigslistPostId" />
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

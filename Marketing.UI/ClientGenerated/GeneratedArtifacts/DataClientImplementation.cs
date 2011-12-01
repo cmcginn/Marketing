@@ -188,6 +188,118 @@ namespace LightSwitchApplication.Implementation
             }
         }
         
+        [global::System.ComponentModel.DataAnnotations.Association("FK_CraigslistPostKeywords_CraigslistPosts", "Id", "CraigslistPostId")]
+        [global::System.Xml.Serialization.XmlIgnore()]
+        public global::System.ServiceModel.DomainServices.Client.EntityCollection<CraigslistPostKeyword> CraigslistPostKeywords
+        {
+            get
+            {
+                if (this._CraigslistPostKeywords == null)
+                {
+                    this._CraigslistPostKeywords = new global::System.ServiceModel.DomainServices.Client.EntityCollection<global::LightSwitchApplication.Implementation.CraigslistPostKeyword>(this, "CraigslistPostKeywords", this.FilterCraigslistPostKeywords, this.AttachCraigslistPostKeywords, this.DetachCraigslistPostKeywords);
+                }
+                return this._CraigslistPostKeywords;
+            }
+        }
+        private global::System.ServiceModel.DomainServices.Client.EntityCollection<global::LightSwitchApplication.Implementation.CraigslistPostKeyword> _CraigslistPostKeywords;
+        private void AttachCraigslistPostKeywords(global::LightSwitchApplication.Implementation.CraigslistPostKeyword entity)
+        {
+            entity.CraigslistPost = this;
+        }
+        private void DetachCraigslistPostKeywords(global::LightSwitchApplication.Implementation.CraigslistPostKeyword entity)
+        {
+            entity.CraigslistPost = null;
+        }
+        private bool FilterCraigslistPostKeywords(global::LightSwitchApplication.Implementation.CraigslistPostKeyword entity)
+        {
+            return global::System.Object.Equals(entity.CraigslistPostId, this.Id);
+        }
+        global::System.Collections.IEnumerable global::LightSwitchApplication.CraigslistPost.DetailsClass.IImplementation.CraigslistPostKeywords
+        {
+            get
+            {
+                return this.CraigslistPostKeywords;
+            }
+        }
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid CraigslistCityId
+        {
+            get
+            {
+                return this._CraigslistCityId;
+            }
+            set
+            {
+                if (this._CraigslistCityId != value)
+                {
+                    this.RaiseDataMemberChanging("CraigslistCityId");
+                    this.ValidateProperty("CraigslistCityId", value);
+                    this._CraigslistCityId = value;
+                    this.RaiseDataMemberChanged("CraigslistCityId");
+                }
+            }
+        }
+        private global::System.Guid _CraigslistCityId;
+        
+        [global::System.ComponentModel.DataAnnotations.Association("FK_CraigslistPosts_CraigslistCity", "CraigslistCityId", "Id", IsForeignKey = true)]
+        [global::System.Xml.Serialization.XmlIgnore()]
+        public global::LightSwitchApplication.Implementation.CraigslistCity CraigslistCity
+        {
+            get
+            {
+                if (this._CraigslistCity == null)
+                {
+                    this._CraigslistCity = new global::System.ServiceModel.DomainServices.Client.EntityRef<global::LightSwitchApplication.Implementation.CraigslistCity>(this, "CraigslistCity", this.FilterCraigslistCity);
+                }
+                return this._CraigslistCity.Entity;
+            }
+            set
+            {
+                CraigslistCity previous = this.CraigslistCity;
+                if (previous != value)
+                {
+                    this.ValidateProperty("CraigslistCity", value);
+                    if (previous != null)
+                    {
+                        this._CraigslistCity.Entity = null;
+                        previous.CraigslistPosts.Remove(this);
+                    }
+                    if (value != null)
+                    {
+                        this.CraigslistCityId = value.Id;
+                    }
+                    else
+                    {
+                        this.CraigslistCityId = default(global::System.Guid);
+                    }
+                    this._CraigslistCity.Entity = value;
+                    if (value != null)
+                    {
+                        value.CraigslistPosts.Add(this);
+                    }
+                    this.RaisePropertyChanged("CraigslistCity");
+                }
+            }
+        }
+        private global::System.ServiceModel.DomainServices.Client.EntityRef<global::LightSwitchApplication.Implementation.CraigslistCity> _CraigslistCity;
+        private bool FilterCraigslistCity(global::LightSwitchApplication.Implementation.CraigslistCity entity)
+        {
+            return global::System.Object.Equals(entity.Id, this.CraigslistCityId);
+        }
+        global::Microsoft.LightSwitch.Internal.IEntityImplementation global::LightSwitchApplication.CraigslistPost.DetailsClass.IImplementation.CraigslistCity
+        {
+            get
+            {
+                return this.CraigslistCity;
+            }
+            set
+            {
+                this.CraigslistCity = (global::LightSwitchApplication.Implementation.CraigslistCity)value;
+            }
+        }
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -547,6 +659,40 @@ namespace LightSwitchApplication.Implementation
         }
         private string _Region;
         
+        [global::System.ComponentModel.DataAnnotations.Association("FK_CraigslistPosts_CraigslistCity", "Id", "CraigslistCityId")]
+        [global::System.Xml.Serialization.XmlIgnore()]
+        public global::System.ServiceModel.DomainServices.Client.EntityCollection<CraigslistPost> CraigslistPosts
+        {
+            get
+            {
+                if (this._CraigslistPosts == null)
+                {
+                    this._CraigslistPosts = new global::System.ServiceModel.DomainServices.Client.EntityCollection<global::LightSwitchApplication.Implementation.CraigslistPost>(this, "CraigslistPosts", this.FilterCraigslistPosts, this.AttachCraigslistPosts, this.DetachCraigslistPosts);
+                }
+                return this._CraigslistPosts;
+            }
+        }
+        private global::System.ServiceModel.DomainServices.Client.EntityCollection<global::LightSwitchApplication.Implementation.CraigslistPost> _CraigslistPosts;
+        private void AttachCraigslistPosts(global::LightSwitchApplication.Implementation.CraigslistPost entity)
+        {
+            entity.CraigslistCity = this;
+        }
+        private void DetachCraigslistPosts(global::LightSwitchApplication.Implementation.CraigslistPost entity)
+        {
+            entity.CraigslistCity = null;
+        }
+        private bool FilterCraigslistPosts(global::LightSwitchApplication.Implementation.CraigslistPost entity)
+        {
+            return global::System.Object.Equals(entity.CraigslistCityId, this.Id);
+        }
+        global::System.Collections.IEnumerable global::LightSwitchApplication.CraigslistCity.DetailsClass.IImplementation.CraigslistPosts
+        {
+            get
+            {
+                return this.CraigslistPosts;
+            }
+        }
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -590,7 +736,7 @@ namespace LightSwitchApplication.Implementation
                 return null;
             }
     
-            return this._Keyword1;
+            return this._KeywordValue;
         }
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
@@ -613,28 +759,6 @@ namespace LightSwitchApplication.Implementation
         }
         private global::System.Guid _Id;
         
-        [global::System.ComponentModel.DataAnnotations.Key()]
-        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public string Keyword1
-        {
-            get
-            {
-                return this._Keyword1;
-            }
-            set
-            {
-                if (this._Keyword1 != value)
-                {
-                    this.ValidateProperty("Keyword1", value);
-                    this._Keyword1 = value;
-                    this.RaisePropertyChanged("Keyword1");
-                }
-            }
-        }
-        private string _Keyword1;
-        
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public int Score
@@ -655,6 +779,175 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private int _Score;
+        
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string KeywordValue
+        {
+            get
+            {
+                return this._KeywordValue;
+            }
+            set
+            {
+                if (this._KeywordValue != value)
+                {
+                    this.ValidateProperty("KeywordValue", value);
+                    this._KeywordValue = value;
+                    this.RaisePropertyChanged("KeywordValue");
+                }
+            }
+        }
+        private string _KeywordValue;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
+    #region CraigslistPostKeyword
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class CraigslistPostKeyword :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.CraigslistPostKeyword.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+    
+            return global::System.ServiceModel.DomainServices.Client.EntityKey.Create(this._CraigslistPostId, this._KeywordId);
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid CraigslistPostId
+        {
+            get
+            {
+                return this._CraigslistPostId;
+            }
+            set
+            {
+                if (this._CraigslistPostId != value)
+                {
+                    this.ValidateProperty("CraigslistPostId", value);
+                    this._CraigslistPostId = value;
+                    this.RaisePropertyChanged("CraigslistPostId");
+                }
+            }
+        }
+        private global::System.Guid _CraigslistPostId;
+        
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid KeywordId
+        {
+            get
+            {
+                return this._KeywordId;
+            }
+            set
+            {
+                if (this._KeywordId != value)
+                {
+                    this.ValidateProperty("KeywordId", value);
+                    this._KeywordId = value;
+                    this.RaisePropertyChanged("KeywordId");
+                }
+            }
+        }
+        private global::System.Guid _KeywordId;
+        
+        [global::System.ComponentModel.DataAnnotations.Association("FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPostId", "Id", IsForeignKey = true)]
+        [global::System.Xml.Serialization.XmlIgnore()]
+        public global::LightSwitchApplication.Implementation.CraigslistPost CraigslistPost
+        {
+            get
+            {
+                if (this._CraigslistPost == null)
+                {
+                    this._CraigslistPost = new global::System.ServiceModel.DomainServices.Client.EntityRef<global::LightSwitchApplication.Implementation.CraigslistPost>(this, "CraigslistPost", this.FilterCraigslistPost);
+                }
+                return this._CraigslistPost.Entity;
+            }
+            set
+            {
+                CraigslistPost previous = this.CraigslistPost;
+                if (previous != value)
+                {
+                    this.ValidateProperty("CraigslistPost", value);
+                    if (previous != null)
+                    {
+                        this._CraigslistPost.Entity = null;
+                        previous.CraigslistPostKeywords.Remove(this);
+                    }
+                    if (value != null)
+                    {
+                        this.CraigslistPostId = value.Id;
+                    }
+                    else
+                    {
+                        this.CraigslistPostId = default(global::System.Guid);
+                    }
+                    this._CraigslistPost.Entity = value;
+                    if (value != null)
+                    {
+                        value.CraigslistPostKeywords.Add(this);
+                    }
+                    this.RaisePropertyChanged("CraigslistPost");
+                }
+            }
+        }
+        private global::System.ServiceModel.DomainServices.Client.EntityRef<global::LightSwitchApplication.Implementation.CraigslistPost> _CraigslistPost;
+        private bool FilterCraigslistPost(global::LightSwitchApplication.Implementation.CraigslistPost entity)
+        {
+            return global::System.Object.Equals(entity.Id, this.CraigslistPostId);
+        }
+        global::Microsoft.LightSwitch.Internal.IEntityImplementation global::LightSwitchApplication.CraigslistPostKeyword.DetailsClass.IImplementation.CraigslistPost
+        {
+            get
+            {
+                return this.CraigslistPost;
+            }
+            set
+            {
+                this.CraigslistPost = (global::LightSwitchApplication.Implementation.CraigslistPost)value;
+            }
+        }
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
@@ -723,6 +1016,13 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.Keyword>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.CraigslistPostKeyword> CraigslistPostKeywordEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.CraigslistPostKeyword>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDataEntityContainer();
@@ -736,6 +1036,7 @@ namespace LightSwitchApplication.Implementation
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigsListResponse>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigslistCity>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.Keyword>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigslistPostKeyword>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -801,13 +1102,13 @@ namespace LightSwitchApplication.Implementation
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/Keywords_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/Keywords_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/Keywords_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginKeywords_Single(string frameworkOperators, string Keyword1, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginKeywords_Single(string frameworkOperators, string KeywordValue, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Keyword> EndKeywords_Single(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/Keywords_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/Keywords_SingleOrDefaultResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/Keywords_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginKeywords_SingleOrDefault(string frameworkOperators, string Keyword1, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginKeywords_SingleOrDefault(string frameworkOperators, string KeywordValue, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Keyword> EndKeywords_SingleOrDefault(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/Keywords_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/Keywords_AllResponse"),
@@ -815,6 +1116,24 @@ namespace LightSwitchApplication.Implementation
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/Keywords_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginKeywords_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Keyword> EndKeywords_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginCraigslistPostKeywords_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CraigslistPostId, global::System.Nullable<global::System.Guid> KeywordId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPostKeyword> EndCraigslistPostKeywords_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginCraigslistPostKeywords_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> CraigslistPostId, global::System.Nullable<global::System.Guid> KeywordId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPostKeyword> EndCraigslistPostKeywords_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/CraigslistPostKeywords_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginCraigslistPostKeywords_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPostKeyword> EndCraigslistPostKeywords_All(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
@@ -854,6 +1173,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.Keyword))
             {
                 return new global::LightSwitchApplication.Implementation.Keyword();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPostKeyword))
+            {
+                return new global::LightSwitchApplication.Implementation.CraigslistPostKeyword();
             }
             return null;
         }
@@ -913,6 +1236,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.Keyword) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.Keyword);
+            }
+            if (typeof(global::LightSwitchApplication.CraigslistPostKeyword) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.CraigslistPostKeyword);
             }
             return null;
         }

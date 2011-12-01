@@ -143,6 +143,14 @@
           <Computed />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty Association="FK_CraigslistPostKeywords_CraigslistPosts"
+                          FromEnd="CraigslistPosts"
+                          Name="CraigslistPostKeywords"
+                          ToEnd="CraigslistPostKeywords" />
+      <NavigationProperty Association="FK_CraigslistPosts_CraigslistCity"
+                          FromEnd="CraigslistPosts"
+                          Name="CraigslistCity"
+                          ToEnd="CraigslistCity" />
     </EntityType.Properties>
   </EntityType>
 
@@ -497,11 +505,11 @@
           <BinaryExpression NodeType="Equal">
             <BinaryExpression.Left>
               <ChainExpression>
-                <MemberExpression Member="Keyword1" />
+                <MemberExpression Member="KeywordValue" />
               </ChainExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
-              <ParameterExpression Parameter="Keyword1" />
+              <ParameterExpression Parameter="KeywordValue" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -511,10 +519,10 @@
           <MemberExpression Member="Keywords" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
-      <QueryOperationParameter Name="Keyword1"
+      <QueryOperationParameter Name="KeywordValue"
                                ParameterType=":String?">
         <QueryOperationParameter.Attributes>
-          <Description Value="The value of the 'Keyword1' key property of the entity to retrieve." />
+          <Description Value="The value of the 'KeywordValue' key property of the entity to retrieve." />
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
@@ -530,11 +538,11 @@
           <BinaryExpression NodeType="Equal">
             <BinaryExpression.Left>
               <ChainExpression>
-                <MemberExpression Member="Keyword1" />
+                <MemberExpression Member="KeywordValue" />
               </ChainExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
-              <ParameterExpression Parameter="Keyword1" />
+              <ParameterExpression Parameter="KeywordValue" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -544,10 +552,10 @@
           <MemberExpression Member="Keywords" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
-      <QueryOperationParameter Name="Keyword1"
+      <QueryOperationParameter Name="KeywordValue"
                                ParameterType=":String?">
         <QueryOperationParameter.Attributes>
-          <Description Value="The value of the 'Keyword1' key property of the entity to retrieve." />
+          <Description Value="The value of the 'KeywordValue' key property of the entity to retrieve." />
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
@@ -565,6 +573,151 @@
       </QueryOperation.Source>
     </QueryOperation>
   
+    <EntitySet CanDelete="True"
+               CanInsert="True"
+               CanUpdate="True"
+               EntityType="CraigslistPostKeyword"
+               Name="CraigslistPostKeywords" />
+  
+    <AssociationSet Association="FK_CraigslistPostKeywords_CraigslistPosts"
+                    Name="FK_CraigslistPostKeywords_CraigslistPosts">
+      <AssociationSetEnd EntitySet="CraigslistPosts"
+                         Name="CraigslistPosts" />
+      <AssociationSetEnd EntitySet="CraigslistPostKeywords"
+                         Name="CraigslistPostKeywords" />
+    </AssociationSet>
+  
+    <AssociationSet Association="FK_CraigslistPosts_CraigslistCity"
+                    Name="FK_CraigslistPosts_CraigslistCity">
+      <AssociationSetEnd EntitySet="CraigslistCities"
+                         Name="CraigslistCity" />
+      <AssociationSetEnd EntitySet="CraigslistPosts"
+                         Name="CraigslistPosts" />
+    </AssociationSet>
+  
+    <QueryOperation Name="CraigslistPostKeywords_Single"
+                    ReturnType="CraigslistPostKeyword">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="KeywordId" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression Parameter="KeywordId" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="CraigslistPostId" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression Parameter="CraigslistPostId" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistPostKeywords" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="CraigslistPostId"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'CraigslistPostId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="KeywordId"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'KeywordId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="CraigslistPostKeywords_SingleOrDefault"
+                    ReturnType="CraigslistPostKeyword">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="KeywordId" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression Parameter="KeywordId" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="CraigslistPostId" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression Parameter="CraigslistPostId" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistPostKeywords" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="CraigslistPostId"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'CraigslistPostId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="KeywordId"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'KeywordId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="CraigslistPostKeywords_All"
+                    ReturnType="CraigslistPostKeyword*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistPostKeywords" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
   </EntityContainer>
 
   
@@ -572,7 +725,7 @@
 
   <Screen Name="CraigsListPosts">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService" />
+      <SaveChangesTo DataService="MarketingDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -876,7 +1029,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewCraigslistResponse">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService" />
+      <SaveChangesTo DataService="MarketingDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1068,12 +1221,16 @@
                      IsFixedLength="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty Association="FK_CraigslistPosts_CraigslistCity"
+                          FromEnd="CraigslistCity"
+                          Name="CraigslistPosts"
+                          ToEnd="CraigslistPosts" />
     </EntityType.Properties>
   </EntityType>
 
   <Screen Name="SystemSettings">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService" />
+      <SaveChangesTo DataService="MarketingDataDataService1" />
     </Screen.Attributes>
     <Screen.Properties>
       <ScreenCollectionProperty Name="CraigslistCities"
@@ -1316,14 +1473,11 @@
                 </ContentItem.DataSource>
                 <ContentItem DataType=":String"
                              Kind="Value"
-                             Name="Keyword1">
-                  <ContentItem.Attributes>
-                    <DisplayName Value="Keyword" />
-                  </ContentItem.Attributes>
+                             Name="KeywordValue">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
-                        <MemberExpression Member="Keyword/Properties[Keyword1]" />
+                        <MemberExpression Member="Keyword/Properties[KeywordValue]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -1363,13 +1517,6 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <KeyProperty Name="Keyword1"
-                   PropertyType=":String">
-        <KeyProperty.Attributes>
-          <Required />
-          <MaxLength Value="255" />
-        </KeyProperty.Attributes>
-      </KeyProperty>
       <EntityProperty Name="Score"
                       PropertyType=":Int32">
         <EntityProperty.Attributes>
@@ -1377,12 +1524,75 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <KeyProperty Name="KeywordValue"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength Value="255" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
     </EntityType.Properties>
   </EntityType>
 
+  <EntityType Name="CraigslistPostKeyword">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="CraigslistPostId"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="KeywordId"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty Association="FK_CraigslistPostKeywords_CraigslistPosts"
+                          FromEnd="CraigslistPostKeywords"
+                          Name="CraigslistPost"
+                          ToEnd="CraigslistPosts" />
+    </EntityType.Properties>
+  </EntityType>
+
+  <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
+    <AssociationEnd EntityType="CraigslistPost"
+                    Multiplicity="One"
+                    Name="CraigslistPosts">
+      <AssociationEnd.Attributes>
+        <DeleteRule Action="Unset" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd EntityType="CraigslistPostKeyword"
+                    Multiplicity="Many"
+                    Name="CraigslistPostKeywords" />
+  </Association>
+
+  <Association Name="FK_CraigslistPosts_CraigslistCity">
+    <AssociationEnd EntityType="CraigslistCity"
+                    Multiplicity="One"
+                    Name="CraigslistCity">
+      <AssociationEnd.Attributes>
+        <DeleteRule Action="Unset" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd EntityType="CraigslistPost"
+                    Multiplicity="Many"
+                    Name="CraigslistPosts" />
+  </Association>
+
   <DataService DataProvider="EntityFrameworkDataProvider"
                EntityContainer="MarketingData"
-               Name="MarketingDataDataService">
+               Name="MarketingDataDataService1">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="DataProviderName"
                           Value="91510608-8809-4020-8897-fba057e22d54" />
@@ -1423,6 +1633,20 @@
                       Type="bit" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <EntitySetMapping EntitySet="CraigslistPostKeywords">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="CraigslistPostKeywords" />
+        <SsdlProperty Name="CraigslistPostId"
+                      Nullable="False"
+                      Property="CraigslistPostKeyword/Properties[CraigslistPostId]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="KeywordId"
+                      Nullable="False"
+                      Property="CraigslistPostKeyword/Properties[KeywordId]"
+                      Type="uniqueidentifier" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
     <EntitySetMapping EntitySet="CraigslistPosts">
       <EntitySetMapping.Attributes>
         <SsdlEntitySet Schema="dbo"
@@ -1453,6 +1677,10 @@
                       Nullable="False"
                       Property="CraigslistPost/Properties[PostsElement]"
                       Type="xml" />
+        <SsdlForeignKeyProperty Name="CraigslistCityId"
+                                Nullable="False"
+                                PropertyName="CraigslistCityId"
+                                Type="uniqueidentifier" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <EntitySetMapping EntitySet="CraigsListResponses">
@@ -1490,9 +1718,9 @@
                       Property="Keyword/Properties[Id]"
                       Type="uniqueidentifier" />
         <SsdlProperty MaxLength="255"
-                      Name="Keyword"
+                      Name="KeywordValue"
                       Nullable="False"
-                      Property="Keyword/Properties[Keyword1]"
+                      Property="Keyword/Properties[KeywordValue]"
                       Type="nvarchar" />
         <SsdlProperty Name="Score"
                       Nullable="False"
@@ -1500,6 +1728,36 @@
                       Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <AssociationSetMapping AssociationSet="FK_CraigslistPostKeywords_CraigslistPosts">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" />
+        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigslistPostKeywords_CraigslistPosts]/Members[CraigslistPosts]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigslistPostKeywords_CraigslistPosts]/Members[CraigslistPostKeywords]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef Name="CraigslistPostId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping AssociationSet="FK_CraigslistPosts_CraigslistCity">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet Name="FK_CraigslistPosts_CraigslistCity" />
+        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigslistPosts_CraigslistCity]/Members[CraigslistCity]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd End="MarketingData/Members[FK_CraigslistPosts_CraigslistCity]/Members[CraigslistPosts]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef Name="CraigslistCityId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
     <AssociationSetMapping AssociationSet="FK_CraigsListResponse_CraigslistPosts">
       <AssociationSetMapping.Attributes>
         <SsdlAssociationSet Name="FK_CraigsListResponse_CraigslistPosts" />

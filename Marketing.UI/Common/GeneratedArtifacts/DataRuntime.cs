@@ -190,6 +190,19 @@ namespace LightSwitchApplication
             }
         }
         
+        /// <summary>
+        /// Gets the CraigslistPostKeywords entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywords
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigslistPostKeywords);
+            }
+        }
+        
         #endregion
     
         #region Queries
@@ -263,23 +276,51 @@ namespace LightSwitchApplication
         /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s).
         /// </summary>
-        /// <param name="Keyword1">
-        /// The value of the 'Keyword1' key property of the entity to retrieve.
+        /// <param name="KeywordValue">
+        /// The value of the 'KeywordValue' key property of the entity to retrieve.
         /// </param>
-        public global::LightSwitchApplication.Keyword Keywords_Single(string Keyword1)
+        public global::LightSwitchApplication.Keyword Keywords_Single(string KeywordValue)
         {
-            return this.Details.Methods.Keywords_Single.CreateInvocation(Keyword1).Execute();
+            return this.Details.Methods.Keywords_Single.CreateInvocation(KeywordValue).Execute();
         }
         
         /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
         /// </summary>
-        /// <param name="Keyword1">
-        /// The value of the 'Keyword1' key property of the entity to retrieve.
+        /// <param name="KeywordValue">
+        /// The value of the 'KeywordValue' key property of the entity to retrieve.
         /// </param>
-        public global::LightSwitchApplication.Keyword Keywords_SingleOrDefault(string Keyword1)
+        public global::LightSwitchApplication.Keyword Keywords_SingleOrDefault(string KeywordValue)
         {
-            return this.Details.Methods.Keywords_SingleOrDefault.CreateInvocation(Keyword1).Execute();
+            return this.Details.Methods.Keywords_SingleOrDefault.CreateInvocation(KeywordValue).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="CraigslistPostId">
+        /// The value of the 'CraigslistPostId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="KeywordId">
+        /// The value of the 'KeywordId' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.CraigslistPostKeyword CraigslistPostKeywords_Single(global::System.Nullable<global::System.Guid> CraigslistPostId, global::System.Nullable<global::System.Guid> KeywordId)
+        {
+            return this.Details.Methods.CraigslistPostKeywords_Single.CreateInvocation(CraigslistPostId, KeywordId).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="CraigslistPostId">
+        /// The value of the 'CraigslistPostId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="KeywordId">
+        /// The value of the 'KeywordId' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.CraigslistPostKeyword CraigslistPostKeywords_SingleOrDefault(global::System.Nullable<global::System.Guid> CraigslistPostId, global::System.Nullable<global::System.Guid> KeywordId)
+        {
+            return this.Details.Methods.CraigslistPostKeywords_SingleOrDefault.CreateInvocation(CraigslistPostId, KeywordId).Execute();
         }
         
         #endregion
@@ -394,6 +435,22 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywords_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigslistPostKeywords_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywords_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.CraigslistPostKeywords_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>;
+                    }
+                }
+                
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -436,6 +493,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.Keywords) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.Keyword>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword> CraigslistPostKeywords
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.CraigslistPostKeywords) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>;
                     }
                 }
                 
@@ -527,6 +592,26 @@ namespace LightSwitchApplication
                     c(d, ref d._Keywords_SingleOrDefault, sf);
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry
+                    CraigslistPostKeywords_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry(
+                        "CraigslistPostKeywords_Single",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._CraigslistPostKeywords_Single_Stub);
+                private static void _CraigslistPostKeywords_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistPostKeywords_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry
+                    CraigslistPostKeywords_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry(
+                        "CraigslistPostKeywords_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._CraigslistPostKeywords_SingleOrDefault_Stub);
+                private static void _CraigslistPostKeywords_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistPostKeywords_SingleOrDefault, sf);
+                }
+    
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -575,6 +660,16 @@ namespace LightSwitchApplication
                     c(d, ref d._Keywords, sf);
                 }
      
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry
+                    CraigslistPostKeywords = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Entry(
+                        "CraigslistPostKeywords",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._CraigslistPostKeywords_Stub);
+                private static void _CraigslistPostKeywords_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistPostKeywords, sf);
+                }
+     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -588,6 +683,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.Keyword>.Data _Keywords;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data _CraigslistPostKeywords;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_Single;
@@ -612,6 +710,12 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.Keyword>.Data _Keywords_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data _CraigslistPostKeywords_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPostKeyword>.Data _CraigslistPostKeywords_SingleOrDefault;
             
         }
     
