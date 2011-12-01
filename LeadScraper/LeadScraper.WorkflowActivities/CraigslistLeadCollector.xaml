@@ -11,99 +11,209 @@
       <Variable x:TypeArguments="x:String" Name="responseString" />
       <Variable x:TypeArguments="scg3:List(x:String)" Name="postingUrls" />
       <Variable x:TypeArguments="sxl:XDocument" Name="postsDocument" />
+      <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer]" Name="marketingContext" />
+      <Variable x:TypeArguments="scg3:List(md:CraigslistCity)" Name="postCities" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg3:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 310,107.5 310,141.5</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,175.5</av:PointCollection>
         <x:Double x:Key="Height">1325.1786666666667</x:Double>
         <x:Double x:Key="Width">694</x:Double>
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID4">
+      <FlowStep x:Name="__ReferenceID0">
         <sap:WorkflowViewStateService.ViewState>
           <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">189,141.5</av:Point>
-            <av:Size x:Key="ShapeSize">242,57</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">310,198.5 290,198.5 290,226.5</av:PointCollection>
+            <av:Point x:Key="ShapeLocation">200,175.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,49</av:Size>
           </scg3:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Assign DisplayName="Assign New Posts Element" sap:VirtualizedContainerService.HintSize="242,57">
-          <Assign.To>
-            <OutArgument x:TypeArguments="sxl:XElement">[postsElement]</OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="sxl:XElement">[New XElement("Posts")]</InArgument>
-          </Assign.Value>
-        </Assign>
-        <FlowStep.Next>
-          <FlowStep x:Name="__ReferenceID0">
+        <Sequence DisplayName="Collect Craigslist Posts" sap:VirtualizedContainerService.HintSize="264,367">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="scg3:List(md:Keyword)" Name="keywords" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Post Cities" sap:VirtualizedContainerService.HintSize="242,57">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg3:List(md:CraigslistCity)">[postCities]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg3:List(md:CraigslistCity)">[marketingContext.CraigslistCities.Where(Function(n) n.Active).ToList()]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Assign Keywords" sap:VirtualizedContainerService.HintSize="242,57">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg3:List(md:Keyword)">[keywords]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg3:List(md:Keyword)">[marketingContext.Keywords.ToList]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ForEach x:TypeArguments="md:CraigslistCity" DisplayName="For Each Active City" sap:VirtualizedContainerService.HintSize="282,203" Values="[postCities]">
             <sap:WorkflowViewStateService.ViewState>
               <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                <av:Point x:Key="ShapeLocation">186,226.5</av:Point>
-                <av:Size x:Key="ShapeSize">208,127</av:Size>
-                <av:PointCollection x:Key="ConnectorLocation">290,353.5 290,381.5 300,381.5</av:PointCollection>
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <InvokeMethod DisplayName="InvokeMethod Collect Posts" sap:VirtualizedContainerService.HintSize="208,127" MethodName="Post">
-              <InvokeMethod.Result>
-                <OutArgument x:TypeArguments="s:Byte[]">[rawResponse]</OutArgument>
-              </InvokeMethod.Result>
-              <InvokeMethod.TargetObject>
-                <InArgument x:TypeArguments="cn:HttpPost">[poster]</InArgument>
-              </InvokeMethod.TargetObject>
-              <InArgument x:TypeArguments="x:Uri">[New System.Uri("http://orlando.craigslist.org/sof/")]</InArgument>
-            </InvokeMethod>
-            <FlowStep.Next>
-              <FlowStep x:Name="__ReferenceID1">
+            <ActivityAction x:TypeArguments="md:CraigslistCity">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="md:CraigslistCity" Name="city" />
+              </ActivityAction.Argument>
+              <TryCatch DisplayName="Collect Posts For City" sap:VirtualizedContainerService.HintSize="418,278">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                    <av:Point x:Key="ShapeLocation">179,381.5</av:Point>
-                    <av:Size x:Key="ShapeSize">242,57</av:Size>
-                    <av:PointCollection x:Key="ConnectorLocation">300,438.5 300,468.5 300,496.5</av:PointCollection>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg3:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign DisplayName="Assign RawResponse to String" sap:VirtualizedContainerService.HintSize="242,57">
-                  <Assign.To>
-                    <OutArgument x:TypeArguments="x:String">[responseString]</OutArgument>
-                  </Assign.To>
-                  <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[LeadScraper.Utils.Extensions.StringExtensions.ConvertToString(rawResponse)]</InArgument>
-                  </Assign.Value>
-                </Assign>
-                <FlowStep.Next>
-                  <FlowStep x:Name="__ReferenceID2">
+                <TryCatch.Try>
+                  <Sequence DisplayName="Sequence Collect Posts For City" sap:VirtualizedContainerService.HintSize="230,518">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                        <av:Point x:Key="ShapeLocation">196,496.5</av:Point>
-                        <av:Size x:Key="ShapeSize">208,127</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">300,623.5 300,653.5 300,695.5</av:PointCollection>
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg3:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <InvokeMethod DisplayName="InvokeMethod Collect Urls" sap:VirtualizedContainerService.HintSize="208,127" MethodName="GetUrls" TargetType="lu:CraigslistParse">
-                      <InvokeMethod.Result>
-                        <OutArgument x:TypeArguments="scg3:List(x:String)">[postingUrls]</OutArgument>
-                      </InvokeMethod.Result>
-                      <InArgument x:TypeArguments="x:String">[responseString]</InArgument>
-                    </InvokeMethod>
-                    <FlowStep.Next>
-                      <FlowStep x:Name="__ReferenceID3">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                            <av:Point x:Key="ShapeLocation">200,695.5</av:Point>
-                            <av:Size x:Key="ShapeSize">200,49</av:Size>
-                            <av:PointCollection x:Key="ConnectorLocation">300,744.5 300,774.5 300,896.5</av:PointCollection>
-                          </scg3:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <ForEach x:TypeArguments="x:String" DisplayName="ForEach&lt;String&gt;" sap:VirtualizedContainerService.HintSize="200,49" Values="[postingUrls]">
-                          <ActivityAction x:TypeArguments="x:String">
-                            <ActivityAction.Argument>
-                              <DelegateInArgument x:TypeArguments="x:String" Name="item" />
-                            </ActivityAction.Argument>
-                            <Sequence DisplayName="Sequence Collect Post" sap:VirtualizedContainerService.HintSize="252,752">
+                    <Sequence DisplayName="Sequence Collect City Post Urls" sap:VirtualizedContainerService.HintSize="208,49">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign New Posts Element" sap:VirtualizedContainerService.HintSize="282,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="sxl:XElement">[postsElement]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="sxl:XElement">[New XElement("Posts")]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <InvokeMethod DisplayName="InvokeMethod Collect Posts" sap:VirtualizedContainerService.HintSize="282,127" MethodName="Post">
+                        <InvokeMethod.Result>
+                          <OutArgument x:TypeArguments="s:Byte[]">[rawResponse]</OutArgument>
+                        </InvokeMethod.Result>
+                        <InvokeMethod.TargetObject>
+                          <InArgument x:TypeArguments="cn:HttpPost">[poster]</InArgument>
+                        </InvokeMethod.TargetObject>
+                        <InArgument x:TypeArguments="x:Uri">[New System.Uri(String.Format("{0}/sof",city.CityUrl))]</InArgument>
+                      </InvokeMethod>
+                      <Assign DisplayName="Assign RawResponse to String" sap:VirtualizedContainerService.HintSize="282,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[responseString]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">[LeadScraper.Utils.Extensions.StringExtensions.ConvertToString(rawResponse)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <InvokeMethod DisplayName="InvokeMethod Collect Urls" sap:VirtualizedContainerService.HintSize="282,127" MethodName="GetUrls" TargetType="lu:CraigslistParse">
+                        <InvokeMethod.Result>
+                          <OutArgument x:TypeArguments="scg3:List(x:String)">[postingUrls]</OutArgument>
+                        </InvokeMethod.Result>
+                        <InArgument x:TypeArguments="x:String">[responseString]</InArgument>
+                      </InvokeMethod>
+                      <ForEach x:TypeArguments="x:String" DisplayName="ForEach City Post Url" sap:VirtualizedContainerService.HintSize="282,203" Values="[postingUrls]">
+                        <ActivityAction x:TypeArguments="x:String">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                          </ActivityAction.Argument>
+                          <TryCatch DisplayName="TryCatch Collect Post" sap:VirtualizedContainerService.HintSize="418,278">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg3:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <TryCatch.Try>
+                              <Sequence DisplayName="Sequence Collect Post" sap:VirtualizedContainerService.HintSize="230,752">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="s:Byte[]" Name="postRawResponse" />
+                                  <Variable x:TypeArguments="x:String" Name="postResponseString" />
+                                  <Variable x:TypeArguments="sxl:XElement" Name="postElement" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <InvokeMethod DisplayName="InvokeMethod Collect Post" sap:VirtualizedContainerService.HintSize="208,127" MethodName="Post">
+                                  <InvokeMethod.Result>
+                                    <OutArgument x:TypeArguments="s:Byte[]">[postRawResponse]</OutArgument>
+                                  </InvokeMethod.Result>
+                                  <InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="cn:HttpPost">[poster]</InArgument>
+                                  </InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="x:Uri">[New Uri(item)]</InArgument>
+                                </InvokeMethod>
+                                <InvokeMethod DisplayName="InvokeMethod Get Response as String" sap:VirtualizedContainerService.HintSize="208,127" MethodName="ConvertToString" TargetType="lue:StringExtensions">
+                                  <InvokeMethod.Result>
+                                    <OutArgument x:TypeArguments="x:String">[postResponseString]</OutArgument>
+                                  </InvokeMethod.Result>
+                                  <InArgument x:TypeArguments="s:Byte[]">[postRawResponse]</InArgument>
+                                </InvokeMethod>
+                                <InvokeMethod DisplayName="InvokeMethod Convert Post To XElement" sap:VirtualizedContainerService.HintSize="208,127" MethodName="GetPostingElement" TargetType="lu:CraigslistParse">
+                                  <InvokeMethod.Result>
+                                    <OutArgument x:TypeArguments="sxl:XElement">[postElement]</OutArgument>
+                                  </InvokeMethod.Result>
+                                  <InArgument x:TypeArguments="x:String">[postResponseString]</InArgument>
+                                </InvokeMethod>
+                                <InvokeMethod DisplayName="InvokeMethod Add to Posts Element" sap:VirtualizedContainerService.HintSize="208,127" MethodName="Add">
+                                  <InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="sxl:XElement">[postsElement]</InArgument>
+                                  </InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="sxl:XElement">[postElement]</InArgument>
+                                </InvokeMethod>
+                              </Sequence>
+                            </TryCatch.Try>
+                            <TryCatch.Catches>
+                              <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ActivityAction x:TypeArguments="s:Exception">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                  </ActivityAction.Argument>
+                                </ActivityAction>
+                              </Catch>
+                            </TryCatch.Catches>
+                          </TryCatch>
+                        </ActivityAction>
+                      </ForEach>
+                    </Sequence>
+                    <ForEach x:TypeArguments="x:String" DisplayName="For Each City Post Url" sap:VirtualizedContainerService.HintSize="208,49" Values="[postingUrls]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="x:String">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="x:String" Name="item" />
+                        </ActivityAction.Argument>
+                        <TryCatch DisplayName="TryCatch Sequence Collect Post" sap:VirtualizedContainerService.HintSize="252,100">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <TryCatch.Try>
+                            <Sequence DisplayName="Sequence Collect Post" sap:VirtualizedContainerService.HintSize="400,100">
                               <Sequence.Variables>
                                 <Variable x:TypeArguments="s:Byte[]" Name="postRawResponse" />
                                 <Variable x:TypeArguments="x:String" Name="postResponseString" />
@@ -111,7 +221,8 @@
                               </Sequence.Variables>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                 </scg3:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <InvokeMethod DisplayName="InvokeMethod Collect Post" sap:VirtualizedContainerService.HintSize="208,127" MethodName="Post">
@@ -142,79 +253,110 @@
                                 <InArgument x:TypeArguments="sxl:XElement">[postElement]</InArgument>
                               </InvokeMethod>
                             </Sequence>
-                          </ActivityAction>
-                        </ForEach>
-                        <FlowStep.Next>
-                          <FlowStep x:Name="__ReferenceID5">
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">196,896.5</av:Point>
-                                <av:Size x:Key="ShapeSize">208,127</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">300,1023.5 300,1049</av:PointCollection>
-                              </scg3:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <InvokeMethod DisplayName="InvokeMethod Transform Posts" sap:VirtualizedContainerService.HintSize="208,127" MethodName="TransformResponse" TargetType="lue:CraigslistExtensions">
-                              <InvokeMethod.Result>
-                                <OutArgument x:TypeArguments="sxl:XDocument">[postsDocument]</OutArgument>
-                              </InvokeMethod.Result>
-                              <InArgument x:TypeArguments="sxl:XElement">[postsElement]</InArgument>
-                            </InvokeMethod>
-                            <FlowStep.Next>
-                              <FlowStep x:Name="__ReferenceID6">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">200,1049</av:Point>
-                                    <av:Size x:Key="ShapeSize">200,49</av:Size>
-                                  </scg3:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ForEach x:TypeArguments="sxl:XElement" DisplayName="ForEach&lt;XElement&gt; Post" sap:VirtualizedContainerService.HintSize="200,49" Values="[postsDocument.Descendants(&quot;Post&quot;)]">
-                                  <ActivityAction x:TypeArguments="sxl:XElement">
-                                    <ActivityAction.Argument>
-                                      <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
-                                    </ActivityAction.Argument>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="252,418">
-                                      <Sequence.Variables>
-                                        <Variable x:TypeArguments="md:CraigslistPost" Name="craigslistPost" />
-                                        <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer()]" Name="domain" />
-                                        <Variable x:TypeArguments="x:Int32" Name="existingCount" />
-                                      </Sequence.Variables>
-                                      <sap:WorkflowViewStateService.ViewState>
-                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        </scg3:Dictionary>
-                                      </sap:WorkflowViewStateService.ViewState>
-                                      <InvokeMethod DisplayName="InvokeMethod Get New CraigslistPostEntity" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SavePost" TargetType="lue:CraigslistExtensions">
-                                        <InArgument x:TypeArguments="sxl:XElement">[item]</InArgument>
-                                        <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[domain]</InArgument>
-                                      </InvokeMethod>
-                                      <InvokeMethod DisplayName="InvokeMethod Save Changes" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SaveChanges">
-                                        <InvokeMethod.TargetObject>
-                                          <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[domain]</InArgument>
-                                        </InvokeMethod.TargetObject>
-                                      </InvokeMethod>
-                                    </Sequence>
-                                  </ActivityAction>
-                                </ForEach>
-                              </FlowStep>
-                            </FlowStep.Next>
-                          </FlowStep>
-                        </FlowStep.Next>
-                      </FlowStep>
-                    </FlowStep.Next>
-                  </FlowStep>
-                </FlowStep.Next>
-              </FlowStep>
-            </FlowStep.Next>
-          </FlowStep>
-        </FlowStep.Next>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,106">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                      </ActivityAction>
+                    </ForEach>
+                    <InvokeMethod DisplayName="Transform Posts For City" sap:VirtualizedContainerService.HintSize="208,127" MethodName="TransformResponse" TargetType="lue:CraigslistExtensions">
+                      <InvokeMethod.Result>
+                        <OutArgument x:TypeArguments="sxl:XDocument">[postsDocument]</OutArgument>
+                      </InvokeMethod.Result>
+                      <InArgument x:TypeArguments="sxl:XElement">[postsElement]</InArgument>
+                    </InvokeMethod>
+                    <ForEach x:TypeArguments="sxl:XElement" DisplayName="For Each City Post" sap:VirtualizedContainerService.HintSize="448,381" Values="[postsDocument.Descendants(&quot;Post&quot;)]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ActivityAction x:TypeArguments="sxl:XElement">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sxl:XElement" Name="item" />
+                        </ActivityAction.Argument>
+                        <TryCatch DisplayName="Save Post" sap:VirtualizedContainerService.HintSize="418,278">
+                          <TryCatch.Try>
+                            <Sequence DisplayName="Save Post" sap:VirtualizedContainerService.HintSize="230,418">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="md:CraigslistPost" Name="craigslistPost" />
+                                <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer()]" Name="domain" />
+                                <Variable x:TypeArguments="x:Int32" Name="existingCount" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <InvokeMethod DisplayName="InvokeMethod Get New CraigslistPostEntity" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SavePost" TargetType="lue:CraigslistExtensions">
+                                <InArgument x:TypeArguments="sxl:XElement">[item]</InArgument>
+                                <InArgument x:TypeArguments="s:Guid">[city.Id]</InArgument>
+                                <InArgument x:TypeArguments="scg3:List(md:Keyword)">[keywords]</InArgument>
+                                <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[domain]</InArgument>
+                              </InvokeMethod>
+                              <InvokeMethod DisplayName="InvokeMethod Save Changes" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SaveChanges">
+                                <InvokeMethod.TargetObject>
+                                  <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[domain]</InArgument>
+                                </InvokeMethod.TargetObject>
+                              </InvokeMethod>
+                            </Sequence>
+                          </TryCatch.Try>
+                          <TryCatch.Catches>
+                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg3:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <ActivityAction x:TypeArguments="s:Exception">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                </ActivityAction.Argument>
+                              </ActivityAction>
+                            </Catch>
+                          </TryCatch.Catches>
+                        </TryCatch>
+                      </ActivityAction>
+                    </ForEach>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg3:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+            </ActivityAction>
+          </ForEach>
+        </Sequence>
       </FlowStep>
     </Flowchart.StartNode>
     <x:Reference>__ReferenceID0</x:Reference>
-    <x:Reference>__ReferenceID1</x:Reference>
-    <x:Reference>__ReferenceID2</x:Reference>
-    <x:Reference>__ReferenceID3</x:Reference>
-    <x:Reference>__ReferenceID4</x:Reference>
-    <x:Reference>__ReferenceID5</x:Reference>
-    <x:Reference>__ReferenceID6</x:Reference>
   </Flowchart>
 </Activity>

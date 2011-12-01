@@ -1317,6 +1317,9 @@
                 <ContentItem DataType=":String"
                              Kind="Value"
                              Name="Keyword1">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="Keyword" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>

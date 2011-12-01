@@ -4,6 +4,7 @@
     <EntitySetMapping Name="CraigslistPosts">
       <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPost">
         <MappingFragment StoreEntitySet="CraigslistPosts">
+          <ScalarProperty Name="CraigslistCityId" ColumnName="CraigslistCityId" />
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
@@ -21,6 +22,34 @@
           <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
           <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CraigslistCities">
+      <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistCity">
+        <MappingFragment StoreEntitySet="CraigslistCity">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CityUrl" ColumnName="CityUrl" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Keywords">
+      <EntityTypeMapping TypeName="MarketingDomainModel.Keyword">
+        <MappingFragment StoreEntitySet="Keyword">
+          <ScalarProperty Name="KeywordValue" ColumnName="KeywordValue" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CraigslistPostKeywords">
+      <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPostKeyword">
+        <MappingFragment StoreEntitySet="CraigslistPostKeywords">
+          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+          <ScalarProperty Name="CraigslistPostId" ColumnName="CraigslistPostId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

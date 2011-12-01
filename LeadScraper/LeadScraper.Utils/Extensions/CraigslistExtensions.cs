@@ -19,7 +19,7 @@ namespace LeadScraper.Utils.Extensions {
       response = _htmlCleanup.Replace( response, "" );
       var result = new XElement( "Details" );
       result.Add( new XAttribute( "datetime", _postDate.Match( response ).Groups[ 1 ].Value ) );
-      result.Value = _description.Match(response).Groups[1].Value.Trim();
+      result.Value = _description.Match( response ).Groups[ 1 ].Value.Trim();
       //var developWithUs = new XElement( "Section" );
       //developWithUs.Add( new XAttribute( "sectionName", "Develop With Us" ) );
       //developWithUs.Value = _developmentWithUs.Match( response ).Groups[ 1 ].Value;
@@ -39,32 +39,50 @@ namespace LeadScraper.Utils.Extensions {
       return result;
     }
 
-    public static XDocument TransformResponse( this XElement element) {
+    public static XDocument TransformResponse( this XElement element ) {
       var input = new XDocument();
       input.Add( element );
       var args = new XsltArgumentList();
-      args.AddExtensionObject("urn:extensions",new XsltExtensions());
+      args.AddExtensionObject( "urn:extensions", new XsltExtensions() );
       var result = input.Transform( args, XDocument.Parse( TransformationResources.CraigslistResponse ) );
       return result;
     }
 
-    public static void SavePost(this XElement post, MarketingDomainModelContainer context) {
+    public static void SavePost( this XElement post, Guid craigslistPostCityId, List<Keyword> keywords, MarketingDomainModelContainer context ) {
       var postId = Int64.Parse( post.Attribute( "id" ).Value );
       var result = context.CraigslistPosts.SingleOrDefault( n => n.PostId == postId );
       if( result == null ) {
         result = new CraigslistPost();
         result.Id = Guid.NewGuid();
+        result.CraigslistCityId = craigslistPostCityId;
         result.PostId = Int64.Parse( post.Attribute( "id" ).Value );
         result.EmailAddress = post.Attribute( "contact" ).Value;
         result.Title = post.Element( "Title" ).Value;
         result.PostDate = DateTime.Parse( post.Attribute( "datetime" ).Value.Substring( 0, post.Attribute( "datetime" ).Value.LastIndexOf( " " ) ) );
         result.PostsElement = post.ToString();
-        if(!String.IsNullOrEmpty(result.EmailAddress.Replace(" ","")))
-        context.CraigslistPosts.AddObject( result );
+        if( !String.IsNullOrEmpty( result.EmailAddress.Replace( " ", "" ) ) )
+          context.CraigslistPosts.AddObject( result );
       }
-    
+      result.GetKeywords( keywords );
     }
+
+    public static void GetKeywords( this CraigslistPost craigslistPost, List<Keyword> keywords ) {
+      var post = XElement.Parse(craigslistPost.PostsElement);
+        var body = post.Descendants("Body").FirstOrDefault();
+        if(body != null &! String.IsNullOrEmpty(body.Value))
+        {
+          var query = from keyword in keywords
+                      let matched = body.Value.ToLower().Contains( keyword.KeywordValue.ToLower() )
+                      where matched
+                      select keyword;
+          query.ToList().ForEach( n => {
+            if( craigslistPost.CraigslistPostKeywords.Where( x => x.KeywordId == n.Id ).Count() == 0 )
+              craigslistPost.CraigslistPostKeywords.Add( new CraigslistPostKeyword { KeywordId=n.Id } );
+          } );
+        }
+    
+      }
+
+
   }
-
-
 }

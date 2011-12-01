@@ -1,19 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MarketingDomainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingDomainModelStoreContainer">
+    <EntitySet Name="CraigslistCity" EntityType="MarketingDomainModel.Store.CraigslistCity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDomainModel.Store.CraigslistPostKeywords" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.Store.CraigslistPosts" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="CraigsListResponse" EntityType="MarketingDomainModel.Store.CraigsListResponse" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Keyword" EntityType="MarketingDomainModel.Store.Keyword" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigslistPostKeywords_CraigslistPosts">
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+      <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingDomainModel.Store.FK_CraigslistPosts_CraigslistCity">
+      <End Role="CraigslistCity" EntitySet="CraigslistCity" />
+      <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
+    </AssociationSet>
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="CraigslistCity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CraigslistPostKeywords">
+    <Key>
+      <PropertyRef Name="CraigslistPostId" />
+      <PropertyRef Name="KeywordId" />
+    </Key>
+    <Property Name="CraigslistPostId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeywordId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
   <EntityType Name="CraigslistPosts">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PostId" Type="bigint" Nullable="false" />
+    <Property Name="CraigslistCityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
@@ -29,6 +59,38 @@
     <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="KeywordValue" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeywordValue" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Score" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
+    <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
+    <End Role="CraigslistPostKeywords" Type="MarketingDomainModel.Store.CraigslistPostKeywords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPosts">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigslistPostKeywords">
+        <PropertyRef Name="CraigslistPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CraigslistPosts_CraigslistCity">
+    <End Role="CraigslistCity" Type="MarketingDomainModel.Store.CraigslistCity" Multiplicity="1" />
+    <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigslistPosts">
+        <PropertyRef Name="CraigslistCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
     <End Role="CraigsListResponse" Type="MarketingDomainModel.Store.CraigsListResponse" Multiplicity="*" />

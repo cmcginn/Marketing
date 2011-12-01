@@ -7,6 +7,17 @@
       <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
     </AssociationSet>
+    <EntitySet Name="CraigslistCities" EntityType="MarketingDomainModel.CraigslistCity" />
+    <EntitySet Name="Keywords" EntityType="MarketingDomainModel.Keyword" />
+    <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity">
+      <End Role="CraigslistCity" EntitySet="CraigslistCities" />
+      <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
+    </AssociationSet>
+    <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDomainModel.CraigslistPostKeyword" />
+    <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts">
+      <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
+      <End Role="CraigslistPostKeyword" EntitySet="CraigslistPostKeywords" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPost">
     <Key>
@@ -19,6 +30,9 @@
     <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CraigsListResponses" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigslistPost" ToRole="CraigsListResponse" />
+    <Property Type="Guid" Name="CraigslistCityId" Nullable="false" />
+    <NavigationProperty Name="CraigslistCity" Relationship="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity" FromRole="CraigslistPost" ToRole="CraigslistCity" />
+    <NavigationProperty Name="CraigslistPostKeywords" Relationship="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts" FromRole="CraigslistPost" ToRole="CraigslistPostKeyword" />
   </EntityType>
   <EntityType Name="CraigsListResponse">
     <Key>
@@ -40,6 +54,58 @@
       </Principal>
       <Dependent Role="CraigsListResponse">
         <PropertyRef Name="CraigslitPostsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CraigslistCity">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Region" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityUrl" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <NavigationProperty Name="CraigslistPosts" Relationship="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity" FromRole="CraigslistCity" ToRole="CraigslistPost" />
+  </EntityType>
+  <EntityType Name="Keyword">
+    <Key>
+      <PropertyRef Name="KeywordValue" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Score" Nullable="false" />
+    <Property Type="String" Name="KeywordValue" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CraigslistPosts_CraigslistCity">
+    <End Type="MarketingDomainModel.CraigslistCity" Role="CraigslistCity" Multiplicity="1" />
+    <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigslistPost">
+        <PropertyRef Name="CraigslistCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CraigslistPostKeyword">
+    <Key>
+      <PropertyRef Name="CraigslistPostId" />
+      <PropertyRef Name="KeywordId" />
+    </Key>
+    <Property Type="Guid" Name="CraigslistPostId" Nullable="false" />
+    <Property Type="Guid" Name="KeywordId" Nullable="false" />
+    <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts" FromRole="CraigslistPostKeyword" ToRole="CraigslistPost" />
+  </EntityType>
+  <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
+    <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
+    <End Type="MarketingDomainModel.CraigslistPostKeyword" Role="CraigslistPostKeyword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistPost">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CraigslistPostKeyword">
+        <PropertyRef Name="CraigslistPostId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
