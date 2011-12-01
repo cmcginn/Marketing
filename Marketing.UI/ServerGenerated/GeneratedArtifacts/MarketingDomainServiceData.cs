@@ -16,11 +16,6 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
-#region EDM Relationship Metadata
-
-[assembly: EdmRelationshipAttribute("MarketingDomainServiceData", "CraigslistPost_CraigsListResponse", "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MarketingDomainServiceData.Implementation.CraigslistPost), "CraigsListResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MarketingDomainServiceData.Implementation.CraigsListResponse), true)]
-
-#endregion
 
 namespace MarketingDomainServiceData.Implementation
 {
@@ -70,52 +65,28 @@ namespace MarketingDomainServiceData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CraigslistPost> CraigslistPosts
+        public ObjectSet<Operation> Operations
         {
             get
             {
-                if ((_CraigslistPosts == null))
+                if ((_Operations == null))
                 {
-                    _CraigslistPosts = base.CreateObjectSet<CraigslistPost>("CraigslistPosts");
+                    _Operations = base.CreateObjectSet<Operation>("Operations");
                 }
-                return _CraigslistPosts;
+                return _Operations;
             }
         }
-        private ObjectSet<CraigslistPost> _CraigslistPosts;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<CraigsListResponse> CraigsListResponses
-        {
-            get
-            {
-                if ((_CraigsListResponses == null))
-                {
-                    _CraigsListResponses = base.CreateObjectSet<CraigsListResponse>("CraigsListResponses");
-                }
-                return _CraigsListResponses;
-            }
-        }
-        private ObjectSet<CraigsListResponse> _CraigsListResponses;
+        private ObjectSet<Operation> _Operations;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CraigslistPosts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Operations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCraigslistPosts(CraigslistPost craigslistPost)
+        public void AddToOperations(Operation operation)
         {
-            base.AddObject("CraigslistPosts", craigslistPost);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the CraigsListResponses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCraigsListResponses(CraigsListResponse craigsListResponse)
-        {
-            base.AddObject("CraigsListResponses", craigsListResponse);
+            base.AddObject("Operations", operation);
         }
 
         #endregion
@@ -129,240 +100,24 @@ namespace MarketingDomainServiceData.Implementation
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="CraigslistPost")]
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="Operation")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class CraigslistPost : EntityObject
+    public partial class Operation : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new CraigslistPost object.
+        /// Create a new Operation object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="postDate">Initial value of the PostDate property.</param>
-        /// <param name="postsElement">Initial value of the PostsElement property.</param>
-        /// <param name="postId">Initial value of the PostId property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
-        public static CraigslistPost CreateCraigslistPost(global::System.Guid id, global::System.DateTime postDate, global::System.String postsElement, global::System.Int64 postId, global::System.String title, global::System.String emailAddress)
-        {
-            CraigslistPost craigslistPost = new CraigslistPost();
-            craigslistPost.Id = id;
-            craigslistPost.PostDate = postDate;
-            craigslistPost.PostsElement = postsElement;
-            craigslistPost.PostId = postId;
-            craigslistPost.Title = title;
-            craigslistPost.EmailAddress = emailAddress;
-            return craigslistPost;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime PostDate
-        {
-            get
-            {
-                return _PostDate;
-            }
-            set
-            {
-                OnPostDateChanging(value);
-                ReportPropertyChanging("PostDate");
-                _PostDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PostDate");
-                OnPostDateChanged();
-            }
-        }
-        private global::System.DateTime _PostDate;
-        partial void OnPostDateChanging(global::System.DateTime value);
-        partial void OnPostDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String PostsElement
-        {
-            get
-            {
-                return _PostsElement;
-            }
-            set
-            {
-                OnPostsElementChanging(value);
-                ReportPropertyChanging("PostsElement");
-                _PostsElement = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("PostsElement");
-                OnPostsElementChanged();
-            }
-        }
-        private global::System.String _PostsElement;
-        partial void OnPostsElementChanging(global::System.String value);
-        partial void OnPostsElementChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 PostId
-        {
-            get
-            {
-                return _PostId;
-            }
-            set
-            {
-                OnPostIdChanging(value);
-                ReportPropertyChanging("PostId");
-                _PostId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PostId");
-                OnPostIdChanged();
-            }
-        }
-        private global::System.Int64 _PostId;
-        partial void OnPostIdChanging(global::System.Int64 value);
-        partial void OnPostIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String EmailAddress
-        {
-            get
-            {
-                return _EmailAddress;
-            }
-            set
-            {
-                OnEmailAddressChanging(value);
-                ReportPropertyChanging("EmailAddress");
-                _EmailAddress = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("EmailAddress");
-                OnEmailAddressChanged();
-            }
-        }
-        private global::System.String _EmailAddress;
-        partial void OnEmailAddressChanging(global::System.String value);
-        partial void OnEmailAddressChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainServiceData", "CraigslistPost_CraigsListResponse", "CraigsListResponse")]
-        public EntityCollection<CraigsListResponse> CraigsListResponses
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CraigsListResponse>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigsListResponse");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CraigsListResponse>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigsListResponse", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="CraigsListResponse")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CraigsListResponse : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CraigsListResponse object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="responseContent">Initial value of the ResponseContent property.</param>
         /// <param name="created">Initial value of the Created property.</param>
-        /// <param name="responseHtmlContent">Initial value of the ResponseHtmlContent property.</param>
-        /// <param name="craigslitPostsId">Initial value of the CraigslitPostsId property.</param>
-        public static CraigsListResponse CreateCraigsListResponse(global::System.Guid id, global::System.String responseContent, global::System.DateTime created, global::System.String responseHtmlContent, global::System.Guid craigslitPostsId)
+        public static Operation CreateOperation(global::System.Int32 id, global::System.DateTime created)
         {
-            CraigsListResponse craigsListResponse = new CraigsListResponse();
-            craigsListResponse.Id = id;
-            craigsListResponse.ResponseContent = responseContent;
-            craigsListResponse.Created = created;
-            craigsListResponse.ResponseHtmlContent = responseHtmlContent;
-            craigsListResponse.CraigslitPostsId = craigslitPostsId;
-            return craigsListResponse;
+            Operation operation = new Operation();
+            operation.Id = id;
+            operation.Created = created;
+            return operation;
         }
 
         #endregion
@@ -373,7 +128,7 @@ namespace MarketingDomainServiceData.Implementation
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Guid Id
+        public global::System.Int32 Id
         {
             get
             {
@@ -391,33 +146,9 @@ namespace MarketingDomainServiceData.Implementation
                 }
             }
         }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ResponseContent
-        {
-            get
-            {
-                return _ResponseContent;
-            }
-            set
-            {
-                OnResponseContentChanging(value);
-                ReportPropertyChanging("ResponseContent");
-                _ResponseContent = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ResponseContent");
-                OnResponseContentChanged();
-            }
-        }
-        private global::System.String _ResponseContent;
-        partial void OnResponseContentChanging(global::System.String value);
-        partial void OnResponseContentChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -446,94 +177,29 @@ namespace MarketingDomainServiceData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String ResponseHtmlContent
+        public global::System.String OperationName
         {
             get
             {
-                return _ResponseHtmlContent;
+                return _OperationName;
             }
             set
             {
-                OnResponseHtmlContentChanging(value);
-                ReportPropertyChanging("ResponseHtmlContent");
-                _ResponseHtmlContent = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ResponseHtmlContent");
-                OnResponseHtmlContentChanged();
+                OnOperationNameChanging(value);
+                ReportPropertyChanging("OperationName");
+                _OperationName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("OperationName");
+                OnOperationNameChanged();
             }
         }
-        private global::System.String _ResponseHtmlContent;
-        partial void OnResponseHtmlContentChanging(global::System.String value);
-        partial void OnResponseHtmlContentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CraigslitPostsId
-        {
-            get
-            {
-                return _CraigslitPostsId;
-            }
-            set
-            {
-                OnCraigslitPostsIdChanging(value);
-                ReportPropertyChanging("CraigslitPostsId");
-                _CraigslitPostsId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CraigslitPostsId");
-                OnCraigslitPostsIdChanged();
-            }
-        }
-        private global::System.Guid _CraigslitPostsId;
-        partial void OnCraigslitPostsIdChanging(global::System.Guid value);
-        partial void OnCraigslitPostsIdChanged();
+        private global::System.String _OperationName;
+        partial void OnOperationNameChanging(global::System.String value);
+        partial void OnOperationNameChanged();
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainServiceData", "CraigslistPost_CraigsListResponse", "CraigslistPost")]
-        public CraigslistPost CraigslistPost
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CraigslistPost> CraigslistPostReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CraigslistPost>("MarketingDomainServiceData.CraigslistPost_CraigsListResponse", "CraigslistPost", value);
-                }
-            }
-        }
-
-        #endregion
     }
 
     #endregion

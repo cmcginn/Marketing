@@ -1341,5 +1341,334 @@ namespace LightSwitchApplication
         #endregion
     }
     
+    /// <summary>
+    /// Provides members to query and update data in the MarketingDomainServiceData datasource.
+    /// </summary>
+    public sealed partial class MarketingDomainServiceDataService
+        : global::LightSwitchApplication.MarketingDomainServiceData
+    {
+        #region Constructors
+    
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public MarketingDomainServiceDataService() : base()
+        {
+        }
+    
+        #endregion
+    
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)this.Details.DataWorkspace;
+            }
+        }
+        
+        #endregion
+    
+        #region Server Interceptions Points
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Validate(global::LightSwitchApplication.Operation entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_Executed();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SaveChanges_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Single_Executing(global::System.Nullable<int> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Single_PreprocessQuery(global::System.Nullable<int> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Single_Executed(global::System.Nullable<int> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Single_ExecuteFailed(global::System.Nullable<int> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_SingleOrDefault_Executing(global::System.Nullable<int> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_SingleOrDefault_PreprocessQuery(global::System.Nullable<int> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_SingleOrDefault_Executed(global::System.Nullable<int> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_SingleOrDefault_ExecuteFailed(global::System.Nullable<int> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunOperation_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunOperation_Executing(global::System.Nullable<int> id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunOperation_PreprocessQuery(global::System.Nullable<int> id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunOperation_Executed(global::System.Nullable<int> id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunOperation_ExecuteFailed(global::System.Nullable<int> id, global::System.Exception exception);
+    
+        #endregion
+    
+        #region Details Class
+    
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+        public static new class DetailsClass
+        {
+    
+            static DetailsClass()
+            {
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
+                __OperationsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
+                    "Operations",
+                    null,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_CanRead,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_Validate);
+            private static bool __Operations_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.Operations_CanRead(ref result);
+                return result;
+            }
+            private static void __Operations_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.Operation e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.Operations_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.OperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService>
+                __SaveChangesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.OperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService>(
+                    "SaveChanges",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SaveChanges_Failed);
+            private static bool __SaveChanges_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.SaveChanges_CanExecute(ref r);
+                return r;
+            }
+            private static void __SaveChanges_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.SaveChanges_Executing();
+            }
+            private static void __SaveChanges_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.SaveChanges_Executed();
+            }
+            private static void __SaveChanges_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SaveChanges_ExecuteFailed(ex);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
+                __Operations_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
+                    "Operations_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_Single_PreprocessQuery);
+            private static bool __Operations_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.Operations_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __Operations_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.Operations_Single_Executing((global::System.Nullable<int>)args[0]);
+            }
+            private static void __Operations_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.Operations_Single_Executed((global::System.Nullable<int>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
+            }
+            private static void __Operations_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.Operations_Single_ExecuteFailed((global::System.Nullable<int>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __Operations_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[1];
+                d.Operations_Single_PreprocessQuery((global::System.Nullable<int>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
+                __Operations_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
+                    "Operations_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_SingleOrDefault_PreprocessQuery);
+            private static bool __Operations_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.Operations_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __Operations_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.Operations_SingleOrDefault_Executing((global::System.Nullable<int>)args[0]);
+            }
+            private static void __Operations_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.Operations_SingleOrDefault_Executed((global::System.Nullable<int>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
+            }
+            private static void __Operations_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.Operations_SingleOrDefault_ExecuteFailed((global::System.Nullable<int>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __Operations_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[1];
+                d.Operations_SingleOrDefault_PreprocessQuery((global::System.Nullable<int>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
+                __Operations_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
+                    "Operations_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__Operations_All_PreprocessQuery);
+            private static bool __Operations_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.Operations_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __Operations_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.Operations_All_Executing();
+            }
+            private static void __Operations_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.Operations_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[0]);
+            }
+            private static void __Operations_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.Operations_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __Operations_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[0];
+                d.Operations_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
+                __RunOperationEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
+                    "RunOperation",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunOperation_PreprocessQuery);
+            private static bool __RunOperation_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.RunOperation_CanExecute(ref r);
+                return r;
+            }
+            private static void __RunOperation_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.RunOperation_Executing((global::System.Nullable<int>)args[0]);
+            }
+            private static void __RunOperation_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.RunOperation_Executed((global::System.Nullable<int>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[1]);
+            }
+            private static void __RunOperation_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.RunOperation_ExecuteFailed((global::System.Nullable<int>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __RunOperation_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[1];
+                d.RunOperation_PreprocessQuery((global::System.Nullable<int>)args[0], ref query);
+                return query;
+            }
+    
+        }
+    
+        #endregion
+    }
+    
     #endregion
 }

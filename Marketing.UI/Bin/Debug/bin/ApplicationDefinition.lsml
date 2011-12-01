@@ -24,6 +24,11 @@
           <ShowScreenMethod TargetScreen="SystemSettings" />
         </ApplicationMethod.Attributes>
       </ApplicationMethod>
+      <ApplicationMethod Name="ShowCreateNewOperation">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="CreateNewOperation" />
+        </ApplicationMethod.Attributes>
+      </ApplicationMethod>
     </Application.Methods>
     <Application.Attributes>
       <AutomaticDisplayName Expression="(\p{Ll})(\p{Lu})|_+"
@@ -39,6 +44,8 @@
                                    Name="CraigsListPosts" />
         <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowSystemSettings]"
                                    Name="SystemSettings" />
+        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowCreateNewOperation]"
+                                   Name="CreateNewOperation" />
       </ApplicationNavigationGroup>
       <ApplicationNavigationGroup Name="Administration">
         <ApplicationNavigationGroup.Attributes>
@@ -54,6 +61,8 @@
                         Target="!module/Methods[ShowCraigsListPosts]" />
     <ApplicationCommand Name="ScreenCommandShowSystemSettings"
                         Target="!module/Methods[ShowSystemSettings]" />
+    <ApplicationCommand Name="ScreenCommandShowCreateNewOperation"
+                        Target="!module/Methods[ShowCreateNewOperation]" />
   </Application>
 
   <EntityContainerGroup Name="DataWorkspace">
@@ -67,6 +76,8 @@
     </EntityContainerGroupProperty>
     <EntityContainerGroupProperty EntityContainer="MarketingData"
                                   Name="MarketingData" />
+    <EntityContainerGroupProperty EntityContainer="MarketingDomainServiceData"
+                                  Name="MarketingDomainServiceData" />
   </EntityContainerGroup>
   <EntityType Name="CraigslistPost">
     <EntityType.Methods>
@@ -725,7 +736,7 @@
 
   <Screen Name="CraigsListPosts">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService1" />
+      <SaveChangesTo DataService="MarketingDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1029,7 +1040,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewCraigslistResponse">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService1" />
+      <SaveChangesTo DataService="MarketingDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1230,7 +1241,7 @@
 
   <Screen Name="SystemSettings">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService1" />
+      <SaveChangesTo DataService="MarketingDataDataService" />
     </Screen.Attributes>
     <Screen.Properties>
       <ScreenCollectionProperty Name="CraigslistCities"
@@ -1299,6 +1310,7 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod Name="RunOperation" />
     </Screen.Methods>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -1320,6 +1332,16 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression Target="SystemSettings/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="RunOperation">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="SystemSettings/Methods[RunOperation]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -1528,7 +1550,8 @@
                    PropertyType=":String">
         <KeyProperty.Attributes>
           <Required />
-          <MaxLength Value="255" />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
         </KeyProperty.Attributes>
       </KeyProperty>
     </EntityType.Properties>
@@ -1590,9 +1613,264 @@
                     Name="CraigslistPosts" />
   </Association>
 
+  <EntityType Name="Operation">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Created"
+                      PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="OperationName"
+                      PropertyType=":String?" />
+    </EntityType.Properties>
+  </EntityType>
+<EntityContainer Name="MarketingDomainServiceData"
+                   IsIntrinsic="False">
+
+    <EntitySet EntityType="Operation"
+               Name="Operations" />
+  
+    <SubmitOperation Name="SaveChanges" />
+  
+    <QueryOperation Name="Operations_Single"
+                    ReturnType="Operation">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Operations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="Operations_SingleOrDefault"
+                    ReturnType="Operation">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Operations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="Operations_All"
+                    ReturnType="Operation*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Operations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
+    <QueryOperation Name="RunOperation"
+                    ReturnType="Operation">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Operations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="id"
+                               ParameterType=":Int32?" />
+    </QueryOperation>
+  </EntityContainer>
+
+  
+  <Screen LaunchMode="Multiple"
+          Name="CreateNewOperation">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty Name="OperationProperty"
+                      PropertyType="Operation" />
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="CreateNewOperation/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="CreateNewOperation/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+          <ContentItem DataType="Operation"
+                       Kind="Details"
+                       Name="details"
+                       View="Microsoft.LightSwitch:RowsLayout">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="CreateNewOperation/Properties[OperationProperty]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem DataType=":Int32"
+                         Kind="Value"
+                         Name="Id">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="Operation/Properties[Id]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":DateTime"
+                         Kind="Value"
+                         Name="Created">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="Operation/Properties[Created]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="OperationName">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="Operation/Properties[OperationName]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
   <DataService DataProvider="EntityFrameworkDataProvider"
                EntityContainer="MarketingData"
-               Name="MarketingDataDataService1">
+               Name="MarketingDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="DataProviderName"
                           Value="91510608-8809-4020-8897-fba057e22d54" />
@@ -1773,6 +2051,40 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+  </DataService>
+
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="867d7d46-f6b1-4fe2-b5fa-623f7e7480eb" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="Operations">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetOperations"
+                         EntityTypeName="Marketing.Services.Operation" />
+        <WcfRiaProperty Name="Id"
+                        Property="Operation/Properties[Id]" />
+        <WcfRiaProperty Name="Created"
+                        Property="Operation/Properties[Created]" />
+        <WcfRiaProperty Name="OperationName"
+                        Property="Operation/Properties[OperationName]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="RunOperation">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="RunOperation" />
+        <WcfRiaQueryOperationParameter Name="id"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[RunOperation]/Parameters[id]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
   </DataService>
 
 

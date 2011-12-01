@@ -1,6 +1,4 @@
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\LSCodeGeneratorsTask.mcs
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\Application.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\Application.Common.pdb
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\Microsoft.CSharp.dll
@@ -36,4 +34,6 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ko\System.Xml.Linq.resource
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\ru\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\zh-Hans\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\zh-Hant\System.Xml.Linq.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Common\Bin\LSCodeGeneratorsTask.mcs
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Common\obj\Debug\Application.Common.pdb

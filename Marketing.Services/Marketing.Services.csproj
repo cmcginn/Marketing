@@ -51,12 +51,6 @@
     <Compile Include="MarketingDomainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Marketing.Data\Marketing.Data.csproj">
-      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
-      <Name>Marketing.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

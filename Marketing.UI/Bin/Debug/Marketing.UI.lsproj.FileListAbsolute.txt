@@ -14,7 +14,6 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\ApplicationDefinition.ls
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Application.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Application.Server.dll
-C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Microsoft.LightSwitch.AppBridge.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Microsoft.LightSwitch.Base.Server.dll

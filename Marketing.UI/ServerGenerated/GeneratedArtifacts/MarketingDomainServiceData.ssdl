@@ -1,44 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainServiceDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingDomainServiceDataStore">
-    <EntitySet Name="GetCraigslistPosts" EntityType="MarketingDomainServiceDataStore.CraigslistPost" store:Type="Tables" Schema="dbo" Table="Marketing.Data.CraigslistPost" />
-    <EntitySet Name="GetCraigsListResponses" EntityType="MarketingDomainServiceDataStore.CraigsListResponse" store:Type="Tables" Schema="dbo" Table="Marketing.Data.CraigsListResponse" />
-    <AssociationSet Name="CraigslistPost_CraigsListResponse" Association="MarketingDomainServiceDataStore.CraigslistPost_CraigsListResponse">
-      <End Role="CraigslistPost" EntitySet="GetCraigslistPosts" />
-      <End Role="CraigsListResponse" EntitySet="GetCraigsListResponses" />
-    </AssociationSet>
+    <EntitySet Name="GetOperations" EntityType="MarketingDomainServiceDataStore.Operation" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Operation" />
   </EntityContainer>
-  <EntityType Name="CraigslistPost">
+  <EntityType Name="Operation">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostDate" Type="datetime" Nullable="false" />
-    <Property Name="PostsElement" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PostId" Type="bigint" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
-  </EntityType>
-  <EntityType Name="CraigsListResponse">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="Created" Type="datetime" Nullable="false" />
-    <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OperationName" Type="nvarchar(max)" />
   </EntityType>
-  <Association Name="CraigslistPost_CraigsListResponse">
-    <End Role="CraigslistPost" Type="MarketingDomainServiceDataStore.CraigslistPost" Multiplicity="1" />
-    <End Role="CraigsListResponse" Type="MarketingDomainServiceDataStore.CraigsListResponse" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CraigslistPost">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="CraigsListResponse">
-        <PropertyRef Name="CraigslitPostsId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
 </Schema>
