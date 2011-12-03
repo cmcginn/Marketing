@@ -18,7 +18,7 @@ namespace Marketing.Services {
 
     [Key]
     public Guid Id { get; set; }
-    public List<Guid> ScheduledOperations{get;set;}
+    
   }
   public class MarketingDomainService : DomainService {
     
@@ -29,7 +29,36 @@ namespace Marketing.Services {
     public IQueryable<Operation> GetOperations() {
       return _Operations.AsQueryable();
     }
+    public Operation RunCraigslistRefresh() {
+      var result = new Operation { Id = Guid.NewGuid() };
+      using( var ctx = new MarketingDomainModelContainer() ) {
+        //call host eventually
+        var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
+        Task t = new Task( () => {
+          invoker.Invoke();
+          //ctx.ServerOperationHistories.ToList().ForEach(n=>n.Completed=System.DateTime.Now);
+          //ctx.SaveChanges();
+        } );
+        t.Start();
+      }
 
+      return result;
+    }
+    public Operation SendEmails() {
+      var result = new Operation { Id = Guid.NewGuid() };
+      using( var ctx = new MarketingDomainModelContainer() ) {
+        //call host eventually
+        var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
+        Task t = new Task( () => {
+          invoker.Invoke();
+          //ctx.ServerOperationHistories.ToList().ForEach(n=>n.Completed=System.DateTime.Now);
+          //ctx.SaveChanges();
+        } );
+        t.Start();
+      }
+
+      return result;
+    }
     public Operation RunServerOperations() {
       using (var ctx = new MarketingDomainModelContainer())
       {
@@ -45,15 +74,7 @@ namespace Marketing.Services {
 
       return new Operation { Id = Guid.NewGuid() };
     }
-    //public Operation RunOperation(int? id) {
-    //  var result = _Operations.SingleOrDefault( n => n.Id == id.GetValueOrDefault() );
-    //  var invoker = new WorkflowInvoker( new CraigslistLeadCollector() );
-    //  Task t = new Task( () => {
-    //    invoker.Invoke();
-    //  } );
-    //  t.Start();
-    //  return result;
-    //}
+
   }
 }
 

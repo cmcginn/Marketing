@@ -10,9 +10,14 @@ using Microsoft.LightSwitch.Presentation.Extensions;
 namespace LightSwitchApplication {
   public partial class Administration {
 
+    partial void RunRefresh_Execute() {
+      this.DataWorkspace.MarketingDomainServiceData.RunCraigslistRefresh();
 
-    partial void RunOperation_Execute() {
-      this.DataWorkspace.MarketingDomainServiceData.RunServerOperations();  
+    }
+
+    partial void SendQueuedEmails_Execute() {
+      this.DataWorkspace.MarketingDomainServiceData.SendEmails();
+
     }
   }
 }

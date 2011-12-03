@@ -235,6 +235,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region CraigslistPostView
+    
+        public void InsertCraigslistPostView(global::MarketingData.Implementation.CraigslistPostView entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.CraigslistPostViews.AddObject(entity);
+            }
+        }
+    
+        public void UpdateCraigslistPostView(global::MarketingData.Implementation.CraigslistPostView currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.CraigslistPostViews, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteCraigslistPostView(global::MarketingData.Implementation.CraigslistPostView entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.CraigslistPostViews.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -339,6 +369,21 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.ServerOperationHistory> ServerOperationHistories_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingData.Implementation.ServerOperationHistory>("ServerOperationHistories_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_Single(string frameworkOperators, global::System.Nullable<long> PostId, string Title, string PostsElement, global::System.Nullable<global::System.DateTime> PostDate, string EmailAddress, global::System.Nullable<global::System.Guid> Id, string Region, string CityName)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistPostView>("CraigslistPostViews_Single", frameworkOperators, PostId, Title, PostsElement, PostDate, EmailAddress, Id, Region, CityName);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_SingleOrDefault(string frameworkOperators, global::System.Nullable<long> PostId, string Title, string PostsElement, global::System.Nullable<global::System.DateTime> PostDate, string EmailAddress, global::System.Nullable<global::System.Guid> Id, string Region, string CityName)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistPostView>("CraigslistPostViews_SingleOrDefault", frameworkOperators, PostId, Title, PostsElement, PostDate, EmailAddress, Id, Region, CityName);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.CraigslistPostView>("CraigslistPostViews_All", frameworkOperators);
         }
     
     #endregion
@@ -549,6 +594,31 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_Single(global::System.Nullable<long> PostId, string Title, string PostsElement, global::System.Nullable<global::System.DateTime> PostDate, string EmailAddress, global::System.Nullable<global::System.Guid> Id, string Region, string CityName)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.CraigslistPostView>("CraigslistPostViews_All"),
+                (c) => ((((((((c.CityName.CompareTo(CityName) == 0) && (c.Region.CompareTo(Region) == 0)) && (Id.HasValue && (c.Id == Id))) && (c.EmailAddress.CompareTo(EmailAddress) == 0)) && (PostDate.HasValue && (c.PostDate == PostDate))) && (c.PostsElement.CompareTo(PostsElement) == 0)) && (c.Title.CompareTo(Title) == 0)) && (PostId.HasValue && (c.PostId == PostId))));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_SingleOrDefault(global::System.Nullable<long> PostId, string Title, string PostsElement, global::System.Nullable<global::System.DateTime> PostDate, string EmailAddress, global::System.Nullable<global::System.Guid> Id, string Region, string CityName)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.CraigslistPostView>("CraigslistPostViews_All"),
+                (c) => ((((((((c.CityName.CompareTo(CityName) == 0) && (c.Region.CompareTo(Region) == 0)) && (Id.HasValue && (c.Id == Id))) && (c.EmailAddress.CompareTo(EmailAddress) == 0)) && (PostDate.HasValue && (c.PostDate == PostDate))) && (c.PostsElement.CompareTo(PostsElement) == 0)) && (c.Title.CompareTo(Title) == 0)) && (PostId.HasValue && (c.PostId == PostId))));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.CraigslistPostView>("[CraigslistPostViews]").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -581,6 +651,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingData.Implementation.ServerOperationHistory))
             {
                 return new global::MarketingData.Implementation.ServerOperationHistory();
+            }
+            if (type == typeof(global::MarketingData.Implementation.CraigslistPostView))
+            {
+                return new global::MarketingData.Implementation.CraigslistPostView();
             }
     
             return base.CreateObject(type);
@@ -623,6 +697,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.ServerOperationHistory))
             {
                 return new global::MarketingData.Implementation.ServerOperationHistory();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPostView))
+            {
+                return new global::MarketingData.Implementation.CraigslistPostView();
             }
             return null;
         }
@@ -695,6 +773,16 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunServerOperations", frameworkOperators);
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunCraigslistRefresh(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunCraigslistRefresh", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> SendEmails(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("SendEmails", frameworkOperators);
+        }
+    
     #endregion
     
         [global::System.ServiceModel.DomainServices.Server.Invoke(HasSideEffects=false)]
@@ -757,6 +845,20 @@ namespace LightSwitchApplication.Implementation
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
             query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunServerOperations").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunCraigslistRefresh()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunCraigslistRefresh").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> SendEmails()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("SendEmails").AsQueryable();
             return query;
         }
     
@@ -898,6 +1000,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.ServerOperationHistory) == definitionType)
             {
                 return typeof(global::MarketingData.Implementation.ServerOperationHistory);
+            }
+            if (typeof(global::LightSwitchApplication.CraigslistPostView) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.CraigslistPostView);
             }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {
@@ -1300,6 +1406,39 @@ namespace MarketingData.Implementation
             public global::MarketingData.Implementation.ServerOperation ServerOperation { get; set; }
         
         }
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class CraigslistPostView :
+        global::LightSwitchApplication.CraigslistPostView.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
     }
     
 }

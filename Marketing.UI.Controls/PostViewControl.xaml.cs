@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
+using System.Xml.Linq;
 namespace Marketing.UI.Controls {
   public partial class PostViewControl : UserControl {
     public PostViewControl() {
@@ -17,7 +18,7 @@ namespace Marketing.UI.Controls {
     }
 
     private void BodyText_TextChanged( object sender, TextChangedEventArgs e ) {
-      this.richEditControl.HtmlText = this.BodyText.Text;
+      this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode( BodyText.Text ); 
     }
   }
 }

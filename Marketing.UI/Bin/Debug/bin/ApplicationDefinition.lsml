@@ -153,6 +153,13 @@
                           FromEnd="CraigslistPosts"
                           Name="CraigslistCity"
                           ToEnd="CraigslistCity" />
+      <EntityProperty Name="Score"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -896,6 +903,396 @@
       <AssociationSetEnd EntitySet="ServerOperationHistories"
                          Name="ServerOperationHistory" />
     </AssociationSet>
+    <EntitySet EntityType="CraigslistPostView"
+               Name="CraigslistPostViews" />
+  
+    <QueryOperation Name="CraigslistPostViews_Single"
+                    ReturnType="CraigslistPostView">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression NodeType="And">
+                <BinaryExpression.Left>
+                  <BinaryExpression NodeType="And">
+                    <BinaryExpression.Left>
+                      <BinaryExpression NodeType="And">
+                        <BinaryExpression.Left>
+                          <BinaryExpression NodeType="And">
+                            <BinaryExpression.Left>
+                              <BinaryExpression NodeType="And">
+                                <BinaryExpression.Left>
+                                  <BinaryExpression NodeType="And">
+                                    <BinaryExpression.Left>
+                                      <BinaryExpression NodeType="Equal">
+                                        <BinaryExpression.Left>
+                                          <ChainExpression>
+                                            <MemberExpression Member="CityName" />
+                                          </ChainExpression>
+                                        </BinaryExpression.Left>
+                                        <BinaryExpression.Right>
+                                          <ParameterExpression Parameter="CityName" />
+                                        </BinaryExpression.Right>
+                                      </BinaryExpression>
+                                    </BinaryExpression.Left>
+                                    <BinaryExpression.Right>
+                                      <BinaryExpression NodeType="Equal">
+                                        <BinaryExpression.Left>
+                                          <ChainExpression>
+                                            <MemberExpression Member="Region" />
+                                          </ChainExpression>
+                                        </BinaryExpression.Left>
+                                        <BinaryExpression.Right>
+                                          <ParameterExpression Parameter="Region" />
+                                        </BinaryExpression.Right>
+                                      </BinaryExpression>
+                                    </BinaryExpression.Right>
+                                  </BinaryExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <BinaryExpression NodeType="Equal">
+                                    <BinaryExpression.Left>
+                                      <ChainExpression>
+                                        <MemberExpression Member="Id" />
+                                      </ChainExpression>
+                                    </BinaryExpression.Left>
+                                    <BinaryExpression.Right>
+                                      <ParameterExpression Parameter="Id" />
+                                    </BinaryExpression.Right>
+                                  </BinaryExpression>
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <BinaryExpression NodeType="Equal">
+                                <BinaryExpression.Left>
+                                  <ChainExpression>
+                                    <MemberExpression Member="EmailAddress" />
+                                  </ChainExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <ParameterExpression Parameter="EmailAddress" />
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <BinaryExpression NodeType="Equal">
+                            <BinaryExpression.Left>
+                              <ChainExpression>
+                                <MemberExpression Member="PostDate" />
+                              </ChainExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <ParameterExpression Parameter="PostDate" />
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <BinaryExpression NodeType="Equal">
+                        <BinaryExpression.Left>
+                          <ChainExpression>
+                            <MemberExpression Member="PostsElement" />
+                          </ChainExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <ParameterExpression Parameter="PostsElement" />
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <BinaryExpression NodeType="Equal">
+                    <BinaryExpression.Left>
+                      <ChainExpression>
+                        <MemberExpression Member="Title" />
+                      </ChainExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <ParameterExpression Parameter="Title" />
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="PostId" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression Parameter="PostId" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistPostViews" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="PostId"
+                               ParameterType=":Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'PostId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="Title"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Title' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="PostsElement"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'PostsElement' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="PostDate"
+                               ParameterType=":DateTime?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'PostDate' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="EmailAddress"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'EmailAddress' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="Region"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Region' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="CityName"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'CityName' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="CraigslistPostViews_SingleOrDefault"
+                    ReturnType="CraigslistPostView">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression NodeType="And">
+                <BinaryExpression.Left>
+                  <BinaryExpression NodeType="And">
+                    <BinaryExpression.Left>
+                      <BinaryExpression NodeType="And">
+                        <BinaryExpression.Left>
+                          <BinaryExpression NodeType="And">
+                            <BinaryExpression.Left>
+                              <BinaryExpression NodeType="And">
+                                <BinaryExpression.Left>
+                                  <BinaryExpression NodeType="And">
+                                    <BinaryExpression.Left>
+                                      <BinaryExpression NodeType="Equal">
+                                        <BinaryExpression.Left>
+                                          <ChainExpression>
+                                            <MemberExpression Member="CityName" />
+                                          </ChainExpression>
+                                        </BinaryExpression.Left>
+                                        <BinaryExpression.Right>
+                                          <ParameterExpression Parameter="CityName" />
+                                        </BinaryExpression.Right>
+                                      </BinaryExpression>
+                                    </BinaryExpression.Left>
+                                    <BinaryExpression.Right>
+                                      <BinaryExpression NodeType="Equal">
+                                        <BinaryExpression.Left>
+                                          <ChainExpression>
+                                            <MemberExpression Member="Region" />
+                                          </ChainExpression>
+                                        </BinaryExpression.Left>
+                                        <BinaryExpression.Right>
+                                          <ParameterExpression Parameter="Region" />
+                                        </BinaryExpression.Right>
+                                      </BinaryExpression>
+                                    </BinaryExpression.Right>
+                                  </BinaryExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <BinaryExpression NodeType="Equal">
+                                    <BinaryExpression.Left>
+                                      <ChainExpression>
+                                        <MemberExpression Member="Id" />
+                                      </ChainExpression>
+                                    </BinaryExpression.Left>
+                                    <BinaryExpression.Right>
+                                      <ParameterExpression Parameter="Id" />
+                                    </BinaryExpression.Right>
+                                  </BinaryExpression>
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <BinaryExpression NodeType="Equal">
+                                <BinaryExpression.Left>
+                                  <ChainExpression>
+                                    <MemberExpression Member="EmailAddress" />
+                                  </ChainExpression>
+                                </BinaryExpression.Left>
+                                <BinaryExpression.Right>
+                                  <ParameterExpression Parameter="EmailAddress" />
+                                </BinaryExpression.Right>
+                              </BinaryExpression>
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <BinaryExpression NodeType="Equal">
+                            <BinaryExpression.Left>
+                              <ChainExpression>
+                                <MemberExpression Member="PostDate" />
+                              </ChainExpression>
+                            </BinaryExpression.Left>
+                            <BinaryExpression.Right>
+                              <ParameterExpression Parameter="PostDate" />
+                            </BinaryExpression.Right>
+                          </BinaryExpression>
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <BinaryExpression NodeType="Equal">
+                        <BinaryExpression.Left>
+                          <ChainExpression>
+                            <MemberExpression Member="PostsElement" />
+                          </ChainExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <ParameterExpression Parameter="PostsElement" />
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <BinaryExpression NodeType="Equal">
+                    <BinaryExpression.Left>
+                      <ChainExpression>
+                        <MemberExpression Member="Title" />
+                      </ChainExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <ParameterExpression Parameter="Title" />
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="PostId" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression Parameter="PostId" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistPostViews" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="PostId"
+                               ParameterType=":Int64?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'PostId' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="Title"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Title' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="PostsElement"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'PostsElement' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="PostDate"
+                               ParameterType=":DateTime?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'PostDate' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="EmailAddress"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'EmailAddress' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="Region"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Region' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter Name="CityName"
+                               ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'CityName' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="CraigslistPostViews_All"
+                    ReturnType="CraigslistPostView*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="CraigslistPostViews" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
   
   
   </EntityContainer>
@@ -905,7 +1302,7 @@
 
   <Screen Name="CraigsListPosts">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService1" />
+      <SaveChangesTo DataService="MarketingDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -931,25 +1328,25 @@
       <ScreenMethod Name="CreateNewResponse" />
     </Screen.Methods>
     <Screen.Properties>
-      <ScreenCollectionProperty Name="CraigslistPostsDataSource"
+      <ScreenCollectionProperty Name="CraigslistPostViews"
                                 PageSize="45"
-                                PropertyType="CollectionView$CraigslistPost">
+                                PropertyType="CollectionView$CraigslistPostView">
         <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="CraigslistPostsDataSourceQuery"
-                                 ReturnType="CraigslistPost*">
+          <ScreenQueryDefinition Name="CraigslistPostViewsQuery"
+                                 ReturnType="CraigslistPostView*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingData/Members[CraigslistPosts_All]" />
+                <MemberExpression Member="MarketingData/Members[CraigslistPostViews]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
         </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
           <ChainExpression>
-            <CallExpression Target="CraigsListPosts/Properties[CraigslistPostsDataSource]/Query" />
+            <CallExpression Target="CraigsListPosts/Properties[CraigslistPostViews]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -982,144 +1379,142 @@
               </ScreenExpressionTree>
             </ControlPropertySource>
           </ContentItem.PropertySources>
-          <ContentItem Kind="Group"
-                       Name="ListColumn">
-            <ContentItem.PropertySources>
-              <ControlPropertySource Property=":ColumnsLayout/Properties[WeightedColumnWidth]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":Double"
-                                        Value="2" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
-            <ContentItem DataType="CollectionView$CraigslistPost"
-                         Kind="Collection"
-                         Name="CraigslistPostList"
-                         View="Microsoft.LightSwitch:List">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostsDataSource]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Collapsed" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-              <ContentItem DataType="CraigslistPost"
-                           Kind="Details"
-                           Name="RowTemplate"
-                           View=":ColumnsLayout">
+          <ContentItem DataType="CollectionView$CraigslistPostView"
+                       Kind="Collection"
+                       Name="CraigslistPostViews">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="CraigslistPostViews_AddAndEditNew">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
-                    <ChainExpression />
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostViews]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
-                <ContentItem DataType=":Boolean"
-                             Kind="Value"
-                             Name="RespondedTo"
-                             View=":CheckBox">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Left" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigslistPost/Properties[RespondedTo]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":Int64"
-                             Kind="Value"
-                             Name="PostId">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Left" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="80" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigslistPost/Properties[PostId]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":DateTime"
-                             Kind="Value"
-                             Name="PostDate">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Pixels" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigslistPost/Properties[PostDate]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String"
-                             Kind="Value"
-                             Name="Title">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Auto" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="CraigslistPost/Properties[Title]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="CraigslistPostViews_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostViews]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="CraigslistPostViews_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostViews]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostViews]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType="CraigslistPostView"
+                         Kind="Details"
+                         Name="CraigslistPostViewsTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":Boolean?"
+                           Kind="Value"
+                           Name="RespondedTo"
+                           View=":CheckBox">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[RespondedTo]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime"
+                           Kind="Value"
+                           Name="PostDate">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[PostDate]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Int64"
+                           Kind="Value"
+                           Name="PostId">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[PostId]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="Title">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[Title]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="Region">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[Region]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="CityName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[CityName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Int32?"
+                           Kind="Value"
+                           Name="Score">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigslistPostView/Properties[Score]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
               </ContentItem>
             </ContentItem>
           </ContentItem>
-          <ContentItem Kind="Group"
-                       Name="DetailsColumn">
+          <ContentItem DataType="CraigslistPostView"
+                       Kind="Details"
+                       Name="CraigslistPostViews_SelectedItem">
             <ContentItem.CommandItems>
               <ContentItem Kind="Command"
                            Name="CreateNewResponse">
@@ -1132,74 +1527,61 @@
                 </ContentItem.DataSource>
               </ContentItem>
             </ContentItem.CommandItems>
-            <ContentItem.PropertySources>
-              <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":Boolean"
-                                        Value="True" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-              <ControlPropertySource Property=":ColumnsLayout/Properties[WeightedColumnWidth]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":Double"
-                                        Value="3" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
-            <ContentItem DataType="CraigslistPost"
-                         Kind="Details"
-                         Name="CraigslistPostDetails">
-              <ContentItem.Attributes>
-                <DisplayName Value="Craigslist Post Details" />
-              </ContentItem.Attributes>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostViews]" />
+                  <MemberExpression Member="SelectedItem" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType=":String"
+                         Kind="Value"
+                         Name="Title1">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
-                    <MemberExpression Member="CraigsListPosts/Properties[CraigslistPostsDataSource]" />
-                    <MemberExpression Member="SelectedItem" />
+                    <MemberExpression Member="CraigslistPostView/Properties[Title]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="Title1">
-                <ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="PostBody"
+                         View=":ValueCustomContentControl">
+              <ContentItem.Attributes>
+                <DisplayName />
+              </ContentItem.Attributes>
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="CraigslistPost/Properties[Title]" />
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.PostViewControl, Marketing.UI.Controls" />
                     </ChainExpression>
                   </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="ScreenContent"
-                           Name="ResponseBody">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Marketing.UI.Controls.PostViewControl, Marketing.UI.Controls" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="CraigslistPostView/Properties[PostBody]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
             </ContentItem>
           </ContentItem>
         </ContentItem>
@@ -1209,7 +1591,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewCraigslistResponse">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService1" />
+      <SaveChangesTo DataService="MarketingDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1410,7 +1792,7 @@
 
   <Screen Name="Administration">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService1" />
+      <SaveChangesTo DataService="MarketingDataDataService" />
     </Screen.Attributes>
     <Screen.Properties>
       <ScreenCollectionProperty Name="CraigslistCities"
@@ -1479,6 +1861,28 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenCollectionProperty Name="ServerOperations"
+                                PageSize="45"
+                                PropertyType="CollectionView$ServerOperation">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="ServerOperationsQuery"
+                                 ReturnType="ServerOperation*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingData/Members[ServerOperations]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Administration/Properties[ServerOperations]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1502,6 +1906,8 @@
         </ScreenMethod.Attributes>
       </ScreenMethod>
       <ScreenMethod Name="RunOperation" />
+      <ScreenMethod Name="RunRefresh" />
+      <ScreenMethod Name="SendQueuedEmails" />
     </Screen.Methods>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -1523,16 +1929,6 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression Target="Administration/Methods[Refresh]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-          <ContentItem Kind="Command"
-                       Name="RunOperation">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="Administration/Methods[RunOperation]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -1710,80 +2106,56 @@
               </ContentItem>
             </ContentItem>
           </ContentItem>
-          <ContentItem DataType="CollectionView$ServerOperationHistory"
-                       Kind="Collection"
-                       Name="ServerOperationHistories">
+          <ContentItem Kind="Group"
+                       Name="ServerOperationsTab"
+                       View=":RowsLayout">
             <ContentItem.CommandItems>
               <ContentItem Kind="Command"
-                           Name="ServerOperationHistories_AddAndEditNew">
+                           Name="RunRefresh">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Administration/Properties[ServerOperationHistories]" />
-                      <CallExpression Target="AddAndEditNew" />
+                      <CallExpression Target="Administration/Methods[RunRefresh]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem Kind="Command"
-                           Name="ServerOperationHistories_EditSelected">
+                           Name="SendQueuedEmails">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Administration/Properties[ServerOperationHistories]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="ServerOperationHistories_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Administration/Properties[ServerOperationHistories]" />
-                      <CallExpression Target="DeleteSelected" />
+                      <CallExpression Target="Administration/Methods[SendQueuedEmails]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
             </ContentItem.CommandItems>
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="Administration/Properties[ServerOperationHistories]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem DataType="ServerOperationHistory"
-                         Kind="Details"
-                         Name="ServerOperationHistoriesTemplate">
-              <ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[BrowseOnly]">
                 <ScreenExpressionTree>
-                  <ChainExpression />
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="True" />
+                  </ChainExpression>
                 </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem DataType="ServerOperation"
-                           Kind="Details"
-                           Name="ServerOperation">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="ServerOperationHistory/Properties[ServerOperation]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem DataType="ServerOperation"
-                             Kind="Details"
-                             Name="ServerOperation1">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression />
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-            </ContentItem>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="Left" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="Top" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem.Attributes>
+              <DisplayName Value="Server Operations" />
+            </ContentItem.Attributes>
           </ContentItem>
         </ContentItem>
       </ContentItem>
@@ -1977,6 +2349,24 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
     </QueryOperation>
+    <QueryOperation Name="RunCraigslistRefresh"
+                    ReturnType="Operation">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Operations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
+    <QueryOperation Name="SendEmails"
+                    ReturnType="Operation">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="Operations" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
   
   
     
@@ -2068,7 +2458,8 @@
         <EntityProperty.Attributes>
           <Required />
           <DateTimeConstraint Precision="3"
-                              PreserveSeconds="True" />
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
@@ -2107,37 +2498,107 @@
                     Name="ServerOperationHistory" />
   </Association>
 
-  <DataService DataProvider="CustomDataProvider"
-               EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="AssemblyName"
-                          Value="Marketing.Services" />
-      <ConnectionProperty Name="FullClassName"
-                          Value="Marketing.Services.MarketingDomainService" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="867d7d46-f6b1-4fe2-b5fa-623f7e7480eb" />
-      <ConnectionProperty Name="ConnectionStringDescription"
-                          Value="" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="Operations">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="GetOperations"
-                         EntityTypeName="Marketing.Services.Operation" />
-        <WcfRiaProperty Name="Id"
-                        Property="Operation/Properties[Id]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="RunServerOperations">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="RunServerOperations" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-  </DataService>
+  
+  <EntityType Name="CraigslistPostView">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="PostId"
+                   PropertyType=":Int64">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="Title"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="PostsElement"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <NotSortable />
+          <NotSearchable />
+          <Required />
+          <MaxLength  IsFixedLength="False" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="PostDate"
+                   PropertyType=":DateTime">
+        <KeyProperty.Attributes>
+          <Required />
+          <DateTimeConstraint Precision="3"
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="EmailAddress"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength Value="255"
+                     IsFixedLength="False" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="Region"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty Name="CityName"
+                   PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Score"
+                      PropertyType=":Int32?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="RespondedTo"
+                      PropertyType=":Boolean?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="PostBody"
+                      PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <NotSortable />
+          <NotSearchable />
+          <MaxLength  IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
 
   <DataService DataProvider="EntityFrameworkDataProvider"
                EntityContainer="MarketingData"
-               Name="MarketingDataDataService1">
+               Name="MarketingDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="DataProviderName"
                           Value="91510608-8809-4020-8897-fba057e22d54" />
@@ -2314,6 +2775,60 @@
                                 Type="uniqueidentifier" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <EntitySetMapping EntitySet="CraigslistPostViews">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="CraigslistPostView" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="PostId"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[PostId]"
+                      Type="bigint" />
+        <SsdlProperty MaxLength="255"
+                      Name="Title"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[Title]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="PostsElement"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[PostsElement]"
+                      Type="xml" />
+        <SsdlProperty Name="PostDate"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[PostDate]"
+                      Type="datetime" />
+        <SsdlProperty MaxLength="255"
+                      Name="EmailAddress"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[EmailAddress]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="Score"
+                      Nullable="True"
+                      Property="CraigslistPostView/Properties[Score]"
+                      Type="int" />
+        <SsdlProperty Name="RespondedTo"
+                      Nullable="True"
+                      Property="CraigslistPostView/Properties[RespondedTo]"
+                      Type="bit" />
+        <SsdlProperty MaxLength="50"
+                      Name="Region"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[Region]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="50"
+                      Name="CityName"
+                      Nullable="False"
+                      Property="CraigslistPostView/Properties[CityName]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="PostBody"
+                      Nullable="True"
+                      Property="CraigslistPostView/Properties[PostBody]"
+                      Type="xml" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
     <AssociationSetMapping AssociationSet="FK_CraigslistPostKeywords_CraigslistPosts">
       <AssociationSetMapping.Attributes>
         <SsdlAssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" />
@@ -2375,6 +2890,47 @@
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
   </DataService>
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="867d7d46-f6b1-4fe2-b5fa-623f7e7480eb" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="Operations">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetOperations"
+                         EntityTypeName="Marketing.Services.Operation" />
+        <WcfRiaProperty Name="Id"
+                        Property="Operation/Properties[Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="RunCraigslistRefresh">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="RunCraigslistRefresh" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <QueryOperationMapping Operation="SendEmails">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="SendEmails" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <QueryOperationMapping Operation="RunServerOperations">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="RunServerOperations" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+  </DataService>
+
+
+
+  
 
 
 

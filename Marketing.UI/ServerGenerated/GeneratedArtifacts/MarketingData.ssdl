@@ -8,6 +8,7 @@
     <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDataStore.CraigslistPostKeyword" store:Type="Tables" Schema="dbo" Table="CraigslistPostKeywords" />
     <EntitySet Name="ServerOperation" EntityType="MarketingDataStore.ServerOperation" store:Type="Tables" Schema="dbo" Table="ServerOperation" />
     <EntitySet Name="ServerOperationHistory" EntityType="MarketingDataStore.ServerOperationHistory" store:Type="Tables" Schema="dbo" Table="ServerOperationHistory" />
+    <EntitySet Name="CraigslistPostView" EntityType="MarketingDataStore.CraigslistPostView" store:Type="Tables" Schema="dbo" Table="CraigslistPostView" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
@@ -89,6 +90,29 @@
     <Property Name="Completed" Type="datetime" />
     <Property Name="Scheduled" Type="datetime" Nullable="false" />
     <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CraigslistPostView">
+    <Key>
+      <PropertyRef Name="PostId" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PostsElement" />
+      <PropertyRef Name="PostDate" />
+      <PropertyRef Name="EmailAddress" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Region" />
+      <PropertyRef Name="CityName" />
+    </Key>
+    <Property Name="PostId" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PostsElement" Type="xml" Nullable="false" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Score" Type="int" />
+    <Property Name="RespondedTo" Type="bit" />
+    <Property Name="PostBody" Type="xml" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />

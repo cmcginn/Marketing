@@ -187,5 +187,12 @@
       </PublishType>
     </_BuildFile>
   </ItemGroup>
+  <ItemGroup>
+    <LightSwitchExtension Include="Microsoft.LightSwitch.Extensions">
+      <Client>MICROSOFT.LIGHTSWITCH.EXTENSIONS.DESIGN.CLIENT</Client>
+      <ClientGenerated>MICROSOFT.LIGHTSWITCH.EXTENSIONS.DESIGN.CLIENT;MICROSOFT.LIGHTSWITCH.EXTENSIONS.CLIENT</ClientGenerated>
+      <ServerGenerated>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</ServerGenerated>
+    </LightSwitchExtension>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
 </Project>

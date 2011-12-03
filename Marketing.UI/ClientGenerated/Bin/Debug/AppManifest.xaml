@@ -23,6 +23,8 @@
     <AssemblyPart x:Name="Microsoft.LightSwitch.CodeMarker" Source="Microsoft.LightSwitch.CodeMarker.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch" Source="Microsoft.LightSwitch.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.ExportProvider" Source="Microsoft.LightSwitch.ExportProvider.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Extensions.Client" Source="Microsoft.LightSwitch.Extensions.Client.dll" />
+    <AssemblyPart x:Name="Microsoft.LightSwitch.Extensions.Design.Client" Source="Microsoft.LightSwitch.Extensions.Design.Client.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.ManifestService.Client" Source="Microsoft.LightSwitch.ManifestService.Client.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.Model.Xaml.Client" Source="Microsoft.LightSwitch.Model.Xaml.Client.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.RuntimeEditor.Internal" Source="Microsoft.LightSwitch.RuntimeEditor.Internal.dll" />

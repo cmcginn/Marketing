@@ -36,7 +36,6 @@
     <LightSwitchPath Condition=" '$(LightSwitchPath)' == '' ">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0@InstallDir)</LightSwitchPath>
     <WCFRIASERVICESSDKPath Condition=" '$(WCFRIASERVICESSDKPath)' == '' ">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WCFRIAServices\v1.0@InstallPath)</WCFRIASERVICESSDKPath>
     <WCFRIASERVICESSDKPath Condition=" '$(WCFRIASERVICESSDKPath)' == '' ">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\WCFRIAServices\v1.0@InstallPath)</WCFRIASERVICESSDKPath>
-	
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,6 +89,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(LightSwitchPath)\LightSwitch\1.0\Client\Microsoft.LightSwitch.ExportProvider.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.LightSwitch.Extensions.Client">
+      <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\ClientGen\Reference\Microsoft.LightSwitch.Extensions.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.LightSwitch.Extensions.Design.Client">
+      <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Client\DebugOnlyRef\Microsoft.LightSwitch.Extensions.Design.Client.dll</HintPath>
+      <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
     </Reference>
     <Reference Include="Microsoft.LightSwitch.ManifestService.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

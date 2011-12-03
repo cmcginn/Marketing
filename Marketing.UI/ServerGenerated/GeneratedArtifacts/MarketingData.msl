@@ -72,5 +72,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CraigslistPostViews">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.CraigslistPostView)">
+        <MappingFragment StoreEntitySet="CraigslistPostView">
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="Score" ColumnName="Score" />
+          <ScalarProperty Name="RespondedTo" ColumnName="RespondedTo" />
+          <ScalarProperty Name="PostBody" ColumnName="PostBody" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

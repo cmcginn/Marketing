@@ -121,6 +121,29 @@
     <Property Name="ServerOperationId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="ServerOperation" Relationship="MarketingData.FK_ServerOperationHistory_ServerOperation" ToRole="ServerOperation" FromRole="ServerOperationHistory" />
   </EntityType>
+  <EntityType Name="CraigslistPostView">
+    <Key>
+      <PropertyRef Name="PostId" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PostsElement" />
+      <PropertyRef Name="PostDate" />
+      <PropertyRef Name="EmailAddress" />
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Region" />
+      <PropertyRef Name="CityName" />
+    </Key>
+    <Property Name="PostId" Type="Int64" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="PostsElement" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="None" />
+    <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Region" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Score" Type="Int32" ConcurrencyMode="Fixed" />
+    <Property Name="RespondedTo" Type="Boolean" ConcurrencyMode="Fixed" />
+    <Property Name="PostBody" Type="String" MaxLength="Max" ConcurrencyMode="None" />
+  </EntityType>
   <EntityContainer Name="MarketingDataObjectContext">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
     <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
@@ -129,6 +152,7 @@
     <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingData.CraigslistPostKeyword" />
     <EntitySet Name="ServerOperations" EntityType="MarketingData.ServerOperation" />
     <EntitySet Name="ServerOperationHistories" EntityType="MarketingData.ServerOperationHistory" />
+    <EntitySet Name="CraigslistPostViews" EntityType="MarketingData.CraigslistPostView" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />

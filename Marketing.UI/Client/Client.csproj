@@ -69,6 +69,10 @@
       <HintPath>$(LightSwitchPath)\LightSwitch\1.0\Client\Microsoft.LightSwitch.ExportProvider.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.LightSwitch.Extensions.Design.Client">
+      <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Client\DebugOnlyRef\Microsoft.LightSwitch.Extensions.Design.Client.dll</HintPath>
+      <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
+    </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=4.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>

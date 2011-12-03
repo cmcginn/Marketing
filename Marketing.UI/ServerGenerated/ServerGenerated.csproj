@@ -57,6 +57,9 @@
     <Reference Include="Common.Utils">
       <HintPath>..\..\LeadScraper\Dependencies\Common.Utils.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.LightSwitch.Extensions.Server">
+      <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\ServerGen\Reference\Microsoft.LightSwitch.Extensions.Server.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.Composition" />

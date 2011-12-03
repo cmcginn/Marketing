@@ -29,3 +29,4 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PostViewControl.g.i
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.g.resources
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\ServerOperationList.g.i.cs

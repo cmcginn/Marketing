@@ -12,8 +12,8 @@ using System.Collections.Specialized;
 namespace LightSwitchApplication {
   public partial class CraigsListPosts {
     partial void CreateNewResponse_Execute() {
-      // Write your code here.          
-      Application.ShowCreateNewCraigslistResponse( this.CraigslistPostsDataSource.SelectedItem.Id );
+      Application.ShowCreateNewCraigslistResponse( this.CraigslistPostViews.SelectedItem.Id );
+
     }
 
     partial void CraigsListPosts_Activated() {
@@ -23,7 +23,7 @@ namespace LightSwitchApplication {
     }
 
     void Application_CraigslistResponseAdded( object sender, EventArgs e ) {
-      if( this.Details.Dispatcher.CheckAccess() )     
+      if( this.Details.Dispatcher.CheckAccess() )
         Refresh();
       else
         this.Details.Dispatcher.BeginInvoke( delegate() {
