@@ -2133,36 +2133,6 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void RunServerOperations_ExecuteFailed(global::System.Exception exception);
     
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunCraigslistRefresh_CanExecute(ref bool result);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunCraigslistRefresh_Executing();
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunCraigslistRefresh_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunCraigslistRefresh_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RunCraigslistRefresh_ExecuteFailed(global::System.Exception exception);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SendEmails_CanExecute(ref bool result);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SendEmails_Executing();
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SendEmails_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SendEmails_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation> result);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void SendEmails_ExecuteFailed(global::System.Exception exception);
-    
         #endregion
     
         #region Details Class
@@ -2358,72 +2328,6 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[0];
                 d.RunServerOperations_PreprocessQuery(ref query);
-                return query;
-            }
-            
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
-                __RunCraigslistRefreshEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
-                    "RunCraigslistRefresh",
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunCraigslistRefresh_CanExecute,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunCraigslistRefresh_Executing,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunCraigslistRefresh_Executed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunCraigslistRefresh_Failed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__RunCraigslistRefresh_PreprocessQuery);
-            private static bool __RunCraigslistRefresh_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
-            {
-                d.RunCraigslistRefresh_CanExecute(ref r);
-                return r;
-            }
-            private static void __RunCraigslistRefresh_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                d.RunCraigslistRefresh_Executing();
-            }
-            private static void __RunCraigslistRefresh_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                d.RunCraigslistRefresh_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[0]);
-            }
-            private static void __RunCraigslistRefresh_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
-            {
-                d.RunCraigslistRefresh_ExecuteFailed(ex);
-            }
-            private static global::System.Linq.IQueryable __RunCraigslistRefresh_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[0];
-                d.RunCraigslistRefresh_PreprocessQuery(ref query);
-                return query;
-            }
-            
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>
-                __SendEmailsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.Operation>(
-                    "SendEmails",
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SendEmails_CanExecute,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SendEmails_Executing,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SendEmails_Executed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SendEmails_Failed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__SendEmails_PreprocessQuery);
-            private static bool __SendEmails_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
-            {
-                d.SendEmails_CanExecute(ref r);
-                return r;
-            }
-            private static void __SendEmails_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                d.SendEmails_Executing();
-            }
-            private static void __SendEmails_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                d.SendEmails_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.Operation>)args[0]);
-            }
-            private static void __SendEmails_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
-            {
-                d.SendEmails_ExecuteFailed(ex);
-            }
-            private static global::System.Linq.IQueryable __SendEmails_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                global::System.Linq.IQueryable<global::LightSwitchApplication.Operation> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.Operation>)args[0];
-                d.SendEmails_PreprocessQuery(ref query);
                 return query;
             }
     

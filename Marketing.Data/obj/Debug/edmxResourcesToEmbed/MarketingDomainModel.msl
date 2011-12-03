@@ -64,6 +64,7 @@
     <EntitySetMapping Name="ServerOperationHistories">
       <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
         <MappingFragment StoreEntitySet="ServerOperationHistory">
+          <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
           <ScalarProperty Name="Completed" ColumnName="Completed" />
           <ScalarProperty Name="Started" ColumnName="Started" />
           <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />

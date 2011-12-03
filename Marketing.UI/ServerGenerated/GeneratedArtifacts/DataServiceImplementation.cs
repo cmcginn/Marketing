@@ -773,16 +773,6 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunServerOperations", frameworkOperators);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunCraigslistRefresh(string frameworkOperators)
-        {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunCraigslistRefresh", frameworkOperators);
-        }
-    
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> SendEmails(string frameworkOperators)
-        {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("SendEmails", frameworkOperators);
-        }
-    
     #endregion
     
         [global::System.ServiceModel.DomainServices.Server.Invoke(HasSideEffects=false)]
@@ -845,20 +835,6 @@ namespace LightSwitchApplication.Implementation
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
             query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunServerOperations").AsQueryable();
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> RunCraigslistRefresh()
-        {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("RunCraigslistRefresh").AsQueryable();
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> SendEmails()
-        {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("SendEmails").AsQueryable();
             return query;
         }
     

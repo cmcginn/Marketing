@@ -91,7 +91,8 @@
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Started" Type="datetime" Nullable="false" />
+          <Property Name="Scheduled" Type="datetime" Nullable="false" />
+          <Property Name="Started" Type="datetime" />
           <Property Name="Completed" Type="datetime" />
         </EntityType>
         <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
@@ -278,6 +279,7 @@
           <Property Type="DateTime" Name="Started" Nullable="false" />
           <Property Type="DateTime" Name="Completed" />
           <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
+          <Property Type="DateTime" Name="Scheduled" Nullable="false" />
         </EntityType>
         <Association Name="FK_ServerOperationHistory_ServerOperation">
           <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />
@@ -360,6 +362,7 @@
           <EntitySetMapping Name="ServerOperationHistories">
             <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
               <MappingFragment StoreEntitySet="ServerOperationHistory">
+                <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
                 <ScalarProperty Name="Completed" ColumnName="Completed" />
                 <ScalarProperty Name="Started" ColumnName="Started" />
                 <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />

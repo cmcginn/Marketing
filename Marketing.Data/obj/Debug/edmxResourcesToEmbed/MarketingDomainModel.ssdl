@@ -86,7 +86,8 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Started" Type="datetime" Nullable="false" />
+    <Property Name="Scheduled" Type="datetime" Nullable="false" />
+    <Property Name="Started" Type="datetime" />
     <Property Name="Completed" Type="datetime" />
   </EntityType>
   <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">

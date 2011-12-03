@@ -132,6 +132,7 @@
     <Property Type="DateTime" Name="Started" Nullable="false" />
     <Property Type="DateTime" Name="Completed" />
     <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
+    <Property Type="DateTime" Name="Scheduled" Nullable="false" />
   </EntityType>
   <Association Name="FK_ServerOperationHistory_ServerOperation">
     <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />

@@ -2349,24 +2349,6 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
     </QueryOperation>
-    <QueryOperation Name="RunCraigslistRefresh"
-                    ReturnType="Operation">
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="Operations" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-    </QueryOperation>
-  
-    <QueryOperation Name="SendEmails"
-                    ReturnType="Operation">
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="Operations" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-    </QueryOperation>
-  
   
   
     
@@ -2911,16 +2893,6 @@
                         Property="Operation/Properties[Id]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
-    <QueryOperationMapping Operation="RunCraigslistRefresh">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="RunCraigslistRefresh" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <QueryOperationMapping Operation="SendEmails">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="SendEmails" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
     <QueryOperationMapping Operation="RunServerOperations">
       <QueryOperationMapping.Attributes>
         <WcfRiaQueryOperation Name="RunServerOperations" />

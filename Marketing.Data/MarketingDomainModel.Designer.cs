@@ -1286,12 +1286,14 @@ namespace Marketing.Data
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="serverOperationId">Initial value of the ServerOperationId property.</param>
         /// <param name="started">Initial value of the Started property.</param>
-        public static ServerOperationHistory CreateServerOperationHistory(global::System.Guid id, global::System.Guid serverOperationId, global::System.DateTime started)
+        /// <param name="scheduled">Initial value of the Scheduled property.</param>
+        public static ServerOperationHistory CreateServerOperationHistory(global::System.Guid id, global::System.Guid serverOperationId, global::System.DateTime started, global::System.DateTime scheduled)
         {
             ServerOperationHistory serverOperationHistory = new ServerOperationHistory();
             serverOperationHistory.Id = id;
             serverOperationHistory.ServerOperationId = serverOperationId;
             serverOperationHistory.Started = started;
+            serverOperationHistory.Scheduled = scheduled;
             return serverOperationHistory;
         }
 
@@ -1396,6 +1398,30 @@ namespace Marketing.Data
         private Nullable<global::System.DateTime> _Completed;
         partial void OnCompletedChanging(Nullable<global::System.DateTime> value);
         partial void OnCompletedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Scheduled
+        {
+            get
+            {
+                return _Scheduled;
+            }
+            set
+            {
+                OnScheduledChanging(value);
+                ReportPropertyChanging("Scheduled");
+                _Scheduled = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Scheduled");
+                OnScheduledChanged();
+            }
+        }
+        private global::System.DateTime _Scheduled;
+        partial void OnScheduledChanging(global::System.DateTime value);
+        partial void OnScheduledChanged();
 
         #endregion
     
