@@ -297,6 +297,39 @@ namespace LightSwitchApplication
         partial void CraigslistPostViews_Validate(global::LightSwitchApplication.CraigslistPostView entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Inserting(global::LightSwitchApplication.SmtpServer entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Inserted(global::LightSwitchApplication.SmtpServer entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Updating(global::LightSwitchApplication.SmtpServer entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Updated(global::LightSwitchApplication.SmtpServer entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Deleting(global::LightSwitchApplication.SmtpServer entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Deleted(global::LightSwitchApplication.SmtpServer entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Validate(global::LightSwitchApplication.SmtpServer entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -667,6 +700,51 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void CraigslistPostViews_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SmtpServer> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SmtpServer> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SmtpServer> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServers_All_ExecuteFailed(global::System.Exception exception);
     
         #endregion
     
@@ -1182,6 +1260,74 @@ namespace LightSwitchApplication
             private static void __CraigslistPostViews_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.CraigslistPostView e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.CraigslistPostViews_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>
+                __SmtpServersEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>(
+                    "SmtpServers",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Validate);
+            private static bool __SmtpServers_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SmtpServers_CanInsert(ref result);
+                return result;
+            }
+            private static bool __SmtpServers_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SmtpServers_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __SmtpServers_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SmtpServers_CanDelete(ref result);
+                return result;
+            }
+            private static bool __SmtpServers_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SmtpServers_CanRead(ref result);
+                return result;
+            }
+            private static void __SmtpServers_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e)
+            {
+                d.SmtpServers_Inserting(e);
+            }
+            private static void __SmtpServers_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e)
+            {
+                d.SmtpServers_Inserted(e);
+            }
+            private static void __SmtpServers_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e)
+            {
+                d.SmtpServers_Updating(e);
+            }
+            private static void __SmtpServers_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e)
+            {
+                d.SmtpServers_Updated(e);
+            }
+            private static void __SmtpServers_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e)
+            {
+                d.SmtpServers_Deleting(e);
+            }
+            private static void __SmtpServers_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e)
+            {
+                d.SmtpServers_Deleted(e);
+            }
+            private static void __SmtpServers_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.SmtpServers_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1999,6 +2145,105 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPostView> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.CraigslistPostView>)args[0];
                 d.CraigslistPostViews_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>
+                __SmtpServers_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>(
+                    "SmtpServers_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_Single_PreprocessQuery);
+            private static bool __SmtpServers_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.SmtpServers_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __SmtpServers_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SmtpServers_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __SmtpServers_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SmtpServers_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SmtpServer>)args[1]);
+            }
+            private static void __SmtpServers_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SmtpServers_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __SmtpServers_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer>)args[1];
+                d.SmtpServers_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>
+                __SmtpServers_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>(
+                    "SmtpServers_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_SingleOrDefault_PreprocessQuery);
+            private static bool __SmtpServers_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.SmtpServers_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __SmtpServers_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SmtpServers_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __SmtpServers_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SmtpServers_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SmtpServer>)args[1]);
+            }
+            private static void __SmtpServers_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SmtpServers_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __SmtpServers_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer>)args[1];
+                d.SmtpServers_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>
+                __SmtpServers_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SmtpServer>(
+                    "SmtpServers_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SmtpServers_All_PreprocessQuery);
+            private static bool __SmtpServers_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.SmtpServers_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __SmtpServers_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SmtpServers_All_Executing();
+            }
+            private static void __SmtpServers_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SmtpServers_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SmtpServer>)args[0]);
+            }
+            private static void __SmtpServers_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SmtpServers_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __SmtpServers_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer>)args[0];
+                d.SmtpServers_All_PreprocessQuery(ref query);
                 return query;
             }
     

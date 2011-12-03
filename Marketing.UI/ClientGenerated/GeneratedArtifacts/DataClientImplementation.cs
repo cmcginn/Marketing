@@ -432,6 +432,48 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> Processed
+        {
+            get
+            {
+                return this._Processed;
+            }
+            set
+            {
+                if (this._Processed != value)
+                {
+                    this.RaiseDataMemberChanging("Processed");
+                    this.ValidateProperty("Processed", value);
+                    this._Processed = value;
+                    this.RaiseDataMemberChanged("Processed");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _Processed;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> Sent
+        {
+            get
+            {
+                return this._Sent;
+            }
+            set
+            {
+                if (this._Sent != value)
+                {
+                    this.RaiseDataMemberChanging("Sent");
+                    this.ValidateProperty("Sent", value);
+                    this._Sent = value;
+                    this.RaiseDataMemberChanged("Sent");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _Sent;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public global::System.Guid CraigslitPostsId
         {
             get
@@ -1203,6 +1245,27 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Parameters
+        {
+            get
+            {
+                return this._Parameters;
+            }
+            set
+            {
+                if (this._Parameters != value)
+                {
+                    this.RaiseDataMemberChanging("Parameters");
+                    this.ValidateProperty("Parameters", value);
+                    this._Parameters = value;
+                    this.RaiseDataMemberChanged("Parameters");
+                }
+            }
+        }
+        private string _Parameters;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public global::System.Guid ServerOperationId
         {
             get
@@ -1596,6 +1659,220 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region SmtpServer
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class SmtpServer :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.SmtpServer.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string SmtpServerLocation
+        {
+            get
+            {
+                return this._SmtpServerLocation;
+            }
+            set
+            {
+                if (this._SmtpServerLocation != value)
+                {
+                    this.RaiseDataMemberChanging("SmtpServerLocation");
+                    this.ValidateProperty("SmtpServerLocation", value);
+                    this._SmtpServerLocation = value;
+                    this.RaiseDataMemberChanged("SmtpServerLocation");
+                }
+            }
+        }
+        private string _SmtpServerLocation;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool UseSsl
+        {
+            get
+            {
+                return this._UseSsl;
+            }
+            set
+            {
+                if (this._UseSsl != value)
+                {
+                    this.RaiseDataMemberChanging("UseSsl");
+                    this.ValidateProperty("UseSsl", value);
+                    this._UseSsl = value;
+                    this.RaiseDataMemberChanged("UseSsl");
+                }
+            }
+        }
+        private bool _UseSsl;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public int SmtpPort
+        {
+            get
+            {
+                return this._SmtpPort;
+            }
+            set
+            {
+                if (this._SmtpPort != value)
+                {
+                    this.RaiseDataMemberChanging("SmtpPort");
+                    this.ValidateProperty("SmtpPort", value);
+                    this._SmtpPort = value;
+                    this.RaiseDataMemberChanged("SmtpPort");
+                }
+            }
+        }
+        private int _SmtpPort;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string SmtpUsername
+        {
+            get
+            {
+                return this._SmtpUsername;
+            }
+            set
+            {
+                if (this._SmtpUsername != value)
+                {
+                    this.RaiseDataMemberChanging("SmtpUsername");
+                    this.ValidateProperty("SmtpUsername", value);
+                    this._SmtpUsername = value;
+                    this.RaiseDataMemberChanged("SmtpUsername");
+                }
+            }
+        }
+        private string _SmtpUsername;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string SmtpPassword
+        {
+            get
+            {
+                return this._SmtpPassword;
+            }
+            set
+            {
+                if (this._SmtpPassword != value)
+                {
+                    this.RaiseDataMemberChanging("SmtpPassword");
+                    this.ValidateProperty("SmtpPassword", value);
+                    this._SmtpPassword = value;
+                    this.RaiseDataMemberChanged("SmtpPassword");
+                }
+            }
+        }
+        private string _SmtpPassword;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool Active
+        {
+            get
+            {
+                return this._Active;
+            }
+            set
+            {
+                if (this._Active != value)
+                {
+                    this.RaiseDataMemberChanging("Active");
+                    this.ValidateProperty("Active", value);
+                    this._Active = value;
+                    this.RaiseDataMemberChanged("Active");
+                }
+            }
+        }
+        private bool _Active;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return this._Created;
+            }
+            set
+            {
+                if (this._Created != value)
+                {
+                    this.RaiseDataMemberChanging("Created");
+                    this.ValidateProperty("Created", value);
+                    this._Created = value;
+                    this.RaiseDataMemberChanged("Created");
+                }
+            }
+        }
+        private global::System.DateTime _Created;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
     #region Operation
     [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -1730,6 +2007,13 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.CraigslistPostView>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.SmtpServer> SmtpServerEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.SmtpServer>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDataEntityContainer();
@@ -1747,6 +2031,7 @@ namespace LightSwitchApplication.Implementation
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.ServerOperation>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.ServerOperationHistory>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.CraigslistPostView>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.SmtpServer>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -1899,6 +2184,24 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginCraigslistPostViews_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.CraigslistPostView> EndCraigslistPostViews_All(global::System.IAsyncResult result);
             
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SmtpServers_Single", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SmtpServers_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SmtpServers_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginSmtpServers_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.SmtpServer> EndSmtpServers_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SmtpServers_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SmtpServers_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SmtpServers_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginSmtpServers_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.SmtpServer> EndSmtpServers_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SmtpServers_All", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SmtpServers_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SmtpServers_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginSmtpServers_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.SmtpServer> EndSmtpServers_All(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
@@ -1953,6 +2256,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPostView))
             {
                 return new global::LightSwitchApplication.Implementation.CraigslistPostView();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.SmtpServer))
+            {
+                return new global::LightSwitchApplication.Implementation.SmtpServer();
             }
             return null;
         }
@@ -2128,6 +2435,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.CraigslistPostView) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.CraigslistPostView);
+            }
+            if (typeof(global::LightSwitchApplication.SmtpServer) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.SmtpServer);
             }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {

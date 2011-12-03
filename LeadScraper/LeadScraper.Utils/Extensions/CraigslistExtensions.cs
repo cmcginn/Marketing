@@ -6,9 +6,12 @@ using System.Xml.Linq;
 using Common.Utils.Extensions;
 using Marketing.Data;
 using System.Xml.Xsl;
+using System.Net.Mail;
+using System.Web;
 using System.Text.RegularExpressions;
 namespace LeadScraper.Utils.Extensions {
   public static class CraigslistExtensions {
+    static Regex _rawEmailGroups = new Regex( @"(?:mailto:)(?<email>[\S]+)(?:\?subject=)(?<subject>[^&]+)" );
     static Regex _developmentWithUs = new Regex( @"(?<first>Development with us:)([\W\w\S\s]+)(?<last>Key Responsibilities:)(?<first-last>)" );
     static Regex _requirements = new Regex( @"(?<first>Requirements:)([\W\w\S\s]+)(?<last>Desirable skills:)(?<first-last>)" );
     static Regex _desirableSkills = new Regex( @"(?<first>Desirable skills:)([\W\w\S\s]+)(?<last><!-- START CLTAGS -->)(?<first-last>)" );
@@ -20,22 +23,6 @@ namespace LeadScraper.Utils.Extensions {
       var result = new XElement( "Details" );
       result.Add( new XAttribute( "datetime", _postDate.Match( response ).Groups[ 1 ].Value ) );
       result.Value = _description.Match( response ).Groups[ 1 ].Value.Trim();
-      //var developWithUs = new XElement( "Section" );
-      //developWithUs.Add( new XAttribute( "sectionName", "Develop With Us" ) );
-      //developWithUs.Value = _developmentWithUs.Match( response ).Groups[ 1 ].Value;
-      //result.Add( developWithUs );
-
-      //var requirements = new XElement("Section");
-      //requirements.Add( new XAttribute( "sectionName", "Requirements" ) );
-      //requirements.Value = _requirements.Match( response ).Groups[ 1 ].Value;
-      //result.Add( requirements );
-
-      //var desirableSkills = new XElement( "Section" );
-      //desirableSkills.Add( new XAttribute( "sectionName", "Desirable Skills" ) );
-      //desirableSkills.Value = _desirableSkills.Match( response ).Groups[ 1 ].Value;
-
-      //result.Add(desirableSkills);
-
       return result;
     }
 
@@ -83,6 +70,23 @@ namespace LeadScraper.Utils.Extensions {
     
       }
 
-
+    public static MailMessage GetDefaultMailMessageResponse( this CraigsListResponse response, MarketingDomainModelContainer context ) {
+      MailMessage result = null;
+      var post = context.CraigslistPosts.Single( n => n.Id == response.CraigslitPostsId );
+      var rawEmail = System.Web.HttpUtility.UrlDecode(post.EmailAddress).Replace("&amp;","&");
+      var matches = _rawEmailGroups.Match(rawEmail);
+      if( matches.Groups[ "email" ] != null ) {
+        result = new MailMessage();
+        //result.To.Add( new MailAddress( matches.Groups[ "email" ].Value ) );
+        result.To.Add( "chris.s.mcginn@live.com" );
+        if( matches.Groups[ "subject" ] != null )
+          result.Subject = matches.Groups[ "subject" ].Value;
+        result.IsBodyHtml = true;
+        result.Body = response.ResponseHtmlContent;
+        
+        //result.AlternateViews.Add(new AlternateView(
+      }
+      return result;
+    }
   }
 }

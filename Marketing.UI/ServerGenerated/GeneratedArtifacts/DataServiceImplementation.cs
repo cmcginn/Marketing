@@ -265,6 +265,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region SmtpServer
+    
+        public void InsertSmtpServer(global::MarketingData.Implementation.SmtpServer entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.SmtpServers.AddObject(entity);
+            }
+        }
+    
+        public void UpdateSmtpServer(global::MarketingData.Implementation.SmtpServer currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.SmtpServers, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteSmtpServer(global::MarketingData.Implementation.SmtpServer entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.SmtpServers.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -384,6 +414,21 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPostView> CraigslistPostViews_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingData.Implementation.CraigslistPostView>("CraigslistPostViews_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.SmtpServer>("SmtpServers_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.SmtpServer>("SmtpServers_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.SmtpServer>("SmtpServers_All", frameworkOperators);
         }
     
     #endregion
@@ -619,6 +664,31 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.SmtpServer>("SmtpServers_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.SmtpServer>("SmtpServers_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.SmtpServer>("[SmtpServers]").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -655,6 +725,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingData.Implementation.CraigslistPostView))
             {
                 return new global::MarketingData.Implementation.CraigslistPostView();
+            }
+            if (type == typeof(global::MarketingData.Implementation.SmtpServer))
+            {
+                return new global::MarketingData.Implementation.SmtpServer();
             }
     
             return base.CreateObject(type);
@@ -701,6 +775,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.CraigslistPostView))
             {
                 return new global::MarketingData.Implementation.CraigslistPostView();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.SmtpServer))
+            {
+                return new global::MarketingData.Implementation.SmtpServer();
             }
             return null;
         }
@@ -980,6 +1058,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.CraigslistPostView) == definitionType)
             {
                 return typeof(global::MarketingData.Implementation.CraigslistPostView);
+            }
+            if (typeof(global::LightSwitchApplication.SmtpServer) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.SmtpServer);
             }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {
@@ -1388,6 +1470,39 @@ namespace MarketingData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class CraigslistPostView :
         global::LightSwitchApplication.CraigslistPostView.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class SmtpServer :
+        global::LightSwitchApplication.SmtpServer.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

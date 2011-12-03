@@ -8,6 +8,7 @@
     <EntitySet Name="Keyword" EntityType="MarketingDomainModel.Store.Keyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ServerOperation" EntityType="MarketingDomainModel.Store.ServerOperation" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ServerOperationHistory" EntityType="MarketingDomainModel.Store.ServerOperationHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SmtpServer" EntityType="MarketingDomainModel.Store.SmtpServer" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigslistPostKeywords_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
@@ -65,6 +66,7 @@
     <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Processed" Type="datetime" />
+    <Property Name="Sent" Type="datetime" />
   </EntityType>
   <EntityType Name="Keyword">
     <Key>
@@ -90,6 +92,20 @@
     <Property Name="Scheduled" Type="datetime" Nullable="false" />
     <Property Name="Started" Type="datetime" />
     <Property Name="Completed" Type="datetime" />
+    <Property Name="Parameters" Type="xml" />
+  </EntityType>
+  <EntityType Name="SmtpServer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SmtpServerLocation" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UseSsl" Type="bit" Nullable="false" />
+    <Property Name="SmtpPort" Type="int" Nullable="false" />
+    <Property Name="SmtpUsername" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SmtpPassword" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />

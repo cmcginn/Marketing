@@ -9,6 +9,7 @@
     <EntitySet Name="ServerOperation" EntityType="MarketingDataStore.ServerOperation" store:Type="Tables" Schema="dbo" Table="ServerOperation" />
     <EntitySet Name="ServerOperationHistory" EntityType="MarketingDataStore.ServerOperationHistory" store:Type="Tables" Schema="dbo" Table="ServerOperationHistory" />
     <EntitySet Name="CraigslistPostView" EntityType="MarketingDataStore.CraigslistPostView" store:Type="Tables" Schema="dbo" Table="CraigslistPostView" />
+    <EntitySet Name="SmtpServer" EntityType="MarketingDataStore.SmtpServer" store:Type="Tables" Schema="dbo" Table="SmtpServer" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
@@ -46,6 +47,8 @@
     <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Processed" Type="datetime" />
+    <Property Name="Sent" Type="datetime" />
     <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="CraigslistCity">
@@ -89,6 +92,7 @@
     <Property Name="Started" Type="datetime" />
     <Property Name="Completed" Type="datetime" />
     <Property Name="Scheduled" Type="datetime" Nullable="false" />
+    <Property Name="Parameters" Type="xml" />
     <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="CraigslistPostView">
@@ -113,6 +117,19 @@
     <Property Name="Score" Type="int" />
     <Property Name="RespondedTo" Type="bit" />
     <Property Name="PostBody" Type="xml" />
+  </EntityType>
+  <EntityType Name="SmtpServer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SmtpServerLocation" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="UseSsl" Type="bit" Nullable="false" />
+    <Property Name="SmtpPort" Type="int" Nullable="false" />
+    <Property Name="SmtpUsername" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SmtpPassword" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />

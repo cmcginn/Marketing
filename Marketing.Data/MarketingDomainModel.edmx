@@ -13,6 +13,7 @@
           <EntitySet Name="Keyword" EntityType="MarketingDomainModel.Store.Keyword" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServerOperation" EntityType="MarketingDomainModel.Store.ServerOperation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServerOperationHistory" EntityType="MarketingDomainModel.Store.ServerOperationHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SmtpServer" EntityType="MarketingDomainModel.Store.SmtpServer" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigslistPostKeywords_CraigslistPosts">
             <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
             <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
@@ -70,6 +71,7 @@
           <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="Processed" Type="datetime" />
+          <Property Name="Sent" Type="datetime" />
         </EntityType>
         <EntityType Name="Keyword">
           <Key>
@@ -95,6 +97,20 @@
           <Property Name="Scheduled" Type="datetime" Nullable="false" />
           <Property Name="Started" Type="datetime" />
           <Property Name="Completed" Type="datetime" />
+          <Property Name="Parameters" Type="xml" />
+        </EntityType>
+        <EntityType Name="SmtpServer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SmtpServerLocation" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UseSsl" Type="bit" Nullable="false" />
+          <Property Name="SmtpPort" Type="int" Nullable="false" />
+          <Property Name="SmtpUsername" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SmtpPassword" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
           <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
@@ -172,6 +188,7 @@
             <End Role="ServerOperation" EntitySet="ServerOperations" />
             <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
           </AssociationSet>
+          <EntitySet Name="SmtpServers" EntityType="MarketingDomainModel.SmtpServer" />
         </EntityContainer>
         <EntityType Name="CraigslistPost">
           <Key>
@@ -199,6 +216,7 @@
           <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
           <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Processed" />
+          <Property Type="DateTime" Name="Sent" />
         </EntityType>
         <Association Name="FK_CraigsListResponse_CraigslistPosts">
           <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
@@ -282,6 +300,7 @@
           <Property Type="DateTime" Name="Completed" />
           <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
           <Property Type="DateTime" Name="Scheduled" Nullable="false" />
+          <Property Type="String" Name="Parameters" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_ServerOperationHistory_ServerOperation">
           <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />
@@ -295,6 +314,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SmtpServer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="SmtpServerLocation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="UseSsl" Nullable="false" />
+          <Property Type="Int32" Name="SmtpPort" Nullable="false" />
+          <Property Type="String" Name="SmtpUsername" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SmtpPassword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -317,6 +349,7 @@
           <EntitySetMapping Name="CraigsListResponses">
             <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
               <MappingFragment StoreEntitySet="CraigsListResponse">
+                <ScalarProperty Name="Sent" ColumnName="Sent" />
                 <ScalarProperty Name="Processed" ColumnName="Processed" />
                 <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
@@ -365,10 +398,25 @@
           <EntitySetMapping Name="ServerOperationHistories">
             <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
               <MappingFragment StoreEntitySet="ServerOperationHistory">
+                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
                 <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
                 <ScalarProperty Name="Completed" ColumnName="Completed" />
                 <ScalarProperty Name="Started" ColumnName="Started" />
                 <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SmtpServers">
+            <EntityTypeMapping TypeName="MarketingDomainModel.SmtpServer">
+              <MappingFragment StoreEntitySet="SmtpServer">
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
+                <ScalarProperty Name="SmtpUsername" ColumnName="SmtpUsername" />
+                <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
+                <ScalarProperty Name="UseSsl" ColumnName="UseSsl" />
+                <ScalarProperty Name="SmtpServerLocation" ColumnName="SmtpServerLocation" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -419,6 +467,7 @@
           <ConnectorPoint PointX="6.125" PointY="2.177958984375" />
           <ConnectorPoint PointX="6.125" PointY="3.75" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="MarketingDomainModel.SmtpServer" Width="1.5" PointX="5.375" PointY="6.375" Height="2.2496956380208317" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

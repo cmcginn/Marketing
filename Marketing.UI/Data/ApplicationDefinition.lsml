@@ -215,6 +215,24 @@
                           FromEnd="CraigsListResponse"
                           Name="CraigslistPost"
                           ToEnd="CraigslistPosts" />
+      <EntityProperty Name="Processed"
+                      PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint Precision="3"
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Sent"
+                      PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint Precision="3"
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -896,13 +914,7 @@
       </QueryOperation.Source>
     </QueryOperation>
   
-    <AssociationSet Association="FK_ServerOperationHistory_ServerOperation"
-                    Name="FK_ServerOperationHistory_ServerOperation">
-      <AssociationSetEnd EntitySet="ServerOperations"
-                         Name="ServerOperation" />
-      <AssociationSetEnd EntitySet="ServerOperationHistories"
-                         Name="ServerOperationHistory" />
-    </AssociationSet>
+    
     <EntitySet EntityType="CraigslistPostView"
                Name="CraigslistPostViews" />
   
@@ -1292,6 +1304,99 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
     </QueryOperation>
+    <EntitySet CanDelete="True"
+               CanInsert="True"
+               CanUpdate="True"
+               EntityType="SmtpServer"
+               Name="SmtpServers" />
+  
+    <QueryOperation Name="SmtpServers_Single"
+                    ReturnType="SmtpServer">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="SmtpServers" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="SmtpServers_SingleOrDefault"
+                    ReturnType="SmtpServer">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="SmtpServers" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="SmtpServers_All"
+                    ReturnType="SmtpServer*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="SmtpServers" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
+    <AssociationSet Association="FK_ServerOperationHistory_ServerOperation"
+                    Name="FK_ServerOperationHistory_ServerOperation">
+      <AssociationSetEnd EntitySet="ServerOperations"
+                         Name="ServerOperation" />
+      <AssociationSetEnd EntitySet="ServerOperationHistories"
+                         Name="ServerOperationHistory" />
+    </AssociationSet>
+  
   
   
   
@@ -2028,6 +2133,9 @@
           </ContentItem>
           <ContentItem Kind="Group"
                        Name="Group">
+            <ContentItem.Attributes>
+              <DisplayName Value="Keywords" />
+            </ContentItem.Attributes>
             <ContentItem DataType="CollectionView$Keyword"
                          Kind="Collection"
                          Name="Keywords">
@@ -2431,10 +2539,6 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty Association="FK_ServerOperationHistory_ServerOperation"
-                          FromEnd="ServerOperationHistory"
-                          Name="ServerOperation"
-                          ToEnd="ServerOperation" />
       <EntityProperty Name="Scheduled"
                       PropertyType=":DateTime">
         <EntityProperty.Attributes>
@@ -2445,6 +2549,18 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="Parameters"
+                      PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <NotSortable />
+          <NotSearchable />
+          <MaxLength  IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty Association="FK_ServerOperationHistory_ServerOperation"
+                          FromEnd="ServerOperationHistory"
+                          Name="ServerOperation"
+                          ToEnd="ServerOperation" />
     </EntityType.Properties>
   </EntityType>
 
@@ -2467,18 +2583,7 @@
     </EntityType.Properties>
   </EntityType>
 
-  <Association Name="FK_ServerOperationHistory_ServerOperation">
-    <AssociationEnd EntityType="ServerOperation"
-                    Multiplicity="One"
-                    Name="ServerOperation">
-      <AssociationEnd.Attributes>
-        <DeleteRule Action="Unset" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-    <AssociationEnd EntityType="ServerOperationHistory"
-                    Multiplicity="Many"
-                    Name="ServerOperationHistory" />
-  </Association>
+  
 
   
   <EntityType Name="CraigslistPostView">
@@ -2577,6 +2682,122 @@
       </EntityProperty>
     </EntityType.Properties>
   </EntityType>
+
+  
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="867d7d46-f6b1-4fe2-b5fa-623f7e7480eb" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="Operations">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetOperations"
+                         EntityTypeName="Marketing.Services.Operation" />
+        <WcfRiaProperty Name="Id"
+                        Property="Operation/Properties[Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="RunServerOperations">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="RunServerOperations" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+  </DataService>
+
+  <EntityType Name="SmtpServer">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="SmtpServerLocation"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="UseSsl"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="SmtpPort"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="SmtpUsername"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="SmtpPassword"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength Value="50"
+                     IsFixedLength="False" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Active"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Created"
+                      PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <DateTimeConstraint Precision="3"
+                              PreserveSeconds="True"
+                              Kind="Unspecified" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+
+  <Association Name="FK_ServerOperationHistory_ServerOperation">
+    <AssociationEnd EntityType="ServerOperation"
+                    Multiplicity="One"
+                    Name="ServerOperation">
+      <AssociationEnd.Attributes>
+        <DeleteRule Action="Unset" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd EntityType="ServerOperationHistory"
+                    Multiplicity="Many"
+                    Name="ServerOperationHistory" />
+  </Association>
 
   <DataService DataProvider="EntityFrameworkDataProvider"
                EntityContainer="MarketingData"
@@ -2691,6 +2912,14 @@
                       Nullable="False"
                       Property="CraigsListResponse/Properties[Created]"
                       Type="datetime" />
+        <SsdlProperty Name="Processed"
+                      Nullable="True"
+                      Property="CraigsListResponse/Properties[Processed]"
+                      Type="datetime" />
+        <SsdlProperty Name="Sent"
+                      Nullable="True"
+                      Property="CraigsListResponse/Properties[Sent]"
+                      Type="datetime" />
         <SsdlForeignKeyProperty Name="CraigslitPostsId"
                                 Nullable="False"
                                 PropertyName="CraigslitPostsId"
@@ -2751,10 +2980,55 @@
                       Nullable="True"
                       Property="ServerOperationHistory/Properties[Completed]"
                       Type="datetime" />
+        <SsdlProperty Name="Parameters"
+                      Nullable="True"
+                      Property="ServerOperationHistory/Properties[Parameters]"
+                      Type="xml" />
         <SsdlForeignKeyProperty Name="ServerOperationId"
                                 Nullable="False"
                                 PropertyName="ServerOperationId"
                                 Type="uniqueidentifier" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="SmtpServers">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="SmtpServer" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty MaxLength="50"
+                      Name="SmtpServerLocation"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[SmtpServerLocation]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="UseSsl"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[UseSsl]"
+                      Type="bit" />
+        <SsdlProperty Name="SmtpPort"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[SmtpPort]"
+                      Type="int" />
+        <SsdlProperty MaxLength="50"
+                      Name="SmtpUsername"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[SmtpUsername]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="50"
+                      Name="SmtpPassword"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[SmtpPassword]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="Active"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[Active]"
+                      Type="bit" />
+        <SsdlProperty Name="Created"
+                      Nullable="False"
+                      Property="SmtpServer/Properties[Created]"
+                      Type="datetime" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <EntitySetMapping EntitySet="CraigslistPostViews">
@@ -2871,33 +3145,6 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
-  </DataService>
-  <DataService DataProvider="CustomDataProvider"
-               EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="AssemblyName"
-                          Value="Marketing.Services" />
-      <ConnectionProperty Name="FullClassName"
-                          Value="Marketing.Services.MarketingDomainService" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="867d7d46-f6b1-4fe2-b5fa-623f7e7480eb" />
-      <ConnectionProperty Name="ConnectionStringDescription"
-                          Value="" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="Operations">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="GetOperations"
-                         EntityTypeName="Marketing.Services.Operation" />
-        <WcfRiaProperty Name="Id"
-                        Property="Operation/Properties[Id]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="RunServerOperations">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="RunServerOperations" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
   </DataService>
 
 

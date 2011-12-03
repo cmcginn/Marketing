@@ -22,6 +22,8 @@
           <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
+          <ScalarProperty Name="Processed" ColumnName="Processed" />
+          <ScalarProperty Name="Sent" ColumnName="Sent" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -67,8 +69,9 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Started" ColumnName="Started" />
           <ScalarProperty Name="Completed" ColumnName="Completed" />
-          <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
           <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -86,6 +89,20 @@
           <ScalarProperty Name="Score" ColumnName="Score" />
           <ScalarProperty Name="RespondedTo" ColumnName="RespondedTo" />
           <ScalarProperty Name="PostBody" ColumnName="PostBody" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SmtpServers">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingData.SmtpServer)">
+        <MappingFragment StoreEntitySet="SmtpServer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SmtpServerLocation" ColumnName="SmtpServerLocation" />
+          <ScalarProperty Name="UseSsl" ColumnName="UseSsl" />
+          <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
+          <ScalarProperty Name="SmtpUsername" ColumnName="SmtpUsername" />
+          <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

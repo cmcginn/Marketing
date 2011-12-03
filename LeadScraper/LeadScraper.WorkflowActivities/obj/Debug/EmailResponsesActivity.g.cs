@@ -17,8 +17,32 @@ namespace LeadScraper.WorkflowActivities {
         
         private bool _contentLoaded;
         
+        private System.Activities.InArgument<Marketing.Data.MarketingDomainModelContainer> _MarketingContext;
+        
+        private System.Activities.InArgument<Marketing.Data.ServerOperationHistory> _ServerOperationHistory;
+        
         public EmailResponsesActivity() {
             this.InitializeComponent();
+        }
+        
+        [System.Activities.RequiredArgumentAttribute()]
+        public System.Activities.InArgument<Marketing.Data.MarketingDomainModelContainer> MarketingContext {
+            get {
+                return this._MarketingContext;
+            }
+            set {
+                this._MarketingContext = value;
+            }
+        }
+        
+        [System.Activities.RequiredArgumentAttribute()]
+        public System.Activities.InArgument<Marketing.Data.ServerOperationHistory> ServerOperationHistory {
+            get {
+                return this._ServerOperationHistory;
+            }
+            set {
+                this._ServerOperationHistory = value;
+            }
         }
         
         /// <summary>

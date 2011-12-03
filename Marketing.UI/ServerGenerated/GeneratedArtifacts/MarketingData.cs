@@ -197,6 +197,22 @@ namespace MarketingData.Implementation
             }
         }
         private ObjectSet<CraigslistPostView> _CraigslistPostViews;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SmtpServer> SmtpServers
+        {
+            get
+            {
+                if ((_SmtpServers == null))
+                {
+                    _SmtpServers = base.CreateObjectSet<SmtpServer>("SmtpServers");
+                }
+                return _SmtpServers;
+            }
+        }
+        private ObjectSet<SmtpServer> _SmtpServers;
 
         #endregion
         #region AddTo Methods
@@ -263,6 +279,14 @@ namespace MarketingData.Implementation
         public void AddToCraigslistPostViews(CraigslistPostView craigslistPostView)
         {
             base.AddObject("CraigslistPostViews", craigslistPostView);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SmtpServers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSmtpServers(SmtpServer smtpServer)
+        {
+            base.AddObject("SmtpServers", smtpServer);
         }
 
         #endregion
@@ -1342,6 +1366,54 @@ namespace MarketingData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Processed
+        {
+            get
+            {
+                return _Processed;
+            }
+            set
+            {
+                OnProcessedChanging(value);
+                ReportPropertyChanging("Processed");
+                _Processed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Processed");
+                OnProcessedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Processed;
+        partial void OnProcessedChanging(Nullable<global::System.DateTime> value);
+        partial void OnProcessedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Sent
+        {
+            get
+            {
+                return _Sent;
+            }
+            set
+            {
+                OnSentChanging(value);
+                ReportPropertyChanging("Sent");
+                _Sent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Sent");
+                OnSentChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Sent;
+        partial void OnSentChanging(Nullable<global::System.DateTime> value);
+        partial void OnSentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CraigslitPostsId
@@ -1751,6 +1823,30 @@ namespace MarketingData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Parameters
+        {
+            get
+            {
+                return _Parameters;
+            }
+            set
+            {
+                OnParametersChanging(value);
+                ReportPropertyChanging("Parameters");
+                _Parameters = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Parameters");
+                OnParametersChanged();
+            }
+        }
+        private global::System.String _Parameters;
+        partial void OnParametersChanging(global::System.String value);
+        partial void OnParametersChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ServerOperationId
@@ -1815,6 +1911,243 @@ namespace MarketingData.Implementation
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingData", Name="SmtpServer")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SmtpServer : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SmtpServer object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="smtpServerLocation">Initial value of the SmtpServerLocation property.</param>
+        /// <param name="useSsl">Initial value of the UseSsl property.</param>
+        /// <param name="smtpPort">Initial value of the SmtpPort property.</param>
+        /// <param name="smtpUsername">Initial value of the SmtpUsername property.</param>
+        /// <param name="smtpPassword">Initial value of the SmtpPassword property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        public static SmtpServer CreateSmtpServer(global::System.Guid id, global::System.String smtpServerLocation, global::System.Boolean useSsl, global::System.Int32 smtpPort, global::System.String smtpUsername, global::System.String smtpPassword, global::System.Boolean active, global::System.DateTime created)
+        {
+            SmtpServer smtpServer = new SmtpServer();
+            smtpServer.Id = id;
+            smtpServer.SmtpServerLocation = smtpServerLocation;
+            smtpServer.UseSsl = useSsl;
+            smtpServer.SmtpPort = smtpPort;
+            smtpServer.SmtpUsername = smtpUsername;
+            smtpServer.SmtpPassword = smtpPassword;
+            smtpServer.Active = active;
+            smtpServer.Created = created;
+            return smtpServer;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmtpServerLocation
+        {
+            get
+            {
+                return _SmtpServerLocation;
+            }
+            set
+            {
+                OnSmtpServerLocationChanging(value);
+                ReportPropertyChanging("SmtpServerLocation");
+                _SmtpServerLocation = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmtpServerLocation");
+                OnSmtpServerLocationChanged();
+            }
+        }
+        private global::System.String _SmtpServerLocation;
+        partial void OnSmtpServerLocationChanging(global::System.String value);
+        partial void OnSmtpServerLocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UseSsl
+        {
+            get
+            {
+                return _UseSsl;
+            }
+            set
+            {
+                OnUseSslChanging(value);
+                ReportPropertyChanging("UseSsl");
+                _UseSsl = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UseSsl");
+                OnUseSslChanged();
+            }
+        }
+        private global::System.Boolean _UseSsl;
+        partial void OnUseSslChanging(global::System.Boolean value);
+        partial void OnUseSslChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SmtpPort
+        {
+            get
+            {
+                return _SmtpPort;
+            }
+            set
+            {
+                OnSmtpPortChanging(value);
+                ReportPropertyChanging("SmtpPort");
+                _SmtpPort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SmtpPort");
+                OnSmtpPortChanged();
+            }
+        }
+        private global::System.Int32 _SmtpPort;
+        partial void OnSmtpPortChanging(global::System.Int32 value);
+        partial void OnSmtpPortChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmtpUsername
+        {
+            get
+            {
+                return _SmtpUsername;
+            }
+            set
+            {
+                OnSmtpUsernameChanging(value);
+                ReportPropertyChanging("SmtpUsername");
+                _SmtpUsername = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmtpUsername");
+                OnSmtpUsernameChanged();
+            }
+        }
+        private global::System.String _SmtpUsername;
+        partial void OnSmtpUsernameChanging(global::System.String value);
+        partial void OnSmtpUsernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SmtpPassword
+        {
+            get
+            {
+                return _SmtpPassword;
+            }
+            set
+            {
+                OnSmtpPasswordChanging(value);
+                ReportPropertyChanging("SmtpPassword");
+                _SmtpPassword = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SmtpPassword");
+                OnSmtpPasswordChanged();
+            }
+        }
+        private global::System.String _SmtpPassword;
+        partial void OnSmtpPasswordChanging(global::System.String value);
+        partial void OnSmtpPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.Boolean _Active;
+        partial void OnActiveChanging(global::System.Boolean value);
+        partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+
+        #endregion
+    
     }
 
     #endregion

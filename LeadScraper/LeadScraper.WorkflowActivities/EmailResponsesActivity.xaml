@@ -1,2 +1,358 @@
-﻿<Activity x:Class="LeadScraper.WorkflowActivities.EmailResponsesActivity" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"  xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<Activity mc:Ignorable="sap" x:Class="LeadScraper.WorkflowActivities.EmailResponsesActivity" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:lue="clr-namespace:LeadScraper.Utils.Extensions;assembly=LeadScraper.Utils" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:md="clr-namespace:Marketing.Data;assembly=Marketing.Data" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sdo="clr-namespace:System.Data.Objects;assembly=System.Data.Entity" xmlns:sdod="clr-namespace:System.Data.Objects.DataClasses;assembly=System.Data.Entity" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:sn="clr-namespace:System.Net;assembly=System" xmlns:sn1="clr-namespace:System.Net;assembly=System.Net" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:sx="clr-namespace:System.Xml;assembly=System.Data" xmlns:sx1="clr-namespace:System.Xml;assembly=System.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="MarketingContext" Type="InArgument(md:MarketingDomainModelContainer)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="ServerOperationHistory" Type="InArgument(md:ServerOperationHistory)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+  </x:Members>
+  <sap:VirtualizedContainerService.HintSize>654,676</sap:VirtualizedContainerService.HintSize>
+  <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\EmailResponsesActivity.xaml" sap:VirtualizedContainerService.HintSize="662,1010">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="md:SmtpServer" Name="defaultSmtpServer" />
+      <Variable x:TypeArguments="snm:SmtpClient" Name="smtpClient" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,111.5</av:PointCollection>
+        <x:Double x:Key="Width">648.5</x:Double>
+        <x:Double x:Key="Height">974</x:Double>
+      </scg3:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <FlowStep x:Name="__ReferenceID3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">179,111.5</av:Point>
+            <av:Size x:Key="ShapeSize">242,57</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,168.5 300,198.5 300,236.5</av:PointCollection>
+          </scg3:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <Assign DisplayName="Assign ServerOperationHistory Start" sap:VirtualizedContainerService.HintSize="242,57">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[ServerOperationHistory.Started]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">196,236.5</av:Point>
+                <av:Size x:Key="ShapeSize">208,127</av:Size>
+                <av:PointCollection x:Key="ConnectorLocation">300,363.5 300,393.5 300,415.5</av:PointCollection>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <InvokeMethod DisplayName="Save Changes" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SaveChanges">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[MarketingContext]</InArgument>
+              </InvokeMethod.TargetObject>
+            </InvokeMethod>
+            <FlowStep.Next>
+              <FlowStep x:Name="__ReferenceID0">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">200,415.5</av:Point>
+                    <av:Size x:Key="ShapeSize">200,49</av:Size>
+                    <av:PointCollection x:Key="ConnectorLocation">300,464.5 300,494.5 300,515.5</av:PointCollection>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Not String.IsNullOrEmpty(ServerOperationHistory.Parameters) AndAlso Not System.Xml.Linq.XElement.Parse(ServerOperationHistory.Parameters).Element(&quot;SmtpServerId&quot;) Is Nothing]" DisplayName="If Service Operation Has SmtpServerId Property" sap:VirtualizedContainerService.HintSize="200,49">
+                  <If.Then>
+                    <Sequence DisplayName="Assign Default Smtp Server" sap:VirtualizedContainerService.HintSize="264,278">
+                      <Sequence.Variables>
+                        <Variable x:TypeArguments="s:Guid" Name="defaultSmtpServerId" />
+                      </Sequence.Variables>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Get Default Server SMTP Guid" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:Guid">[defaultSmtpServerId]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:Guid">[Guid.Parse(System.Xml.Linq.XElement.Parse(ServerOperationHistory.Parameters).Element("SmtpServerId").Value)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign Default Smtp Server" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="md:SmtpServer">[defaultSmtpServer]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="md:SmtpServer">[MarketingContext.SmtpServers.Where(Function(n) n.Id = defaultSmtpServerId).First]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Get Default SmtpServer" sap:VirtualizedContainerService.HintSize="264,278">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign First Active SmtpServer By Earliest Created" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="md:SmtpServer">[defaultSmtpServer]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="md:SmtpServer">[MarketingContext.SmtpServers.ToList.Where(Function (n) n.Active).OrderBy(Function (n) n.Created).First]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <FlowStep.Next>
+                  <FlowStep x:Name="__ReferenceID1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                        <av:Point x:Key="ShapeLocation">200,515.5</av:Point>
+                        <av:Size x:Key="ShapeSize">200,49</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">300,564.5 300,594.5 300,605.5</av:PointCollection>
+                      </scg3:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Build SmtpClient" sap:VirtualizedContainerService.HintSize="200,49">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign Server Post and Port" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="snm:SmtpClient">[smtpClient]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="snm:SmtpClient">[New SmtpClient(defaultSmtpServer.SmtpServerLocation,defaultSmtpServer.SmtpPort)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Do not use default credentials" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[smtpClient.UseDefaultCredentials]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Assign Credentials" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="sn:ICredentialsByHost">[smtpClient.Credentials]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="sn:NetworkCredential">[New System.Net.NetworkCredential(defaultSmtpServer.SmtpUsername,defaultSmtpServer.SmtpPassword)]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Boolean">[smtpClient.EnableSsl]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Boolean">[defaultSmtpServer.UseSsl]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                    <FlowStep.Next>
+                      <FlowStep x:Name="__ReferenceID2">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                            <av:Point x:Key="ShapeLocation">200,605.5</av:Point>
+                            <av:Size x:Key="ShapeSize">200,49</av:Size>
+                            <av:PointCollection x:Key="ConnectorLocation">300,654.5 300,684.5 300,711.5</av:PointCollection>
+                          </scg3:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ForEach x:TypeArguments="md:CraigsListResponse" DisplayName="ForEach&lt;CraigsListResponse&gt;" sap:VirtualizedContainerService.HintSize="200,49" Values="[MarketingContext.CraigsListResponses.Where(Function(n) n.Processed.HasValue = False).ToList]">
+                          <ActivityAction x:TypeArguments="md:CraigsListResponse">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="md:CraigsListResponse" Name="response" />
+                            </ActivityAction.Argument>
+                            <TryCatch sap:VirtualizedContainerService.HintSize="418,278">
+                              <TryCatch.Try>
+                                <Sequence DisplayName="Process Response" sap:VirtualizedContainerService.HintSize="486,926">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="snm:MailMessage" Default="[New MailMessage]" Name="mailMessage" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign DisplayName="Set Processed Date and Time" sap:VirtualizedContainerService.HintSize="464,57">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[response.Processed]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="s:DateTime">[System.DateTime.Now]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <InvokeMethod DisplayName="Persist Changes" sap:VirtualizedContainerService.HintSize="464,127" MethodName="SaveChanges">
+                                    <InvokeMethod.TargetObject>
+                                      <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[MarketingContext]</InArgument>
+                                    </InvokeMethod.TargetObject>
+                                  </InvokeMethod>
+                                  <InvokeMethod DisplayName="Get MailMessage for Response" sap:VirtualizedContainerService.HintSize="464,127" MethodName="GetDefaultMailMessageResponse" TargetType="lue:CraigslistExtensions">
+                                    <InvokeMethod.Result>
+                                      <OutArgument x:TypeArguments="snm:MailMessage">[mailMessage]</OutArgument>
+                                    </InvokeMethod.Result>
+                                    <InArgument x:TypeArguments="md:CraigsListResponse">[response]</InArgument>
+                                    <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[MarketingContext]</InArgument>
+                                  </InvokeMethod>
+                                  <If Condition="[Not mailMessage Is Nothing]" DisplayName="If Mail Message is not Null" sap:VirtualizedContainerService.HintSize="464,371">
+                                    <If.Then>
+                                      <Sequence sap:VirtualizedContainerService.HintSize="301,270">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg3:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <Assign DisplayName="Assign From Address" sap:VirtualizedContainerService.HintSize="242,57">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="snm:MailAddress">[mailMessage.From]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="snm:MailAddress">[New MailAddress(defaultSmtpServer.SmtpUsername)]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <TryCatch sap:VirtualizedContainerService.HintSize="418,278">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg3:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <TryCatch.Try>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="400,100">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <InvokeMethod DisplayName="Send Message" sap:VirtualizedContainerService.HintSize="242,127" MethodName="Send">
+                                                <InvokeMethod.TargetObject>
+                                                  <InArgument x:TypeArguments="snm:SmtpClient">[smtpClient]</InArgument>
+                                                </InvokeMethod.TargetObject>
+                                                <InArgument x:TypeArguments="snm:MailMessage">[mailMessage]</InArgument>
+                                              </InvokeMethod>
+                                              <Assign DisplayName="Assign Sent Time" sap:VirtualizedContainerService.HintSize="242,57">
+                                                <Assign.To>
+                                                  <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[response.Sent]</OutArgument>
+                                                </Assign.To>
+                                                <Assign.Value>
+                                                  <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+                                                </Assign.Value>
+                                              </Assign>
+                                              <InvokeMethod DisplayName="Save Changes" sap:VirtualizedContainerService.HintSize="242,127" MethodName="SaveChanges">
+                                                <InvokeMethod.TargetObject>
+                                                  <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[MarketingContext]</InArgument>
+                                                </InvokeMethod.TargetObject>
+                                              </InvokeMethod>
+                                            </Sequence>
+                                          </TryCatch.Try>
+                                          <TryCatch.Catches>
+                                            <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg3:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ActivityAction x:TypeArguments="s:Exception">
+                                                <ActivityAction.Argument>
+                                                  <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                                </ActivityAction.Argument>
+                                                <WriteLine sap:VirtualizedContainerService.HintSize="398,75" Text="[exception.Message]" />
+                                              </ActivityAction>
+                                            </Catch>
+                                          </TryCatch.Catches>
+                                        </TryCatch>
+                                      </Sequence>
+                                    </If.Then>
+                                  </If>
+                                </Sequence>
+                              </TryCatch.Try>
+                              <TryCatch.Catches>
+                                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ActivityAction x:TypeArguments="s:Exception">
+                                    <ActivityAction.Argument>
+                                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                    </ActivityAction.Argument>
+                                    <WriteLine sap:VirtualizedContainerService.HintSize="394,75" Text="[exception.GetBaseException.Message]" />
+                                  </ActivityAction>
+                                </Catch>
+                              </TryCatch.Catches>
+                            </TryCatch>
+                          </ActivityAction>
+                        </ForEach>
+                        <FlowStep.Next>
+                          <FlowStep x:Name="__ReferenceID5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">179,711.5</av:Point>
+                                <av:Size x:Key="ShapeSize">242,57</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">300,768.5 300,798.5 300,836.5</av:PointCollection>
+                              </scg3:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Assign sap:VirtualizedContainerService.HintSize="242,57">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[ServerOperationHistory.Completed]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <FlowStep.Next>
+                              <FlowStep x:Name="__ReferenceID6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <av:Point x:Key="ShapeLocation">196,836.5</av:Point>
+                                    <av:Size x:Key="ShapeSize">208,127</av:Size>
+                                    <av:PointCollection x:Key="ConnectorLocation">456.5,974 456.5,1004 456.5,1026</av:PointCollection>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <InvokeMethod DisplayName="Save Changes" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SaveChanges">
+                                  <InvokeMethod.TargetObject>
+                                    <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[MarketingContext]</InArgument>
+                                  </InvokeMethod.TargetObject>
+                                </InvokeMethod>
+                              </FlowStep>
+                            </FlowStep.Next>
+                          </FlowStep>
+                        </FlowStep.Next>
+                      </FlowStep>
+                    </FlowStep.Next>
+                  </FlowStep>
+                </FlowStep.Next>
+              </FlowStep>
+            </FlowStep.Next>
+          </FlowStep>
+        </FlowStep.Next>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
+  </Flowchart>
 </Activity>

@@ -71,6 +71,8 @@
     <Property Name="ResponseContent" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="ResponseHtmlContent" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Processed" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Sent" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
     <Property Name="CraigslitPostsId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingData.FK_CraigsListResponse_CraigslistPosts" ToRole="CraigslistPosts" FromRole="CraigsListResponse" />
   </EntityType>
@@ -118,6 +120,7 @@
     <Property Name="Started" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
     <Property Name="Completed" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
     <Property Name="Scheduled" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Parameters" Type="String" MaxLength="Max" ConcurrencyMode="None" />
     <Property Name="ServerOperationId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="ServerOperation" Relationship="MarketingData.FK_ServerOperationHistory_ServerOperation" ToRole="ServerOperation" FromRole="ServerOperationHistory" />
   </EntityType>
@@ -144,6 +147,19 @@
     <Property Name="RespondedTo" Type="Boolean" ConcurrencyMode="Fixed" />
     <Property Name="PostBody" Type="String" MaxLength="Max" ConcurrencyMode="None" />
   </EntityType>
+  <EntityType Name="SmtpServer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SmtpServerLocation" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="UseSsl" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SmtpPort" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SmtpUsername" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="SmtpPassword" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDataObjectContext">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
     <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
@@ -153,6 +169,7 @@
     <EntitySet Name="ServerOperations" EntityType="MarketingData.ServerOperation" />
     <EntitySet Name="ServerOperationHistories" EntityType="MarketingData.ServerOperationHistory" />
     <EntitySet Name="CraigslistPostViews" EntityType="MarketingData.CraigslistPostView" />
+    <EntitySet Name="SmtpServers" EntityType="MarketingData.SmtpServer" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />

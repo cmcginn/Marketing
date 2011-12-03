@@ -64,6 +64,7 @@
     <Compile Include="UserCode\CraigslistPost.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserCode\ServerOperationHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="..\Data\ApplicationDefinition.lsml">

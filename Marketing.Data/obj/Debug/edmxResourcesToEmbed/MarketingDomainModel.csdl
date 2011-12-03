@@ -24,6 +24,7 @@
       <End Role="ServerOperation" EntitySet="ServerOperations" />
       <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
     </AssociationSet>
+    <EntitySet Name="SmtpServers" EntityType="MarketingDomainModel.SmtpServer" />
   </EntityContainer>
   <EntityType Name="CraigslistPost">
     <Key>
@@ -51,6 +52,7 @@
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
     <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="Processed" />
+    <Property Type="DateTime" Name="Sent" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
@@ -134,6 +136,7 @@
     <Property Type="DateTime" Name="Completed" />
     <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
     <Property Type="DateTime" Name="Scheduled" Nullable="false" />
+    <Property Type="String" Name="Parameters" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_ServerOperationHistory_ServerOperation">
     <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />
@@ -147,4 +150,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="SmtpServer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SmtpServerLocation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="UseSsl" Nullable="false" />
+    <Property Type="Int32" Name="SmtpPort" Nullable="false" />
+    <Property Type="String" Name="SmtpUsername" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SmtpPassword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Active" Nullable="false" />
+    <Property Type="DateTime" Name="Created" Nullable="false" />
+  </EntityType>
 </Schema>

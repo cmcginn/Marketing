@@ -17,6 +17,7 @@
     <EntitySetMapping Name="CraigsListResponses">
       <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
         <MappingFragment StoreEntitySet="CraigsListResponse">
+          <ScalarProperty Name="Sent" ColumnName="Sent" />
           <ScalarProperty Name="Processed" ColumnName="Processed" />
           <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
           <ScalarProperty Name="Created" ColumnName="Created" />
@@ -65,10 +66,25 @@
     <EntitySetMapping Name="ServerOperationHistories">
       <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
         <MappingFragment StoreEntitySet="ServerOperationHistory">
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
           <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
           <ScalarProperty Name="Completed" ColumnName="Completed" />
           <ScalarProperty Name="Started" ColumnName="Started" />
           <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SmtpServers">
+      <EntityTypeMapping TypeName="MarketingDomainModel.SmtpServer">
+        <MappingFragment StoreEntitySet="SmtpServer">
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
+          <ScalarProperty Name="SmtpUsername" ColumnName="SmtpUsername" />
+          <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
+          <ScalarProperty Name="UseSsl" ColumnName="UseSsl" />
+          <ScalarProperty Name="SmtpServerLocation" ColumnName="SmtpServerLocation" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

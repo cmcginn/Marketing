@@ -17,32 +17,32 @@ namespace LightSwitchApplication
     /// No Modeled Description Available
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    public sealed partial class Operation : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>
+    public sealed partial class SmtpServer : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass>
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new instance of the Operation entity.
+        /// Initializes a new instance of the SmtpServer entity.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public Operation()
+        public SmtpServer()
             : this(null)
         {
         }
     
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public Operation(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.Operation> entitySet)
+        public SmtpServer(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.SmtpServer> entitySet)
             : base(entitySet)
         {
-            global::LightSwitchApplication.Operation.DetailsClass.Initialize(this);
+            global::LightSwitchApplication.SmtpServer.DetailsClass.Initialize(this);
         }
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operation_Created();
+        partial void SmtpServer_Created();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operation_AllowSaveWithErrors(ref bool result);
+        partial void SmtpServer_AllowSaveWithErrors(ref bool result);
     
         #endregion
     
@@ -87,11 +87,11 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.Operation.DetailsClass.GetValue(this, global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id);
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Id);
             }
             set
             {
-                global::LightSwitchApplication.Operation.DetailsClass.SetValue(this, global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id, value);
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Id, value);
             }
         }
         
@@ -102,6 +102,174 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Id_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string SmtpServerLocation
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpServerLocation);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpServerLocation, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServerLocation_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServerLocation_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpServerLocation_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool UseSsl
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.UseSsl);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.UseSsl, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UseSsl_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UseSsl_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UseSsl_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int SmtpPort
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpPort);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpPort, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpPort_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpPort_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpPort_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string SmtpUsername
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpUsername);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpUsername, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpUsername_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpUsername_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpUsername_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string SmtpPassword
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpPassword);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpPassword, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpPassword_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpPassword_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SmtpPassword_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool Active
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Active);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Active, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Active_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Active_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Active_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return global::LightSwitchApplication.SmtpServer.DetailsClass.GetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Created);
+            }
+            set
+            {
+                global::LightSwitchApplication.SmtpServer.DetailsClass.SetValue(this, global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Created, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Created_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Created_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Created_Changed();
+
         #endregion
     
         #region Details Class
@@ -111,37 +279,37 @@ namespace LightSwitchApplication
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<
-                global::LightSwitchApplication.Operation,
-                global::LightSwitchApplication.Operation.DetailsClass,
-                global::LightSwitchApplication.Operation.DetailsClass.IImplementation,
-                global::LightSwitchApplication.Operation.DetailsClass.PropertySet,
-                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>,
-                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>>
+                global::LightSwitchApplication.SmtpServer,
+                global::LightSwitchApplication.SmtpServer.DetailsClass,
+                global::LightSwitchApplication.SmtpServer.DetailsClass.IImplementation,
+                global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySet,
+                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass>,
+                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass>>
         {
     
             static DetailsClass()
             {
-                var initializeEntry = global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id;
+                var initializeEntry = global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Id;
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>.Entry
-                __OperationEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>.Entry(
-                    global::LightSwitchApplication.Operation.DetailsClass.__Operation_CreateNew,
-                    global::LightSwitchApplication.Operation.DetailsClass.__Operation_Created,
-                    global::LightSwitchApplication.Operation.DetailsClass.__Operation_AllowSaveWithErrors);
-            private static global::LightSwitchApplication.Operation __Operation_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.Operation> es)
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass>.Entry
+                __SmtpServerEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass>.Entry(
+                    global::LightSwitchApplication.SmtpServer.DetailsClass.__SmtpServer_CreateNew,
+                    global::LightSwitchApplication.SmtpServer.DetailsClass.__SmtpServer_Created,
+                    global::LightSwitchApplication.SmtpServer.DetailsClass.__SmtpServer_AllowSaveWithErrors);
+            private static global::LightSwitchApplication.SmtpServer __SmtpServer_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.SmtpServer> es)
             {
-                return new global::LightSwitchApplication.Operation(es);
+                return new global::LightSwitchApplication.SmtpServer(es);
             }
-            private static void __Operation_Created(global::LightSwitchApplication.Operation e)
+            private static void __SmtpServer_Created(global::LightSwitchApplication.SmtpServer e)
             {
-                e.Operation_Created();
+                e.SmtpServer_Created();
             }
-            private static bool __Operation_AllowSaveWithErrors(global::LightSwitchApplication.Operation e)
+            private static bool __SmtpServer_AllowSaveWithErrors(global::LightSwitchApplication.SmtpServer e)
             {
                 bool result = false;
-                e.Operation_AllowSaveWithErrors(ref result);
+                e.SmtpServer_AllowSaveWithErrors(ref result);
                 return result;
             }
     
@@ -149,7 +317,7 @@ namespace LightSwitchApplication
             {
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass> Commands
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass> Commands
             {
                 get
                 {
@@ -157,7 +325,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass> Methods
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass> Methods
             {
                 get
                 {
@@ -165,7 +333,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::LightSwitchApplication.Operation.DetailsClass.PropertySet Properties
+            public new global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySet Properties
             {
                 get
                 {
@@ -177,18 +345,74 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>
+            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass>
             {
     
                 public PropertySet() : base()
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid> Id
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.Guid> Id
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.Guid>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string> SmtpServerLocation
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpServerLocation) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool> UseSsl
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.UseSsl) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, int> SmtpPort
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpPort) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, int>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string> SmtpUsername
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpUsername) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string> SmtpPassword
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.SmtpPassword) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool> Active
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Active) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.DateTime> Created
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties.Created) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.DateTime>;
                     }
                 }
                 
@@ -199,6 +423,13 @@ namespace LightSwitchApplication
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
                 new global::System.Guid Id { get; set; }
+                new string SmtpServerLocation { get; set; }
+                new bool UseSsl { get; set; }
+                new int SmtpPort { get; set; }
+                new string SmtpUsername { get; set; }
+                new string SmtpPassword { get; set; }
+                new bool Active { get; set; }
+                new global::System.DateTime Created { get; set; }
             }
             #pragma warning restore 109
     
@@ -209,46 +440,326 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Entry
-                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.Guid>.Entry
+                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.Guid>.Entry(
                         "Id",
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_Stub,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_Validate,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_OnValueChanged);
-                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Operation.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.Operation.DetailsClass d, object sf)
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Id_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Id_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Id_OnValueChanged);
+                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
                 {
                     c(d, ref d._Id, sf);
                 }
-                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.Operation e)
+                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
                 {
                     bool result = false;
                     e.Id_IsReadOnly(ref result);
                     return result;
                 }
-                private static void _Id_Validate(global::LightSwitchApplication.Operation e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                private static void _Id_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
                 {
                     e.Id_Validate(r);
                 }
-                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.Operation.DetailsClass d)
+                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
                 {
                     return d.ImplementationEntity.Id;
                 }
-                private static void _Id_SetImplementationValue(global::LightSwitchApplication.Operation.DetailsClass d, global::System.Guid v)
+                private static void _Id_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, global::System.Guid v)
                 {
                     d.ImplementationEntity.Id = v;
                 }
-                private static void _Id_OnValueChanged(global::LightSwitchApplication.Operation e)
+                private static void _Id_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
                 {
                     e.Id_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Entry
+                    SmtpServerLocation = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Entry(
+                        "SmtpServerLocation",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpServerLocation_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpServerLocation_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpServerLocation_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpServerLocation_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpServerLocation_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpServerLocation_OnValueChanged);
+                private static void _SmtpServerLocation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SmtpServerLocation, sf);
+                }
+                private static bool _SmtpServerLocation_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.SmtpServerLocation_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SmtpServerLocation_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SmtpServerLocation_Validate(r);
+                }
+                private static string _SmtpServerLocation_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SmtpServerLocation;
+                }
+                private static void _SmtpServerLocation_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.SmtpServerLocation = v;
+                }
+                private static void _SmtpServerLocation_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.SmtpServerLocation_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Entry
+                    UseSsl = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Entry(
+                        "UseSsl",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._UseSsl_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._UseSsl_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._UseSsl_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._UseSsl_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._UseSsl_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._UseSsl_OnValueChanged);
+                private static void _UseSsl_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UseSsl, sf);
+                }
+                private static bool _UseSsl_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.UseSsl_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _UseSsl_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.UseSsl_Validate(r);
+                }
+                private static bool _UseSsl_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.UseSsl;
+                }
+                private static void _UseSsl_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.UseSsl = v;
+                }
+                private static void _UseSsl_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.UseSsl_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, int>.Entry
+                    SmtpPort = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, int>.Entry(
+                        "SmtpPort",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPort_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPort_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPort_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPort_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPort_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPort_OnValueChanged);
+                private static void _SmtpPort_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, int>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SmtpPort, sf);
+                }
+                private static bool _SmtpPort_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.SmtpPort_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SmtpPort_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SmtpPort_Validate(r);
+                }
+                private static int _SmtpPort_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SmtpPort;
+                }
+                private static void _SmtpPort_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, int v)
+                {
+                    d.ImplementationEntity.SmtpPort = v;
+                }
+                private static void _SmtpPort_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.SmtpPort_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Entry
+                    SmtpUsername = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Entry(
+                        "SmtpUsername",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpUsername_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpUsername_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpUsername_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpUsername_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpUsername_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpUsername_OnValueChanged);
+                private static void _SmtpUsername_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SmtpUsername, sf);
+                }
+                private static bool _SmtpUsername_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.SmtpUsername_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SmtpUsername_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SmtpUsername_Validate(r);
+                }
+                private static string _SmtpUsername_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SmtpUsername;
+                }
+                private static void _SmtpUsername_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.SmtpUsername = v;
+                }
+                private static void _SmtpUsername_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.SmtpUsername_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Entry
+                    SmtpPassword = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Entry(
+                        "SmtpPassword",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPassword_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPassword_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPassword_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPassword_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPassword_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._SmtpPassword_OnValueChanged);
+                private static void _SmtpPassword_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SmtpPassword, sf);
+                }
+                private static bool _SmtpPassword_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.SmtpPassword_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SmtpPassword_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SmtpPassword_Validate(r);
+                }
+                private static string _SmtpPassword_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SmtpPassword;
+                }
+                private static void _SmtpPassword_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.SmtpPassword = v;
+                }
+                private static void _SmtpPassword_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.SmtpPassword_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Entry
+                    Active = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Entry(
+                        "Active",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Active_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Active_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Active_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Active_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Active_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Active_OnValueChanged);
+                private static void _Active_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Active, sf);
+                }
+                private static bool _Active_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.Active_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Active_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Active_Validate(r);
+                }
+                private static bool _Active_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Active;
+                }
+                private static void _Active_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.Active = v;
+                }
+                private static void _Active_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.Active_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.DateTime>.Entry
+                    Created = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.DateTime>.Entry(
+                        "Created",
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Created_Stub,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Created_ComputeIsReadOnly,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Created_Validate,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Created_GetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Created_SetImplementationValue,
+                        global::LightSwitchApplication.SmtpServer.DetailsClass.PropertySetProperties._Created_OnValueChanged);
+                private static void _Created_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.SmtpServer.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.DateTime>.Data> c, global::LightSwitchApplication.SmtpServer.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Created, sf);
+                }
+                private static bool _Created_ComputeIsReadOnly(global::LightSwitchApplication.SmtpServer e)
+                {
+                    bool result = false;
+                    e.Created_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Created_Validate(global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Created_Validate(r);
+                }
+                private static global::System.DateTime _Created_GetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Created;
+                }
+                private static void _Created_SetImplementationValue(global::LightSwitchApplication.SmtpServer.DetailsClass d, global::System.DateTime v)
+                {
+                    d.ImplementationEntity.Created = global::LightSwitchApplication.SmtpServer.DetailsClass.ClearDateTimeKind(v);
+                }
+                private static void _Created_OnValueChanged(global::LightSwitchApplication.SmtpServer e)
+                {
+                    e.Created_Changed();
                 }
     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Data _Id;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.Guid>.Data _Id;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Data _SmtpServerLocation;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Data _UseSsl;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, int>.Data _SmtpPort;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Data _SmtpUsername;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, string>.Data _SmtpPassword;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, bool>.Data _Active;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.SmtpServer, global::LightSwitchApplication.SmtpServer.DetailsClass, global::System.DateTime>.Data _Created;
             
         }
     
