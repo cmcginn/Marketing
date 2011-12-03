@@ -295,6 +295,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region SystemSetting
+    
+        public void InsertSystemSetting(global::MarketingData.Implementation.SystemSetting entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.SystemSettings.AddObject(entity);
+            }
+        }
+    
+        public void UpdateSystemSetting(global::MarketingData.Implementation.SystemSetting currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.SystemSettings, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteSystemSetting(global::MarketingData.Implementation.SystemSetting entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.SystemSettings.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -429,6 +459,21 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.SmtpServer> SmtpServers_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingData.Implementation.SmtpServer>("SmtpServers_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.SystemSetting>("SystemSettings_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.SystemSetting>("SystemSettings_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.SystemSetting>("SystemSettings_All", frameworkOperators);
         }
     
     #endregion
@@ -689,6 +734,31 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.SystemSetting>("SystemSettings_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.SystemSetting>("SystemSettings_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.SystemSetting>("[SystemSettings]").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -729,6 +799,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingData.Implementation.SmtpServer))
             {
                 return new global::MarketingData.Implementation.SmtpServer();
+            }
+            if (type == typeof(global::MarketingData.Implementation.SystemSetting))
+            {
+                return new global::MarketingData.Implementation.SystemSetting();
             }
     
             return base.CreateObject(type);
@@ -779,6 +853,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.SmtpServer))
             {
                 return new global::MarketingData.Implementation.SmtpServer();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.SystemSetting))
+            {
+                return new global::MarketingData.Implementation.SystemSetting();
             }
             return null;
         }
@@ -1062,6 +1140,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.SmtpServer) == definitionType)
             {
                 return typeof(global::MarketingData.Implementation.SmtpServer);
+            }
+            if (typeof(global::LightSwitchApplication.SystemSetting) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.SystemSetting);
             }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {
@@ -1503,6 +1585,39 @@ namespace MarketingData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class SmtpServer :
         global::LightSwitchApplication.SmtpServer.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class SystemSetting :
+        global::LightSwitchApplication.SystemSetting.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

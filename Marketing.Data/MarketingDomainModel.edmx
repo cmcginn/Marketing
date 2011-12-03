@@ -14,6 +14,7 @@
           <EntitySet Name="ServerOperation" EntityType="MarketingDomainModel.Store.ServerOperation" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ServerOperationHistory" EntityType="MarketingDomainModel.Store.ServerOperationHistory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SmtpServer" EntityType="MarketingDomainModel.Store.SmtpServer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SystemSetting" EntityType="MarketingDomainModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
           <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigslistPostKeywords_CraigslistPosts">
             <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
             <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
@@ -113,6 +114,15 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="SystemSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="StringValue" Type="nvarchar(max)" />
+          <Property Name="DefaultValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
         <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
           <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
           <End Role="CraigslistPostKeywords" Type="MarketingDomainModel.Store.CraigslistPostKeywords" Multiplicity="*" />
@@ -190,6 +200,7 @@
             <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
           </AssociationSet>
           <EntitySet Name="SmtpServers" EntityType="MarketingDomainModel.SmtpServer" />
+          <EntitySet Name="SystemSettings" EntityType="MarketingDomainModel.SystemSetting" />
         </EntityContainer>
         <EntityType Name="CraigslistPost">
           <Key>
@@ -329,6 +340,15 @@
           <Property Type="Boolean" Name="Active" Nullable="false" />
           <Property Type="DateTime" Name="Created" Nullable="false" />
         </EntityType>
+        <EntityType Name="SystemSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="SettingName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StringValue" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="DefaultValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -424,6 +444,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SystemSettings">
+            <EntityTypeMapping TypeName="MarketingDomainModel.SystemSetting">
+              <MappingFragment StoreEntitySet="SystemSetting">
+                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
+                <ScalarProperty Name="StringValue" ColumnName="StringValue" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>
@@ -471,6 +501,7 @@
           <ConnectorPoint PointX="6.125" PointY="3.75" />
         </AssociationConnector>
         <EntityTypeShape EntityType="MarketingDomainModel.SmtpServer" Width="1.5" PointX="5.375" PointY="6.375" Height="2.2496956380208317" />
+        <EntityTypeShape EntityType="MarketingDomainModel.SystemSetting" Width="1.5" PointX="7.375" PointY="0.75" Height="1.5923063151041674" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -25,6 +25,7 @@
       <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
     </AssociationSet>
     <EntitySet Name="SmtpServers" EntityType="MarketingDomainModel.SmtpServer" />
+    <EntitySet Name="SystemSettings" EntityType="MarketingDomainModel.SystemSetting" />
   </EntityContainer>
   <EntityType Name="CraigslistPost">
     <Key>
@@ -163,5 +164,14 @@
     <Property Type="String" Name="SmtpPassword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="Active" Nullable="false" />
     <Property Type="DateTime" Name="Created" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SettingName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StringValue" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DefaultValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

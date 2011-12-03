@@ -77,14 +77,23 @@ namespace LeadScraper.Utils.Extensions {
       var matches = _rawEmailGroups.Match(rawEmail);
       if( matches.Groups[ "email" ] != null ) {
         result = new MailMessage();
-        //result.To.Add( new MailAddress( matches.Groups[ "email" ].Value ) );
-        result.To.Add( "chris.s.mcginn@live.com" );
+        result.From = new MailAddress( context.GetEmailFromAddress() );
+        result.Bcc.Add(context.GetEmailBccAddress());
+
+        if(context.GetLiveModeSetting())
+          result.To.Add(matches.Groups["email"].Value);
+        else
+          result.To.Add( context.GetEmailBccAddress() );
+
         if( matches.Groups[ "subject" ] != null )
           result.Subject = matches.Groups[ "subject" ].Value;
+        else 
+          result.Subject = response.CraigslistPost.Title;
+
         result.IsBodyHtml = true;
         result.Body = response.ResponseHtmlContent;
         
-        //result.AlternateViews.Add(new AlternateView(
+        
       }
       return result;
     }

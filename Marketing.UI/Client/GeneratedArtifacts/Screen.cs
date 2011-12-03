@@ -752,6 +752,13 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void CraigsListResponses_Loaded(bool succeeded);
 
+        partial void SystemSettings_SelectionChanged();
+
+        partial void SystemSettings_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Loaded(bool succeeded);
+
         /// <summary>
         /// Gets the CraigslistCities visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
@@ -826,6 +833,21 @@ namespace LightSwitchApplication
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void CraigsListResponses_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        /// <summary>
+        /// Gets the SystemSettings visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.SystemSetting> SystemSettings
+        {
+            get
+            {
+                return global::LightSwitchApplication.Administration.DetailsClass.GetValue(this, global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.SystemSettings);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         /// <summary>
         /// Calls the RunOperation screen method.
@@ -989,6 +1011,11 @@ namespace LightSwitchApplication
                     "CraigslistPost");
             }
 
+            private global::Microsoft.LightSwitch.IDataServiceQueryable SystemSettingsQuery()
+            {
+                return this.Screen.DataWorkspace.MarketingData.SystemSettings;
+            }
+
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCities;
 
@@ -1003,6 +1030,9 @@ namespace LightSwitchApplication
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>.Data _SystemSettings;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _RunOperationCommand;
@@ -1072,6 +1102,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.CraigsListResponses);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting> SystemSettings
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.SystemSettings);
                     }
                 }
 
@@ -1333,6 +1371,40 @@ namespace LightSwitchApplication
                 private static void _CraigsListResponses_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
                 {
                     s.CraigsListResponses_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>.Entry
+                    SystemSettings = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>.Entry(
+                        "SystemSettings",
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._SystemSettings_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._SystemSettings_Validate,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._SystemSettings_CreateQuery,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._SystemSettings_SelectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._SystemSettings_OnCollectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._SystemSettings_OnLoaded);
+                private static void _SystemSettings_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SystemSettings, sf);
+                }
+                private static void _SystemSettings_Validate(global::LightSwitchApplication.Administration s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.SystemSettings_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _SystemSettings_CreateQuery(global::LightSwitchApplication.Administration.DetailsClass d, object[] args)
+                {
+                    return d.SystemSettingsQuery();
+                }
+                private static void _SystemSettings_SelectionChanged(global::LightSwitchApplication.Administration s)
+                {
+                    s.SystemSettings_SelectionChanged();
+                }
+                private static void _SystemSettings_OnCollectionChanged(global::LightSwitchApplication.Administration s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    s.SystemSettings_Changed(e);
+                }
+                private static void _SystemSettings_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
+                {
+                    s.SystemSettings_Loaded(succeeded);
                 }
 
             }

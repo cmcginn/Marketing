@@ -213,6 +213,22 @@ namespace MarketingData.Implementation
             }
         }
         private ObjectSet<SmtpServer> _SmtpServers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SystemSetting> SystemSettings
+        {
+            get
+            {
+                if ((_SystemSettings == null))
+                {
+                    _SystemSettings = base.CreateObjectSet<SystemSetting>("SystemSettings");
+                }
+                return _SystemSettings;
+            }
+        }
+        private ObjectSet<SystemSetting> _SystemSettings;
 
         #endregion
         #region AddTo Methods
@@ -287,6 +303,14 @@ namespace MarketingData.Implementation
         public void AddToSmtpServers(SmtpServer smtpServer)
         {
             base.AddObject("SmtpServers", smtpServer);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SystemSettings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSystemSettings(SystemSetting systemSetting)
+        {
+            base.AddObject("SystemSettings", systemSetting);
         }
 
         #endregion
@@ -2169,6 +2193,137 @@ namespace MarketingData.Implementation
         private global::System.DateTime _Created;
         partial void OnCreatedChanging(global::System.DateTime value);
         partial void OnCreatedChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingData", Name="SystemSetting")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SystemSetting : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SystemSetting object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="settingName">Initial value of the SettingName property.</param>
+        /// <param name="defaultValue">Initial value of the DefaultValue property.</param>
+        public static SystemSetting CreateSystemSetting(global::System.Guid id, global::System.String settingName, global::System.String defaultValue)
+        {
+            SystemSetting systemSetting = new SystemSetting();
+            systemSetting.Id = id;
+            systemSetting.SettingName = settingName;
+            systemSetting.DefaultValue = defaultValue;
+            return systemSetting;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SettingName
+        {
+            get
+            {
+                return _SettingName;
+            }
+            set
+            {
+                OnSettingNameChanging(value);
+                ReportPropertyChanging("SettingName");
+                _SettingName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SettingName");
+                OnSettingNameChanged();
+            }
+        }
+        private global::System.String _SettingName;
+        partial void OnSettingNameChanging(global::System.String value);
+        partial void OnSettingNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StringValue
+        {
+            get
+            {
+                return _StringValue;
+            }
+            set
+            {
+                OnStringValueChanging(value);
+                ReportPropertyChanging("StringValue");
+                _StringValue = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StringValue");
+                OnStringValueChanged();
+            }
+        }
+        private global::System.String _StringValue;
+        partial void OnStringValueChanging(global::System.String value);
+        partial void OnStringValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DefaultValue
+        {
+            get
+            {
+                return _DefaultValue;
+            }
+            set
+            {
+                OnDefaultValueChanging(value);
+                ReportPropertyChanging("DefaultValue");
+                _DefaultValue = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("DefaultValue");
+                OnDefaultValueChanged();
+            }
+        }
+        private global::System.String _DefaultValue;
+        partial void OnDefaultValueChanging(global::System.String value);
+        partial void OnDefaultValueChanged();
 
         #endregion
     

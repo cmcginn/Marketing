@@ -10,6 +10,7 @@
     <EntitySet Name="ServerOperationHistory" EntityType="MarketingDataStore.ServerOperationHistory" store:Type="Tables" Schema="dbo" Table="ServerOperationHistory" />
     <EntitySet Name="CraigslistPostView" EntityType="MarketingDataStore.CraigslistPostView" store:Type="Tables" Schema="dbo" Table="CraigslistPostView" />
     <EntitySet Name="SmtpServer" EntityType="MarketingDataStore.SmtpServer" store:Type="Tables" Schema="dbo" Table="SmtpServer" />
+    <EntitySet Name="SystemSetting" EntityType="MarketingDataStore.SystemSetting" store:Type="Tables" Schema="dbo" Table="SystemSetting" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
@@ -131,6 +132,15 @@
     <Property Name="SmtpPassword" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="StringValue" Type="nvarchar(max)" />
+    <Property Name="DefaultValue" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />

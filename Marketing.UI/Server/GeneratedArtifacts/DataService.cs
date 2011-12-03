@@ -330,6 +330,39 @@ namespace LightSwitchApplication
         partial void SmtpServers_Validate(global::LightSwitchApplication.SmtpServer entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Inserting(global::LightSwitchApplication.SystemSetting entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Inserted(global::LightSwitchApplication.SystemSetting entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Updating(global::LightSwitchApplication.SystemSetting entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Updated(global::LightSwitchApplication.SystemSetting entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Deleting(global::LightSwitchApplication.SystemSetting entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Deleted(global::LightSwitchApplication.SystemSetting entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Validate(global::LightSwitchApplication.SystemSetting entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -745,6 +778,51 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SmtpServers_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SystemSetting> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SystemSetting> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SystemSetting> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SystemSettings_All_ExecuteFailed(global::System.Exception exception);
     
         #endregion
     
@@ -1328,6 +1406,74 @@ namespace LightSwitchApplication
             private static void __SmtpServers_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SmtpServer e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.SmtpServers_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>
+                __SystemSettingsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>(
+                    "SystemSettings",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Validate);
+            private static bool __SystemSettings_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SystemSettings_CanInsert(ref result);
+                return result;
+            }
+            private static bool __SystemSettings_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SystemSettings_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __SystemSettings_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SystemSettings_CanDelete(ref result);
+                return result;
+            }
+            private static bool __SystemSettings_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.SystemSettings_CanRead(ref result);
+                return result;
+            }
+            private static void __SystemSettings_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e)
+            {
+                d.SystemSettings_Inserting(e);
+            }
+            private static void __SystemSettings_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e)
+            {
+                d.SystemSettings_Inserted(e);
+            }
+            private static void __SystemSettings_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e)
+            {
+                d.SystemSettings_Updating(e);
+            }
+            private static void __SystemSettings_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e)
+            {
+                d.SystemSettings_Updated(e);
+            }
+            private static void __SystemSettings_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e)
+            {
+                d.SystemSettings_Deleting(e);
+            }
+            private static void __SystemSettings_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e)
+            {
+                d.SystemSettings_Deleted(e);
+            }
+            private static void __SystemSettings_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.SystemSettings_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -2244,6 +2390,105 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SmtpServer>)args[0];
                 d.SmtpServers_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>
+                __SystemSettings_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>(
+                    "SystemSettings_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_Single_PreprocessQuery);
+            private static bool __SystemSettings_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.SystemSettings_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __SystemSettings_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SystemSettings_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __SystemSettings_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SystemSettings_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SystemSetting>)args[1]);
+            }
+            private static void __SystemSettings_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SystemSettings_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __SystemSettings_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting>)args[1];
+                d.SystemSettings_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>
+                __SystemSettings_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>(
+                    "SystemSettings_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_SingleOrDefault_PreprocessQuery);
+            private static bool __SystemSettings_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.SystemSettings_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __SystemSettings_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SystemSettings_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __SystemSettings_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SystemSettings_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SystemSetting>)args[1]);
+            }
+            private static void __SystemSettings_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SystemSettings_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __SystemSettings_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting>)args[1];
+                d.SystemSettings_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>
+                __SystemSettings_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.SystemSetting>(
+                    "SystemSettings_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__SystemSettings_All_PreprocessQuery);
+            private static bool __SystemSettings_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.SystemSettings_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __SystemSettings_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SystemSettings_All_Executing();
+            }
+            private static void __SystemSettings_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.SystemSettings_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.SystemSetting>)args[0]);
+            }
+            private static void __SystemSettings_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.SystemSettings_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __SystemSettings_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting>)args[0];
+                d.SystemSettings_All_PreprocessQuery(ref query);
                 return query;
             }
     

@@ -161,6 +161,15 @@
     <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SettingName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="StringValue" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="DefaultValue" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDataObjectContext">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
     <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
@@ -171,6 +180,7 @@
     <EntitySet Name="ServerOperationHistories" EntityType="MarketingData.ServerOperationHistory" />
     <EntitySet Name="CraigslistPostViews" EntityType="MarketingData.CraigslistPostView" />
     <EntitySet Name="SmtpServers" EntityType="MarketingData.SmtpServer" />
+    <EntitySet Name="SystemSettings" EntityType="MarketingData.SystemSetting" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
