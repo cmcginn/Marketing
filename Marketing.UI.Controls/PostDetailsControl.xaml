@@ -91,10 +91,32 @@
         <dxb:BarCheckItem Command="{Binding Path=PageLayoutLineNumberingRestartNewSection, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingRestartNewSection" />
         <dxb:BarCheckItem Command="{Binding Path=FormatParagraphSuppressLineNumbers, Mode=OneTime, Source={StaticResource commands}}" Name="biFormatParagraphSuppressLineNumbers" />
         <dxb:BarButtonItem Command="{Binding Path=PageLayoutLineNumberingOptions, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutLineNumberingOptions" />
+        <dxb:BarButtonItem Command="{Binding Path=FileNew, Mode=OneTime, Source={StaticResource commands}}" Name="biFileNew" />
+        <dxb:BarButtonItem Command="{Binding Path=FileOpen, Mode=OneTime, Source={StaticResource commands}}" Name="biFileOpen" />
+        <dxb:BarButtonItem Command="{Binding Path=FileSaveAs, Mode=OneTime, Source={StaticResource commands}}" Name="biFileSaveAs" />
+        <dxb:BarButtonItem Command="{Binding Path=FilePrint, Mode=OneTime, Source={StaticResource commands}}" Name="biFilePrint" />
+        <dxb:BarButtonItem Command="{Binding Path=FilePrintPreview, Mode=OneTime, Source={StaticResource commands}}" Name="biFilePrintPreview" />
+        <dxb:BarButtonItem Command="{Binding Path=FileBrowserPrint, Mode=OneTime, Source={StaticResource commands}}" Name="biFileBrowserPrint" />
+        <dxb:BarButtonItem Command="{Binding Path=FileBrowserPrintPreview, Mode=OneTime, Source={StaticResource commands}}" Name="biFileBrowserPrintPreview" />
+        <dxb:BarButtonItem Command="{Binding Path=EditUndo, Mode=OneTime, Source={StaticResource commands}}" Name="biEditUndo" />
+        <dxb:BarButtonItem Command="{Binding Path=EditRedo, Mode=OneTime, Source={StaticResource commands}}" Name="biEditRedo" />
       </dxb:BarManager.Items>
       <dx:DockPanel>
         <dxr:RibbonControl dx:DockPanel.Dock="Top" Name="ribbonControl1">
           <dxr:RibbonDefaultPageCategory>
+            <dxr:RibbonPage Caption="{Binding Source={StaticResource stringIdConverter}, ConverterParameter=Caption_PageFile, Converter={StaticResource stringIdConverter}, Mode=OneTime}" Name="pageFile">
+              <dxr:RibbonPageGroup Caption="{Binding Source={StaticResource stringIdConverter}, ConverterParameter=Caption_GroupCommon, Converter={StaticResource stringIdConverter}, Mode=OneTime}" Name="grpCommon" ShowCaptionButton="False">
+                <dxb:BarButtonItemLink BarItemName="biFileNew" />
+                <dxb:BarButtonItemLink BarItemName="biFileOpen" />
+                <dxb:BarButtonItemLink BarItemName="biFileSaveAs" />
+                <dxb:BarButtonItemLink BarItemName="biFilePrint" />
+                <dxb:BarButtonItemLink BarItemName="biFilePrintPreview" />
+                <dxb:BarButtonItemLink BarItemName="biFileBrowserPrint" />
+                <dxb:BarButtonItemLink BarItemName="biFileBrowserPrintPreview" />
+                <dxb:BarButtonItemLink BarItemName="biEditUndo" />
+                <dxb:BarButtonItemLink BarItemName="biEditRedo" />
+              </dxr:RibbonPageGroup>
+            </dxr:RibbonPage>
             <dxr:RibbonPage Caption="{Binding Source={StaticResource stringIdConverter}, ConverterParameter=Caption_PagePageLayout, Converter={StaticResource stringIdConverter}, Mode=OneTime}" Name="pagePageLayout">
               <dxr:RibbonPageGroup Caption="{Binding Source={StaticResource stringIdConverter}, ConverterParameter=Caption_GroupPageSetup, Converter={StaticResource stringIdConverter}, Mode=OneTime}" CaptionButtonCommand="{Binding Path=PageLayoutPageOptions, Mode=OneTime, Source={StaticResource commands}}" Name="grpPageSetup">
                 <dxb:BarSubItemLink BarItemName="biPageLayoutMargins" />
