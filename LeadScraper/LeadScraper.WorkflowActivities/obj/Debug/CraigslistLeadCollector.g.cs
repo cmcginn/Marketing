@@ -19,6 +19,10 @@ namespace LeadScraper.WorkflowActivities {
         
         private System.Activities.OutArgument<System.Xml.Linq.XElement> _postsElement;
         
+        private System.Activities.InArgument<Marketing.Data.MarketingDomainModelContainer> _marketingContext;
+        
+        private System.Activities.InArgument<Marketing.Data.ServerOperationHistory> _ServerOperationHistory;
+        
         public CraigslistLeadCollector() {
             this.InitializeComponent();
         }
@@ -29,6 +33,26 @@ namespace LeadScraper.WorkflowActivities {
             }
             set {
                 this._postsElement = value;
+            }
+        }
+        
+        [System.Activities.RequiredArgumentAttribute()]
+        public System.Activities.InArgument<Marketing.Data.MarketingDomainModelContainer> marketingContext {
+            get {
+                return this._marketingContext;
+            }
+            set {
+                this._marketingContext = value;
+            }
+        }
+        
+        [System.Activities.RequiredArgumentAttribute()]
+        public System.Activities.InArgument<Marketing.Data.ServerOperationHistory> ServerOperationHistory {
+            get {
+                return this._ServerOperationHistory;
+            }
+            set {
+                this._ServerOperationHistory = value;
             }
         }
         

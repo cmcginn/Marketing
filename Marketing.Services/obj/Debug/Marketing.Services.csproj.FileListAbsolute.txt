@@ -12,3 +12,17 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Workflow.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Unity.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Workflow.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Workflow.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Unity.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Unity.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Configuration.xml

@@ -1,17 +1,152 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<lw:Host sap:VirtualizedContainerService.HintSize="654,676" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:lw="clr-namespace:LeadScraper.WorkflowActivities;assembly=LeadScraper.WorkflowActivities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-  <lw:Host.Implementation>
-    <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\Host.xaml" sap:VirtualizedContainerService.HintSize="614,636">
+<local:Host sap:VirtualizedContainerService.HintSize="678,676" mva:VisualBasic.Settings="Assembly references and imported namespaces for internal implementation" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:local="clr-namespace:LeadScraper.WorkflowActivities;assembly=LeadScraper.WorkflowActivities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:md="clr-namespace:Marketing.Data;assembly=Marketing.Data" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:ntwa="clr-namespace:Neovolve.Toolkit.Workflow.Activities;assembly=Neovolve.Toolkit.Workflow" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sdo="clr-namespace:System.Data.Objects;assembly=System.Data.Entity" xmlns:sdod="clr-namespace:System.Data.Objects.DataClasses;assembly=System.Data.Entity" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <local:Host.Implementation>
+    <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\Host.xaml" sap:VirtualizedContainerService.HintSize="638,636">
+      <Flowchart.Variables>
+        <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer]" Name="context" />
+        <Variable x:TypeArguments="s:Guid" Name="craigslistRefreshId" />
+        <Variable x:TypeArguments="s:Guid" Name="sendQueuedEmailsId" />
+        <Variable x:TypeArguments="md:ServerOperationHistory" Name="craigslistRefreshServerHistoryItem" />
+        <Variable x:TypeArguments="md:ServerOperationHistory" Name="sendQueuedEmailRefreshServerHistoryItem" />
+      </Flowchart.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
           <av:Size x:Key="ShapeSize">60,75</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,121.5</av:PointCollection>
+          <x:Double x:Key="Width">624.5</x:Double>
         </scg3:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <Flowchart.StartNode>
-        <x:Null />
+        <FlowStep x:Name="__ReferenceID3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">179,121.5</av:Point>
+              <av:Size x:Key="ShapeSize">242,57</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,178.5 300,208.5 300,211.5</av:PointCollection>
+            </scg3:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Craigslist Refresh Server Operation Id" sap:VirtualizedContainerService.HintSize="242,57">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:Guid">[craigslistRefreshId]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:Guid">[New Guid("691167F8-0946-4DB0-A1AC-E71FF40F8605")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">179,211.5</av:Point>
+                  <av:Size x:Key="ShapeSize">242,57</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">300,268.5 300,298.5 300,311.5</av:PointCollection>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign Send Queued Emails Server Operation Id" sap:VirtualizedContainerService.HintSize="242,57">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:Guid">[sendQueuedEmailsId]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:Guid">[New Guid("5366DA10-1189-4F1A-A51D-20659DE37BB4")]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID0">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">179,311.5</av:Point>
+                      <av:Size x:Key="ShapeSize">242,57</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">300,368.5 300,398.5 300,421.5</av:PointCollection>
+                    </scg3:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Assign First Un-Started CraigslistRefresh Item" sap:VirtualizedContainerService.HintSize="242,57">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="md:ServerOperationHistory">[craigslistRefreshServerHistoryItem]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="md:ServerOperationHistory">[context.ServerOperationHistories.Where(Function (n) n.Started Is Nothing).ToList().Where(Function(n) n.ServerOperationId = craigslistRefreshId).OrderBy(Function(n) n.Scheduled).FirstOrDefault]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">179,421.5</av:Point>
+                          <av:Size x:Key="ShapeSize">242,57</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">300,478.5 300,508.5 300,535.5</av:PointCollection>
+                        </scg3:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Assign First Un-Started SendQueuedEmailsRefresh Item" sap:VirtualizedContainerService.HintSize="242,57">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="md:ServerOperationHistory">[sendQueuedEmailRefreshServerHistoryItem]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="md:ServerOperationHistory">[context.ServerOperationHistories.Where(Function (n) n.Started Is Nothing).ToList().Where(Function(n) n.ServerOperationId = sendQueuedEmailsId).OrderBy(Function(n) n.Scheduled).FirstOrDefault]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <FlowStep.Next>
+                        <FlowStep x:Name="__ReferenceID2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">200,535.5</av:Point>
+                              <av:Size x:Key="ShapeSize">200,49</av:Size>
+                            </scg3:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ntwa:IfThen Condition="[Not craigslistRefreshServerHistoryItem Is Nothing]" DisplayName="If Craigslist Refresh Scheduled" sap:VirtualizedContainerService.HintSize="269,280">
+                            <ActivityAction>
+                              <Sequence sap:VirtualizedContainerService.HintSize="249,173">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg3:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <TryCatch sap:VirtualizedContainerService.HintSize="418,278">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg3:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <TryCatch.Try>
+                                    <local:CraigslistLeadCollector postsElement="{x:Null}" sap:VirtualizedContainerService.HintSize="400,100" ServerOperationHistory="[craigslistRefreshServerHistoryItem]" marketingContext="[context]" />
+                                  </TryCatch.Try>
+                                  <TryCatch.Catches>
+                                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg3:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ActivityAction x:TypeArguments="s:Exception">
+                                        <ActivityAction.Argument>
+                                          <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                                        </ActivityAction.Argument>
+                                        <WriteLine sap:VirtualizedContainerService.HintSize="398,75" Text="[exception.Message]" />
+                                      </ActivityAction>
+                                    </Catch>
+                                  </TryCatch.Catches>
+                                </TryCatch>
+                              </Sequence>
+                            </ActivityAction>
+                          </ntwa:IfThen>
+                        </FlowStep>
+                      </FlowStep.Next>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowStep.Next>
+        </FlowStep>
       </Flowchart.StartNode>
+      <x:Reference>__ReferenceID0</x:Reference>
+      <x:Reference>__ReferenceID1</x:Reference>
+      <x:Reference>__ReferenceID2</x:Reference>
+      <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID4</x:Reference>
     </Flowchart>
-  </lw:Host.Implementation>
-</lw:Host>
+  </local:Host.Implementation>
+</local:Host>

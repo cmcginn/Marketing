@@ -423,3 +423,9 @@ C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\uk\Microsoft.LightSwitch
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\vi\Microsoft.LightSwitch.Extensions.Server.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\zh-Hans\Microsoft.LightSwitch.Extensions.Server.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\zh-Hant\Microsoft.LightSwitch.Extensions.Server.resources.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Neovolve.Toolkit.Workflow.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Neovolve.Toolkit.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Microsoft.Practices.Unity.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Neovolve.Toolkit.Unity.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\bin\Microsoft.Practices.Unity.Configuration.dll

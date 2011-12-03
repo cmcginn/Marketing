@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="f719f1d6-9a45-4dae-95bb-e44753dcc0e1" name="Administrator@WIN-RNMUH95F9U1 2011-12-03 06:59:43" runUser="WIN-RNMUH95F9U1\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="32fd8ac5-72e5-4e3c-a4d5-f8c26e4ed24d">
+    <Deployment userDeploymentRoot="C:\Projects\Urbana\Marketing\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Administrator_WIN-RNMUH95F9U1 2011-12-03 06_59_43">
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Net.Interfaces.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Types.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Net.dll" />
+      <DeploymentItem filename="C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Neovolve\Neovolve Toolkit\1.1.237.25175\Neovolve.Toolkit.Workflow.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\Dependencies\Common.Utils.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.WorkflowActivities\bin\Debug\LeadScraper.WorkflowActivities.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Utils\bin\Debug\LeadScraper.Utils.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-12-03T06:59:43.3437500-05:00" queuing="2011-12-03T06:59:46.6904296-05:00" start="2011-12-03T06:59:47.1865234-05:00" finish="2011-12-03T07:00:07.3798828-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Run" storage="c:\projects\urbana\marketing\leadscraper\leadscraper.tests\bin\debug\leadscraper.tests.dll" id="a5dab67b-72d9-9214-9db4-3b0dba58e8f2">
+      <Execution id="1924672f-b6ba-4f70-af22-43d8c97dc79e" />
+      <TestMethod codeBase="C:/Projects/Urbana/Marketing/LeadScraper/LeadScraper.Tests/bin/Debug/LeadScraper.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="LeadScraper.Tests.HostRunner, LeadScraper.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Run" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a5dab67b-72d9-9214-9db4-3b0dba58e8f2" executionId="1924672f-b6ba-4f70-af22-43d8c97dc79e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="1924672f-b6ba-4f70-af22-43d8c97dc79e" testId="a5dab67b-72d9-9214-9db4-3b0dba58e8f2" testName="Run" computerName="WIN-RNMUH95F9U1" duration="00:00:13.5246714" startTime="2011-12-03T06:59:48.1552734-05:00" endTime="2011-12-03T07:00:05.4648437-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1924672f-b6ba-4f70-af22-43d8c97dc79e">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method LeadScraper.Tests.HostRunner.Run threw exception: 
+System.NotSupportedException: LINQ to Entities does not recognize the method 'System.Guid GetValue[Guid](System.Activities.LocationReference)' method, and this method cannot be translated into a store expression.</Message>
+          <StackTrace>    at System.Activities.WorkflowApplication.Invoke(Activity activity, IDictionary`2 inputs, WorkflowInstanceExtensionManager extensions, TimeSpan timeout)
+   at System.Activities.WorkflowInvoker.Invoke(Activity workflow, TimeSpan timeout, WorkflowInstanceExtensionManager extensions)
+   at System.Activities.WorkflowInvoker.Invoke()
+   at LeadScraper.Tests.HostRunner.Run() in C:\Projects\Urbana\Marketing\LeadScraper\LeadScraper.Tests\HostRunner.cs:line 18
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

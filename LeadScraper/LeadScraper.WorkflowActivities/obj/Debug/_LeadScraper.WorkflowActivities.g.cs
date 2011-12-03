@@ -56,6 +56,8 @@ namespace XamlStaticHelperNamespace {
             assemblyList.Add(Load("Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a" +
                         "3a"));
             assemblyList.Add(Load("mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
+            assemblyList.Add(Load("Neovolve.Toolkit.Workflow, Version=1.1.237.25187, Culture=neutral, PublicKeyToken" +
+                        "=911824a9aa319cb2"));
             assemblyList.Add(Load("PresentationCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e" +
                         "35"));
             assemblyList.Add(Load("PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856a" +

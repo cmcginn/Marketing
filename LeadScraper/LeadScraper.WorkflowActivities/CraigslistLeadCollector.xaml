@@ -1,6 +1,16 @@
 ﻿<Activity mc:Ignorable="sap" x:Class="LeadScraper.WorkflowActivities.CraigslistLeadCollector" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:cn="clr-namespace:Common.Net;assembly=Common.Net" xmlns:cni="clr-namespace:Common.Net.Interfaces;assembly=Common.Net.Interfaces" xmlns:lu="clr-namespace:LeadScraper.Utils;assembly=LeadScraper.Utils" xmlns:lue="clr-namespace:LeadScraper.Utils.Extensions;assembly=LeadScraper.Utils" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:md="clr-namespace:Marketing.Data;assembly=Marketing.Data" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=System" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:s1="clr-namespace:System;assembly=System" xmlns:s2="clr-namespace:System;assembly=System.Xml" xmlns:s3="clr-namespace:System;assembly=System.Core" xmlns:s4="clr-namespace:System;assembly=System.ServiceModel" xmlns:sa="clr-namespace:System.Activities;assembly=System.Activities" xmlns:sad="clr-namespace:System.Activities.Debugger;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System" xmlns:scg1="clr-namespace:System.Collections.Generic;assembly=System.ServiceModel" xmlns:scg2="clr-namespace:System.Collections.Generic;assembly=System.Core" xmlns:scg3="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sde="clr-namespace:System.Data.EntityClient;assembly=System.Data.Entity" xmlns:sdo="clr-namespace:System.Data.Objects;assembly=System.Data.Entity" xmlns:sdod="clr-namespace:System.Data.Objects.DataClasses;assembly=System.Data.Entity" xmlns:sl="clr-namespace:System.Linq;assembly=System.Core" xmlns:st="clr-namespace:System.Text;assembly=mscorlib" xmlns:sx="clr-namespace:System.Xml;assembly=System.Data" xmlns:sx1="clr-namespace:System.Xml;assembly=System.Xml" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Xml.Linq" xmlns:sxs="clr-namespace:System.Xml.Serialization;assembly=System.Xml" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="postsElement" Type="OutArgument(sxl:XElement)" />
+    <x:Property Name="marketingContext" Type="InArgument(md:MarketingDomainModelContainer)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
+    <x:Property Name="ServerOperationHistory" Type="InArgument(md:ServerOperationHistory)">
+      <x:Property.Attributes>
+        <RequiredArgumentAttribute />
+      </x:Property.Attributes>
+    </x:Property>
   </x:Members>
   <sap:VirtualizedContainerService.HintSize>748,1401</sap:VirtualizedContainerService.HintSize>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
@@ -11,7 +21,6 @@
       <Variable x:TypeArguments="x:String" Name="responseString" />
       <Variable x:TypeArguments="scg3:List(x:String)" Name="postingUrls" />
       <Variable x:TypeArguments="sxl:XDocument" Name="postsDocument" />
-      <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer]" Name="marketingContext" />
       <Variable x:TypeArguments="scg3:List(md:CraigslistCity)" Name="postCities" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -32,7 +41,7 @@
             <av:Size x:Key="ShapeSize">200,49</av:Size>
           </scg3:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Collect Craigslist Posts" sap:VirtualizedContainerService.HintSize="264,367">
+        <Sequence DisplayName="Collect Craigslist Posts" sap:VirtualizedContainerService.HintSize="264,895">
           <Sequence.Variables>
             <Variable x:TypeArguments="scg3:List(md:Keyword)" Name="keywords" />
           </Sequence.Variables>
@@ -41,6 +50,19 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg3:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign Start Time" sap:VirtualizedContainerService.HintSize="242,57">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[ServerOperationHistory.Started]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <InvokeMethod sap:VirtualizedContainerService.HintSize="242,127" MethodName="SaveChanges">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[marketingContext]</InArgument>
+            </InvokeMethod.TargetObject>
+          </InvokeMethod>
           <Assign DisplayName="Assign Post Cities" sap:VirtualizedContainerService.HintSize="242,57">
             <Assign.To>
               <OutArgument x:TypeArguments="scg3:List(md:CraigslistCity)">[postCities]</OutArgument>
@@ -57,7 +79,7 @@
               <InArgument x:TypeArguments="scg3:List(md:Keyword)">[marketingContext.Keywords.ToList]</InArgument>
             </Assign.Value>
           </Assign>
-          <ForEach x:TypeArguments="md:CraigslistCity" DisplayName="For Each Active City" sap:VirtualizedContainerService.HintSize="282,203" Values="[postCities]">
+          <ForEach x:TypeArguments="md:CraigslistCity" DisplayName="For Each Active City" sap:VirtualizedContainerService.HintSize="242,49" Values="[postCities]">
             <sap:WorkflowViewStateService.ViewState>
               <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -354,6 +376,19 @@
               </TryCatch>
             </ActivityAction>
           </ForEach>
+          <Assign DisplayName="Assign Completed Time" sap:VirtualizedContainerService.HintSize="242,57">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[ServerOperationHistory.Completed]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <InvokeMethod DisplayName="Persist Completed Time" sap:VirtualizedContainerService.HintSize="242,127" MethodName="SaveChanges">
+            <InvokeMethod.TargetObject>
+              <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[marketingContext]</InArgument>
+            </InvokeMethod.TargetObject>
+          </InvokeMethod>
         </Sequence>
       </FlowStep>
     </Flowchart.StartNode>

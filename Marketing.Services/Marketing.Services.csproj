@@ -43,6 +43,7 @@
     <Reference Include="Common.Utils">
       <HintPath>..\LeadScraper\Dependencies\Common.Utils.dll</HintPath>
     </Reference>
+    <Reference Include="Neovolve.Toolkit.Workflow, Version=1.1.237.25187, Culture=neutral, PublicKeyToken=911824a9aa319cb2, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

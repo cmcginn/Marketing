@@ -64,6 +64,7 @@
     <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Processed" Type="datetime" />
   </EntityType>
   <EntityType Name="Keyword">
     <Key>

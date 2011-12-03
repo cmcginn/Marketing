@@ -1011,6 +1011,30 @@ namespace Marketing.Data
         private global::System.String _ResponseHtmlContent;
         partial void OnResponseHtmlContentChanging(global::System.String value);
         partial void OnResponseHtmlContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Processed
+        {
+            get
+            {
+                return _Processed;
+            }
+            set
+            {
+                OnProcessedChanging(value);
+                ReportPropertyChanging("Processed");
+                _Processed = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Processed");
+                OnProcessedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Processed;
+        partial void OnProcessedChanging(Nullable<global::System.DateTime> value);
+        partial void OnProcessedChanged();
 
         #endregion
     
@@ -1285,14 +1309,12 @@ namespace Marketing.Data
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="serverOperationId">Initial value of the ServerOperationId property.</param>
-        /// <param name="started">Initial value of the Started property.</param>
         /// <param name="scheduled">Initial value of the Scheduled property.</param>
-        public static ServerOperationHistory CreateServerOperationHistory(global::System.Guid id, global::System.Guid serverOperationId, global::System.DateTime started, global::System.DateTime scheduled)
+        public static ServerOperationHistory CreateServerOperationHistory(global::System.Guid id, global::System.Guid serverOperationId, global::System.DateTime scheduled)
         {
             ServerOperationHistory serverOperationHistory = new ServerOperationHistory();
             serverOperationHistory.Id = id;
             serverOperationHistory.ServerOperationId = serverOperationId;
-            serverOperationHistory.Started = started;
             serverOperationHistory.Scheduled = scheduled;
             return serverOperationHistory;
         }
@@ -1354,9 +1376,9 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime Started
+        public Nullable<global::System.DateTime> Started
         {
             get
             {
@@ -1371,8 +1393,8 @@ namespace Marketing.Data
                 OnStartedChanged();
             }
         }
-        private global::System.DateTime _Started;
-        partial void OnStartedChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _Started;
+        partial void OnStartedChanging(Nullable<global::System.DateTime> value);
         partial void OnStartedChanged();
     
         /// <summary>

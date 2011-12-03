@@ -69,6 +69,7 @@
           <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Processed" Type="datetime" />
         </EntityType>
         <EntityType Name="Keyword">
           <Key>
@@ -197,6 +198,7 @@
           <Property Type="DateTime" Name="Created" Nullable="false" />
           <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
           <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Processed" />
         </EntityType>
         <Association Name="FK_CraigsListResponse_CraigslistPosts">
           <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
@@ -276,7 +278,7 @@
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
           <Property Type="Guid" Name="ServerOperationId" Nullable="false" />
-          <Property Type="DateTime" Name="Started" Nullable="false" />
+          <Property Type="DateTime" Name="Started" Nullable="true" />
           <Property Type="DateTime" Name="Completed" />
           <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
           <Property Type="DateTime" Name="Scheduled" Nullable="false" />
@@ -315,6 +317,7 @@
           <EntitySetMapping Name="CraigsListResponses">
             <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
               <MappingFragment StoreEntitySet="CraigsListResponse">
+                <ScalarProperty Name="Processed" ColumnName="Processed" />
                 <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />

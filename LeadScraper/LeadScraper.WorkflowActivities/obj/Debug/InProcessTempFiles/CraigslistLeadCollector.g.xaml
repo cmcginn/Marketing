@@ -8,7 +8,6 @@
         <Variable x:TypeArguments="x:String" Name="responseString" />
         <Variable x:TypeArguments="scg3:List(x:String)" Name="postingUrls" />
         <Variable x:TypeArguments="sxl:XDocument" Name="postsDocument" />
-        <Variable x:TypeArguments="md:MarketingDomainModelContainer" Default="[New MarketingDomainModelContainer]" Name="marketingContext" />
         <Variable x:TypeArguments="scg3:List(md:CraigslistCity)" Name="postCities" />
       </Flowchart.Variables>
       <sap:WorkflowViewStateService.ViewState>
@@ -29,7 +28,7 @@
               <av:Size x:Key="ShapeSize">200,49</av:Size>
             </scg3:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Collect Craigslist Posts" sap:VirtualizedContainerService.HintSize="264,367">
+          <Sequence DisplayName="Collect Craigslist Posts" sap:VirtualizedContainerService.HintSize="264,895">
             <Sequence.Variables>
               <Variable x:TypeArguments="scg3:List(md:Keyword)" Name="keywords" />
             </Sequence.Variables>
@@ -38,6 +37,19 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <Assign DisplayName="Assign Start Time" sap:VirtualizedContainerService.HintSize="242,57">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[ServerOperationHistory.Started]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <InvokeMethod sap:VirtualizedContainerService.HintSize="242,127" MethodName="SaveChanges">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[marketingContext]</InArgument>
+              </InvokeMethod.TargetObject>
+            </InvokeMethod>
             <Assign DisplayName="Assign Post Cities" sap:VirtualizedContainerService.HintSize="242,57">
               <Assign.To>
                 <OutArgument x:TypeArguments="scg3:List(md:CraigslistCity)">[postCities]</OutArgument>
@@ -54,7 +66,7 @@
                 <InArgument x:TypeArguments="scg3:List(md:Keyword)">[marketingContext.Keywords.ToList]</InArgument>
               </Assign.Value>
             </Assign>
-            <ForEach x:TypeArguments="md:CraigslistCity" DisplayName="For Each Active City" sap:VirtualizedContainerService.HintSize="282,203" Values="[postCities]">
+            <ForEach x:TypeArguments="md:CraigslistCity" DisplayName="For Each Active City" sap:VirtualizedContainerService.HintSize="242,49" Values="[postCities]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg3:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -351,6 +363,19 @@
                 </TryCatch>
               </ActivityAction>
             </ForEach>
+            <Assign DisplayName="Assign Completed Time" sap:VirtualizedContainerService.HintSize="242,57">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:Nullable(s:DateTime)">[ServerOperationHistory.Completed]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:Nullable(s:DateTime)">[System.DateTime.Now]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <InvokeMethod DisplayName="Persist Completed Time" sap:VirtualizedContainerService.HintSize="242,127" MethodName="SaveChanges">
+              <InvokeMethod.TargetObject>
+                <InArgument x:TypeArguments="md:MarketingDomainModelContainer">[marketingContext]</InArgument>
+              </InvokeMethod.TargetObject>
+            </InvokeMethod>
           </Sequence>
         </FlowStep>
       </Flowchart.StartNode>

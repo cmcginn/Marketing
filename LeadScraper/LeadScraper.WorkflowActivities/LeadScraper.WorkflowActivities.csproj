@@ -44,6 +44,7 @@
       <HintPath>..\Dependencies\Common.Types.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Neovolve.Toolkit.Workflow, Version=1.1.237.25187, Culture=neutral, PublicKeyToken=911824a9aa319cb2, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -85,6 +86,12 @@
       <Project>{4E082787-CD7F-437D-B71A-A199B4925ABD}</Project>
       <Name>LeadScraper.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamlAppDef Include="EmailResponsesActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

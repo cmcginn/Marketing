@@ -31,11 +31,11 @@ namespace Marketing.Services {
     }
     public Operation RunServerOperations() {
         //call host eventually
-        //var invoker = new WorkflowInvoker( new Host() );
-        // Task t = new Task( () => {
-        //  invoker.Invoke();
-        // } );
-        // t.Start();
+      var invoker = new WorkflowInvoker( new Host() );
+      Task t = new Task( () => {
+        invoker.Invoke();
+      } );
+      t.Start();
       return new Operation { Id = Guid.NewGuid() };
     }
 
