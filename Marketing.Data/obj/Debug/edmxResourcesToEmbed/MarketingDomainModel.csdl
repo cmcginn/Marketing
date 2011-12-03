@@ -53,6 +53,7 @@
     <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="Processed" />
     <Property Type="DateTime" Name="Sent" />
+    <Property Type="DateTime" Name="RepliedTo" />
   </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />

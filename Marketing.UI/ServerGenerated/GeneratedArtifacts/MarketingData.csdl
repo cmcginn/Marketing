@@ -73,6 +73,7 @@
     <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
     <Property Name="Processed" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
     <Property Name="Sent" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="RepliedTo" Type="DateTime" Precision="3" ConcurrencyMode="Fixed" />
     <Property Name="CraigslitPostsId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="CraigslistPost" Relationship="MarketingData.FK_CraigsListResponse_CraigslistPosts" ToRole="CraigslistPosts" FromRole="CraigsListResponse" />
   </EntityType>

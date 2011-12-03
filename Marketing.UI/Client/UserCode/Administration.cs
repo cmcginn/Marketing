@@ -55,5 +55,10 @@ namespace LightSwitchApplication {
       result = ServerCommandCanExecute( SendEmailsInQueueId );
 
     }
+
+    partial void ViewResponse_Execute() {
+      Application.ShowViewCraigslistResponse( this.CraigsListResponses.SelectedItem.Id );
+
+    }
   }
 }

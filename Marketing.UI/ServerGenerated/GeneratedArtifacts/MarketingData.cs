@@ -1414,6 +1414,30 @@ namespace MarketingData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> RepliedTo
+        {
+            get
+            {
+                return _RepliedTo;
+            }
+            set
+            {
+                OnRepliedToChanging(value);
+                ReportPropertyChanging("RepliedTo");
+                _RepliedTo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RepliedTo");
+                OnRepliedToChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _RepliedTo;
+        partial void OnRepliedToChanging(Nullable<global::System.DateTime> value);
+        partial void OnRepliedToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CraigslitPostsId

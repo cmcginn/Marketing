@@ -24,6 +24,13 @@
           <ShowScreenMethod TargetScreen="Administration" />
         </ApplicationMethod.Attributes>
       </ApplicationMethod>
+      <ApplicationMethod Name="ShowViewCraigslistResponse">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="ViewCraigslistResponse" />
+        </ApplicationMethod.Attributes>
+        <ApplicationMethodParameter Name="CraigsListResponseId"
+                                    ParameterType=":Guid" />
+      </ApplicationMethod>
     </Application.Methods>
     <Application.Attributes>
       <AutomaticDisplayName Expression="(\p{Ll})(\p{Lu})|_+"
@@ -230,6 +237,14 @@
           <DateTimeConstraint Precision="3"
                               PreserveSeconds="True"
                               Kind="Unspecified" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="RepliedTo"
+                      PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint Precision="3"
+                              PreserveSeconds="True" />
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
@@ -1407,7 +1422,7 @@
 
   <Screen Name="CraigsListPosts">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService" />
+      <SaveChangesTo DataService="MarketingDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1696,7 +1711,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewCraigslistResponse">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService" />
+      <SaveChangesTo DataService="MarketingDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -1897,7 +1912,7 @@
 
   <Screen Name="Administration">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDataDataService" />
+      <SaveChangesTo DataService="MarketingDataDataService1" />
     </Screen.Attributes>
     <Screen.Properties>
       <ScreenCollectionProperty Name="CraigslistCities"
@@ -1988,6 +2003,28 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenCollectionProperty Name="CraigsListResponses"
+                                PageSize="45"
+                                PropertyType="CollectionView$CraigsListResponse">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="CraigsListResponsesQuery"
+                                 ReturnType="CraigsListResponse*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingData/Members[CraigsListResponses]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Administration/Properties[CraigsListResponses]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2013,6 +2050,7 @@
       <ScreenMethod Name="RunOperation" />
       <ScreenMethod Name="RunRefresh" />
       <ScreenMethod Name="SendQueuedEmails" />
+      <ScreenMethod Name="ViewResponse" />
     </Screen.Methods>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -2133,6 +2171,9 @@
           </ContentItem>
           <ContentItem Kind="Group"
                        Name="Group">
+            <ContentItem.Attributes>
+              <DisplayName Value="Keywords" />
+            </ContentItem.Attributes>
             <ContentItem DataType="CollectionView$Keyword"
                          Kind="Collection"
                          Name="Keywords">
@@ -2261,6 +2302,124 @@
             <ContentItem.Attributes>
               <DisplayName Value="Server Operations" />
             </ContentItem.Attributes>
+          </ContentItem>
+          <ContentItem DataType="CollectionView$CraigsListResponse"
+                       Kind="Collection"
+                       Name="CraigsListResponses">
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:DataGrid/Properties[ShowVirtualRow]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="False" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="Administration/Properties[CraigsListResponses]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType="CraigsListResponse"
+                         Kind="Details"
+                         Name="CraigsListResponsesTemplate">
+              <ContentItem.CommandItems>
+                <ContentItem Kind="Command"
+                             Name="ViewResponse">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression Target="Administration/Methods[ViewResponse]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem.CommandItems>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":DateTime"
+                           Kind="Value"
+                           Name="Created"
+                           View=":Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListResponse/Properties[Created]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType="CraigslistPost"
+                           Kind="Details"
+                           Name="CraigslistPost"
+                           View=":ColumnsLayout">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:DetailsAutoCompleteBox/Properties[AutoCompleteBoxFilterMode]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="None" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListResponse/Properties[CraigslistPost]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem DataType=":String"
+                             Kind="Value"
+                             Name="Title">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="CraigslistPost/Properties[Title]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem DataType=":DateTime?"
+                           Kind="Value"
+                           Name="Processed"
+                           View=":Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListResponse/Properties[Processed]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime?"
+                           Kind="Value"
+                           Name="Sent"
+                           View=":Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListResponse/Properties[Sent]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime?"
+                           Kind="Value"
+                           Name="RepliedTo">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="CraigsListResponse/Properties[RepliedTo]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
           </ContentItem>
         </ContentItem>
       </ContentItem>
@@ -2795,10 +2954,9 @@
                     Multiplicity="Many"
                     Name="ServerOperationHistory" />
   </Association>
-
   <DataService DataProvider="EntityFrameworkDataProvider"
                EntityContainer="MarketingData"
-               Name="MarketingDataDataService">
+               Name="MarketingDataDataService1">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="DataProviderName"
                           Value="91510608-8809-4020-8897-fba057e22d54" />
@@ -2916,6 +3074,10 @@
         <SsdlProperty Name="Sent"
                       Nullable="True"
                       Property="CraigsListResponse/Properties[Sent]"
+                      Type="datetime" />
+        <SsdlProperty Name="RepliedTo"
+                      Nullable="True"
+                      Property="CraigsListResponse/Properties[RepliedTo]"
                       Type="datetime" />
         <SsdlForeignKeyProperty Name="CraigslitPostsId"
                                 Nullable="False"
@@ -3143,6 +3305,109 @@
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
   </DataService>
+
+  <Screen Name="ViewCraigslistResponse">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDataDataService1" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty Name="CraigsListResponse"
+                      PropertyType="CraigsListResponse">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="LightSwitchApplication:MarketingData/Members[CraigsListResponses_SingleOrDefault]">
+              <ArgumentExpression Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression Member="ViewCraigslistResponse/Properties[CraigsListResponseId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
+      <ScreenProperty Name="CraigsListResponseId"
+                      PropertyType=":Guid">
+        <ScreenProperty.Attributes>
+          <IsParameter />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout"
+                     View=":ColumnsLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+          <ContentItem DataType=":String"
+                       Kind="Value"
+                       Name="CraigsListResponse_ResponseHtmlContent"
+                       View=":ValueCustomContentControl">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="ViewCraigslistResponse/Properties[CraigsListResponse]" />
+                  <MemberExpression Member="ResponseHtmlContent" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Marketing.UI.Controls.PostViewControl, Marketing.UI.Controls" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="None" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
+
+  
 
 
 

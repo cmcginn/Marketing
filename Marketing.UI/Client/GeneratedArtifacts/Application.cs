@@ -78,6 +78,21 @@ namespace LightSwitchApplication
             ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowAdministration);
         }
         
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_CanRun(ref bool result, global::System.Guid CraigsListResponseId);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_Run(ref bool handled, global::System.Guid CraigsListResponseId);
+    
+        /// <summary>
+        /// Opens the ShowViewCraigslistResponse screen.  If the screen is already opened, it is activated and shown.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void ShowViewCraigslistResponse(global::System.Guid CraigsListResponseId)
+        {
+            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowViewCraigslistResponse, CraigsListResponseId);
+        }
+        
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -143,6 +158,8 @@ namespace LightSwitchApplication
                         return global::LightSwitchApplication.CreateNewCraigslistResponse.CreateInstance((global::System.Guid)args[0]);
                     case "Administration":
                         return global::LightSwitchApplication.Administration.CreateInstance();
+                    case "ViewCraigslistResponse":
+                        return global::LightSwitchApplication.ViewCraigslistResponse.CreateInstance((global::System.Guid)args[0]);
                 }
             
                 return base.CreateScreen(screenName, args);
@@ -215,6 +232,15 @@ namespace LightSwitchApplication
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
                                base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowAdministration);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowViewCraigslistResponse
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowViewCraigslistResponse);
                     }
                 }
 
@@ -348,6 +374,32 @@ namespace LightSwitchApplication
                     }
                 }
  
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowViewCraigslistResponse = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowViewCraigslistResponse",
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowViewCraigslistResponse_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowViewCraigslistResponse_CanInvoke,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowViewCraigslistResponse_InvokeMethod);
+                private static void _ShowViewCraigslistResponse_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowViewCraigslistResponseMethod, sf);
+                }
+                private static global::System.Exception _ShowViewCraigslistResponse_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Application.ViewCraigslistResponse_CanRun(ref result, (global::System.Guid)args[0]);
+                    return result ? null : ex;
+                }
+                private static void _ShowViewCraigslistResponse_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    bool handled = false;
+                    d.Application.ViewCraigslistResponse_Run(ref handled, (global::System.Guid)args[0]);
+                    if (!handled)
+                    {
+                        d.ShowScreen("LightSwitchApplication:ViewCraigslistResponse", () => global::LightSwitchApplication.ViewCraigslistResponse.CreateInstance((global::System.Guid)args[0]), args);
+                    }
+                }
+ 
             }
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowCraigsListPostsMethod;
@@ -355,6 +407,8 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowCreateNewCraigslistResponseMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowAdministrationMethod;
+
+            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowViewCraigslistResponseMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowCraigsListPostsCommand;
 

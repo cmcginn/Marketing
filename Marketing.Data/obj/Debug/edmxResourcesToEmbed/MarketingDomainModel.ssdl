@@ -67,6 +67,7 @@
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Processed" Type="datetime" />
     <Property Name="Sent" Type="datetime" />
+    <Property Name="RepliedTo" Type="datetime" />
   </EntityType>
   <EntityType Name="Keyword">
     <Key>

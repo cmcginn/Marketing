@@ -125,6 +125,7 @@
     <Compile Include="UserCode\CraigsListPosts.cs" />
     <Compile Include="UserCode\CreateNewCraigsListResponse.cs" />
     <Compile Include="UserCode\Administration.cs" />
+    <Compile Include="UserCode\ViewCraigslistResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="..\Data\ApplicationDefinition.lsml">

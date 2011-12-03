@@ -474,6 +474,27 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> RepliedTo
+        {
+            get
+            {
+                return this._RepliedTo;
+            }
+            set
+            {
+                if (this._RepliedTo != value)
+                {
+                    this.RaiseDataMemberChanging("RepliedTo");
+                    this.ValidateProperty("RepliedTo", value);
+                    this._RepliedTo = value;
+                    this.RaiseDataMemberChanged("RepliedTo");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _RepliedTo;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public global::System.Guid CraigslitPostsId
         {
             get

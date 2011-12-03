@@ -72,6 +72,7 @@
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="Processed" Type="datetime" />
           <Property Name="Sent" Type="datetime" />
+          <Property Name="RepliedTo" Type="datetime" />
         </EntityType>
         <EntityType Name="Keyword">
           <Key>
@@ -217,6 +218,7 @@
           <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Processed" />
           <Property Type="DateTime" Name="Sent" />
+          <Property Type="DateTime" Name="RepliedTo" />
         </EntityType>
         <Association Name="FK_CraigsListResponse_CraigslistPosts">
           <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
@@ -349,6 +351,7 @@
           <EntitySetMapping Name="CraigsListResponses">
             <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
               <MappingFragment StoreEntitySet="CraigsListResponse">
+                <ScalarProperty Name="RepliedTo" ColumnName="RepliedTo" />
                 <ScalarProperty Name="Sent" ColumnName="Sent" />
                 <ScalarProperty Name="Processed" ColumnName="Processed" />
                 <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />

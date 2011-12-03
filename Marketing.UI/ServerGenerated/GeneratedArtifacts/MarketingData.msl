@@ -24,6 +24,7 @@
           <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
           <ScalarProperty Name="Processed" ColumnName="Processed" />
           <ScalarProperty Name="Sent" ColumnName="Sent" />
+          <ScalarProperty Name="RepliedTo" ColumnName="RepliedTo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

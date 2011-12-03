@@ -745,6 +745,13 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void ServerOperations_Loaded(bool succeeded);
 
+        partial void CraigsListResponses_SelectionChanged();
+
+        partial void CraigsListResponses_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Loaded(bool succeeded);
+
         /// <summary>
         /// Gets the CraigslistCities visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
@@ -806,6 +813,21 @@ namespace LightSwitchApplication
         partial void ServerOperations_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         /// <summary>
+        /// Gets the CraigsListResponses visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.CraigsListResponse> CraigsListResponses
+        {
+            get
+            {
+                return global::LightSwitchApplication.Administration.DetailsClass.GetValue(this, global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.CraigsListResponses);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponses_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        /// <summary>
         /// Calls the RunOperation screen method.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -840,6 +862,18 @@ namespace LightSwitchApplication
         }
         partial void SendQueuedEmails_CanExecute(ref bool result);
         partial void SendQueuedEmails_Execute();
+
+        /// <summary>
+        /// Calls the ViewResponse screen method.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void ViewResponse()
+        {
+            this.Details.Methods.ViewResponse.CreateInvocation().Execute();
+        }
+        partial void ViewResponse_CanExecute(ref bool result);
+        partial void ViewResponse_Execute();
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -948,6 +982,13 @@ namespace LightSwitchApplication
                 return this.Screen.DataWorkspace.MarketingData.ServerOperations;
             }
 
+            private global::Microsoft.LightSwitch.IDataServiceQueryable CraigsListResponsesQuery()
+            {
+                return global::Microsoft.LightSwitch.DataServiceQueryable.Include(
+                    this.Screen.DataWorkspace.MarketingData.CraigsListResponses,
+                    "CraigslistPost");
+            }
+
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCities;
 
@@ -961,6 +1002,9 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.ServerOperation>.Data _ServerOperations;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponses;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _RunOperationCommand;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -970,6 +1014,9 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _SendQueuedEmailsCommand;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _ViewResponseCommand;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _RunOperationMethod;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -977,6 +1024,9 @@ namespace LightSwitchApplication
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _SendQueuedEmailsMethod;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _ViewResponseMethod;
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -1017,6 +1067,14 @@ namespace LightSwitchApplication
                     }
                 }
 
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponses
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.CraigsListResponses);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1050,6 +1108,14 @@ namespace LightSwitchApplication
                     }
                 }
 
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass> ViewResponse
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties.ViewResponse);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1080,6 +1146,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties.SendQueuedEmails);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass> ViewResponse
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties.ViewResponse);
                     }
                 }
 
@@ -1227,6 +1301,40 @@ namespace LightSwitchApplication
                     s.ServerOperations_Loaded(succeeded);
                 }
 
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
+                    CraigsListResponses = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
+                        "CraigsListResponses",
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigsListResponses_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigsListResponses_Validate,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigsListResponses_CreateQuery,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigsListResponses_SelectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigsListResponses_OnCollectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._CraigsListResponses_OnLoaded);
+                private static void _CraigsListResponses_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigsListResponses, sf);
+                }
+                private static void _CraigsListResponses_Validate(global::LightSwitchApplication.Administration s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.CraigsListResponses_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _CraigsListResponses_CreateQuery(global::LightSwitchApplication.Administration.DetailsClass d, object[] args)
+                {
+                    return d.CraigsListResponsesQuery();
+                }
+                private static void _CraigsListResponses_SelectionChanged(global::LightSwitchApplication.Administration s)
+                {
+                    s.CraigsListResponses_SelectionChanged();
+                }
+                private static void _CraigsListResponses_OnCollectionChanged(global::LightSwitchApplication.Administration s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    s.CraigsListResponses_Changed(e);
+                }
+                private static void _CraigsListResponses_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
+                {
+                    s.CraigsListResponses_Loaded(succeeded);
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1275,6 +1383,20 @@ namespace LightSwitchApplication
                 private static global::Microsoft.LightSwitch.IExecutable _SendQueuedEmails_CreateExecutableObject(global::LightSwitchApplication.Administration.DetailsClass d)
                 {
                     return ((global::LightSwitchApplication.Administration.DetailsClass)d).Methods.SendQueuedEmails.CreateInvocation();
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry
+                    ViewResponse = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry(
+                        "ViewResponse",
+                        global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties._ViewResponse_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.CommandSetProperties._ViewResponse_CreateExecutableObject);
+                private static void _ViewResponse_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ViewResponseCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _ViewResponse_CreateExecutableObject(global::LightSwitchApplication.Administration.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Administration.DetailsClass)d).Methods.ViewResponse.CreateInvocation();
                 }
 
             }
@@ -1348,6 +1470,334 @@ namespace LightSwitchApplication
                     d.Screen.SendQueuedEmails_Execute();
                 }
 
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry
+                    ViewResponse = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Entry(
+                        "ViewResponse",
+                        global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties._ViewResponse_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties._ViewResponse_CanInvoke,
+                        global::LightSwitchApplication.Administration.DetailsClass.MethodSetProperties._ViewResponse_InvokeMethod);
+                private static void _ViewResponse_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ViewResponseMethod, sf);
+                }
+                private static global::System.Exception _ViewResponse_CanInvoke(global::LightSwitchApplication.Administration.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Screen.ViewResponse_CanExecute(ref result);
+                    return result ? null : ex;
+                }
+                private static void _ViewResponse_InvokeMethod(global::LightSwitchApplication.Administration.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    d.Screen.ViewResponse_Execute();
+                }
+
+            }
+        }
+    }
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    public sealed partial class ViewCraigslistResponse
+        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass>
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private ViewCraigslistResponse(global::System.Guid CraigsListResponseId) : base("LightSwitchApplication:ViewCraigslistResponse")
+        {
+                this.CraigsListResponseId = CraigsListResponseId;
+            global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.Initialize(this);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public static ViewCraigslistResponse CreateInstance(global::System.Guid CraigsListResponseId)
+        {
+            return new global::LightSwitchApplication.ViewCraigslistResponse(
+                        CraigsListResponseId
+            );
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_Created();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_Activated();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_Saving(ref bool handled);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_Saved();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_Closing(ref bool cancel);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ViewCraigslistResponse_SaveError(global::System.Exception exception, ref bool handled);
+     
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)((global::Microsoft.LightSwitch.Details.Client.IScreenDetails)this.Details).DataWorkspace;
+            }
+        }
+        
+        #endregion
+ 
+        partial void CraigsListResponse_Changed();
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponse_Loaded(bool succeeded);
+
+        partial void CraigsListResponseId_Changed();
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.CraigsListResponse CraigsListResponse
+        {
+            get
+            {
+                return global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.GetValue(this, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties.CraigsListResponse);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponse_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Guid CraigsListResponseId
+        {
+            get 
+            {
+                return global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.GetValue(this, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties.CraigsListResponseId);
+            }
+            set
+            {
+                global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.SetValue(this, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties.CraigsListResponseId, value);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigsListResponseId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public sealed class DetailsClass
+            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySet, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.CommandSet, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.MethodSet>
+        {
+
+            static DetailsClass()
+            {
+                var initializePropertyEntry = global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties.CraigsListResponse;
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass>.Entry
+                __ViewCraigslistResponseEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass>.Entry(
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeInitializeDataWorkspace,
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeSavingEvent,
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeSavedEvent,
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeClosingEvent,
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeCreated,
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeActivated,
+                    global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.__ViewCraigslistResponse_InvokeSaveErrorEvent);
+            private static void __ViewCraigslistResponse_InvokeInitializeDataWorkspace(global::LightSwitchApplication.ViewCraigslistResponse s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
+            {
+                s.ViewCraigslistResponse_InitializeDataWorkspace(saveChangesTo);
+            }
+            private static bool __ViewCraigslistResponse_InvokeSavingEvent(global::LightSwitchApplication.ViewCraigslistResponse s)
+            {
+                bool handled = false;
+                s.ViewCraigslistResponse_Saving(ref handled);
+                return handled;
+            }
+            private static void __ViewCraigslistResponse_InvokeSavedEvent(global::LightSwitchApplication.ViewCraigslistResponse s)
+            {
+                s.ViewCraigslistResponse_Saved();
+            }
+            private static bool __ViewCraigslistResponse_InvokeClosingEvent(global::LightSwitchApplication.ViewCraigslistResponse s)
+            {
+                bool cancel = false;
+                s.ViewCraigslistResponse_Closing(ref cancel);
+                return cancel;
+            }
+            private static void __ViewCraigslistResponse_InvokeCreated(global::LightSwitchApplication.ViewCraigslistResponse s)
+            {
+                s.ViewCraigslistResponse_Created();
+            }
+            private static void __ViewCraigslistResponse_InvokeActivated(global::LightSwitchApplication.ViewCraigslistResponse s)
+            {
+                s.ViewCraigslistResponse_Activated();
+            }
+            private static bool __ViewCraigslistResponse_InvokeSaveErrorEvent(global::LightSwitchApplication.ViewCraigslistResponse s, global::System.Exception ex)
+            {
+                bool handled = false;
+                s.ViewCraigslistResponse_SaveError(ex, ref handled);
+                return handled;
+            }
+
+            public DetailsClass() : base()
+            {
+            }
+
+            public new global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySet Properties
+            {
+                get
+                {
+                    return base.Properties;
+                }
+            }
+
+            public new global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.CommandSet Commands
+            {
+                get
+                {
+                    return base.Commands;
+                }
+            }
+
+            public new global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.MethodSet Methods
+            {
+                get
+                {
+                    return base.Methods;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data _CraigsListResponse;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::System.Guid>.Data _CraigsListResponseId;
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class PropertySet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.CraigsListResponse> CraigsListResponse
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.CraigsListResponse>)base.GetItem(global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties.CraigsListResponse);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::System.Guid> CraigsListResponseId
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::System.Guid>)base.GetItem(global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties.CraigsListResponseId);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class CommandSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class MethodSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class PropertySetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry
+                    CraigsListResponse = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Entry(
+                        "CraigsListResponse",
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponse_Stub,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponse_Validate,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponse_CreateQuery,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponse_OnValueChanged,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponse_OnLoaded);
+                private static void _CraigsListResponse_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::LightSwitchApplication.CraigsListResponse>.Data> c, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigsListResponse, sf);
+                }
+                private static void _CraigsListResponse_Validate(global::LightSwitchApplication.ViewCraigslistResponse s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.CraigsListResponse_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _CraigsListResponse_CreateQuery(global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass d, object[] args)
+                {
+                    return null;
+                }
+                private static void _CraigsListResponse_OnValueChanged(global::LightSwitchApplication.ViewCraigslistResponse s)
+                {
+                    s.CraigsListResponse_Changed();
+                }
+
+                private static void _CraigsListResponse_OnLoaded(global::LightSwitchApplication.ViewCraigslistResponse s, bool succeeded)
+                {
+                    s.CraigsListResponse_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::System.Guid>.Entry
+                    CraigsListResponseId = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::System.Guid>.Entry(
+                        "CraigsListResponseId",
+                        false,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponseId_Stub,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponseId_Validate,
+                        global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass.PropertySetProperties._CraigsListResponseId_OnValueChanged);
+                private static void _CraigsListResponseId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.ViewCraigslistResponse, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.ViewCraigslistResponse.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigsListResponseId, sf);
+                }
+                private static void _CraigsListResponseId_Validate(global::LightSwitchApplication.ViewCraigslistResponse s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.CraigsListResponseId_Validate(r);
+                }
+                private static void _CraigsListResponseId_OnValueChanged(global::LightSwitchApplication.ViewCraigslistResponse s)
+                {
+                    s.CraigsListResponseId_Changed();
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class CommandSetProperties
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class MethodSetProperties
+            {
             }
         }
     }
