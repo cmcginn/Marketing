@@ -302,6 +302,32 @@ namespace LightSwitchApplication
             }
         }
         
+        /// <summary>
+        /// Gets the UserCraigslistCities entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserCraigslistCity> UserCraigslistCities
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.UserCraigslistCities);
+            }
+        }
+        
+        /// <summary>
+        /// Gets the vw_aspnet_Users entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.vw_aspnet_User> vw_aspnet_Users
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.vw_aspnet_Users);
+            }
+        }
+        
         #endregion
     
         #region Queries
@@ -574,6 +600,94 @@ namespace LightSwitchApplication
             return this.Details.Methods.SystemSettings_SingleOrDefault.CreateInvocation(Id).Execute();
         }
         
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="UserId">
+        /// The value of the 'UserId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="CraigslistCityId">
+        /// The value of the 'CraigslistCityId' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.UserCraigslistCity UserCraigslistCities_Single(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId)
+        {
+            return this.Details.Methods.UserCraigslistCities_Single.CreateInvocation(UserId, CraigslistCityId).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="UserId">
+        /// The value of the 'UserId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="CraigslistCityId">
+        /// The value of the 'CraigslistCityId' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.UserCraigslistCity UserCraigslistCities_SingleOrDefault(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId)
+        {
+            return this.Details.Methods.UserCraigslistCities_SingleOrDefault.CreateInvocation(UserId, CraigslistCityId).Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserCraigslistCity> GetUserCraigslistCities()
+        {
+            return this.Details.Methods.GetUserCraigslistCities.CreateInvocation().Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="ApplicationId">
+        /// The value of the 'ApplicationId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="UserId">
+        /// The value of the 'UserId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="UserName">
+        /// The value of the 'UserName' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="LoweredUserName">
+        /// The value of the 'LoweredUserName' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="IsAnonymous">
+        /// The value of the 'IsAnonymous' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="LastActivityDate">
+        /// The value of the 'LastActivityDate' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.vw_aspnet_User vw_aspnet_Users_Single(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
+        {
+            return this.Details.Methods.vw_aspnet_Users_Single.CreateInvocation(ApplicationId, UserId, UserName, LoweredUserName, IsAnonymous, LastActivityDate).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="ApplicationId">
+        /// The value of the 'ApplicationId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="UserId">
+        /// The value of the 'UserId' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="UserName">
+        /// The value of the 'UserName' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="LoweredUserName">
+        /// The value of the 'LoweredUserName' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="IsAnonymous">
+        /// The value of the 'IsAnonymous' key property of the entity to retrieve.
+        /// </param>
+        /// <param name="LastActivityDate">
+        /// The value of the 'LastActivityDate' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.vw_aspnet_User vw_aspnet_Users_SingleOrDefault(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
+        {
+            return this.Details.Methods.vw_aspnet_Users_SingleOrDefault.CreateInvocation(ApplicationId, UserId, UserName, LoweredUserName, IsAnonymous, LastActivityDate).Execute();
+        }
+        
         #endregion
     
         #region Details Class
@@ -782,6 +896,46 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity> UserCraigslistCities_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.UserCraigslistCities_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity> UserCraigslistCities_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.UserCraigslistCities_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity> GetUserCraigslistCities
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.GetUserCraigslistCities) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User> vw_aspnet_Users_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.vw_aspnet_Users_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User> vw_aspnet_Users_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties.vw_aspnet_Users_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>;
+                    }
+                }
+                
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -872,6 +1026,22 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.SystemSettings) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.SystemSetting>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity> UserCraigslistCities
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.UserCraigslistCities) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User> vw_aspnet_Users
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties.vw_aspnet_Users) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>;
                     }
                 }
                 
@@ -1083,6 +1253,56 @@ namespace LightSwitchApplication
                     c(d, ref d._SystemSettings_SingleOrDefault, sf);
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry
+                    UserCraigslistCities_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry(
+                        "UserCraigslistCities_Single",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._UserCraigslistCities_Single_Stub);
+                private static void _UserCraigslistCities_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserCraigslistCities_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry
+                    UserCraigslistCities_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry(
+                        "UserCraigslistCities_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._UserCraigslistCities_SingleOrDefault_Stub);
+                private static void _UserCraigslistCities_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserCraigslistCities_SingleOrDefault, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry
+                    GetUserCraigslistCities = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry(
+                        "GetUserCraigslistCities",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._GetUserCraigslistCities_Stub);
+                private static void _GetUserCraigslistCities_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserCraigslistCities, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Entry
+                    vw_aspnet_Users_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Entry(
+                        "vw_aspnet_Users_Single",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._vw_aspnet_Users_Single_Stub);
+                private static void _vw_aspnet_Users_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._vw_aspnet_Users_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Entry
+                    vw_aspnet_Users_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Entry(
+                        "vw_aspnet_Users_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.MethodSetProperties._vw_aspnet_Users_SingleOrDefault_Stub);
+                private static void _vw_aspnet_Users_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._vw_aspnet_Users_SingleOrDefault, sf);
+                }
+    
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1191,6 +1411,26 @@ namespace LightSwitchApplication
                     c(d, ref d._SystemSettings, sf);
                 }
      
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry
+                    UserCraigslistCities = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry(
+                        "UserCraigslistCities",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._UserCraigslistCities_Stub);
+                private static void _UserCraigslistCities_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserCraigslistCities, sf);
+                }
+     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Entry
+                    vw_aspnet_Users = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Entry(
+                        "vw_aspnet_Users",
+                        global::LightSwitchApplication.MarketingData.DetailsClass.PropertySetProperties._vw_aspnet_Users_Stub);
+                private static void _vw_aspnet_Users_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Data> c, global::LightSwitchApplication.MarketingData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._vw_aspnet_Users, sf);
+                }
+     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1222,6 +1462,12 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.SystemSetting>.Data _SystemSettings;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data _UserCraigslistCities;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Data _vw_aspnet_Users;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.CraigslistPost>.Data _CraigslistPosts_Single;
@@ -1282,6 +1528,21 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.SystemSetting>.Data _SystemSettings_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data _UserCraigslistCities_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data _UserCraigslistCities_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data _GetUserCraigslistCities;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Data _vw_aspnet_Users_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingData, global::LightSwitchApplication.MarketingData.DetailsClass, global::LightSwitchApplication.vw_aspnet_User>.Data _vw_aspnet_Users_SingleOrDefault;
             
         }
     

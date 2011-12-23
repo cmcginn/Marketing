@@ -22,6 +22,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("MarketingData", "FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPosts", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MarketingData.Implementation.CraigslistPost), "CraigslistPostKeywords", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MarketingData.Implementation.CraigslistPostKeyword), true)]
 [assembly: EdmRelationshipAttribute("MarketingData", "FK_CraigslistPosts_CraigslistCity", "CraigslistCity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MarketingData.Implementation.CraigslistCity), "CraigslistPosts", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MarketingData.Implementation.CraigslistPost), true)]
 [assembly: EdmRelationshipAttribute("MarketingData", "FK_ServerOperationHistory_ServerOperation", "ServerOperation", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MarketingData.Implementation.ServerOperation), "ServerOperationHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MarketingData.Implementation.ServerOperationHistory), true)]
+[assembly: EdmRelationshipAttribute("MarketingData", "FK_UserCraigslistCity_CraigslistCity", "CraigslistCity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(MarketingData.Implementation.CraigslistCity), "UserCraigslistCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(MarketingData.Implementation.UserCraigslistCity), true)]
 
 #endregion
 
@@ -229,6 +230,38 @@ namespace MarketingData.Implementation
             }
         }
         private ObjectSet<SystemSetting> _SystemSettings;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserCraigslistCity> UserCraigslistCities
+        {
+            get
+            {
+                if ((_UserCraigslistCities == null))
+                {
+                    _UserCraigslistCities = base.CreateObjectSet<UserCraigslistCity>("UserCraigslistCities");
+                }
+                return _UserCraigslistCities;
+            }
+        }
+        private ObjectSet<UserCraigslistCity> _UserCraigslistCities;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<vw_aspnet_User> vw_aspnet_Users
+        {
+            get
+            {
+                if ((_vw_aspnet_Users == null))
+                {
+                    _vw_aspnet_Users = base.CreateObjectSet<vw_aspnet_User>("vw_aspnet_Users");
+                }
+                return _vw_aspnet_Users;
+            }
+        }
+        private ObjectSet<vw_aspnet_User> _vw_aspnet_Users;
 
         #endregion
         #region AddTo Methods
@@ -311,6 +344,22 @@ namespace MarketingData.Implementation
         public void AddToSystemSettings(SystemSetting systemSetting)
         {
             base.AddObject("SystemSettings", systemSetting);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserCraigslistCities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserCraigslistCities(UserCraigslistCity userCraigslistCity)
+        {
+            base.AddObject("UserCraigslistCities", userCraigslistCity);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the vw_aspnet_Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTovw_aspnet_Users(vw_aspnet_User vw_aspnet_User)
+        {
+            base.AddObject("vw_aspnet_Users", vw_aspnet_User);
         }
 
         #endregion
@@ -498,6 +547,28 @@ namespace MarketingData.Implementation
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CraigslistPost>("MarketingData.FK_CraigslistPosts_CraigslistCity", "CraigslistPosts", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MarketingData", "FK_UserCraigslistCity_CraigslistCity", "UserCraigslistCity")]
+        public EntityCollection<UserCraigslistCity> UserCraigslistCities
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserCraigslistCity>("MarketingData.FK_UserCraigslistCity_CraigslistCity", "UserCraigslistCity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserCraigslistCity>("MarketingData.FK_UserCraigslistCity_CraigslistCity", "UserCraigslistCity", value);
                 }
             }
         }
@@ -2324,6 +2395,355 @@ namespace MarketingData.Implementation
         private global::System.String _DefaultValue;
         partial void OnDefaultValueChanging(global::System.String value);
         partial void OnDefaultValueChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingData", Name="UserCraigslistCity")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserCraigslistCity : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserCraigslistCity object.
+        /// </summary>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="craigslistCityId">Initial value of the CraigslistCityId property.</param>
+        public static UserCraigslistCity CreateUserCraigslistCity(global::System.Guid userId, global::System.Guid craigslistCityId)
+        {
+            UserCraigslistCity userCraigslistCity = new UserCraigslistCity();
+            userCraigslistCity.UserId = userId;
+            userCraigslistCity.CraigslistCityId = craigslistCityId;
+            return userCraigslistCity;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid CraigslistCityId
+        {
+            get
+            {
+                return _CraigslistCityId;
+            }
+            set
+            {
+                if (_CraigslistCityId != value)
+                {
+                    OnCraigslistCityIdChanging(value);
+                    ReportPropertyChanging("CraigslistCityId");
+                    _CraigslistCityId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CraigslistCityId");
+                    OnCraigslistCityIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _CraigslistCityId;
+        partial void OnCraigslistCityIdChanging(global::System.Guid value);
+        partial void OnCraigslistCityIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("MarketingData", "FK_UserCraigslistCity_CraigslistCity", "CraigslistCity")]
+        public CraigslistCity CraigslistCity
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistCity>("MarketingData.FK_UserCraigslistCity_CraigslistCity", "CraigslistCity").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistCity>("MarketingData.FK_UserCraigslistCity_CraigslistCity", "CraigslistCity").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<CraigslistCity> CraigslistCityReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistCity>("MarketingData.FK_UserCraigslistCity_CraigslistCity", "CraigslistCity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CraigslistCity>("MarketingData.FK_UserCraigslistCity_CraigslistCity", "CraigslistCity", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingData", Name="vw_aspnet_User")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class vw_aspnet_User : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new vw_aspnet_User object.
+        /// </summary>
+        /// <param name="applicationId">Initial value of the ApplicationId property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="userName">Initial value of the UserName property.</param>
+        /// <param name="loweredUserName">Initial value of the LoweredUserName property.</param>
+        /// <param name="isAnonymous">Initial value of the IsAnonymous property.</param>
+        /// <param name="lastActivityDate">Initial value of the LastActivityDate property.</param>
+        public static vw_aspnet_User Createvw_aspnet_User(global::System.Guid applicationId, global::System.Guid userId, global::System.String userName, global::System.String loweredUserName, global::System.Boolean isAnonymous, global::System.DateTime lastActivityDate)
+        {
+            vw_aspnet_User vw_aspnet_User = new vw_aspnet_User();
+            vw_aspnet_User.ApplicationId = applicationId;
+            vw_aspnet_User.UserId = userId;
+            vw_aspnet_User.UserName = userName;
+            vw_aspnet_User.LoweredUserName = loweredUserName;
+            vw_aspnet_User.IsAnonymous = isAnonymous;
+            vw_aspnet_User.LastActivityDate = lastActivityDate;
+            return vw_aspnet_User;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ApplicationId
+        {
+            get
+            {
+                return _ApplicationId;
+            }
+            set
+            {
+                if (_ApplicationId != value)
+                {
+                    OnApplicationIdChanging(value);
+                    ReportPropertyChanging("ApplicationId");
+                    _ApplicationId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ApplicationId");
+                    OnApplicationIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _ApplicationId;
+        partial void OnApplicationIdChanging(global::System.Guid value);
+        partial void OnApplicationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                if (_UserName != value)
+                {
+                    OnUserNameChanging(value);
+                    ReportPropertyChanging("UserName");
+                    _UserName = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("UserName");
+                    OnUserNameChanged();
+                }
+            }
+        }
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LoweredUserName
+        {
+            get
+            {
+                return _LoweredUserName;
+            }
+            set
+            {
+                if (_LoweredUserName != value)
+                {
+                    OnLoweredUserNameChanging(value);
+                    ReportPropertyChanging("LoweredUserName");
+                    _LoweredUserName = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("LoweredUserName");
+                    OnLoweredUserNameChanged();
+                }
+            }
+        }
+        private global::System.String _LoweredUserName;
+        partial void OnLoweredUserNameChanging(global::System.String value);
+        partial void OnLoweredUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MobileAlias
+        {
+            get
+            {
+                return _MobileAlias;
+            }
+            set
+            {
+                OnMobileAliasChanging(value);
+                ReportPropertyChanging("MobileAlias");
+                _MobileAlias = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MobileAlias");
+                OnMobileAliasChanged();
+            }
+        }
+        private global::System.String _MobileAlias;
+        partial void OnMobileAliasChanging(global::System.String value);
+        partial void OnMobileAliasChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsAnonymous
+        {
+            get
+            {
+                return _IsAnonymous;
+            }
+            set
+            {
+                if (_IsAnonymous != value)
+                {
+                    OnIsAnonymousChanging(value);
+                    ReportPropertyChanging("IsAnonymous");
+                    _IsAnonymous = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("IsAnonymous");
+                    OnIsAnonymousChanged();
+                }
+            }
+        }
+        private global::System.Boolean _IsAnonymous;
+        partial void OnIsAnonymousChanging(global::System.Boolean value);
+        partial void OnIsAnonymousChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastActivityDate
+        {
+            get
+            {
+                return _LastActivityDate;
+            }
+            set
+            {
+                if (_LastActivityDate != value)
+                {
+                    OnLastActivityDateChanging(value);
+                    ReportPropertyChanging("LastActivityDate");
+                    _LastActivityDate = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("LastActivityDate");
+                    OnLastActivityDateChanged();
+                }
+            }
+        }
+        private global::System.DateTime _LastActivityDate;
+        partial void OnLastActivityDateChanging(global::System.DateTime value);
+        partial void OnLastActivityDateChanged();
 
         #endregion
     

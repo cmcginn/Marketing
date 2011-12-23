@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Marketing_CraigslistScraperDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="Marketing_CraigslistScraperDataStore">
+    <EntitySet Name="City" EntityType="Marketing_CraigslistScraperDataStore.City" store:Type="Tables" Schema="dbo" Table="City" />
+    <EntitySet Name="UserCity" EntityType="Marketing_CraigslistScraperDataStore.UserCity" store:Type="Tables" Schema="dbo" Table="UserCity" />
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="Marketing_CraigslistScraperDataStore.vw_aspnet_MembershipUser" store:Type="Tables" Schema="dbo" Table="vw_aspnet_MembershipUsers" />
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="RegionName" />
+      <PropertyRef Name="CityName" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserCity">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_MembershipUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+</Schema>

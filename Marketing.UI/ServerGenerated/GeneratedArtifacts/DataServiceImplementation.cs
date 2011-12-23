@@ -325,6 +325,66 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region UserCraigslistCity
+    
+        public void InsertUserCraigslistCity(global::MarketingData.Implementation.UserCraigslistCity entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.UserCraigslistCities.AddObject(entity);
+            }
+        }
+    
+        public void UpdateUserCraigslistCity(global::MarketingData.Implementation.UserCraigslistCity currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserCraigslistCities, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUserCraigslistCity(global::MarketingData.Implementation.UserCraigslistCity entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.UserCraigslistCities.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
+    #region vw_aspnet_User
+    
+        public void Insertvw_aspnet_User(global::MarketingData.Implementation.vw_aspnet_User entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.vw_aspnet_Users.AddObject(entity);
+            }
+        }
+    
+        public void Updatevw_aspnet_User(global::MarketingData.Implementation.vw_aspnet_User currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.vw_aspnet_Users, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void Deletevw_aspnet_User(global::MarketingData.Implementation.vw_aspnet_User entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.vw_aspnet_Users.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.CraigslistPost> CraigslistPosts_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -474,6 +534,41 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingData.Implementation.SystemSetting> SystemSettings_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingData.Implementation.SystemSetting>("SystemSettings_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> UserCraigslistCities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("UserCraigslistCities_Single", frameworkOperators, UserId, CraigslistCityId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> UserCraigslistCities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("UserCraigslistCities_SingleOrDefault", frameworkOperators, UserId, CraigslistCityId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> UserCraigslistCities_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("UserCraigslistCities_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> GetUserCraigslistCities(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("GetUserCraigslistCities", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> vw_aspnet_Users_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.vw_aspnet_User>("vw_aspnet_Users_Single", frameworkOperators, ApplicationId, UserId, UserName, LoweredUserName, IsAnonymous, LastActivityDate);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> vw_aspnet_Users_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.vw_aspnet_User>("vw_aspnet_Users_SingleOrDefault", frameworkOperators, ApplicationId, UserId, UserName, LoweredUserName, IsAnonymous, LastActivityDate);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> vw_aspnet_Users_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingData.Implementation.vw_aspnet_User>("vw_aspnet_Users_All", frameworkOperators);
         }
     
     #endregion
@@ -759,6 +854,63 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> UserCraigslistCities_Single(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("UserCraigslistCities_All"),
+                (u) => ((CraigslistCityId.HasValue && (u.CraigslistCityId == CraigslistCityId)) && (UserId.HasValue && (u.UserId == UserId))));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> UserCraigslistCities_SingleOrDefault(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("UserCraigslistCities_All"),
+                (u) => ((CraigslistCityId.HasValue && (u.CraigslistCityId == CraigslistCityId)) && (UserId.HasValue && (u.UserId == UserId))));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> UserCraigslistCities_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.UserCraigslistCity>("[UserCraigslistCities]").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> GetUserCraigslistCities()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.UserCraigslistCity> query;
+            query = this.GetQuery<global::MarketingData.Implementation.UserCraigslistCity>("UserCraigslistCities_All");
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> vw_aspnet_Users_Single(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.vw_aspnet_User>("vw_aspnet_Users_All"),
+                (v) => ((((((LastActivityDate.HasValue && (v.LastActivityDate == LastActivityDate)) && (IsAnonymous.HasValue && (v.IsAnonymous == IsAnonymous))) && (v.LoweredUserName.CompareTo(LoweredUserName) == 0)) && (v.UserName.CompareTo(UserName) == 0)) && (UserId.HasValue && (v.UserId == UserId))) && (ApplicationId.HasValue && (v.ApplicationId == ApplicationId))));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> vw_aspnet_Users_SingleOrDefault(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingData.Implementation.vw_aspnet_User>("vw_aspnet_Users_All"),
+                (v) => ((((((LastActivityDate.HasValue && (v.LastActivityDate == LastActivityDate)) && (IsAnonymous.HasValue && (v.IsAnonymous == IsAnonymous))) && (v.LoweredUserName.CompareTo(LoweredUserName) == 0)) && (v.UserName.CompareTo(UserName) == 0)) && (UserId.HasValue && (v.UserId == UserId))) && (ApplicationId.HasValue && (v.ApplicationId == ApplicationId))));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> vw_aspnet_Users_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingData.Implementation.vw_aspnet_User> query;
+            query = base.CreateQuery<global::MarketingData.Implementation.vw_aspnet_User>("[vw_aspnet_Users]").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -803,6 +955,14 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingData.Implementation.SystemSetting))
             {
                 return new global::MarketingData.Implementation.SystemSetting();
+            }
+            if (type == typeof(global::MarketingData.Implementation.UserCraigslistCity))
+            {
+                return new global::MarketingData.Implementation.UserCraigslistCity();
+            }
+            if (type == typeof(global::MarketingData.Implementation.vw_aspnet_User))
+            {
+                return new global::MarketingData.Implementation.vw_aspnet_User();
             }
     
             return base.CreateObject(type);
@@ -857,6 +1017,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.SystemSetting))
             {
                 return new global::MarketingData.Implementation.SystemSetting();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserCraigslistCity))
+            {
+                return new global::MarketingData.Implementation.UserCraigslistCity();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.vw_aspnet_User))
+            {
+                return new global::MarketingData.Implementation.vw_aspnet_User();
             }
             return null;
         }
@@ -1145,6 +1313,14 @@ namespace LightSwitchApplication.Implementation
             {
                 return typeof(global::MarketingData.Implementation.SystemSetting);
             }
+            if (typeof(global::LightSwitchApplication.UserCraigslistCity) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.UserCraigslistCity);
+            }
+            if (typeof(global::LightSwitchApplication.vw_aspnet_User) == definitionType)
+            {
+                return typeof(global::MarketingData.Implementation.vw_aspnet_User);
+            }
             if (typeof(global::LightSwitchApplication.Operation) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.Operation);
@@ -1314,6 +1490,14 @@ namespace MarketingData.Implementation
             get
             {
                 return this.CraigslistPosts;
+            }
+        }
+        
+        global::System.Collections.IEnumerable global::LightSwitchApplication.CraigslistCity.DetailsClass.IImplementation.UserCraigslistCities
+        {
+            get
+            {
+                return this.UserCraigslistCities;
             }
         }
         
@@ -1618,6 +1802,104 @@ namespace MarketingData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class SystemSetting :
         global::LightSwitchApplication.SystemSetting.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    [global::System.ComponentModel.DataAnnotations.MetadataType(typeof(global::MarketingData.Implementation.UserCraigslistCity.Metadata))]
+    public partial class UserCraigslistCity :
+        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.IImplementation
+    {
+    
+        global::Microsoft.LightSwitch.Internal.IEntityImplementation global::LightSwitchApplication.UserCraigslistCity.DetailsClass.IImplementation.CraigslistCity
+        {
+            get
+            {
+                return this.CraigslistCity;
+            }
+            set
+            {
+                this.CraigslistCity = (global::MarketingData.Implementation.CraigslistCity)value;
+                if (this.__host != null)
+                {
+                    this.__host.RaisePropertyChanged("CraigslistCity");
+                }
+            }
+        }
+        
+        partial void OnCraigslistCityIdChanged()
+        {
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged("CraigslistCity");
+            }
+        }
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+        
+        internal class Metadata
+        {
+            [global::System.ServiceModel.DomainServices.Server.Include]
+            public global::MarketingData.Implementation.CraigslistCity CraigslistCity { get; set; }
+        
+        }
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class vw_aspnet_User :
+        global::LightSwitchApplication.vw_aspnet_User.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

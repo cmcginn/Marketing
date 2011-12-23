@@ -1,0 +1,4 @@
+<sitemanifest>
+<IisApp path="C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\app.publish\" />
+<LightSwitchApplication path="C:\Projects\Urbana\Marketing\Marketing.UI\Bin\Debug\app.publish\" authenticationmode="Forms"/>
+</sitemanifest>

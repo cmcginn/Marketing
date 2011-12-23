@@ -363,6 +363,45 @@ namespace LightSwitchApplication
         partial void SystemSettings_Validate(global::LightSwitchApplication.SystemSetting entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Inserting(global::LightSwitchApplication.UserCraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Inserted(global::LightSwitchApplication.UserCraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Updating(global::LightSwitchApplication.UserCraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Updated(global::LightSwitchApplication.UserCraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Deleting(global::LightSwitchApplication.UserCraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Deleted(global::LightSwitchApplication.UserCraigslistCity entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Validate(global::LightSwitchApplication.UserCraigslistCity entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_Validate(global::LightSwitchApplication.vw_aspnet_User entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -823,6 +862,111 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SystemSettings_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Single_Executing(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Single_Executed(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CraigslistCityId, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserCraigslistCities_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_Single_Executing(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate, ref global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_Single_Executed(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.vw_aspnet_User> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate, ref global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.vw_aspnet_User> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> ApplicationId, global::System.Nullable<global::System.Guid> UserId, string UserName, string LoweredUserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.vw_aspnet_User> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void vw_aspnet_Users_All_ExecuteFailed(global::System.Exception exception);
     
         #endregion
     
@@ -1474,6 +1618,100 @@ namespace LightSwitchApplication
             private static void __SystemSettings_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.SystemSetting e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.SystemSettings_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>
+                __UserCraigslistCitiesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>(
+                    "UserCraigslistCities",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_CanInsert,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_CanUpdate,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_CanDelete,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_CanRead,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Inserting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Inserted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Updating,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Updated,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Deleting,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Deleted,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Validate);
+            private static bool __UserCraigslistCities_CanInsert(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.UserCraigslistCities_CanInsert(ref result);
+                return result;
+            }
+            private static bool __UserCraigslistCities_CanUpdate(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.UserCraigslistCities_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __UserCraigslistCities_CanDelete(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.UserCraigslistCities_CanDelete(ref result);
+                return result;
+            }
+            private static bool __UserCraigslistCities_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.UserCraigslistCities_CanRead(ref result);
+                return result;
+            }
+            private static void __UserCraigslistCities_Inserting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e)
+            {
+                d.UserCraigslistCities_Inserting(e);
+            }
+            private static void __UserCraigslistCities_Inserted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e)
+            {
+                d.UserCraigslistCities_Inserted(e);
+            }
+            private static void __UserCraigslistCities_Updating(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e)
+            {
+                d.UserCraigslistCities_Updating(e);
+            }
+            private static void __UserCraigslistCities_Updated(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e)
+            {
+                d.UserCraigslistCities_Updated(e);
+            }
+            private static void __UserCraigslistCities_Deleting(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e)
+            {
+                d.UserCraigslistCities_Deleting(e);
+            }
+            private static void __UserCraigslistCities_Deleted(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e)
+            {
+                d.UserCraigslistCities_Deleted(e);
+            }
+            private static void __UserCraigslistCities_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.UserCraigslistCity e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.UserCraigslistCities_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>
+                __vw_aspnet_UsersEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>(
+                    "vw_aspnet_Users",
+                    null,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_CanRead,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_Validate);
+            private static bool __vw_aspnet_Users_CanRead(global::LightSwitchApplication.MarketingDataService d)
+            {
+                bool result = true;
+                d.vw_aspnet_Users_CanRead(ref result);
+                return result;
+            }
+            private static void __vw_aspnet_Users_Validate(global::LightSwitchApplication.MarketingDataService d, global::LightSwitchApplication.vw_aspnet_User e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.vw_aspnet_Users_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -2489,6 +2727,237 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.SystemSetting>)args[0];
                 d.SystemSettings_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>
+                __UserCraigslistCities_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>(
+                    "UserCraigslistCities_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_Single_PreprocessQuery);
+            private static bool __UserCraigslistCities_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.UserCraigslistCities_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserCraigslistCities_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.UserCraigslistCities_Single_Executing((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1]);
+            }
+            private static void __UserCraigslistCities_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.UserCraigslistCities_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity>)args[2]);
+            }
+            private static void __UserCraigslistCities_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserCraigslistCities_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], ex);
+            }
+            private static global::System.Linq.IQueryable __UserCraigslistCities_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity>)args[2];
+                d.UserCraigslistCities_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>
+                __UserCraigslistCities_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>(
+                    "UserCraigslistCities_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_SingleOrDefault_PreprocessQuery);
+            private static bool __UserCraigslistCities_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.UserCraigslistCities_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserCraigslistCities_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.UserCraigslistCities_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1]);
+            }
+            private static void __UserCraigslistCities_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.UserCraigslistCities_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity>)args[2]);
+            }
+            private static void __UserCraigslistCities_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserCraigslistCities_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], ex);
+            }
+            private static global::System.Linq.IQueryable __UserCraigslistCities_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity>)args[2];
+                d.UserCraigslistCities_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>
+                __UserCraigslistCities_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>(
+                    "UserCraigslistCities_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__UserCraigslistCities_All_PreprocessQuery);
+            private static bool __UserCraigslistCities_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.UserCraigslistCities_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserCraigslistCities_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.UserCraigslistCities_All_Executing();
+            }
+            private static void __UserCraigslistCities_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.UserCraigslistCities_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity>)args[0]);
+            }
+            private static void __UserCraigslistCities_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserCraigslistCities_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __UserCraigslistCities_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity>)args[0];
+                d.UserCraigslistCities_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>
+                __GetUserCraigslistCitiesEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.UserCraigslistCity>(
+                    "GetUserCraigslistCities",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__GetUserCraigslistCities_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__GetUserCraigslistCities_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__GetUserCraigslistCities_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__GetUserCraigslistCities_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__GetUserCraigslistCities_PreprocessQuery);
+            private static bool __GetUserCraigslistCities_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.GetUserCraigslistCities_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetUserCraigslistCities_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.GetUserCraigslistCities_Executing();
+            }
+            private static void __GetUserCraigslistCities_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.GetUserCraigslistCities_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCraigslistCity>)args[0]);
+            }
+            private static void __GetUserCraigslistCities_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetUserCraigslistCities_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __GetUserCraigslistCities_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserCraigslistCity>)args[0];
+                d.GetUserCraigslistCities_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>
+                __vw_aspnet_Users_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>(
+                    "vw_aspnet_Users_Single",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_Single_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_Single_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_Single_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_Single_PreprocessQuery);
+            private static bool __vw_aspnet_Users_Single_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.vw_aspnet_Users_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __vw_aspnet_Users_Single_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.vw_aspnet_Users_Single_Executing((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5]);
+            }
+            private static void __vw_aspnet_Users_Single_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.vw_aspnet_Users_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.vw_aspnet_User>)args[6]);
+            }
+            private static void __vw_aspnet_Users_Single_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.vw_aspnet_Users_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], ex);
+            }
+            private static global::System.Linq.IQueryable __vw_aspnet_Users_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User>)args[6];
+                d.vw_aspnet_Users_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>
+                __vw_aspnet_Users_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>(
+                    "vw_aspnet_Users_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_SingleOrDefault_PreprocessQuery);
+            private static bool __vw_aspnet_Users_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.vw_aspnet_Users_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __vw_aspnet_Users_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.vw_aspnet_Users_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5]);
+            }
+            private static void __vw_aspnet_Users_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.vw_aspnet_Users_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.vw_aspnet_User>)args[6]);
+            }
+            private static void __vw_aspnet_Users_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.vw_aspnet_Users_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], ex);
+            }
+            private static global::System.Linq.IQueryable __vw_aspnet_Users_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User>)args[6];
+                d.vw_aspnet_Users_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.Guid>)args[1], (string)args[2], (string)args[3], (global::System.Nullable<bool>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>
+                __vw_aspnet_Users_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDataService, global::LightSwitchApplication.vw_aspnet_User>(
+                    "vw_aspnet_Users_All",
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_All_Executing,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_All_Executed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_All_Failed,
+                    global::LightSwitchApplication.MarketingDataService.DetailsClass.__vw_aspnet_Users_All_PreprocessQuery);
+            private static bool __vw_aspnet_Users_All_CanExecute(global::LightSwitchApplication.MarketingDataService d, bool r)
+            {
+                d.vw_aspnet_Users_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __vw_aspnet_Users_All_Executing(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.vw_aspnet_Users_All_Executing();
+            }
+            private static void __vw_aspnet_Users_All_Executed(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                d.vw_aspnet_Users_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.vw_aspnet_User>)args[0]);
+            }
+            private static void __vw_aspnet_Users_All_Failed(global::LightSwitchApplication.MarketingDataService d, object[] args, global::System.Exception ex)
+            {
+                d.vw_aspnet_Users_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __vw_aspnet_Users_All_PreprocessQuery(global::LightSwitchApplication.MarketingDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.vw_aspnet_User>)args[0];
+                d.vw_aspnet_Users_All_PreprocessQuery(ref query);
                 return query;
             }
     

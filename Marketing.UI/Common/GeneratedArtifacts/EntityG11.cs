@@ -17,32 +17,32 @@ namespace LightSwitchApplication
     /// No Modeled Description Available
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    public sealed partial class Operation : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>
+    public sealed partial class UserCraigslistCity : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass>
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new instance of the Operation entity.
+        /// Initializes a new instance of the UserCraigslistCity entity.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public Operation()
+        public UserCraigslistCity()
             : this(null)
         {
         }
     
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public Operation(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.Operation> entitySet)
+        public UserCraigslistCity(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserCraigslistCity> entitySet)
             : base(entitySet)
         {
-            global::LightSwitchApplication.Operation.DetailsClass.Initialize(this);
+            global::LightSwitchApplication.UserCraigslistCity.DetailsClass.Initialize(this);
         }
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operation_Created();
+        partial void UserCraigslistCity_Created();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Operation_AllowSaveWithErrors(ref bool result);
+        partial void UserCraigslistCity_AllowSaveWithErrors(ref bool result);
     
         #endregion
     
@@ -83,24 +83,72 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Guid Id
+        public global::System.Guid UserId
         {
             get
             {
-                return global::LightSwitchApplication.Operation.DetailsClass.GetValue(this, global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id);
+                return global::LightSwitchApplication.UserCraigslistCity.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.UserId);
             }
             set
             {
-                global::LightSwitchApplication.Operation.DetailsClass.SetValue(this, global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id, value);
+                global::LightSwitchApplication.UserCraigslistCity.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.UserId, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Id_IsReadOnly(ref bool result);
+        partial void UserId_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Id_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void UserId_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Id_Changed();
+        partial void UserId_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Guid CraigslistCityId
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserCraigslistCity.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCityId);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserCraigslistCity.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCityId, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCityId_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCityId_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCityId_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.CraigslistCity CraigslistCity
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserCraigslistCity.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCity);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserCraigslistCity.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCity, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCity_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCity_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CraigslistCity_Changed();
 
         #endregion
     
@@ -111,37 +159,37 @@ namespace LightSwitchApplication
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<
-                global::LightSwitchApplication.Operation,
-                global::LightSwitchApplication.Operation.DetailsClass,
-                global::LightSwitchApplication.Operation.DetailsClass.IImplementation,
-                global::LightSwitchApplication.Operation.DetailsClass.PropertySet,
-                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>,
-                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>>
+                global::LightSwitchApplication.UserCraigslistCity,
+                global::LightSwitchApplication.UserCraigslistCity.DetailsClass,
+                global::LightSwitchApplication.UserCraigslistCity.DetailsClass.IImplementation,
+                global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySet,
+                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass>,
+                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass>>
         {
     
             static DetailsClass()
             {
-                var initializeEntry = global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id;
+                var initializeEntry = global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.UserId;
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>.Entry
-                __OperationEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>.Entry(
-                    global::LightSwitchApplication.Operation.DetailsClass.__Operation_CreateNew,
-                    global::LightSwitchApplication.Operation.DetailsClass.__Operation_Created,
-                    global::LightSwitchApplication.Operation.DetailsClass.__Operation_AllowSaveWithErrors);
-            private static global::LightSwitchApplication.Operation __Operation_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.Operation> es)
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass>.Entry
+                __UserCraigslistCityEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass>.Entry(
+                    global::LightSwitchApplication.UserCraigslistCity.DetailsClass.__UserCraigslistCity_CreateNew,
+                    global::LightSwitchApplication.UserCraigslistCity.DetailsClass.__UserCraigslistCity_Created,
+                    global::LightSwitchApplication.UserCraigslistCity.DetailsClass.__UserCraigslistCity_AllowSaveWithErrors);
+            private static global::LightSwitchApplication.UserCraigslistCity __UserCraigslistCity_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserCraigslistCity> es)
             {
-                return new global::LightSwitchApplication.Operation(es);
+                return new global::LightSwitchApplication.UserCraigslistCity(es);
             }
-            private static void __Operation_Created(global::LightSwitchApplication.Operation e)
+            private static void __UserCraigslistCity_Created(global::LightSwitchApplication.UserCraigslistCity e)
             {
-                e.Operation_Created();
+                e.UserCraigslistCity_Created();
             }
-            private static bool __Operation_AllowSaveWithErrors(global::LightSwitchApplication.Operation e)
+            private static bool __UserCraigslistCity_AllowSaveWithErrors(global::LightSwitchApplication.UserCraigslistCity e)
             {
                 bool result = false;
-                e.Operation_AllowSaveWithErrors(ref result);
+                e.UserCraigslistCity_AllowSaveWithErrors(ref result);
                 return result;
             }
     
@@ -149,7 +197,7 @@ namespace LightSwitchApplication
             {
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass> Commands
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass> Commands
             {
                 get
                 {
@@ -157,7 +205,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass> Methods
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass> Methods
             {
                 get
                 {
@@ -165,7 +213,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::LightSwitchApplication.Operation.DetailsClass.PropertySet Properties
+            public new global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySet Properties
             {
                 get
                 {
@@ -177,18 +225,34 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass>
+            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass>
             {
     
                 public PropertySet() : base()
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid> Id
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid> UserId
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.UserId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid> CraigslistCityId
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCityId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistCity> CraigslistCity
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCity) as global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistCity>;
                     }
                 }
                 
@@ -198,7 +262,9 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
-                new global::System.Guid Id { get; set; }
+                new global::System.Guid UserId { get; set; }
+                new global::System.Guid CraigslistCityId { get; set; }
+                new global::Microsoft.LightSwitch.Internal.IEntityImplementation CraigslistCity { get; set; }
             }
             #pragma warning restore 109
     
@@ -209,46 +275,136 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Entry
-                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Entry(
-                        "Id",
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_Stub,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_Validate,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
-                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Id_OnValueChanged);
-                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Operation.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.Operation.DetailsClass d, object sf)
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Entry
+                    UserId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Entry(
+                        "UserId",
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._UserId_Stub,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._UserId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._UserId_Validate,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._UserId_GetImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._UserId_SetImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._UserId_OnValueChanged);
+                private static void _UserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserCraigslistCity.DetailsClass d, object sf)
                 {
-                    c(d, ref d._Id, sf);
+                    c(d, ref d._UserId, sf);
                 }
-                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.Operation e)
+                private static bool _UserId_ComputeIsReadOnly(global::LightSwitchApplication.UserCraigslistCity e)
                 {
                     bool result = false;
-                    e.Id_IsReadOnly(ref result);
+                    e.UserId_IsReadOnly(ref result);
                     return result;
                 }
-                private static void _Id_Validate(global::LightSwitchApplication.Operation e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                private static void _UserId_Validate(global::LightSwitchApplication.UserCraigslistCity e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
                 {
-                    e.Id_Validate(r);
+                    e.UserId_Validate(r);
                 }
-                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.Operation.DetailsClass d)
+                private static global::System.Guid _UserId_GetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d)
                 {
-                    return d.ImplementationEntity.Id;
+                    return d.ImplementationEntity.UserId;
                 }
-                private static void _Id_SetImplementationValue(global::LightSwitchApplication.Operation.DetailsClass d, global::System.Guid v)
+                private static void _UserId_SetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d, global::System.Guid v)
                 {
-                    d.ImplementationEntity.Id = v;
+                    d.ImplementationEntity.UserId = v;
                 }
-                private static void _Id_OnValueChanged(global::LightSwitchApplication.Operation e)
+                private static void _UserId_OnValueChanged(global::LightSwitchApplication.UserCraigslistCity e)
                 {
-                    e.Id_Changed();
+                    e.UserId_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Entry
+                    CraigslistCityId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Entry(
+                        "CraigslistCityId",
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCityId_Stub,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCityId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCityId_Validate,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCityId_GetImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCityId_SetImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCityId_OnValueChanged);
+                private static void _CraigslistCityId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserCraigslistCity.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistCityId, sf);
+                }
+                private static bool _CraigslistCityId_ComputeIsReadOnly(global::LightSwitchApplication.UserCraigslistCity e)
+                {
+                    bool result = false;
+                    e.CraigslistCityId_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _CraigslistCityId_Validate(global::LightSwitchApplication.UserCraigslistCity e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.CraigslistCityId_Validate(r);
+                }
+                private static global::System.Guid _CraigslistCityId_GetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d)
+                {
+                    return d.ImplementationEntity.CraigslistCityId;
+                }
+                private static void _CraigslistCityId_SetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d, global::System.Guid v)
+                {
+                    d.ImplementationEntity.CraigslistCityId = v;
+                }
+                private static void _CraigslistCityId_OnValueChanged(global::LightSwitchApplication.UserCraigslistCity e)
+                {
+                    e.CraigslistCityId_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry
+                    CraigslistCity = new global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Entry(
+                        "CraigslistCity",
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_Stub,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_Validate,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_GetCoreImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_GetImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_SetImplementationValue,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_Refresh,
+                        global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties._CraigslistCity_OnValueChanged);
+                private static void _CraigslistCity_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data> c, global::LightSwitchApplication.UserCraigslistCity.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CraigslistCity, sf);
+                }
+                private static bool _CraigslistCity_ComputeIsReadOnly(global::LightSwitchApplication.UserCraigslistCity e)
+                {
+                    bool result = false;
+                    e.CraigslistCity_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _CraigslistCity_Validate(global::LightSwitchApplication.UserCraigslistCity e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.CraigslistCity_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.Internal.IEntityImplementation _CraigslistCity_GetCoreImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d)
+                {
+                    return d.ImplementationEntity.CraigslistCity;
+                }
+                private static global::LightSwitchApplication.CraigslistCity _CraigslistCity_GetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d)
+                {
+                    return d.GetImplementationValue<global::LightSwitchApplication.CraigslistCity, global::LightSwitchApplication.CraigslistCity.DetailsClass>(global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCity, ref d._CraigslistCity);
+                }
+                private static void _CraigslistCity_SetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d, global::LightSwitchApplication.CraigslistCity v)
+                {
+                    d.SetImplementationValue(global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCity, ref d._CraigslistCity, (i, ev) => i.CraigslistCity = ev, v);
+                }
+                private static void _CraigslistCity_Refresh(global::LightSwitchApplication.UserCraigslistCity.DetailsClass d)
+                {
+                    d.RefreshNavigationProperty(global::LightSwitchApplication.UserCraigslistCity.DetailsClass.PropertySetProperties.CraigslistCity, ref d._CraigslistCity);
+                }
+                private static void _CraigslistCity_OnValueChanged(global::LightSwitchApplication.UserCraigslistCity e)
+                {
+                    e.CraigslistCity_Changed();
                 }
     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Data _Id;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Data _UserId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::System.Guid>.Data _CraigslistCityId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityReferenceProperty<global::LightSwitchApplication.UserCraigslistCity, global::LightSwitchApplication.UserCraigslistCity.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCity;
             
         }
     

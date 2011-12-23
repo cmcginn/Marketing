@@ -60,5 +60,10 @@ namespace LightSwitchApplication {
       Application.ShowViewCraigslistResponse( this.CraigsListResponses.SelectedItem.Id );
 
     }
+
+    partial void Administration_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
+      // Write your code here.
+   
+    }
   }
 }

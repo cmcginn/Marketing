@@ -48,6 +48,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserCraigslistCity_CraigslistCity">
+    <End Role="CraigslistCity" Type="MarketingData.CraigslistCity" Multiplicity="1" />
+    <End Role="UserCraigslistCity" Type="MarketingData.UserCraigslistCity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCraigslistCity">
+        <PropertyRef Name="CraigslistCityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="CraigslistPost">
     <Key>
       <PropertyRef Name="Id" />
@@ -87,6 +99,7 @@
     <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Region" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
     <NavigationProperty Name="CraigslistPosts" Relationship="MarketingData.FK_CraigslistPosts_CraigslistCity" ToRole="CraigslistPosts" FromRole="CraigslistCity" />
+    <NavigationProperty Name="UserCraigslistCities" Relationship="MarketingData.FK_UserCraigslistCity_CraigslistCity" ToRole="UserCraigslistCity" FromRole="CraigslistCity" />
   </EntityType>
   <EntityType Name="Keyword">
     <Key>
@@ -170,6 +183,32 @@
     <Property Name="StringValue" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="DefaultValue" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserCraigslistCity">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="CraigslistCityId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CraigslistCityId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="CraigslistCity" Relationship="MarketingData.FK_UserCraigslistCity_CraigslistCity" ToRole="CraigslistCity" FromRole="UserCraigslistCity" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_User">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDataObjectContext">
     <EntitySet Name="CraigslistPosts" EntityType="MarketingData.CraigslistPost" />
     <EntitySet Name="CraigsListResponses" EntityType="MarketingData.CraigsListResponse" />
@@ -181,6 +220,8 @@
     <EntitySet Name="CraigslistPostViews" EntityType="MarketingData.CraigslistPostView" />
     <EntitySet Name="SmtpServers" EntityType="MarketingData.SmtpServer" />
     <EntitySet Name="SystemSettings" EntityType="MarketingData.SystemSetting" />
+    <EntitySet Name="UserCraigslistCities" EntityType="MarketingData.UserCraigslistCity" />
+    <EntitySet Name="vw_aspnet_Users" EntityType="MarketingData.vw_aspnet_User" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingData.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
@@ -196,6 +237,10 @@
     <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingData.FK_ServerOperationHistory_ServerOperation">
       <End Role="ServerOperation" EntitySet="ServerOperations" />
       <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCraigslistCity_CraigslistCity" Association="MarketingData.FK_UserCraigslistCity_CraigslistCity">
+      <End Role="CraigslistCity" EntitySet="CraigslistCities" />
+      <End Role="UserCraigslistCity" EntitySet="UserCraigslistCities" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

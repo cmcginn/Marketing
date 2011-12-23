@@ -1,0 +1,10 @@
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\LSCodeGeneratorsTask.mcs
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\Application.Server.dll.config
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\Application.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\Application.Server.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\Application.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\ExtensionsMadeEasy.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Debug\ExtensionsMadeEasy.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\obj\Debug\Application.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\obj\Debug\Application.Server.pdb

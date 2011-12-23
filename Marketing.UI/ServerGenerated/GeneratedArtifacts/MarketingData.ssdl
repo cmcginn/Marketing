@@ -11,6 +11,8 @@
     <EntitySet Name="CraigslistPostView" EntityType="MarketingDataStore.CraigslistPostView" store:Type="Tables" Schema="dbo" Table="CraigslistPostView" />
     <EntitySet Name="SmtpServer" EntityType="MarketingDataStore.SmtpServer" store:Type="Tables" Schema="dbo" Table="SmtpServer" />
     <EntitySet Name="SystemSetting" EntityType="MarketingDataStore.SystemSetting" store:Type="Tables" Schema="dbo" Table="SystemSetting" />
+    <EntitySet Name="UserCraigslistCity" EntityType="MarketingDataStore.UserCraigslistCity" store:Type="Tables" Schema="dbo" Table="UserCraigslistCity" />
+    <EntitySet Name="vw_aspnet_Users" EntityType="MarketingDataStore.vw_aspnet_User" store:Type="Tables" Schema="dbo" Table="vw_aspnet_Users" />
     <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDataStore.FK_CraigsListResponse_CraigslistPosts">
       <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
       <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
@@ -26,6 +28,10 @@
     <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDataStore.FK_ServerOperationHistory_ServerOperation">
       <End Role="ServerOperation" EntitySet="ServerOperation" />
       <End Role="ServerOperationHistory" EntitySet="ServerOperationHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCraigslistCity_CraigslistCity" Association="MarketingDataStore.FK_UserCraigslistCity_CraigslistCity">
+      <End Role="CraigslistCity" EntitySet="CraigslistCity" />
+      <End Role="UserCraigslistCity" EntitySet="UserCraigslistCity" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CraigslistPost">
@@ -142,6 +148,31 @@
     <Property Name="StringValue" Type="nvarchar(max)" />
     <Property Name="DefaultValue" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserCraigslistCity">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="CraigslistCityId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CraigslistCityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_User">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <Association Name="FK_CraigsListResponse_CraigslistPosts">
     <End Role="CraigslistPosts" Type="MarketingDataStore.CraigslistPost" Multiplicity="1" />
     <End Role="CraigsListResponse" Type="MarketingDataStore.CraigsListResponse" Multiplicity="*" />
@@ -187,6 +218,18 @@
       </Principal>
       <Dependent Role="ServerOperationHistory">
         <PropertyRef Name="ServerOperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCraigslistCity_CraigslistCity">
+    <End Role="CraigslistCity" Type="MarketingDataStore.CraigslistCity" Multiplicity="1" />
+    <End Role="UserCraigslistCity" Type="MarketingDataStore.UserCraigslistCity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CraigslistCity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCraigslistCity">
+        <PropertyRef Name="CraigslistCityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -17,15 +17,33 @@
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <BaseIntermediateOutputPath>bin</BaseIntermediateOutputPath>
-    <ApplicationClientType>Desktop</ApplicationClientType>
+    <ApplicationClientType>Browser</ApplicationClientType>
     <ApplicationServerType>IIS</ApplicationServerType>
     <RequireSecureConnection>true</RequireSecureConnection>
-    <AuthenticationType>None</AuthenticationType>
+    <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>Marketing_UI</ApplicationName>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.13.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>SQLEXPRESS</SqlExpressInstanceName>
+    <AdministratorFullName>Administrator</AdministratorFullName>
+    <AdministratorUserName>Administrator</AdministratorUserName>
+    <AllowUntrustedCertificate>False</AllowUntrustedCertificate>
+    <AddAdministrator>False</AddAdministrator>
+    <BootstrapperComponentsUrl />
+    <DefaultInstallLocation>Marketing</DefaultInstallLocation>
+    <DeploySchema>True</DeploySchema>
+    <PublishNewDatabase>True</PublishNewDatabase>
+    <PublishUrl>http://localhost</PublishUrl>
+    <PublishSite>Marketing/Marketing_2</PublishSite>
+    <RemotePublish>True</RemotePublish>
+    <UseLightSwitchWebDeploymentProvider>True</UseLightSwitchWebDeploymentProvider>
+    <AzureSubscriptionId>00000000-0000-0000-0000-000000000000</AzureSubscriptionId>
+    <AzureManagementThumbprint />
+    <AzureHostedService />
+    <AzureHostedServiceLabel>Production</AzureHostedServiceLabel>
+    <AzureStorageService />
+    <SslCertificateThumbprint />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -193,6 +211,21 @@
       <ClientGenerated>MICROSOFT.LIGHTSWITCH.EXTENSIONS.DESIGN.CLIENT;MICROSOFT.LIGHTSWITCH.EXTENSIONS.CLIENT</ClientGenerated>
       <ServerGenerated>MICROSOFT.LIGHTSWITCH.EXTENSIONS.SERVER</ServerGenerated>
     </LightSwitchExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishParameter Include="Marketing.Services.MarketingDomainService">
+      <Value>metadata=res://*/MarketingDomainModel.csdl|res://*/MarketingDomainModel.ssdl|res://*/MarketingDomainModel.msl;provider=System.Data.SqlClient;provider connection string=&amp;quot;data source=WIN-RNMUH95F9U1\SQLSERVER2008;initial catalog=Marketing;integrated security=True;multipleactiveresultsets=True;App=EntityFramework&amp;quot;</Value>
+    </PublishParameter>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Install>True</Install>
+      <Name>.NETFramework,Version=v4.0</Name>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Install>True</Install>
+      <Name>Microsoft.Windows.Installer.3.1</Name>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.targets" />
 </Project>

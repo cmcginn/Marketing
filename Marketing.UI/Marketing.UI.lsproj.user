@@ -2,9 +2,16 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <EnableENC>False</EnableENC>
-    <ProjectView>ShowAllFiles</ProjectView>
-    <ServerPort>37481</ServerPort>
+    <ProjectView>ProjectFiles</ProjectView>
+    <ServerPort>60156</ServerPort>
     <SchemaManagementSchemaBuildState>0</SchemaManagementSchemaBuildState>
-    <SchemaManagementLastModelWriteTime>634584295161513671</SchemaManagementLastModelWriteTime>
+    <SchemaManagementLastModelWriteTime>634602463458043125</SchemaManagementLastModelWriteTime>
+    <PublishConnectionString>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa033u/IhbUGm164zGAXtdQAAAAACAAAAAAAQZgAAAAEAACAAAADiuxLZuATCMB3G+BAiO3Gk92hLxlOgBPysG6T7gsu1+QAAAAAOgAAAAAIAACAAAACKVVdrp4y9XvwZ/eFw6b4sI8IGU67DbcYFqAQIkBil2yABAAAq1nl8/wZ8gr88YaPaSIr7P6GKPpr8YDHlr7gvpMq9WTRQT0cz5zPSlO/HAKyr5oISBJdwjgt88Tuvy54slKl8WDZLCsvVeLj1qCwv3Id/MIjKShNSlwei18OBn0KPShEKToNTxXeljhw5qNmVKpExjyfIuai5Gu66xxnHusRZRweEO/UCDgBtaK0wydbYXxApe7YD+/K194P773aDf7TgDGtpcBadXJP0+sT+u32stetT0XgBRJsdf3wG9k93kilosDQ6zvKGPbJPPLXQBXwv18LYuQ3P+oUCuCVT8IrZK7it0gBsom1ovOICwPDgmMAi1TMHf8sntDN9q3rwK8eAG6hiKAwYQei3elKSITlByyjsOqMSl8H5yld0alh2HVVAAAAA2ktL7SuI1wK+botsYTbes4n1Qul7ts6YUNfDIccG+zLsYxZvq8Wc/ezc0by81pesrHvBo1fecKtBAocAngJx4Q==</PublishConnectionString>
+    <PublishSchemaConnectionString />
+    <ClientConnectionString>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa033u/IhbUGm164zGAXtdQAAAAACAAAAAAAQZgAAAAEAACAAAABjH7cCtyeZkDV66xjf2forvvS6KuJiRUQJh621ayk85QAAAAAOgAAAAAIAACAAAADk/VUnK6A938o/fO/qUk1nTYSdo/ZQMtfGb+xCxI4/ZSABAAC9XsSp8l+o/8YIFDTERTbHpA+K1VcKmtJdvLBUfLMMZPiAiX/p02u742lZDPrkkoMhJIA4/qswbgKIxmu5eAzh3qedpjhZNWbsLjFmIPzHW2GkqtMg2CWPbMtgNvAbpIaH9Ck+wDllx4Fmk1ONFojvx3/le4mRCpUA0m1/sqPn9USD5M2iSbN8Qs7TIzHP96jz3hoKYxkk7mfkL4KGnCLgXMtYSZMx2tNbadSdwOXaveawrSZQHayYiTpn+6Yke8uKmQ5/BEdOOYJLrSk2IO1aRQJ2gwo1Cx/9zV/WsV5eOUhf30aHGsHAxarAkZ5P54Pjt79CPOxgUUvMG5PQSw74IEyUA7E6TgNYF65UUo373dy7unFmYDRjJpFjWTzF/xVAAAAA0E7r9jTf3NcHkq4BGK1dMfUC46cCxySC9h/tOUuscW9jnlkQkRFS1trVKq3R/hHuvRmQzAo6YdPgcGBkFegTmw==</ClientConnectionString>
+    <AdministratorPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa033u/IhbUGm164zGAXtdQAAAAACAAAAAAAQZgAAAAEAACAAAACDe0TxGOF81TQZJkcawXHcRSmUu4O6n3tvIpmlSDDlxQAAAAAOgAAAAAIAACAAAABwlQLdLVrDaf7rgTL/Fh2zWovHSZTO32LKR4I9/HA/WiAAAAAzKD+gIm7uDXnZOQf39Rjp7pGc077dvlV/yWl781wA6kAAAACdbnbuj6mbpjoLXbCgL2UCnHDajWO3NQnUMowfVEc5MkwT9T/FrKhpyDoUjRzuLESnIZz5mJ+yb8qfXWgGS6gC</AdministratorPassword>
+    <PublishUserName />
+    <PublishUserPassword />
+    <GrantedPermissions>Microsoft.LightSwitch.Security:SecurityAdministration</GrantedPermissions>
   </PropertyGroup>
 </Project>

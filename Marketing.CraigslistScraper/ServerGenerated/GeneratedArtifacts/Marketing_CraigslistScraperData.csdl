@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="Marketing_CraigslistScraperData" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="RegionName" />
+      <PropertyRef Name="CityName" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="RegionName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="CityBaseUrl" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="UserCity">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="CityId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CityId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="vw_aspnet_MembershipUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="MobilePIN" Type="String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="Email" Type="String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="LoweredEmail" Type="String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" ConcurrencyMode="Fixed" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+    <Property Name="Comment" Type="String" MaxLength="Max" ConcurrencyMode="None" />
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" ConcurrencyMode="Fixed" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" ConcurrencyMode="Fixed" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityContainer Name="Marketing_CraigslistScraperDataObjectContext">
+    <EntitySet Name="Cities" EntityType="Marketing_CraigslistScraperData.City" />
+    <EntitySet Name="UserCities" EntityType="Marketing_CraigslistScraperData.UserCity" />
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="Marketing_CraigslistScraperData.vw_aspnet_MembershipUser" />
+  </EntityContainer>
+</Schema>

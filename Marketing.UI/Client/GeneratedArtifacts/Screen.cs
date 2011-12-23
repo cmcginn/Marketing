@@ -759,6 +759,13 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SystemSettings_Loaded(bool succeeded);
 
+        partial void GetUserCraigslistCities_SelectionChanged();
+
+        partial void GetUserCraigslistCities_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_Loaded(bool succeeded);
+
         /// <summary>
         /// Gets the CraigslistCities visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
@@ -848,6 +855,21 @@ namespace LightSwitchApplication
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SystemSettings_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        /// <summary>
+        /// Gets the GetUserCraigslistCities visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.UserCraigslistCity> GetUserCraigslistCities
+        {
+            get
+            {
+                return global::LightSwitchApplication.Administration.DetailsClass.GetValue(this, global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.GetUserCraigslistCities);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCraigslistCities_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         /// <summary>
         /// Calls the RunOperation screen method.
@@ -1016,6 +1038,11 @@ namespace LightSwitchApplication
                 return this.Screen.DataWorkspace.MarketingData.SystemSettings;
             }
 
+            private global::Microsoft.LightSwitch.IDataServiceQueryable GetUserCraigslistCitiesQuery()
+            {
+                return this.Screen.DataWorkspace.MarketingData.GetUserCraigslistCities();
+            }
+
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.CraigslistCity>.Data _CraigslistCities;
 
@@ -1033,6 +1060,9 @@ namespace LightSwitchApplication
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>.Data _SystemSettings;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data _GetUserCraigslistCities;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass>.Data _RunOperationCommand;
@@ -1110,6 +1140,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.SystemSetting>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.SystemSettings);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.UserCraigslistCity> GetUserCraigslistCities
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>)base.GetItem(global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties.GetUserCraigslistCities);
                     }
                 }
 
@@ -1405,6 +1443,40 @@ namespace LightSwitchApplication
                 private static void _SystemSettings_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
                 {
                     s.SystemSettings_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry
+                    GetUserCraigslistCities = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Entry(
+                        "GetUserCraigslistCities",
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._GetUserCraigslistCities_Stub,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._GetUserCraigslistCities_Validate,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._GetUserCraigslistCities_CreateQuery,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._GetUserCraigslistCities_SelectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._GetUserCraigslistCities_OnCollectionChanged,
+                        global::LightSwitchApplication.Administration.DetailsClass.PropertySetProperties._GetUserCraigslistCities_OnLoaded);
+                private static void _GetUserCraigslistCities_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Administration.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Administration, global::LightSwitchApplication.Administration.DetailsClass, global::LightSwitchApplication.UserCraigslistCity>.Data> c, global::LightSwitchApplication.Administration.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserCraigslistCities, sf);
+                }
+                private static void _GetUserCraigslistCities_Validate(global::LightSwitchApplication.Administration s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.GetUserCraigslistCities_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _GetUserCraigslistCities_CreateQuery(global::LightSwitchApplication.Administration.DetailsClass d, object[] args)
+                {
+                    return d.GetUserCraigslistCitiesQuery();
+                }
+                private static void _GetUserCraigslistCities_SelectionChanged(global::LightSwitchApplication.Administration s)
+                {
+                    s.GetUserCraigslistCities_SelectionChanged();
+                }
+                private static void _GetUserCraigslistCities_OnCollectionChanged(global::LightSwitchApplication.Administration s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    s.GetUserCraigslistCities_Changed(e);
+                }
+                private static void _GetUserCraigslistCities_OnLoaded(global::LightSwitchApplication.Administration s, bool succeeded)
+                {
+                    s.GetUserCraigslistCities_Loaded(succeeded);
                 }
 
             }

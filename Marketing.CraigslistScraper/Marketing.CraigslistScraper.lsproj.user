@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <EnableENC>False</EnableENC>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <ServerPort>60395</ServerPort>
+    <GrantedPermissions>Microsoft.LightSwitch.Security:SecurityAdministration</GrantedPermissions>
+    <PublishConnectionString>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa033u/IhbUGm164zGAXtdQAAAAACAAAAAAAQZgAAAAEAACAAAADWODK2VFe9xmAR0cXfDzX/mEvrx8C7rMlYYCa3iyKHbQAAAAAOgAAAAAIAACAAAAA/0EtmFmSmjZN401qgUHr57rG41QT7MnB9v1AXJzVUxgABAAAA1pD23/doKFwxltx4DteBQ3l/HEcZuoIG/0tS400UXOloJtl/9FryeiBqDs+q1Y124q6xPpb/W0ai+cvKa8kvu8PAB+6icgDK4VFVz+i7lsIZYzG+WVla7mGsyWEhLe9E1n2vsCrqQO9NI8T3QnyZH2LDS1gwB2DM8shZINhmOOrBFg5eRIUa7wEEXAUhJX//u7aZpP3IkrZnV0dtnnS5mSFhy/5B/hskr88FPPsnmAzG6IZjW7IAy0iAcljiHs5G0e0pYs+lHAvrKWzO4MOjsK3IwcKdiblCsiEymALazBXG4pYQdU2sUOb4fM1N8h27SBEoKKTFz5lvWv44GWl3QAAAAK7tCZLOSnG3pWkbu8drJmpHEmbBo8eXzSjLW4yIxGNl2MNDBWOSUGNfUc8LGVcwY1UCT+c+vMlCtCWCXYAMXEE=</PublishConnectionString>
+    <PublishSchemaConnectionString />
+    <ClientConnectionString>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa033u/IhbUGm164zGAXtdQAAAAACAAAAAAAQZgAAAAEAACAAAADcJj1gAy8T7PNlZ/HkjxNhZwyqw+POo5KuBWc86V7JTQAAAAAOgAAAAAIAACAAAADWbD/EwcoVhAvLCVL6GK2+tqzzrCQsvwMrvWKEl90OhgABAAAuSNCtOp80npLdZ21jYtdFbUDZEr5gMcFJiUSJQNoYAHfNm1HBE8i8jccDPhvHHLRn4/Kc8EX+miIbRj4+ZrdjXGnlEiLBnoe9Sk2E7V55ppghdxwRgOMQ2PS6HtcLh6IT+BbM7Tw4LkGWr7a90eFcxO4MVEnTJBzPMGjCukMmb4XjnfjGGSZB0Gya0Q7F6VLX1GgPNOHXkWJuO28o+s93hInPi/pKKfL6z4D6A1iwzKlcnfAJWegIKvgCo11faPTbHq/43kBIyk54xoTo1iGF3rHv7OR3lJ+arkxq36gxQs7TLutWfUD4OWUCPypeSV5RksthsVWVJvymVm1MSWfZQAAAAPbsIJ57S8jJ9ttcrJ/9m+6GH1Tg7TRX05nY/cyf7ptZZkGknaZY8yBYEioTUI0d/oTJfWXgWXgtE+p71XGyuq4=</ClientConnectionString>
+    <AdministratorPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAa033u/IhbUGm164zGAXtdQAAAAACAAAAAAAQZgAAAAEAACAAAAAuKYpbhcLGNmUb/9VKTi7gl6kPhCQwoLL1ruHkz43yagAAAAAOgAAAAAIAACAAAAAvs5tPy/ihyI1VKMpo/dMh9YBZTXGKx/Yoir6JJBHhLiAAAAB/v1OAopHqRIMYjxvxTmKDHUyOhFwUkKexcmH0K1Omt0AAAABAQVZFN2IANCYf7r6ik/wu84GMyD67UM5ilQqh7PssyGSa3XXOd4ruND0MeEVLI1tQK4n3BgidcrdtSk1AMUWE</AdministratorPassword>
+    <PublishUserName />
+    <PublishUserPassword />
+    <SchemaManagementSchemaBuildState>0</SchemaManagementSchemaBuildState>
+    <SchemaManagementLastModelWriteTime>634602489922193516</SchemaManagementLastModelWriteTime>
+  </PropertyGroup>
+</Project>
