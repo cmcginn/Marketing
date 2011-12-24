@@ -16,6 +16,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Applicati
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Application.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\ExtensionsMadeEasy.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\ExtensionsMadeEasy.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.LightSwitch.AppBridge.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.LightSwitch.Base.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.LightSwitch.CodeMarker.dll
@@ -30,6 +31,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\System.Se
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\System.ServiceModel.DomainServices.Hosting.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\System.ServiceModel.DomainServices.Hosting.OData.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\System.ServiceModel.DomainServices.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.CSharp.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\System.ComponentModel.Composition.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\ar\Microsoft.LightSwitch.Extensions.Server.resources.dll

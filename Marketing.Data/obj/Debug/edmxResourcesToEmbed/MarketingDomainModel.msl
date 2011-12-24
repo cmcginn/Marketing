@@ -1,101 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MarketingDomainModelStoreContainer" CdmEntityContainer="MarketingDomainModelContainer">
-    <EntitySetMapping Name="CraigslistPosts">
-      <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPost">
-        <MappingFragment StoreEntitySet="CraigslistPosts">
-          <ScalarProperty Name="CraigslistCityId" ColumnName="CraigslistCityId" />
-          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="PostId" ColumnName="PostId" />
-          <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
-          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+  <EntityContainerMapping StorageEntityContainer="MarketingCraigslistScraperModelStoreContainer" CdmEntityContainer="MarketingEntities">
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.aspnet_Membership">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CraigsListResponses">
-      <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
-        <MappingFragment StoreEntitySet="CraigsListResponse">
-          <ScalarProperty Name="RepliedTo" ColumnName="RepliedTo" />
-          <ScalarProperty Name="Sent" ColumnName="Sent" />
-          <ScalarProperty Name="Processed" ColumnName="Processed" />
-          <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
-          <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CraigslistCities">
-      <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistCity">
-        <MappingFragment StoreEntitySet="CraigslistCity">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.City">
+        <MappingFragment StoreEntitySet="City">
           <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="CityUrl" ColumnName="CityUrl" />
+          <ScalarProperty Name="CityBaseUrl" ColumnName="CityBaseUrl" />
           <ScalarProperty Name="CityName" ColumnName="CityName" />
-          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Keywords">
-      <EntityTypeMapping TypeName="MarketingDomainModel.Keyword">
-        <MappingFragment StoreEntitySet="Keyword">
-          <ScalarProperty Name="KeywordValue" ColumnName="KeywordValue" />
-          <ScalarProperty Name="Score" ColumnName="Score" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CraigslistPostKeywords">
-      <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPostKeyword">
-        <MappingFragment StoreEntitySet="CraigslistPostKeywords">
-          <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
-          <ScalarProperty Name="CraigslistPostId" ColumnName="CraigslistPostId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ServerOperations">
-      <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperation">
-        <MappingFragment StoreEntitySet="ServerOperation">
-          <ScalarProperty Name="OperationName" ColumnName="OperationName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ServerOperationHistories">
-      <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
-        <MappingFragment StoreEntitySet="ServerOperationHistory">
-          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
-          <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
-          <ScalarProperty Name="Completed" ColumnName="Completed" />
-          <ScalarProperty Name="Started" ColumnName="Started" />
-          <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SmtpServers">
-      <EntityTypeMapping TypeName="MarketingDomainModel.SmtpServer">
-        <MappingFragment StoreEntitySet="SmtpServer">
-          <ScalarProperty Name="Created" ColumnName="Created" />
+    <EntitySetMapping Name="UserCities">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserCity">
+        <MappingFragment StoreEntitySet="UserCity">
           <ScalarProperty Name="Active" ColumnName="Active" />
-          <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
-          <ScalarProperty Name="SmtpUsername" ColumnName="SmtpUsername" />
-          <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
-          <ScalarProperty Name="UseSsl" ColumnName="UseSsl" />
-          <ScalarProperty Name="SmtpServerLocation" ColumnName="SmtpServerLocation" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SystemSettings">
-      <EntityTypeMapping TypeName="MarketingDomainModel.SystemSetting">
-        <MappingFragment StoreEntitySet="SystemSetting">
-          <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
-          <ScalarProperty Name="StringValue" ColumnName="StringValue" />
-          <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

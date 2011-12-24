@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainServiceDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MarketingDomainServiceDataStore">
+    <EntitySet Name="DefaultUserCitySelections" EntityType="MarketingDomainServiceDataStore.UserCitySelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserCitySelection" />
+  </EntityContainer>
+  <EntityType Name="UserCitySelection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Selected" Type="bit" Nullable="false" />
+    <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar(max)" />
+    <Property Name="RegionName" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema>

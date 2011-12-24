@@ -81,10 +81,6 @@
     <Compile Include="XsltExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Marketing.Data\Marketing.Data.csproj">
-      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
-      <Name>Marketing.Data</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LeadScraper.Utils\LeadScraper.Utils.csproj">
       <Project>{4E082787-CD7F-437D-B71A-A199B4925ABD}</Project>
       <Name>LeadScraper.Utils</Name>

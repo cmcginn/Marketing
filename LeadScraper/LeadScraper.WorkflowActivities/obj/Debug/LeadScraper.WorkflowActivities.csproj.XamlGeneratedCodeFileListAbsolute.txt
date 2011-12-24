@@ -1,4 +1,0 @@
-obj\Debug\_LeadScraper.WorkflowActivities.g.cs
-obj\Debug\Host.g.cs
-obj\Debug\CraigslistLeadCollector.g.cs
-obj\Debug\EmailResponsesActivity.g.cs

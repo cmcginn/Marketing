@@ -158,102 +158,24 @@ namespace Marketing_CraigslistScraperData.Implementation
         /// <summary>
         /// Create a new City object.
         /// </summary>
+        /// <param name="cityBaseUrl">Initial value of the CityBaseUrl property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="regionName">Initial value of the RegionName property.</param>
         /// <param name="cityName">Initial value of the CityName property.</param>
-        /// <param name="cityBaseUrl">Initial value of the CityBaseUrl property.</param>
-        /// <param name="active">Initial value of the Active property.</param>
-        public static City CreateCity(global::System.Guid id, global::System.String regionName, global::System.String cityName, global::System.String cityBaseUrl, global::System.Boolean active)
+        public static City CreateCity(global::System.String cityBaseUrl, global::System.Boolean active, global::System.Guid id, global::System.String regionName, global::System.String cityName)
         {
             City city = new City();
+            city.CityBaseUrl = cityBaseUrl;
+            city.Active = active;
             city.Id = id;
             city.RegionName = regionName;
             city.CityName = cityName;
-            city.CityBaseUrl = cityBaseUrl;
-            city.Active = active;
             return city;
         }
 
         #endregion
         #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                OnIdChanging(value);
-                ReportPropertyChanging("Id");
-                _Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Id");
-                OnIdChanged();
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String RegionName
-        {
-            get
-            {
-                return _RegionName;
-            }
-            set
-            {
-                if (_RegionName != value)
-                {
-                    OnRegionNameChanging(value);
-                    ReportPropertyChanging("RegionName");
-                    _RegionName = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("RegionName");
-                    OnRegionNameChanged();
-                }
-            }
-        }
-        private global::System.String _RegionName;
-        partial void OnRegionNameChanging(global::System.String value);
-        partial void OnRegionNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String CityName
-        {
-            get
-            {
-                return _CityName;
-            }
-            set
-            {
-                if (_CityName != value)
-                {
-                    OnCityNameChanging(value);
-                    ReportPropertyChanging("CityName");
-                    _CityName = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("CityName");
-                    OnCityNameChanged();
-                }
-            }
-        }
-        private global::System.String _CityName;
-        partial void OnCityNameChanging(global::System.String value);
-        partial void OnCityNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -302,6 +224,81 @@ namespace Marketing_CraigslistScraperData.Implementation
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String RegionName
+        {
+            get
+            {
+                return _RegionName;
+            }
+            set
+            {
+                OnRegionNameChanging(value);
+                ReportPropertyChanging("RegionName");
+                _RegionName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("RegionName");
+                OnRegionNameChanged();
+            }
+        }
+        private global::System.String _RegionName;
+        partial void OnRegionNameChanging(global::System.String value);
+        partial void OnRegionNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CityName
+        {
+            get
+            {
+                return _CityName;
+            }
+            set
+            {
+                OnCityNameChanging(value);
+                ReportPropertyChanging("CityName");
+                _CityName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CityName");
+                OnCityNameChanged();
+            }
+        }
+        private global::System.String _CityName;
+        partial void OnCityNameChanging(global::System.String value);
+        partial void OnCityNameChanged();
 
         #endregion
     
@@ -320,74 +317,22 @@ namespace Marketing_CraigslistScraperData.Implementation
         /// <summary>
         /// Create a new UserCity object.
         /// </summary>
+        /// <param name="active">Initial value of the Active property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="cityId">Initial value of the CityId property.</param>
-        /// <param name="active">Initial value of the Active property.</param>
-        public static UserCity CreateUserCity(global::System.Guid userId, global::System.Guid cityId, global::System.Boolean active)
+        public static UserCity CreateUserCity(global::System.Boolean active, global::System.Guid id, global::System.Guid userId, global::System.Guid cityId)
         {
             UserCity userCity = new UserCity();
+            userCity.Active = active;
+            userCity.Id = id;
             userCity.UserId = userId;
             userCity.CityId = cityId;
-            userCity.Active = active;
             return userCity;
         }
 
         #endregion
         #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid UserId
-        {
-            get
-            {
-                return _UserId;
-            }
-            set
-            {
-                if (_UserId != value)
-                {
-                    OnUserIdChanging(value);
-                    ReportPropertyChanging("UserId");
-                    _UserId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("UserId");
-                    OnUserIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _UserId;
-        partial void OnUserIdChanging(global::System.Guid value);
-        partial void OnUserIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CityId
-        {
-            get
-            {
-                return _CityId;
-            }
-            set
-            {
-                if (_CityId != value)
-                {
-                    OnCityIdChanging(value);
-                    ReportPropertyChanging("CityId");
-                    _CityId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CityId");
-                    OnCityIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _CityId;
-        partial void OnCityIdChanging(global::System.Guid value);
-        partial void OnCityIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -412,6 +357,81 @@ namespace Marketing_CraigslistScraperData.Implementation
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
+            }
+        }
+        private global::System.Guid _CityId;
+        partial void OnCityIdChanging(global::System.Guid value);
+        partial void OnCityIdChanged();
 
         #endregion
     

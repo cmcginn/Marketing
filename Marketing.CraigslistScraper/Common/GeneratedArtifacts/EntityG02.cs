@@ -83,6 +83,54 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool Active
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserCity.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserCity.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Active_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Active_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Active_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserCity.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Id);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserCity.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Id, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Id_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Id_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Id_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public global::System.Guid UserId
         {
             get
@@ -126,30 +174,6 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void CityId_Changed();
 
-        /// <summary>
-        /// No Modeled Description Available
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool Active
-        {
-            get
-            {
-                return global::LightSwitchApplication.UserCity.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active);
-            }
-            set
-            {
-                global::LightSwitchApplication.UserCity.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active, value);
-            }
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Active_IsReadOnly(ref bool result);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Active_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Active_Changed();
-
         #endregion
     
         #region Details Class
@@ -169,7 +193,7 @@ namespace LightSwitchApplication
     
             static DetailsClass()
             {
-                var initializeEntry = global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.UserId;
+                var initializeEntry = global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active;
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -232,6 +256,22 @@ namespace LightSwitchApplication
                 {
                 }
     
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool> Active
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid> Id
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>;
+                    }
+                }
+                
                 public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid> UserId
                 {
                     get
@@ -248,23 +288,16 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool> Active
-                {
-                    get
-                    {
-                        return base.GetItem(global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties.Active) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>;
-                    }
-                }
-                
             }
     
             #pragma warning disable 109
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
+                new bool Active { get; set; }
+                new global::System.Guid Id { get; set; }
                 new global::System.Guid UserId { get; set; }
                 new global::System.Guid CityId { get; set; }
-                new bool Active { get; set; }
             }
             #pragma warning restore 109
     
@@ -273,6 +306,80 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal class PropertySetProperties
             {
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Entry
+                    Active = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Entry(
+                        "Active",
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_Stub,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_Validate,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_GetImplementationValue,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_SetImplementationValue,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_OnValueChanged);
+                private static void _Active_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserCity.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Active, sf);
+                }
+                private static bool _Active_ComputeIsReadOnly(global::LightSwitchApplication.UserCity e)
+                {
+                    bool result = false;
+                    e.Active_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Active_Validate(global::LightSwitchApplication.UserCity e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Active_Validate(r);
+                }
+                private static bool _Active_GetImplementationValue(global::LightSwitchApplication.UserCity.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Active;
+                }
+                private static void _Active_SetImplementationValue(global::LightSwitchApplication.UserCity.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.Active = v;
+                }
+                private static void _Active_OnValueChanged(global::LightSwitchApplication.UserCity e)
+                {
+                    e.Active_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Entry
+                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Entry(
+                        "Id",
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Id_Stub,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Id_Validate,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
+                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Id_OnValueChanged);
+                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserCity.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Id, sf);
+                }
+                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.UserCity e)
+                {
+                    bool result = false;
+                    e.Id_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Id_Validate(global::LightSwitchApplication.UserCity e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Id_Validate(r);
+                }
+                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.UserCity.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Id;
+                }
+                private static void _Id_SetImplementationValue(global::LightSwitchApplication.UserCity.DetailsClass d, global::System.Guid v)
+                {
+                    d.ImplementationEntity.Id = v;
+                }
+                private static void _Id_OnValueChanged(global::LightSwitchApplication.UserCity e)
+                {
+                    e.Id_Changed();
+                }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Entry
@@ -348,53 +455,19 @@ namespace LightSwitchApplication
                     e.CityId_Changed();
                 }
     
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Entry
-                    Active = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Entry(
-                        "Active",
-                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_Stub,
-                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_Validate,
-                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_GetImplementationValue,
-                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_SetImplementationValue,
-                        global::LightSwitchApplication.UserCity.DetailsClass.PropertySetProperties._Active_OnValueChanged);
-                private static void _Active_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCity.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserCity.DetailsClass d, object sf)
-                {
-                    c(d, ref d._Active, sf);
-                }
-                private static bool _Active_ComputeIsReadOnly(global::LightSwitchApplication.UserCity e)
-                {
-                    bool result = false;
-                    e.Active_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _Active_Validate(global::LightSwitchApplication.UserCity e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.Active_Validate(r);
-                }
-                private static bool _Active_GetImplementationValue(global::LightSwitchApplication.UserCity.DetailsClass d)
-                {
-                    return d.ImplementationEntity.Active;
-                }
-                private static void _Active_SetImplementationValue(global::LightSwitchApplication.UserCity.DetailsClass d, bool v)
-                {
-                    d.ImplementationEntity.Active = v;
-                }
-                private static void _Active_OnValueChanged(global::LightSwitchApplication.UserCity e)
-                {
-                    e.Active_Changed();
-                }
-    
             }
     
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Data _Active;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Data _Id;
+            
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Data _UserId;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, global::System.Guid>.Data _CityId;
-            
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCity, global::LightSwitchApplication.UserCity.DetailsClass, bool>.Data _Active;
             
         }
     

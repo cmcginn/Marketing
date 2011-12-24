@@ -33,6 +33,21 @@ namespace LightSwitchApplication
             }
         }
 
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Preferences_CanRun(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Preferences_Run(ref bool handled);
+    
+        /// <summary>
+        /// Opens a new instance of the ShowPreferences screen.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void ShowPreferences()
+        {
+            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowPreferences);
+        }
+        
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -42,6 +57,8 @@ namespace LightSwitchApplication
 
             static DetailsClass()
             {
+                var initializeCommandEntry = global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties.ShowPreferences;
+                var initializeMethodEntry = global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowPreferences;
             }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -90,6 +107,8 @@ namespace LightSwitchApplication
             {
                 switch (screenName)
                 {
+                    case "Preferences":
+                        return global::LightSwitchApplication.Preferences.CreateInstance();
                 }
             
                 return base.CreateScreen(screenName, args);
@@ -111,6 +130,15 @@ namespace LightSwitchApplication
                 : global::Microsoft.LightSwitch.Details.Framework.Client.ClientApplicationCommandSet<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>
             {
 
+                public global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowPreferences
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties.ShowPreferences);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -119,6 +147,15 @@ namespace LightSwitchApplication
             public sealed class MethodSet
                 : global::Microsoft.LightSwitch.Details.Framework.Client.ClientApplicationMethodSet<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>
             {
+
+                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowPreferences
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowPreferences);
+                    }
+                }
 
             }
 
@@ -136,6 +173,20 @@ namespace LightSwitchApplication
             internal sealed class CommandSetProperties
             {
 
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowPreferences = new global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowPreferences",
+                        global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties._ShowPreferences_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties._ShowPreferences_CreateExecutableObject);
+                private static void _ShowPreferences_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowPreferencesCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _ShowPreferences_CreateExecutableObject(global::LightSwitchApplication.Application.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowPreferences.CreateInvocation(new object[0]);
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -144,7 +195,37 @@ namespace LightSwitchApplication
             internal sealed class MethodSetProperties
             {
 
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowPreferences = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowPreferences",
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowPreferences_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowPreferences_CanInvoke,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowPreferences_InvokeMethod);
+                private static void _ShowPreferences_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowPreferencesMethod, sf);
+                }
+                private static global::System.Exception _ShowPreferences_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Application.Preferences_CanRun(ref result);
+                    return result ? null : ex;
+                }
+                private static void _ShowPreferences_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    bool handled = false;
+                    d.Application.Preferences_Run(ref handled);
+                    if (!handled)
+                    {
+                        d.ShowScreen("LightSwitchApplication:Preferences", () => global::LightSwitchApplication.Preferences.CreateInstance(), args);
+                    }
+                }
+ 
             }
+
+            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesMethod;
+
+            private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesCommand;
 
         }
     }

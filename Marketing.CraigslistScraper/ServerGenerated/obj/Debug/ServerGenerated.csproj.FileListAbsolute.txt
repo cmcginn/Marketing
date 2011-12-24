@@ -7,6 +7,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Application.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\ExtensionsMadeEasy.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\ExtensionsMadeEasy.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.LightSwitch.AppBridge.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.LightSwitch.Base.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.LightSwitch.CodeMarker.dll
@@ -23,7 +24,9 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\System.ServiceModel.DomainServices.Hosting.OData.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\System.ServiceModel.DomainServices.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\System.ServiceModel.PollingDuplex.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.WindowsAzure.ServiceRuntime.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.Services.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Application.Server.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.LightSwitch.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.LightSwitch.Server.xml
@@ -31,6 +34,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\System.ServiceModel.DomainServices.Hosting.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\System.ServiceModel.DomainServices.Hosting.OData.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\System.ServiceModel.DomainServices.Server.xml
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.Data.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\ar\Microsoft.LightSwitch.Extensions.Server.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\bg\Microsoft.LightSwitch.Extensions.Server.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\ca\Microsoft.LightSwitch.Extensions.Server.resources.dll

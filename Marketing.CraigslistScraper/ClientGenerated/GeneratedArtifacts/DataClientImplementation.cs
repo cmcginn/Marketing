@@ -25,78 +25,8 @@ namespace LightSwitchApplication.Implementation
                 return null;
             }
     
-            if (this._RegionName == null || this._CityName == null)
-            {
-                return null;
-            }
-    
-            return global::System.ServiceModel.DomainServices.Client.EntityKey.Create(this._RegionName, this._CityName);
+            return this._Id;
         }
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return this._Id;
-            }
-            set
-            {
-                if (this._Id != value)
-                {
-                    this.RaiseDataMemberChanging("Id");
-                    this.ValidateProperty("Id", value);
-                    this._Id = value;
-                    this.RaiseDataMemberChanged("Id");
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        
-        [global::System.ComponentModel.DataAnnotations.Key()]
-        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public string RegionName
-        {
-            get
-            {
-                return this._RegionName;
-            }
-            set
-            {
-                if (this._RegionName != value)
-                {
-                    this.ValidateProperty("RegionName", value);
-                    this._RegionName = value;
-                    this.RaisePropertyChanged("RegionName");
-                }
-            }
-        }
-        private string _RegionName;
-        
-        [global::System.ComponentModel.DataAnnotations.Key()]
-        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public string CityName
-        {
-            get
-            {
-                return this._CityName;
-            }
-            set
-            {
-                if (this._CityName != value)
-                {
-                    this.ValidateProperty("CityName", value);
-                    this._CityName = value;
-                    this.RaisePropertyChanged("CityName");
-                }
-            }
-        }
-        private string _CityName;
-        
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public string CityBaseUrl
@@ -138,6 +68,70 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private bool _Active;
+        
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string RegionName
+        {
+            get
+            {
+                return this._RegionName;
+            }
+            set
+            {
+                if (this._RegionName != value)
+                {
+                    this.RaiseDataMemberChanging("RegionName");
+                    this.ValidateProperty("RegionName", value);
+                    this._RegionName = value;
+                    this.RaiseDataMemberChanged("RegionName");
+                }
+            }
+        }
+        private string _RegionName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string CityName
+        {
+            get
+            {
+                return this._CityName;
+            }
+            set
+            {
+                if (this._CityName != value)
+                {
+                    this.RaiseDataMemberChanging("CityName");
+                    this.ValidateProperty("CityName", value);
+                    this._CityName = value;
+                    this.RaiseDataMemberChanged("CityName");
+                }
+            }
+        }
+        private string _CityName;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
@@ -182,53 +176,8 @@ namespace LightSwitchApplication.Implementation
                 return null;
             }
     
-    
-            return global::System.ServiceModel.DomainServices.Client.EntityKey.Create(this._UserId, this._CityId);
+            return this._Id;
         }
-        [global::System.ComponentModel.DataAnnotations.Key()]
-        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public global::System.Guid UserId
-        {
-            get
-            {
-                return this._UserId;
-            }
-            set
-            {
-                if (this._UserId != value)
-                {
-                    this.ValidateProperty("UserId", value);
-                    this._UserId = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        private global::System.Guid _UserId;
-        
-        [global::System.ComponentModel.DataAnnotations.Key()]
-        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public global::System.Guid CityId
-        {
-            get
-            {
-                return this._CityId;
-            }
-            set
-            {
-                if (this._CityId != value)
-                {
-                    this.ValidateProperty("CityId", value);
-                    this._CityId = value;
-                    this.RaisePropertyChanged("CityId");
-                }
-            }
-        }
-        private global::System.Guid _CityId;
-        
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public bool Active
@@ -249,6 +198,70 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private bool _Active;
+        
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if (this._UserId != value)
+                {
+                    this.RaiseDataMemberChanging("UserId");
+                    this.ValidateProperty("UserId", value);
+                    this._UserId = value;
+                    this.RaiseDataMemberChanged("UserId");
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid CityId
+        {
+            get
+            {
+                return this._CityId;
+            }
+            set
+            {
+                if (this._CityId != value)
+                {
+                    this.RaiseDataMemberChanging("CityId");
+                    this.ValidateProperty("CityId", value);
+                    this._CityId = value;
+                    this.RaiseDataMemberChanged("CityId");
+                }
+            }
+        }
+        private global::System.Guid _CityId;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
@@ -827,6 +840,199 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region UserCitySelection
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class UserCitySelection :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.UserCitySelection.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool Selected
+        {
+            get
+            {
+                return this._Selected;
+            }
+            set
+            {
+                if (this._Selected != value)
+                {
+                    this.RaiseDataMemberChanging("Selected");
+                    this.ValidateProperty("Selected", value);
+                    this._Selected = value;
+                    this.RaiseDataMemberChanged("Selected");
+                }
+            }
+        }
+        private bool _Selected;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid CityId
+        {
+            get
+            {
+                return this._CityId;
+            }
+            set
+            {
+                if (this._CityId != value)
+                {
+                    this.RaiseDataMemberChanging("CityId");
+                    this.ValidateProperty("CityId", value);
+                    this._CityId = value;
+                    this.RaiseDataMemberChanged("CityId");
+                }
+            }
+        }
+        private global::System.Guid _CityId;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if (this._UserId != value)
+                {
+                    this.RaiseDataMemberChanging("UserId");
+                    this.ValidateProperty("UserId", value);
+                    this._UserId = value;
+                    this.RaiseDataMemberChanged("UserId");
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string CityName
+        {
+            get
+            {
+                return this._CityName;
+            }
+            set
+            {
+                if (this._CityName != value)
+                {
+                    this.RaiseDataMemberChanging("CityName");
+                    this.ValidateProperty("CityName", value);
+                    this._CityName = value;
+                    this.RaiseDataMemberChanged("CityName");
+                }
+            }
+        }
+        private string _CityName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string RegionName
+        {
+            get
+            {
+                return this._RegionName;
+            }
+            set
+            {
+                if (this._RegionName != value)
+                {
+                    this.RaiseDataMemberChanging("RegionName");
+                    this.ValidateProperty("RegionName", value);
+                    this._RegionName = value;
+                    this.RaiseDataMemberChanged("RegionName");
+                }
+            }
+        }
+        private string _RegionName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool Active
+        {
+            get
+            {
+                return this._Active;
+            }
+            set
+            {
+                if (this._Active != value)
+                {
+                    this.RaiseDataMemberChanging("Active");
+                    this.ValidateProperty("Active", value);
+                    this._Active = value;
+                    this.RaiseDataMemberChanged("Active");
+                }
+            }
+        }
+        private bool _Active;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
     #region Marketing_CraigslistScraperData
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -882,13 +1088,13 @@ namespace LightSwitchApplication.Implementation
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_Single", ReplyAction = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginCities_Single(string frameworkOperators, string RegionName, string CityName, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginCities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.City> EndCities_Single(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_SingleOrDefault", ReplyAction = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_SingleOrDefaultResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginCities_SingleOrDefault(string frameworkOperators, string RegionName, string CityName, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginCities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.City> EndCities_SingleOrDefault(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_All", ReplyAction = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/Cities_AllResponse"),
@@ -900,13 +1106,13 @@ namespace LightSwitchApplication.Implementation
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_Single", ReplyAction = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginUserCities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CityId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginUserCities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCity> EndUserCities_Single(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_SingleOrDefault", ReplyAction = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_SingleOrDefaultResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginUserCities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CityId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginUserCities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCity> EndUserCities_SingleOrDefault(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_All", ReplyAction = "http://tempuri.org/Marketing_CraigslistScraperDataDomainService/UserCities_AllResponse"),
@@ -973,6 +1179,98 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region MarketingDomainServiceData
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public class MarketingDomainServiceData
+        : global::Microsoft.LightSwitch.ClientGenerated.Implementation.DomainContext
+    {
+        public MarketingDomainServiceData(global::Microsoft.LightSwitch.IDataService dataService)
+            : base(dataService, global::Microsoft.LightSwitch.ClientGenerated.Implementation.DomainContext.CreateWcfDomainClient<IMarketingDomainServiceDataContract>(new global::System.Uri("LightSwitchApplication-Implementation-MarketingDomainServiceDataDomainService.svc", global::System.UriKind.Relative)))
+        {
+        }
+    
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.UserCitySelection> UserCitySelectionEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.UserCitySelection>();
+            }
+        }
+        protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
+        {
+            return new MarketingDomainServiceDataEntityContainer();
+        }
+    
+        internal sealed class MarketingDomainServiceDataEntityContainer : global::System.ServiceModel.DomainServices.Client.EntityContainer
+        {
+            public MarketingDomainServiceDataEntityContainer()
+            {
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserCitySelection>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+            }
+        }
+    
+        #region Service Contract Interface
+    
+        [global::System.ServiceModel.ServiceContract]
+        public interface IMarketingDomainServiceDataContract
+        {
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndUserCitySelections_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserCitySelections_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndUserCitySelections_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserCitySelections_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndUserCitySelections_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUser", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUserResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUserDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserCitySelectionsForUser(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndGetUserCitySelectionsForUser(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> EndSubmitChanges(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__GetEntitySetCanInformation", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/__GetEntitySetCanInformationResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__GetEntitySetCanInformationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult Begin__GetEntitySetCanInformation(string entitySetName, global::System.AsyncCallback callback, global::System.Object asyncState);
+            int End__GetEntitySetCanInformation(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__CanExecuteOperation", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/__CanExecuteOperationResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/__CanExecuteOperationDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult Begin__CanExecuteOperation(string operationName, global::System.AsyncCallback callback, global::System.Object asyncState);
+            bool End__CanExecuteOperation(global::System.IAsyncResult result);
+            
+        }
+    
+        #endregion
+    
+        protected override global::Microsoft.LightSwitch.Internal.IEntityImplementation CreateEntityImplementation<T>()
+        {
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserCitySelection))
+            {
+                return new global::LightSwitchApplication.Implementation.UserCitySelection();
+            }
+            return null;
+        }
+    }
+    #endregion
+    
     #region DataServiceImplementationFactory
     [global::System.ComponentModel.Composition.PartCreationPolicy(global::System.ComponentModel.Composition.CreationPolicy.Shared)]
     [global::System.ComponentModel.Composition.Export(typeof(global::Microsoft.LightSwitch.Internal.IDataServiceFactory))]
@@ -988,6 +1286,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::LightSwitchApplication.Marketing_CraigslistScraperData();
             }
+            if (dataServiceType == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
+            {
+                return new global::LightSwitchApplication.MarketingDomainServiceData();
+            }
             return base.CreateDataService(dataServiceType);
         }
     
@@ -996,6 +1298,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(TDataService) == typeof(global::LightSwitchApplication.Marketing_CraigslistScraperData))
             {
                 return new global::LightSwitchApplication.Implementation.Marketing_CraigslistScraperData(dataService);
+            }
+            if (typeof(TDataService) == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
+            {
+                return new global::LightSwitchApplication.Implementation.MarketingDomainServiceData(dataService);
             }
             return base.CreateDataServiceImplementation(dataService);
         }
@@ -1022,6 +1328,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.vw_aspnet_MembershipUser) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.vw_aspnet_MembershipUser);
+            }
+            if (typeof(global::LightSwitchApplication.UserCitySelection) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.UserCitySelection);
             }
             return null;
         }

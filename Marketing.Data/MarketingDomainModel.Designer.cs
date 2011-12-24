@@ -18,10 +18,8 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_CraigsListResponse_CraigslistPosts", "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.CraigslistPost), "CraigsListResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CraigsListResponse), true)]
-[assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_CraigslistPosts_CraigslistCity", "CraigslistCity", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.CraigslistCity), "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CraigslistPost), true)]
-[assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.CraigslistPost), "CraigslistPostKeyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CraigslistPostKeyword), true)]
-[assembly: EdmRelationshipAttribute("MarketingDomainModel", "FK_ServerOperationHistory_ServerOperation", "ServerOperation", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ServerOperation), "ServerOperationHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ServerOperationHistory), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City))]
 
 #endregion
 
@@ -32,32 +30,32 @@ namespace Marketing.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    public partial class MarketingDomainModelContainer : ObjectContext
+    public partial class MarketingEntities : ObjectContext
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new MarketingDomainModelContainer object using the connection string found in the 'MarketingDomainModelContainer' section of the application configuration file.
+        /// Initializes a new MarketingEntities object using the connection string found in the 'MarketingEntities' section of the application configuration file.
         /// </summary>
-        public MarketingDomainModelContainer() : base("name=MarketingDomainModelContainer", "MarketingDomainModelContainer")
+        public MarketingEntities() : base("name=MarketingEntities", "MarketingEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new MarketingDomainModelContainer object.
+        /// Initialize a new MarketingEntities object.
         /// </summary>
-        public MarketingDomainModelContainer(string connectionString) : base(connectionString, "MarketingDomainModelContainer")
+        public MarketingEntities(string connectionString) : base(connectionString, "MarketingEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
     
         /// <summary>
-        /// Initialize a new MarketingDomainModelContainer object.
+        /// Initialize a new MarketingEntities object.
         /// </summary>
-        public MarketingDomainModelContainer(EntityConnection connection) : base(connection, "MarketingDomainModelContainer")
+        public MarketingEntities(EntityConnection connection) : base(connection, "MarketingEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
@@ -76,220 +74,76 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CraigslistPost> CraigslistPosts
+        public ObjectSet<aspnet_Membership> aspnet_Membership
         {
             get
             {
-                if ((_CraigslistPosts == null))
+                if ((_aspnet_Membership == null))
                 {
-                    _CraigslistPosts = base.CreateObjectSet<CraigslistPost>("CraigslistPosts");
+                    _aspnet_Membership = base.CreateObjectSet<aspnet_Membership>("aspnet_Membership");
                 }
-                return _CraigslistPosts;
+                return _aspnet_Membership;
             }
         }
-        private ObjectSet<CraigslistPost> _CraigslistPosts;
+        private ObjectSet<aspnet_Membership> _aspnet_Membership;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CraigsListResponse> CraigsListResponses
+        public ObjectSet<City> Cities
         {
             get
             {
-                if ((_CraigsListResponses == null))
+                if ((_Cities == null))
                 {
-                    _CraigsListResponses = base.CreateObjectSet<CraigsListResponse>("CraigsListResponses");
+                    _Cities = base.CreateObjectSet<City>("Cities");
                 }
-                return _CraigsListResponses;
+                return _Cities;
             }
         }
-        private ObjectSet<CraigsListResponse> _CraigsListResponses;
+        private ObjectSet<City> _Cities;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<CraigslistCity> CraigslistCities
+        public ObjectSet<UserCity> UserCities
         {
             get
             {
-                if ((_CraigslistCities == null))
+                if ((_UserCities == null))
                 {
-                    _CraigslistCities = base.CreateObjectSet<CraigslistCity>("CraigslistCities");
+                    _UserCities = base.CreateObjectSet<UserCity>("UserCities");
                 }
-                return _CraigslistCities;
+                return _UserCities;
             }
         }
-        private ObjectSet<CraigslistCity> _CraigslistCities;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Keyword> Keywords
-        {
-            get
-            {
-                if ((_Keywords == null))
-                {
-                    _Keywords = base.CreateObjectSet<Keyword>("Keywords");
-                }
-                return _Keywords;
-            }
-        }
-        private ObjectSet<Keyword> _Keywords;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<CraigslistPostKeyword> CraigslistPostKeywords
-        {
-            get
-            {
-                if ((_CraigslistPostKeywords == null))
-                {
-                    _CraigslistPostKeywords = base.CreateObjectSet<CraigslistPostKeyword>("CraigslistPostKeywords");
-                }
-                return _CraigslistPostKeywords;
-            }
-        }
-        private ObjectSet<CraigslistPostKeyword> _CraigslistPostKeywords;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ServerOperation> ServerOperations
-        {
-            get
-            {
-                if ((_ServerOperations == null))
-                {
-                    _ServerOperations = base.CreateObjectSet<ServerOperation>("ServerOperations");
-                }
-                return _ServerOperations;
-            }
-        }
-        private ObjectSet<ServerOperation> _ServerOperations;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ServerOperationHistory> ServerOperationHistories
-        {
-            get
-            {
-                if ((_ServerOperationHistories == null))
-                {
-                    _ServerOperationHistories = base.CreateObjectSet<ServerOperationHistory>("ServerOperationHistories");
-                }
-                return _ServerOperationHistories;
-            }
-        }
-        private ObjectSet<ServerOperationHistory> _ServerOperationHistories;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<SmtpServer> SmtpServers
-        {
-            get
-            {
-                if ((_SmtpServers == null))
-                {
-                    _SmtpServers = base.CreateObjectSet<SmtpServer>("SmtpServers");
-                }
-                return _SmtpServers;
-            }
-        }
-        private ObjectSet<SmtpServer> _SmtpServers;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<SystemSetting> SystemSettings
-        {
-            get
-            {
-                if ((_SystemSettings == null))
-                {
-                    _SystemSettings = base.CreateObjectSet<SystemSetting>("SystemSettings");
-                }
-                return _SystemSettings;
-            }
-        }
-        private ObjectSet<SystemSetting> _SystemSettings;
+        private ObjectSet<UserCity> _UserCities;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CraigslistPosts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the aspnet_Membership EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCraigslistPosts(CraigslistPost craigslistPost)
+        public void AddToaspnet_Membership(aspnet_Membership aspnet_Membership)
         {
-            base.AddObject("CraigslistPosts", craigslistPost);
+            base.AddObject("aspnet_Membership", aspnet_Membership);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CraigsListResponses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Cities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCraigsListResponses(CraigsListResponse craigsListResponse)
+        public void AddToCities(City city)
         {
-            base.AddObject("CraigsListResponses", craigsListResponse);
+            base.AddObject("Cities", city);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the CraigslistCities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the UserCities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCraigslistCities(CraigslistCity craigslistCity)
+        public void AddToUserCities(UserCity userCity)
         {
-            base.AddObject("CraigslistCities", craigslistCity);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Keywords EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToKeywords(Keyword keyword)
-        {
-            base.AddObject("Keywords", keyword);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the CraigslistPostKeywords EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToCraigslistPostKeywords(CraigslistPostKeyword craigslistPostKeyword)
-        {
-            base.AddObject("CraigslistPostKeywords", craigslistPostKeyword);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ServerOperations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToServerOperations(ServerOperation serverOperation)
-        {
-            base.AddObject("ServerOperations", serverOperation);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ServerOperationHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToServerOperationHistories(ServerOperationHistory serverOperationHistory)
-        {
-            base.AddObject("ServerOperationHistories", serverOperationHistory);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the SmtpServers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSmtpServers(SmtpServer smtpServer)
-        {
-            base.AddObject("SmtpServers", smtpServer);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the SystemSettings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSystemSettings(SystemSetting systemSetting)
-        {
-            base.AddObject("SystemSettings", systemSetting);
+            base.AddObject("UserCities", userCity);
         }
 
         #endregion
@@ -303,30 +157,618 @@ namespace Marketing.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="CraigslistCity")]
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="aspnet_Membership")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class CraigslistCity : EntityObject
+    public partial class aspnet_Membership : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new CraigslistCity object.
+        /// Create a new aspnet_Membership object.
+        /// </summary>
+        /// <param name="applicationId">Initial value of the ApplicationId property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="password">Initial value of the Password property.</param>
+        /// <param name="passwordFormat">Initial value of the PasswordFormat property.</param>
+        /// <param name="passwordSalt">Initial value of the PasswordSalt property.</param>
+        /// <param name="isApproved">Initial value of the IsApproved property.</param>
+        /// <param name="isLockedOut">Initial value of the IsLockedOut property.</param>
+        /// <param name="createDate">Initial value of the CreateDate property.</param>
+        /// <param name="lastLoginDate">Initial value of the LastLoginDate property.</param>
+        /// <param name="lastPasswordChangedDate">Initial value of the LastPasswordChangedDate property.</param>
+        /// <param name="lastLockoutDate">Initial value of the LastLockoutDate property.</param>
+        /// <param name="failedPasswordAttemptCount">Initial value of the FailedPasswordAttemptCount property.</param>
+        /// <param name="failedPasswordAttemptWindowStart">Initial value of the FailedPasswordAttemptWindowStart property.</param>
+        /// <param name="failedPasswordAnswerAttemptCount">Initial value of the FailedPasswordAnswerAttemptCount property.</param>
+        /// <param name="failedPasswordAnswerAttemptWindowStart">Initial value of the FailedPasswordAnswerAttemptWindowStart property.</param>
+        public static aspnet_Membership Createaspnet_Membership(global::System.Guid applicationId, global::System.Guid userId, global::System.String password, global::System.Int32 passwordFormat, global::System.String passwordSalt, global::System.Boolean isApproved, global::System.Boolean isLockedOut, global::System.DateTime createDate, global::System.DateTime lastLoginDate, global::System.DateTime lastPasswordChangedDate, global::System.DateTime lastLockoutDate, global::System.Int32 failedPasswordAttemptCount, global::System.DateTime failedPasswordAttemptWindowStart, global::System.Int32 failedPasswordAnswerAttemptCount, global::System.DateTime failedPasswordAnswerAttemptWindowStart)
+        {
+            aspnet_Membership aspnet_Membership = new aspnet_Membership();
+            aspnet_Membership.ApplicationId = applicationId;
+            aspnet_Membership.UserId = userId;
+            aspnet_Membership.Password = password;
+            aspnet_Membership.PasswordFormat = passwordFormat;
+            aspnet_Membership.PasswordSalt = passwordSalt;
+            aspnet_Membership.IsApproved = isApproved;
+            aspnet_Membership.IsLockedOut = isLockedOut;
+            aspnet_Membership.CreateDate = createDate;
+            aspnet_Membership.LastLoginDate = lastLoginDate;
+            aspnet_Membership.LastPasswordChangedDate = lastPasswordChangedDate;
+            aspnet_Membership.LastLockoutDate = lastLockoutDate;
+            aspnet_Membership.FailedPasswordAttemptCount = failedPasswordAttemptCount;
+            aspnet_Membership.FailedPasswordAttemptWindowStart = failedPasswordAttemptWindowStart;
+            aspnet_Membership.FailedPasswordAnswerAttemptCount = failedPasswordAnswerAttemptCount;
+            aspnet_Membership.FailedPasswordAnswerAttemptWindowStart = failedPasswordAnswerAttemptWindowStart;
+            return aspnet_Membership;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ApplicationId
+        {
+            get
+            {
+                return _ApplicationId;
+            }
+            set
+            {
+                OnApplicationIdChanging(value);
+                ReportPropertyChanging("ApplicationId");
+                _ApplicationId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ApplicationId");
+                OnApplicationIdChanged();
+            }
+        }
+        private global::System.Guid _ApplicationId;
+        partial void OnApplicationIdChanging(global::System.Guid value);
+        partial void OnApplicationIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Password
+        {
+            get
+            {
+                return _Password;
+            }
+            set
+            {
+                OnPasswordChanging(value);
+                ReportPropertyChanging("Password");
+                _Password = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Password");
+                OnPasswordChanged();
+            }
+        }
+        private global::System.String _Password;
+        partial void OnPasswordChanging(global::System.String value);
+        partial void OnPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PasswordFormat
+        {
+            get
+            {
+                return _PasswordFormat;
+            }
+            set
+            {
+                OnPasswordFormatChanging(value);
+                ReportPropertyChanging("PasswordFormat");
+                _PasswordFormat = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PasswordFormat");
+                OnPasswordFormatChanged();
+            }
+        }
+        private global::System.Int32 _PasswordFormat;
+        partial void OnPasswordFormatChanging(global::System.Int32 value);
+        partial void OnPasswordFormatChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordSalt
+        {
+            get
+            {
+                return _PasswordSalt;
+            }
+            set
+            {
+                OnPasswordSaltChanging(value);
+                ReportPropertyChanging("PasswordSalt");
+                _PasswordSalt = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("PasswordSalt");
+                OnPasswordSaltChanged();
+            }
+        }
+        private global::System.String _PasswordSalt;
+        partial void OnPasswordSaltChanging(global::System.String value);
+        partial void OnPasswordSaltChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MobilePIN
+        {
+            get
+            {
+                return _MobilePIN;
+            }
+            set
+            {
+                OnMobilePINChanging(value);
+                ReportPropertyChanging("MobilePIN");
+                _MobilePIN = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MobilePIN");
+                OnMobilePINChanged();
+            }
+        }
+        private global::System.String _MobilePIN;
+        partial void OnMobilePINChanging(global::System.String value);
+        partial void OnMobilePINChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LoweredEmail
+        {
+            get
+            {
+                return _LoweredEmail;
+            }
+            set
+            {
+                OnLoweredEmailChanging(value);
+                ReportPropertyChanging("LoweredEmail");
+                _LoweredEmail = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LoweredEmail");
+                OnLoweredEmailChanged();
+            }
+        }
+        private global::System.String _LoweredEmail;
+        partial void OnLoweredEmailChanging(global::System.String value);
+        partial void OnLoweredEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordQuestion
+        {
+            get
+            {
+                return _PasswordQuestion;
+            }
+            set
+            {
+                OnPasswordQuestionChanging(value);
+                ReportPropertyChanging("PasswordQuestion");
+                _PasswordQuestion = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PasswordQuestion");
+                OnPasswordQuestionChanged();
+            }
+        }
+        private global::System.String _PasswordQuestion;
+        partial void OnPasswordQuestionChanging(global::System.String value);
+        partial void OnPasswordQuestionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PasswordAnswer
+        {
+            get
+            {
+                return _PasswordAnswer;
+            }
+            set
+            {
+                OnPasswordAnswerChanging(value);
+                ReportPropertyChanging("PasswordAnswer");
+                _PasswordAnswer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PasswordAnswer");
+                OnPasswordAnswerChanged();
+            }
+        }
+        private global::System.String _PasswordAnswer;
+        partial void OnPasswordAnswerChanging(global::System.String value);
+        partial void OnPasswordAnswerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsApproved
+        {
+            get
+            {
+                return _IsApproved;
+            }
+            set
+            {
+                OnIsApprovedChanging(value);
+                ReportPropertyChanging("IsApproved");
+                _IsApproved = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsApproved");
+                OnIsApprovedChanged();
+            }
+        }
+        private global::System.Boolean _IsApproved;
+        partial void OnIsApprovedChanging(global::System.Boolean value);
+        partial void OnIsApprovedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsLockedOut
+        {
+            get
+            {
+                return _IsLockedOut;
+            }
+            set
+            {
+                OnIsLockedOutChanging(value);
+                ReportPropertyChanging("IsLockedOut");
+                _IsLockedOut = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsLockedOut");
+                OnIsLockedOutChanged();
+            }
+        }
+        private global::System.Boolean _IsLockedOut;
+        partial void OnIsLockedOutChanging(global::System.Boolean value);
+        partial void OnIsLockedOutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreateDate
+        {
+            get
+            {
+                return _CreateDate;
+            }
+            set
+            {
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
+            }
+        }
+        private global::System.DateTime _CreateDate;
+        partial void OnCreateDateChanging(global::System.DateTime value);
+        partial void OnCreateDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastLoginDate
+        {
+            get
+            {
+                return _LastLoginDate;
+            }
+            set
+            {
+                OnLastLoginDateChanging(value);
+                ReportPropertyChanging("LastLoginDate");
+                _LastLoginDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastLoginDate");
+                OnLastLoginDateChanged();
+            }
+        }
+        private global::System.DateTime _LastLoginDate;
+        partial void OnLastLoginDateChanging(global::System.DateTime value);
+        partial void OnLastLoginDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastPasswordChangedDate
+        {
+            get
+            {
+                return _LastPasswordChangedDate;
+            }
+            set
+            {
+                OnLastPasswordChangedDateChanging(value);
+                ReportPropertyChanging("LastPasswordChangedDate");
+                _LastPasswordChangedDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastPasswordChangedDate");
+                OnLastPasswordChangedDateChanged();
+            }
+        }
+        private global::System.DateTime _LastPasswordChangedDate;
+        partial void OnLastPasswordChangedDateChanging(global::System.DateTime value);
+        partial void OnLastPasswordChangedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastLockoutDate
+        {
+            get
+            {
+                return _LastLockoutDate;
+            }
+            set
+            {
+                OnLastLockoutDateChanging(value);
+                ReportPropertyChanging("LastLockoutDate");
+                _LastLockoutDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastLockoutDate");
+                OnLastLockoutDateChanged();
+            }
+        }
+        private global::System.DateTime _LastLockoutDate;
+        partial void OnLastLockoutDateChanging(global::System.DateTime value);
+        partial void OnLastLockoutDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FailedPasswordAttemptCount
+        {
+            get
+            {
+                return _FailedPasswordAttemptCount;
+            }
+            set
+            {
+                OnFailedPasswordAttemptCountChanging(value);
+                ReportPropertyChanging("FailedPasswordAttemptCount");
+                _FailedPasswordAttemptCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAttemptCount");
+                OnFailedPasswordAttemptCountChanged();
+            }
+        }
+        private global::System.Int32 _FailedPasswordAttemptCount;
+        partial void OnFailedPasswordAttemptCountChanging(global::System.Int32 value);
+        partial void OnFailedPasswordAttemptCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FailedPasswordAttemptWindowStart
+        {
+            get
+            {
+                return _FailedPasswordAttemptWindowStart;
+            }
+            set
+            {
+                OnFailedPasswordAttemptWindowStartChanging(value);
+                ReportPropertyChanging("FailedPasswordAttemptWindowStart");
+                _FailedPasswordAttemptWindowStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAttemptWindowStart");
+                OnFailedPasswordAttemptWindowStartChanged();
+            }
+        }
+        private global::System.DateTime _FailedPasswordAttemptWindowStart;
+        partial void OnFailedPasswordAttemptWindowStartChanging(global::System.DateTime value);
+        partial void OnFailedPasswordAttemptWindowStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FailedPasswordAnswerAttemptCount
+        {
+            get
+            {
+                return _FailedPasswordAnswerAttemptCount;
+            }
+            set
+            {
+                OnFailedPasswordAnswerAttemptCountChanging(value);
+                ReportPropertyChanging("FailedPasswordAnswerAttemptCount");
+                _FailedPasswordAnswerAttemptCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAnswerAttemptCount");
+                OnFailedPasswordAnswerAttemptCountChanged();
+            }
+        }
+        private global::System.Int32 _FailedPasswordAnswerAttemptCount;
+        partial void OnFailedPasswordAnswerAttemptCountChanging(global::System.Int32 value);
+        partial void OnFailedPasswordAnswerAttemptCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FailedPasswordAnswerAttemptWindowStart
+        {
+            get
+            {
+                return _FailedPasswordAnswerAttemptWindowStart;
+            }
+            set
+            {
+                OnFailedPasswordAnswerAttemptWindowStartChanging(value);
+                ReportPropertyChanging("FailedPasswordAnswerAttemptWindowStart");
+                _FailedPasswordAnswerAttemptWindowStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FailedPasswordAnswerAttemptWindowStart");
+                OnFailedPasswordAnswerAttemptWindowStartChanged();
+            }
+        }
+        private global::System.DateTime _FailedPasswordAnswerAttemptWindowStart;
+        partial void OnFailedPasswordAnswerAttemptWindowStartChanging(global::System.DateTime value);
+        partial void OnFailedPasswordAnswerAttemptWindowStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Comment
+        {
+            get
+            {
+                return _Comment;
+            }
+            set
+            {
+                OnCommentChanging(value);
+                ReportPropertyChanging("Comment");
+                _Comment = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Comment");
+                OnCommentChanged();
+            }
+        }
+        private global::System.String _Comment;
+        partial void OnCommentChanging(global::System.String value);
+        partial void OnCommentChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "UserCity")]
+        public EntityCollection<UserCity> UserCities
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserCity>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "UserCity");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserCity>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "UserCity", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="City")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class City : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new City object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="region">Initial value of the Region property.</param>
+        /// <param name="regionName">Initial value of the RegionName property.</param>
         /// <param name="cityName">Initial value of the CityName property.</param>
-        /// <param name="cityUrl">Initial value of the CityUrl property.</param>
+        /// <param name="cityBaseUrl">Initial value of the CityBaseUrl property.</param>
         /// <param name="active">Initial value of the Active property.</param>
-        public static CraigslistCity CreateCraigslistCity(global::System.Guid id, global::System.String region, global::System.String cityName, global::System.String cityUrl, global::System.Boolean active)
+        public static City CreateCity(global::System.Guid id, global::System.String regionName, global::System.String cityName, global::System.String cityBaseUrl, global::System.Boolean active)
         {
-            CraigslistCity craigslistCity = new CraigslistCity();
-            craigslistCity.Id = id;
-            craigslistCity.Region = region;
-            craigslistCity.CityName = cityName;
-            craigslistCity.CityUrl = cityUrl;
-            craigslistCity.Active = active;
-            return craigslistCity;
+            City city = new City();
+            city.Id = id;
+            city.RegionName = regionName;
+            city.CityName = cityName;
+            city.CityBaseUrl = cityBaseUrl;
+            city.Active = active;
+            return city;
         }
 
         #endregion
@@ -364,24 +806,24 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String Region
+        public global::System.String RegionName
         {
             get
             {
-                return _Region;
+                return _RegionName;
             }
             set
             {
-                OnRegionChanging(value);
-                ReportPropertyChanging("Region");
-                _Region = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Region");
-                OnRegionChanged();
+                OnRegionNameChanging(value);
+                ReportPropertyChanging("RegionName");
+                _RegionName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("RegionName");
+                OnRegionNameChanged();
             }
         }
-        private global::System.String _Region;
-        partial void OnRegionChanging(global::System.String value);
-        partial void OnRegionChanged();
+        private global::System.String _RegionName;
+        partial void OnRegionNameChanging(global::System.String value);
+        partial void OnRegionNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -412,24 +854,24 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String CityUrl
+        public global::System.String CityBaseUrl
         {
             get
             {
-                return _CityUrl;
+                return _CityBaseUrl;
             }
             set
             {
-                OnCityUrlChanging(value);
-                ReportPropertyChanging("CityUrl");
-                _CityUrl = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("CityUrl");
-                OnCityUrlChanged();
+                OnCityBaseUrlChanging(value);
+                ReportPropertyChanging("CityBaseUrl");
+                _CityBaseUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CityBaseUrl");
+                OnCityBaseUrlChanged();
             }
         }
-        private global::System.String _CityUrl;
-        partial void OnCityUrlChanging(global::System.String value);
-        partial void OnCityUrlChanged();
+        private global::System.String _CityBaseUrl;
+        partial void OnCityBaseUrlChanging(global::System.String value);
+        partial void OnCityBaseUrlChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -465,18 +907,18 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_CraigslistPosts_CraigslistCity", "CraigslistPost")]
-        public EntityCollection<CraigslistPost> CraigslistPosts
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity")]
+        public EntityCollection<UserCity> UserCities
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CraigslistPost>("MarketingDomainModel.FK_CraigslistPosts_CraigslistCity", "CraigslistPost");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserCity>("Marketing.CraigslistScraperModel.UserCityCity", "UserCity");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CraigslistPost>("MarketingDomainModel.FK_CraigslistPosts_CraigslistCity", "CraigslistPost", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserCity>("Marketing.CraigslistScraperModel.UserCityCity", "UserCity", value);
                 }
             }
         }
@@ -487,1162 +929,28 @@ namespace Marketing.Data
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="CraigslistPost")]
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserCity")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class CraigslistPost : EntityObject
+    public partial class UserCity : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new CraigslistPost object.
+        /// Create a new UserCity object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="postDate">Initial value of the PostDate property.</param>
-        /// <param name="postsElement">Initial value of the PostsElement property.</param>
-        /// <param name="postId">Initial value of the PostId property.</param>
-        /// <param name="title">Initial value of the Title property.</param>
-        /// <param name="emailAddress">Initial value of the EmailAddress property.</param>
-        /// <param name="craigslistCityId">Initial value of the CraigslistCityId property.</param>
-        public static CraigslistPost CreateCraigslistPost(global::System.Guid id, global::System.DateTime postDate, global::System.String postsElement, global::System.Int64 postId, global::System.String title, global::System.String emailAddress, global::System.Guid craigslistCityId)
-        {
-            CraigslistPost craigslistPost = new CraigslistPost();
-            craigslistPost.Id = id;
-            craigslistPost.PostDate = postDate;
-            craigslistPost.PostsElement = postsElement;
-            craigslistPost.PostId = postId;
-            craigslistPost.Title = title;
-            craigslistPost.EmailAddress = emailAddress;
-            craigslistPost.CraigslistCityId = craigslistCityId;
-            return craigslistPost;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime PostDate
-        {
-            get
-            {
-                return _PostDate;
-            }
-            set
-            {
-                OnPostDateChanging(value);
-                ReportPropertyChanging("PostDate");
-                _PostDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PostDate");
-                OnPostDateChanged();
-            }
-        }
-        private global::System.DateTime _PostDate;
-        partial void OnPostDateChanging(global::System.DateTime value);
-        partial void OnPostDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String PostsElement
-        {
-            get
-            {
-                return _PostsElement;
-            }
-            set
-            {
-                OnPostsElementChanging(value);
-                ReportPropertyChanging("PostsElement");
-                _PostsElement = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("PostsElement");
-                OnPostsElementChanged();
-            }
-        }
-        private global::System.String _PostsElement;
-        partial void OnPostsElementChanging(global::System.String value);
-        partial void OnPostsElementChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 PostId
-        {
-            get
-            {
-                return _PostId;
-            }
-            set
-            {
-                OnPostIdChanging(value);
-                ReportPropertyChanging("PostId");
-                _PostId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("PostId");
-                OnPostIdChanged();
-            }
-        }
-        private global::System.Int64 _PostId;
-        partial void OnPostIdChanging(global::System.Int64 value);
-        partial void OnPostIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String Title
-        {
-            get
-            {
-                return _Title;
-            }
-            set
-            {
-                OnTitleChanging(value);
-                ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Title");
-                OnTitleChanged();
-            }
-        }
-        private global::System.String _Title;
-        partial void OnTitleChanging(global::System.String value);
-        partial void OnTitleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String EmailAddress
-        {
-            get
-            {
-                return _EmailAddress;
-            }
-            set
-            {
-                OnEmailAddressChanging(value);
-                ReportPropertyChanging("EmailAddress");
-                _EmailAddress = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("EmailAddress");
-                OnEmailAddressChanged();
-            }
-        }
-        private global::System.String _EmailAddress;
-        partial void OnEmailAddressChanging(global::System.String value);
-        partial void OnEmailAddressChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CraigslistCityId
-        {
-            get
-            {
-                return _CraigslistCityId;
-            }
-            set
-            {
-                OnCraigslistCityIdChanging(value);
-                ReportPropertyChanging("CraigslistCityId");
-                _CraigslistCityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CraigslistCityId");
-                OnCraigslistCityIdChanged();
-            }
-        }
-        private global::System.Guid _CraigslistCityId;
-        partial void OnCraigslistCityIdChanging(global::System.Guid value);
-        partial void OnCraigslistCityIdChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_CraigsListResponse_CraigslistPosts", "CraigsListResponse")]
-        public EntityCollection<CraigsListResponse> CraigsListResponses
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CraigsListResponse>("MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts", "CraigsListResponse");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CraigsListResponse>("MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts", "CraigsListResponse", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_CraigslistPosts_CraigslistCity", "CraigslistCity")]
-        public CraigslistCity CraigslistCity
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistCity>("MarketingDomainModel.FK_CraigslistPosts_CraigslistCity", "CraigslistCity").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistCity>("MarketingDomainModel.FK_CraigslistPosts_CraigslistCity", "CraigslistCity").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CraigslistCity> CraigslistCityReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistCity>("MarketingDomainModel.FK_CraigslistPosts_CraigslistCity", "CraigslistCity");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CraigslistCity>("MarketingDomainModel.FK_CraigslistPosts_CraigslistCity", "CraigslistCity", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPostKeyword")]
-        public EntityCollection<CraigslistPostKeyword> CraigslistPostKeywords
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CraigslistPostKeyword>("MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPostKeyword");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CraigslistPostKeyword>("MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPostKeyword", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="CraigslistPostKeyword")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CraigslistPostKeyword : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CraigslistPostKeyword object.
-        /// </summary>
-        /// <param name="craigslistPostId">Initial value of the CraigslistPostId property.</param>
-        /// <param name="keywordId">Initial value of the KeywordId property.</param>
-        public static CraigslistPostKeyword CreateCraigslistPostKeyword(global::System.Guid craigslistPostId, global::System.Guid keywordId)
-        {
-            CraigslistPostKeyword craigslistPostKeyword = new CraigslistPostKeyword();
-            craigslistPostKeyword.CraigslistPostId = craigslistPostId;
-            craigslistPostKeyword.KeywordId = keywordId;
-            return craigslistPostKeyword;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CraigslistPostId
-        {
-            get
-            {
-                return _CraigslistPostId;
-            }
-            set
-            {
-                if (_CraigslistPostId != value)
-                {
-                    OnCraigslistPostIdChanging(value);
-                    ReportPropertyChanging("CraigslistPostId");
-                    _CraigslistPostId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CraigslistPostId");
-                    OnCraigslistPostIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _CraigslistPostId;
-        partial void OnCraigslistPostIdChanging(global::System.Guid value);
-        partial void OnCraigslistPostIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid KeywordId
-        {
-            get
-            {
-                return _KeywordId;
-            }
-            set
-            {
-                if (_KeywordId != value)
-                {
-                    OnKeywordIdChanging(value);
-                    ReportPropertyChanging("KeywordId");
-                    _KeywordId = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("KeywordId");
-                    OnKeywordIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _KeywordId;
-        partial void OnKeywordIdChanging(global::System.Guid value);
-        partial void OnKeywordIdChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost")]
-        public CraigslistPost CraigslistPost
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CraigslistPost> CraigslistPostReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts", "CraigslistPost", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="CraigsListResponse")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class CraigsListResponse : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new CraigsListResponse object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="craigslitPostsId">Initial value of the CraigslitPostsId property.</param>
-        /// <param name="responseContent">Initial value of the ResponseContent property.</param>
-        /// <param name="created">Initial value of the Created property.</param>
-        /// <param name="responseHtmlContent">Initial value of the ResponseHtmlContent property.</param>
-        public static CraigsListResponse CreateCraigsListResponse(global::System.Guid id, global::System.Guid craigslitPostsId, global::System.String responseContent, global::System.DateTime created, global::System.String responseHtmlContent)
-        {
-            CraigsListResponse craigsListResponse = new CraigsListResponse();
-            craigsListResponse.Id = id;
-            craigsListResponse.CraigslitPostsId = craigslitPostsId;
-            craigsListResponse.ResponseContent = responseContent;
-            craigsListResponse.Created = created;
-            craigsListResponse.ResponseHtmlContent = responseHtmlContent;
-            return craigsListResponse;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CraigslitPostsId
-        {
-            get
-            {
-                return _CraigslitPostsId;
-            }
-            set
-            {
-                OnCraigslitPostsIdChanging(value);
-                ReportPropertyChanging("CraigslitPostsId");
-                _CraigslitPostsId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CraigslitPostsId");
-                OnCraigslitPostsIdChanged();
-            }
-        }
-        private global::System.Guid _CraigslitPostsId;
-        partial void OnCraigslitPostsIdChanging(global::System.Guid value);
-        partial void OnCraigslitPostsIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ResponseContent
-        {
-            get
-            {
-                return _ResponseContent;
-            }
-            set
-            {
-                OnResponseContentChanging(value);
-                ReportPropertyChanging("ResponseContent");
-                _ResponseContent = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ResponseContent");
-                OnResponseContentChanged();
-            }
-        }
-        private global::System.String _ResponseContent;
-        partial void OnResponseContentChanging(global::System.String value);
-        partial void OnResponseContentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Created
-        {
-            get
-            {
-                return _Created;
-            }
-            set
-            {
-                OnCreatedChanging(value);
-                ReportPropertyChanging("Created");
-                _Created = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Created");
-                OnCreatedChanged();
-            }
-        }
-        private global::System.DateTime _Created;
-        partial void OnCreatedChanging(global::System.DateTime value);
-        partial void OnCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String ResponseHtmlContent
-        {
-            get
-            {
-                return _ResponseHtmlContent;
-            }
-            set
-            {
-                OnResponseHtmlContentChanging(value);
-                ReportPropertyChanging("ResponseHtmlContent");
-                _ResponseHtmlContent = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("ResponseHtmlContent");
-                OnResponseHtmlContentChanged();
-            }
-        }
-        private global::System.String _ResponseHtmlContent;
-        partial void OnResponseHtmlContentChanging(global::System.String value);
-        partial void OnResponseHtmlContentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Processed
-        {
-            get
-            {
-                return _Processed;
-            }
-            set
-            {
-                OnProcessedChanging(value);
-                ReportPropertyChanging("Processed");
-                _Processed = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Processed");
-                OnProcessedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Processed;
-        partial void OnProcessedChanging(Nullable<global::System.DateTime> value);
-        partial void OnProcessedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Sent
-        {
-            get
-            {
-                return _Sent;
-            }
-            set
-            {
-                OnSentChanging(value);
-                ReportPropertyChanging("Sent");
-                _Sent = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Sent");
-                OnSentChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Sent;
-        partial void OnSentChanging(Nullable<global::System.DateTime> value);
-        partial void OnSentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> RepliedTo
-        {
-            get
-            {
-                return _RepliedTo;
-            }
-            set
-            {
-                OnRepliedToChanging(value);
-                ReportPropertyChanging("RepliedTo");
-                _RepliedTo = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("RepliedTo");
-                OnRepliedToChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _RepliedTo;
-        partial void OnRepliedToChanging(Nullable<global::System.DateTime> value);
-        partial void OnRepliedToChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_CraigsListResponse_CraigslistPosts", "CraigslistPost")]
-        public CraigslistPost CraigslistPost
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts", "CraigslistPost").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts", "CraigslistPost").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<CraigslistPost> CraigslistPostReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts", "CraigslistPost");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<CraigslistPost>("MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts", "CraigslistPost", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="Keyword")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class Keyword : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new Keyword object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="score">Initial value of the Score property.</param>
-        /// <param name="keywordValue">Initial value of the KeywordValue property.</param>
-        public static Keyword CreateKeyword(global::System.Guid id, global::System.Int32 score, global::System.String keywordValue)
-        {
-            Keyword keyword = new Keyword();
-            keyword.Id = id;
-            keyword.Score = score;
-            keyword.KeywordValue = keywordValue;
-            return keyword;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                OnIdChanging(value);
-                ReportPropertyChanging("Id");
-                _Id = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Id");
-                OnIdChanged();
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 Score
-        {
-            get
-            {
-                return _Score;
-            }
-            set
-            {
-                OnScoreChanging(value);
-                ReportPropertyChanging("Score");
-                _Score = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Score");
-                OnScoreChanged();
-            }
-        }
-        private global::System.Int32 _Score;
-        partial void OnScoreChanging(global::System.Int32 value);
-        partial void OnScoreChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String KeywordValue
-        {
-            get
-            {
-                return _KeywordValue;
-            }
-            set
-            {
-                if (_KeywordValue != value)
-                {
-                    OnKeywordValueChanging(value);
-                    ReportPropertyChanging("KeywordValue");
-                    _KeywordValue = StructuralObject.SetValidValue(value, false);
-                    ReportPropertyChanged("KeywordValue");
-                    OnKeywordValueChanged();
-                }
-            }
-        }
-        private global::System.String _KeywordValue;
-        partial void OnKeywordValueChanging(global::System.String value);
-        partial void OnKeywordValueChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="ServerOperation")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class ServerOperation : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new ServerOperation object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="operationName">Initial value of the OperationName property.</param>
-        public static ServerOperation CreateServerOperation(global::System.Guid id, global::System.String operationName)
-        {
-            ServerOperation serverOperation = new ServerOperation();
-            serverOperation.Id = id;
-            serverOperation.OperationName = operationName;
-            return serverOperation;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String OperationName
-        {
-            get
-            {
-                return _OperationName;
-            }
-            set
-            {
-                OnOperationNameChanging(value);
-                ReportPropertyChanging("OperationName");
-                _OperationName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("OperationName");
-                OnOperationNameChanged();
-            }
-        }
-        private global::System.String _OperationName;
-        partial void OnOperationNameChanging(global::System.String value);
-        partial void OnOperationNameChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_ServerOperationHistory_ServerOperation", "ServerOperationHistory")]
-        public EntityCollection<ServerOperationHistory> ServerOperationHistories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ServerOperationHistory>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperationHistory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ServerOperationHistory>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperationHistory", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="ServerOperationHistory")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class ServerOperationHistory : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new ServerOperationHistory object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="serverOperationId">Initial value of the ServerOperationId property.</param>
-        /// <param name="scheduled">Initial value of the Scheduled property.</param>
-        public static ServerOperationHistory CreateServerOperationHistory(global::System.Guid id, global::System.Guid serverOperationId, global::System.DateTime scheduled)
-        {
-            ServerOperationHistory serverOperationHistory = new ServerOperationHistory();
-            serverOperationHistory.Id = id;
-            serverOperationHistory.ServerOperationId = serverOperationId;
-            serverOperationHistory.Scheduled = scheduled;
-            return serverOperationHistory;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid ServerOperationId
-        {
-            get
-            {
-                return _ServerOperationId;
-            }
-            set
-            {
-                OnServerOperationIdChanging(value);
-                ReportPropertyChanging("ServerOperationId");
-                _ServerOperationId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ServerOperationId");
-                OnServerOperationIdChanged();
-            }
-        }
-        private global::System.Guid _ServerOperationId;
-        partial void OnServerOperationIdChanging(global::System.Guid value);
-        partial void OnServerOperationIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Started
-        {
-            get
-            {
-                return _Started;
-            }
-            set
-            {
-                OnStartedChanging(value);
-                ReportPropertyChanging("Started");
-                _Started = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Started");
-                OnStartedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Started;
-        partial void OnStartedChanging(Nullable<global::System.DateTime> value);
-        partial void OnStartedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Completed
-        {
-            get
-            {
-                return _Completed;
-            }
-            set
-            {
-                OnCompletedChanging(value);
-                ReportPropertyChanging("Completed");
-                _Completed = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Completed");
-                OnCompletedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _Completed;
-        partial void OnCompletedChanging(Nullable<global::System.DateTime> value);
-        partial void OnCompletedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime Scheduled
-        {
-            get
-            {
-                return _Scheduled;
-            }
-            set
-            {
-                OnScheduledChanging(value);
-                ReportPropertyChanging("Scheduled");
-                _Scheduled = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Scheduled");
-                OnScheduledChanged();
-            }
-        }
-        private global::System.DateTime _Scheduled;
-        partial void OnScheduledChanging(global::System.DateTime value);
-        partial void OnScheduledChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Parameters
-        {
-            get
-            {
-                return _Parameters;
-            }
-            set
-            {
-                OnParametersChanging(value);
-                ReportPropertyChanging("Parameters");
-                _Parameters = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Parameters");
-                OnParametersChanged();
-            }
-        }
-        private global::System.String _Parameters;
-        partial void OnParametersChanging(global::System.String value);
-        partial void OnParametersChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("MarketingDomainModel", "FK_ServerOperationHistory_ServerOperation", "ServerOperation")]
-        public ServerOperation ServerOperation
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<ServerOperation> ServerOperationReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ServerOperation>("MarketingDomainModel.FK_ServerOperationHistory_ServerOperation", "ServerOperation", value);
-                }
-            }
-        }
-
-        #endregion
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="SmtpServer")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class SmtpServer : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new SmtpServer object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="smtpServerLocation">Initial value of the SmtpServerLocation property.</param>
-        /// <param name="useSsl">Initial value of the UseSsl property.</param>
-        /// <param name="smtpPort">Initial value of the SmtpPort property.</param>
-        /// <param name="smtpUsername">Initial value of the SmtpUsername property.</param>
-        /// <param name="smtpPassword">Initial value of the SmtpPassword property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="cityId">Initial value of the CityId property.</param>
         /// <param name="active">Initial value of the Active property.</param>
-        /// <param name="created">Initial value of the Created property.</param>
-        public static SmtpServer CreateSmtpServer(global::System.Guid id, global::System.String smtpServerLocation, global::System.Boolean useSsl, global::System.Int32 smtpPort, global::System.String smtpUsername, global::System.String smtpPassword, global::System.Boolean active, global::System.DateTime created)
+        public static UserCity CreateUserCity(global::System.Guid id, global::System.Guid userId, global::System.Guid cityId, global::System.Boolean active)
         {
-            SmtpServer smtpServer = new SmtpServer();
-            smtpServer.Id = id;
-            smtpServer.SmtpServerLocation = smtpServerLocation;
-            smtpServer.UseSsl = useSsl;
-            smtpServer.SmtpPort = smtpPort;
-            smtpServer.SmtpUsername = smtpUsername;
-            smtpServer.SmtpPassword = smtpPassword;
-            smtpServer.Active = active;
-            smtpServer.Created = created;
-            return smtpServer;
+            UserCity userCity = new UserCity();
+            userCity.Id = id;
+            userCity.UserId = userId;
+            userCity.CityId = cityId;
+            userCity.Active = active;
+            return userCity;
         }
 
         #endregion
@@ -1680,120 +988,48 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String SmtpServerLocation
+        public global::System.Guid UserId
         {
             get
             {
-                return _SmtpServerLocation;
+                return _UserId;
             }
             set
             {
-                OnSmtpServerLocationChanging(value);
-                ReportPropertyChanging("SmtpServerLocation");
-                _SmtpServerLocation = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SmtpServerLocation");
-                OnSmtpServerLocationChanged();
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
             }
         }
-        private global::System.String _SmtpServerLocation;
-        partial void OnSmtpServerLocationChanging(global::System.String value);
-        partial void OnSmtpServerLocationChanged();
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Boolean UseSsl
+        public global::System.Guid CityId
         {
             get
             {
-                return _UseSsl;
+                return _CityId;
             }
             set
             {
-                OnUseSslChanging(value);
-                ReportPropertyChanging("UseSsl");
-                _UseSsl = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UseSsl");
-                OnUseSslChanged();
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
             }
         }
-        private global::System.Boolean _UseSsl;
-        partial void OnUseSslChanging(global::System.Boolean value);
-        partial void OnUseSslChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 SmtpPort
-        {
-            get
-            {
-                return _SmtpPort;
-            }
-            set
-            {
-                OnSmtpPortChanging(value);
-                ReportPropertyChanging("SmtpPort");
-                _SmtpPort = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("SmtpPort");
-                OnSmtpPortChanged();
-            }
-        }
-        private global::System.Int32 _SmtpPort;
-        partial void OnSmtpPortChanging(global::System.Int32 value);
-        partial void OnSmtpPortChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String SmtpUsername
-        {
-            get
-            {
-                return _SmtpUsername;
-            }
-            set
-            {
-                OnSmtpUsernameChanging(value);
-                ReportPropertyChanging("SmtpUsername");
-                _SmtpUsername = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SmtpUsername");
-                OnSmtpUsernameChanged();
-            }
-        }
-        private global::System.String _SmtpUsername;
-        partial void OnSmtpUsernameChanging(global::System.String value);
-        partial void OnSmtpUsernameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String SmtpPassword
-        {
-            get
-            {
-                return _SmtpPassword;
-            }
-            set
-            {
-                OnSmtpPasswordChanging(value);
-                ReportPropertyChanging("SmtpPassword");
-                _SmtpPassword = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SmtpPassword");
-                OnSmtpPasswordChanged();
-            }
-        }
-        private global::System.String _SmtpPassword;
-        partial void OnSmtpPasswordChanging(global::System.String value);
-        partial void OnSmtpPasswordChanged();
+        private global::System.Guid _CityId;
+        partial void OnCityIdChanging(global::System.Guid value);
+        partial void OnCityIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1818,164 +1054,88 @@ namespace Marketing.Data
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+
+        #endregion
+    
+        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        public global::System.DateTime Created
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
         {
             get
             {
-                return _Created;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership").Value;
             }
             set
             {
-                OnCreatedChanging(value);
-                ReportPropertyChanging("Created");
-                _Created = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Created");
-                OnCreatedChanged();
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership").Value = value;
             }
         }
-        private global::System.DateTime _Created;
-        partial void OnCreatedChanging(global::System.DateTime value);
-        partial void OnCreatedChanged();
-
-        #endregion
-    
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainModel", Name="SystemSetting")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class SystemSetting : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new SystemSetting object.
-        /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
-        /// <param name="settingName">Initial value of the SettingName property.</param>
-        /// <param name="defaultValue">Initial value of the DefaultValue property.</param>
-        public static SystemSetting CreateSystemSetting(global::System.Guid id, global::System.String settingName, global::System.String defaultValue)
-        {
-            SystemSetting systemSetting = new SystemSetting();
-            systemSetting.Id = id;
-            systemSetting.SettingName = settingName;
-            systemSetting.DefaultValue = defaultValue;
-            return systemSetting;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public global::System.Guid Id
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
         {
             get
             {
-                return _Id;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership");
             }
             set
             {
-                if (_Id != value)
+                if ((value != null))
                 {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        public global::System.String SettingName
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "City")]
+        public City City
         {
             get
             {
-                return _SettingName;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City").Value;
             }
             set
             {
-                OnSettingNameChanging(value);
-                ReportPropertyChanging("SettingName");
-                _SettingName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SettingName");
-                OnSettingNameChanged();
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City").Value = value;
             }
         }
-        private global::System.String _SettingName;
-        partial void OnSettingNameChanging(global::System.String value);
-        partial void OnSettingNameChanged();
-    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public global::System.String StringValue
+        public EntityReference<City> CityReference
         {
             get
             {
-                return _StringValue;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City");
             }
             set
             {
-                OnStringValueChanging(value);
-                ReportPropertyChanging("StringValue");
-                _StringValue = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("StringValue");
-                OnStringValueChanged();
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City", value);
+                }
             }
         }
-        private global::System.String _StringValue;
-        partial void OnStringValueChanging(global::System.String value);
-        partial void OnStringValueChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String DefaultValue
-        {
-            get
-            {
-                return _DefaultValue;
-            }
-            set
-            {
-                OnDefaultValueChanging(value);
-                ReportPropertyChanging("DefaultValue");
-                _DefaultValue = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("DefaultValue");
-                OnDefaultValueChanged();
-            }
-        }
-        private global::System.String _DefaultValue;
-        partial void OnDefaultValueChanging(global::System.String value);
-        partial void OnDefaultValueChanged();
 
         #endregion
-    
     }
 
     #endregion

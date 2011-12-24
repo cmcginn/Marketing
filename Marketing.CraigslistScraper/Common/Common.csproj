@@ -8,7 +8,7 @@
     <SchemaVersion>
     </SchemaVersion>
     <ProjectTypeGuids>{01074E5A-9000-460e-AB81-3A9263818D40};{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{FAE04EC0-301F-11d3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{937f82dc-3c20-499d-88fc-425aa5041a10}</ProjectGuid>
+    <ProjectGuid>{937F82DC-3C20-499D-88FC-425AA5041A10}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>LightSwitchApplication</RootNamespace>
     <AssemblyName>Application.Common</AssemblyName>
@@ -49,7 +49,7 @@
   <ItemGroup>
     <Reference Include="mscorlib" />
     <Reference Include="system" />
-    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />    
+    <Reference Include="System.ComponentModel.Composition, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.LightSwitch, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
@@ -59,10 +59,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCode\City.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="..\Data\ApplicationDefinition.lsml">
-        <ProjectCritical>true</ProjectCritical>
+      <ProjectCritical>true</ProjectCritical>
     </LightSwitchModel>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
@@ -71,4 +72,17 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+      <FlavorProperties GUID="{01074E5A-9000-460e-AB81-3A9263818D40}" Configuration="Debug|Any CPU">
+        <SpecializedConfiguration />
+      </FlavorProperties>
+      <FlavorProperties GUID="{01074E5A-9000-460e-AB81-3A9263818D40}" Configuration="Release|Any CPU">
+        <SpecializedConfiguration />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

@@ -1,3 +1,0 @@
-obj\Debug\Host.g.xaml
-obj\Debug\CraigslistLeadCollector.g.xaml
-obj\Debug\EmailResponsesActivity.g.xaml

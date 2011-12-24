@@ -2,23 +2,22 @@
 <Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="Marketing_CraigslistScraperData" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityType Name="City">
     <Key>
-      <PropertyRef Name="RegionName" />
-      <PropertyRef Name="CityName" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="CityBaseUrl" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="RegionName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
     <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
-    <Property Name="CityBaseUrl" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
-    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserCity">
     <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="CityId" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="CityId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
-    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="vw_aspnet_MembershipUser">
     <Key>

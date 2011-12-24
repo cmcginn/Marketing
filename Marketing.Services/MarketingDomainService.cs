@@ -1,4 +1,5 @@
-﻿
+﻿using Marketing.Data;
+using Marketing.Services.Extensions;
 namespace Marketing.Services {
   using System;
   using System.Collections.Generic;
@@ -10,35 +11,30 @@ namespace Marketing.Services {
   using System.Workflow.Activities;
   using System.Activities;
   using System.Workflow.Runtime;
-  using LeadScraper.WorkflowActivities;
   using System.Threading.Tasks;
-  using Marketing.Data;
+
   // TODO: Create methods containing your application logic.
-  public class Operation {
 
-    [Key]
-    public Guid Id { get; set; }
-    
-  }
   public class MarketingDomainService : DomainService {
+    MarketingEntities _Context;
+    [Query(IsDefault=true)]
+    public IQueryable<UserCitySelection> DefaultUserCitySelections() {
+      return Context.GetUserCitySelectionFromContext();
+    }
+
+    [Query]
+    public IQueryable<UserCitySelection> GetUserCitySelectionsForUser(Guid? userId) {
+      return Context.GetUserCitySelectionFromContext(userId.GetValueOrDefault());
+    }
+
+    private MarketingEntities Context {
+      get {
+        if( _Context == null )
+          _Context = new MarketingEntities();
+        return _Context;
+      }
+    }
     
-    //public ServeeOper
-    List<Operation> _Operations = new List<Operation>();
-
-    [Query( IsDefault = true )]
-    public IQueryable<Operation> GetOperations() {
-      return _Operations.AsQueryable();
-    }
-    public Operation RunServerOperations() {
-        //call host eventually
-      var invoker = new WorkflowInvoker( new Host() );
-      Task t = new Task( () => {
-        invoker.Invoke();
-      } );
-      t.Start();
-      return new Operation { Id = Guid.NewGuid() };
-    }
-
   }
 }
 

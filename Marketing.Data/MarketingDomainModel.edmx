@@ -4,505 +4,243 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MarketingDomainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="MarketingDomainModelStoreContainer">
-          <EntitySet Name="CraigslistCity" EntityType="MarketingDomainModel.Store.CraigslistCity" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDomainModel.Store.CraigslistPostKeywords" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.Store.CraigslistPosts" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="CraigsListResponse" EntityType="MarketingDomainModel.Store.CraigsListResponse" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Keyword" EntityType="MarketingDomainModel.Store.Keyword" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ServerOperation" EntityType="MarketingDomainModel.Store.ServerOperation" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ServerOperationHistory" EntityType="MarketingDomainModel.Store.ServerOperationHistory" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SmtpServer" EntityType="MarketingDomainModel.Store.SmtpServer" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="SystemSetting" EntityType="MarketingDomainModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigslistPostKeywords_CraigslistPosts">
-            <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
-            <End Role="CraigslistPostKeywords" EntitySet="CraigslistPostKeywords" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingDomainModel.Store.FK_CraigslistPosts_CraigslistCity">
-            <End Role="CraigslistCity" EntitySet="CraigslistCity" />
-            <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.Store.FK_CraigsListResponse_CraigslistPosts">
-            <End Role="CraigslistPosts" EntitySet="CraigslistPosts" />
-            <End Role="CraigsListResponse" EntitySet="CraigsListResponse" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDomainModel.Store.FK_ServerOperationHistory_ServerOperation">
-            <End Role="ServerOperation" EntitySet="ServerOperation" />
-            <End Role="ServerOperationHistory" EntitySet="ServerOperationHistory" />
+    <Schema Namespace="Marketing.CraigslistScraperModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
+          <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="UserCity" EntitySet="UserCity" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="CraigslistCity">
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="City">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Region" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="CityUrl" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="CraigslistPostKeywords">
-          <Key>
-            <PropertyRef Name="CraigslistPostId" />
-            <PropertyRef Name="KeywordId" />
-          </Key>
-          <Property Name="CraigslistPostId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="KeywordId" Type="uniqueidentifier" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CraigslistPosts">
+        <EntityType Name="UserCity">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PostId" Type="bigint" Nullable="false" />
-          <Property Name="CraigslistCityId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="EmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="PostDate" Type="datetime" Nullable="false" />
-          <Property Name="PostsElement" Type="xml" Nullable="false" />
-        </EntityType>
-        <EntityType Name="CraigsListResponse">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="CraigslitPostsId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ResponseContent" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="ResponseHtmlContent" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Created" Type="datetime" Nullable="false" />
-          <Property Name="Processed" Type="datetime" />
-          <Property Name="Sent" Type="datetime" />
-          <Property Name="RepliedTo" Type="datetime" />
-        </EntityType>
-        <EntityType Name="Keyword">
-          <Key>
-            <PropertyRef Name="KeywordValue" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="KeywordValue" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="Score" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ServerOperation">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="OperationName" Type="nvarchar" Nullable="false" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="ServerOperationHistory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ServerOperationId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Scheduled" Type="datetime" Nullable="false" />
-          <Property Name="Started" Type="datetime" />
-          <Property Name="Completed" Type="datetime" />
-          <Property Name="Parameters" Type="xml" />
-        </EntityType>
-        <EntityType Name="SmtpServer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="SmtpServerLocation" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="UseSsl" Type="bit" Nullable="false" />
-          <Property Name="SmtpPort" Type="int" Nullable="false" />
-          <Property Name="SmtpUsername" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="SmtpPassword" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
-          <Property Name="Created" Type="datetime" Nullable="false" />
         </EntityType>
-        <EntityType Name="SystemSetting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="StringValue" Type="nvarchar(max)" />
-          <Property Name="DefaultValue" Type="nvarchar(max)" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
-          <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
-          <End Role="CraigslistPostKeywords" Type="MarketingDomainModel.Store.CraigslistPostKeywords" Multiplicity="*" />
+        <Association Name="FK_UserCity_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+          <End Role="UserCity" Type="Marketing.CraigslistScraperModel.Store.UserCity" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="CraigslistPosts">
-              <PropertyRef Name="Id" />
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
             </Principal>
-            <Dependent Role="CraigslistPostKeywords">
-              <PropertyRef Name="CraigslistPostId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CraigslistPosts_CraigslistCity">
-          <End Role="CraigslistCity" Type="MarketingDomainModel.Store.CraigslistCity" Multiplicity="1" />
-          <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CraigslistCity">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CraigslistPosts">
-              <PropertyRef Name="CraigslistCityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CraigsListResponse_CraigslistPosts">
-          <End Role="CraigslistPosts" Type="MarketingDomainModel.Store.CraigslistPosts" Multiplicity="1" />
-          <End Role="CraigsListResponse" Type="MarketingDomainModel.Store.CraigsListResponse" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CraigslistPosts">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CraigsListResponse">
-              <PropertyRef Name="CraigslitPostsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ServerOperationHistory_ServerOperation">
-          <End Role="ServerOperation" Type="MarketingDomainModel.Store.ServerOperation" Multiplicity="1" />
-          <End Role="ServerOperationHistory" Type="MarketingDomainModel.Store.ServerOperationHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServerOperation">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ServerOperationHistory">
-              <PropertyRef Name="ServerOperationId" />
+            <Dependent Role="UserCity">
+              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-        <EntityContainer Name="MarketingDomainModelContainer" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CraigslistPosts" EntityType="MarketingDomainModel.CraigslistPost" />
-          <EntitySet Name="CraigsListResponses" EntityType="MarketingDomainModel.CraigsListResponse" />
-          <AssociationSet Name="FK_CraigsListResponse_CraigslistPosts" Association="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts">
-            <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
-            <End Role="CraigsListResponse" EntitySet="CraigsListResponses" />
+      <Schema Namespace="Marketing.CraigslistScraperModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="MarketingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.aspnet_Membership" />
+          <EntitySet Name="Cities" EntityType="Marketing.CraigslistScraperModel.City" />
+          <EntitySet Name="UserCities" EntityType="Marketing.CraigslistScraperModel.UserCity" />
+          <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="UserCity" EntitySet="UserCities" />
           </AssociationSet>
-          <EntitySet Name="CraigslistCities" EntityType="MarketingDomainModel.CraigslistCity" />
-          <EntitySet Name="Keywords" EntityType="MarketingDomainModel.Keyword" />
-          <AssociationSet Name="FK_CraigslistPosts_CraigslistCity" Association="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity">
-            <End Role="CraigslistCity" EntitySet="CraigslistCities" />
-            <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
+          <AssociationSet Name="UserCityCity" Association="Marketing.CraigslistScraperModel.UserCityCity">
+            <End Role="UserCity" EntitySet="UserCities" />
+            <End Role="City" EntitySet="Cities" />
           </AssociationSet>
-          <EntitySet Name="CraigslistPostKeywords" EntityType="MarketingDomainModel.CraigslistPostKeyword" />
-          <AssociationSet Name="FK_CraigslistPostKeywords_CraigslistPosts" Association="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts">
-            <End Role="CraigslistPost" EntitySet="CraigslistPosts" />
-            <End Role="CraigslistPostKeyword" EntitySet="CraigslistPostKeywords" />
-          </AssociationSet>
-          <EntitySet Name="ServerOperations" EntityType="MarketingDomainModel.ServerOperation" />
-          <EntitySet Name="ServerOperationHistories" EntityType="MarketingDomainModel.ServerOperationHistory" />
-          <AssociationSet Name="FK_ServerOperationHistory_ServerOperation" Association="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation">
-            <End Role="ServerOperation" EntitySet="ServerOperations" />
-            <End Role="ServerOperationHistory" EntitySet="ServerOperationHistories" />
-          </AssociationSet>
-          <EntitySet Name="SmtpServers" EntityType="MarketingDomainModel.SmtpServer" />
-          <EntitySet Name="SystemSettings" EntityType="MarketingDomainModel.SystemSetting" />
         </EntityContainer>
-        <EntityType Name="CraigslistPost">
+        <EntityType Name="aspnet_Membership">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="UserId" />
           </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="DateTime" Name="PostDate" Nullable="false" />
-          <Property Type="String" Name="PostsElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="PostId" Nullable="false" />
-          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CraigsListResponses" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigslistPost" ToRole="CraigsListResponse" />
-          <Property Type="Guid" Name="CraigslistCityId" Nullable="false" />
-          <NavigationProperty Name="CraigslistCity" Relationship="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity" FromRole="CraigslistPost" ToRole="CraigslistCity" />
-          <NavigationProperty Name="CraigslistPostKeywords" Relationship="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts" FromRole="CraigslistPost" ToRole="CraigslistPostKeyword" />
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserCities" Relationship="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserCity" />
         </EntityType>
-        <EntityType Name="CraigsListResponse">
+        <EntityType Name="City">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="Guid" Name="CraigslitPostsId" Nullable="false" />
-          <Property Type="String" Name="ResponseContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Created" Nullable="false" />
-          <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" FromRole="CraigsListResponse" ToRole="CraigslistPost" />
-          <Property Type="String" Name="ResponseHtmlContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Processed" />
-          <Property Type="DateTime" Name="Sent" />
-          <Property Type="DateTime" Name="RepliedTo" />
-        </EntityType>
-        <Association Name="FK_CraigsListResponse_CraigslistPosts">
-          <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
-          <End Type="MarketingDomainModel.CraigsListResponse" Role="CraigsListResponse" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CraigslistPost">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CraigsListResponse">
-              <PropertyRef Name="CraigslitPostsId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="CraigslistCity">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="Region" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CityUrl" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CityBaseUrl" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Active" Nullable="false" />
-          <NavigationProperty Name="CraigslistPosts" Relationship="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity" FromRole="CraigslistCity" ToRole="CraigslistPost" />
+          <NavigationProperty Name="UserCities" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="City" ToRole="UserCity" />
         </EntityType>
-        <EntityType Name="Keyword">
-          <Key>
-            <PropertyRef Name="KeywordValue" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="Score" Nullable="false" />
-          <Property Type="String" Name="KeywordValue" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_CraigslistPosts_CraigslistCity">
-          <End Type="MarketingDomainModel.CraigslistCity" Role="CraigslistCity" Multiplicity="1" />
-          <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CraigslistCity">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CraigslistPost">
-              <PropertyRef Name="CraigslistCityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="CraigslistPostKeyword">
-          <Key>
-            <PropertyRef Name="CraigslistPostId" />
-            <PropertyRef Name="KeywordId" />
-          </Key>
-          <Property Type="Guid" Name="CraigslistPostId" Nullable="false" />
-          <Property Type="Guid" Name="KeywordId" Nullable="false" />
-          <NavigationProperty Name="CraigslistPost" Relationship="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts" FromRole="CraigslistPostKeyword" ToRole="CraigslistPost" />
-        </EntityType>
-        <Association Name="FK_CraigslistPostKeywords_CraigslistPosts">
-          <End Type="MarketingDomainModel.CraigslistPost" Role="CraigslistPost" Multiplicity="1" />
-          <End Type="MarketingDomainModel.CraigslistPostKeyword" Role="CraigslistPostKeyword" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CraigslistPost">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="CraigslistPostKeyword">
-              <PropertyRef Name="CraigslistPostId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="ServerOperation">
+        <EntityType Name="UserCity">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="OperationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ServerOperationHistories" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperation" ToRole="ServerOperationHistory" />
-        </EntityType>
-        <EntityType Name="ServerOperationHistory">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="Guid" Name="ServerOperationId" Nullable="false" />
-          <Property Type="DateTime" Name="Started" Nullable="true" />
-          <Property Type="DateTime" Name="Completed" />
-          <NavigationProperty Name="ServerOperation" Relationship="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" FromRole="ServerOperationHistory" ToRole="ServerOperation" />
-          <Property Type="DateTime" Name="Scheduled" Nullable="false" />
-          <Property Type="String" Name="Parameters" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_ServerOperationHistory_ServerOperation">
-          <End Type="MarketingDomainModel.ServerOperation" Role="ServerOperation" Multiplicity="1" />
-          <End Type="MarketingDomainModel.ServerOperationHistory" Role="ServerOperationHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ServerOperation">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ServerOperationHistory">
-              <PropertyRef Name="ServerOperationId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SmtpServer">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="SmtpServerLocation" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="UseSsl" Nullable="false" />
-          <Property Type="Int32" Name="SmtpPort" Nullable="false" />
-          <Property Type="String" Name="SmtpUsername" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SmtpPassword" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="CityId" Nullable="false" />
           <Property Type="Boolean" Name="Active" Nullable="false" />
-          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" FromRole="UserCity" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="City" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="UserCity" ToRole="City" />
         </EntityType>
-        <EntityType Name="SystemSetting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="SettingName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StringValue" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="DefaultValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-      </Schema>
+        <Association Name="FK_UserCity_aspnet_Membership">
+          <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.UserCity" Role="UserCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserCity">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserCityCity">
+          <End Type="Marketing.CraigslistScraperModel.UserCity" Role="UserCity" Multiplicity="*" />
+          <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MarketingDomainModelStoreContainer" CdmEntityContainer="MarketingDomainModelContainer">
-          <EntitySetMapping Name="CraigslistPosts">
-            <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPost">
-              <MappingFragment StoreEntitySet="CraigslistPosts">
-                <ScalarProperty Name="CraigslistCityId" ColumnName="CraigslistCityId" />
-                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="PostId" ColumnName="PostId" />
-                <ScalarProperty Name="PostsElement" ColumnName="PostsElement" />
-                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MarketingCraigslistScraperModelStoreContainer" CdmEntityContainer="MarketingEntities">
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CraigsListResponses">
-            <EntityTypeMapping TypeName="MarketingDomainModel.CraigsListResponse">
-              <MappingFragment StoreEntitySet="CraigsListResponse">
-                <ScalarProperty Name="RepliedTo" ColumnName="RepliedTo" />
-                <ScalarProperty Name="Sent" ColumnName="Sent" />
-                <ScalarProperty Name="Processed" ColumnName="Processed" />
-                <ScalarProperty Name="ResponseHtmlContent" ColumnName="ResponseHtmlContent" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="ResponseContent" ColumnName="ResponseContent" />
-                <ScalarProperty Name="CraigslitPostsId" ColumnName="CraigslitPostsId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CraigslistCities">
-            <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistCity">
-              <MappingFragment StoreEntitySet="CraigslistCity">
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.City">
+              <MappingFragment StoreEntitySet="City">
                 <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="CityUrl" ColumnName="CityUrl" />
+                <ScalarProperty Name="CityBaseUrl" ColumnName="CityBaseUrl" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Keywords">
-            <EntityTypeMapping TypeName="MarketingDomainModel.Keyword">
-              <MappingFragment StoreEntitySet="Keyword">
-                <ScalarProperty Name="KeywordValue" ColumnName="KeywordValue" />
-                <ScalarProperty Name="Score" ColumnName="Score" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CraigslistPostKeywords">
-            <EntityTypeMapping TypeName="MarketingDomainModel.CraigslistPostKeyword">
-              <MappingFragment StoreEntitySet="CraigslistPostKeywords">
-                <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
-                <ScalarProperty Name="CraigslistPostId" ColumnName="CraigslistPostId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServerOperations">
-            <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperation">
-              <MappingFragment StoreEntitySet="ServerOperation">
-                <ScalarProperty Name="OperationName" ColumnName="OperationName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ServerOperationHistories">
-            <EntityTypeMapping TypeName="MarketingDomainModel.ServerOperationHistory">
-              <MappingFragment StoreEntitySet="ServerOperationHistory">
-                <ScalarProperty Name="Parameters" ColumnName="Parameters" />
-                <ScalarProperty Name="Scheduled" ColumnName="Scheduled" />
-                <ScalarProperty Name="Completed" ColumnName="Completed" />
-                <ScalarProperty Name="Started" ColumnName="Started" />
-                <ScalarProperty Name="ServerOperationId" ColumnName="ServerOperationId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SmtpServers">
-            <EntityTypeMapping TypeName="MarketingDomainModel.SmtpServer">
-              <MappingFragment StoreEntitySet="SmtpServer">
-                <ScalarProperty Name="Created" ColumnName="Created" />
+          <EntitySetMapping Name="UserCities">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserCity">
+              <MappingFragment StoreEntitySet="UserCity">
                 <ScalarProperty Name="Active" ColumnName="Active" />
-                <ScalarProperty Name="SmtpPassword" ColumnName="SmtpPassword" />
-                <ScalarProperty Name="SmtpUsername" ColumnName="SmtpUsername" />
-                <ScalarProperty Name="SmtpPort" ColumnName="SmtpPort" />
-                <ScalarProperty Name="UseSsl" ColumnName="UseSsl" />
-                <ScalarProperty Name="SmtpServerLocation" ColumnName="SmtpServerLocation" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SystemSettings">
-            <EntityTypeMapping TypeName="MarketingDomainModel.SystemSetting">
-              <MappingFragment StoreEntitySet="SystemSetting">
-                <ScalarProperty Name="DefaultValue" ColumnName="DefaultValue" />
-                <ScalarProperty Name="StringValue" ColumnName="StringValue" />
-                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
         </EntityContainerMapping>
-</Mapping></edmx:Mappings>
+      </Mapping>
+    </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
-    <edmx:Connection>
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
       </DesignerInfoPropertySet>
-    </edmx:Connection>
-    <edmx:Options>
+    </Connection>
+    <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="True" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
-    </edmx:Options>
+    </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <edmx:Diagrams>
-      <Diagram Name="MarketingDomainModel" >
-        <EntityTypeShape EntityType="MarketingDomainModel.CraigslistPost" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4279589843749996" />
-        <EntityTypeShape EntityType="MarketingDomainModel.CraigsListResponse" Width="1.5" PointX="3" PointY="0.875" Height="1.7566536458333335" />
-        <AssociationConnector Association="MarketingDomainModel.FK_CraigsListResponse_CraigslistPosts" >
-          <ConnectorPoint PointX="2.25" PointY="1.8355004882812502" />
-          <ConnectorPoint PointX="3" PointY="1.8355004882812502" />
+    <Diagrams>
+      <Diagram Name="MarketingDomainModel">
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.aspnet_Membership" Width="1.5" PointX="0.75" PointY="1" Height="4.5505582682291745" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.City" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7566536458333317" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserCity" Width="1.5" PointX="3" PointY="2.5" Height="1.7566536458333388" />
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" >
+          <ConnectorPoint PointX="2.25" PointY="3.3783268229166694" />
+          <ConnectorPoint PointX="3" PointY="3.3783268229166694" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="MarketingDomainModel.CraigslistCity" Width="1.5" PointX="0.75" PointY="3.75" Height="1.7566536458333322" />
-        <EntityTypeShape EntityType="MarketingDomainModel.Keyword" Width="1.5" PointX="2.75" PointY="3.75" Height="1.4279589843749996" />
-        <AssociationConnector Association="MarketingDomainModel.FK_CraigslistPosts_CraigslistCity" >
-          <ConnectorPoint PointX="1.5" PointY="3.75" />
-          <ConnectorPoint PointX="1.5" PointY="3.328390299479167" />
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.UserCityCity">
+          <ConnectorPoint PointX="4.5" PointY="3.5460014765625" />
+          <ConnectorPoint PointX="6.5" PointY="3.5460014765625" />
+          <ConnectorPoint PointX="6.5" PointY="2.6710009765625" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="MarketingDomainModel.CraigslistPostKeyword" Width="1.5" PointX="3" PointY="6.375" Height="1.4279589843749996" />
-        <AssociationConnector Association="MarketingDomainModel.FK_CraigslistPostKeywords_CraigslistPosts" >
-          <ConnectorPoint PointX="1.9062519999999998" PointY="3.328390299479167" />
-          <ConnectorPoint PointX="1.9062519999999998" PointY="3.5783902994791674" />
-          <ConnectorPoint PointX="2.5" PointY="3.5783902994791674" />
-          <ConnectorPoint PointX="2.5" PointY="7.0889794921875" />
-          <ConnectorPoint PointX="3" PointY="7.0889794921875" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="MarketingDomainModel.ServerOperation" Width="1.5" PointX="5.375" PointY="0.75" Height="1.2636116536458326" />
-        <EntityTypeShape EntityType="MarketingDomainModel.ServerOperationHistory" Width="1.5" PointX="5.375" PointY="3.75" Height="1.5923063151041674" />
-        <AssociationConnector Association="MarketingDomainModel.FK_ServerOperationHistory_ServerOperation" >
-          <ConnectorPoint PointX="6.125" PointY="2.177958984375" />
-          <ConnectorPoint PointX="6.125" PointY="3.75" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="MarketingDomainModel.SmtpServer" Width="1.5" PointX="5.375" PointY="6.375" Height="2.2496956380208317" />
-        <EntityTypeShape EntityType="MarketingDomainModel.SystemSetting" Width="1.5" PointX="7.375" PointY="0.75" Height="1.5923063151041674" />
       </Diagram>
-    </edmx:Diagrams>
-  </edmx:Designer>
+    </Diagrams>
+  </Designer>
 </edmx:Edmx>

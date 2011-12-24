@@ -7,23 +7,22 @@
   </EntityContainer>
   <EntityType Name="City">
     <Key>
-      <PropertyRef Name="RegionName" />
-      <PropertyRef Name="CityName" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="UserCity">
     <Key>
-      <PropertyRef Name="UserId" />
-      <PropertyRef Name="CityId" />
+      <PropertyRef Name="Id" />
     </Key>
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="vw_aspnet_MembershipUser">
     <Key>

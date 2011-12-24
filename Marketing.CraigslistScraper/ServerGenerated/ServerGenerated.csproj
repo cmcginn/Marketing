@@ -130,6 +130,10 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Marketing.Services\Marketing.Services.csproj">
+      <Project>{488493A3-BEE8-4EE2-9FFE-91E095AC63E2}</Project>
+      <Name>Marketing.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Server\Server.csproj">
       <Name>Server</Name>
       <Project>{5d8cc327-983a-4476-acfd-a6de89ce36ca}</Project>

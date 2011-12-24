@@ -42,6 +42,19 @@ namespace LightSwitchApplication
             }
         }
         
+        /// <summary>
+        /// Gets the MarketingDomainServiceData datasource.  This provides members to query and update data in the data source.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.MarketingDomainServiceData MarketingDomainServiceData
+        {
+            get
+            {
+                return global::LightSwitchApplication.DataWorkspace.DetailsClass.GetValue(this, global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingDomainServiceData);
+            }
+        }
+        
         #endregion
     
         #region Details Class
@@ -89,6 +102,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData> MarketingDomainServiceData
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties.MarketingDomainServiceData) as global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>;
+                    }
+                }
+                
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -107,10 +128,23 @@ namespace LightSwitchApplication
                     c(d, ref d._Marketing_CraigslistScraperData, sf);
                 }
                  
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Entry
+                    MarketingDomainServiceData = new global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Entry(
+                        "MarketingDomainServiceData",
+                        global::LightSwitchApplication.DataWorkspace.DetailsClass.PropertySetProperties._MarketingDomainServiceData_Stub);
+                private static void _MarketingDomainServiceData_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.DataWorkspace.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Data> c, global::LightSwitchApplication.DataWorkspace.DetailsClass d, object sf)
+                {
+                    c(d, ref d._MarketingDomainServiceData, sf);
+                }
+                 
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.Marketing_CraigslistScraperData>.Data _Marketing_CraigslistScraperData;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataWorkspaceDataServiceProperty<global::LightSwitchApplication.DataWorkspace, global::LightSwitchApplication.DataWorkspace.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData>.Data _MarketingDomainServiceData;
             
         }
     
@@ -184,57 +218,45 @@ namespace LightSwitchApplication
         /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s).
         /// </summary>
-        /// <param name="RegionName">
-        /// The value of the 'RegionName' key property of the entity to retrieve.
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
         /// </param>
-        /// <param name="CityName">
-        /// The value of the 'CityName' key property of the entity to retrieve.
-        /// </param>
-        public global::LightSwitchApplication.City Cities_Single(string RegionName, string CityName)
+        public global::LightSwitchApplication.City Cities_Single(global::System.Nullable<global::System.Guid> Id)
         {
-            return this.Details.Methods.Cities_Single.CreateInvocation(RegionName, CityName).Execute();
+            return this.Details.Methods.Cities_Single.CreateInvocation(Id).Execute();
         }
         
         /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
         /// </summary>
-        /// <param name="RegionName">
-        /// The value of the 'RegionName' key property of the entity to retrieve.
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
         /// </param>
-        /// <param name="CityName">
-        /// The value of the 'CityName' key property of the entity to retrieve.
-        /// </param>
-        public global::LightSwitchApplication.City Cities_SingleOrDefault(string RegionName, string CityName)
+        public global::LightSwitchApplication.City Cities_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
-            return this.Details.Methods.Cities_SingleOrDefault.CreateInvocation(RegionName, CityName).Execute();
+            return this.Details.Methods.Cities_SingleOrDefault.CreateInvocation(Id).Execute();
         }
         
         /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s).
         /// </summary>
-        /// <param name="UserId">
-        /// The value of the 'UserId' key property of the entity to retrieve.
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
         /// </param>
-        /// <param name="CityId">
-        /// The value of the 'CityId' key property of the entity to retrieve.
-        /// </param>
-        public global::LightSwitchApplication.UserCity UserCities_Single(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CityId)
+        public global::LightSwitchApplication.UserCity UserCities_Single(global::System.Nullable<global::System.Guid> Id)
         {
-            return this.Details.Methods.UserCities_Single.CreateInvocation(UserId, CityId).Execute();
+            return this.Details.Methods.UserCities_Single.CreateInvocation(Id).Execute();
         }
         
         /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
         /// </summary>
-        /// <param name="UserId">
-        /// The value of the 'UserId' key property of the entity to retrieve.
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
         /// </param>
-        /// <param name="CityId">
-        /// The value of the 'CityId' key property of the entity to retrieve.
-        /// </param>
-        public global::LightSwitchApplication.UserCity UserCities_SingleOrDefault(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<global::System.Guid> CityId)
+        public global::LightSwitchApplication.UserCity UserCities_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
-            return this.Details.Methods.UserCities_SingleOrDefault.CreateInvocation(UserId, CityId).Execute();
+            return this.Details.Methods.UserCities_SingleOrDefault.CreateInvocation(Id).Execute();
         }
         
         /// <summary>
@@ -616,6 +638,241 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.Marketing_CraigslistScraperData, global::LightSwitchApplication.Marketing_CraigslistScraperData.DetailsClass, global::LightSwitchApplication.vw_aspnet_MembershipUser>.Data _vw_aspnet_MembershipUsers_SingleOrDefault;
+            
+        }
+    
+        #endregion
+    }
+    
+    /// <summary>
+    /// Provides members to query and update data in the MarketingDomainServiceData datasource.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public class MarketingDomainServiceData : global::Microsoft.LightSwitch.Framework.Base.DataService<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass>
+    {
+        #region Constructors
+    
+        public MarketingDomainServiceData() : base()
+        {
+        }
+    
+        #endregion
+    
+        #region Public Properties
+    
+        /// <summary>
+        /// Gets the UserCitySelections entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserCitySelection> UserCitySelections
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.UserCitySelections);
+            }
+        }
+        
+        #endregion
+    
+        #region Queries
+    
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.UserCitySelection UserCitySelections_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.UserCitySelections_Single.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.UserCitySelection UserCitySelections_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.UserCitySelections_SingleOrDefault.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        /// <param name="userId">
+        /// No Modeled Description Available
+        /// </param>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserCitySelection> GetUserCitySelectionsForUser(global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.Details.Methods.GetUserCitySelectionsForUser.CreateInvocation(userId).Execute();
+        }
+        
+        #endregion
+    
+        #region Details Class
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.DataServiceDetails<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySet, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSet>
+        {
+    
+            static DetailsClass()
+            {
+                var initializeMethodEntry = global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.UserCitySelections_Single;
+                var initializePropertyEntry = global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.UserCitySelections;
+            }
+    
+            public DetailsClass() : base()
+            {
+            }
+    
+            public new global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSet Methods
+            {
+                get
+                {
+                    return base.Methods;
+                }
+            }
+    
+            public new global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySet Properties
+            {
+                get
+                {
+                    return base.Properties;
+                }
+            }
+    
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class MethodSet : global::Microsoft.LightSwitch.Details.Framework.Base.DataServiceMethodSet<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass>
+            {
+    
+                public MethodSet() : base()
+                {
+                }
+    
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection> UserCitySelections_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.UserCitySelections_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection> UserCitySelections_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.UserCitySelections_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection> GetUserCitySelectionsForUser
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetUserCitySelectionsForUser) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>;
+                    }
+                }
+                
+            }
+    
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.DataServicePropertySet<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass>
+            {
+    
+                public PropertySet() : base()
+                {
+                }
+    
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection> UserCitySelections
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.UserCitySelections) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>;
+                    }
+                }
+                
+            }
+    
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal class MethodSetProperties
+            {
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry
+                    UserCitySelections_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry(
+                        "UserCitySelections_Single",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._UserCitySelections_Single_Stub);
+                private static void _UserCitySelections_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserCitySelections_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry
+                    UserCitySelections_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry(
+                        "UserCitySelections_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._UserCitySelections_SingleOrDefault_Stub);
+                private static void _UserCitySelections_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserCitySelections_SingleOrDefault, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry
+                    GetUserCitySelectionsForUser = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry(
+                        "GetUserCitySelectionsForUser",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._GetUserCitySelectionsForUser_Stub);
+                private static void _GetUserCitySelectionsForUser_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserCitySelectionsForUser, sf);
+                }
+    
+            }
+    
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal class PropertySetProperties
+            {
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry
+                    UserCitySelections = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry(
+                        "UserCitySelections",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties._UserCitySelections_Stub);
+                private static void _UserCitySelections_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserCitySelections, sf);
+                }
+     
+            }
+    
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _UserCitySelections;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _UserCitySelections_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _UserCitySelections_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _GetUserCitySelectionsForUser;
             
         }
     

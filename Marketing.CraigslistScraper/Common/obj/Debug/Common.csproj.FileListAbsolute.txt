@@ -1,6 +1,6 @@
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\obj\Debug\Application.Common.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\obj\Debug\Application.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\obj\Debug\Application.Common.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\Bin\LSCodeGeneratorsTask.mcs
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\Bin\Application.Common.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Common\Bin\Application.Common.pdb
