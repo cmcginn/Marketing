@@ -1265,414 +1265,25 @@
 
   
   
-  <Screen LaunchMode="Multiple"
-          Name="Preferences">
-    <Screen.Attributes>
-      <SaveChangesTo DataService="Marketing_CraigslistScraperDataDataService" />
-    </Screen.Attributes>
-    <Screen.Properties>
-      <ScreenCollectionProperty Name="Cities"
-                                PageSize="45"
-                                PropertyType="CollectionView$City">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="CitiesQuery"
-                                 ReturnType="City*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="Marketing_CraigslistScraperData/Members[Cities]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="Preferences/Properties[Cities]/Query" />
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-    </Screen.Properties>
-    <Screen.Methods>
-      <ScreenMethod Name="Save">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="Refresh">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="Close">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-    </Screen.Methods>
-    <Screen.RootContentItem>
-      <ContentItem Kind="Screen"
-                   Name="RootContentItem">
-        <ContentItem.CommandItems>
-          <ContentItem Kind="Command"
-                       Name="Save">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="Preferences/Methods[Save]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-          <ContentItem Kind="Command"
-                       Name="Refresh">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="Preferences/Methods[Refresh]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-        </ContentItem.CommandItems>
-        <ContentItem Kind="Group"
-                     Name="ScreenLayout"
-                     View=":TabsLayout">
-          <ContentItem.PropertySources>
-            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <ConstantExpression ResultType=":Boolean"
-                                      Value="True" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ControlPropertySource>
-          </ContentItem.PropertySources>
-          <ContentItem DataType="CollectionView$City"
-                       Kind="Collection"
-                       Name="Cities">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="Cities_AddAndEditNew">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[Cities]" />
-                      <CallExpression Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="Cities_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[Cities]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="Cities_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[Cities]" />
-                      <CallExpression Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[Cities]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem DataType="City"
-                         Kind="Details"
-                         Name="CitiesTemplate">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression />
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem DataType=":Guid"
-                           Kind="Value"
-                           Name="Id">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="City/Properties[Id]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="RegionName">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="City/Properties[RegionName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="CityName">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="City/Properties[CityName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="CityBaseUrl">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="City/Properties[CityBaseUrl]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Boolean"
-                           Kind="Value"
-                           Name="Active">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="City/Properties[Active]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Boolean"
-                           Kind="Value"
-                           Name="Selected"
-                           View=":CheckBox">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="City/Properties[Selected]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem>
-          </ContentItem>
-        </ContentItem>
-      </ContentItem>
-    </Screen.RootContentItem>
-  </Screen>
+  
 
   
-  <EntityType Name="UserCitySelection">
-    <EntityType.Methods>
-      <EntityMethod Name="Delete">
-        <EntityMethod.Attributes>
-          <Generated />
-        </EntityMethod.Attributes>
-      </EntityMethod>
-    </EntityType.Methods>
-    <EntityType.Properties>
-      <KeyProperty Name="Id"
-                   PropertyType=":Guid">
-        <KeyProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </KeyProperty.Attributes>
-      </KeyProperty>
-      <EntityProperty Name="Selected"
-                      PropertyType=":Boolean">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty Name="CityId"
-                      PropertyType=":Guid">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty Name="UserId"
-                      PropertyType=":Guid">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty Name="CityName"
-                      PropertyType=":String?" />
-      <EntityProperty Name="RegionName"
-                      PropertyType=":String?" />
-      <EntityProperty Name="Active"
-                      PropertyType=":Boolean">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-    </EntityType.Properties>
-  </EntityType>
-<EntityContainer Name="MarketingDomainServiceData"
-                   IsIntrinsic="False">
-
-    <EntitySet EntityType="UserCitySelection"
-               Name="UserCitySelections" />
   
-    <SubmitOperation Name="SaveChanges" />
+ 
   
-    <QueryOperation Name="UserCitySelections_Single"
-                    ReturnType="UserCitySelection">
-      <QueryOperation.Attributes>
-        <Generated />
-        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
-      </QueryOperation.Attributes>
-      <QueryOperation.FilterExpression>
-        <QueryFilterExpressionTree>
-          <BinaryExpression NodeType="Equal">
-            <BinaryExpression.Left>
-              <ChainExpression>
-                <MemberExpression Member="Id" />
-              </ChainExpression>
-            </BinaryExpression.Left>
-            <BinaryExpression.Right>
-              <ParameterExpression Parameter="Id" />
-            </BinaryExpression.Right>
-          </BinaryExpression>
-        </QueryFilterExpressionTree>
-      </QueryOperation.FilterExpression>
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserCitySelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-      <QueryOperationParameter Name="Id"
-                               ParameterType=":Guid?">
-        <QueryOperationParameter.Attributes>
-          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
-        </QueryOperationParameter.Attributes>
-      </QueryOperationParameter>
-    </QueryOperation>
+    
   
-    <QueryOperation Name="UserCitySelections_SingleOrDefault"
-                    ReturnType="UserCitySelection">
-      <QueryOperation.Attributes>
-        <Generated />
-        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
-      </QueryOperation.Attributes>
-      <QueryOperation.FilterExpression>
-        <QueryFilterExpressionTree>
-          <BinaryExpression NodeType="Equal">
-            <BinaryExpression.Left>
-              <ChainExpression>
-                <MemberExpression Member="Id" />
-              </ChainExpression>
-            </BinaryExpression.Left>
-            <BinaryExpression.Right>
-              <ParameterExpression Parameter="Id" />
-            </BinaryExpression.Right>
-          </BinaryExpression>
-        </QueryFilterExpressionTree>
-      </QueryOperation.FilterExpression>
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserCitySelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-      <QueryOperationParameter Name="Id"
-                               ParameterType=":Guid?">
-        <QueryOperationParameter.Attributes>
-          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
-        </QueryOperationParameter.Attributes>
-      </QueryOperationParameter>
-    </QueryOperation>
+    
   
-    <QueryOperation Name="UserCitySelections_All"
-                    ReturnType="UserCitySelection*">
-      <QueryOperation.Attributes>
-        <Generated />
-        <Description Value="Returns all entities contained in the entity set." />
-      </QueryOperation.Attributes>
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserCitySelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-    </QueryOperation>
+    
   
-    <QueryOperation Name="GetUserCitySelectionsForUser"
-                    ReturnType="UserCitySelection*">
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserCitySelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-      <QueryOperationParameter Name="userId"
-                               ParameterType=":Guid?" />
-    </QueryOperation>
-  </EntityContainer>
+    
+  
+    
+  
 
   
-  <DataService DataProvider="CustomDataProvider"
-               EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="AssemblyName"
-                          Value="Marketing.Services" />
-      <ConnectionProperty Name="FullClassName"
-                          Value="Marketing.Services.MarketingDomainService" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="e699b271-594b-4b34-a494-49eb5946ca8e" />
-      <ConnectionProperty Name="ConnectionStringDescription"
-                          Value="" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="UserCitySelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserCitySelections"
-                         EntityTypeName="Marketing.Services.UserCitySelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserCitySelection/Properties[Id]" />
-        <WcfRiaProperty Name="Selected"
-                        Property="UserCitySelection/Properties[Selected]" />
-        <WcfRiaProperty Name="CityId"
-                        Property="UserCitySelection/Properties[CityId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserCitySelection/Properties[UserId]" />
-        <WcfRiaProperty Name="CityName"
-                        Property="UserCitySelection/Properties[CityName]" />
-        <WcfRiaProperty Name="RegionName"
-                        Property="UserCitySelection/Properties[RegionName]" />
-        <WcfRiaProperty Name="Active"
-                        Property="UserCitySelection/Properties[Active]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserCitySelectionsForUser">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserCitySelectionsForUser" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionsForUser]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-  </DataService>
+  
 
   <DataService DataProvider="EntityFrameworkDataProvider"
                EntityContainer="Marketing_CraigslistScraperData"
@@ -1846,6 +1457,392 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+  <EntityType Name="UserCitySelection">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Selected"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="CityId"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="UserId"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="CityName"
+                      PropertyType=":String?" />
+      <EntityProperty Name="RegionName"
+                      PropertyType=":String?" />
+      <EntityProperty Name="Active"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+<EntityContainer Name="MarketingDomainServiceData"
+                   IsIntrinsic="False">
+
+    <EntitySet CanUpdate="True"
+               EntityType="UserCitySelection"
+               Name="UserCitySelections" />
+  
+    <QueryOperation Name="GetUserCitySelectionsForUser"
+                    ReturnType="UserCitySelection*">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserCitySelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
+    <SubmitOperation Name="SaveChanges" />
+  
+    <QueryOperation Name="UserCitySelections_Single"
+                    ReturnType="UserCitySelection">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserCitySelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserCitySelections_SingleOrDefault"
+                    ReturnType="UserCitySelection">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserCitySelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserCitySelections_All"
+                    ReturnType="UserCitySelection*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserCitySelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  </EntityContainer>
+
+  
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService1">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="43a69a18-9f3c-4c9b-bcca-8526b5cb1f64" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="UserCitySelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserCitySelections"
+                         EntityTypeName="Marketing.Services.UserCitySelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserCitySelection/Properties[Id]" />
+        <WcfRiaProperty Name="Selected"
+                        Property="UserCitySelection/Properties[Selected]" />
+        <WcfRiaProperty Name="CityId"
+                        Property="UserCitySelection/Properties[CityId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserCitySelection/Properties[UserId]" />
+        <WcfRiaProperty Name="CityName"
+                        Property="UserCitySelection/Properties[CityName]" />
+        <WcfRiaProperty Name="RegionName"
+                        Property="UserCitySelection/Properties[RegionName]" />
+        <WcfRiaProperty Name="Active"
+                        Property="UserCitySelection/Properties[Active]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserCitySelectionsForUser">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserCitySelectionsForUser" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionsForUser]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+  </DataService>
+
+  <Screen Name="Preferences">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty Name="UserCitySelections"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserCitySelection">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="UserCitySelectionsQuery"
+                                 ReturnType="UserCitySelection*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[UserCitySelections_All]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Preferences/Properties[UserCitySelections]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="Preferences/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="Preferences/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout"
+                     View=":TabsLayout">
+          <ContentItem DataType="CollectionView$UserCitySelection"
+                       Kind="Collection"
+                       Name="grid">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="UserCitySelections_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[UserCitySelections]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="UserCitySelections_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[UserCitySelections]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="UserCitySelections_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[UserCitySelections]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserCitySelections]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Collapsed" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem DataType="UserCitySelection"
+                         Kind="Details"
+                         Name="RowTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="CityName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[CityName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="RegionName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[RegionName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Boolean"
+                           Kind="Value"
+                           Name="Selected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[Selected]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
+  
+
+  
+
 
 
   

@@ -49,7 +49,7 @@
     <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="CityBaseUrl" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="Active" Nullable="false" />
-    <NavigationProperty Name="UserCities" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="City" ToRole="UserCity" />
+    <NavigationProperty Name="UserCity" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="City" ToRole="UserCity" />
   </EntityType>
   <EntityType Name="UserCity">
     <Key>
@@ -60,7 +60,7 @@
     <Property Type="Guid" Name="CityId" Nullable="false" />
     <Property Type="Boolean" Name="Active" Nullable="false" />
     <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" FromRole="UserCity" ToRole="aspnet_Membership" />
-    <NavigationProperty Name="City" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="UserCity" ToRole="City" />
+    <NavigationProperty Name="Cities" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="UserCity" ToRole="City" />
   </EntityType>
   <Association Name="FK_UserCity_aspnet_Membership">
     <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
@@ -77,5 +77,13 @@
   <Association Name="UserCityCity">
     <End Type="Marketing.CraigslistScraperModel.UserCity" Role="UserCity" Multiplicity="*" />
     <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCity">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

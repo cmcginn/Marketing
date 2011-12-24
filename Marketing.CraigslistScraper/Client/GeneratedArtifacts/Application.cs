@@ -39,7 +39,7 @@ namespace LightSwitchApplication
         partial void Preferences_Run(ref bool handled);
     
         /// <summary>
-        /// Opens a new instance of the ShowPreferences screen.
+        /// Opens the ShowPreferences screen.  If the screen is already opened, it is activated and shown.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

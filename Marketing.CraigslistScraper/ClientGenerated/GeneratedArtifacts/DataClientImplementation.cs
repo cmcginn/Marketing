@@ -1215,6 +1215,12 @@ namespace LightSwitchApplication.Implementation
         [global::System.ServiceModel.ServiceContract]
         public interface IMarketingDomainServiceDataContract
         {
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUser", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUserResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUserDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserCitySelectionsForUser(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndGetUserCitySelectionsForUser(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
@@ -1232,12 +1238,6 @@ namespace LightSwitchApplication.Implementation
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserCitySelections_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginUserCitySelections_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndUserCitySelections_All(global::System.IAsyncResult result);
-            
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUser", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUserResponse"),
-             global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionsForUserDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginGetUserCitySelectionsForUser(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
-            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndGetUserCitySelectionsForUser(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]

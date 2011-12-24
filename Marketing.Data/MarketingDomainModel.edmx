@@ -124,7 +124,7 @@
           <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CityBaseUrl" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="Active" Nullable="false" />
-          <NavigationProperty Name="UserCities" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="City" ToRole="UserCity" />
+          <NavigationProperty Name="UserCity" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="City" ToRole="UserCity" />
         </EntityType>
         <EntityType Name="UserCity">
           <Key>
@@ -135,7 +135,7 @@
           <Property Type="Guid" Name="CityId" Nullable="false" />
           <Property Type="Boolean" Name="Active" Nullable="false" />
           <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" FromRole="UserCity" ToRole="aspnet_Membership" />
-          <NavigationProperty Name="City" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="UserCity" ToRole="City" />
+          <NavigationProperty Name="Cities" Relationship="Marketing.CraigslistScraperModel.UserCityCity" FromRole="UserCity" ToRole="City" />
         </EntityType>
         <Association Name="FK_UserCity_aspnet_Membership">
           <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
@@ -152,6 +152,14 @@
         <Association Name="UserCityCity">
           <End Type="Marketing.CraigslistScraperModel.UserCity" Role="UserCity" Multiplicity="*" />
           <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserCity">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -228,12 +236,12 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="MarketingDomainModel">
-        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.aspnet_Membership" Width="1.5" PointX="0.75" PointY="1" Height="4.5505582682291745" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.aspnet_Membership" Width="1.5" PointX="0.75" PointY="1" Height="4.5505582682291656" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.City" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7566536458333317" />
-        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserCity" Width="1.5" PointX="3" PointY="2.5" Height="1.7566536458333388" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserCity" Width="1.5" PointX="3" PointY="2.5" Height="1.7566536458333317" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="3.3783268229166694" />
-          <ConnectorPoint PointX="3" PointY="3.3783268229166694" />
+          <ConnectorPoint PointX="2.25" PointY="3.46050048828125" />
+          <ConnectorPoint PointX="3" PointY="3.46050048828125" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.UserCityCity">
           <ConnectorPoint PointX="4.5" PointY="3.5460014765625" />

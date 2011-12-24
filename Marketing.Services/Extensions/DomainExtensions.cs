@@ -15,6 +15,7 @@ namespace Marketing.Services.Extensions {
 
       return query.AsQueryable();
     }
+    
     public static IQueryable<UserCitySelection> GetUserCitySelectionFromContext( this MarketingEntities context ) {
       return context.GetUserCitySelectionFromContext( Guid.Empty );
     }

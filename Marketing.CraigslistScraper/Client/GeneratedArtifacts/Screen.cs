@@ -74,27 +74,27 @@ namespace LightSwitchApplication
         
         #endregion
  
-        partial void Cities_SelectionChanged();
+        partial void UserCitySelections_SelectionChanged();
 
-        partial void Cities_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+        partial void UserCitySelections_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Cities_Loaded(bool succeeded);
+        partial void UserCitySelections_Loaded(bool succeeded);
 
         /// <summary>
-        /// Gets the Cities visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// Gets the UserCitySelections visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.City> Cities
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.UserCitySelection> UserCitySelections
         {
             get
             {
-                return global::LightSwitchApplication.Preferences.DetailsClass.GetValue(this, global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.Cities);
+                return global::LightSwitchApplication.Preferences.DetailsClass.GetValue(this, global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.UserCitySelections);
             }
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Cities_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+        partial void UserCitySelections_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -105,7 +105,7 @@ namespace LightSwitchApplication
 
             static DetailsClass()
             {
-                var initializePropertyEntry = global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.Cities;
+                var initializePropertyEntry = global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.UserCitySelections;
             }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -181,13 +181,13 @@ namespace LightSwitchApplication
                 }
             }
 
-            private global::Microsoft.LightSwitch.IDataServiceQueryable CitiesQuery()
+            private global::Microsoft.LightSwitch.IDataServiceQueryable UserCitySelectionsQuery()
             {
-                return this.Screen.DataWorkspace.Marketing_CraigslistScraperData.Cities;
+                return this.Screen.DataWorkspace.MarketingDomainServiceData.UserCitySelections;
             }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.City>.Data _Cities;
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _UserCitySelections;
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -196,11 +196,11 @@ namespace LightSwitchApplication
                 : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>
             {
 
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.City> Cities
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserCitySelection> UserCitySelections
                 {
                     get
                     {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.City>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.Cities);
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserCitySelection>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.UserCitySelections);
                     }
                 }
 
@@ -228,38 +228,38 @@ namespace LightSwitchApplication
             internal sealed class PropertySetProperties
             {
 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.City>.Entry
-                    Cities = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.City>.Entry(
-                        "Cities",
-                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._Cities_Stub,
-                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._Cities_Validate,
-                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._Cities_CreateQuery,
-                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._Cities_SelectionChanged,
-                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._Cities_OnCollectionChanged,
-                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._Cities_OnLoaded);
-                private static void _Cities_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.City>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry
+                    UserCitySelections = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Entry(
+                        "UserCitySelections",
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._UserCitySelections_Stub,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._UserCitySelections_Validate,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._UserCitySelections_CreateQuery,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._UserCitySelections_SelectionChanged,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._UserCitySelections_OnCollectionChanged,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._UserCitySelections_OnLoaded);
+                private static void _UserCitySelections_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
                 {
-                    c(d, ref d._Cities, sf);
+                    c(d, ref d._UserCitySelections, sf);
                 }
-                private static void _Cities_Validate(global::LightSwitchApplication.Preferences s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                private static void _UserCitySelections_Validate(global::LightSwitchApplication.Preferences s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
                 {
-                    s.Cities_Validate(r);
+                    s.UserCitySelections_Validate(r);
                 }
-                private static global::Microsoft.LightSwitch.IDataServiceQueryable _Cities_CreateQuery(global::LightSwitchApplication.Preferences.DetailsClass d, object[] args)
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _UserCitySelections_CreateQuery(global::LightSwitchApplication.Preferences.DetailsClass d, object[] args)
                 {
-                    return d.CitiesQuery();
+                    return d.UserCitySelectionsQuery();
                 }
-                private static void _Cities_SelectionChanged(global::LightSwitchApplication.Preferences s)
+                private static void _UserCitySelections_SelectionChanged(global::LightSwitchApplication.Preferences s)
                 {
-                    s.Cities_SelectionChanged();
+                    s.UserCitySelections_SelectionChanged();
                 }
-                private static void _Cities_OnCollectionChanged(global::LightSwitchApplication.Preferences s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                private static void _UserCitySelections_OnCollectionChanged(global::LightSwitchApplication.Preferences s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
                 {
-                    s.Cities_Changed(e);
+                    s.UserCitySelections_Changed(e);
                 }
-                private static void _Cities_OnLoaded(global::LightSwitchApplication.Preferences s, bool succeeded)
+                private static void _UserCitySelections_OnLoaded(global::LightSwitchApplication.Preferences s, bool succeeded)
                 {
-                    s.Cities_Loaded(succeeded);
+                    s.UserCitySelections_Loaded(succeeded);
                 }
 
             }

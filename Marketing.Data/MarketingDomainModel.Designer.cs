@@ -19,7 +19,7 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City))]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City), true)]
 
 #endregion
 
@@ -908,7 +908,7 @@ namespace Marketing.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity")]
-        public EntityCollection<UserCity> UserCities
+        public EntityCollection<UserCity> UserCity
         {
             get
             {
@@ -1104,7 +1104,7 @@ namespace Marketing.Data
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "City")]
-        public City City
+        public City Cities
         {
             get
             {
@@ -1120,7 +1120,7 @@ namespace Marketing.Data
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<City> CityReference
+        public EntityReference<City> CitiesReference
         {
             get
             {
