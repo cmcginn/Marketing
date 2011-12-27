@@ -26,7 +26,9 @@ namespace Marketing.Services {
     public IQueryable<UserCitySelection> GetUserCitySelectionsForUser(Guid? userId) {
       return Context.GetUserCitySelectionFromContext(userId.GetValueOrDefault());
     }
-
+    protected override int Count<T>( IQueryable<T> query ) {
+      return query.Count();
+    }
     private MarketingEntities Context {
       get {
         if( _Context == null )

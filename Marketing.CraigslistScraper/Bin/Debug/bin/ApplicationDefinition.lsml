@@ -18,7 +18,8 @@
                             Replacement="$1 $2" />
     </Application.Attributes>
     <Application.NavigationItems>
-      <ApplicationNavigationGroup Name="Tasks">
+      <ApplicationNavigationGroup Name="Tasks"
+                                  DefaultItem="!module/NavigationItems[Tasks]/Children[Preferences]">
         <ApplicationNavigationGroup.Attributes>
           <DisplayName Value="Tasks" />
         </ApplicationNavigationGroup.Attributes>
