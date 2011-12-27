@@ -7,5 +7,6 @@ using Microsoft.LightSwitch.Security.Server;
 namespace LightSwitchApplication {
   public partial class MarketingDomainServiceDataService {
 
+  
   }
 }

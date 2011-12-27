@@ -34,18 +34,18 @@ namespace LightSwitchApplication
         }
 
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Preferences_CanRun(ref bool result);
+        partial void Preferences_CanRun(ref bool result, global::System.Nullable<global::System.Guid> UserId);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Preferences_Run(ref bool handled);
+        partial void Preferences_Run(ref bool handled, global::System.Nullable<global::System.Guid> UserId);
     
         /// <summary>
         /// Opens the ShowPreferences screen.  If the screen is already opened, it is activated and shown.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public void ShowPreferences()
+        public void ShowPreferences(global::System.Nullable<global::System.Guid> UserId)
         {
-            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowPreferences);
+            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowPreferences, UserId);
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -108,7 +108,7 @@ namespace LightSwitchApplication
                 switch (screenName)
                 {
                     case "Preferences":
-                        return global::LightSwitchApplication.Preferences.CreateInstance();
+                        return global::LightSwitchApplication.Preferences.CreateInstance((global::System.Nullable<global::System.Guid>)args[0]);
                 }
             
                 return base.CreateScreen(screenName, args);
@@ -184,7 +184,7 @@ namespace LightSwitchApplication
                 }
                 private static global::Microsoft.LightSwitch.IExecutable _ShowPreferences_CreateExecutableObject(global::LightSwitchApplication.Application.DetailsClass d)
                 {
-                    return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowPreferences.CreateInvocation(new object[0]);
+                    return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowPreferences.CreateInvocation(new object[1]);
                 }
 
             }
@@ -208,16 +208,16 @@ namespace LightSwitchApplication
                 private static global::System.Exception _ShowPreferences_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
                 {
                     bool result = true;
-                    d.Application.Preferences_CanRun(ref result);
+                    d.Application.Preferences_CanRun(ref result, (global::System.Nullable<global::System.Guid>)args[0]);
                     return result ? null : ex;
                 }
                 private static void _ShowPreferences_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
                 {
                     bool handled = false;
-                    d.Application.Preferences_Run(ref handled);
+                    d.Application.Preferences_Run(ref handled, (global::System.Nullable<global::System.Guid>)args[0]);
                     if (!handled)
                     {
-                        d.ShowScreen("LightSwitchApplication:Preferences", () => global::LightSwitchApplication.Preferences.CreateInstance(), args);
+                        d.ShowScreen("LightSwitchApplication:Preferences", () => global::LightSwitchApplication.Preferences.CreateInstance((global::System.Nullable<global::System.Guid>)args[0]), args);
                     }
                 }
  

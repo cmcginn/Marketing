@@ -7,6 +7,7 @@ using Microsoft.LightSwitch;
 using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
+using System.Collections.Specialized;
 
 namespace LightSwitchApplication
 {
@@ -14,14 +15,17 @@ namespace LightSwitchApplication
     {
 
       partial void Preferences_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
-        this.userId = Application.UserId;
-
+        this.UserId = Application.UserId;
       }
-
-      partial void Preferences_Activated() {
-        // Write your code here.
-       
+      void SaveUserCitySelections() {
         var x = "Y";
       }
+      partial void Preferences_Saving( ref bool handled ) {
+        // Write your code here.
+        SaveUserCitySelections();
+      }
+
+
+
     }
 }
