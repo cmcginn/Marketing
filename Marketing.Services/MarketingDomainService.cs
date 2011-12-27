@@ -22,7 +22,14 @@ namespace Marketing.Services {
       return Context.GetUserCitySelectionFromContext();
     }
     public void UpdateUserCitySelection( UserCitySelection userCitySelection ) {
-    
+      var target = Context.UserCities.SingleOrDefault( x => x.UserId == userCitySelection.UserId && x.CityId == userCitySelection.CityId );
+      if( target == null && userCitySelection.Selected ) {
+        var item = new UserCity { CityId = userCitySelection.CityId, UserId = userCitySelection.UserId, Id = Guid.NewGuid() };
+        Context.UserCities.AddObject(item);
+      }else if(!userCitySelection.Selected){
+        Context.UserCities.DeleteObject(target);
+      }
+      Context.SaveChanges();
     }
     protected override int Count<T>( IQueryable<T> query ) {
       return query.Count();
