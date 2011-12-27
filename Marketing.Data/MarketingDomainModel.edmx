@@ -8,10 +8,25 @@
         <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
           <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
+            <End Role="ListingGroup" EntitySet="ListingGroup" />
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_aspnet_Membership">
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
             <End Role="UserCity" EntitySet="UserCity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserListingCategory_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_ListingCategory">
+            <End Role="ListingCategory" EntitySet="ListingCategory" />
+            <End Role="UserListingCategory" EntitySet="UserListingCategory" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
@@ -50,6 +65,25 @@
           <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="ListingCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingCategoryName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CategoryBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListingGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingGroupName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ListingBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserCity">
           <Key>
             <PropertyRef Name="Id" />
@@ -59,6 +93,27 @@
           <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="UserListingCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ListingCategory_ListingGroup">
+          <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
+          <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListingGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="ListingGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserCity_aspnet_Membership">
           <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
           <End Role="UserCity" Type="Marketing.CraigslistScraperModel.Store.UserCity" Multiplicity="*" />
@@ -68,6 +123,30 @@
             </Principal>
             <Dependent Role="UserCity">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserListingCategory_aspnet_Membership">
+          <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+          <End Role="UserListingCategory" Type="Marketing.CraigslistScraperModel.Store.UserListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserListingCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserListingCategory_ListingCategory">
+          <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="1" />
+          <End Role="UserListingCategory" Type="Marketing.CraigslistScraperModel.Store.UserListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListingCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserListingCategory">
+              <PropertyRef Name="ListingCategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -86,6 +165,21 @@
           <AssociationSet Name="UserCityCity" Association="Marketing.CraigslistScraperModel.UserCityCity">
             <End Role="UserCity" EntitySet="UserCities" />
             <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <EntitySet Name="ListingCategories" EntityType="Marketing.CraigslistScraperModel.ListingCategory" />
+          <EntitySet Name="ListingGroups" EntityType="Marketing.CraigslistScraperModel.ListingGroup" />
+          <EntitySet Name="UserListingCategories" EntityType="Marketing.CraigslistScraperModel.UserListingCategory" />
+          <AssociationSet Name="FK_UserListingCategory_aspnet_Membership" Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="UserListingCategory" EntitySet="UserListingCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup">
+            <End Role="ListingGroup" EntitySet="ListingGroups" />
+            <End Role="ListingCategory" EntitySet="ListingCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory">
+            <End Role="ListingCategory" EntitySet="ListingCategories" />
+            <End Role="UserListingCategory" EntitySet="UserListingCategories" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
@@ -114,6 +208,7 @@
           <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
           <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="UserCities" Relationship="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserCity" />
+          <NavigationProperty Name="UserListingCategories" Relationship="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserListingCategory" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -158,6 +253,75 @@
             </Principal>
             <Dependent Role="UserCity">
               <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ListingCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
+          <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CategoryBaseUrl" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <NavigationProperty Name="ListingGroup" Relationship="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup" FromRole="ListingCategory" ToRole="ListingGroup" />
+          <NavigationProperty Name="UserListingCategories" Relationship="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory" FromRole="ListingCategory" ToRole="UserListingCategory" />
+        </EntityType>
+        <EntityType Name="ListingGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ListingBaseUrl" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <NavigationProperty Name="ListingCategories" Relationship="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup" FromRole="ListingGroup" ToRole="ListingCategory" />
+        </EntityType>
+        <EntityType Name="UserListingCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
+          <Property Type="Boolean" Name="Active" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" FromRole="UserListingCategory" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="ListingCategory" Relationship="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory" FromRole="UserListingCategory" ToRole="ListingCategory" />
+        </EntityType>
+        <Association Name="FK_UserListingCategory_aspnet_Membership">
+          <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.UserListingCategory" Role="UserListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserListingCategory">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ListingCategory_ListingGroup">
+          <End Type="Marketing.CraigslistScraperModel.ListingGroup" Role="ListingGroup" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.ListingCategory" Role="ListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListingGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListingCategory">
+              <PropertyRef Name="ListingGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserListingCategory_ListingCategory">
+          <End Type="Marketing.CraigslistScraperModel.ListingCategory" Role="ListingCategory" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.UserListingCategory" Role="UserListingCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ListingCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserListingCategory">
+              <PropertyRef Name="ListingCategoryId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -215,6 +379,37 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ListingCategories">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingCategory">
+              <MappingFragment StoreEntitySet="ListingCategory">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CategoryBaseUrl" ColumnName="CategoryBaseUrl" />
+                <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
+                <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListingGroups">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingGroup">
+              <MappingFragment StoreEntitySet="ListingGroup">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ListingBaseUrl" ColumnName="ListingBaseUrl" />
+                <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserListingCategories">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingCategory">
+              <MappingFragment StoreEntitySet="UserListingCategory">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -241,12 +436,33 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserCity" Width="1.5" PointX="3" PointY="2.5" Height="1.7566536458333317" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="3.46050048828125" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="3.4605004882812493" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="3.46050048828125" />
           <ConnectorPoint PointX="3" PointY="3.46050048828125" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.UserCityCity">
           <ConnectorPoint PointX="4.5" PointY="3.5460014765625" />
           <ConnectorPoint PointX="6.5" PointY="3.5460014765625" />
           <ConnectorPoint PointX="6.5" PointY="2.6710009765625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingCategory" Width="1.5" PointX="0.75" PointY="8.5" Height="2.0853483072916639" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingGroup" Width="1.5" PointX="0.75" PointY="11.75" Height="1.7566536458333353" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingCategory" Width="1.5" PointX="3" PointY="0.75" Height="1.9210009765624996" />
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" >
+          <ConnectorPoint PointX="2.25" PointY="1.8355004882812496" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="1.8355004882812489" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="1.8355004882812496" />
+          <ConnectorPoint PointX="3" PointY="1.8355004882812496" />
+        </AssociationConnector>
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup" >
+          <ConnectorPoint PointX="1.5" PointY="11.75" />
+          <ConnectorPoint PointX="1.5" PointY="10.585348307291664" />
+        </AssociationConnector>
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory" >
+          <ConnectorPoint PointX="2.25" PointY="8.5011528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="8.1261528461538468" />
+          <ConnectorPoint PointX="2.625" PointY="1.2614982441406242" />
+          <ConnectorPoint PointX="3" PointY="1.2614982441406242" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

@@ -14,5 +14,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserListingCategorySelections">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserListingCategorySelection)">
+        <MappingFragment StoreEntitySet="DefualtUserListingSelection">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Selected" ColumnName="Selected" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

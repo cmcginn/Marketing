@@ -362,12 +362,37 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
-    #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionsForUser(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+    #region UserListingCategorySelection
+    
+        public void InsertUserListingCategorySelection(global::MarketingDomainServiceData.Implementation.UserListingCategorySelection entity)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionsForUser", frameworkOperators, userId);
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.UserListingCategorySelections.AddObject(entity);
+            }
         }
     
+        public void UpdateUserListingCategorySelection(global::MarketingDomainServiceData.Implementation.UserListingCategorySelection currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserListingCategorySelections, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUserListingCategorySelection(global::MarketingDomainServiceData.Implementation.UserListingCategorySelection entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.UserListingCategorySelections.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
+    #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_Single", frameworkOperators, Id);
@@ -386,6 +411,26 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelections(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelections", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("UserListingCategorySelections_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("UserListingCategorySelections_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("UserListingCategorySelections_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> GetUserCategorySelections(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("GetUserCategorySelections", frameworkOperators, userId);
         }
     
     #endregion
@@ -421,13 +466,6 @@ namespace LightSwitchApplication.Implementation
         }
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionsForUser(global::System.Nullable<global::System.Guid> userId)
-        {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionsForUser", userId).AsQueryable();
-            return query;
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(global::System.Nullable<global::System.Guid> Id)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
@@ -464,6 +502,44 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("UserListingCategorySelections_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("UserListingCategorySelections_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("DefualtUserListingSelection").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> GetUserCategorySelections(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
+            query = global::System.Linq.Queryable.ThenBy(
+                global::System.Linq.Queryable.OrderBy(
+                    global::System.Linq.Queryable.Where(
+                        this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("UserListingCategorySelections_All"),
+                        (u) => ((userId.HasValue && (u.UserId == userId)) || (u.UserId == new global::System.Guid("00000000-0000-0000-0000-000000000000")))),
+                    (u) => u.GroupName),
+                (u) => u.CategoryName);
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -472,6 +548,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserCitySelection))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserCitySelection();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.UserListingCategorySelection))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserListingCategorySelection();
             }
     
             return base.CreateObject(type);
@@ -491,6 +571,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserCitySelection();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserListingCategorySelection))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserListingCategorySelection();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -498,6 +582,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserCitySelection))
             {
                 return typeof(global::Marketing.Services.UserCitySelection);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserListingCategorySelection))
+            {
+                return typeof(global::Marketing.Services.UserListingCategorySelection);
             }
             return base.ConvertType(outerType);
         }
@@ -514,6 +602,18 @@ namespace LightSwitchApplication.Implementation
                 result.CityName = userCitySelection.CityName;
                 result.RegionName = userCitySelection.RegionName;
                 result.Active = userCitySelection.Active;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.UserListingCategorySelection userListingCategorySelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingCategorySelection;
+            if (userListingCategorySelection != null)
+            {
+                global::Marketing.Services.UserListingCategorySelection result = new global::Marketing.Services.UserListingCategorySelection();
+                result.Id = userListingCategorySelection.Id;
+                result.Selected = userListingCategorySelection.Selected;
+                result.CategoryName = userListingCategorySelection.CategoryName;
+                result.GroupName = userListingCategorySelection.GroupName;
+                result.Active = userListingCategorySelection.Active;
+                result.UserId = userListingCategorySelection.UserId;
                 return result;
             }
             return null;
@@ -533,6 +633,18 @@ namespace LightSwitchApplication.Implementation
                 outerUserCitySelection.CityName = innerUserCitySelection.CityName;
                 outerUserCitySelection.RegionName = innerUserCitySelection.RegionName;
                 outerUserCitySelection.Active = innerUserCitySelection.Active;
+                return;
+            }
+            global::MarketingDomainServiceData.Implementation.UserListingCategorySelection outerUserListingCategorySelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingCategorySelection;
+            global::Marketing.Services.UserListingCategorySelection innerUserListingCategorySelection = innerResult as global::Marketing.Services.UserListingCategorySelection;
+            if ((outerUserListingCategorySelection != null) && (innerUserListingCategorySelection != null))
+            {
+                outerUserListingCategorySelection.Id = innerUserListingCategorySelection.Id;
+                outerUserListingCategorySelection.Selected = innerUserListingCategorySelection.Selected;
+                outerUserListingCategorySelection.CategoryName = innerUserListingCategorySelection.CategoryName;
+                outerUserListingCategorySelection.GroupName = innerUserListingCategorySelection.GroupName;
+                outerUserListingCategorySelection.Active = innerUserListingCategorySelection.Active;
+                outerUserListingCategorySelection.UserId = innerUserListingCategorySelection.UserId;
                 return;
             }
         }
@@ -602,6 +714,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserCitySelection) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserCitySelection);
+            }
+            if (typeof(global::LightSwitchApplication.UserListingCategorySelection) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.UserListingCategorySelection);
             }
             return null;
         }
@@ -719,6 +835,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserCitySelection :
         global::LightSwitchApplication.UserCitySelection.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class UserListingCategorySelection :
+        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

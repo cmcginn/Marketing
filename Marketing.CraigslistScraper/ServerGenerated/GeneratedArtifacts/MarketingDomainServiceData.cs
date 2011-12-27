@@ -77,6 +77,22 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<UserCitySelection> _UserCitySelections;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingCategorySelection> UserListingCategorySelections
+        {
+            get
+            {
+                if ((_UserListingCategorySelections == null))
+                {
+                    _UserListingCategorySelections = base.CreateObjectSet<UserListingCategorySelection>("UserListingCategorySelections");
+                }
+                return _UserListingCategorySelections;
+            }
+        }
+        private ObjectSet<UserListingCategorySelection> _UserListingCategorySelections;
 
         #endregion
         #region AddTo Methods
@@ -87,6 +103,14 @@ namespace MarketingDomainServiceData.Implementation
         public void AddToUserCitySelections(UserCitySelection userCitySelection)
         {
             base.AddObject("UserCitySelections", userCitySelection);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingCategorySelections EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingCategorySelections(UserListingCategorySelection userListingCategorySelection)
+        {
+            base.AddObject("UserListingCategorySelections", userListingCategorySelection);
         }
 
         #endregion
@@ -299,6 +323,187 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="UserListingCategorySelection")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserListingCategorySelection : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserListingCategorySelection object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="selected">Initial value of the Selected property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static UserListingCategorySelection CreateUserListingCategorySelection(global::System.Guid id, global::System.Boolean selected, global::System.Boolean active, global::System.Guid userId)
+        {
+            UserListingCategorySelection userListingCategorySelection = new UserListingCategorySelection();
+            userListingCategorySelection.Id = id;
+            userListingCategorySelection.Selected = selected;
+            userListingCategorySelection.Active = active;
+            userListingCategorySelection.UserId = userId;
+            return userListingCategorySelection;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Selected
+        {
+            get
+            {
+                return _Selected;
+            }
+            set
+            {
+                OnSelectedChanging(value);
+                ReportPropertyChanging("Selected");
+                _Selected = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Selected");
+                OnSelectedChanged();
+            }
+        }
+        private global::System.Boolean _Selected;
+        partial void OnSelectedChanging(global::System.Boolean value);
+        partial void OnSelectedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CategoryName
+        {
+            get
+            {
+                return _CategoryName;
+            }
+            set
+            {
+                OnCategoryNameChanging(value);
+                ReportPropertyChanging("CategoryName");
+                _CategoryName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("CategoryName");
+                OnCategoryNameChanged();
+            }
+        }
+        private global::System.String _CategoryName;
+        partial void OnCategoryNameChanging(global::System.String value);
+        partial void OnCategoryNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String GroupName
+        {
+            get
+            {
+                return _GroupName;
+            }
+            set
+            {
+                OnGroupNameChanging(value);
+                ReportPropertyChanging("GroupName");
+                _GroupName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("GroupName");
+                OnGroupNameChanged();
+            }
+        }
+        private global::System.String _GroupName;
+        partial void OnGroupNameChanging(global::System.String value);
+        partial void OnGroupNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.Boolean _Active;
+        partial void OnActiveChanging(global::System.Boolean value);
+        partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
 
         #endregion
     

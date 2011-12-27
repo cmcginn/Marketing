@@ -12,7 +12,19 @@
     <Property Name="RegionName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserListingCategorySelection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Selected" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="GroupName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
+    <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
   </EntityContainer>
 </Schema>

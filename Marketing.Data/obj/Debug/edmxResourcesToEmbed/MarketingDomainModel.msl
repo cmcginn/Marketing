@@ -49,5 +49,36 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ListingCategories">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingCategory">
+        <MappingFragment StoreEntitySet="ListingCategory">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CategoryBaseUrl" ColumnName="CategoryBaseUrl" />
+          <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
+          <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListingGroups">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingGroup">
+        <MappingFragment StoreEntitySet="ListingGroup">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ListingBaseUrl" ColumnName="ListingBaseUrl" />
+          <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserListingCategories">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingCategory">
+        <MappingFragment StoreEntitySet="UserListingCategory">
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

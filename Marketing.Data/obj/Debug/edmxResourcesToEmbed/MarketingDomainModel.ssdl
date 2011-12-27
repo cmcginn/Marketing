@@ -3,10 +3,25 @@
   <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
+      <End Role="ListingGroup" EntitySet="ListingGroup" />
+      <End Role="ListingCategory" EntitySet="ListingCategory" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserCity" EntitySet="UserCity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserListingCategory_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_ListingCategory">
+      <End Role="ListingCategory" EntitySet="ListingCategory" />
+      <End Role="UserListingCategory" EntitySet="UserListingCategory" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
@@ -45,6 +60,25 @@
     <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="ListingCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ListingCategoryName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CategoryBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ListingGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ListingGroupName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="ListingBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="UserCity">
     <Key>
       <PropertyRef Name="Id" />
@@ -54,6 +88,27 @@
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserListingCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ListingCategory_ListingGroup">
+    <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
+    <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListingGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListingCategory">
+        <PropertyRef Name="ListingGroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserCity_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
     <End Role="UserCity" Type="Marketing.CraigslistScraperModel.Store.UserCity" Multiplicity="*" />
@@ -63,6 +118,30 @@
       </Principal>
       <Dependent Role="UserCity">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserListingCategory_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserListingCategory" Type="Marketing.CraigslistScraperModel.Store.UserListingCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserListingCategory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserListingCategory_ListingCategory">
+    <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="1" />
+    <End Role="UserListingCategory" Type="Marketing.CraigslistScraperModel.Store.UserListingCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ListingCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserListingCategory">
+        <PropertyRef Name="ListingCategoryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

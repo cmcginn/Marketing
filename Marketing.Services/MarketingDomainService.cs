@@ -21,6 +21,16 @@ namespace Marketing.Services {
     public IQueryable<UserCitySelection> DefaultUserCitySelections() {
       return Context.GetUserCitySelectionFromContext();
     }
+    [Query( IsDefault = true )]
+    public IQueryable<UserListingCategorySelection> DefualtUserListingSelection() {
+
+      var result = Context.GetUserListingCategorySelectionFromContext();    
+      return result;
+    }
+
+    public void UpdateUserListingCategorySelection( UserListingCategorySelection userListingCategorySelection ) {
+
+    }
     public void UpdateUserCitySelection( UserCitySelection userCitySelection ) {
       var target = Context.UserCities.SingleOrDefault( x => x.UserId == userCitySelection.UserId && x.CityId == userCitySelection.CityId );
       if( target == null && userCitySelection.Selected ) {

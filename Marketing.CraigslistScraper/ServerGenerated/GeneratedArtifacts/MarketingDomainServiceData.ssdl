@@ -2,6 +2,7 @@
 <Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MarketingDomainServiceDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingDomainServiceDataStore">
     <EntitySet Name="DefaultUserCitySelections" EntityType="MarketingDomainServiceDataStore.UserCitySelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserCitySelection" />
+    <EntitySet Name="DefualtUserListingSelection" EntityType="MarketingDomainServiceDataStore.UserListingCategorySelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingCategorySelection" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -14,5 +15,16 @@
     <Property Name="CityName" Type="nvarchar(max)" />
     <Property Name="RegionName" Type="nvarchar(max)" />
     <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserListingCategorySelection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Selected" Type="bit" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar(max)" />
+    <Property Name="GroupName" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
 </Schema>

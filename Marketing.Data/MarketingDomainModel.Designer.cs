@@ -20,6 +20,9 @@ using System.Runtime.Serialization;
 
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingCategory_ListingGroup", "ListingGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingGroup), "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingCategory), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
 
 #endregion
 
@@ -118,6 +121,54 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserCity> _UserCities;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ListingCategory> ListingCategories
+        {
+            get
+            {
+                if ((_ListingCategories == null))
+                {
+                    _ListingCategories = base.CreateObjectSet<ListingCategory>("ListingCategories");
+                }
+                return _ListingCategories;
+            }
+        }
+        private ObjectSet<ListingCategory> _ListingCategories;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ListingGroup> ListingGroups
+        {
+            get
+            {
+                if ((_ListingGroups == null))
+                {
+                    _ListingGroups = base.CreateObjectSet<ListingGroup>("ListingGroups");
+                }
+                return _ListingGroups;
+            }
+        }
+        private ObjectSet<ListingGroup> _ListingGroups;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingCategory> UserListingCategories
+        {
+            get
+            {
+                if ((_UserListingCategories == null))
+                {
+                    _UserListingCategories = base.CreateObjectSet<UserListingCategory>("UserListingCategories");
+                }
+                return _UserListingCategories;
+            }
+        }
+        private ObjectSet<UserListingCategory> _UserListingCategories;
 
         #endregion
         #region AddTo Methods
@@ -144,6 +195,30 @@ namespace Marketing.Data
         public void AddToUserCities(UserCity userCity)
         {
             base.AddObject("UserCities", userCity);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ListingCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToListingCategories(ListingCategory listingCategory)
+        {
+            base.AddObject("ListingCategories", listingCategory);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ListingGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToListingGroups(ListingGroup listingGroup)
+        {
+            base.AddObject("ListingGroups", listingGroup);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingCategories(UserListingCategory userListingCategory)
+        {
+            base.AddObject("UserListingCategories", userListingCategory);
         }
 
         #endregion
@@ -738,6 +813,28 @@ namespace Marketing.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "UserListingCategory")]
+        public EntityCollection<UserListingCategory> UserListingCategories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -919,6 +1016,386 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserCity>("Marketing.CraigslistScraperModel.UserCityCity", "UserCity", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="ListingCategory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ListingCategory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ListingCategory object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="listingGroupId">Initial value of the ListingGroupId property.</param>
+        /// <param name="listingCategoryName">Initial value of the ListingCategoryName property.</param>
+        /// <param name="categoryBaseUrl">Initial value of the CategoryBaseUrl property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
+        public static ListingCategory CreateListingCategory(global::System.Guid id, global::System.Guid listingGroupId, global::System.String listingCategoryName, global::System.String categoryBaseUrl, global::System.Boolean active)
+        {
+            ListingCategory listingCategory = new ListingCategory();
+            listingCategory.Id = id;
+            listingCategory.ListingGroupId = listingGroupId;
+            listingCategory.ListingCategoryName = listingCategoryName;
+            listingCategory.CategoryBaseUrl = categoryBaseUrl;
+            listingCategory.Active = active;
+            return listingCategory;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ListingGroupId
+        {
+            get
+            {
+                return _ListingGroupId;
+            }
+            set
+            {
+                OnListingGroupIdChanging(value);
+                ReportPropertyChanging("ListingGroupId");
+                _ListingGroupId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ListingGroupId");
+                OnListingGroupIdChanged();
+            }
+        }
+        private global::System.Guid _ListingGroupId;
+        partial void OnListingGroupIdChanging(global::System.Guid value);
+        partial void OnListingGroupIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ListingCategoryName
+        {
+            get
+            {
+                return _ListingCategoryName;
+            }
+            set
+            {
+                OnListingCategoryNameChanging(value);
+                ReportPropertyChanging("ListingCategoryName");
+                _ListingCategoryName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ListingCategoryName");
+                OnListingCategoryNameChanged();
+            }
+        }
+        private global::System.String _ListingCategoryName;
+        partial void OnListingCategoryNameChanging(global::System.String value);
+        partial void OnListingCategoryNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CategoryBaseUrl
+        {
+            get
+            {
+                return _CategoryBaseUrl;
+            }
+            set
+            {
+                OnCategoryBaseUrlChanging(value);
+                ReportPropertyChanging("CategoryBaseUrl");
+                _CategoryBaseUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("CategoryBaseUrl");
+                OnCategoryBaseUrlChanged();
+            }
+        }
+        private global::System.String _CategoryBaseUrl;
+        partial void OnCategoryBaseUrlChanging(global::System.String value);
+        partial void OnCategoryBaseUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.Boolean _Active;
+        partial void OnActiveChanging(global::System.Boolean value);
+        partial void OnActiveChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_ListingCategory_ListingGroup", "ListingGroup")]
+        public ListingGroup ListingGroup
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListingGroup>("Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup", "ListingGroup").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListingGroup>("Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup", "ListingGroup").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ListingGroup> ListingGroupReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListingGroup>("Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup", "ListingGroup");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ListingGroup>("Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup", "ListingGroup", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "UserListingCategory")]
+        public EntityCollection<UserListingCategory> UserListingCategories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "UserListingCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "UserListingCategory", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="ListingGroup")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ListingGroup : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ListingGroup object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="listingGroupName">Initial value of the ListingGroupName property.</param>
+        /// <param name="listingBaseUrl">Initial value of the ListingBaseUrl property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
+        public static ListingGroup CreateListingGroup(global::System.Guid id, global::System.String listingGroupName, global::System.String listingBaseUrl, global::System.Boolean active)
+        {
+            ListingGroup listingGroup = new ListingGroup();
+            listingGroup.Id = id;
+            listingGroup.ListingGroupName = listingGroupName;
+            listingGroup.ListingBaseUrl = listingBaseUrl;
+            listingGroup.Active = active;
+            return listingGroup;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ListingGroupName
+        {
+            get
+            {
+                return _ListingGroupName;
+            }
+            set
+            {
+                OnListingGroupNameChanging(value);
+                ReportPropertyChanging("ListingGroupName");
+                _ListingGroupName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ListingGroupName");
+                OnListingGroupNameChanged();
+            }
+        }
+        private global::System.String _ListingGroupName;
+        partial void OnListingGroupNameChanging(global::System.String value);
+        partial void OnListingGroupNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ListingBaseUrl
+        {
+            get
+            {
+                return _ListingBaseUrl;
+            }
+            set
+            {
+                OnListingBaseUrlChanging(value);
+                ReportPropertyChanging("ListingBaseUrl");
+                _ListingBaseUrl = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ListingBaseUrl");
+                OnListingBaseUrlChanged();
+            }
+        }
+        private global::System.String _ListingBaseUrl;
+        partial void OnListingBaseUrlChanging(global::System.String value);
+        partial void OnListingBaseUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.Boolean _Active;
+        partial void OnActiveChanging(global::System.Boolean value);
+        partial void OnActiveChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_ListingCategory_ListingGroup", "ListingCategory")]
+        public EntityCollection<ListingCategory> ListingCategories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ListingCategory>("Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup", "ListingCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ListingCategory>("Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup", "ListingCategory", value);
                 }
             }
         }
@@ -1131,6 +1608,218 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserListingCategory")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserListingCategory : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserListingCategory object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="listingCategoryId">Initial value of the ListingCategoryId property.</param>
+        /// <param name="active">Initial value of the Active property.</param>
+        public static UserListingCategory CreateUserListingCategory(global::System.Guid id, global::System.Guid userId, global::System.Guid listingCategoryId, global::System.Boolean active)
+        {
+            UserListingCategory userListingCategory = new UserListingCategory();
+            userListingCategory.Id = id;
+            userListingCategory.UserId = userId;
+            userListingCategory.ListingCategoryId = listingCategoryId;
+            userListingCategory.Active = active;
+            return userListingCategory;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ListingCategoryId
+        {
+            get
+            {
+                return _ListingCategoryId;
+            }
+            set
+            {
+                OnListingCategoryIdChanging(value);
+                ReportPropertyChanging("ListingCategoryId");
+                _ListingCategoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ListingCategoryId");
+                OnListingCategoryIdChanged();
+            }
+        }
+        private global::System.Guid _ListingCategoryId;
+        partial void OnListingCategoryIdChanging(global::System.Guid value);
+        partial void OnListingCategoryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                OnActiveChanging(value);
+                ReportPropertyChanging("Active");
+                _Active = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Active");
+                OnActiveChanged();
+            }
+        }
+        private global::System.Boolean _Active;
+        partial void OnActiveChanging(global::System.Boolean value);
+        partial void OnActiveChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "ListingCategory")]
+        public ListingCategory ListingCategory
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "ListingCategory").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "ListingCategory").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<ListingCategory> ListingCategoryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<ListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "ListingCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "ListingCategory", value);
                 }
             }
         }
