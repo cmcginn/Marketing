@@ -27,5 +27,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserKeywordSelections">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserKeywordSelection)">
+        <MappingFragment StoreEntitySet="DefaultUserKeywords">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="WeightedScore" ColumnName="WeightedScore" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

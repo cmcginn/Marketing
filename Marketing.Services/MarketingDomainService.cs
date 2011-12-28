@@ -27,7 +27,28 @@ namespace Marketing.Services {
       var result = Context.GetUserListingCategorySelectionFromContext();    
       return result;
     }
-
+    [Query( IsDefault = true )]
+    public IQueryable<UserKeywordSelection> DefaultUserKeywords() {
+      var result = Context.GetUserKeywordSelectionFromContext();
+      return result;
+    }
+    public void AddUserKeyword( UserKeywordSelection userKeywordSelection ) {
+      var item = new UserKeyword { Id = userKeywordSelection.Id, WeightedScore = userKeywordSelection.WeightedScore, UserId = userKeywordSelection.UserId, Keyword = userKeywordSelection.Keyword };
+      Context.UserKeywords.AddObject(item);
+      Context.SaveChanges();
+    }
+    public void UpdateUserKeyword( UserKeywordSelection userKeywordSelection ) {
+      var current = Context.UserKeywords.Single( x => x.Id == userKeywordSelection.Id );
+      current.Keyword = userKeywordSelection.Keyword;
+      current.WeightedScore = userKeywordSelection.WeightedScore;
+      Context.SaveChanges();
+    }
+    public void DeleteUserKeyword(UserKeywordSelection userKeywordSelection)
+    {
+      var item = Context.UserKeywords.Single( x => x.Id == userKeywordSelection.Id );
+      Context.DeleteObject( item );
+      Context.SaveChanges();
+    }
     public void UpdateUserListingCategorySelection( UserListingCategorySelection userListingCategorySelection ) {
       var target = Context.UserListingCategories.SingleOrDefault( x => x.UserId == userListingCategorySelection.UserId && x.ListingCategoryId == userListingCategorySelection.CategoryId );
       if( target == null && userListingCategorySelection.Selected ) {

@@ -23,6 +23,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingCategory_ListingGroup", "ListingGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingGroup), "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingCategory), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserKeyword_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserKeyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserKeyword), true)]
 
 #endregion
 
@@ -169,6 +170,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserListingCategory> _UserListingCategories;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserKeyword> UserKeywords
+        {
+            get
+            {
+                if ((_UserKeywords == null))
+                {
+                    _UserKeywords = base.CreateObjectSet<UserKeyword>("UserKeywords");
+                }
+                return _UserKeywords;
+            }
+        }
+        private ObjectSet<UserKeyword> _UserKeywords;
 
         #endregion
         #region AddTo Methods
@@ -219,6 +236,14 @@ namespace Marketing.Data
         public void AddToUserListingCategories(UserListingCategory userListingCategory)
         {
             base.AddObject("UserListingCategories", userListingCategory);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserKeywords EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserKeywords(UserKeyword userKeyword)
+        {
+            base.AddObject("UserKeywords", userKeyword);
         }
 
         #endregion
@@ -832,6 +857,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserKeyword_aspnet_Membership", "UserKeyword")]
+        public EntityCollection<UserKeyword> UserKeywords
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserKeyword>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "UserKeyword");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserKeyword>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "UserKeyword", value);
                 }
             }
         }
@@ -1608,6 +1655,180 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserKeyword")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserKeyword : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserKeyword object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="keyword">Initial value of the Keyword property.</param>
+        /// <param name="weightedScore">Initial value of the WeightedScore property.</param>
+        public static UserKeyword CreateUserKeyword(global::System.Guid id, global::System.Guid userId, global::System.String keyword, global::System.Int32 weightedScore)
+        {
+            UserKeyword userKeyword = new UserKeyword();
+            userKeyword.Id = id;
+            userKeyword.UserId = userId;
+            userKeyword.Keyword = keyword;
+            userKeyword.WeightedScore = weightedScore;
+            return userKeyword;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Keyword
+        {
+            get
+            {
+                return _Keyword;
+            }
+            set
+            {
+                OnKeywordChanging(value);
+                ReportPropertyChanging("Keyword");
+                _Keyword = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Keyword");
+                OnKeywordChanged();
+            }
+        }
+        private global::System.String _Keyword;
+        partial void OnKeywordChanging(global::System.String value);
+        partial void OnKeywordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 WeightedScore
+        {
+            get
+            {
+                return _WeightedScore;
+            }
+            set
+            {
+                OnWeightedScoreChanging(value);
+                ReportPropertyChanging("WeightedScore");
+                _WeightedScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("WeightedScore");
+                OnWeightedScoreChanged();
+            }
+        }
+        private global::System.Int32 _WeightedScore;
+        partial void OnWeightedScoreChanging(global::System.Int32 value);
+        partial void OnWeightedScoreChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserKeyword_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }

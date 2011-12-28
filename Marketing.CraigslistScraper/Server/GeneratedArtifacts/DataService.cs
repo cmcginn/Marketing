@@ -861,6 +861,39 @@ namespace LightSwitchApplication
         partial void UserListingCategorySelections_Validate(global::LightSwitchApplication.UserListingCategorySelection entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Inserting(global::LightSwitchApplication.UserKeywordSelection entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Inserted(global::LightSwitchApplication.UserKeywordSelection entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Updating(global::LightSwitchApplication.UserKeywordSelection entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Updated(global::LightSwitchApplication.UserKeywordSelection entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Deleting(global::LightSwitchApplication.UserKeywordSelection entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Deleted(global::LightSwitchApplication.UserKeywordSelection entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Validate(global::LightSwitchApplication.UserKeywordSelection entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -992,6 +1025,66 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserCategorySelections_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
     
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserKeywordSelections_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserKeywordSelections_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserKeywordSelections_Executing(global::System.Nullable<global::System.Guid> userId);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserKeywordSelections_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserKeywordSelections_Executed(global::System.Nullable<global::System.Guid> userId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserKeywordSelections_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
+    
         #endregion
     
         #region Details Class
@@ -1084,6 +1177,74 @@ namespace LightSwitchApplication
             private static void __UserListingCategorySelections_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingCategorySelection e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.UserListingCategorySelections_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>
+                __UserKeywordSelectionsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>(
+                    "UserKeywordSelections",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_CanInsert,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_CanUpdate,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_CanDelete,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_CanRead,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Inserting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Inserted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Updating,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Updated,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Deleting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Deleted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Validate);
+            private static bool __UserKeywordSelections_CanInsert(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserKeywordSelections_CanInsert(ref result);
+                return result;
+            }
+            private static bool __UserKeywordSelections_CanUpdate(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserKeywordSelections_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __UserKeywordSelections_CanDelete(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserKeywordSelections_CanDelete(ref result);
+                return result;
+            }
+            private static bool __UserKeywordSelections_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserKeywordSelections_CanRead(ref result);
+                return result;
+            }
+            private static void __UserKeywordSelections_Inserting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e)
+            {
+                d.UserKeywordSelections_Inserting(e);
+            }
+            private static void __UserKeywordSelections_Inserted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e)
+            {
+                d.UserKeywordSelections_Inserted(e);
+            }
+            private static void __UserKeywordSelections_Updating(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e)
+            {
+                d.UserKeywordSelections_Updating(e);
+            }
+            private static void __UserKeywordSelections_Updated(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e)
+            {
+                d.UserKeywordSelections_Updated(e);
+            }
+            private static void __UserKeywordSelections_Deleting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e)
+            {
+                d.UserKeywordSelections_Deleting(e);
+            }
+            private static void __UserKeywordSelections_Deleted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e)
+            {
+                d.UserKeywordSelections_Deleted(e);
+            }
+            private static void __UserKeywordSelections_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserKeywordSelection e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.UserKeywordSelections_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1373,6 +1534,138 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingCategorySelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingCategorySelection>)args[1];
                 d.GetUserCategorySelections_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>
+                __UserKeywordSelections_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>(
+                    "UserKeywordSelections_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_Single_PreprocessQuery);
+            private static bool __UserKeywordSelections_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserKeywordSelections_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserKeywordSelections_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserKeywordSelections_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __UserKeywordSelections_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserKeywordSelections_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection>)args[1]);
+            }
+            private static void __UserKeywordSelections_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserKeywordSelections_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __UserKeywordSelections_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection>)args[1];
+                d.UserKeywordSelections_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>
+                __UserKeywordSelections_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>(
+                    "UserKeywordSelections_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_SingleOrDefault_PreprocessQuery);
+            private static bool __UserKeywordSelections_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserKeywordSelections_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserKeywordSelections_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserKeywordSelections_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __UserKeywordSelections_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserKeywordSelections_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection>)args[1]);
+            }
+            private static void __UserKeywordSelections_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserKeywordSelections_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __UserKeywordSelections_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection>)args[1];
+                d.UserKeywordSelections_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>
+                __UserKeywordSelections_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>(
+                    "UserKeywordSelections_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserKeywordSelections_All_PreprocessQuery);
+            private static bool __UserKeywordSelections_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserKeywordSelections_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserKeywordSelections_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserKeywordSelections_All_Executing();
+            }
+            private static void __UserKeywordSelections_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserKeywordSelections_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection>)args[0]);
+            }
+            private static void __UserKeywordSelections_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserKeywordSelections_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __UserKeywordSelections_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection>)args[0];
+                d.UserKeywordSelections_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>
+                __GetUserKeywordSelectionsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>(
+                    "GetUserKeywordSelections",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserKeywordSelections_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserKeywordSelections_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserKeywordSelections_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserKeywordSelections_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserKeywordSelections_PreprocessQuery);
+            private static bool __GetUserKeywordSelections_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.GetUserKeywordSelections_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetUserKeywordSelections_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserKeywordSelections_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __GetUserKeywordSelections_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserKeywordSelections_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserKeywordSelection>)args[1]);
+            }
+            private static void __GetUserKeywordSelections_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetUserKeywordSelections_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __GetUserKeywordSelections_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserKeywordSelection>)args[1];
+                d.GetUserKeywordSelections_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
                 return query;
             }
     

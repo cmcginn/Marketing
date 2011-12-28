@@ -1226,6 +1226,136 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region UserKeywordSelection
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class UserKeywordSelection :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Keyword
+        {
+            get
+            {
+                return this._Keyword;
+            }
+            set
+            {
+                if (this._Keyword != value)
+                {
+                    this.RaiseDataMemberChanging("Keyword");
+                    this.ValidateProperty("Keyword", value);
+                    this._Keyword = value;
+                    this.RaiseDataMemberChanged("Keyword");
+                }
+            }
+        }
+        private string _Keyword;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public int WeightedScore
+        {
+            get
+            {
+                return this._WeightedScore;
+            }
+            set
+            {
+                if (this._WeightedScore != value)
+                {
+                    this.RaiseDataMemberChanging("WeightedScore");
+                    this.ValidateProperty("WeightedScore", value);
+                    this._WeightedScore = value;
+                    this.RaiseDataMemberChanged("WeightedScore");
+                }
+            }
+        }
+        private int _WeightedScore;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if (this._UserId != value)
+                {
+                    this.RaiseDataMemberChanging("UserId");
+                    this.ValidateProperty("UserId", value);
+                    this._UserId = value;
+                    this.RaiseDataMemberChanged("UserId");
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
     #region Marketing_CraigslistScraperData
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1397,6 +1527,13 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.UserListingCategorySelection>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.UserKeywordSelection> UserKeywordSelectionEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.UserKeywordSelection>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDomainServiceDataEntityContainer();
@@ -1408,6 +1545,7 @@ namespace LightSwitchApplication.Implementation
             {
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserCitySelection>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserListingCategorySelection>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserKeywordSelection>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -1464,6 +1602,30 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginGetUserCategorySelections(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingCategorySelection> EndGetUserCategorySelections(global::System.IAsyncResult result);
             
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserKeywordSelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserKeywordSelection> EndUserKeywordSelections_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserKeywordSelections_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserKeywordSelection> EndUserKeywordSelections_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserKeywordSelections_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserKeywordSelections_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserKeywordSelection> EndUserKeywordSelections_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserKeywordSelections", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserKeywordSelectionsResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserKeywordSelectionsDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserKeywordSelections(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserKeywordSelection> EndGetUserKeywordSelections(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
@@ -1494,6 +1656,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.UserListingCategorySelection))
             {
                 return new global::LightSwitchApplication.Implementation.UserListingCategorySelection();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserKeywordSelection))
+            {
+                return new global::LightSwitchApplication.Implementation.UserKeywordSelection();
             }
             return null;
         }
@@ -1565,6 +1731,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserListingCategorySelection) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.UserListingCategorySelection);
+            }
+            if (typeof(global::LightSwitchApplication.UserKeywordSelection) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.UserKeywordSelection);
             }
             return null;
         }

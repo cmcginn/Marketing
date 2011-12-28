@@ -25,4 +25,11 @@ namespace Marketing.Services {
     public string GroupName { get; set; }
     public bool Active { get; set; }
   }
+  public class UserKeywordSelection {
+    [Key]
+    public Guid Id { get; set; }
+    public string Keyword { get; set; }
+    public int WeightedScore { get; set; }
+    public Guid UserId { get; set; }
+  }
 }

@@ -1287,178 +1287,7 @@
   
   
 
-  <DataService DataProvider="EntityFrameworkDataProvider"
-               EntityContainer="Marketing_CraigslistScraperData"
-               Name="Marketing_CraigslistScraperDataDataService">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="DataProviderName"
-                          Value="91510608-8809-4020-8897-fba057e22d54" />
-      <ConnectionProperty Name="DataSourceName"
-                          Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
-      <ConnectionProperty Name="ProviderInvariantName"
-                          Value="System.Data.SqlClient" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="386dc94d-9229-4ee4-b6dd-86f9477b0dcb" />
-      <ConnectionProperty Name="ProviderManifestToken"
-                          Value="2008" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="Cities">
-      <EntitySetMapping.Attributes>
-        <SsdlEntitySet Schema="dbo"
-                       Table="City" />
-        <SsdlProperty Name="Id"
-                      Nullable="False"
-                      Property="City/Properties[Id]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty MaxLength="50"
-                      Name="RegionName"
-                      Nullable="False"
-                      Property="City/Properties[RegionName]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="50"
-                      Name="CityName"
-                      Nullable="False"
-                      Property="City/Properties[CityName]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="255"
-                      Name="CityBaseUrl"
-                      Nullable="False"
-                      Property="City/Properties[CityBaseUrl]"
-                      Type="nvarchar" />
-        <SsdlProperty Name="Active"
-                      Nullable="False"
-                      Property="City/Properties[Active]"
-                      Type="bit" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserCities">
-      <EntitySetMapping.Attributes>
-        <SsdlEntitySet Schema="dbo"
-                       Table="UserCity" />
-        <SsdlProperty Name="Id"
-                      Nullable="False"
-                      Property="UserCity/Properties[Id]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty Name="UserId"
-                      Nullable="False"
-                      Property="UserCity/Properties[UserId]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty Name="CityId"
-                      Nullable="False"
-                      Property="UserCity/Properties[CityId]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty Name="Active"
-                      Nullable="False"
-                      Property="UserCity/Properties[Active]"
-                      Type="bit" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="vw_aspnet_MembershipUsers">
-      <EntitySetMapping.Attributes>
-        <SsdlEntitySet Schema="dbo"
-                       Table="vw_aspnet_MembershipUsers" />
-        <SsdlProperty Name="UserId"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[UserId]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty Name="PasswordFormat"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[PasswordFormat]"
-                      Type="int" />
-        <SsdlProperty MaxLength="16"
-                      Name="MobilePIN"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[MobilePIN]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="256"
-                      Name="Email"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[Email]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="256"
-                      Name="LoweredEmail"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[LoweredEmail]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="256"
-                      Name="PasswordQuestion"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[PasswordQuestion]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="128"
-                      Name="PasswordAnswer"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[PasswordAnswer]"
-                      Type="nvarchar" />
-        <SsdlProperty Name="IsApproved"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[IsApproved]"
-                      Type="bit" />
-        <SsdlProperty Name="IsLockedOut"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[IsLockedOut]"
-                      Type="bit" />
-        <SsdlProperty Name="CreateDate"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[CreateDate]"
-                      Type="datetime" />
-        <SsdlProperty Name="LastLoginDate"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[LastLoginDate]"
-                      Type="datetime" />
-        <SsdlProperty Name="LastPasswordChangedDate"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[LastPasswordChangedDate]"
-                      Type="datetime" />
-        <SsdlProperty Name="LastLockoutDate"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[LastLockoutDate]"
-                      Type="datetime" />
-        <SsdlProperty Name="FailedPasswordAttemptCount"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAttemptCount]"
-                      Type="int" />
-        <SsdlProperty Name="FailedPasswordAttemptWindowStart"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAttemptWindowStart]"
-                      Type="datetime" />
-        <SsdlProperty Name="FailedPasswordAnswerAttemptCount"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAnswerAttemptCount]"
-                      Type="int" />
-        <SsdlProperty Name="FailedPasswordAnswerAttemptWindowStart"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAnswerAttemptWindowStart]"
-                      Type="datetime" />
-        <SsdlProperty Name="Comment"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[Comment]"
-                      Type="ntext" />
-        <SsdlProperty Name="ApplicationId"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[ApplicationId]"
-                      Type="uniqueidentifier" />
-        <SsdlProperty MaxLength="256"
-                      Name="UserName"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[UserName]"
-                      Type="nvarchar" />
-        <SsdlProperty MaxLength="16"
-                      Name="MobileAlias"
-                      Nullable="True"
-                      Property="vw_aspnet_MembershipUser/Properties[MobileAlias]"
-                      Type="nvarchar" />
-        <SsdlProperty Name="IsAnonymous"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[IsAnonymous]"
-                      Type="bit" />
-        <SsdlProperty Name="LastActivityDate"
-                      Nullable="False"
-                      Property="vw_aspnet_MembershipUser/Properties[LastActivityDate]"
-                      Type="datetime" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-  </DataService>
+  
   <EntityType Name="UserCitySelection">
     <EntityType.Methods>
       <EntityMethod Name="Delete">
@@ -1783,6 +1612,123 @@
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
     </QueryOperation>
+    <EntitySet CanInsert="True"
+               CanUpdate="True"
+               EntityType="UserKeywordSelection"
+               Name="UserKeywordSelections"
+               CanDelete="True" />
+  
+    <QueryOperation Name="UserKeywordSelections_Single"
+                    ReturnType="UserKeywordSelection">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserKeywordSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserKeywordSelections_SingleOrDefault"
+                    ReturnType="UserKeywordSelection">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserKeywordSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserKeywordSelections_All"
+                    ReturnType="UserKeywordSelection*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserKeywordSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
+    <QueryOperation Name="GetUserKeywordSelections"
+                    ReturnType="UserKeywordSelection*">
+      <QueryOperation.SortCriteria>
+        <SortCriterion>
+          <ChainExpression>
+            <MemberExpression Member="Keyword" />
+          </ChainExpression>
+        </SortCriterion>
+      </QueryOperation.SortCriteria>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="UserId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression  Parameter="userId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserKeywordSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   </EntityContainer>
 
@@ -1866,6 +1812,34 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression Target="Preferences/Properties[GetUserCategorySelections]/Query">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty Name="GetUserKeywordSelections"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserKeywordSelection">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetUserKeywordSelectionsQuery"
+                                 ReturnType="UserKeywordSelection*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserKeywordSelections]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Preferences/Properties[GetUserKeywordSelections]/Query">
               <ArgumentExpression Parameter="userId">
                 <ChainExpression>
                   <MemberExpression Member="Preferences/Properties[UserId]" />
@@ -2105,6 +2079,83 @@
               </ContentItem>
             </ContentItem>
           </ContentItem>
+          <ContentItem DataType="CollectionView$UserKeywordSelection"
+                       Kind="Collection"
+                       Name="GetUserKeywordSelections">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="GetUserKeywordSelections_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserKeywordSelections_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserKeywordSelections_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType="UserKeywordSelection"
+                         Kind="Details"
+                         Name="GetUserKeywordSelectionsTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="Keyword">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserKeywordSelection/Properties[Keyword]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Int32"
+                           Kind="Value"
+                           Name="WeightedScore">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserKeywordSelection/Properties[WeightedScore]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
         </ContentItem>
       </ContentItem>
     </Screen.RootContentItem>
@@ -2159,6 +2210,214 @@
       </EntityProperty>
     </EntityType.Properties>
   </EntityType>
+  <DataService DataProvider="EntityFrameworkDataProvider"
+               EntityContainer="Marketing_CraigslistScraperData"
+               Name="Marketing_CraigslistScraperDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="DataProviderName"
+                          Value="91510608-8809-4020-8897-fba057e22d54" />
+      <ConnectionProperty Name="DataSourceName"
+                          Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
+      <ConnectionProperty Name="ProviderInvariantName"
+                          Value="System.Data.SqlClient" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="386dc94d-9229-4ee4-b6dd-86f9477b0dcb" />
+      <ConnectionProperty Name="ProviderManifestToken"
+                          Value="2008" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="Cities">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="City" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="City/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty MaxLength="50"
+                      Name="RegionName"
+                      Nullable="False"
+                      Property="City/Properties[RegionName]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="50"
+                      Name="CityName"
+                      Nullable="False"
+                      Property="City/Properties[CityName]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="255"
+                      Name="CityBaseUrl"
+                      Nullable="False"
+                      Property="City/Properties[CityBaseUrl]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="Active"
+                      Nullable="False"
+                      Property="City/Properties[Active]"
+                      Type="bit" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserCities">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="UserCity" />
+        <SsdlProperty Name="Id"
+                      Nullable="False"
+                      Property="UserCity/Properties[Id]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="UserId"
+                      Nullable="False"
+                      Property="UserCity/Properties[UserId]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="CityId"
+                      Nullable="False"
+                      Property="UserCity/Properties[CityId]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="Active"
+                      Nullable="False"
+                      Property="UserCity/Properties[Active]"
+                      Type="bit" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="vw_aspnet_MembershipUsers">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet Schema="dbo"
+                       Table="vw_aspnet_MembershipUsers" />
+        <SsdlProperty Name="UserId"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[UserId]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty Name="PasswordFormat"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[PasswordFormat]"
+                      Type="int" />
+        <SsdlProperty MaxLength="16"
+                      Name="MobilePIN"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[MobilePIN]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="256"
+                      Name="Email"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[Email]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="256"
+                      Name="LoweredEmail"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[LoweredEmail]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="256"
+                      Name="PasswordQuestion"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[PasswordQuestion]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="128"
+                      Name="PasswordAnswer"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[PasswordAnswer]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="IsApproved"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[IsApproved]"
+                      Type="bit" />
+        <SsdlProperty Name="IsLockedOut"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[IsLockedOut]"
+                      Type="bit" />
+        <SsdlProperty Name="CreateDate"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[CreateDate]"
+                      Type="datetime" />
+        <SsdlProperty Name="LastLoginDate"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[LastLoginDate]"
+                      Type="datetime" />
+        <SsdlProperty Name="LastPasswordChangedDate"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[LastPasswordChangedDate]"
+                      Type="datetime" />
+        <SsdlProperty Name="LastLockoutDate"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[LastLockoutDate]"
+                      Type="datetime" />
+        <SsdlProperty Name="FailedPasswordAttemptCount"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAttemptCount]"
+                      Type="int" />
+        <SsdlProperty Name="FailedPasswordAttemptWindowStart"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAttemptWindowStart]"
+                      Type="datetime" />
+        <SsdlProperty Name="FailedPasswordAnswerAttemptCount"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAnswerAttemptCount]"
+                      Type="int" />
+        <SsdlProperty Name="FailedPasswordAnswerAttemptWindowStart"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[FailedPasswordAnswerAttemptWindowStart]"
+                      Type="datetime" />
+        <SsdlProperty Name="Comment"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[Comment]"
+                      Type="ntext" />
+        <SsdlProperty Name="ApplicationId"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[ApplicationId]"
+                      Type="uniqueidentifier" />
+        <SsdlProperty MaxLength="256"
+                      Name="UserName"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[UserName]"
+                      Type="nvarchar" />
+        <SsdlProperty MaxLength="16"
+                      Name="MobileAlias"
+                      Nullable="True"
+                      Property="vw_aspnet_MembershipUser/Properties[MobileAlias]"
+                      Type="nvarchar" />
+        <SsdlProperty Name="IsAnonymous"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[IsAnonymous]"
+                      Type="bit" />
+        <SsdlProperty Name="LastActivityDate"
+                      Nullable="False"
+                      Property="vw_aspnet_MembershipUser/Properties[LastActivityDate]"
+                      Type="datetime" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+
+  <EntityType Name="UserKeywordSelection">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Keyword"
+                      PropertyType=":String?" />
+      <EntityProperty Name="WeightedScore"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="UserId"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
                Name="MarketingDomainServiceDataDataService">
@@ -2210,6 +2469,20 @@
                         Property="UserListingCategorySelection/Properties[GroupName]" />
         <WcfRiaProperty Name="Active"
                         Property="UserListingCategorySelection/Properties[Active]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserKeywordSelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserKeywords"
+                         EntityTypeName="Marketing.Services.UserKeywordSelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserKeywordSelection/Properties[Id]" />
+        <WcfRiaProperty Name="Keyword"
+                        Property="UserKeywordSelection/Properties[Keyword]" />
+        <WcfRiaProperty Name="WeightedScore"
+                        Property="UserKeywordSelection/Properties[WeightedScore]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserKeywordSelection/Properties[UserId]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>

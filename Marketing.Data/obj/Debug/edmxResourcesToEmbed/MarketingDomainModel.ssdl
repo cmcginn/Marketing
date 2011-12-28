@@ -6,6 +6,7 @@
     <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
       <End Role="ListingGroup" EntitySet="ListingGroup" />
@@ -14,6 +15,10 @@
     <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserCity" EntitySet="UserCity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserKeyword_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserKeyword_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserKeyword" EntitySet="UserKeyword" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingCategory_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -88,6 +93,15 @@
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserKeyword">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Keyword" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="WeightedScore" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="UserListingCategory">
     <Key>
       <PropertyRef Name="Id" />
@@ -117,6 +131,18 @@
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="UserCity">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserKeyword_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserKeyword" Type="Marketing.CraigslistScraperModel.Store.UserKeyword" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserKeyword">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>

@@ -27,5 +27,10 @@ namespace Marketing.Services.Extensions {
 
       return query.AsQueryable();
     }
+    public static IQueryable<UserKeywordSelection> GetUserKeywordSelectionFromContext( this MarketingEntities context ) {
+      var query = from userKeyword in context.UserKeywords
+                  select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
+      return query;
+    }
   }
 }

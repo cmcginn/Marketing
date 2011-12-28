@@ -24,8 +24,18 @@
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="CategoryId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserKeywordSelection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Keyword" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="WeightedScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
+    <EntitySet Name="UserKeywordSelections" EntityType="MarketingDomainServiceData.UserKeywordSelection" />
   </EntityContainer>
 </Schema>
