@@ -1,0 +1,7 @@
+C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug\Marketing.Tests.dll
+C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug\Marketing.Tests.pdb
+C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug\Marketing.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug\Marketing.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\Marketing.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Tests\obj\Debug\Marketing.Tests.dll
+C:\Projects\Urbana\Marketing\Marketing.Tests\obj\Debug\Marketing.Tests.pdb

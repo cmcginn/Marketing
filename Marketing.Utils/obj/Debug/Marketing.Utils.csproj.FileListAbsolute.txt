@@ -1,0 +1,5 @@
+C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Debug\Marketing.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Debug\Marketing.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Debug\Marketing.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Debug\Marketing.Utils.pdb

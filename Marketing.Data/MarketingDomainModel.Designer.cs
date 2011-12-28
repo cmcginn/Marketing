@@ -203,6 +203,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserPreference> _UserPreferences;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingRefresh> UserListingRefreshes
+        {
+            get
+            {
+                if ((_UserListingRefreshes == null))
+                {
+                    _UserListingRefreshes = base.CreateObjectSet<UserListingRefresh>("UserListingRefreshes");
+                }
+                return _UserListingRefreshes;
+            }
+        }
+        private ObjectSet<UserListingRefresh> _UserListingRefreshes;
 
         #endregion
         #region AddTo Methods
@@ -269,6 +285,14 @@ namespace Marketing.Data
         public void AddToUserPreferences(UserPreference userPreference)
         {
             base.AddObject("UserPreferences", userPreference);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingRefreshes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingRefreshes(UserListingRefresh userListingRefresh)
+        {
+            base.AddObject("UserListingRefreshes", userListingRefresh);
         }
 
         #endregion
@@ -2093,6 +2117,90 @@ namespace Marketing.Data
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserListingRefresh")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserListingRefresh : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserListingRefresh object.
+        /// </summary>
+        /// <param name="listingUrl">Initial value of the ListingUrl property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static UserListingRefresh CreateUserListingRefresh(global::System.String listingUrl, global::System.Guid userId)
+        {
+            UserListingRefresh userListingRefresh = new UserListingRefresh();
+            userListingRefresh.ListingUrl = listingUrl;
+            userListingRefresh.UserId = userId;
+            return userListingRefresh;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ListingUrl
+        {
+            get
+            {
+                return _ListingUrl;
+            }
+            set
+            {
+                if (_ListingUrl != value)
+                {
+                    OnListingUrlChanging(value);
+                    ReportPropertyChanging("ListingUrl");
+                    _ListingUrl = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("ListingUrl");
+                    OnListingUrlChanged();
+                }
+            }
+        }
+        private global::System.String _ListingUrl;
+        partial void OnListingUrlChanging(global::System.String value);
+        partial void OnListingUrlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

@@ -1,0 +1,2 @@
+obj\Debug\_Marketing.WorkflowActivities.g.cs
+obj\Debug\RefreshUserPostsActivity.g.cs

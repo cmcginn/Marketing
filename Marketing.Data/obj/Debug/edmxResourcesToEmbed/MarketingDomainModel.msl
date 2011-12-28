@@ -100,5 +100,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserListingRefreshes">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingRefresh">
+        <MappingFragment StoreEntitySet="UserListingRefresh">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ListingUrl" ColumnName="ListingUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -14,6 +14,12 @@
           <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
+            <DefiningQuery>SELECT 
+      [UserListingRefresh].[ListingUrl] AS [ListingUrl], 
+      [UserListingRefresh].[UserId] AS [UserId]
+      FROM [dbo].[UserListingRefresh] AS [UserListingRefresh]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
             <End Role="ListingGroup" EntitySet="ListingGroup" />
             <End Role="ListingCategory" EntitySet="ListingCategory" />
@@ -130,6 +136,17 @@
           <Property Name="LiveMode" Type="bit" Nullable="false" />
           <Property Name="BCCEmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="UserListingRefresh">
+          <Key>
+            <PropertyRef Name="ListingUrl" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ListingUrl" Type="nvarchar" Nullable="false" MaxLength="357" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
         <Association Name="FK_ListingCategory_ListingGroup">
           <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
           <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
@@ -243,6 +260,7 @@
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
             <End Role="UserPreference" EntitySet="UserPreferences" />
           </AssociationSet>
+          <EntitySet Name="UserListingRefreshes" EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" />
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -433,6 +451,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="UserListingRefresh">
+          <Key>
+            <PropertyRef Name="ListingUrl" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="String" Name="ListingUrl" Nullable="false" MaxLength="357" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -538,6 +564,14 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserListingRefreshes">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingRefresh">
+              <MappingFragment StoreEntitySet="UserListingRefresh">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ListingUrl" ColumnName="ListingUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -569,9 +603,9 @@
           <ConnectorPoint PointX="3" PointY="3.46050048828125" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.UserCityCity">
-          <ConnectorPoint PointX="4.5" PointY="3.5460014765625" />
-          <ConnectorPoint PointX="6.5" PointY="3.5460014765625" />
-          <ConnectorPoint PointX="6.5" PointY="2.6710009765625" />
+          <ConnectorPoint PointX="4.5" PointY="3.1792509882812503" />
+          <ConnectorPoint PointX="7.09375" PointY="3.1792509882812503" />
+          <ConnectorPoint PointX="7.09375" PointY="2.6710009765625" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingCategory" Width="1.5" PointX="0.75" PointY="8.5" Height="2.0853483072916639" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingGroup" Width="1.5" PointX="0.75" PointY="11.75" Height="1.7566536458333353" />
@@ -608,6 +642,7 @@
           <ConnectorPoint PointX="2.8125" PointY="9.5033268229166659" />
           <ConnectorPoint PointX="3" PointY="9.5033268229166659" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" Width="1.5" PointX="5.375" PointY="3.75" Height="1.2636116536458317" />
       </Diagram>
     </Diagrams>
   </Designer>

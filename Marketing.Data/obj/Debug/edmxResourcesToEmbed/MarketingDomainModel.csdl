@@ -37,6 +37,7 @@
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserPreference" EntitySet="UserPreferences" />
     </AssociationSet>
+    <EntitySet Name="UserListingRefreshes" EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" />
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -227,4 +228,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="UserListingRefresh">
+    <Key>
+      <PropertyRef Name="ListingUrl" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="String" Name="ListingUrl" Nullable="false" MaxLength="357" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+  </EntityType>
 </Schema>

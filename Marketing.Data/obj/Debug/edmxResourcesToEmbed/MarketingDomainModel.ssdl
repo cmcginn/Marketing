@@ -9,6 +9,12 @@
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
+      <DefiningQuery>SELECT 
+      [UserListingRefresh].[ListingUrl] AS [ListingUrl], 
+      [UserListingRefresh].[UserId] AS [UserId]
+      FROM [dbo].[UserListingRefresh] AS [UserListingRefresh]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
       <End Role="ListingGroup" EntitySet="ListingGroup" />
       <End Role="ListingCategory" EntitySet="ListingCategory" />
@@ -124,6 +130,17 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LiveMode" Type="bit" Nullable="false" />
     <Property Name="BCCEmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="UserListingRefresh">
+    <Key>
+      <PropertyRef Name="ListingUrl" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ListingUrl" Type="nvarchar" Nullable="false" MaxLength="357" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <Association Name="FK_ListingCategory_ListingGroup">
     <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
