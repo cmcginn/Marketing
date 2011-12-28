@@ -32,6 +32,35 @@ namespace Marketing.Services {
       var result = Context.GetUserKeywordSelectionFromContext();
       return result;
     }
+    [Query( IsDefault = true )]
+    public IQueryable<UserPreferenceSelection> DefaultUserPreferenceSelections() {
+      var result = Context.GetUserPreferenceSelection();
+      return result;
+    }
+
+    public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
+      var key = userId.GetValueOrDefault();
+      var item = Context.UserPreferences.SingleOrDefault( x => x.UserId == key );
+      if( item == null ) {
+        item = new UserPreference();
+        var emailAddress = Context.aspnet_Membership.Single( x => x.UserId == key );
+        item.Id = Guid.NewGuid();
+        item.UserId = userId.GetValueOrDefault();
+        item.LiveMode = false;
+        item.BCCEmailAddress = !String.IsNullOrEmpty(emailAddress.Email)  ? emailAddress.Email : "youremailaddress@donotresolve.com";
+        Context.UserPreferences.AddObject( item );
+        Context.SaveChanges();
+
+      }
+      var result = DefaultUserPreferenceSelections().Single( x => x.Id == item.Id );
+      return result;
+    }
+    public void UpdateUserPreferenceSelection( UserPreferenceSelection userPreferenceSelection ) {
+      var result = Context.UserPreferences.Single( x => x.Id == userPreferenceSelection.Id );
+      result.LiveMode = userPreferenceSelection.LiveMode;
+      result.BCCEmailAddress = userPreferenceSelection.BCCEmailAddress;
+      Context.SaveChanges();
+    }
     public void AddUserKeyword( UserKeywordSelection userKeywordSelection ) {
       var item = new UserKeyword { Id = userKeywordSelection.Id, WeightedScore = userKeywordSelection.WeightedScore, UserId = userKeywordSelection.UserId, Keyword = userKeywordSelection.Keyword };
       Context.UserKeywords.AddObject(item);

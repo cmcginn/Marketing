@@ -422,6 +422,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region UserPreferenceSelection
+    
+        public void InsertUserPreferenceSelection(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.UserPreferenceSelections.AddObject(entity);
+            }
+        }
+    
+        public void UpdateUserPreferenceSelection(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserPreferenceSelections, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUserPreferenceSelection(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.UserPreferenceSelections.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -481,6 +511,26 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> GetUserKeywordSelections(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserKeywordSelection>("GetUserKeywordSelections", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> GetUserPreferenceSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("GetUserPreferenceSelectionByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_All", frameworkOperators);
         }
     
     #endregion
@@ -626,6 +676,38 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> GetUserPreferenceSelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("GetUserPreferenceSelectionByUserId", userId).AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("DefaultUserPreferenceSelections").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -642,6 +724,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserKeywordSelection))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserKeywordSelection();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserPreferenceSelection();
             }
     
             return base.CreateObject(type);
@@ -669,6 +755,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserKeywordSelection();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserPreferenceSelection))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserPreferenceSelection();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -684,6 +774,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserKeywordSelection))
             {
                 return typeof(global::Marketing.Services.UserKeywordSelection);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection))
+            {
+                return typeof(global::Marketing.Services.UserPreferenceSelection);
             }
             return base.ConvertType(outerType);
         }
@@ -723,6 +817,16 @@ namespace LightSwitchApplication.Implementation
                 result.Keyword = userKeywordSelection.Keyword;
                 result.WeightedScore = userKeywordSelection.WeightedScore;
                 result.UserId = userKeywordSelection.UserId;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.UserPreferenceSelection userPreferenceSelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserPreferenceSelection;
+            if (userPreferenceSelection != null)
+            {
+                global::Marketing.Services.UserPreferenceSelection result = new global::Marketing.Services.UserPreferenceSelection();
+                result.Id = userPreferenceSelection.Id;
+                result.UserId = userPreferenceSelection.UserId;
+                result.LiveMode = userPreferenceSelection.LiveMode;
+                result.BCCEmailAddress = userPreferenceSelection.BCCEmailAddress;
                 return result;
             }
             return null;
@@ -765,6 +869,16 @@ namespace LightSwitchApplication.Implementation
                 outerUserKeywordSelection.Keyword = innerUserKeywordSelection.Keyword;
                 outerUserKeywordSelection.WeightedScore = innerUserKeywordSelection.WeightedScore;
                 outerUserKeywordSelection.UserId = innerUserKeywordSelection.UserId;
+                return;
+            }
+            global::MarketingDomainServiceData.Implementation.UserPreferenceSelection outerUserPreferenceSelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserPreferenceSelection;
+            global::Marketing.Services.UserPreferenceSelection innerUserPreferenceSelection = innerResult as global::Marketing.Services.UserPreferenceSelection;
+            if ((outerUserPreferenceSelection != null) && (innerUserPreferenceSelection != null))
+            {
+                outerUserPreferenceSelection.Id = innerUserPreferenceSelection.Id;
+                outerUserPreferenceSelection.UserId = innerUserPreferenceSelection.UserId;
+                outerUserPreferenceSelection.LiveMode = innerUserPreferenceSelection.LiveMode;
+                outerUserPreferenceSelection.BCCEmailAddress = innerUserPreferenceSelection.BCCEmailAddress;
                 return;
             }
         }
@@ -842,6 +956,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserKeywordSelection) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserKeywordSelection);
+            }
+            if (typeof(global::LightSwitchApplication.UserPreferenceSelection) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection);
             }
             return null;
         }
@@ -1025,6 +1143,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserKeywordSelection :
         global::LightSwitchApplication.UserKeywordSelection.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class UserPreferenceSelection :
+        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

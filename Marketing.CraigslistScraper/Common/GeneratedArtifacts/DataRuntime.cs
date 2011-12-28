@@ -700,6 +700,19 @@ namespace LightSwitchApplication
             }
         }
         
+        /// <summary>
+        /// Gets the UserPreferenceSelections entity set.  The entity set provides members to access entities of a specific type.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserPreferenceSelection> UserPreferenceSelections
+        {
+            get
+            {
+                return global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.GetValue(this, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.UserPreferenceSelections);
+            }
+        }
+        
         #endregion
     
         #region Queries
@@ -801,6 +814,39 @@ namespace LightSwitchApplication
         public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserKeywordSelection> GetUserKeywordSelections(global::System.Nullable<global::System.Guid> userId)
         {
             return this.Details.Methods.GetUserKeywordSelections.CreateInvocation(userId).Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        /// <param name="userId">
+        /// No Modeled Description Available
+        /// </param>
+        public global::LightSwitchApplication.UserPreferenceSelection GetUserPreferenceSelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.Details.Methods.GetUserPreferenceSelectionByUserId.CreateInvocation(userId).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s).
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.UserPreferenceSelection UserPreferenceSelections_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.UserPreferenceSelections_Single.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists.
+        /// </summary>
+        /// <param name="Id">
+        /// The value of the 'Id' key property of the entity to retrieve.
+        /// </param>
+        public global::LightSwitchApplication.UserPreferenceSelection UserPreferenceSelections_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.Details.Methods.UserPreferenceSelections_SingleOrDefault.CreateInvocation(Id).Execute();
         }
         
         #endregion
@@ -923,6 +969,30 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection> GetUserPreferenceSelectionByUserId
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetUserPreferenceSelectionByUserId) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection> UserPreferenceSelections_Single
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.UserPreferenceSelections_Single) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection> UserPreferenceSelections_SingleOrDefault
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.UserPreferenceSelections_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>;
+                    }
+                }
+                
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -957,6 +1027,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.UserKeywordSelections) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection> UserPreferenceSelections
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties.UserPreferenceSelections) as global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>;
                     }
                 }
                 
@@ -1058,6 +1136,36 @@ namespace LightSwitchApplication
                     c(d, ref d._GetUserKeywordSelections, sf);
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry
+                    GetUserPreferenceSelectionByUserId = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry(
+                        "GetUserPreferenceSelectionByUserId",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._GetUserPreferenceSelectionByUserId_Stub);
+                private static void _GetUserPreferenceSelectionByUserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserPreferenceSelectionByUserId, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry
+                    UserPreferenceSelections_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry(
+                        "UserPreferenceSelections_Single",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._UserPreferenceSelections_Single_Stub);
+                private static void _UserPreferenceSelections_Single_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserPreferenceSelections_Single, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry
+                    UserPreferenceSelections_SingleOrDefault = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry(
+                        "UserPreferenceSelections_SingleOrDefault",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._UserPreferenceSelections_SingleOrDefault_Stub);
+                private static void _UserPreferenceSelections_SingleOrDefault_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserPreferenceSelections_SingleOrDefault, sf);
+                }
+    
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1096,6 +1204,16 @@ namespace LightSwitchApplication
                     c(d, ref d._UserKeywordSelections, sf);
                 }
      
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry
+                    UserPreferenceSelections = new global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry(
+                        "UserPreferenceSelections",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.PropertySetProperties._UserPreferenceSelections_Stub);
+                private static void _UserPreferenceSelections_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserPreferenceSelections, sf);
+                }
+     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1106,6 +1224,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Data _UserKeywordSelections;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.DataServiceEntitySetProperty<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data _UserPreferenceSelections;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _UserCitySelections_Single;
@@ -1133,6 +1254,15 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Data _GetUserKeywordSelections;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data _GetUserPreferenceSelectionByUserId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data _UserPreferenceSelections_Single;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data _UserPreferenceSelections_SingleOrDefault;
             
         }
     

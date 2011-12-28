@@ -32,5 +32,10 @@ namespace Marketing.Services.Extensions {
                   select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
       return query;
     }
+    public static IQueryable<UserPreferenceSelection> GetUserPreferenceSelection( this MarketingEntities context ) {
+      var query = from userPreference in context.UserPreferences
+                  select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress };
+      return query;
+    }
   }
 }

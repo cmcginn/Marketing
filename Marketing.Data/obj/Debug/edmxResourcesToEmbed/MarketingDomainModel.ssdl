@@ -8,6 +8,7 @@
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
       <End Role="ListingGroup" EntitySet="ListingGroup" />
       <End Role="ListingCategory" EntitySet="ListingCategory" />
@@ -27,6 +28,10 @@
     <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_ListingCategory">
       <End Role="ListingCategory" EntitySet="ListingCategory" />
       <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserPreference_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserPreference_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserPreference" EntitySet="UserPreference" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
@@ -111,6 +116,15 @@
     <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserPreference">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LiveMode" Type="bit" Nullable="false" />
+    <Property Name="BCCEmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+  </EntityType>
   <Association Name="FK_ListingCategory_ListingGroup">
     <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
     <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
@@ -168,6 +182,18 @@
       </Principal>
       <Dependent Role="UserListingCategory">
         <PropertyRef Name="ListingCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserPreference_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserPreference" Type="Marketing.CraigslistScraperModel.Store.UserPreference" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserPreference">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

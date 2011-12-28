@@ -32,4 +32,11 @@ namespace Marketing.Services {
     public int WeightedScore { get; set; }
     public Guid UserId { get; set; }
   }
+  public class UserPreferenceSelection {
+    [Key]
+    public Guid Id { get; set; }
+    public Guid UserId { get; set; }
+    public bool LiveMode { get; set; }
+    public string BCCEmailAddress { get; set; }
+  }
 }

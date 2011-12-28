@@ -109,6 +109,22 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<UserKeywordSelection> _UserKeywordSelections;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserPreferenceSelection> UserPreferenceSelections
+        {
+            get
+            {
+                if ((_UserPreferenceSelections == null))
+                {
+                    _UserPreferenceSelections = base.CreateObjectSet<UserPreferenceSelection>("UserPreferenceSelections");
+                }
+                return _UserPreferenceSelections;
+            }
+        }
+        private ObjectSet<UserPreferenceSelection> _UserPreferenceSelections;
 
         #endregion
         #region AddTo Methods
@@ -135,6 +151,14 @@ namespace MarketingDomainServiceData.Implementation
         public void AddToUserKeywordSelections(UserKeywordSelection userKeywordSelection)
         {
             base.AddObject("UserKeywordSelections", userKeywordSelection);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserPreferenceSelections EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserPreferenceSelections(UserPreferenceSelection userPreferenceSelection)
+        {
+            base.AddObject("UserPreferenceSelections", userPreferenceSelection);
         }
 
         #endregion
@@ -685,6 +709,137 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Guid _CategoryId;
         partial void OnCategoryIdChanging(global::System.Guid value);
         partial void OnCategoryIdChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="UserPreferenceSelection")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserPreferenceSelection : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserPreferenceSelection object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="liveMode">Initial value of the LiveMode property.</param>
+        public static UserPreferenceSelection CreateUserPreferenceSelection(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode)
+        {
+            UserPreferenceSelection userPreferenceSelection = new UserPreferenceSelection();
+            userPreferenceSelection.Id = id;
+            userPreferenceSelection.UserId = userId;
+            userPreferenceSelection.LiveMode = liveMode;
+            return userPreferenceSelection;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean LiveMode
+        {
+            get
+            {
+                return _LiveMode;
+            }
+            set
+            {
+                OnLiveModeChanging(value);
+                ReportPropertyChanging("LiveMode");
+                _LiveMode = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LiveMode");
+                OnLiveModeChanged();
+            }
+        }
+        private global::System.Boolean _LiveMode;
+        partial void OnLiveModeChanging(global::System.Boolean value);
+        partial void OnLiveModeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String BCCEmailAddress
+        {
+            get
+            {
+                return _BCCEmailAddress;
+            }
+            set
+            {
+                OnBCCEmailAddressChanging(value);
+                ReportPropertyChanging("BCCEmailAddress");
+                _BCCEmailAddress = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("BCCEmailAddress");
+                OnBCCEmailAddressChanged();
+            }
+        }
+        private global::System.String _BCCEmailAddress;
+        partial void OnBCCEmailAddressChanging(global::System.String value);
+        partial void OnBCCEmailAddressChanged();
 
         #endregion
     

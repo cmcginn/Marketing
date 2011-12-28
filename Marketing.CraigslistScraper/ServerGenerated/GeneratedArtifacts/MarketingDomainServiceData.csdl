@@ -33,9 +33,19 @@
     <Property Name="WeightedScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserPreferenceSelection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="LiveMode" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="BCCEmailAddress" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
     <EntitySet Name="UserKeywordSelections" EntityType="MarketingDomainServiceData.UserKeywordSelection" />
+    <EntitySet Name="UserPreferenceSelections" EntityType="MarketingDomainServiceData.UserPreferenceSelection" />
   </EntityContainer>
 </Schema>

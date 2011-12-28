@@ -1729,6 +1729,100 @@
                                ParameterType=":Guid?" />
     </QueryOperation>
   
+    <EntitySet CanUpdate="True"
+               EntityType="UserPreferenceSelection"
+               Name="UserPreferenceSelections" />
+  
+    <QueryOperation Name="GetUserPreferenceSelectionByUserId"
+                    ReturnType="UserPreferenceSelection">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserPreferenceSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
+    <QueryOperation Name="UserPreferenceSelections_Single"
+                    ReturnType="UserPreferenceSelection">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserPreferenceSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserPreferenceSelections_SingleOrDefault"
+                    ReturnType="UserPreferenceSelection">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserPreferenceSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserPreferenceSelections_All"
+                    ReturnType="UserPreferenceSelection*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserPreferenceSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
   
   </EntityContainer>
 
@@ -1849,6 +1943,20 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty Name="GetUserPreferenceSelectionByUserId"
+                      PropertyType="UserPreferenceSelection">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPreferenceSelectionByUserId]">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
     </Screen.Properties>
     <Screen.Attributes>
       <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
@@ -2079,81 +2187,37 @@
               </ContentItem>
             </ContentItem>
           </ContentItem>
-          <ContentItem DataType="CollectionView$UserKeywordSelection"
-                       Kind="Collection"
-                       Name="GetUserKeywordSelections">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="GetUserKeywordSelections_AddAndEditNew">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
-                      <CallExpression Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserKeywordSelections_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserKeywordSelections_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
-                      <CallExpression Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
+          <ContentItem DataType="UserPreferenceSelection"
+                       Kind="Details"
+                       Name="GetUserPreferenceSelectionByUserId">
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                  <MemberExpression Member="Preferences/Properties[GetUserPreferenceSelectionByUserId]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
-            <ContentItem DataType="UserKeywordSelection"
-                         Kind="Details"
-                         Name="GetUserKeywordSelectionsTemplate">
+            <ContentItem DataType=":Boolean"
+                         Kind="Value"
+                         Name="LiveMode">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
-                  <ChainExpression />
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[LiveMode]" />
+                  </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
-              <ContentItem DataType=":String?"
-                           Kind="Value"
-                           Name="Keyword">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserKeywordSelection/Properties[Keyword]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Int32"
-                           Kind="Value"
-                           Name="WeightedScore">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserKeywordSelection/Properties[WeightedScore]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="BCCEmailAddress">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[BCCEmailAddress]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
             </ContentItem>
           </ContentItem>
         </ContentItem>
@@ -2418,6 +2482,41 @@
     </EntityType.Properties>
   </EntityType>
 
+  <EntityType Name="UserPreferenceSelection">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="UserId"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="LiveMode"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="BCCEmailAddress"
+                      PropertyType=":String?" />
+    </EntityType.Properties>
+  </EntityType>
+
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
                Name="MarketingDomainServiceDataDataService">
@@ -2485,6 +2584,27 @@
                         Property="UserKeywordSelection/Properties[UserId]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserPreferenceSelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserPreferenceSelections"
+                         EntityTypeName="Marketing.Services.UserPreferenceSelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserPreferenceSelection/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserPreferenceSelection/Properties[UserId]" />
+        <WcfRiaProperty Name="LiveMode"
+                        Property="UserPreferenceSelection/Properties[LiveMode]" />
+        <WcfRiaProperty Name="BCCEmailAddress"
+                        Property="UserPreferenceSelection/Properties[BCCEmailAddress]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserPreferenceSelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserPreferenceSelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPreferenceSelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
   </DataService>
 
 

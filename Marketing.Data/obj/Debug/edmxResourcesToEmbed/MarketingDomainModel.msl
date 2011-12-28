@@ -90,5 +90,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserPreferences">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
+        <MappingFragment StoreEntitySet="UserPreference">
+          <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
+          <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

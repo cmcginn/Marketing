@@ -4,6 +4,7 @@
     <EntitySet Name="DefaultUserCitySelections" EntityType="MarketingDomainServiceDataStore.UserCitySelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserCitySelection" />
     <EntitySet Name="DefualtUserListingSelection" EntityType="MarketingDomainServiceDataStore.UserListingCategorySelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingCategorySelection" />
     <EntitySet Name="DefaultUserKeywords" EntityType="MarketingDomainServiceDataStore.UserKeywordSelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserKeywordSelection" />
+    <EntitySet Name="DefaultUserPreferenceSelections" EntityType="MarketingDomainServiceDataStore.UserPreferenceSelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserPreferenceSelection" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -37,5 +38,14 @@
     <Property Name="Keyword" Type="nvarchar(max)" />
     <Property Name="WeightedScore" Type="int" Nullable="false" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserPreferenceSelection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="LiveMode" Type="bit" Nullable="false" />
+    <Property Name="BCCEmailAddress" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

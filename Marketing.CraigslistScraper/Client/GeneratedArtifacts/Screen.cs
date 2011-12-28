@@ -106,6 +106,11 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserKeywordSelections_Loaded(bool succeeded);
 
+        partial void GetUserPreferenceSelectionByUserId_Changed();
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPreferenceSelectionByUserId_Loaded(bool succeeded);
+
         /// <summary>
         /// Gets the UserCitySelections visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
@@ -181,6 +186,18 @@ namespace LightSwitchApplication
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserKeywordSelections_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.UserPreferenceSelection GetUserPreferenceSelectionByUserId
+        {
+            get
+            {
+                return global::LightSwitchApplication.Preferences.DetailsClass.GetValue(this, global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.GetUserPreferenceSelectionByUserId);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPreferenceSelectionByUserId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
@@ -302,6 +319,9 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Data _GetUserKeywordSelections;
 
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data _GetUserPreferenceSelectionByUserId;
+
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -346,6 +366,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.GetUserKeywordSelections);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection> GetUserPreferenceSelectionByUserId
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.GetUserPreferenceSelectionByUserId);
                     }
                 }
 
@@ -527,6 +555,36 @@ namespace LightSwitchApplication
                 private static void _GetUserKeywordSelections_OnLoaded(global::LightSwitchApplication.Preferences s, bool succeeded)
                 {
                     s.GetUserKeywordSelections_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry
+                    GetUserPreferenceSelectionByUserId = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Entry(
+                        "GetUserPreferenceSelectionByUserId",
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._GetUserPreferenceSelectionByUserId_Stub,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._GetUserPreferenceSelectionByUserId_Validate,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._GetUserPreferenceSelectionByUserId_CreateQuery,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._GetUserPreferenceSelectionByUserId_OnValueChanged,
+                        global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties._GetUserPreferenceSelectionByUserId_OnLoaded);
+                private static void _GetUserPreferenceSelectionByUserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserPreferenceSelectionByUserId, sf);
+                }
+                private static void _GetUserPreferenceSelectionByUserId_Validate(global::LightSwitchApplication.Preferences s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.GetUserPreferenceSelectionByUserId_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _GetUserPreferenceSelectionByUserId_CreateQuery(global::LightSwitchApplication.Preferences.DetailsClass d, object[] args)
+                {
+                    return null;
+                }
+                private static void _GetUserPreferenceSelectionByUserId_OnValueChanged(global::LightSwitchApplication.Preferences s)
+                {
+                    s.GetUserPreferenceSelectionByUserId_Changed();
+                }
+
+                private static void _GetUserPreferenceSelectionByUserId_OnLoaded(global::LightSwitchApplication.Preferences s, bool succeeded)
+                {
+                    s.GetUserPreferenceSelectionByUserId_Loaded(succeeded);
                 }
 
             }

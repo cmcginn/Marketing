@@ -37,5 +37,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserPreferenceSelections">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserPreferenceSelection)">
+        <MappingFragment StoreEntitySet="DefaultUserPreferenceSelections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
+          <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
