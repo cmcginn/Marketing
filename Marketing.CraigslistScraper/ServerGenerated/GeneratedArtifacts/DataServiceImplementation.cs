@@ -614,6 +614,7 @@ namespace LightSwitchApplication.Implementation
                 result.GroupName = userListingCategorySelection.GroupName;
                 result.Active = userListingCategorySelection.Active;
                 result.UserId = userListingCategorySelection.UserId;
+                result.CategoryId = userListingCategorySelection.CategoryId;
                 return result;
             }
             return null;
@@ -645,6 +646,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingCategorySelection.GroupName = innerUserListingCategorySelection.GroupName;
                 outerUserListingCategorySelection.Active = innerUserListingCategorySelection.Active;
                 outerUserListingCategorySelection.UserId = innerUserListingCategorySelection.UserId;
+                outerUserListingCategorySelection.CategoryId = innerUserListingCategorySelection.CategoryId;
                 return;
             }
         }

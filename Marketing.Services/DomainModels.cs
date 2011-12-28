@@ -20,6 +20,7 @@ namespace Marketing.Services {
     public Guid Id { get; set; }
     public bool Selected { get; set; }
     public string CategoryName { get; set; }
+    public Guid CategoryId { get; set; }
     public Guid UserId { get; set; }
     public string GroupName { get; set; }
     public bool Active { get; set; }

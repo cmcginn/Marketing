@@ -23,5 +23,9 @@ namespace LightSwitchApplication {
         _UserId = value;
       }
     }
+
+    partial void UserListingCategorySelections_Updating( UserListingCategorySelection entity ) {
+      entity.UserId = UserId;
+    }
   }
 }

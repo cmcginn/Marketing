@@ -222,6 +222,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserId_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Guid CategoryId
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties.CategoryId);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties.CategoryId, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CategoryId_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CategoryId_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void CategoryId_Changed();
+
         #endregion
     
         #region Details Class
@@ -352,6 +376,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid> CategoryId
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties.CategoryId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -364,6 +396,7 @@ namespace LightSwitchApplication
                 new string GroupName { get; set; }
                 new bool Active { get; set; }
                 new global::System.Guid UserId { get; set; }
+                new global::System.Guid CategoryId { get; set; }
             }
             #pragma warning restore 109
     
@@ -595,6 +628,43 @@ namespace LightSwitchApplication
                     e.UserId_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid>.Entry
+                    CategoryId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid>.Entry(
+                        "CategoryId",
+                        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties._CategoryId_Stub,
+                        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties._CategoryId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties._CategoryId_Validate,
+                        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties._CategoryId_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties._CategoryId_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingCategorySelection.DetailsClass.PropertySetProperties._CategoryId_OnValueChanged);
+                private static void _CategoryId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._CategoryId, sf);
+                }
+                private static bool _CategoryId_ComputeIsReadOnly(global::LightSwitchApplication.UserListingCategorySelection e)
+                {
+                    bool result = false;
+                    e.CategoryId_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _CategoryId_Validate(global::LightSwitchApplication.UserListingCategorySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.CategoryId_Validate(r);
+                }
+                private static global::System.Guid _CategoryId_GetImplementationValue(global::LightSwitchApplication.UserListingCategorySelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.CategoryId;
+                }
+                private static void _CategoryId_SetImplementationValue(global::LightSwitchApplication.UserListingCategorySelection.DetailsClass d, global::System.Guid v)
+                {
+                    d.ImplementationEntity.CategoryId = v;
+                }
+                private static void _CategoryId_OnValueChanged(global::LightSwitchApplication.UserListingCategorySelection e)
+                {
+                    e.CategoryId_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -614,6 +684,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid>.Data _UserId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingCategorySelection, global::LightSwitchApplication.UserListingCategorySelection.DetailsClass, global::System.Guid>.Data _CategoryId;
             
         }
     

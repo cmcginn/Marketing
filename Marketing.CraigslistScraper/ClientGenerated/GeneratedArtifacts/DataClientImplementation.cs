@@ -1177,6 +1177,27 @@ namespace LightSwitchApplication.Implementation
         }
         private global::System.Guid _UserId;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid CategoryId
+        {
+            get
+            {
+                return this._CategoryId;
+            }
+            set
+            {
+                if (this._CategoryId != value)
+                {
+                    this.RaiseDataMemberChanging("CategoryId");
+                    this.ValidateProperty("CategoryId", value);
+                    this._CategoryId = value;
+                    this.RaiseDataMemberChanged("CategoryId");
+                }
+            }
+        }
+        private global::System.Guid _CategoryId;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         

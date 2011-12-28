@@ -1877,7 +1877,7 @@
       </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2150,12 +2150,18 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="CategoryId"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
-
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
+               Name="MarketingDomainServiceDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -2196,6 +2202,8 @@
                         Property="UserListingCategorySelection/Properties[Selected]" />
         <WcfRiaProperty Name="CategoryName"
                         Property="UserListingCategorySelection/Properties[CategoryName]" />
+        <WcfRiaProperty Name="CategoryId"
+                        Property="UserListingCategorySelection/Properties[CategoryId]" />
         <WcfRiaProperty Name="UserId"
                         Property="UserListingCategorySelection/Properties[UserId]" />
         <WcfRiaProperty Name="GroupName"
@@ -2205,6 +2213,9 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+
+  
 
 
   

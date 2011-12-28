@@ -15,7 +15,7 @@ namespace Marketing.Services.Extensions {
                   on category.Id equals userCategory.ListingCategoryId into ulc
                   
                   from item in ulc.DefaultIfEmpty()
-                  select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false,UserId= item.UserId != Guid.Empty ? item.UserId : Guid.Empty };
+                  select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false,UserId= item.UserId != Guid.Empty ? item.UserId : Guid.Empty,  CategoryId=category.Id };
       return query.AsQueryable();
     }
     public static IQueryable<UserCitySelection> GetUserCitySelectionFromContext( this MarketingEntities context ) {

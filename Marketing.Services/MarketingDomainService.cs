@@ -29,7 +29,14 @@ namespace Marketing.Services {
     }
 
     public void UpdateUserListingCategorySelection( UserListingCategorySelection userListingCategorySelection ) {
-
+      var target = Context.UserListingCategories.SingleOrDefault( x => x.UserId == userListingCategorySelection.UserId && x.ListingCategoryId == userListingCategorySelection.CategoryId );
+      if( target == null && userListingCategorySelection.Selected ) {
+        var item = new UserListingCategory { Id = userListingCategorySelection.Id, ListingCategoryId = userListingCategorySelection.CategoryId, UserId = userListingCategorySelection.UserId, Active = true };
+        Context.UserListingCategories.AddObject(item);
+      } else if( !userListingCategorySelection.Selected ) {
+        Context.UserListingCategories.DeleteObject( target );
+      }
+      Context.SaveChanges();
     }
     public void UpdateUserCitySelection( UserCitySelection userCitySelection ) {
       var target = Context.UserCities.SingleOrDefault( x => x.UserId == userCitySelection.UserId && x.CityId == userCitySelection.CityId );

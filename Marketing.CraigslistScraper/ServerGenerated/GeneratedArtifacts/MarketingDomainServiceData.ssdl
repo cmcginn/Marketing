@@ -26,5 +26,6 @@
     <Property Name="GroupName" Type="nvarchar(max)" />
     <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CategoryId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
 </Schema>

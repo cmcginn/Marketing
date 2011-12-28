@@ -23,6 +23,7 @@
           <ScalarProperty Name="GroupName" ColumnName="GroupName" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

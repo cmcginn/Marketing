@@ -345,13 +345,15 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="selected">Initial value of the Selected property.</param>
         /// <param name="active">Initial value of the Active property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
-        public static UserListingCategorySelection CreateUserListingCategorySelection(global::System.Guid id, global::System.Boolean selected, global::System.Boolean active, global::System.Guid userId)
+        /// <param name="categoryId">Initial value of the CategoryId property.</param>
+        public static UserListingCategorySelection CreateUserListingCategorySelection(global::System.Guid id, global::System.Boolean selected, global::System.Boolean active, global::System.Guid userId, global::System.Guid categoryId)
         {
             UserListingCategorySelection userListingCategorySelection = new UserListingCategorySelection();
             userListingCategorySelection.Id = id;
             userListingCategorySelection.Selected = selected;
             userListingCategorySelection.Active = active;
             userListingCategorySelection.UserId = userId;
+            userListingCategorySelection.CategoryId = categoryId;
             return userListingCategorySelection;
         }
 
@@ -504,6 +506,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Guid _UserId;
         partial void OnUserIdChanging(global::System.Guid value);
         partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid CategoryId
+        {
+            get
+            {
+                return _CategoryId;
+            }
+            set
+            {
+                OnCategoryIdChanging(value);
+                ReportPropertyChanging("CategoryId");
+                _CategoryId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CategoryId");
+                OnCategoryIdChanged();
+            }
+        }
+        private global::System.Guid _CategoryId;
+        partial void OnCategoryIdChanging(global::System.Guid value);
+        partial void OnCategoryIdChanged();
 
         #endregion
     
