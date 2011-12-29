@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Common.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Net.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Common.Net.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Types, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Common.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Activities" />
@@ -56,13 +68,25 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityRunner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Marketing.Data\Marketing.Data.csproj">
+      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
+      <Name>Marketing.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketing.Utils\Marketing.Utils.csproj">
+      <Project>{913FE413-0156-44E9-BC06-F04BFA44C2C7}</Project>
+      <Name>Marketing.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Marketing.WorkflowActivities\Marketing.WorkflowActivities.csproj">
       <Project>{53864F10-0A6F-4DCB-9539-F300D3CA9F88}</Project>
       <Name>Marketing.WorkflowActivities</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

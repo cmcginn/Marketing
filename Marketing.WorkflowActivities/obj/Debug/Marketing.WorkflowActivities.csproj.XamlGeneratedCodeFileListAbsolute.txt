@@ -1,2 +1,5 @@
 obj\Debug\_Marketing.WorkflowActivities.g.cs
-obj\Debug\RefreshUserPostsActivity.g.cs
+obj\Debug\RefreshUserCraigslistListingUrls.g.cs
+obj\Debug\GetCraigslistListingUrlsActivity.g.cs
+obj\Debug\RefreshUserCraigslistContent.g.cs
+obj\Debug\GetListingContentActivity.g.cs

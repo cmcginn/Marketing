@@ -13,12 +13,35 @@ namespace Marketing.WorkflowActivities {
     
     
     [System.Runtime.InteropServices.ComVisible(false)]
-    public partial class Activity1 : System.Activities.Activity, System.ComponentModel.ISupportInitialize {
+    public partial class GetCraigslistListingUrlsActivity : System.Activities.Activity, System.ComponentModel.ISupportInitialize {
         
         private bool _contentLoaded;
         
-        public Activity1() {
+        private System.Activities.InArgument<string> _ListingPageUrl;
+        
+        private System.Activities.OutArgument<System.Collections.Generic.List<Marketing.Utils.ListingLocation>> _Result;
+        
+        public GetCraigslistListingUrlsActivity() {
             this.InitializeComponent();
+        }
+        
+        [System.Activities.RequiredArgumentAttribute()]
+        public System.Activities.InArgument<string> ListingPageUrl {
+            get {
+                return this._ListingPageUrl;
+            }
+            set {
+                this._ListingPageUrl = value;
+            }
+        }
+        
+        public System.Activities.OutArgument<System.Collections.Generic.List<Marketing.Utils.ListingLocation>> Result {
+            get {
+                return this._Result;
+            }
+            set {
+                this._Result = value;
+            }
         }
         
         /// <summary>
@@ -31,7 +54,7 @@ namespace Marketing.WorkflowActivities {
             }
             this._contentLoaded = true;
             string resourceName = this.FindResource();
-            System.IO.Stream initializeXaml = typeof(Activity1).Assembly.GetManifestResourceStream(resourceName);
+            System.IO.Stream initializeXaml = typeof(GetCraigslistListingUrlsActivity).Assembly.GetManifestResourceStream(resourceName);
             System.Xml.XmlReader xmlReader = null;
             System.Xaml.XamlReader reader = null;
             System.Xaml.XamlObjectWriter objectWriter = null;
@@ -44,7 +67,7 @@ namespace Marketing.WorkflowActivities {
                 reader = new System.Xaml.XamlXmlReader(xmlReader, schemaContext, readerSettings);
                 System.Xaml.XamlObjectWriterSettings writerSettings = new System.Xaml.XamlObjectWriterSettings();
                 writerSettings.RootObjectInstance = this;
-                writerSettings.AccessLevel = System.Xaml.Permissions.XamlAccessLevel.PrivateAccessTo(typeof(Activity1));
+                writerSettings.AccessLevel = System.Xaml.Permissions.XamlAccessLevel.PrivateAccessTo(typeof(GetCraigslistListingUrlsActivity));
                 objectWriter = new System.Xaml.XamlObjectWriter(schemaContext, writerSettings);
                 System.Xaml.XamlServices.Transform(reader, objectWriter);
             }
@@ -62,10 +85,10 @@ namespace Marketing.WorkflowActivities {
         }
         
         private string FindResource() {
-            string[] resources = typeof(Activity1).Assembly.GetManifestResourceNames();
+            string[] resources = typeof(GetCraigslistListingUrlsActivity).Assembly.GetManifestResourceNames();
             for (int i = 0; (i < resources.Length); i = (i + 1)) {
                 string resource = resources[i];
-                if ((resource.Contains(".Activity1.g.xaml") || resource.Equals("Activity1.g.xaml"))) {
+                if ((resource.Contains(".GetCraigslistListingUrlsActivity.g.xaml") || resource.Equals("GetCraigslistListingUrlsActivity.g.xaml"))) {
                     return resource;
                 }
             }

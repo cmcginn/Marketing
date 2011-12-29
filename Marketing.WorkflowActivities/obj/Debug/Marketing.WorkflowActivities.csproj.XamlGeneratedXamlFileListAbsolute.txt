@@ -1,1 +1,4 @@
-obj\Debug\RefreshUserPostsActivity.g.xaml
+obj\Debug\RefreshUserCraigslistListingUrls.g.xaml
+obj\Debug\GetCraigslistListingUrlsActivity.g.xaml
+obj\Debug\RefreshUserCraigslistContent.g.xaml
+obj\Debug\GetListingContentActivity.g.xaml
