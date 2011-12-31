@@ -20,14 +20,9 @@ namespace Marketing.UI.Controls {
 
 
     private void BodyText_TextChanged( object sender, TextChangedEventArgs e ) {
-      //this.richEditControl.HtmlText = this.BodyText.Text;
-      var stuff = this.BodyText.Text;
-      var cleaned = XElement.Parse(stuff);
-      cleaned.Descendants().Where(x=>x.Attribute("href") != null).ToList().ForEach(x=>
-        {
-          x.Attribute("href").Value = String.Empty;
-        });
-      this.richEditControl.Document.HtmlText = cleaned.Element( "body" ).ToString();
+
+      this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode(XElement.Parse(this.BodyText.Text).Element("body").ToString());
+
       }
   }
 }

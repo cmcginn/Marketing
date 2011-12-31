@@ -9,6 +9,6 @@
     <Grid x:Name="LayoutRoot" Background="White" >
    
     <TextBox Name="BodyText" Width="0" Height="0" Text="{Binding Path=Value,Mode=TwoWay}" TextChanged="BodyText_TextChanged"></TextBox>
-    <dxre:RichEditControl Name="richEditControl" />
+    <dxre:RichEditControl Name="richEditControl" HorizontalScrollBarVisibility="Collapsed" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MinHeight="1000" MaxHeight="1000" />
   </Grid>
 </UserControl>

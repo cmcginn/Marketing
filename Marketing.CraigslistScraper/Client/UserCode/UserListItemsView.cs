@@ -8,8 +8,8 @@ using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
 namespace LightSwitchApplication {
-  public partial class GetUserListingItemsListDetail {
-    partial void GetUserListingItemsListDetail_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
+  public partial class UserListItemsView {
+    partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
       this.UserId = Application.UserId;
     }
