@@ -6,6 +6,7 @@
     <AssemblyPart x:Name="ExtensionsMadeEasy.Client" Source="ExtensionsMadeEasy.Client.dll" />
     <AssemblyPart x:Name="ExtensionsMadeEasy.ClientAPI" Source="ExtensionsMadeEasy.ClientAPI.dll" />
     <AssemblyPart x:Name="ExtensionsMadeEasy.Common" Source="ExtensionsMadeEasy.Common.dll" />
+    <AssemblyPart x:Name="Marketing.UI.Controls" Source="Marketing.UI.Controls.dll" />
     <AssemblyPart x:Name="Marketing_CraigslistScraper.Client" Source="Marketing_CraigslistScraper.Client.dll" />
     <AssemblyPart x:Name="Microsoft.CSharp" Source="Microsoft.CSharp.dll" />
     <AssemblyPart x:Name="Microsoft.LightSwitch.Base.Client" Source="Microsoft.LightSwitch.Base.Client.dll" />
@@ -35,7 +36,12 @@
     <AssemblyPart x:Name="System.Windows.Controls.Navigation" Source="System.Windows.Controls.Navigation.dll" />
     <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
     <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.RichEdit.v11.1" Source="DevExpress.Xpf.RichEdit.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Core.v11.1" Source="DevExpress.Xpf.Core.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v11.1" Source="DevExpress.Xpf.Ribbon.v11.1.dll" />
     <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
+    <AssemblyPart x:Name="DevExpress.Data.v11.1" Source="DevExpress.Data.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.RichEdit.v11.1.Core" Source="DevExpress.RichEdit.v11.1.Core.dll" />
     <AssemblyPart x:Name="Microsoft.VisualStudio.Debugger.Runtime.dll" Source="Microsoft.VisualStudio.Debugger.Runtime.dll.dll" />
   </Deployment.Parts>
 </Deployment>

@@ -37,7 +37,15 @@ namespace Marketing.Services {
       var result = Context.GetUserPreferenceSelection();
       return result;
     }
-
+    [Query( IsDefault = true )]
+    public IQueryable<UserListingItem> DefaultUserListingItems() {
+      var result = Context.GetUserListingItems();
+      return result;
+    }
+    public UserListingItem GetUserListingItemById( Guid? id ) {
+      var result = Context.GetUserListingItems().Single( x => x.Id == id );
+      return result;
+    }
     public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
       var key = userId.GetValueOrDefault();
       var item = Context.UserPreferences.SingleOrDefault( x => x.UserId == key );

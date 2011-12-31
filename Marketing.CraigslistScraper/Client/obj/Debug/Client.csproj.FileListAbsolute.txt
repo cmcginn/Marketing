@@ -34,3 +34,10 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\zh-Han
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\Marketing.UI.Controls.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.Xpf.Core.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.Xpf.Ribbon.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.Data.v11.1.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.RichEdit.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\Marketing.UI.Controls.pdb

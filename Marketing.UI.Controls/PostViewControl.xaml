@@ -4,10 +4,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit">
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
     
     <Grid x:Name="LayoutRoot" Background="White" >
+   
     <TextBox Name="BodyText" Width="0" Height="0" Text="{Binding Path=Value,Mode=TwoWay}" TextChanged="BodyText_TextChanged"></TextBox>
-      <dxre:RichEditControl HorizontalAlignment="Left"  Name="richEditControl" />
+    <dxre:RichEditControl Name="richEditControl" />
   </Grid>
 </UserControl>

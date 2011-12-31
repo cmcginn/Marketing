@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 namespace Marketing.Services {
   public class UserCitySelection {
     [Key]
@@ -38,5 +39,17 @@ namespace Marketing.Services {
     public Guid UserId { get; set; }
     public bool LiveMode { get; set; }
     public string BCCEmailAddress { get; set; }
+  }
+  public class UserListingItem {
+    [Key]
+    public Guid Id { get; set; }
+    public string Title { get; set; }
+    public string CategoryName { get; set; }
+    public string GroupName { get; set; }
+    public string RegionName { get; set;}
+    public string CityName { get; set; }
+    public DateTime Created { get; set; }
+    public String PostElement { get; set; }
+    public Guid UserId { get; set; }
   }
 }

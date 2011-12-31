@@ -259,22 +259,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserListingData> UserListingDatas
-        {
-            get
-            {
-                if ((_UserListingDatas == null))
-                {
-                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
-                }
-                return _UserListingDatas;
-            }
-        }
-        private ObjectSet<UserListingData> _UserListingDatas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<UserListingRefresh> UserListingRefreshes
         {
             get
@@ -287,6 +271,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserListingRefresh> _UserListingRefreshes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingData> UserListingDatas
+        {
+            get
+            {
+                if ((_UserListingDatas == null))
+                {
+                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
+                }
+                return _UserListingDatas;
+            }
+        }
+        private ObjectSet<UserListingData> _UserListingDatas;
 
         #endregion
         #region AddTo Methods
@@ -380,19 +380,19 @@ namespace Marketing.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserListingDatas(UserListingData userListingData)
-        {
-            base.AddObject("UserListingDatas", userListingData);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the UserListingRefreshes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUserListingRefreshes(UserListingRefresh userListingRefresh)
         {
             base.AddObject("UserListingRefreshes", userListingRefresh);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingDatas(UserListingData userListingData)
+        {
+            base.AddObject("UserListingDatas", userListingData);
         }
 
         #endregion
@@ -2785,7 +2785,8 @@ namespace Marketing.Data
         /// <param name="cityId">Initial value of the CityId property.</param>
         /// <param name="regionName">Initial value of the RegionName property.</param>
         /// <param name="cityName">Initial value of the CityName property.</param>
-        public static UserListingData CreateUserListingData(global::System.DateTime userListingCreated, global::System.String url, global::System.String title, global::System.Int64 postId, global::System.DateTime listingUrlCreated, global::System.Guid listingCategoryId, global::System.String listingCategoryName, global::System.Guid listingGroupId, global::System.String listingGroupName, global::System.Guid userListingUrlId, global::System.Guid cityId, global::System.String regionName, global::System.String cityName)
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static UserListingData CreateUserListingData(global::System.DateTime userListingCreated, global::System.String url, global::System.String title, global::System.Int64 postId, global::System.DateTime listingUrlCreated, global::System.Guid listingCategoryId, global::System.String listingCategoryName, global::System.Guid listingGroupId, global::System.String listingGroupName, global::System.Guid userListingUrlId, global::System.Guid cityId, global::System.String regionName, global::System.String cityName, global::System.Guid userId)
         {
             UserListingData userListingData = new UserListingData();
             userListingData.UserListingCreated = userListingCreated;
@@ -2801,6 +2802,7 @@ namespace Marketing.Data
             userListingData.CityId = cityId;
             userListingData.RegionName = regionName;
             userListingData.CityName = cityName;
+            userListingData.UserId = userId;
             return userListingData;
         }
 
@@ -3253,6 +3255,33 @@ namespace Marketing.Data
         private global::System.String _CityName;
         partial void OnCityNameChanging(global::System.String value);
         partial void OnCityNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
 
         #endregion
     

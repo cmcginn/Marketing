@@ -40,7 +40,6 @@
     <EntitySet Name="ListingContents" EntityType="Marketing.CraigslistScraperModel.ListingContent" />
     <EntitySet Name="ListingUrls" EntityType="Marketing.CraigslistScraperModel.ListingUrl" />
     <EntitySet Name="UserListingUrls" EntityType="Marketing.CraigslistScraperModel.UserListingUrl" />
-    <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
     <EntitySet Name="UserListingRefreshes" EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" />
     <AssociationSet Name="FK_UserListingUrl_aspnet_Membership" Association="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -58,6 +57,7 @@
       <End Role="ListingUrl" EntitySet="ListingUrls" />
       <End Role="UserListingUrl" EntitySet="UserListingUrls" />
     </AssociationSet>
+    <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -287,40 +287,6 @@
     <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" FromRole="UserListingUrl" ToRole="aspnet_Membership" />
     <NavigationProperty Name="ListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_ListingUrl" FromRole="UserListingUrl" ToRole="ListingUrl" />
   </EntityType>
-  <EntityType Name="UserListingData">
-    <Key>
-      <PropertyRef Name="UserListingCreated" />
-      <PropertyRef Name="Url" />
-      <PropertyRef Name="Title" />
-      <PropertyRef Name="PostId" />
-      <PropertyRef Name="ListingUrlCreated" />
-      <PropertyRef Name="ListingCategoryId" />
-      <PropertyRef Name="ListingCategoryName" />
-      <PropertyRef Name="ListingGroupId" />
-      <PropertyRef Name="ListingGroupName" />
-      <PropertyRef Name="UserListingUrlId" />
-      <PropertyRef Name="CityId" />
-      <PropertyRef Name="RegionName" />
-      <PropertyRef Name="CityName" />
-    </Key>
-    <Property Type="DateTime" Name="UserListingCreated" Nullable="false" />
-    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="Int64" Name="PostId" Nullable="false" />
-    <Property Type="DateTime" Name="ListingUrlCreated" Nullable="false" />
-    <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
-    <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
-    <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="ListingContentCreated" />
-    <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
-    <Property Type="Guid" Name="ListingContentId" />
-    <Property Type="Guid" Name="CityId" Nullable="false" />
-    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="UserListingRefresh">
     <Key>
       <PropertyRef Name="ListingUrl" />
@@ -383,4 +349,40 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="UserListingData">
+    <Key>
+      <PropertyRef Name="UserListingCreated" />
+      <PropertyRef Name="Url" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PostId" />
+      <PropertyRef Name="ListingUrlCreated" />
+      <PropertyRef Name="ListingCategoryId" />
+      <PropertyRef Name="ListingCategoryName" />
+      <PropertyRef Name="ListingGroupId" />
+      <PropertyRef Name="ListingGroupName" />
+      <PropertyRef Name="UserListingUrlId" />
+      <PropertyRef Name="CityId" />
+      <PropertyRef Name="RegionName" />
+      <PropertyRef Name="CityName" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="DateTime" Name="UserListingCreated" Nullable="false" />
+    <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="PostId" Nullable="false" />
+    <Property Type="DateTime" Name="ListingUrlCreated" Nullable="false" />
+    <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
+    <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
+    <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ListingContentCreated" />
+    <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
+    <Property Type="Guid" Name="ListingContentId" />
+    <Property Type="Guid" Name="CityId" Nullable="false" />
+    <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+  </EntityType>
 </Schema>

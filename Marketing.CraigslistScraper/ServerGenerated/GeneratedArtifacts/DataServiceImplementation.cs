@@ -452,6 +452,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region UserListingItem
+    
+        public void InsertUserListingItem(global::MarketingDomainServiceData.Implementation.UserListingItem entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.UserListingItems.AddObject(entity);
+            }
+        }
+    
+        public void UpdateUserListingItem(global::MarketingDomainServiceData.Implementation.UserListingItem currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserListingItems, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUserListingItem(global::MarketingDomainServiceData.Implementation.UserListingItem entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.UserListingItems.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -531,6 +561,31 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> UserPreferenceSelections_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> UserListingItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> UserListingItems_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> UserListingItems_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItems", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemById", frameworkOperators, id);
         }
     
     #endregion
@@ -708,6 +763,57 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> UserListingItems_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> UserListingItems_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> UserListingItems_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("DefaultUserListingItems").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItems(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = global::System.Linq.Queryable.ThenBy(
+                global::System.Linq.Queryable.ThenBy(
+                    global::System.Linq.Queryable.ThenBy(
+                        global::System.Linq.Queryable.ThenBy(
+                            global::System.Linq.Queryable.OrderBy(
+                                global::System.Linq.Queryable.Where(
+                                    this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All"),
+                                    (u) => (userId.HasValue && (u.UserId == userId))),
+                                (u) => u.Created),
+                            (u) => u.RegionName),
+                        (u) => u.CityName),
+                    (u) => u.GroupName),
+                (u) => u.CategoryName);
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemById(global::System.Nullable<global::System.Guid> id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemById", id).AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -728,6 +834,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserPreferenceSelection();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.UserListingItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserListingItem();
             }
     
             return base.CreateObject(type);
@@ -759,6 +869,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserPreferenceSelection();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserListingItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserListingItem();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -778,6 +892,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection))
             {
                 return typeof(global::Marketing.Services.UserPreferenceSelection);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserListingItem))
+            {
+                return typeof(global::Marketing.Services.UserListingItem);
             }
             return base.ConvertType(outerType);
         }
@@ -827,6 +945,21 @@ namespace LightSwitchApplication.Implementation
                 result.UserId = userPreferenceSelection.UserId;
                 result.LiveMode = userPreferenceSelection.LiveMode;
                 result.BCCEmailAddress = userPreferenceSelection.BCCEmailAddress;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.UserListingItem userListingItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingItem;
+            if (userListingItem != null)
+            {
+                global::Marketing.Services.UserListingItem result = new global::Marketing.Services.UserListingItem();
+                result.Id = userListingItem.Id;
+                result.Title = userListingItem.Title;
+                result.CategoryName = userListingItem.CategoryName;
+                result.GroupName = userListingItem.GroupName;
+                result.RegionName = userListingItem.RegionName;
+                result.CityName = userListingItem.CityName;
+                result.Created = userListingItem.Created;
+                result.PostElement = userListingItem.PostElement;
+                result.UserId = userListingItem.UserId;
                 return result;
             }
             return null;
@@ -879,6 +1012,21 @@ namespace LightSwitchApplication.Implementation
                 outerUserPreferenceSelection.UserId = innerUserPreferenceSelection.UserId;
                 outerUserPreferenceSelection.LiveMode = innerUserPreferenceSelection.LiveMode;
                 outerUserPreferenceSelection.BCCEmailAddress = innerUserPreferenceSelection.BCCEmailAddress;
+                return;
+            }
+            global::MarketingDomainServiceData.Implementation.UserListingItem outerUserListingItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingItem;
+            global::Marketing.Services.UserListingItem innerUserListingItem = innerResult as global::Marketing.Services.UserListingItem;
+            if ((outerUserListingItem != null) && (innerUserListingItem != null))
+            {
+                outerUserListingItem.Id = innerUserListingItem.Id;
+                outerUserListingItem.Title = innerUserListingItem.Title;
+                outerUserListingItem.CategoryName = innerUserListingItem.CategoryName;
+                outerUserListingItem.GroupName = innerUserListingItem.GroupName;
+                outerUserListingItem.RegionName = innerUserListingItem.RegionName;
+                outerUserListingItem.CityName = innerUserListingItem.CityName;
+                outerUserListingItem.Created = innerUserListingItem.Created;
+                outerUserListingItem.PostElement = innerUserListingItem.PostElement;
+                outerUserListingItem.UserId = innerUserListingItem.UserId;
                 return;
             }
         }
@@ -960,6 +1108,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserPreferenceSelection) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserPreferenceSelection);
+            }
+            if (typeof(global::LightSwitchApplication.UserListingItem) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.UserListingItem);
             }
             return null;
         }
@@ -1176,6 +1328,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserPreferenceSelection :
         global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class UserListingItem :
+        global::LightSwitchApplication.UserListingItem.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

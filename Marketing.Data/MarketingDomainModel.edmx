@@ -35,7 +35,8 @@
       [UserListingData].[ListingContentId] AS [ListingContentId], 
       [UserListingData].[CityId] AS [CityId], 
       [UserListingData].[RegionName] AS [RegionName], 
-      [UserListingData].[CityName] AS [CityName]
+      [UserListingData].[CityName] AS [CityName], 
+      [UserListingData].[UserId] AS [UserId]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -228,6 +229,7 @@
             <PropertyRef Name="CityId" />
             <PropertyRef Name="RegionName" />
             <PropertyRef Name="CityName" />
+            <PropertyRef Name="UserId" />
           </Key>
           <Property Name="UserListingCreated" Type="datetime" Nullable="false" />
           <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="255" />
@@ -246,6 +248,7 @@
           <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -428,7 +431,6 @@
           <EntitySet Name="ListingContents" EntityType="Marketing.CraigslistScraperModel.ListingContent" />
           <EntitySet Name="ListingUrls" EntityType="Marketing.CraigslistScraperModel.ListingUrl" />
           <EntitySet Name="UserListingUrls" EntityType="Marketing.CraigslistScraperModel.UserListingUrl" />
-          <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
           <EntitySet Name="UserListingRefreshes" EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" />
           <AssociationSet Name="FK_UserListingUrl_aspnet_Membership" Association="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership">
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -446,6 +448,7 @@
             <End Role="ListingUrl" EntitySet="ListingUrls" />
             <End Role="UserListingUrl" EntitySet="UserListingUrls" />
           </AssociationSet>
+          <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -675,40 +678,6 @@
           <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" FromRole="UserListingUrl" ToRole="aspnet_Membership" />
           <NavigationProperty Name="ListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_ListingUrl" FromRole="UserListingUrl" ToRole="ListingUrl" />
         </EntityType>
-        <EntityType Name="UserListingData">
-          <Key>
-            <PropertyRef Name="UserListingCreated" />
-            <PropertyRef Name="Url" />
-            <PropertyRef Name="Title" />
-            <PropertyRef Name="PostId" />
-            <PropertyRef Name="ListingUrlCreated" />
-            <PropertyRef Name="ListingCategoryId" />
-            <PropertyRef Name="ListingCategoryName" />
-            <PropertyRef Name="ListingGroupId" />
-            <PropertyRef Name="ListingGroupName" />
-            <PropertyRef Name="UserListingUrlId" />
-            <PropertyRef Name="CityId" />
-            <PropertyRef Name="RegionName" />
-            <PropertyRef Name="CityName" />
-          </Key>
-          <Property Type="DateTime" Name="UserListingCreated" Nullable="false" />
-          <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="PostId" Nullable="false" />
-          <Property Type="DateTime" Name="ListingUrlCreated" Nullable="false" />
-          <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
-          <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
-          <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="ListingContentCreated" />
-          <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
-          <Property Type="Guid" Name="ListingContentId" />
-          <Property Type="Guid" Name="CityId" Nullable="false" />
-          <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="UserListingRefresh">
           <Key>
             <PropertyRef Name="ListingUrl" />
@@ -771,6 +740,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="UserListingData">
+          <Key>
+            <PropertyRef Name="UserListingCreated" />
+            <PropertyRef Name="Url" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="PostId" />
+            <PropertyRef Name="ListingUrlCreated" />
+            <PropertyRef Name="ListingCategoryId" />
+            <PropertyRef Name="ListingCategoryName" />
+            <PropertyRef Name="ListingGroupId" />
+            <PropertyRef Name="ListingGroupName" />
+            <PropertyRef Name="UserListingUrlId" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="RegionName" />
+            <PropertyRef Name="CityName" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="DateTime" Name="UserListingCreated" Nullable="false" />
+          <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="PostId" Nullable="false" />
+          <Property Type="DateTime" Name="ListingUrlCreated" Nullable="false" />
+          <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
+          <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
+          <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ListingContentCreated" />
+          <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
+          <Property Type="Guid" Name="ListingContentId" />
+          <Property Type="Guid" Name="CityId" Nullable="false" />
+          <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -910,9 +915,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserListingRefreshes">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingRefresh">
+              <MappingFragment StoreEntitySet="UserListingRefresh">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
+                <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ListingUrl" ColumnName="ListingUrl" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UserListingDatas">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
               <MappingFragment StoreEntitySet="UserListingData">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="RegionName" ColumnName="RegionName" />
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
@@ -930,17 +947,6 @@
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="UserListingCreated" ColumnName="UserListingCreated" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserListingRefreshes">
-            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingRefresh">
-              <MappingFragment StoreEntitySet="UserListingRefresh">
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
-                <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ListingUrl" ColumnName="ListingUrl" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -982,21 +988,25 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingCategory" Width="1.5" PointX="8.25" PointY="1.75" Height="1.9210009765624996" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="4.58550048828125" />
-          <ConnectorPoint PointX="8.9166641666666653" PointY="4.5855004882812489" />
-          <ConnectorPoint PointX="9.0833308333333331" PointY="4.58550048828125" />
-          <ConnectorPoint PointX="9.125" PointY="4.58550048828125" />
-          <ConnectorPoint PointX="9.125" PointY="3.6710009765624996" />
+          <ConnectorPoint PointX="8.78125" PointY="4.58550048828125" />
+          <ConnectorPoint PointX="8.78125" PointY="3.6710009765624996" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup" >
           <ConnectorPoint PointX="1.5" PointY="11.75" />
           <ConnectorPoint PointX="1.5" PointY="10.749695638020834" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory" >
-          <ConnectorPoint PointX="2.25" PointY="10.596924641927082" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="10.596924641927082" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="10.596924641927082" />
-          <ConnectorPoint PointX="8.9999975" PointY="10.596924641927082" />
-          <ConnectorPoint PointX="8.9999975" PointY="3.6710009765624996" />
+          <ConnectorPoint PointX="2.25" PointY="10.09525873046875" />
+          <ConnectorPoint PointX="2.75" PointY="10.09525873046875" />
+          <ConnectorPoint PointX="2.75" PointY="8.375" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="8.375" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="8.375" />
+          <ConnectorPoint PointX="5" PointY="8.375" />
+          <ConnectorPoint PointX="5" PointY="6.2500000000000009" />
+          <ConnectorPoint PointX="5.385416666666667" PointY="6.25" />
+          <ConnectorPoint PointX="5.552083333333333" PointY="6.2500000000000009" />
+          <ConnectorPoint PointX="9.1093765" PointY="6.2500000000000009" />
+          <ConnectorPoint PointX="9.1093765" PointY="3.6710009765624996" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserKeyword" Width="1.5" PointX="3" PointY="5.5" Height="1.7566536458333317" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership" >
@@ -1008,12 +1018,13 @@
           <ConnectorPoint PointX="2.2499999999999991" PointY="6.2079475911458326" />
           <ConnectorPoint PointX="2.625" PointY="6.5829475911458335" />
           <ConnectorPoint PointX="2.625" PointY="9.5033268229166659" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="9.5033268229166659" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="9.5033268229166659" />
           <ConnectorPoint PointX="3" PointY="9.5033268229166659" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingContent" Width="1.5" PointX="5.25" PointY="11.625" Height="1.9210009765625031" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingUrl" Width="1.5" PointX="3" PointY="11.375" Height="2.5783902994791674" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingUrl" Width="1.5" PointX="5.25" PointY="6.5" Height="1.921000976562496" />
-        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="7.375" PointY="4.75" Height="3.7288216145833388" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" Width="1.5" PointX="9.375" PointY="4.75" Height="1.7566536458333388" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="5.0427527441406257" />
@@ -1034,8 +1045,11 @@
           <ConnectorPoint PointX="4.5" PointY="11.376152846153847" />
           <ConnectorPoint PointX="4.875" PointY="11.001152846153847" />
           <ConnectorPoint PointX="4.875" PointY="7.460500488281248" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="7.4605004882812471" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="7.460500488281248" />
           <ConnectorPoint PointX="5.25" PointY="7.460500488281248" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="7.375" PointY="7.75" Height="3.8931689453125031" />
         </Diagram>
     </Diagrams>
   </Designer>

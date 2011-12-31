@@ -42,10 +42,25 @@
     <Property Name="LiveMode" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="BCCEmailAddress" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserListingItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="CategoryName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="GroupName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="RegionName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="CityName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostElement" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
     <EntitySet Name="UserKeywordSelections" EntityType="MarketingDomainServiceData.UserKeywordSelection" />
     <EntitySet Name="UserPreferenceSelections" EntityType="MarketingDomainServiceData.UserPreferenceSelection" />
+    <EntitySet Name="UserListingItems" EntityType="MarketingDomainServiceData.UserListingItem" />
   </EntityContainer>
 </Schema>

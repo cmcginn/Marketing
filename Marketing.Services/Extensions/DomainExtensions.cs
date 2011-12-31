@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Marketing.Data;
 using System.Collections.Specialized;
+using System.Xml.Linq;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
 
@@ -35,6 +36,22 @@ namespace Marketing.Services.Extensions {
     public static IQueryable<UserPreferenceSelection> GetUserPreferenceSelection( this MarketingEntities context ) {
       var query = from userPreference in context.UserPreferences
                   select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress };
+      return query;
+    }
+    public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context ) {
+      var query = from userListingData in context.UserListingDatas
+                  select new UserListingItem {
+                    Id = userListingData.UserListingUrlId,
+                    CategoryName = userListingData.ListingCategoryName,
+                    CityName = userListingData.CityName,
+                    GroupName = userListingData.ListingGroupName,
+                    RegionName = userListingData.RegionName,
+                    PostElement = userListingData.PostElement,
+                    Created = userListingData.ListingUrlCreated,
+                    Title = userListingData.Title,
+                    UserId = userListingData.UserId
+
+                  };
       return query;
     }
   }

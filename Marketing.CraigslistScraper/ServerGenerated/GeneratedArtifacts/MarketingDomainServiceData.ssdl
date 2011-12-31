@@ -5,6 +5,7 @@
     <EntitySet Name="DefualtUserListingSelection" EntityType="MarketingDomainServiceDataStore.UserListingCategorySelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingCategorySelection" />
     <EntitySet Name="DefaultUserKeywords" EntityType="MarketingDomainServiceDataStore.UserKeywordSelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserKeywordSelection" />
     <EntitySet Name="DefaultUserPreferenceSelections" EntityType="MarketingDomainServiceDataStore.UserPreferenceSelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserPreferenceSelection" />
+    <EntitySet Name="DefaultUserListingItems" EntityType="MarketingDomainServiceDataStore.UserListingItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingItem" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -47,5 +48,19 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LiveMode" Type="bit" Nullable="false" />
     <Property Name="BCCEmailAddress" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserListingItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="CategoryName" Type="nvarchar(max)" />
+    <Property Name="GroupName" Type="nvarchar(max)" />
+    <Property Name="RegionName" Type="nvarchar(max)" />
+    <Property Name="CityName" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="PostElement" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
 </Schema>
