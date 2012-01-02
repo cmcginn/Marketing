@@ -909,10 +909,34 @@ namespace LightSwitchApplication
         partial void UserPreferenceSelections_Validate(global::LightSwitchApplication.UserPreferenceSelection entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingItems_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingItems_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserListingItems_CanRead(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingItems_Inserting(global::LightSwitchApplication.UserListingItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingItems_Inserted(global::LightSwitchApplication.UserListingItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingItems_Updating(global::LightSwitchApplication.UserListingItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingItems_Updated(global::LightSwitchApplication.UserListingItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserListingItems_Validate(global::LightSwitchApplication.UserListingItem entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_Validate(global::LightSwitchApplication.UserListingResponseItem entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
@@ -1241,6 +1265,66 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserListingItemById_ExecuteFailed(global::System.Nullable<global::System.Guid> id, global::System.Exception exception);
     
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserListingResponseItems_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingResponseById_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingResponseById_Executing(global::System.Nullable<global::System.Guid> responseId);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingResponseById_PreprocessQuery(global::System.Nullable<global::System.Guid> responseId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingResponseById_Executed(global::System.Nullable<global::System.Guid> responseId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingResponseById_ExecuteFailed(global::System.Nullable<global::System.Guid> responseId, global::System.Exception exception);
+    
         #endregion
     
         #region Details Class
@@ -1447,26 +1531,80 @@ namespace LightSwitchApplication
             private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingItem>
                 __UserListingItemsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingItem>(
                     "UserListingItems",
-                    null,
-                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_CanInsert,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_CanUpdate,
                     null,
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_CanRead,
-                    null,
-                    null,
-                    null,
-                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_Inserting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_Inserted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_Updating,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_Updated,
                     null,
                     null,
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingItems_Validate);
+            private static bool __UserListingItems_CanInsert(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserListingItems_CanInsert(ref result);
+                return result;
+            }
+            private static bool __UserListingItems_CanUpdate(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserListingItems_CanUpdate(ref result);
+                return result;
+            }
             private static bool __UserListingItems_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
             {
                 bool result = true;
                 d.UserListingItems_CanRead(ref result);
                 return result;
             }
+            private static void __UserListingItems_Inserting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingItem e)
+            {
+                d.UserListingItems_Inserting(e);
+            }
+            private static void __UserListingItems_Inserted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingItem e)
+            {
+                d.UserListingItems_Inserted(e);
+            }
+            private static void __UserListingItems_Updating(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingItem e)
+            {
+                d.UserListingItems_Updating(e);
+            }
+            private static void __UserListingItems_Updated(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingItem e)
+            {
+                d.UserListingItems_Updated(e);
+            }
             private static void __UserListingItems_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingItem e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.UserListingItems_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>
+                __UserListingResponseItemsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>(
+                    "UserListingResponseItems",
+                    null,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_CanRead,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_Validate);
+            private static bool __UserListingResponseItems_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserListingResponseItems_CanRead(ref result);
+                return result;
+            }
+            private static void __UserListingResponseItems_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserListingResponseItem e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.UserListingResponseItems_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -2185,6 +2323,138 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem>)args[1];
                 d.GetUserListingItemById_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>
+                __UserListingResponseItems_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>(
+                    "UserListingResponseItems_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_Single_PreprocessQuery);
+            private static bool __UserListingResponseItems_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserListingResponseItems_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserListingResponseItems_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserListingResponseItems_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __UserListingResponseItems_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserListingResponseItems_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem>)args[1]);
+            }
+            private static void __UserListingResponseItems_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserListingResponseItems_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __UserListingResponseItems_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem>)args[1];
+                d.UserListingResponseItems_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>
+                __UserListingResponseItems_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>(
+                    "UserListingResponseItems_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_SingleOrDefault_PreprocessQuery);
+            private static bool __UserListingResponseItems_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserListingResponseItems_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserListingResponseItems_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserListingResponseItems_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __UserListingResponseItems_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserListingResponseItems_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem>)args[1]);
+            }
+            private static void __UserListingResponseItems_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserListingResponseItems_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __UserListingResponseItems_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem>)args[1];
+                d.UserListingResponseItems_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>
+                __UserListingResponseItems_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>(
+                    "UserListingResponseItems_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserListingResponseItems_All_PreprocessQuery);
+            private static bool __UserListingResponseItems_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserListingResponseItems_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserListingResponseItems_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserListingResponseItems_All_Executing();
+            }
+            private static void __UserListingResponseItems_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserListingResponseItems_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem>)args[0]);
+            }
+            private static void __UserListingResponseItems_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserListingResponseItems_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __UserListingResponseItems_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem>)args[0];
+                d.UserListingResponseItems_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>
+                __GetUserListingResponseByIdEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingResponseItem>(
+                    "GetUserListingResponseById",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingResponseById_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingResponseById_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingResponseById_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingResponseById_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingResponseById_PreprocessQuery);
+            private static bool __GetUserListingResponseById_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.GetUserListingResponseById_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetUserListingResponseById_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserListingResponseById_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __GetUserListingResponseById_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserListingResponseById_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingResponseItem>)args[1]);
+            }
+            private static void __GetUserListingResponseById_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetUserListingResponseById_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __GetUserListingResponseById_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingResponseItem>)args[1];
+                d.GetUserListingResponseById_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
                 return query;
             }
     

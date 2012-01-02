@@ -42,8 +42,21 @@ namespace Marketing.Services {
       var result = Context.GetUserListingItems();
       return result;
     }
+    [Query( IsDefault = true )]
+    public IQueryable<UserListingResponseItem> DefaultUserListingResponseItems() {
+      var result = Context.GetUserListingResponses();
+      return result;
+    }
+    public void AddUserListingItem( UserListingItem item ) {
+      Context.SaveUserListingResponse( item );
+            
+    }
+    public void UpdateUserListingItem( UserListingItem item ) {
+      Context.SaveUserListingResponse( item );
+    }
     public UserListingItem GetUserListingItemById( Guid? id ) {
-      var result = Context.GetUserListingItems().Single( x => x.Id == id );
+      var key = id.GetValueOrDefault();
+      var result = Context.GetUserListingItems().Single( x => x.Id == key) ;
       return result;
     }
     public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {

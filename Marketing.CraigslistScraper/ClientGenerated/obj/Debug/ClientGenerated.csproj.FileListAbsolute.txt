@@ -698,3 +698,4 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\DevExpress.Data.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\DevExpress.RichEdit.v11.1.Core.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\Marketing.UI.Controls.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\DevExpress.Printing.v11.1.Core.dll

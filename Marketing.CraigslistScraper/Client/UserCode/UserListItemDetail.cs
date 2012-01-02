@@ -12,22 +12,10 @@ namespace LightSwitchApplication
 {
     public partial class UserListItemDetail
     {
-        partial void GetUserListingItemById_Loaded(bool succeeded)
-        {
-            // Write your code here.
-            this.SetDisplayNameFromEntity(this.GetUserListingItemById);
-        }
 
-        partial void GetUserListingItemById_Changed()
-        {
-            // Write your code here.
-            this.SetDisplayNameFromEntity(this.GetUserListingItemById);
-        }
 
-        partial void UserListItemDetail_Saved()
-        {
-            // Write your code here.
-            this.SetDisplayNameFromEntity(this.GetUserListingItemById);
-        }
+     
+
+        
     }
 }

@@ -138,9 +138,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCode\Application.cs" />
+    <Compile Include="UserCode\UserListingItemDetail.cs" />
     <Compile Include="UserCode\UserListItemsView.cs" />
     <Compile Include="UserCode\Preferences.cs" />
-    <Compile Include="UserCode\UserListItemDetail.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="..\Data\ApplicationDefinition.lsml">

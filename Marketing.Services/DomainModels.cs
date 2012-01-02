@@ -51,5 +51,16 @@ namespace Marketing.Services {
     public DateTime Created { get; set; }
     public String PostElement { get; set; }
     public Guid UserId { get; set; }
+    public DateTime? Responded { get; set; }
+    public Guid? ResponseId { get; set; }
+    public string Response { get; set; }
+  }
+  public class UserListingResponseItem {
+    [Key]
+    public Guid Id { get; set; }
+    public Guid UserListingUrlId { get; set; }
+    public Guid UserId { get; set; }
+    public DateTime Created { get; set; }
+    public string Response { get; set; }
   }
 }

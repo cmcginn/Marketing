@@ -148,15 +148,18 @@
     <EntitySetMapping Name="UserListingDatas">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
         <MappingFragment StoreEntitySet="UserListingData">
+          <ScalarProperty Name="PostElement" ColumnName="PostElement" />
+          <ScalarProperty Name="Responded" ColumnName="Responded" />
+          <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
+          <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CityName" ColumnName="CityName" />
           <ScalarProperty Name="RegionName" ColumnName="RegionName" />
           <ScalarProperty Name="CityId" ColumnName="CityId" />
           <ScalarProperty Name="ListingContentId" ColumnName="ListingContentId" />
           <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
-          <ScalarProperty Name="PostElement" ColumnName="PostElement" />
-          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
-          <ScalarProperty Name="ListingContentCreated" ColumnName="ListingContentCreated" />
           <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
           <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
           <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
@@ -166,6 +169,17 @@
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Url" ColumnName="Url" />
           <ScalarProperty Name="UserListingCreated" ColumnName="UserListingCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserListingResponses">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingResponse">
+        <MappingFragment StoreEntitySet="UserListingResponse">
+          <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

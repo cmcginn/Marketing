@@ -47,6 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v11.1, Version=11.1.8.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v11.1.Core, Version=11.1.8.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <HintPath>..\Dependencies\DevExpress.Printing.v11.1.Core.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.RichEdit.v11.1.Core, Version=11.1.8.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpf.Core.v11.1, Version=11.1.8.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpf.Ribbon.v11.1, Version=11.1.8.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />

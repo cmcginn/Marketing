@@ -21,7 +21,8 @@ namespace Marketing.UI.Controls {
     }
 
     void richEditControl_TextChanged( object sender, EventArgs e ) {
-      ResponseEdit.Text = richEditControl.Text;
+
+      //ResponseEdit.Text = richEditControl.Text;
       ResponseHtmlEdit.Text = richEditControl.HtmlText;
     }
 

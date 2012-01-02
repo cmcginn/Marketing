@@ -58,6 +58,11 @@
       <End Role="UserListingUrl" EntitySet="UserListingUrls" />
     </AssociationSet>
     <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
+    <EntitySet Name="UserListingResponses" EntityType="Marketing.CraigslistScraperModel.UserListingResponse" />
+    <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl">
+      <End Role="UserListingUrl" EntitySet="UserListingUrls" />
+      <End Role="UserListingResponse" EntitySet="UserListingResponses" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -286,6 +291,7 @@
     <Property Type="DateTime" Name="Created" Nullable="false" />
     <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" FromRole="UserListingUrl" ToRole="aspnet_Membership" />
     <NavigationProperty Name="ListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_ListingUrl" FromRole="UserListingUrl" ToRole="ListingUrl" />
+    <NavigationProperty Name="UserListingResponses" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" FromRole="UserListingUrl" ToRole="UserListingResponse" />
   </EntityType>
   <EntityType Name="UserListingRefresh">
     <Key>
@@ -295,11 +301,11 @@
       <PropertyRef Name="ListingGroupId" />
       <PropertyRef Name="CityId" />
     </Key>
-    <Property Type="String" Name="ListingUrl" Nullable="false" MaxLength="306" FixedLength="false" Unicode="true" />
-    <Property Type="Guid" Name="UserId" Nullable="false" />
-    <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
-    <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
-    <Property Type="Guid" Name="CityId" Nullable="false" />
+    <Property Name="ListingUrl" Nullable="false" MaxLength="306" FixedLength="false" Unicode="true" Type="String" />
+    <Property Name="UserId" Nullable="false" Type="Guid" />
+    <Property Name="ListingCategoryId" Nullable="false" Type="Guid" />
+    <Property Name="ListingGroupId" Nullable="false" Type="Guid" />
+    <Property Name="CityId" Nullable="false" Type="Guid" />
   </EntityType>
   <Association Name="FK_UserListingUrl_aspnet_Membership">
     <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
@@ -375,14 +381,40 @@
     <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
     <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="ListingContentCreated" />
-    <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
     <Property Type="Guid" Name="ListingContentId" />
     <Property Type="Guid" Name="CityId" Nullable="false" />
     <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="DateTime" Name="Created" />
+    <Property Type="String" Name="Response" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ResponseSent" />
+    <Property Type="Guid" Name="UserListingResponseId" />
+    <Property Type="DateTime" Name="Responded" />
+    <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="UserListingResponse">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
+    <Property Type="String" Name="Response" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created" Nullable="false" />
+    <Property Type="DateTime" Name="ResponseSent" />
+    <NavigationProperty Name="UserListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" FromRole="UserListingResponse" ToRole="UserListingUrl" />
+  </EntityType>
+  <Association Name="FK_UserListingResponse_UserListingUrl">
+    <End Type="Marketing.CraigslistScraperModel.UserListingUrl" Role="UserListingUrl" Multiplicity="1" />
+    <End Type="Marketing.CraigslistScraperModel.UserListingResponse" Role="UserListingResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserListingUrl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserListingResponse">
+        <PropertyRef Name="UserListingUrlId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

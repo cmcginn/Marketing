@@ -29,6 +29,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingUrl_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingContent_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "ListingContent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingContent), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingResponse), true)]
 
 #endregion
 
@@ -287,6 +288,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserListingData> _UserListingDatas;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingResponse> UserListingResponses
+        {
+            get
+            {
+                if ((_UserListingResponses == null))
+                {
+                    _UserListingResponses = base.CreateObjectSet<UserListingResponse>("UserListingResponses");
+                }
+                return _UserListingResponses;
+            }
+        }
+        private ObjectSet<UserListingResponse> _UserListingResponses;
 
         #endregion
         #region AddTo Methods
@@ -393,6 +410,14 @@ namespace Marketing.Data
         public void AddToUserListingDatas(UserListingData userListingData)
         {
             base.AddObject("UserListingDatas", userListingData);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingResponses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingResponses(UserListingResponse userListingResponse)
+        {
+            base.AddObject("UserListingResponses", userListingResponse);
         }
 
         #endregion
@@ -3055,78 +3080,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> ListingContentCreated
-        {
-            get
-            {
-                return _ListingContentCreated;
-            }
-            set
-            {
-                OnListingContentCreatedChanging(value);
-                ReportPropertyChanging("ListingContentCreated");
-                _ListingContentCreated = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("ListingContentCreated");
-                OnListingContentCreatedChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _ListingContentCreated;
-        partial void OnListingContentCreatedChanging(Nullable<global::System.DateTime> value);
-        partial void OnListingContentCreatedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String PostContent
-        {
-            get
-            {
-                return _PostContent;
-            }
-            set
-            {
-                OnPostContentChanging(value);
-                ReportPropertyChanging("PostContent");
-                _PostContent = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("PostContent");
-                OnPostContentChanged();
-            }
-        }
-        private global::System.String _PostContent;
-        partial void OnPostContentChanging(global::System.String value);
-        partial void OnPostContentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String PostElement
-        {
-            get
-            {
-                return _PostElement;
-            }
-            set
-            {
-                OnPostElementChanging(value);
-                ReportPropertyChanging("PostElement");
-                _PostElement = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("PostElement");
-                OnPostElementChanged();
-            }
-        }
-        private global::System.String _PostElement;
-        partial void OnPostElementChanging(global::System.String value);
-        partial void OnPostElementChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserListingUrlId
@@ -3282,6 +3235,150 @@ namespace Marketing.Data
         private global::System.Guid _UserId;
         partial void OnUserIdChanging(global::System.Guid value);
         partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Created;
+        partial void OnCreatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Response
+        {
+            get
+            {
+                return _Response;
+            }
+            set
+            {
+                OnResponseChanging(value);
+                ReportPropertyChanging("Response");
+                _Response = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Response");
+                OnResponseChanged();
+            }
+        }
+        private global::System.String _Response;
+        partial void OnResponseChanging(global::System.String value);
+        partial void OnResponseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ResponseSent
+        {
+            get
+            {
+                return _ResponseSent;
+            }
+            set
+            {
+                OnResponseSentChanging(value);
+                ReportPropertyChanging("ResponseSent");
+                _ResponseSent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ResponseSent");
+                OnResponseSentChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ResponseSent;
+        partial void OnResponseSentChanging(Nullable<global::System.DateTime> value);
+        partial void OnResponseSentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserListingResponseId
+        {
+            get
+            {
+                return _UserListingResponseId;
+            }
+            set
+            {
+                OnUserListingResponseIdChanging(value);
+                ReportPropertyChanging("UserListingResponseId");
+                _UserListingResponseId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserListingResponseId");
+                OnUserListingResponseIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserListingResponseId;
+        partial void OnUserListingResponseIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserListingResponseIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Responded
+        {
+            get
+            {
+                return _Responded;
+            }
+            set
+            {
+                OnRespondedChanging(value);
+                ReportPropertyChanging("Responded");
+                _Responded = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Responded");
+                OnRespondedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Responded;
+        partial void OnRespondedChanging(Nullable<global::System.DateTime> value);
+        partial void OnRespondedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostElement
+        {
+            get
+            {
+                return _PostElement;
+            }
+            set
+            {
+                OnPostElementChanging(value);
+                ReportPropertyChanging("PostElement");
+                _PostElement = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostElement");
+                OnPostElementChanged();
+            }
+        }
+        private global::System.String _PostElement;
+        partial void OnPostElementChanging(global::System.String value);
+        partial void OnPostElementChanged();
 
         #endregion
     
@@ -3456,6 +3553,204 @@ namespace Marketing.Data
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserListingResponse")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserListingResponse : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserListingResponse object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userListingUrlId">Initial value of the UserListingUrlId property.</param>
+        /// <param name="response">Initial value of the Response property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        public static UserListingResponse CreateUserListingResponse(global::System.Guid id, global::System.Guid userListingUrlId, global::System.String response, global::System.DateTime created)
+        {
+            UserListingResponse userListingResponse = new UserListingResponse();
+            userListingResponse.Id = id;
+            userListingResponse.UserListingUrlId = userListingUrlId;
+            userListingResponse.Response = response;
+            userListingResponse.Created = created;
+            return userListingResponse;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserListingUrlId
+        {
+            get
+            {
+                return _UserListingUrlId;
+            }
+            set
+            {
+                OnUserListingUrlIdChanging(value);
+                ReportPropertyChanging("UserListingUrlId");
+                _UserListingUrlId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserListingUrlId");
+                OnUserListingUrlIdChanged();
+            }
+        }
+        private global::System.Guid _UserListingUrlId;
+        partial void OnUserListingUrlIdChanging(global::System.Guid value);
+        partial void OnUserListingUrlIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Response
+        {
+            get
+            {
+                return _Response;
+            }
+            set
+            {
+                OnResponseChanging(value);
+                ReportPropertyChanging("Response");
+                _Response = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Response");
+                OnResponseChanged();
+            }
+        }
+        private global::System.String _Response;
+        partial void OnResponseChanging(global::System.String value);
+        partial void OnResponseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ResponseSent
+        {
+            get
+            {
+                return _ResponseSent;
+            }
+            set
+            {
+                OnResponseSentChanging(value);
+                ReportPropertyChanging("ResponseSent");
+                _ResponseSent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ResponseSent");
+                OnResponseSentChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ResponseSent;
+        partial void OnResponseSentChanging(Nullable<global::System.DateTime> value);
+        partial void OnResponseSentChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingUrl", "UserListingUrl")]
+        public UserListingUrl UserListingUrl
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingUrl").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingUrl").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserListingUrl> UserListingUrlReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingUrl");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingUrl", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -3663,6 +3958,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingUrl_ListingUrl", "ListingUrl", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingUrl", "UserListingResponse")]
+        public EntityCollection<UserListingResponse> UserListingResponses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingResponse>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingResponse");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingResponse>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingResponse", value);
                 }
             }
         }

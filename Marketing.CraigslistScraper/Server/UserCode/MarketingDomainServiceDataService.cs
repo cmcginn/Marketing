@@ -32,6 +32,17 @@ namespace LightSwitchApplication {
       entity.UserId = UserId;
     }
 
+    partial void GetUserListingResponseById_Executed( Guid? responseId, IEnumerable<UserListingResponseItem> result ) {
+      if( result.Count() == 0 ) {
+        result = new List<UserListingResponseItem> { this.DataWorkspace.MarketingDomainServiceData.UserListingResponseItems.AddNew() };
+        result.First().Id = Guid.Empty;       
+      }
+    }
+
+    partial void GetUserListingResponseById_PreprocessQuery( Guid? responseId, ref IQueryable<UserListingResponseItem> query ) {
+
+    }
+
 
   }
 }

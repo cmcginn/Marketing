@@ -59,6 +59,20 @@
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="PostElement" ColumnName="PostElement" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Responded" ColumnName="Responded" />
+          <ScalarProperty Name="ResponseId" ColumnName="ResponseId" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserListingResponseItems">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserListingResponseItem)">
+        <MappingFragment StoreEntitySet="DefaultUserListingResponseItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

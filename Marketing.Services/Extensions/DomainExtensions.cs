@@ -14,9 +14,9 @@ namespace Marketing.Services.Extensions {
                   on category.ListingGroupId equals categoryGroup.Id
                   join userCategory in context.UserListingCategories
                   on category.Id equals userCategory.ListingCategoryId into ulc
-                  
+
                   from item in ulc.DefaultIfEmpty()
-                  select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false,UserId= item.UserId != Guid.Empty ? item.UserId : Guid.Empty,  CategoryId=category.Id };
+                  select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, CategoryId = category.Id };
       return query.AsQueryable();
     }
     public static IQueryable<UserCitySelection> GetUserCitySelectionFromContext( this MarketingEntities context ) {
@@ -49,10 +49,40 @@ namespace Marketing.Services.Extensions {
                     PostElement = userListingData.PostElement,
                     Created = userListingData.ListingUrlCreated,
                     Title = userListingData.Title,
-                    UserId = userListingData.UserId
+                    UserId = userListingData.UserId,
+                    Responded = userListingData.Responded,
+                    ResponseId = userListingData.UserListingResponseId,
+                    Response = userListingData.Response
 
                   };
       return query;
+    }
+    public static IQueryable<UserListingResponseItem> GetUserListingResponses( this MarketingEntities context ) {
+      var query = from userListingResponse in context.UserListingResponses
+                  select new UserListingResponseItem {
+                    Id = userListingResponse.Id,
+                    Created = userListingResponse.Created,
+                    UserId = userListingResponse.UserListingUrl.UserId,
+                    UserListingUrlId = userListingResponse.UserListingUrlId,
+                    Response = userListingResponse.Response
+                  };
+      return query;
+    }
+    public static void SaveUserListingResponse(this MarketingEntities context, UserListingItem item)
+    {
+
+      var responseElement = System.Text.RegularExpressions.Regex.Replace( item.Response, "<!DOCTYPE html .*>", "" );
+      var result = context.UserListingResponses.SingleOrDefault( x => x.UserListingUrlId == item.Id );
+      if( result == null ) {
+        result = new UserListingResponse {
+          Created = System.DateTime.Now,
+          Id = Guid.NewGuid(),
+          UserListingUrlId=item.Id
+        };
+        context.UserListingResponses.AddObject( result );
+      }
+      result.Response = responseElement;
+      context.SaveChanges();
     }
   }
 }
