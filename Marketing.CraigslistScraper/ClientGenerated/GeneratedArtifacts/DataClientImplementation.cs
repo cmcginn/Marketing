@@ -1756,6 +1756,27 @@ namespace LightSwitchApplication.Implementation
         }
         private string _Response;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string ResponseText
+        {
+            get
+            {
+                return this._ResponseText;
+            }
+            set
+            {
+                if (this._ResponseText != value)
+                {
+                    this.RaiseDataMemberChanging("ResponseText");
+                    this.ValidateProperty("ResponseText", value);
+                    this._ResponseText = value;
+                    this.RaiseDataMemberChanged("ResponseText");
+                }
+            }
+        }
+        private string _ResponseText;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         

@@ -76,6 +76,10 @@
       <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
       <Name>Marketing.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Marketing.Utils\Marketing.Utils.csproj">
+      <Project>{913FE413-0156-44E9-BC06-F04BFA44C2C7}</Project>
+      <Name>Marketing.Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

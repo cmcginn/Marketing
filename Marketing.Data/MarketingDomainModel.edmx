@@ -40,7 +40,8 @@
       [UserListingData].[ResponseSent] AS [ResponseSent], 
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
       [UserListingData].[Responded] AS [Responded], 
-      [UserListingData].[PostElement] AS [PostElement]
+      [UserListingData].[PostElement] AS [PostElement], 
+      [UserListingData].[ResponseText] AS [ResponseText]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -208,6 +209,7 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Response" Type="xml" Nullable="false" />
+          <Property Name="ResponseText" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="ResponseSent" Type="datetime" />
         </EntityType>
@@ -270,6 +272,7 @@
           <Property Name="UserListingResponseId" Type="uniqueidentifier" />
           <Property Name="Responded" Type="datetime" />
           <Property Name="PostElement" Type="xml" />
+          <Property Name="ResponseText" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -817,6 +820,7 @@
           <Property Type="Guid" Name="UserListingResponseId" />
           <Property Type="DateTime" Name="Responded" />
           <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResponseText" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UserListingResponse">
           <Key>
@@ -828,6 +832,7 @@
           <Property Type="DateTime" Name="Created" Nullable="false" />
           <Property Type="DateTime" Name="ResponseSent" />
           <NavigationProperty Name="UserListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" FromRole="UserListingResponse" ToRole="UserListingUrl" />
+          <Property Type="String" Name="ResponseText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_UserListingResponse_UserListingUrl">
           <End Type="Marketing.CraigslistScraperModel.UserListingUrl" Role="UserListingUrl" Multiplicity="1" />
@@ -994,6 +999,7 @@
           <EntitySetMapping Name="UserListingDatas">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
               <MappingFragment StoreEntitySet="UserListingData">
+                <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
                 <ScalarProperty Name="PostElement" ColumnName="PostElement" />
                 <ScalarProperty Name="Responded" ColumnName="Responded" />
                 <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
@@ -1021,6 +1027,7 @@
           <EntitySetMapping Name="UserListingResponses">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingResponse">
               <MappingFragment StoreEntitySet="UserListingResponse">
+                <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
                 <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Response" ColumnName="Response" />

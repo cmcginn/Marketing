@@ -66,6 +66,7 @@
     <Property Name="Responded" Type="datetime" />
     <Property Name="ResponseId" Type="uniqueidentifier" />
     <Property Name="Response" Type="nvarchar(max)" />
+    <Property Name="ResponseText" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

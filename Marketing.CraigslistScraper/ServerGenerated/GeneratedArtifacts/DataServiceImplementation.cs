@@ -1059,6 +1059,7 @@ namespace LightSwitchApplication.Implementation
                 result.Responded = userListingItem.Responded;
                 result.ResponseId = userListingItem.ResponseId;
                 result.Response = userListingItem.Response;
+                result.ResponseText = userListingItem.ResponseText;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1140,6 +1141,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.Responded = innerUserListingItem.Responded;
                 outerUserListingItem.ResponseId = innerUserListingItem.ResponseId;
                 outerUserListingItem.Response = innerUserListingItem.Response;
+                outerUserListingItem.ResponseText = innerUserListingItem.ResponseText;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;

@@ -393,6 +393,7 @@
     <Property Type="Guid" Name="UserListingResponseId" />
     <Property Type="DateTime" Name="Responded" />
     <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ResponseText" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="UserListingResponse">
     <Key>
@@ -404,6 +405,7 @@
     <Property Type="DateTime" Name="Created" Nullable="false" />
     <Property Type="DateTime" Name="ResponseSent" />
     <NavigationProperty Name="UserListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" FromRole="UserListingResponse" ToRole="UserListingUrl" />
+    <Property Type="String" Name="ResponseText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <Association Name="FK_UserListingResponse_UserListingUrl">
     <End Type="Marketing.CraigslistScraperModel.UserListingUrl" Role="UserListingUrl" Multiplicity="1" />

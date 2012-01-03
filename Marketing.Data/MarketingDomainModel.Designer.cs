@@ -3379,6 +3379,30 @@ namespace Marketing.Data
         private global::System.String _PostElement;
         partial void OnPostElementChanging(global::System.String value);
         partial void OnPostElementChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ResponseText
+        {
+            get
+            {
+                return _ResponseText;
+            }
+            set
+            {
+                OnResponseTextChanging(value);
+                ReportPropertyChanging("ResponseText");
+                _ResponseText = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ResponseText");
+                OnResponseTextChanged();
+            }
+        }
+        private global::System.String _ResponseText;
+        partial void OnResponseTextChanging(global::System.String value);
+        partial void OnResponseTextChanged();
 
         #endregion
     
@@ -3572,13 +3596,15 @@ namespace Marketing.Data
         /// <param name="userListingUrlId">Initial value of the UserListingUrlId property.</param>
         /// <param name="response">Initial value of the Response property.</param>
         /// <param name="created">Initial value of the Created property.</param>
-        public static UserListingResponse CreateUserListingResponse(global::System.Guid id, global::System.Guid userListingUrlId, global::System.String response, global::System.DateTime created)
+        /// <param name="responseText">Initial value of the ResponseText property.</param>
+        public static UserListingResponse CreateUserListingResponse(global::System.Guid id, global::System.Guid userListingUrlId, global::System.String response, global::System.DateTime created, global::System.String responseText)
         {
             UserListingResponse userListingResponse = new UserListingResponse();
             userListingResponse.Id = id;
             userListingResponse.UserListingUrlId = userListingUrlId;
             userListingResponse.Response = response;
             userListingResponse.Created = created;
+            userListingResponse.ResponseText = responseText;
             return userListingResponse;
         }
 
@@ -3707,6 +3733,30 @@ namespace Marketing.Data
         private Nullable<global::System.DateTime> _ResponseSent;
         partial void OnResponseSentChanging(Nullable<global::System.DateTime> value);
         partial void OnResponseSentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ResponseText
+        {
+            get
+            {
+                return _ResponseText;
+            }
+            set
+            {
+                OnResponseTextChanging(value);
+                ReportPropertyChanging("ResponseText");
+                _ResponseText = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ResponseText");
+                OnResponseTextChanged();
+            }
+        }
+        private global::System.String _ResponseText;
+        partial void OnResponseTextChanging(global::System.String value);
+        partial void OnResponseTextChanged();
 
         #endregion
     

@@ -1080,6 +1080,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _Response;
         partial void OnResponseChanging(global::System.String value);
         partial void OnResponseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ResponseText
+        {
+            get
+            {
+                return _ResponseText;
+            }
+            set
+            {
+                OnResponseTextChanging(value);
+                ReportPropertyChanging("ResponseText");
+                _ResponseText = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ResponseText");
+                OnResponseTextChanged();
+            }
+        }
+        private global::System.String _ResponseText;
+        partial void OnResponseTextChanging(global::System.String value);
+        partial void OnResponseTextChanged();
 
         #endregion
     

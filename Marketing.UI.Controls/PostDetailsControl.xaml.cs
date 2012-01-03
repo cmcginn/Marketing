@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -12,21 +13,22 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using System.ComponentModel;
+using Marketing.UI.Controls.Extensions;
 namespace Marketing.UI.Controls {
 
   public partial class PostDetailsControl : UserControl {
-    public PostDetailsControl() {     
+    string _editorContent;
+    public PostDetailsControl() { 
       InitializeComponent();
-      this.richEditControl.TextChanged += new EventHandler( richEditControl_TextChanged );
+    }
+    private void ResponseEditSource_TextChanged( object sender, TextChangedEventArgs e ) {
+      richEditControl.HtmlText = this.ResponseEditSource.Text.ToEditorDocument();
     }
 
-    void richEditControl_TextChanged( object sender, EventArgs e ) {
-
-      //ResponseEdit.Text = richEditControl.Text;
+    private void richEditControl_HtmlTextChanged( object sender, EventArgs e ) {
       ResponseHtmlEdit.Text = richEditControl.HtmlText;
+      ResponseEditText.Text = richEditControl.Text;
     }
-
-
     
   }
 }

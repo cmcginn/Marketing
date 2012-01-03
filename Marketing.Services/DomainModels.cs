@@ -54,6 +54,7 @@ namespace Marketing.Services {
     public DateTime? Responded { get; set; }
     public Guid? ResponseId { get; set; }
     public string Response { get; set; }
+    public string ResponseText { get; set; }
   }
   public class UserListingResponseItem {
     [Key]

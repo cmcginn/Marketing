@@ -58,6 +58,7 @@
     <Property Name="Responded" Type="DateTime" ConcurrencyMode="Fixed" />
     <Property Name="ResponseId" Type="Guid" ConcurrencyMode="Fixed" />
     <Property Name="Response" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

@@ -62,6 +62,7 @@
           <ScalarProperty Name="Responded" ColumnName="Responded" />
           <ScalarProperty Name="ResponseId" ColumnName="ResponseId" />
           <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

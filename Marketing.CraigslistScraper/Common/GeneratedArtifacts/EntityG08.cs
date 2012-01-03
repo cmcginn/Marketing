@@ -366,6 +366,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Response_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string ResponseText
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.ResponseText);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.ResponseText, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ResponseText_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ResponseText_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void ResponseText_Changed();
+
         #endregion
     
         #region Details Class
@@ -544,6 +568,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string> ResponseText
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.ResponseText) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -562,6 +594,7 @@ namespace LightSwitchApplication
                 new global::System.Nullable<global::System.DateTime> Responded { get; set; }
                 new global::System.Nullable<global::System.Guid> ResponseId { get; set; }
                 new string Response { get; set; }
+                new string ResponseText { get; set; }
             }
             #pragma warning restore 109
     
@@ -1015,6 +1048,43 @@ namespace LightSwitchApplication
                     e.Response_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Entry
+                    ResponseText = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Entry(
+                        "ResponseText",
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._ResponseText_Stub,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._ResponseText_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._ResponseText_Validate,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._ResponseText_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._ResponseText_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._ResponseText_OnValueChanged);
+                private static void _ResponseText_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserListingItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ResponseText, sf);
+                }
+                private static bool _ResponseText_ComputeIsReadOnly(global::LightSwitchApplication.UserListingItem e)
+                {
+                    bool result = false;
+                    e.ResponseText_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _ResponseText_Validate(global::LightSwitchApplication.UserListingItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.ResponseText_Validate(r);
+                }
+                private static string _ResponseText_GetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.ResponseText;
+                }
+                private static void _ResponseText_SetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.ResponseText = v;
+                }
+                private static void _ResponseText_OnValueChanged(global::LightSwitchApplication.UserListingItem e)
+                {
+                    e.ResponseText_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1052,6 +1122,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Data _Response;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Data _ResponseText;
             
         }
     

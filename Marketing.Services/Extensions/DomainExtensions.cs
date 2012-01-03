@@ -5,6 +5,7 @@ using System.Text;
 using Marketing.Data;
 using System.Collections.Specialized;
 using System.Xml.Linq;
+using Marketing.Utils.Extensions;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
 
@@ -52,7 +53,8 @@ namespace Marketing.Services.Extensions {
                     UserId = userListingData.UserId,
                     Responded = userListingData.Responded,
                     ResponseId = userListingData.UserListingResponseId,
-                    Response = userListingData.Response
+                    Response = userListingData.Response,
+                    ResponseText = userListingData.ResponseText
 
                   };
       return query;
@@ -82,6 +84,7 @@ namespace Marketing.Services.Extensions {
         context.UserListingResponses.AddObject( result );
       }
       result.Response = responseElement;
+      result.ResponseText = item.ResponseText;
       context.SaveChanges();
     }
   }

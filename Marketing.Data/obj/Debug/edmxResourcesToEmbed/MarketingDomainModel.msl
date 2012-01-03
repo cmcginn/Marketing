@@ -148,6 +148,7 @@
     <EntitySetMapping Name="UserListingDatas">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
         <MappingFragment StoreEntitySet="UserListingData">
+          <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
           <ScalarProperty Name="PostElement" ColumnName="PostElement" />
           <ScalarProperty Name="Responded" ColumnName="Responded" />
           <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
@@ -175,6 +176,7 @@
     <EntitySetMapping Name="UserListingResponses">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingResponse">
         <MappingFragment StoreEntitySet="UserListingResponse">
+          <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
           <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="Response" ColumnName="Response" />

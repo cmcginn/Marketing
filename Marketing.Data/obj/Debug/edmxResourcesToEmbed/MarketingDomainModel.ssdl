@@ -35,7 +35,8 @@
       [UserListingData].[ResponseSent] AS [ResponseSent], 
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
       [UserListingData].[Responded] AS [Responded], 
-      [UserListingData].[PostElement] AS [PostElement]
+      [UserListingData].[PostElement] AS [PostElement], 
+      [UserListingData].[ResponseText] AS [ResponseText]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -203,6 +204,7 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Response" Type="xml" Nullable="false" />
+    <Property Name="ResponseText" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="ResponseSent" Type="datetime" />
   </EntityType>
@@ -265,6 +267,7 @@
     <Property Name="UserListingResponseId" Type="uniqueidentifier" />
     <Property Name="Responded" Type="datetime" />
     <Property Name="PostElement" Type="xml" />
+    <Property Name="ResponseText" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
