@@ -512,6 +512,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region Operation
+    
+        public void InsertOperation(global::MarketingDomainServiceData.Implementation.Operation entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.Operations.AddObject(entity);
+            }
+        }
+    
+        public void UpdateOperation(global::MarketingDomainServiceData.Implementation.Operation currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.Operations, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteOperation(global::MarketingDomainServiceData.Implementation.Operation entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.Operations.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
@@ -636,6 +666,21 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingResponseItem> GetUserListingResponseById(string frameworkOperators, global::System.Nullable<global::System.Guid> responseId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingResponseItem>("GetUserListingResponseById", frameworkOperators, responseId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_Single(string frameworkOperators, global::System.Nullable<int> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_SingleOrDefault(string frameworkOperators, global::System.Nullable<int> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_All", frameworkOperators);
         }
     
     #endregion
@@ -898,6 +943,31 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_Single(global::System.Nullable<int> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_All"),
+                (o) => (Id.HasValue && (o.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_SingleOrDefault(global::System.Nullable<int> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_All"),
+                (o) => (Id.HasValue && (o.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> Operations_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("DefaultServerOperations").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -926,6 +996,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserListingResponseItem))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserListingResponseItem();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.Operation))
+            {
+                return new global::MarketingDomainServiceData.Implementation.Operation();
             }
     
             return base.CreateObject(type);
@@ -965,6 +1039,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserListingResponseItem();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.Operation))
+            {
+                return new global::MarketingDomainServiceData.Implementation.Operation();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -992,6 +1070,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserListingResponseItem))
             {
                 return typeof(global::Marketing.Services.UserListingResponseItem);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.Operation))
+            {
+                return typeof(global::Marketing.Services.Operation);
             }
             return base.ConvertType(outerType);
         }
@@ -1060,6 +1142,7 @@ namespace LightSwitchApplication.Implementation
                 result.ResponseId = userListingItem.ResponseId;
                 result.Response = userListingItem.Response;
                 result.ResponseText = userListingItem.ResponseText;
+                result.PostHtml = userListingItem.PostHtml;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1071,6 +1154,17 @@ namespace LightSwitchApplication.Implementation
                 result.UserId = userListingResponseItem.UserId;
                 result.Created = userListingResponseItem.Created;
                 result.Response = userListingResponseItem.Response;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.Operation operation = outerEntity as global::MarketingDomainServiceData.Implementation.Operation;
+            if (operation != null)
+            {
+                global::Marketing.Services.Operation result = new global::Marketing.Services.Operation();
+                result.Id = operation.Id;
+                result.Created = operation.Created;
+                result.OperationName = operation.OperationName;
+                result.Parameters = operation.Parameters;
+                result.UserId = operation.UserId;
                 return result;
             }
             return null;
@@ -1142,6 +1236,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.ResponseId = innerUserListingItem.ResponseId;
                 outerUserListingItem.Response = innerUserListingItem.Response;
                 outerUserListingItem.ResponseText = innerUserListingItem.ResponseText;
+                outerUserListingItem.PostHtml = innerUserListingItem.PostHtml;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1153,6 +1248,17 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingResponseItem.UserId = innerUserListingResponseItem.UserId;
                 outerUserListingResponseItem.Created = innerUserListingResponseItem.Created;
                 outerUserListingResponseItem.Response = innerUserListingResponseItem.Response;
+                return;
+            }
+            global::MarketingDomainServiceData.Implementation.Operation outerOperation = outerEntity as global::MarketingDomainServiceData.Implementation.Operation;
+            global::Marketing.Services.Operation innerOperation = innerResult as global::Marketing.Services.Operation;
+            if ((outerOperation != null) && (innerOperation != null))
+            {
+                outerOperation.Id = innerOperation.Id;
+                outerOperation.Created = innerOperation.Created;
+                outerOperation.OperationName = innerOperation.OperationName;
+                outerOperation.Parameters = innerOperation.Parameters;
+                outerOperation.UserId = innerOperation.UserId;
                 return;
             }
         }
@@ -1242,6 +1348,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserListingResponseItem) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserListingResponseItem);
+            }
+            if (typeof(global::LightSwitchApplication.Operation) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.Operation);
             }
             return null;
         }
@@ -1524,6 +1634,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserListingResponseItem :
         global::LightSwitchApplication.UserListingResponseItem.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class Operation :
+        global::LightSwitchApplication.Operation.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

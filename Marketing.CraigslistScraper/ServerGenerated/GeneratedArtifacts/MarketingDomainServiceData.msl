@@ -63,6 +63,7 @@
           <ScalarProperty Name="ResponseId" ColumnName="ResponseId" />
           <ScalarProperty Name="Response" ColumnName="Response" />
           <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
+          <ScalarProperty Name="PostHtml" ColumnName="PostHtml" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -74,6 +75,17 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="Response" ColumnName="Response" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operations">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.Operation)">
+        <MappingFragment StoreEntitySet="DefaultServerOperations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

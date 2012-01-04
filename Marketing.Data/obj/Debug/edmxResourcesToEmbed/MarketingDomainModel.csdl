@@ -396,6 +396,7 @@
     <Property Type="DateTime" Name="Responded" />
     <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="ResponseText" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="UserListingResponse">
     <Key>

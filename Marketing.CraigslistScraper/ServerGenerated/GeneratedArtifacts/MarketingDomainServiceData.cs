@@ -157,6 +157,22 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<UserListingResponseItem> _UserListingResponseItems;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Operation> Operations
+        {
+            get
+            {
+                if ((_Operations == null))
+                {
+                    _Operations = base.CreateObjectSet<Operation>("Operations");
+                }
+                return _Operations;
+            }
+        }
+        private ObjectSet<Operation> _Operations;
 
         #endregion
         #region AddTo Methods
@@ -208,6 +224,14 @@ namespace MarketingDomainServiceData.Implementation
         {
             base.AddObject("UserListingResponseItems", userListingResponseItem);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Operations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOperations(Operation operation)
+        {
+            base.AddObject("Operations", operation);
+        }
 
         #endregion
     }
@@ -216,6 +240,161 @@ namespace MarketingDomainServiceData.Implementation
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="Operation")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Operation : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Operation object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static Operation CreateOperation(global::System.Int32 id, global::System.DateTime created, global::System.Guid userId)
+        {
+            Operation operation = new Operation();
+            operation.Id = id;
+            operation.Created = created;
+            operation.UserId = userId;
+            return operation;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OperationName
+        {
+            get
+            {
+                return _OperationName;
+            }
+            set
+            {
+                OnOperationNameChanging(value);
+                ReportPropertyChanging("OperationName");
+                _OperationName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("OperationName");
+                OnOperationNameChanged();
+            }
+        }
+        private global::System.String _OperationName;
+        partial void OnOperationNameChanging(global::System.String value);
+        partial void OnOperationNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Parameters
+        {
+            get
+            {
+                return _Parameters;
+            }
+            set
+            {
+                OnParametersChanging(value);
+                ReportPropertyChanging("Parameters");
+                _Parameters = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Parameters");
+                OnParametersChanged();
+            }
+        }
+        private global::System.String _Parameters;
+        partial void OnParametersChanging(global::System.String value);
+        partial void OnParametersChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.
@@ -1104,6 +1283,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _ResponseText;
         partial void OnResponseTextChanging(global::System.String value);
         partial void OnResponseTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostHtml
+        {
+            get
+            {
+                return _PostHtml;
+            }
+            set
+            {
+                OnPostHtmlChanging(value);
+                ReportPropertyChanging("PostHtml");
+                _PostHtml = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostHtml");
+                OnPostHtmlChanged();
+            }
+        }
+        private global::System.String _PostHtml;
+        partial void OnPostHtmlChanging(global::System.String value);
+        partial void OnPostHtmlChanged();
 
         #endregion
     

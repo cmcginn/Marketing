@@ -50,6 +50,7 @@ namespace Marketing.Services {
     public string CityName { get; set; }
     public DateTime Created { get; set; }
     public String PostElement { get; set; }
+    public String PostHtml { get; set; }
     public Guid UserId { get; set; }
     public DateTime? Responded { get; set; }
     public Guid? ResponseId { get; set; }
@@ -63,5 +64,14 @@ namespace Marketing.Services {
     public Guid UserId { get; set; }
     public DateTime Created { get; set; }
     public string Response { get; set; }
+  }
+  public class Operation {
+
+    [Key]
+    public int Id { get; set; }
+    public DateTime Created { get; set; }
+    public string OperationName { get; set; }
+    public String Parameters { get; set; }
+    public Guid UserId { get; set; }
   }
 }

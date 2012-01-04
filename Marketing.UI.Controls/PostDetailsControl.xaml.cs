@@ -20,9 +20,13 @@ namespace Marketing.UI.Controls {
     string _editorContent;
     public PostDetailsControl() { 
       InitializeComponent();
+
     }
     private void ResponseEditSource_TextChanged( object sender, TextChangedEventArgs e ) {
-      richEditControl.HtmlText = this.ResponseEditSource.Text.ToEditorDocument();
+      if( String.IsNullOrEmpty( _editorContent ) ) {
+        _editorContent = this.ResponseEditSource.Text.ToEditorDocument();
+        richEditControl.HtmlText = _editorContent;
+      }
     }
 
     private void richEditControl_HtmlTextChanged( object sender, EventArgs e ) {

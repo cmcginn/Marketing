@@ -20,9 +20,12 @@ namespace Marketing.UI.Controls {
 
 
     private void BodyText_TextChanged( object sender, TextChangedEventArgs e ) {
-
-      this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode(XElement.Parse(this.BodyText.Text).Element("body").ToString());
-
+      try {
+        this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode( XElement.Parse( this.BodyText.Text ).Element( "body" ).ToString() );
+      } catch {
+        this.richEditControl.HtmlText = "There was a problem retrieving this post. The post may no longer be available.";
       }
+
+    }
   }
 }

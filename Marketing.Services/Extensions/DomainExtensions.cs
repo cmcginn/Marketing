@@ -8,7 +8,7 @@ using System.Xml.Linq;
 using Marketing.Utils.Extensions;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
-
+    
     public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionFromContext( this MarketingEntities context ) {
       var query = from category in context.ListingCategories
                   join categoryGroup in context.ListingGroups
@@ -54,7 +54,8 @@ namespace Marketing.Services.Extensions {
                     Responded = userListingData.Responded,
                     ResponseId = userListingData.UserListingResponseId,
                     Response = userListingData.Response,
-                    ResponseText = userListingData.ResponseText
+                    ResponseText = userListingData.ResponseText,
+                    PostHtml = userListingData.PostContent
 
                   };
       return query;
@@ -86,6 +87,13 @@ namespace Marketing.Services.Extensions {
       result.Response = responseElement;
       result.ResponseText = item.ResponseText;
       context.SaveChanges();
+    }
+    public static IQueryable<Operation> GetDefaultServerOperations() {
+      List<Operation> result = new List<Operation>{
+        new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;"},
+        new Operation{Id=2, OperationName="Send Emails",Parameters="UserId=;"}
+      };
+      return result.AsQueryable();
     }
   }
 }

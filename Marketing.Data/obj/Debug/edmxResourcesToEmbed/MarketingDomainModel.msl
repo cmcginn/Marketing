@@ -150,6 +150,7 @@
     <EntitySetMapping Name="UserListingDatas">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
         <MappingFragment StoreEntitySet="UserListingData">
+          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
           <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
           <ScalarProperty Name="PostElement" ColumnName="PostElement" />
           <ScalarProperty Name="Responded" ColumnName="Responded" />

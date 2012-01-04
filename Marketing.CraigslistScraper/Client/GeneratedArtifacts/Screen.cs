@@ -1328,4 +1328,581 @@ namespace LightSwitchApplication
             }
         }
     }
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    public sealed partial class Workflows
+        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass>
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private Workflows() : base("LightSwitchApplication:Workflows")
+        {
+            global::LightSwitchApplication.Workflows.DetailsClass.Initialize(this);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public static Workflows CreateInstance()
+        {
+            return new global::LightSwitchApplication.Workflows(
+            );
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_Created();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_Activated();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_Saving(ref bool handled);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_Saved();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_Closing(ref bool cancel);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Workflows_SaveError(global::System.Exception exception, ref bool handled);
+     
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)((global::Microsoft.LightSwitch.Details.Client.IScreenDetails)this.Details).DataWorkspace;
+            }
+        }
+        
+        #endregion
+ 
+        partial void Operations_SelectionChanged();
+
+        partial void Operations_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Loaded(bool succeeded);
+
+        /// <summary>
+        /// Gets the Operations visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.Operation> Operations
+        {
+            get
+            {
+                return global::LightSwitchApplication.Workflows.DetailsClass.GetValue(this, global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties.Operations);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operations_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public sealed class DetailsClass
+            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Workflows.DetailsClass.PropertySet, global::LightSwitchApplication.Workflows.DetailsClass.CommandSet, global::LightSwitchApplication.Workflows.DetailsClass.MethodSet>
+        {
+
+            static DetailsClass()
+            {
+                var initializePropertyEntry = global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties.Operations;
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass>.Entry
+                __WorkflowsEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass>.Entry(
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeInitializeDataWorkspace,
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeSavingEvent,
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeSavedEvent,
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeClosingEvent,
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeCreated,
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeActivated,
+                    global::LightSwitchApplication.Workflows.DetailsClass.__Workflows_InvokeSaveErrorEvent);
+            private static void __Workflows_InvokeInitializeDataWorkspace(global::LightSwitchApplication.Workflows s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
+            {
+                s.Workflows_InitializeDataWorkspace(saveChangesTo);
+            }
+            private static bool __Workflows_InvokeSavingEvent(global::LightSwitchApplication.Workflows s)
+            {
+                bool handled = false;
+                s.Workflows_Saving(ref handled);
+                return handled;
+            }
+            private static void __Workflows_InvokeSavedEvent(global::LightSwitchApplication.Workflows s)
+            {
+                s.Workflows_Saved();
+            }
+            private static bool __Workflows_InvokeClosingEvent(global::LightSwitchApplication.Workflows s)
+            {
+                bool cancel = false;
+                s.Workflows_Closing(ref cancel);
+                return cancel;
+            }
+            private static void __Workflows_InvokeCreated(global::LightSwitchApplication.Workflows s)
+            {
+                s.Workflows_Created();
+            }
+            private static void __Workflows_InvokeActivated(global::LightSwitchApplication.Workflows s)
+            {
+                s.Workflows_Activated();
+            }
+            private static bool __Workflows_InvokeSaveErrorEvent(global::LightSwitchApplication.Workflows s, global::System.Exception ex)
+            {
+                bool handled = false;
+                s.Workflows_SaveError(ex, ref handled);
+                return handled;
+            }
+
+            public DetailsClass() : base()
+            {
+            }
+
+            public new global::LightSwitchApplication.Workflows.DetailsClass.PropertySet Properties
+            {
+                get
+                {
+                    return base.Properties;
+                }
+            }
+
+            public new global::LightSwitchApplication.Workflows.DetailsClass.CommandSet Commands
+            {
+                get
+                {
+                    return base.Commands;
+                }
+            }
+
+            public new global::LightSwitchApplication.Workflows.DetailsClass.MethodSet Methods
+            {
+                get
+                {
+                    return base.Methods;
+                }
+            }
+
+            private global::Microsoft.LightSwitch.IDataServiceQueryable OperationsQuery()
+            {
+                return this.Screen.DataWorkspace.MarketingDomainServiceData.Operations;
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Operation>.Data _Operations;
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class PropertySet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Operation> Operations
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Operation>)base.GetItem(global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties.Operations);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class CommandSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class MethodSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class PropertySetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Operation>.Entry
+                    Operations = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Operation>.Entry(
+                        "Operations",
+                        global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties._Operations_Stub,
+                        global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties._Operations_Validate,
+                        global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties._Operations_CreateQuery,
+                        global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties._Operations_SelectionChanged,
+                        global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties._Operations_OnCollectionChanged,
+                        global::LightSwitchApplication.Workflows.DetailsClass.PropertySetProperties._Operations_OnLoaded);
+                private static void _Operations_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Workflows.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Workflows, global::LightSwitchApplication.Workflows.DetailsClass, global::LightSwitchApplication.Operation>.Data> c, global::LightSwitchApplication.Workflows.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Operations, sf);
+                }
+                private static void _Operations_Validate(global::LightSwitchApplication.Workflows s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.Operations_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _Operations_CreateQuery(global::LightSwitchApplication.Workflows.DetailsClass d, object[] args)
+                {
+                    return d.OperationsQuery();
+                }
+                private static void _Operations_SelectionChanged(global::LightSwitchApplication.Workflows s)
+                {
+                    s.Operations_SelectionChanged();
+                }
+                private static void _Operations_OnCollectionChanged(global::LightSwitchApplication.Workflows s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    s.Operations_Changed(e);
+                }
+                private static void _Operations_OnLoaded(global::LightSwitchApplication.Workflows s, bool succeeded)
+                {
+                    s.Operations_Loaded(succeeded);
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class CommandSetProperties
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class MethodSetProperties
+            {
+            }
+        }
+    }
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    public sealed partial class RunWorkflow
+        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass>
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private RunWorkflow(int OperationId) : base("LightSwitchApplication:RunWorkflow")
+        {
+                this.OperationId = OperationId;
+            global::LightSwitchApplication.RunWorkflow.DetailsClass.Initialize(this);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public static RunWorkflow CreateInstance(int OperationId)
+        {
+            return new global::LightSwitchApplication.RunWorkflow(
+                        OperationId
+            );
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_Created();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_Activated();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_Saving(ref bool handled);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_Saved();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_Closing(ref bool cancel);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void RunWorkflow_SaveError(global::System.Exception exception, ref bool handled);
+     
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)((global::Microsoft.LightSwitch.Details.Client.IScreenDetails)this.Details).DataWorkspace;
+            }
+        }
+        
+        #endregion
+ 
+        partial void Operation_Changed();
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operation_Loaded(bool succeeded);
+
+        partial void OperationId_Changed();
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.Operation Operation
+        {
+            get
+            {
+                return global::LightSwitchApplication.RunWorkflow.DetailsClass.GetValue(this, global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties.Operation);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Operation_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int OperationId
+        {
+            get 
+            {
+                return global::LightSwitchApplication.RunWorkflow.DetailsClass.GetValue(this, global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties.OperationId);
+            }
+            set
+            {
+                global::LightSwitchApplication.RunWorkflow.DetailsClass.SetValue(this, global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties.OperationId, value);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void OperationId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public sealed class DetailsClass
+            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySet, global::LightSwitchApplication.RunWorkflow.DetailsClass.CommandSet, global::LightSwitchApplication.RunWorkflow.DetailsClass.MethodSet>
+        {
+
+            static DetailsClass()
+            {
+                var initializePropertyEntry = global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties.Operation;
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass>.Entry
+                __RunWorkflowEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass>.Entry(
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeInitializeDataWorkspace,
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeSavingEvent,
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeSavedEvent,
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeClosingEvent,
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeCreated,
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeActivated,
+                    global::LightSwitchApplication.RunWorkflow.DetailsClass.__RunWorkflow_InvokeSaveErrorEvent);
+            private static void __RunWorkflow_InvokeInitializeDataWorkspace(global::LightSwitchApplication.RunWorkflow s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
+            {
+                s.RunWorkflow_InitializeDataWorkspace(saveChangesTo);
+            }
+            private static bool __RunWorkflow_InvokeSavingEvent(global::LightSwitchApplication.RunWorkflow s)
+            {
+                bool handled = false;
+                s.RunWorkflow_Saving(ref handled);
+                return handled;
+            }
+            private static void __RunWorkflow_InvokeSavedEvent(global::LightSwitchApplication.RunWorkflow s)
+            {
+                s.RunWorkflow_Saved();
+            }
+            private static bool __RunWorkflow_InvokeClosingEvent(global::LightSwitchApplication.RunWorkflow s)
+            {
+                bool cancel = false;
+                s.RunWorkflow_Closing(ref cancel);
+                return cancel;
+            }
+            private static void __RunWorkflow_InvokeCreated(global::LightSwitchApplication.RunWorkflow s)
+            {
+                s.RunWorkflow_Created();
+            }
+            private static void __RunWorkflow_InvokeActivated(global::LightSwitchApplication.RunWorkflow s)
+            {
+                s.RunWorkflow_Activated();
+            }
+            private static bool __RunWorkflow_InvokeSaveErrorEvent(global::LightSwitchApplication.RunWorkflow s, global::System.Exception ex)
+            {
+                bool handled = false;
+                s.RunWorkflow_SaveError(ex, ref handled);
+                return handled;
+            }
+
+            public DetailsClass() : base()
+            {
+            }
+
+            public new global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySet Properties
+            {
+                get
+                {
+                    return base.Properties;
+                }
+            }
+
+            public new global::LightSwitchApplication.RunWorkflow.DetailsClass.CommandSet Commands
+            {
+                get
+                {
+                    return base.Commands;
+                }
+            }
+
+            public new global::LightSwitchApplication.RunWorkflow.DetailsClass.MethodSet Methods
+            {
+                get
+                {
+                    return base.Methods;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.Operation>.Data _Operation;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, int>.Data _OperationId;
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class PropertySet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.Operation> Operation
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.Operation>)base.GetItem(global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties.Operation);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, int> OperationId
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, int>)base.GetItem(global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties.OperationId);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class CommandSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class MethodSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class PropertySetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.Operation>.Entry
+                    Operation = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.Operation>.Entry(
+                        "Operation",
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._Operation_Stub,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._Operation_Validate,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._Operation_CreateQuery,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._Operation_OnValueChanged,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._Operation_OnLoaded);
+                private static void _Operation_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.RunWorkflow.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, global::LightSwitchApplication.Operation>.Data> c, global::LightSwitchApplication.RunWorkflow.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Operation, sf);
+                }
+                private static void _Operation_Validate(global::LightSwitchApplication.RunWorkflow s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.Operation_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _Operation_CreateQuery(global::LightSwitchApplication.RunWorkflow.DetailsClass d, object[] args)
+                {
+                    return null;
+                }
+                private static void _Operation_OnValueChanged(global::LightSwitchApplication.RunWorkflow s)
+                {
+                    s.Operation_Changed();
+                }
+
+                private static void _Operation_OnLoaded(global::LightSwitchApplication.RunWorkflow s, bool succeeded)
+                {
+                    s.Operation_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, int>.Entry
+                    OperationId = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, int>.Entry(
+                        "OperationId",
+                        false,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._OperationId_Stub,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._OperationId_Validate,
+                        global::LightSwitchApplication.RunWorkflow.DetailsClass.PropertySetProperties._OperationId_OnValueChanged);
+                private static void _OperationId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.RunWorkflow.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.RunWorkflow, global::LightSwitchApplication.RunWorkflow.DetailsClass, int>.Data> c, global::LightSwitchApplication.RunWorkflow.DetailsClass d, object sf)
+                {
+                    c(d, ref d._OperationId, sf);
+                }
+                private static void _OperationId_Validate(global::LightSwitchApplication.RunWorkflow s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.OperationId_Validate(r);
+                }
+                private static void _OperationId_OnValueChanged(global::LightSwitchApplication.RunWorkflow s)
+                {
+                    s.OperationId_Changed();
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class CommandSetProperties
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class MethodSetProperties
+            {
+            }
+        }
+    }
 }

@@ -59,6 +59,7 @@
     <Property Name="ResponseId" Type="Guid" ConcurrencyMode="Fixed" />
     <Property Name="Response" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="ResponseText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="PostHtml" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -70,6 +71,16 @@
     <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Response" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="OperationName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Parameters" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -77,5 +88,6 @@
     <EntitySet Name="UserPreferenceSelections" EntityType="MarketingDomainServiceData.UserPreferenceSelection" />
     <EntitySet Name="UserListingItems" EntityType="MarketingDomainServiceData.UserListingItem" />
     <EntitySet Name="UserListingResponseItems" EntityType="MarketingDomainServiceData.UserListingResponseItem" />
+    <EntitySet Name="Operations" EntityType="MarketingDomainServiceData.Operation" />
   </EntityContainer>
 </Schema>

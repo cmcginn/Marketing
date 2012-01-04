@@ -42,10 +42,16 @@ namespace Marketing.Services {
       var result = Context.GetUserListingItems();
       return result;
     }
-    [Query( IsDefault = true )]
+    [Query( IsDefault = true )]   
     public IQueryable<UserListingResponseItem> DefaultUserListingResponseItems() {
       var result = Context.GetUserListingResponses();
       return result;
+    }
+    [Query( IsDefault = true )]
+    public IQueryable<Operation> DefaultServerOperations() {
+      return DomainExtensions.GetDefaultServerOperations();
+    }
+    public void UpdateServerOperation( Operation operation ) {
     }
     public void AddUserListingItem( UserListingItem item ) {
       Context.SaveUserListingResponse( item );

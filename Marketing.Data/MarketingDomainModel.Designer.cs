@@ -3455,6 +3455,30 @@ namespace Marketing.Data
         private global::System.String _ResponseText;
         partial void OnResponseTextChanging(global::System.String value);
         partial void OnResponseTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostContent
+        {
+            get
+            {
+                return _PostContent;
+            }
+            set
+            {
+                OnPostContentChanging(value);
+                ReportPropertyChanging("PostContent");
+                _PostContent = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostContent");
+                OnPostContentChanged();
+            }
+        }
+        private global::System.String _PostContent;
+        partial void OnPostContentChanging(global::System.String value);
+        partial void OnPostContentChanged();
 
         #endregion
     

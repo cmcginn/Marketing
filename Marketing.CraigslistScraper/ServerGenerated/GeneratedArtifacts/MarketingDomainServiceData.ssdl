@@ -7,6 +7,7 @@
     <EntitySet Name="DefaultUserPreferenceSelections" EntityType="MarketingDomainServiceDataStore.UserPreferenceSelection" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserPreferenceSelection" />
     <EntitySet Name="DefaultUserListingItems" EntityType="MarketingDomainServiceDataStore.UserListingItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingItem" />
     <EntitySet Name="DefaultUserListingResponseItems" EntityType="MarketingDomainServiceDataStore.UserListingResponseItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingResponseItem" />
+    <EntitySet Name="DefaultServerOperations" EntityType="MarketingDomainServiceDataStore.Operation" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Operation" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -67,6 +68,7 @@
     <Property Name="ResponseId" Type="uniqueidentifier" />
     <Property Name="Response" Type="nvarchar(max)" />
     <Property Name="ResponseText" Type="nvarchar(max)" />
+    <Property Name="PostHtml" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -77,5 +79,15 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Response" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="OperationName" Type="nvarchar(max)" />
+    <Property Name="Parameters" Type="nvarchar(max)" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
 </Schema>
