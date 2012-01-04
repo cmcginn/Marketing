@@ -38,5 +38,7 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\GetListingCo
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\GetListingContentActivity.g.cs
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetListingContentActivity.g.cs
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetListingContentActivity.g.xaml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Common.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.dll
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.pdb

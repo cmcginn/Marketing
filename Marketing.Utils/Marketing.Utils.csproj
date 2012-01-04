@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\Common.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,6 +47,12 @@
     <Compile Include="DataTypes.cs" />
     <Compile Include="Extensions\CraigslistMessageParsing.cs" />
     <Compile Include="Extensions\DocumentExtensions.cs" />
+    <Compile Include="TransformationResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransformationResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="XsltExtensions.cs" />
     <Compile Include="HtmlToXml\Attribute.cs" />
     <Compile Include="HtmlToXml\AttributeList.cs" />
     <Compile Include="HtmlToXml\HtmlReaderWriter.cs" />
@@ -54,7 +64,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <EmbeddedResource Include="TransformationResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TransformationResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CraigslistResponse.xslt">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

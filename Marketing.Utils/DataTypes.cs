@@ -14,5 +14,8 @@ namespace Marketing.Utils{
     public Uri Location { get; set; }
     public string ListingContentId { get; set; }
     public XElement ContentHtml { get; set; }
+    public XElement ContentElement { get; set; }
+    public string ReplyTo { get; set; }
+    public DateTime PostDate { get; set; }
   }
 }

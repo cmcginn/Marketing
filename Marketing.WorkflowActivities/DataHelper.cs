@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Marketing.Data;
+using Marketing.Utils;
 namespace Marketing.WorkflowActivities {
   public class DataHelper {
     public static List<UserListingRefresh> GetUrlsForUser( MarketingEntities context, Guid userId ) {
@@ -30,5 +31,6 @@ namespace Marketing.WorkflowActivities {
       return query.ToList();                  
                   
     }
+    
   }
 }

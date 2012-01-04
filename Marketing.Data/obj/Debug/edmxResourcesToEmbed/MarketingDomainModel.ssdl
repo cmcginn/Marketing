@@ -147,6 +147,8 @@
     <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PostContent" Type="xml" Nullable="false" />
     <Property Name="PostElement" Type="xml" Nullable="false" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="ReplyTo" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Created" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="ListingGroup">

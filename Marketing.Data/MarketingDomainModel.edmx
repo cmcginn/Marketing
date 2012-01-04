@@ -152,6 +152,8 @@
           <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PostContent" Type="xml" Nullable="false" />
           <Property Name="PostElement" Type="xml" Nullable="false" />
+          <Property Name="PostDate" Type="datetime" Nullable="false" />
+          <Property Name="ReplyTo" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Created" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="ListingGroup">
@@ -692,6 +694,8 @@
           <Property Type="String" Name="PostElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="DateTime" Name="Created" Nullable="false" />
           <NavigationProperty Name="ListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_ListingContent_ListingUrl" FromRole="ListingContent" ToRole="ListingUrl" />
+          <Property Type="DateTime" Name="PostDate" Nullable="false" />
+          <Property Type="String" Name="ReplyTo" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ListingUrl">
           <Key>
@@ -954,6 +958,8 @@
           <EntitySetMapping Name="ListingContents">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingContent">
               <MappingFragment StoreEntitySet="ListingContent">
+                <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="PostElement" ColumnName="PostElement" />
                 <ScalarProperty Name="PostContent" ColumnName="PostContent" />

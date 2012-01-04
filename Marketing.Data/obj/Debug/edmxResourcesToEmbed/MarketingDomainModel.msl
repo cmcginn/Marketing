@@ -103,6 +103,8 @@
     <EntitySetMapping Name="ListingContents">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingContent">
         <MappingFragment StoreEntitySet="ListingContent">
+          <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="PostElement" ColumnName="PostElement" />
           <ScalarProperty Name="PostContent" ColumnName="PostContent" />

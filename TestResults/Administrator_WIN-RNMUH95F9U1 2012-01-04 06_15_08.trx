@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="110126e8-3a67-48a3-af8a-b84162f690a1" name="Administrator@WIN-RNMUH95F9U1 2012-01-04 06:15:08" runUser="WIN-RNMUH95F9U1\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0cd03c8d-b04e-44e0-89e7-79f70e91391f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Projects\Urbana\Marketing\TestResults" useDefaultDeploymentRoot="false" enabled="false" runDeploymentRoot="Administrator_WIN-RNMUH95F9U1 2012-01-04 06_15_08">
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Dependencies\Common.Net.Interfaces.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Marketing.WorkflowActivities.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Dependencies\Common.Net.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.Data\bin\Debug\Marketing.Data.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Dependencies\Common.Types.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Debug\Marketing.Utils.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-01-04T06:15:08.0020312-05:00" queuing="2012-01-04T06:15:10.6885547-05:00" start="2012-01-04T06:15:10.9649219-05:00" finish="2012-01-04T06:15:37.9473437-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="GetListingContentItemTest" storage="c:\projects\urbana\marketing\marketing.tests\bin\debug\marketing.tests.dll" id="b129fc9e-51f0-4883-bbb6-67a20300988d">
+      <Execution id="ee546bb5-0e02-450f-b986-00325ee3a802" />
+      <TestMethod codeBase="C:/Projects/Urbana/Marketing/Marketing.Tests/bin/Debug/Marketing.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marketing.Tests.CraigslistParsingTests, Marketing.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetListingContentItemTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b129fc9e-51f0-4883-bbb6-67a20300988d" executionId="ee546bb5-0e02-450f-b986-00325ee3a802" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="ee546bb5-0e02-450f-b986-00325ee3a802" testId="b129fc9e-51f0-4883-bbb6-67a20300988d" testName="GetListingContentItemTest" computerName="WIN-RNMUH95F9U1" duration="00:00:22.7588858" startTime="2012-01-04T06:15:11.2266406-05:00" endTime="2012-01-04T06:15:37.6553515-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ee546bb5-0e02-450f-b986-00325ee3a802">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method Marketing.Tests.CraigslistParsingTests.GetListingContentItemTest threw exception: 
+System.Xml.Xsl.XslTransformException: An error occurred during a call to extension function 'GetCraigslistJobDetails'. See InnerException for a complete description of the error. ---&gt; System.InvalidOperationException: Enumeration has not started. Call MoveNext.</Message>
+          <StackTrace>    at MS.Internal.Xml.XPath.XPathArrayIterator.get_Current()
+ --- End of inner exception stack trace ---
+    at System.Xml.Xsl.Runtime.XmlExtensionFunction.Invoke(Object extObj, Object[] args)
+   at System.Xml.Xsl.Runtime.XmlQueryContext.InvokeXsltLateBoundFunction(String name, String namespaceUri, IList`1[] args)
+   at &lt;xsl:template match="/html"&gt;(XmlQueryRuntime {urn:schemas-microsoft-com:xslt-debug}runtime, XPathNavigator {urn:schemas-microsoft-com:xslt-debug}current)
+   at &lt;xsl:template match="/"&gt;(XmlQueryRuntime {urn:schemas-microsoft-com:xslt-debug}runtime, XPathNavigator {urn:schemas-microsoft-com:xslt-debug}current)
+   at Root(XmlQueryRuntime {urn:schemas-microsoft-com:xslt-debug}runtime)
+   at Execute(XmlQueryRuntime {urn:schemas-microsoft-com:xslt-debug}runtime)
+   at System.Xml.Xsl.XmlILCommand.Execute(Object defaultDocument, XmlResolver dataSources, XsltArgumentList argumentList, XmlSequenceWriter results)
+   at System.Xml.Xsl.XmlILCommand.Execute(Object defaultDocument, XmlResolver dataSources, XsltArgumentList argumentList, XmlWriter writer)
+   at System.Xml.Xsl.XslCompiledTransform.Transform(IXPathNavigable input, XsltArgumentList arguments, XmlWriter results, XmlResolver documentResolver)
+   at System.Xml.Xsl.XslCompiledTransform.Transform(IXPathNavigable input, XsltArgumentList arguments, XmlWriter results)
+   at Common.Utils.Extensions.XmlExtensions.Transform(XDocument document, XsltArgumentList args, XDocument xsltDocument, Boolean debug) in C:\Projects\Urbana\Common\Common.Utils\Extensions\XmlExtensions.cs:line 105
+   at Common.Utils.Extensions.XmlExtensions.Transform(XDocument document, XsltArgumentList args, XDocument xsltDocument) in C:\Projects\Urbana\Common\Common.Utils\Extensions\XmlExtensions.cs:line 95
+   at Marketing.Utils.Extensions.CraigslistMessageParsing.GetListingContentItem(ListingContentItem listingContentItem) in C:\Projects\Urbana\Marketing\Marketing.Utils\Extensions\CraigslistMessageParsing.cs:line 48
+   at Marketing.Tests.CraigslistParsingTests.GetListingContentItemTest() in C:\Projects\Urbana\Marketing\Marketing.Tests\CraigslistParsingTests.cs:line 17
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

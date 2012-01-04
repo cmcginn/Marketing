@@ -1550,7 +1550,9 @@ namespace Marketing.Data
         /// <param name="postContent">Initial value of the PostContent property.</param>
         /// <param name="postElement">Initial value of the PostElement property.</param>
         /// <param name="created">Initial value of the Created property.</param>
-        public static ListingContent CreateListingContent(global::System.Guid id, global::System.Guid listingUrlId, global::System.String postContent, global::System.String postElement, global::System.DateTime created)
+        /// <param name="postDate">Initial value of the PostDate property.</param>
+        /// <param name="replyTo">Initial value of the ReplyTo property.</param>
+        public static ListingContent CreateListingContent(global::System.Guid id, global::System.Guid listingUrlId, global::System.String postContent, global::System.String postElement, global::System.DateTime created, global::System.DateTime postDate, global::System.String replyTo)
         {
             ListingContent listingContent = new ListingContent();
             listingContent.Id = id;
@@ -1558,6 +1560,8 @@ namespace Marketing.Data
             listingContent.PostContent = postContent;
             listingContent.PostElement = postElement;
             listingContent.Created = created;
+            listingContent.PostDate = postDate;
+            listingContent.ReplyTo = replyTo;
             return listingContent;
         }
 
@@ -1686,6 +1690,54 @@ namespace Marketing.Data
         private global::System.DateTime _Created;
         partial void OnCreatedChanging(global::System.DateTime value);
         partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime PostDate
+        {
+            get
+            {
+                return _PostDate;
+            }
+            set
+            {
+                OnPostDateChanging(value);
+                ReportPropertyChanging("PostDate");
+                _PostDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostDate");
+                OnPostDateChanged();
+            }
+        }
+        private global::System.DateTime _PostDate;
+        partial void OnPostDateChanging(global::System.DateTime value);
+        partial void OnPostDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ReplyTo
+        {
+            get
+            {
+                return _ReplyTo;
+            }
+            set
+            {
+                OnReplyToChanging(value);
+                ReportPropertyChanging("ReplyTo");
+                _ReplyTo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ReplyTo");
+                OnReplyToChanged();
+            }
+        }
+        private global::System.String _ReplyTo;
+        partial void OnReplyToChanging(global::System.String value);
+        partial void OnReplyToChanged();
 
         #endregion
     
