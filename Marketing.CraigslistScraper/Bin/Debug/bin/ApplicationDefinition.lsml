@@ -3084,41 +3084,6 @@
                          Kind="Collection"
                          Name="UserListingItemList"
                          View=":DataGrid">
-              <ContentItem.CommandItems>
-                <ContentItem Kind="Command"
-                             Name="GetUserListingItems_AddAndEditNew">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                        <CallExpression Target="AddAndEditNew" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem Kind="Command"
-                             Name="GetUserListingItems_EditSelected">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                        <CallExpression Target="EditSelected" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem Kind="Command"
-                             Name="GetUserListingItems_DeleteSelected">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                        <CallExpression Target="DeleteSelected" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem.CommandItems>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>

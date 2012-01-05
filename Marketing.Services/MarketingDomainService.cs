@@ -75,7 +75,8 @@ namespace Marketing.Services {
             
     }
     public void UpdateUserListingItem( UserListingItem item ) {
-      Context.SaveUserListingResponse( item );
+      var response = Context.SaveUserListingResponse( item );
+      Context.SendUserListingResponse( response );
     }
     public UserListingItem GetUserListingItemById( Guid? id ) {
       var key = id.GetValueOrDefault();

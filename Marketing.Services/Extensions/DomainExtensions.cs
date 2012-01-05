@@ -6,6 +6,8 @@ using Marketing.Data;
 using System.Collections.Specialized;
 using System.Xml.Linq;
 using Marketing.Utils.Extensions;
+using System.Net.Mail;
+using System.Web;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
     
@@ -71,11 +73,11 @@ namespace Marketing.Services.Extensions {
                   };
       return query;
     }
-    public static void SaveUserListingResponse(this MarketingEntities context, UserListingItem item)
+    public static UserListingResponse SaveUserListingResponse(this MarketingEntities context, UserListingItem item)
     {
-
+      UserListingResponse result = null;
       var responseElement = System.Text.RegularExpressions.Regex.Replace( item.Response, "<!DOCTYPE html .*>", "" );
-      var result = context.UserListingResponses.SingleOrDefault( x => x.UserListingUrlId == item.Id );
+      result = context.UserListingResponses.SingleOrDefault( x => x.UserListingUrlId == item.Id );
       if( result == null ) {
         result = new UserListingResponse {
           Created = System.DateTime.Now,
@@ -87,6 +89,7 @@ namespace Marketing.Services.Extensions {
       result.Response = responseElement;
       result.ResponseText = item.ResponseText;
       context.SaveChanges();
+      return result;
     }
     public static IQueryable<Operation> GetDefaultServerOperations() {
       List<Operation> result = new List<Operation>{
@@ -94,6 +97,36 @@ namespace Marketing.Services.Extensions {
         new Operation{Id=2, OperationName="Send Emails",Parameters="UserId=;"}
       };
       return result.AsQueryable();
+    }
+	public static System.Net.Mail.MailMessage GetMailMessage(this UserListingResponse item)
+	{
+		System.Net.Mail.MailMessage result = null;
+		var uri = new Uri(item.UserListingUrl.ListingUrl.ListingContents.First().ReplyTo);		
+		var nvc = System.Web.HttpUtility.ParseQueryString(uri.Query);
+		var address = String.Format("{0}@{1}",uri.UserInfo,uri.DnsSafeHost);
+		var subject = nvc[0];
+		var body = item.Response.ToString();
+
+    var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
+    if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
+      address = fromAddress;
+		result = new MailMessage(fromAddress,address,subject,body);
+		result.IsBodyHtml=true;    
+		result.Bcc.Add(fromAddress);
+    result.AlternateViews.Add( System.Net.Mail.AlternateView.CreateAlternateViewFromString( item.Response, null, "text/html" ) );
+		result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.ResponseText,null,"text/plain"));
+		return result;
+	}
+    public static bool SendUserListingResponse(this MarketingEntities context, UserListingResponse response ) {
+      bool result = false;
+      var mailMessage = response.GetMailMessage();
+      var client = new System.Net.Mail.SmtpClient();
+      client.EnableSsl = true;
+      client.Send( mailMessage );
+      result = true;
+      response.ResponseSent = System.DateTime.Now;
+      context.SaveChanges();
+      return result;
     }
   }
 }
