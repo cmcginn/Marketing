@@ -32,6 +32,7 @@ namespace Marketing.UI.Controls {
     private void richEditControl_HtmlTextChanged( object sender, EventArgs e ) {
       ResponseHtmlEdit.Text = richEditControl.HtmlText;
       ResponseEditText.Text = richEditControl.Text;
+      _editorContent = richEditControl.HtmlText;
     }
     
   }

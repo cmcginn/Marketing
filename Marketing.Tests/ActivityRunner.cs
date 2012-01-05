@@ -63,7 +63,7 @@ namespace Marketing.Tests {
       var inputs = new Dictionary<string, object>();
       var userId = new Guid( "D1111E48-27EF-4774-9DEF-40B4A03D1925" );
       inputs.Add( "UserId", userId );
-      var host = new WorkflowInvoker( new RefreshUserCraigslistContent());
+      var host = new WorkflowInvoker( new RefreshUserDataActivity());
       host.Invoke( inputs );
      
     }

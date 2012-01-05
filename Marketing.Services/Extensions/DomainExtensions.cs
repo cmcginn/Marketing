@@ -40,7 +40,7 @@ namespace Marketing.Services.Extensions {
       return query;
     }
     public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context ) {
-      var query = from userListingData in context.UserListingDatas
+      var query = from userListingData in context.UserListingDatas.Where(x=>x.PostContent != null)
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,

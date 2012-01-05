@@ -60,6 +60,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
+                          <WriteLine Text="[exception.Message]" />
                         </ActivityAction>
                       </Catch>
                     </TryCatch.Catches>

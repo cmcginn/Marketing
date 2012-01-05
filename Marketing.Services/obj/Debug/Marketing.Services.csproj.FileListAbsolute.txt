@@ -26,3 +26,5 @@ C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Utils.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.WorkflowActivities.pdb

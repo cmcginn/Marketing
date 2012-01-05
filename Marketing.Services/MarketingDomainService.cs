@@ -1,5 +1,6 @@
 ﻿using Marketing.Data;
 using Marketing.Services.Extensions;
+using Marketing.WorkflowActivities;
 namespace Marketing.Services {
   using System;
   using System.Collections.Generic;
@@ -51,7 +52,23 @@ namespace Marketing.Services {
     public IQueryable<Operation> DefaultServerOperations() {
       return DomainExtensions.GetDefaultServerOperations();
     }
+    private void RunPostingRefresh( Operation operation ) {
+      //call host eventually
+      var invoker = new WorkflowInvoker( new RefreshUserDataActivity() );
+      Task t = new Task( () => {
+        Dictionary<string, object> inputs = new Dictionary<string, object> {{"UserId",operation.UserId} };
+        invoker.Invoke(inputs);
+      } );
+      t.Start();
+    }
     public void UpdateServerOperation( Operation operation ) {
+      switch(operation.Id)
+      {
+        case 1:
+          RunPostingRefresh( operation );
+          break;
+        default: break;
+      }
     }
     public void AddUserListingItem( UserListingItem item ) {
       Context.SaveUserListingResponse( item );

@@ -394,3 +394,12 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\Application.ServerGenerated.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.WorkflowActivities.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Common.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Marketing.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Common.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Common.Net.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Common.Net.Interfaces.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Common.Types.dll

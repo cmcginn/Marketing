@@ -45,6 +45,13 @@
     <NoWarn>1522</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Net">
+      <HintPath>..\..\Dependencies\Common.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Dependencies\Common.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="ExtensionsMadeEasy.Common">
       <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Server\Reference\ExtensionsMadeEasy.Common.dll</HintPath>
     </Reference>
@@ -130,9 +137,21 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Marketing.Data\Marketing.Data.csproj">
+      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
+      <Name>Marketing.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Marketing.Services\Marketing.Services.csproj">
       <Project>{488493A3-BEE8-4EE2-9FFE-91E095AC63E2}</Project>
       <Name>Marketing.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Marketing.Utils\Marketing.Utils.csproj">
+      <Project>{913FE413-0156-44E9-BC06-F04BFA44C2C7}</Project>
+      <Name>Marketing.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Marketing.WorkflowActivities\Marketing.WorkflowActivities.csproj">
+      <Project>{53864F10-0A6F-4DCB-9539-F300D3CA9F88}</Project>
+      <Name>Marketing.WorkflowActivities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Server\Server.csproj">
       <Name>Server</Name>

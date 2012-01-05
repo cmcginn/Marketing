@@ -45,12 +45,12 @@
                 <av:Size x:Key="ShapeSize">200,49</av:Size>
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ForEach x:TypeArguments="md:ListingUrl" DisplayName="ForEach&lt;ListingUrl&gt;" sap:VirtualizedContainerService.HintSize="448,1025" Values="[listingUrls]">
+            <ForEach x:TypeArguments="md:ListingUrl" DisplayName="ForEach&lt;ListingUrl&gt;" sap:VirtualizedContainerService.HintSize="444,363" Values="[listingUrls]">
               <ActivityAction x:TypeArguments="md:ListingUrl">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="md:ListingUrl" Name="item" />
                 </ActivityAction.Argument>
-                <TryCatch sap:VirtualizedContainerService.HintSize="418,922">
+                <TryCatch sap:VirtualizedContainerService.HintSize="414,260">
                   <TryCatch.Try>
                     <Sequence DisplayName="Get Content" sap:VirtualizedContainerService.HintSize="400,744">
                       <Sequence.Variables>
@@ -88,10 +88,10 @@
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,106">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -99,6 +99,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                         </ActivityAction.Argument>
+                        <WriteLine sap:VirtualizedContainerService.HintSize="394,75" Text="[exception.Message]" />
                       </ActivityAction>
                     </Catch>
                   </TryCatch.Catches>

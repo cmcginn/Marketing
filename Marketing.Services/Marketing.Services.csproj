@@ -80,6 +80,10 @@
       <Project>{913FE413-0156-44E9-BC06-F04BFA44C2C7}</Project>
       <Name>Marketing.Utils</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Marketing.WorkflowActivities\Marketing.WorkflowActivities.csproj">
+      <Project>{53864F10-0A6F-4DCB-9539-F300D3CA9F88}</Project>
+      <Name>Marketing.WorkflowActivities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
