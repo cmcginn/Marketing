@@ -24,12 +24,12 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingCategory_ListingGroup", "ListingGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingGroup), "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingCategory), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserKeyword_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserKeyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserKeyword), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserPreference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserPreference), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingUrl_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingContent_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "ListingContent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingContent), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingResponse), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserPreference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserPreference), true)]
 
 #endregion
 
@@ -196,22 +196,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserPreference> UserPreferences
-        {
-            get
-            {
-                if ((_UserPreferences == null))
-                {
-                    _UserPreferences = base.CreateObjectSet<UserPreference>("UserPreferences");
-                }
-                return _UserPreferences;
-            }
-        }
-        private ObjectSet<UserPreference> _UserPreferences;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ListingContent> ListingContents
         {
             get
@@ -304,6 +288,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserListingResponse> _UserListingResponses;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserPreference> UserPreferences
+        {
+            get
+            {
+                if ((_UserPreferences == null))
+                {
+                    _UserPreferences = base.CreateObjectSet<UserPreference>("UserPreferences");
+                }
+                return _UserPreferences;
+            }
+        }
+        private ObjectSet<UserPreference> _UserPreferences;
 
         #endregion
         #region AddTo Methods
@@ -365,14 +365,6 @@ namespace Marketing.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserPreferences EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserPreferences(UserPreference userPreference)
-        {
-            base.AddObject("UserPreferences", userPreference);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the ListingContents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToListingContents(ListingContent listingContent)
@@ -418,6 +410,14 @@ namespace Marketing.Data
         public void AddToUserListingResponses(UserListingResponse userListingResponse)
         {
             base.AddObject("UserListingResponses", userListingResponse);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserPreferences EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserPreferences(UserPreference userPreference)
+        {
+            base.AddObject("UserPreferences", userPreference);
         }
 
         #endregion
@@ -1063,28 +1063,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "UserPreference")]
-        public EntityCollection<UserPreference> UserPreferences
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserPreference>("Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership", "UserPreference");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserPreference>("Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership", "UserPreference", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_aspnet_Membership", "UserListingUrl")]
         public EntityCollection<UserListingUrl> UserListingUrls
         {
@@ -1097,6 +1075,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "UserListingUrl", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "UserPreference")]
+        public EntityCollection<UserPreference> UserPreferences
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserPreference>("Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership", "UserPreference");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserPreference>("Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership", "UserPreference", value);
                 }
             }
         }
@@ -4130,13 +4130,17 @@ namespace Marketing.Data
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="liveMode">Initial value of the LiveMode property.</param>
         /// <param name="bCCEmailAddress">Initial value of the BCCEmailAddress property.</param>
-        public static UserPreference CreateUserPreference(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode, global::System.String bCCEmailAddress)
+        /// <param name="sMTPPort">Initial value of the SMTPPort property.</param>
+        /// <param name="requiresSSL">Initial value of the RequiresSSL property.</param>
+        public static UserPreference CreateUserPreference(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode, global::System.String bCCEmailAddress, global::System.Int32 sMTPPort, global::System.Boolean requiresSSL)
         {
             UserPreference userPreference = new UserPreference();
             userPreference.Id = id;
             userPreference.UserId = userId;
             userPreference.LiveMode = liveMode;
             userPreference.BCCEmailAddress = bCCEmailAddress;
+            userPreference.SMTPPort = sMTPPort;
+            userPreference.RequiresSSL = requiresSSL;
             return userPreference;
         }
 
@@ -4241,6 +4245,126 @@ namespace Marketing.Data
         private global::System.String _BCCEmailAddress;
         partial void OnBCCEmailAddressChanging(global::System.String value);
         partial void OnBCCEmailAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SMTPUser
+        {
+            get
+            {
+                return _SMTPUser;
+            }
+            set
+            {
+                OnSMTPUserChanging(value);
+                ReportPropertyChanging("SMTPUser");
+                _SMTPUser = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SMTPUser");
+                OnSMTPUserChanged();
+            }
+        }
+        private global::System.String _SMTPUser;
+        partial void OnSMTPUserChanging(global::System.String value);
+        partial void OnSMTPUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SMTPServer
+        {
+            get
+            {
+                return _SMTPServer;
+            }
+            set
+            {
+                OnSMTPServerChanging(value);
+                ReportPropertyChanging("SMTPServer");
+                _SMTPServer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SMTPServer");
+                OnSMTPServerChanged();
+            }
+        }
+        private global::System.String _SMTPServer;
+        partial void OnSMTPServerChanging(global::System.String value);
+        partial void OnSMTPServerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SMTPPort
+        {
+            get
+            {
+                return _SMTPPort;
+            }
+            set
+            {
+                OnSMTPPortChanging(value);
+                ReportPropertyChanging("SMTPPort");
+                _SMTPPort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SMTPPort");
+                OnSMTPPortChanged();
+            }
+        }
+        private global::System.Int32 _SMTPPort;
+        partial void OnSMTPPortChanging(global::System.Int32 value);
+        partial void OnSMTPPortChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SMTPPassword
+        {
+            get
+            {
+                return _SMTPPassword;
+            }
+            set
+            {
+                OnSMTPPasswordChanging(value);
+                ReportPropertyChanging("SMTPPassword");
+                _SMTPPassword = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SMTPPassword");
+                OnSMTPPasswordChanged();
+            }
+        }
+        private global::System.String _SMTPPassword;
+        partial void OnSMTPPasswordChanging(global::System.String value);
+        partial void OnSMTPPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean RequiresSSL
+        {
+            get
+            {
+                return _RequiresSSL;
+            }
+            set
+            {
+                OnRequiresSSLChanging(value);
+                ReportPropertyChanging("RequiresSSL");
+                _RequiresSSL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RequiresSSL");
+                OnRequiresSSLChanged();
+            }
+        }
+        private global::System.Boolean _RequiresSSL;
+        partial void OnRequiresSSLChanging(global::System.Boolean value);
+        partial void OnRequiresSSLChanged();
 
         #endregion
     

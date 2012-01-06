@@ -35,11 +35,11 @@
       [UserListingData].[RegionName] AS [RegionName], 
       [UserListingData].[CityName] AS [CityName], 
       [UserListingData].[UserId] AS [UserId], 
-      [UserListingData].[Created] AS [Created], 
+      [UserListingData].[Responded] AS [Responded], 
       [UserListingData].[Response] AS [Response], 
       [UserListingData].[ResponseSent] AS [ResponseSent], 
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
-      [UserListingData].[Responded] AS [Responded], 
+      [UserListingData].[Created] AS [Created], 
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[ResponseText] AS [ResponseText], 
       [UserListingData].[PostContent] AS [PostContent]
@@ -233,6 +233,11 @@
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="LiveMode" Type="bit" Nullable="false" />
           <Property Name="BCCEmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="SMTPUser" Type="nvarchar" MaxLength="255" />
+          <Property Name="SMTPServer" Type="nvarchar" MaxLength="255" />
+          <Property Name="SMTPPort" Type="int" Nullable="false" />
+          <Property Name="SMTPPassword" Type="nvarchar" MaxLength="50" />
+          <Property Name="RequiresSSL" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -269,11 +274,11 @@
           <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Created" Type="datetime" />
+          <Property Name="Responded" Type="datetime" />
           <Property Name="Response" Type="xml" />
           <Property Name="ResponseSent" Type="datetime" />
           <Property Name="UserListingResponseId" Type="uniqueidentifier" />
-          <Property Name="Responded" Type="datetime" />
+          <Property Name="Created" Type="datetime" />
           <Property Name="PostElement" Type="xml" />
           <Property Name="ResponseText" Type="nvarchar(max)" />
           <Property Name="PostContent" Type="xml" />
@@ -463,11 +468,6 @@
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
             <End Role="UserKeyword" EntitySet="UserKeywords" />
           </AssociationSet>
-          <EntitySet Name="UserPreferences" EntityType="Marketing.CraigslistScraperModel.UserPreference" />
-          <AssociationSet Name="FK_UserPreference_aspnet_Membership" Association="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership">
-            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-            <End Role="UserPreference" EntitySet="UserPreferences" />
-          </AssociationSet>
           <EntitySet Name="ListingContents" EntityType="Marketing.CraigslistScraperModel.ListingContent" />
           <EntitySet Name="ListingUrls" EntityType="Marketing.CraigslistScraperModel.ListingUrl" />
           <EntitySet Name="UserListingUrls" EntityType="Marketing.CraigslistScraperModel.UserListingUrl" />
@@ -493,6 +493,11 @@
           <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl">
             <End Role="UserListingUrl" EntitySet="UserListingUrls" />
             <End Role="UserListingResponse" EntitySet="UserListingResponses" />
+          </AssociationSet>
+          <EntitySet Name="UserPreferences" EntityType="Marketing.CraigslistScraperModel.UserPreference" />
+          <AssociationSet Name="FK_UserPreference_aspnet_Membership" Association="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership">
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="UserPreference" EntitySet="UserPreferences" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
@@ -523,8 +528,8 @@
           <NavigationProperty Name="UserCities" Relationship="Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserCity" />
           <NavigationProperty Name="UserListingCategories" Relationship="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserListingCategory" />
           <NavigationProperty Name="UserKeywords" Relationship="Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserKeyword" />
-          <NavigationProperty Name="UserPreferences" Relationship="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserPreference" />
           <NavigationProperty Name="UserListingUrls" Relationship="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserListingUrl" />
+          <NavigationProperty Name="UserPreferences" Relationship="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" FromRole="aspnet_Membership" ToRole="UserPreference" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -660,28 +665,6 @@
               <PropertyRef Name="UserId" />
             </Principal>
             <Dependent Role="UserKeyword">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="UserPreference">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="Guid" Name="UserId" Nullable="false" />
-          <Property Type="Boolean" Name="LiveMode" Nullable="false" />
-          <Property Type="String" Name="BCCEmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" FromRole="UserPreference" ToRole="aspnet_Membership" />
-        </EntityType>
-        <Association Name="FK_UserPreference_aspnet_Membership">
-          <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
-          <End Type="Marketing.CraigslistScraperModel.UserPreference" Role="UserPreference" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Membership">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="UserPreference">
               <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
@@ -853,6 +836,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="UserPreference">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="Boolean" Name="LiveMode" Nullable="false" />
+          <Property Type="String" Name="BCCEmailAddress" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SMTPUser" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SMTPServer" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SMTPPort" Nullable="false" />
+          <Property Type="String" Name="SMTPPassword" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="RequiresSSL" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" FromRole="UserPreference" ToRole="aspnet_Membership" />
+        </EntityType>
+        <Association Name="FK_UserPreference_aspnet_Membership">
+          <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.UserPreference" Role="UserPreference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserPreference">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -948,16 +958,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserPreferences">
-            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
-              <MappingFragment StoreEntitySet="UserPreference">
-                <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
-                <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ListingContents">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingContent">
               <MappingFragment StoreEntitySet="ListingContent">
@@ -1046,6 +1046,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserPreferences">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
+              <MappingFragment StoreEntitySet="UserPreference">
+                <ScalarProperty Name="RequiresSSL" ColumnName="RequiresSSL" />
+                <ScalarProperty Name="SMTPPassword" ColumnName="SMTPPassword" />
+                <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
+                <ScalarProperty Name="SMTPServer" ColumnName="SMTPServer" />
+                <ScalarProperty Name="SMTPUser" ColumnName="SMTPUser" />
+                <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
+                <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1066,7 +1081,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="MarketingDomainModel">
+      <Diagram Name="MarketingDomainModel" ZoomLevel="74">
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.aspnet_Membership" Width="1.5" PointX="0.75" PointY="1" Height="4.5505582682291656" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.City" Width="1.5" PointX="5.75" PointY="0.75" Height="1.7566536458333317" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserCity" Width="1.5" PointX="3" PointY="2.5" Height="1.7566536458333317" />
@@ -1084,33 +1099,28 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingCategory" Width="1.5" PointX="8.25" PointY="1.75" Height="1.9210009765624996" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="4.58550048828125" />
-          <ConnectorPoint PointX="8.78125" PointY="4.58550048828125" />
-          <ConnectorPoint PointX="8.78125" PointY="3.6710009765624996" />
+          <ConnectorPoint PointX="8.6874975" PointY="4.58550048828125" />
+          <ConnectorPoint PointX="8.6874975" PointY="3.6710009765624996" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup" >
           <ConnectorPoint PointX="1.5" PointY="11.75" />
           <ConnectorPoint PointX="1.5" PointY="10.749695638020834" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory" >
-          <ConnectorPoint PointX="2.25" PointY="10.565672141927081" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="10.565672141927081" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="10.565672141927081" />
-          <ConnectorPoint PointX="9.1875" PointY="10.565672141927081" />
+          <ConnectorPoint PointX="2.25" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="3.6666666666666665" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="3.8333333333333335" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="9.1875" PointY="10.26127197265625" />
           <ConnectorPoint PointX="9.1875" PointY="3.6710009765624996" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserKeyword" Width="1.5" PointX="3" PointY="5.5" Height="1.7566536458333317" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="5.7816344628906249" />
-          <ConnectorPoint PointX="3" PointY="5.7816344628906249" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserPreference" Width="1.5" PointX="3" PointY="8.625" Height="1.7566536458333317" />
-        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" >
-          <ConnectorPoint PointX="2.2499999999999991" PointY="6.2079475911458326" />
-          <ConnectorPoint PointX="2.625" PointY="6.5829475911458335" />
-          <ConnectorPoint PointX="2.625" PointY="9.5033268229166659" />
-          <ConnectorPoint PointX="2.6666666666666665" PointY="9.5033268229166659" />
-          <ConnectorPoint PointX="2.8333333333333335" PointY="9.5033268229166659" />
-          <ConnectorPoint PointX="3" PointY="9.5033268229166659" />
+          <ConnectorPoint PointX="2.25" PointY="5.8539737955729167" />
+          <ConnectorPoint PointX="3" PointY="5.8539737955729167" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingContent" Width="1.5" PointX="5.25" PointY="11.625" Height="1.9210009765625031" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingUrl" Width="1.5" PointX="3" PointY="11.375" Height="2.5783902994791674" />
@@ -1122,10 +1132,11 @@
           <ConnectorPoint PointX="5.46875" PointY="6.5" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingUrl_ListingCategory" >
-          <ConnectorPoint PointX="2.2500000000000013" PointY="10.749695638020834" />
-          <ConnectorPoint PointX="2.625" PointY="11.124695638020832" />
-          <ConnectorPoint PointX="2.625" PointY="10.998847153846153" />
-          <ConnectorPoint PointX="3.0011528461538459" PointY="11.375" />
+          <ConnectorPoint PointX="2.25" PointY="9.349383486328124" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="9.349383486328124" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="9.349383486328124" />
+          <ConnectorPoint PointX="3.75" PointY="9.349383486328124" />
+          <ConnectorPoint PointX="3.75" PointY="11.375" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingContent_ListingUrl" >
           <ConnectorPoint PointX="4.5" PointY="12.585500488281252" />
@@ -1142,6 +1153,13 @@
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" >
           <ConnectorPoint PointX="6.75" PointY="8.1051741536458337" />
           <ConnectorPoint PointX="7.5" PointY="8.1051741536458337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserPreference" Width="1.5" PointX="3" PointY="15.375" Height="2.5783902994791674" />
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" >
+          <ConnectorPoint PointX="2.2499999999999991" PointY="6.2079475911458326" />
+          <ConnectorPoint PointX="2.625" PointY="6.5829475911458335" />
+          <ConnectorPoint PointX="2.625" PointY="16.664195149739584" />
+          <ConnectorPoint PointX="3" PointY="16.664195149739584" />
         </AssociationConnector>
         </Diagram>
     </Diagrams>

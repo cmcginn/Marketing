@@ -101,10 +101,7 @@ namespace Marketing.Services {
       return result;
     }
     public void UpdateUserPreferenceSelection( UserPreferenceSelection userPreferenceSelection ) {
-      var result = Context.UserPreferences.Single( x => x.Id == userPreferenceSelection.Id );
-      result.LiveMode = userPreferenceSelection.LiveMode;
-      result.BCCEmailAddress = userPreferenceSelection.BCCEmailAddress;
-      Context.SaveChanges();
+      Context.SaveUserPreferencesSelection( userPreferenceSelection );
     }
     public void AddUserKeyword( UserKeywordSelection userKeywordSelection ) {
       var item = new UserKeyword { Id = userKeywordSelection.Id, WeightedScore = userKeywordSelection.WeightedScore, UserId = userKeywordSelection.UserId, Keyword = userKeywordSelection.Keyword };

@@ -39,6 +39,11 @@ namespace Marketing.Services {
     public Guid UserId { get; set; }
     public bool LiveMode { get; set; }
     public string BCCEmailAddress { get; set; }
+    public string SMTPUsername { get; set; }
+    public string SMTPPassword { get; set; }
+    public string SMTPServer { get; set; }
+    public int SMTPPort { get; set; }
+    public bool RequiresSSL { get; set; }
   }
   public class UserListingItem {
     [Key]
@@ -53,8 +58,10 @@ namespace Marketing.Services {
     public String PostHtml { get; set; }
     public Guid UserId { get; set; }
     public DateTime? Responded { get; set; }
+    public DateTime? ResponseSent { get; set; }
     public Guid? ResponseId { get; set; }
     public string Response { get; set; }
+
     public string ResponseText { get; set; }
   }
   public class UserListingResponseItem {

@@ -30,9 +30,15 @@ namespace Marketing.UI.Controls {
     }
 
     private void richEditControl_HtmlTextChanged( object sender, EventArgs e ) {
-      ResponseHtmlEdit.Text = richEditControl.HtmlText;
-      ResponseEditText.Text = richEditControl.Text;
-      _editorContent = richEditControl.HtmlText;
+      if( this.richEditControl.IsEnabled ) {
+        ResponseHtmlEdit.Text = richEditControl.HtmlText;
+        ResponseEditText.Text = richEditControl.Text;
+        _editorContent = richEditControl.HtmlText;
+      }
+    }
+
+    private void ResponseSent_TextChanged( object sender, TextChangedEventArgs e ) {
+      this.richEditControl.IsEnabled = false;
     }
     
   }

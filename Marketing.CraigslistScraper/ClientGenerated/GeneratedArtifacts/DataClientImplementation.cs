@@ -1458,6 +1458,111 @@ namespace LightSwitchApplication.Implementation
         }
         private string _BCCEmailAddress;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string SMTPUsername
+        {
+            get
+            {
+                return this._SMTPUsername;
+            }
+            set
+            {
+                if (this._SMTPUsername != value)
+                {
+                    this.RaiseDataMemberChanging("SMTPUsername");
+                    this.ValidateProperty("SMTPUsername", value);
+                    this._SMTPUsername = value;
+                    this.RaiseDataMemberChanged("SMTPUsername");
+                }
+            }
+        }
+        private string _SMTPUsername;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string SMTPServer
+        {
+            get
+            {
+                return this._SMTPServer;
+            }
+            set
+            {
+                if (this._SMTPServer != value)
+                {
+                    this.RaiseDataMemberChanging("SMTPServer");
+                    this.ValidateProperty("SMTPServer", value);
+                    this._SMTPServer = value;
+                    this.RaiseDataMemberChanged("SMTPServer");
+                }
+            }
+        }
+        private string _SMTPServer;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public int SMTPPort
+        {
+            get
+            {
+                return this._SMTPPort;
+            }
+            set
+            {
+                if (this._SMTPPort != value)
+                {
+                    this.RaiseDataMemberChanging("SMTPPort");
+                    this.ValidateProperty("SMTPPort", value);
+                    this._SMTPPort = value;
+                    this.RaiseDataMemberChanged("SMTPPort");
+                }
+            }
+        }
+        private int _SMTPPort;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool RequiresSSL
+        {
+            get
+            {
+                return this._RequiresSSL;
+            }
+            set
+            {
+                if (this._RequiresSSL != value)
+                {
+                    this.RaiseDataMemberChanging("RequiresSSL");
+                    this.ValidateProperty("RequiresSSL", value);
+                    this._RequiresSSL = value;
+                    this.RaiseDataMemberChanged("RequiresSSL");
+                }
+            }
+        }
+        private bool _RequiresSSL;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string SMTPPassword
+        {
+            get
+            {
+                return this._SMTPPassword;
+            }
+            set
+            {
+                if (this._SMTPPassword != value)
+                {
+                    this.RaiseDataMemberChanging("SMTPPassword");
+                    this.ValidateProperty("SMTPPassword", value);
+                    this._SMTPPassword = value;
+                    this.RaiseDataMemberChanged("SMTPPassword");
+                }
+            }
+        }
+        private string _SMTPPassword;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -1797,6 +1902,27 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _PostHtml;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> ResponseSent
+        {
+            get
+            {
+                return this._ResponseSent;
+            }
+            set
+            {
+                if (this._ResponseSent != value)
+                {
+                    this.RaiseDataMemberChanging("ResponseSent");
+                    this.ValidateProperty("ResponseSent", value);
+                    this._ResponseSent = value;
+                    this.RaiseDataMemberChanged("ResponseSent");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _ResponseSent;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;

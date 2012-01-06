@@ -18,6 +18,7 @@
       <!--<RowDefinition></RowDefinition>
       <RowDefinition></RowDefinition>-->
     </Grid.RowDefinitions>
+    <TextBox Name="ResponseSent"  Text="{Binding Screen.UserListingItem.ResponseSent}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="ResponseSent_TextChanged"></TextBox>
     <TextBox Name="ResponseEditSource"  Text="{Binding Screen.UserListingItem.Response}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="ResponseEditSource_TextChanged"></TextBox>
     <TextBox Name="ResponseHtmlEdit"  Text="{Binding Screen.UserListingItem.Response,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
     <TextBox Name="ResponseEditText" Text="{Binding Screen.UserListingItem.ResponseText,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>

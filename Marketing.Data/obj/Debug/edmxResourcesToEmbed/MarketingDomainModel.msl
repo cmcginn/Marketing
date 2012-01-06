@@ -90,16 +90,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserPreferences">
-      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
-        <MappingFragment StoreEntitySet="UserPreference">
-          <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
-          <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ListingContents">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.ListingContent">
         <MappingFragment StoreEntitySet="ListingContent">
@@ -184,6 +174,21 @@
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="Response" ColumnName="Response" />
           <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPreferences">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
+        <MappingFragment StoreEntitySet="UserPreference">
+          <ScalarProperty Name="RequiresSSL" ColumnName="RequiresSSL" />
+          <ScalarProperty Name="SMTPPassword" ColumnName="SMTPPassword" />
+          <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
+          <ScalarProperty Name="SMTPServer" ColumnName="SMTPServer" />
+          <ScalarProperty Name="SMTPUser" ColumnName="SMTPUser" />
+          <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
+          <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

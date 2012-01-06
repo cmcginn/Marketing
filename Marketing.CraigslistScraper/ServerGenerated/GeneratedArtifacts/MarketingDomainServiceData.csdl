@@ -41,6 +41,11 @@
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="LiveMode" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="BCCEmailAddress" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="SMTPUsername" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="SMTPServer" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="SMTPPort" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="RequiresSSL" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SMTPPassword" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingItem">
     <Key>
@@ -60,6 +65,7 @@
     <Property Name="Response" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="ResponseText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="PostHtml" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseSent" Type="DateTime" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

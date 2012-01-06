@@ -44,6 +44,11 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="LiveMode" ColumnName="LiveMode" />
           <ScalarProperty Name="BCCEmailAddress" ColumnName="BCCEmailAddress" />
+          <ScalarProperty Name="SMTPUsername" ColumnName="SMTPUsername" />
+          <ScalarProperty Name="SMTPServer" ColumnName="SMTPServer" />
+          <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
+          <ScalarProperty Name="RequiresSSL" ColumnName="RequiresSSL" />
+          <ScalarProperty Name="SMTPPassword" ColumnName="SMTPPassword" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -64,6 +69,7 @@
           <ScalarProperty Name="Response" ColumnName="Response" />
           <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
           <ScalarProperty Name="PostHtml" ColumnName="PostHtml" />
+          <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

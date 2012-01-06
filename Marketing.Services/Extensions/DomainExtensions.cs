@@ -10,7 +10,7 @@ using System.Net.Mail;
 using System.Web;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
-    
+
     public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionFromContext( this MarketingEntities context ) {
       var query = from category in context.ListingCategories
                   join categoryGroup in context.ListingGroups
@@ -38,11 +38,11 @@ namespace Marketing.Services.Extensions {
     }
     public static IQueryable<UserPreferenceSelection> GetUserPreferenceSelection( this MarketingEntities context ) {
       var query = from userPreference in context.UserPreferences
-                  select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress };
+                  select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress, SMTPUsername = userPreference.SMTPUser, SMTPServer = userPreference.SMTPServer, SMTPPort = userPreference.SMTPPort, RequiresSSL = userPreference.RequiresSSL, SMTPPassword = userPreference.SMTPPassword };
       return query;
     }
     public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context ) {
-      var query = from userListingData in context.UserListingDatas.Where(x=>x.PostContent != null)
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null )
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,
@@ -56,6 +56,7 @@ namespace Marketing.Services.Extensions {
                     Responded = userListingData.Responded,
                     ResponseId = userListingData.UserListingResponseId,
                     Response = userListingData.Response,
+                    ResponseSent = userListingData.ResponseSent,
                     ResponseText = userListingData.ResponseText,
                     PostHtml = userListingData.PostContent
 
@@ -73,8 +74,7 @@ namespace Marketing.Services.Extensions {
                   };
       return query;
     }
-    public static UserListingResponse SaveUserListingResponse(this MarketingEntities context, UserListingItem item)
-    {
+    public static UserListingResponse SaveUserListingResponse( this MarketingEntities context, UserListingItem item ) {
       UserListingResponse result = null;
       var responseElement = System.Text.RegularExpressions.Regex.Replace( item.Response, "<!DOCTYPE html .*>", "" );
       result = context.UserListingResponses.SingleOrDefault( x => x.UserListingUrlId == item.Id );
@@ -82,7 +82,7 @@ namespace Marketing.Services.Extensions {
         result = new UserListingResponse {
           Created = System.DateTime.Now,
           Id = Guid.NewGuid(),
-          UserListingUrlId=item.Id
+          UserListingUrlId = item.Id
         };
         context.UserListingResponses.AddObject( result );
       }
@@ -91,6 +91,18 @@ namespace Marketing.Services.Extensions {
       context.SaveChanges();
       return result;
     }
+    public static void SaveUserPreferencesSelection( this MarketingEntities context, UserPreferenceSelection item ) {
+
+      var result = context.UserPreferences.Single( x => x.Id == item.Id );
+      result.LiveMode = item.LiveMode;
+      result.BCCEmailAddress = item.BCCEmailAddress;
+      result.SMTPPassword = item.SMTPPassword;
+      result.RequiresSSL = item.RequiresSSL;
+      result.SMTPPort = item.SMTPPort;
+      result.SMTPServer = item.SMTPServer;
+      result.SMTPUser = item.SMTPUsername;
+      context.SaveChanges();
+    }
     public static IQueryable<Operation> GetDefaultServerOperations() {
       List<Operation> result = new List<Operation>{
         new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;"},
@@ -98,30 +110,32 @@ namespace Marketing.Services.Extensions {
       };
       return result.AsQueryable();
     }
-	public static System.Net.Mail.MailMessage GetMailMessage(this UserListingResponse item)
-	{
-		System.Net.Mail.MailMessage result = null;
-		var uri = new Uri(item.UserListingUrl.ListingUrl.ListingContents.First().ReplyTo);		
-		var nvc = System.Web.HttpUtility.ParseQueryString(uri.Query);
-		var address = String.Format("{0}@{1}",uri.UserInfo,uri.DnsSafeHost);
-		var subject = nvc[0];
-		var body = item.Response.ToString();
+    public static System.Net.Mail.MailMessage GetMailMessage( this UserListingResponse item ) {
+      System.Net.Mail.MailMessage result = null;
+      var uri = new Uri( item.UserListingUrl.ListingUrl.ListingContents.First().ReplyTo );
+      var nvc = System.Web.HttpUtility.ParseQueryString( uri.Query );
+      var address = String.Format( "{0}@{1}", uri.UserInfo, uri.DnsSafeHost );
+      var subject = nvc[ 0 ];
+      var body = item.Response.ToString();
 
-    var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
-    if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
-      address = fromAddress;
-		result = new MailMessage(fromAddress,address,subject,body);
-		result.IsBodyHtml=true;    
-		result.Bcc.Add(fromAddress);
-    result.AlternateViews.Add( System.Net.Mail.AlternateView.CreateAlternateViewFromString( item.Response, null, "text/html" ) );
-		result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.ResponseText,null,"text/plain"));
-		return result;
-	}
-    public static bool SendUserListingResponse(this MarketingEntities context, UserListingResponse response ) {
+      var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
+      if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
+        address = fromAddress;
+      result = new MailMessage( fromAddress, address, subject, body );
+      result.IsBodyHtml = true;
+      result.Bcc.Add( fromAddress );
+      result.AlternateViews.Add( System.Net.Mail.AlternateView.CreateAlternateViewFromString( item.Response, null, "text/html" ) );
+      result.AlternateViews.Add( System.Net.Mail.AlternateView.CreateAlternateViewFromString( item.ResponseText, null, "text/plain" ) );
+      return result;
+    }
+    public static bool SendUserListingResponse( this MarketingEntities context, UserListingResponse response ) {
       bool result = false;
       var mailMessage = response.GetMailMessage();
-      var client = new System.Net.Mail.SmtpClient();
-      client.EnableSsl = true;
+      var userPreferences = response.UserListingUrl.aspnet_Membership.UserPreferences.First();
+      var client = new System.Net.Mail.SmtpClient( userPreferences.SMTPServer, userPreferences.SMTPPort );
+      client.Credentials = new System.Net.NetworkCredential( userPreferences.SMTPUser, userPreferences.SMTPPassword );
+      
+      client.EnableSsl = userPreferences.RequiresSSL;
       client.Send( mailMessage );
       result = true;
       response.ResponseSent = System.DateTime.Now;

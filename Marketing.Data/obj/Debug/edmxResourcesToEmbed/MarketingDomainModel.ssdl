@@ -30,11 +30,11 @@
       [UserListingData].[RegionName] AS [RegionName], 
       [UserListingData].[CityName] AS [CityName], 
       [UserListingData].[UserId] AS [UserId], 
-      [UserListingData].[Created] AS [Created], 
+      [UserListingData].[Responded] AS [Responded], 
       [UserListingData].[Response] AS [Response], 
       [UserListingData].[ResponseSent] AS [ResponseSent], 
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
-      [UserListingData].[Responded] AS [Responded], 
+      [UserListingData].[Created] AS [Created], 
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[ResponseText] AS [ResponseText], 
       [UserListingData].[PostContent] AS [PostContent]
@@ -228,6 +228,11 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LiveMode" Type="bit" Nullable="false" />
     <Property Name="BCCEmailAddress" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="SMTPUser" Type="nvarchar" MaxLength="255" />
+    <Property Name="SMTPServer" Type="nvarchar" MaxLength="255" />
+    <Property Name="SMTPPort" Type="int" Nullable="false" />
+    <Property Name="SMTPPassword" Type="nvarchar" MaxLength="50" />
+    <Property Name="RequiresSSL" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -264,11 +269,11 @@
     <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Created" Type="datetime" />
+    <Property Name="Responded" Type="datetime" />
     <Property Name="Response" Type="xml" />
     <Property Name="ResponseSent" Type="datetime" />
     <Property Name="UserListingResponseId" Type="uniqueidentifier" />
-    <Property Name="Responded" Type="datetime" />
+    <Property Name="Created" Type="datetime" />
     <Property Name="PostElement" Type="xml" />
     <Property Name="ResponseText" Type="nvarchar(max)" />
     <Property Name="PostContent" Type="xml" />

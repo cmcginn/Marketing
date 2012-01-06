@@ -1307,6 +1307,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _PostHtml;
         partial void OnPostHtmlChanging(global::System.String value);
         partial void OnPostHtmlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ResponseSent
+        {
+            get
+            {
+                return _ResponseSent;
+            }
+            set
+            {
+                OnResponseSentChanging(value);
+                ReportPropertyChanging("ResponseSent");
+                _ResponseSent = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ResponseSent");
+                OnResponseSentChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ResponseSent;
+        partial void OnResponseSentChanging(Nullable<global::System.DateTime> value);
+        partial void OnResponseSentChanged();
 
         #endregion
     
@@ -1485,12 +1509,16 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="liveMode">Initial value of the LiveMode property.</param>
-        public static UserPreferenceSelection CreateUserPreferenceSelection(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode)
+        /// <param name="sMTPPort">Initial value of the SMTPPort property.</param>
+        /// <param name="requiresSSL">Initial value of the RequiresSSL property.</param>
+        public static UserPreferenceSelection CreateUserPreferenceSelection(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode, global::System.Int32 sMTPPort, global::System.Boolean requiresSSL)
         {
             UserPreferenceSelection userPreferenceSelection = new UserPreferenceSelection();
             userPreferenceSelection.Id = id;
             userPreferenceSelection.UserId = userId;
             userPreferenceSelection.LiveMode = liveMode;
+            userPreferenceSelection.SMTPPort = sMTPPort;
+            userPreferenceSelection.RequiresSSL = requiresSSL;
             return userPreferenceSelection;
         }
 
@@ -1595,6 +1623,126 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _BCCEmailAddress;
         partial void OnBCCEmailAddressChanging(global::System.String value);
         partial void OnBCCEmailAddressChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SMTPUsername
+        {
+            get
+            {
+                return _SMTPUsername;
+            }
+            set
+            {
+                OnSMTPUsernameChanging(value);
+                ReportPropertyChanging("SMTPUsername");
+                _SMTPUsername = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SMTPUsername");
+                OnSMTPUsernameChanged();
+            }
+        }
+        private global::System.String _SMTPUsername;
+        partial void OnSMTPUsernameChanging(global::System.String value);
+        partial void OnSMTPUsernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SMTPServer
+        {
+            get
+            {
+                return _SMTPServer;
+            }
+            set
+            {
+                OnSMTPServerChanging(value);
+                ReportPropertyChanging("SMTPServer");
+                _SMTPServer = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SMTPServer");
+                OnSMTPServerChanged();
+            }
+        }
+        private global::System.String _SMTPServer;
+        partial void OnSMTPServerChanging(global::System.String value);
+        partial void OnSMTPServerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SMTPPort
+        {
+            get
+            {
+                return _SMTPPort;
+            }
+            set
+            {
+                OnSMTPPortChanging(value);
+                ReportPropertyChanging("SMTPPort");
+                _SMTPPort = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SMTPPort");
+                OnSMTPPortChanged();
+            }
+        }
+        private global::System.Int32 _SMTPPort;
+        partial void OnSMTPPortChanging(global::System.Int32 value);
+        partial void OnSMTPPortChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean RequiresSSL
+        {
+            get
+            {
+                return _RequiresSSL;
+            }
+            set
+            {
+                OnRequiresSSLChanging(value);
+                ReportPropertyChanging("RequiresSSL");
+                _RequiresSSL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RequiresSSL");
+                OnRequiresSSLChanged();
+            }
+        }
+        private global::System.Boolean _RequiresSSL;
+        partial void OnRequiresSSLChanging(global::System.Boolean value);
+        partial void OnRequiresSSLChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SMTPPassword
+        {
+            get
+            {
+                return _SMTPPassword;
+            }
+            set
+            {
+                OnSMTPPasswordChanging(value);
+                ReportPropertyChanging("SMTPPassword");
+                _SMTPPassword = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SMTPPassword");
+                OnSMTPPasswordChanged();
+            }
+        }
+        private global::System.String _SMTPPassword;
+        partial void OnSMTPPasswordChanging(global::System.String value);
+        partial void OnSMTPPasswordChanged();
 
         #endregion
     

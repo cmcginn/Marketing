@@ -13,5 +13,7 @@ namespace LightSwitchApplication {
       // Write your code here.
       this.UserId = Application.UserId;
     }
+
+
   }
 }

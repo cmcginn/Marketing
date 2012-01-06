@@ -2345,7 +2345,7 @@
       </ScreenProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2597,10 +2597,80 @@
             <ContentItem DataType=":String?"
                          Kind="Value"
                          Name="BCCEmailAddress">
+              <ContentItem.Attributes>
+                <DisplayName Value="BCC Email Address" />
+              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression Member="UserPreferenceSelection/Properties[BCCEmailAddress]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="SMTPUsername">
+              <ContentItem.Attributes>
+                <DisplayName Value="SMTP Username" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[SMTPUsername]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="SMTPServer">
+              <ContentItem.Attributes>
+                <DisplayName Value="SMTP Server" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[SMTPServer]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Int32"
+                         Kind="Value"
+                         Name="SMTPPort">
+              <ContentItem.Attributes>
+                <DisplayName Value="SMTP Port" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[SMTPPort]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="SMTPPassword">
+              <ContentItem.Attributes>
+                <DisplayName Value="SMTP Password" />
+              </ContentItem.Attributes>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[SMTPPassword]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Boolean"
+                         Kind="Value"
+                         Name="RequiresSSL">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[RequiresSSL]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -2900,6 +2970,26 @@
       </EntityProperty>
       <EntityProperty Name="BCCEmailAddress"
                       PropertyType=":String?" />
+      <EntityProperty Name="SMTPUsername"
+                      PropertyType=":String?" />
+      <EntityProperty Name="SMTPServer"
+                      PropertyType=":String?" />
+      <EntityProperty Name="SMTPPort"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="RequiresSSL"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="SMTPPassword"
+                      PropertyType=":String?" />
     </EntityType.Properties>
   </EntityType>
   <EntityType Name="UserListingItem">
@@ -2970,6 +3060,12 @@
                       PropertyType=":String?" />
       <EntityProperty Name="PostHtml"
                       PropertyType=":String?" />
+      <EntityProperty Name="ResponseSent"
+                      PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -2980,7 +3076,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3144,7 +3240,7 @@
                     <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                       <ScreenExpressionTree>
                         <ConstantExpression ResultType=":Double"
-                                            Value="120" />
+                                            Value="100" />
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
@@ -3216,7 +3312,7 @@
                     <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                       <ScreenExpressionTree>
                         <ConstantExpression ResultType=":Double"
-                                            Value="100" />
+                                            Value="75" />
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
@@ -3238,7 +3334,7 @@
                     <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                       <ScreenExpressionTree>
                         <ConstantExpression ResultType=":Double"
-                                            Value="100" />
+                                            Value="60" />
                       </ScreenExpressionTree>
                     </ControlPropertySource>
                   </ContentItem.PropertySources>
@@ -3277,11 +3373,32 @@
                 </ContentItem>
                 <ContentItem DataType=":DateTime?"
                              Kind="Value"
-                             Name="Responded">
+                             Name="ResponseSent">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="Sent" />
+                  </ContentItem.Attributes>
+                  <ContentItem.PropertySources>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression ResultType=":String"
+                                              Value="Pixels" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                    <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <ConstantExpression ResultType=":Double"
+                                              Value="100" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ControlPropertySource>
+                  </ContentItem.PropertySources>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[Responded]" />
+                        <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -3404,7 +3521,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3586,7 +3703,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3768,7 +3885,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3895,7 +4012,7 @@
   </Screen>
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
+               Name="MarketingDomainServiceDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -3972,6 +4089,16 @@
                         Property="UserPreferenceSelection/Properties[LiveMode]" />
         <WcfRiaProperty Name="BCCEmailAddress"
                         Property="UserPreferenceSelection/Properties[BCCEmailAddress]" />
+        <WcfRiaProperty Name="SMTPUsername"
+                        Property="UserPreferenceSelection/Properties[SMTPUsername]" />
+        <WcfRiaProperty Name="SMTPPassword"
+                        Property="UserPreferenceSelection/Properties[SMTPPassword]" />
+        <WcfRiaProperty Name="SMTPServer"
+                        Property="UserPreferenceSelection/Properties[SMTPServer]" />
+        <WcfRiaProperty Name="SMTPPort"
+                        Property="UserPreferenceSelection/Properties[SMTPPort]" />
+        <WcfRiaProperty Name="RequiresSSL"
+                        Property="UserPreferenceSelection/Properties[RequiresSSL]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <QueryOperationMapping Operation="GetUserPreferenceSelectionByUserId">
@@ -4007,6 +4134,8 @@
                         Property="UserListingItem/Properties[UserId]" />
         <WcfRiaProperty Name="Responded"
                         Property="UserListingItem/Properties[Responded]" />
+        <WcfRiaProperty Name="ResponseSent"
+                        Property="UserListingItem/Properties[ResponseSent]" />
         <WcfRiaProperty Name="ResponseId"
                         Property="UserListingItem/Properties[ResponseId]" />
         <WcfRiaProperty Name="Response"
@@ -4055,6 +4184,8 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
 
 
   

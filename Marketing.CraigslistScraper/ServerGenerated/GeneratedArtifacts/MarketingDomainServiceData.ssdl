@@ -50,6 +50,11 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="LiveMode" Type="bit" Nullable="false" />
     <Property Name="BCCEmailAddress" Type="nvarchar(max)" />
+    <Property Name="SMTPUsername" Type="nvarchar(max)" />
+    <Property Name="SMTPServer" Type="nvarchar(max)" />
+    <Property Name="SMTPPort" Type="int" Nullable="false" />
+    <Property Name="RequiresSSL" Type="bit" Nullable="false" />
+    <Property Name="SMTPPassword" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="UserListingItem">
     <Key>
@@ -69,6 +74,7 @@
     <Property Name="Response" Type="nvarchar(max)" />
     <Property Name="ResponseText" Type="nvarchar(max)" />
     <Property Name="PostHtml" Type="nvarchar(max)" />
+    <Property Name="ResponseSent" Type="datetime" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

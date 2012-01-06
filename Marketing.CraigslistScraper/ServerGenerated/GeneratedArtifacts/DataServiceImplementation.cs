@@ -1123,6 +1123,11 @@ namespace LightSwitchApplication.Implementation
                 result.UserId = userPreferenceSelection.UserId;
                 result.LiveMode = userPreferenceSelection.LiveMode;
                 result.BCCEmailAddress = userPreferenceSelection.BCCEmailAddress;
+                result.SMTPUsername = userPreferenceSelection.SMTPUsername;
+                result.SMTPServer = userPreferenceSelection.SMTPServer;
+                result.SMTPPort = userPreferenceSelection.SMTPPort;
+                result.RequiresSSL = userPreferenceSelection.RequiresSSL;
+                result.SMTPPassword = userPreferenceSelection.SMTPPassword;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingItem userListingItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingItem;
@@ -1143,6 +1148,7 @@ namespace LightSwitchApplication.Implementation
                 result.Response = userListingItem.Response;
                 result.ResponseText = userListingItem.ResponseText;
                 result.PostHtml = userListingItem.PostHtml;
+                result.ResponseSent = userListingItem.ResponseSent;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1217,6 +1223,11 @@ namespace LightSwitchApplication.Implementation
                 outerUserPreferenceSelection.UserId = innerUserPreferenceSelection.UserId;
                 outerUserPreferenceSelection.LiveMode = innerUserPreferenceSelection.LiveMode;
                 outerUserPreferenceSelection.BCCEmailAddress = innerUserPreferenceSelection.BCCEmailAddress;
+                outerUserPreferenceSelection.SMTPUsername = innerUserPreferenceSelection.SMTPUsername;
+                outerUserPreferenceSelection.SMTPServer = innerUserPreferenceSelection.SMTPServer;
+                outerUserPreferenceSelection.SMTPPort = innerUserPreferenceSelection.SMTPPort;
+                outerUserPreferenceSelection.RequiresSSL = innerUserPreferenceSelection.RequiresSSL;
+                outerUserPreferenceSelection.SMTPPassword = innerUserPreferenceSelection.SMTPPassword;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingItem outerUserListingItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingItem;
@@ -1237,6 +1248,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.Response = innerUserListingItem.Response;
                 outerUserListingItem.ResponseText = innerUserListingItem.ResponseText;
                 outerUserListingItem.PostHtml = innerUserListingItem.PostHtml;
+                outerUserListingItem.ResponseSent = innerUserListingItem.ResponseSent;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
