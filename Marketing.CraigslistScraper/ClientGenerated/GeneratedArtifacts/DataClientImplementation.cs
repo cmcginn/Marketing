@@ -1005,6 +1005,27 @@ namespace LightSwitchApplication.Implementation
         }
         private bool _Active;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string StateProvince
+        {
+            get
+            {
+                return this._StateProvince;
+            }
+            set
+            {
+                if (this._StateProvince != value)
+                {
+                    this.RaiseDataMemberChanging("StateProvince");
+                    this.ValidateProperty("StateProvince", value);
+                    this._StateProvince = value;
+                    this.RaiseDataMemberChanged("StateProvince");
+                }
+            }
+        }
+        private string _StateProvince;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -1924,6 +1945,90 @@ namespace LightSwitchApplication.Implementation
         }
         private global::System.Nullable<global::System.DateTime> _ResponseSent;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string StateProvince
+        {
+            get
+            {
+                return this._StateProvince;
+            }
+            set
+            {
+                if (this._StateProvince != value)
+                {
+                    this.RaiseDataMemberChanging("StateProvince");
+                    this.ValidateProperty("StateProvince", value);
+                    this._StateProvince = value;
+                    this.RaiseDataMemberChanged("StateProvince");
+                }
+            }
+        }
+        private string _StateProvince;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool CityActive
+        {
+            get
+            {
+                return this._CityActive;
+            }
+            set
+            {
+                if (this._CityActive != value)
+                {
+                    this.RaiseDataMemberChanging("CityActive");
+                    this.ValidateProperty("CityActive", value);
+                    this._CityActive = value;
+                    this.RaiseDataMemberChanged("CityActive");
+                }
+            }
+        }
+        private bool _CityActive;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool UserCityActive
+        {
+            get
+            {
+                return this._UserCityActive;
+            }
+            set
+            {
+                if (this._UserCityActive != value)
+                {
+                    this.RaiseDataMemberChanging("UserCityActive");
+                    this.ValidateProperty("UserCityActive", value);
+                    this._UserCityActive = value;
+                    this.RaiseDataMemberChanged("UserCityActive");
+                }
+            }
+        }
+        private bool _UserCityActive;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool ListingCategoryActive
+        {
+            get
+            {
+                return this._ListingCategoryActive;
+            }
+            set
+            {
+                if (this._ListingCategoryActive != value)
+                {
+                    this.RaiseDataMemberChanging("ListingCategoryActive");
+                    this.ValidateProperty("ListingCategoryActive", value);
+                    this._ListingCategoryActive = value;
+                    this.RaiseDataMemberChanged("ListingCategoryActive");
+                }
+            }
+        }
+        private bool _ListingCategoryActive;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -2651,6 +2756,12 @@ namespace LightSwitchApplication.Implementation
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Operations_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginOperations_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.Operation> EndOperations_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingCategorySelectionByUserId", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingCategorySelectionByUserIdResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingCategorySelectionByUserIdDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserListingCategorySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingCategorySelection> EndGetUserListingCategorySelectionByUserId(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]

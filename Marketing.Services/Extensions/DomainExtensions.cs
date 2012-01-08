@@ -11,11 +11,11 @@ using System.Web;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
 
-    public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionFromContext( this MarketingEntities context ) {
+    public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionByUserId( this MarketingEntities context,Guid userId ) {
       var query = from category in context.ListingCategories
                   join categoryGroup in context.ListingGroups
                   on category.ListingGroupId equals categoryGroup.Id
-                  join userCategory in context.UserListingCategories
+                  join userCategory in context.UserListingCategories.Where(n=>n.UserId==userId)
                   on category.Id equals userCategory.ListingCategoryId into ulc
 
                   from item in ulc.DefaultIfEmpty()
@@ -27,7 +27,7 @@ namespace Marketing.Services.Extensions {
                   join uc in context.UserCities
                   on city.Id equals uc.CityId into usc
                   from item in usc.DefaultIfEmpty()
-                  select new UserCitySelection { Id = item.Id != Guid.Empty ? item.Id : Guid.NewGuid(), Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, Selected = item != null };
+                  select new UserCitySelection { Id = item.Id != Guid.Empty ? item.Id : Guid.NewGuid(), Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, Selected = item != null };
 
       return query.AsQueryable();
     }
@@ -42,11 +42,12 @@ namespace Marketing.Services.Extensions {
       return query;
     }
     public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context ) {
-      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null )
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) )
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,
                     CityName = userListingData.CityName,
+                    StateProvince = userListingData.StateProvince,
                     GroupName = userListingData.ListingGroupName,
                     RegionName = userListingData.RegionName,
                     PostElement = userListingData.PostElement,
@@ -58,7 +59,10 @@ namespace Marketing.Services.Extensions {
                     Response = userListingData.Response,
                     ResponseSent = userListingData.ResponseSent,
                     ResponseText = userListingData.ResponseText,
-                    PostHtml = userListingData.PostContent
+                    PostHtml = userListingData.PostContent,
+                    CityActive = userListingData.CityActive,
+                    UserCityActive = userListingData.UserCityActive,
+                    ListingCategoryActive = userListingData.ListingCategoryActive
 
                   };
       return query;
@@ -105,8 +109,7 @@ namespace Marketing.Services.Extensions {
     }
     public static IQueryable<Operation> GetDefaultServerOperations() {
       List<Operation> result = new List<Operation>{
-        new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;"},
-        new Operation{Id=2, OperationName="Send Emails",Parameters="UserId=;"}
+        new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;"}        
       };
       return result.AsQueryable();
     }
@@ -119,8 +122,8 @@ namespace Marketing.Services.Extensions {
       var body = item.Response.ToString();
 
       var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
-      if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
-        address = fromAddress;
+      //if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
+      address = fromAddress;
       result = new MailMessage( fromAddress, address, subject, body );
       result.IsBodyHtml = true;
       result.Bcc.Add( fromAddress );
@@ -134,12 +137,26 @@ namespace Marketing.Services.Extensions {
       var userPreferences = response.UserListingUrl.aspnet_Membership.UserPreferences.First();
       var client = new System.Net.Mail.SmtpClient( userPreferences.SMTPServer, userPreferences.SMTPPort );
       client.Credentials = new System.Net.NetworkCredential( userPreferences.SMTPUser, userPreferences.SMTPPassword );
-      
       client.EnableSsl = userPreferences.RequiresSSL;
       client.Send( mailMessage );
       result = true;
       response.ResponseSent = System.DateTime.Now;
       context.SaveChanges();
+      return result;
+    }
+    public static UserPreference GetUserPreferenceSelectionByUserId( this MarketingEntities context, Guid userId ) {
+
+      var result = context.UserPreferences.SingleOrDefault( x => x.UserId == userId );
+      if( result == null ) {
+        result = new UserPreference();
+        var emailAddress = context.aspnet_Membership.Single( x => x.UserId == userId );
+        result.Id = Guid.NewGuid();
+        result.UserId = userId;
+        result.LiveMode = false;
+        result.BCCEmailAddress = !String.IsNullOrEmpty( emailAddress.Email ) ? emailAddress.Email : "youremailaddress@donotresolve.com";
+        context.UserPreferences.AddObject( result );
+        context.SaveChanges();
+      }
       return result;
     }
   }

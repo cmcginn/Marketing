@@ -11,12 +11,13 @@
           <ScalarProperty Name="CityName" ColumnName="CityName" />
           <ScalarProperty Name="RegionName" ColumnName="RegionName" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserListingCategorySelections">
       <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserListingCategorySelection)">
-        <MappingFragment StoreEntitySet="DefualtUserListingSelection">
+        <MappingFragment StoreEntitySet="DefaultUserListingCategorySelection">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Selected" ColumnName="Selected" />
           <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -70,6 +71,10 @@
           <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
           <ScalarProperty Name="PostHtml" ColumnName="PostHtml" />
           <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="CityActive" ColumnName="CityActive" />
+          <ScalarProperty Name="UserCityActive" ColumnName="UserCityActive" />
+          <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -683,6 +683,11 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.Operation>("Operations_All", frameworkOperators);
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> GetUserListingCategorySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("GetUserListingCategorySelectionByUserId", frameworkOperators, userId);
+        }
+    
     #endregion
     
         [global::System.ServiceModel.DomainServices.Server.Invoke(HasSideEffects=false)]
@@ -773,7 +778,7 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> UserListingCategorySelections_All()
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("DefualtUserListingSelection").AsQueryable();
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("DefaultUserListingCategorySelection").AsQueryable();
             return query;
         }
     
@@ -893,7 +898,7 @@ namespace LightSwitchApplication.Implementation
                             global::System.Linq.Queryable.OrderBy(
                                 global::System.Linq.Queryable.Where(
                                     this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All"),
-                                    (u) => (userId.HasValue && (u.UserId == userId))),
+                                    (u) => ((((userId.HasValue && (u.UserId == userId)) && (u.CityActive == true)) && (u.UserCityActive == true)) && (u.ListingCategoryActive == true))),
                                 (u) => u.Created),
                             (u) => u.RegionName),
                         (u) => u.CityName),
@@ -965,6 +970,13 @@ namespace LightSwitchApplication.Implementation
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.Operation> query;
             query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.Operation>("DefaultServerOperations").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> GetUserListingCategorySelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("GetUserListingCategorySelectionByUserId", userId).AsQueryable();
             return query;
         }
     
@@ -1090,6 +1102,7 @@ namespace LightSwitchApplication.Implementation
                 result.CityName = userCitySelection.CityName;
                 result.RegionName = userCitySelection.RegionName;
                 result.Active = userCitySelection.Active;
+                result.StateProvince = userCitySelection.StateProvince;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingCategorySelection userListingCategorySelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingCategorySelection;
@@ -1149,6 +1162,10 @@ namespace LightSwitchApplication.Implementation
                 result.ResponseText = userListingItem.ResponseText;
                 result.PostHtml = userListingItem.PostHtml;
                 result.ResponseSent = userListingItem.ResponseSent;
+                result.StateProvince = userListingItem.StateProvince;
+                result.CityActive = userListingItem.CityActive;
+                result.UserCityActive = userListingItem.UserCityActive;
+                result.ListingCategoryActive = userListingItem.ListingCategoryActive;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1190,6 +1207,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserCitySelection.CityName = innerUserCitySelection.CityName;
                 outerUserCitySelection.RegionName = innerUserCitySelection.RegionName;
                 outerUserCitySelection.Active = innerUserCitySelection.Active;
+                outerUserCitySelection.StateProvince = innerUserCitySelection.StateProvince;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingCategorySelection outerUserListingCategorySelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingCategorySelection;
@@ -1249,6 +1267,10 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.ResponseText = innerUserListingItem.ResponseText;
                 outerUserListingItem.PostHtml = innerUserListingItem.PostHtml;
                 outerUserListingItem.ResponseSent = innerUserListingItem.ResponseSent;
+                outerUserListingItem.StateProvince = innerUserListingItem.StateProvince;
+                outerUserListingItem.CityActive = innerUserListingItem.CityActive;
+                outerUserListingItem.UserCityActive = innerUserListingItem.UserCityActive;
+                outerUserListingItem.ListingCategoryActive = innerUserListingItem.ListingCategoryActive;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;

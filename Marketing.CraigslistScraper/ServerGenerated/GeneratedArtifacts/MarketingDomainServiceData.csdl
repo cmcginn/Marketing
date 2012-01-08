@@ -11,6 +11,7 @@
     <Property Name="CityName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="RegionName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="StateProvince" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingCategorySelection">
     <Key>
@@ -66,6 +67,10 @@
     <Property Name="ResponseText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="PostHtml" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="ResponseSent" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="StateProvince" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="CityActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserCityActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ListingCategoryActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

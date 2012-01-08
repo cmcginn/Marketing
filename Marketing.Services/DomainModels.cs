@@ -14,6 +14,7 @@ namespace Marketing.Services {
     public Guid UserId { get; set; }
     public string CityName { get; set; }
     public string RegionName { get; set; }
+    public string StateProvince { get; set; }
     public bool Active { get; set; }
   }
   public class UserListingCategorySelection {
@@ -53,6 +54,7 @@ namespace Marketing.Services {
     public string GroupName { get; set; }
     public string RegionName { get; set;}
     public string CityName { get; set; }
+    public string StateProvince { get; set; }
     public DateTime Created { get; set; }
     public String PostElement { get; set; }
     public String PostHtml { get; set; }
@@ -61,8 +63,10 @@ namespace Marketing.Services {
     public DateTime? ResponseSent { get; set; }
     public Guid? ResponseId { get; set; }
     public string Response { get; set; }
-
     public string ResponseText { get; set; }
+    public bool CityActive { get; set; }
+    public bool UserCityActive { get; set; }
+    public bool ListingCategoryActive { get; set; }
   }
   public class UserListingResponseItem {
     [Key]

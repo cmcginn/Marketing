@@ -1368,6 +1368,8 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="StateProvince"
+                      PropertyType=":String?" />
     </EntityType.Properties>
   </EntityType>
 <EntityContainer Name="MarketingDomainServiceData"
@@ -1969,14 +1971,65 @@
       </QueryOperation.SortCriteria>
       <QueryOperation.FilterExpression>
         <QueryFilterExpressionTree>
-          <BinaryExpression NodeType="Equal">
+          <BinaryExpression NodeType="And">
             <BinaryExpression.Left>
-              <ChainExpression>
-                <MemberExpression Member="UserId" />
-              </ChainExpression>
+              <BinaryExpression NodeType="And">
+                <BinaryExpression.Left>
+                  <BinaryExpression NodeType="And">
+                    <BinaryExpression.Left>
+                      <BinaryExpression NodeType="Equal">
+                        <BinaryExpression.Left>
+                          <ChainExpression>
+                            <MemberExpression Member="UserId" />
+                          </ChainExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <ParameterExpression Parameter="userId" />
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <BinaryExpression NodeType="Equal">
+                        <BinaryExpression.Left>
+                          <ChainExpression>
+                            <MemberExpression Member="CityActive" />
+                          </ChainExpression>
+                        </BinaryExpression.Left>
+                        <BinaryExpression.Right>
+                          <ConstantExpression ResultType=":Boolean"
+                                              Value="True" />
+                        </BinaryExpression.Right>
+                      </BinaryExpression>
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <BinaryExpression NodeType="Equal">
+                    <BinaryExpression.Left>
+                      <ChainExpression>
+                        <MemberExpression Member="UserCityActive" />
+                      </ChainExpression>
+                    </BinaryExpression.Left>
+                    <BinaryExpression.Right>
+                      <ConstantExpression ResultType=":Boolean"
+                                          Value="True" />
+                    </BinaryExpression.Right>
+                  </BinaryExpression>
+                </BinaryExpression.Right>
+              </BinaryExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
-              <ParameterExpression  Parameter="userId" />
+              <BinaryExpression NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression Member="ListingCategoryActive" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -2205,6 +2258,17 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
     </QueryOperation>
+    <QueryOperation Name="GetUserListingCategorySelectionByUserId"
+                    ReturnType="UserListingCategorySelection*">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserListingCategorySelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   
   
@@ -2273,34 +2337,6 @@
           <IsParameter />
         </ScreenProperty.Attributes>
       </ScreenProperty>
-      <ScreenCollectionProperty Name="GetUserCategorySelections"
-                                PageSize="45"
-                                PropertyType="CollectionView$UserListingCategorySelection">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="GetUserCategorySelectionsQuery"
-                                 ReturnType="UserListingCategorySelection*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserCategorySelections]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="Preferences/Properties[GetUserCategorySelections]/Query">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
       <ScreenCollectionProperty Name="GetUserKeywordSelections"
                                 PageSize="45"
                                 PropertyType="CollectionView$UserKeywordSelection">
@@ -2343,6 +2379,51 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenProperty>
+      <ScreenCollectionProperty Name="GetUserListingCategorySelectionByUserId"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserListingCategorySelection">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetUserListingCategorySelectionByUserIdQuery"
+                                 ReturnType="UserListingCategorySelection*">
+            <ScreenQueryDefinition.SortCriteria>
+              <SortCriterion>
+                <ChainExpression>
+                  <MemberExpression Member="Selected" />
+                </ChainExpression>
+              </SortCriterion>
+              <SortCriterion>
+                <ChainExpression>
+                  <MemberExpression Member="GroupName" />
+                </ChainExpression>
+              </SortCriterion>
+              <SortCriterion>
+                <ChainExpression>
+                  <MemberExpression Member="CategoryName" />
+                </ChainExpression>
+              </SortCriterion>
+            </ScreenQueryDefinition.SortCriteria>
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserListingCategorySelectionByUserId]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Preferences/Properties[GetUserListingCategorySelectionByUserId]/Query">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
       <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
@@ -2463,7 +2544,24 @@
               </ContentItem>
               <ContentItem DataType=":String?"
                            Kind="Value"
+                           Name="StateProvince">
+                <ContentItem.Attributes>
+                  <DisplayName Value="State" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[StateProvince]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
                            Name="RegionName">
+                <ContentItem.Attributes>
+                  <DisplayName Value="Country" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -2485,38 +2583,38 @@
               </ContentItem>
             </ContentItem>
           </ContentItem>
-          <ContentItem DataType="CollectionView$UserListingCategorySelection"
+          <ContentItem DataType="CollectionView$UserKeywordSelection"
                        Kind="Collection"
-                       Name="GetUserCategorySelections">
+                       Name="GetUserKeywordSelections">
             <ContentItem.CommandItems>
               <ContentItem Kind="Command"
-                           Name="GetUserCategorySelections_AddAndEditNew">
+                           Name="GetUserKeywordSelections_AddAndEditNew">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCategorySelections]" />
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
                       <CallExpression Target="AddAndEditNew" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem Kind="Command"
-                           Name="GetUserCategorySelections_EditSelected">
+                           Name="GetUserKeywordSelections_EditSelected">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCategorySelections]" />
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
                       <CallExpression Target="EditSelected" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem Kind="Command"
-                           Name="GetUserCategorySelections_DeleteSelected">
+                           Name="GetUserKeywordSelections_DeleteSelected">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCategorySelections]" />
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
                       <CallExpression Target="DeleteSelected" />
                     </ChainExpression>
                   </ScreenExpressionTree>
@@ -2526,13 +2624,13 @@
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[GetUserCategorySelections]" />
+                  <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
-            <ContentItem DataType="UserListingCategorySelection"
+            <ContentItem DataType="UserKeywordSelection"
                          Kind="Details"
-                         Name="GetUserCategorySelectionsTemplate">
+                         Name="GetUserKeywordSelectionsTemplate">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression />
@@ -2540,33 +2638,22 @@
               </ContentItem.DataSource>
               <ContentItem DataType=":String?"
                            Kind="Value"
-                           Name="GroupName">
+                           Name="Keyword">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserListingCategorySelection/Properties[GroupName]" />
+                      <MemberExpression Member="UserKeywordSelection/Properties[Keyword]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
-              <ContentItem DataType=":String?"
+              <ContentItem DataType=":Int32"
                            Kind="Value"
-                           Name="CategoryName">
+                           Name="WeightedScore">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserListingCategorySelection/Properties[CategoryName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Boolean"
-                           Kind="Value"
-                           Name="Selected1">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListingCategorySelection/Properties[Selected]" />
+                      <MemberExpression Member="UserKeywordSelection/Properties[WeightedScore]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2674,6 +2761,94 @@
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem DataType="CollectionView$UserListingCategorySelection"
+                       Kind="Collection"
+                       Name="GetUserListingCategorySelectionByUserId">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="GetUserListingCategorySelectionByUserId_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserListingCategorySelectionByUserId_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserListingCategorySelectionByUserId_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType="UserListingCategorySelection"
+                         Kind="Details"
+                         Name="GetUserListingCategorySelectionByUserIdTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="GroupName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingCategorySelection/Properties[GroupName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="CategoryName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingCategorySelection/Properties[CategoryName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Boolean"
+                           Kind="Value"
+                           Name="Selected1">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingCategorySelection/Properties[Selected]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
             </ContentItem>
           </ContentItem>
         </ContentItem>
@@ -3066,6 +3241,36 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="Score"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="StateProvince"
+                      PropertyType=":String?" />
+      <EntityProperty Name="CityActive"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="UserCityActive"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="ListingCategoryActive"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -3248,6 +3453,17 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression Member="UserListingItem/Properties[Created]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem DataType=":Int32"
+                             Kind="Value"
+                             Name="Score">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression Member="UserListingItem/Properties[Score]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
@@ -4039,13 +4255,15 @@
                         Property="UserCitySelection/Properties[CityName]" />
         <WcfRiaProperty Name="RegionName"
                         Property="UserCitySelection/Properties[RegionName]" />
+        <WcfRiaProperty Name="StateProvince"
+                        Property="UserCitySelection/Properties[StateProvince]" />
         <WcfRiaProperty Name="Active"
                         Property="UserCitySelection/Properties[Active]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <EntitySetMapping EntitySet="UserListingCategorySelections">
       <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefualtUserListingSelection"
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingCategorySelection"
                          EntityTypeName="Marketing.Services.UserListingCategorySelection" />
         <WcfRiaProperty Name="Id"
                         Property="UserListingCategorySelection/Properties[Id]" />
@@ -4063,6 +4281,13 @@
                         Property="UserListingCategorySelection/Properties[Active]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserListingCategorySelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserListingCategorySelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingCategorySelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
     <EntitySetMapping EntitySet="UserKeywordSelections">
       <EntitySetMapping.Attributes>
         <WcfRiaEntitySet EntitySetQuery="DefaultUserKeywords"
@@ -4124,6 +4349,8 @@
                         Property="UserListingItem/Properties[RegionName]" />
         <WcfRiaProperty Name="CityName"
                         Property="UserListingItem/Properties[CityName]" />
+        <WcfRiaProperty Name="StateProvince"
+                        Property="UserListingItem/Properties[StateProvince]" />
         <WcfRiaProperty Name="Created"
                         Property="UserListingItem/Properties[Created]" />
         <WcfRiaProperty Name="PostElement"
@@ -4142,6 +4369,12 @@
                         Property="UserListingItem/Properties[Response]" />
         <WcfRiaProperty Name="ResponseText"
                         Property="UserListingItem/Properties[ResponseText]" />
+        <WcfRiaProperty Name="CityActive"
+                        Property="UserListingItem/Properties[CityActive]" />
+        <WcfRiaProperty Name="UserCityActive"
+                        Property="UserListingItem/Properties[UserCityActive]" />
+        <WcfRiaProperty Name="ListingCategoryActive"
+                        Property="UserListingItem/Properties[ListingCategoryActive]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <QueryOperationMapping Operation="GetUserListingItemById">
@@ -4184,6 +4417,8 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
 
   
 

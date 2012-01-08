@@ -37,7 +37,12 @@
       [UserListingData].[Created] AS [Created], 
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[ResponseText] AS [ResponseText], 
-      [UserListingData].[PostContent] AS [PostContent]
+      [UserListingData].[PostContent] AS [PostContent], 
+      [UserListingData].[ReplyTo] AS [ReplyTo], 
+      [UserListingData].[StateProvince] AS [StateProvince], 
+      [UserListingData].[CityActive] AS [CityActive], 
+      [UserListingData].[UserCityActive] AS [UserCityActive], 
+      [UserListingData].[ListingCategoryActive] AS [ListingCategoryActive]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -126,6 +131,7 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="StateProvince" Type="nvarchar" MaxLength="50" />
     <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Active" Type="bit" Nullable="false" />
@@ -253,6 +259,9 @@
       <PropertyRef Name="RegionName" />
       <PropertyRef Name="CityName" />
       <PropertyRef Name="UserId" />
+      <PropertyRef Name="CityActive" />
+      <PropertyRef Name="UserCityActive" />
+      <PropertyRef Name="ListingCategoryActive" />
     </Key>
     <Property Name="UserListingCreated" Type="datetime" Nullable="false" />
     <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="255" />
@@ -277,6 +286,11 @@
     <Property Name="PostElement" Type="xml" />
     <Property Name="ResponseText" Type="nvarchar(max)" />
     <Property Name="PostContent" Type="xml" />
+    <Property Name="ReplyTo" Type="nvarchar" MaxLength="255" />
+    <Property Name="StateProvince" Type="nvarchar" MaxLength="50" />
+    <Property Name="CityActive" Type="bit" Nullable="false" />
+    <Property Name="UserCityActive" Type="bit" Nullable="false" />
+    <Property Name="ListingCategoryActive" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.

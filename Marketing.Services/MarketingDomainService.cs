@@ -22,10 +22,14 @@ namespace Marketing.Services {
     public IQueryable<UserCitySelection> DefaultUserCitySelections() {
       return Context.GetUserCitySelectionFromContext();
     }
-    [Query( IsDefault = true )]
-    public IQueryable<UserListingCategorySelection> DefualtUserListingSelection() {
 
-      var result = Context.GetUserListingCategorySelectionFromContext();    
+    [Query( IsDefault = true )]
+    public IQueryable<UserListingCategorySelection> DefaultUserListingCategorySelection() {
+      return new List<UserListingCategorySelection>().AsQueryable();
+    }
+    public IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionByUserId( Guid? userId ) {
+
+      var result = Context.GetUserListingCategorySelectionByUserId( userId.GetValueOrDefault() );
       return result;
     }
     [Query( IsDefault = true )]
@@ -84,20 +88,8 @@ namespace Marketing.Services {
       return result;
     }
     public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
-      var key = userId.GetValueOrDefault();
-      var item = Context.UserPreferences.SingleOrDefault( x => x.UserId == key );
-      if( item == null ) {
-        item = new UserPreference();
-        var emailAddress = Context.aspnet_Membership.Single( x => x.UserId == key );
-        item.Id = Guid.NewGuid();
-        item.UserId = userId.GetValueOrDefault();
-        item.LiveMode = false;
-        item.BCCEmailAddress = !String.IsNullOrEmpty(emailAddress.Email)  ? emailAddress.Email : "youremailaddress@donotresolve.com";
-        Context.UserPreferences.AddObject( item );
-        Context.SaveChanges();
-
-      }
-      var result = DefaultUserPreferenceSelections().Single( x => x.Id == item.Id );
+      Context.GetUserPreferenceSelectionByUserId( userId.GetValueOrDefault() );
+      var result = Context.GetUserPreferenceSelection().First();
       return result;
     }
     public void UpdateUserPreferenceSelection( UserPreferenceSelection userPreferenceSelection ) {
@@ -123,7 +115,7 @@ namespace Marketing.Services {
     public void UpdateUserListingCategorySelection( UserListingCategorySelection userListingCategorySelection ) {
       var target = Context.UserListingCategories.SingleOrDefault( x => x.UserId == userListingCategorySelection.UserId && x.ListingCategoryId == userListingCategorySelection.CategoryId );
       if( target == null && userListingCategorySelection.Selected ) {
-        var item = new UserListingCategory { Id = userListingCategorySelection.Id, ListingCategoryId = userListingCategorySelection.CategoryId, UserId = userListingCategorySelection.UserId, Active = true };
+        var item = new UserListingCategory { Id = userListingCategorySelection.Id, ListingCategoryId = userListingCategorySelection.CategoryId, UserId = userListingCategorySelection.UserId, Active = userListingCategorySelection.Selected };
         Context.UserListingCategories.AddObject(item);
       } else if( !userListingCategorySelection.Selected ) {
         Context.UserListingCategories.DeleteObject( target );
@@ -133,7 +125,7 @@ namespace Marketing.Services {
     public void UpdateUserCitySelection( UserCitySelection userCitySelection ) {
       var target = Context.UserCities.SingleOrDefault( x => x.UserId == userCitySelection.UserId && x.CityId == userCitySelection.CityId );
       if( target == null && userCitySelection.Selected ) {
-        var item = new UserCity { CityId = userCitySelection.CityId, UserId = userCitySelection.UserId, Id = Guid.NewGuid() };
+        var item = new UserCity { CityId = userCitySelection.CityId, UserId = userCitySelection.UserId, Id = Guid.NewGuid(),Active=userCitySelection.Selected };
         Context.UserCities.AddObject(item);
       }else if(!userCitySelection.Selected){
         Context.UserCities.DeleteObject(target);

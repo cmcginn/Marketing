@@ -598,6 +598,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StateProvince
+        {
+            get
+            {
+                return _StateProvince;
+            }
+            set
+            {
+                OnStateProvinceChanging(value);
+                ReportPropertyChanging("StateProvince");
+                _StateProvince = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StateProvince");
+                OnStateProvinceChanged();
+            }
+        }
+        private global::System.String _StateProvince;
+        partial void OnStateProvinceChanging(global::System.String value);
+        partial void OnStateProvinceChanged();
 
         #endregion
     
@@ -957,12 +981,18 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="created">Initial value of the Created property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
-        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId)
+        /// <param name="cityActive">Initial value of the CityActive property.</param>
+        /// <param name="userCityActive">Initial value of the UserCityActive property.</param>
+        /// <param name="listingCategoryActive">Initial value of the ListingCategoryActive property.</param>
+        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive)
         {
             UserListingItem userListingItem = new UserListingItem();
             userListingItem.Id = id;
             userListingItem.Created = created;
             userListingItem.UserId = userId;
+            userListingItem.CityActive = cityActive;
+            userListingItem.UserCityActive = userCityActive;
+            userListingItem.ListingCategoryActive = listingCategoryActive;
             return userListingItem;
         }
 
@@ -1331,6 +1361,102 @@ namespace MarketingDomainServiceData.Implementation
         private Nullable<global::System.DateTime> _ResponseSent;
         partial void OnResponseSentChanging(Nullable<global::System.DateTime> value);
         partial void OnResponseSentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StateProvince
+        {
+            get
+            {
+                return _StateProvince;
+            }
+            set
+            {
+                OnStateProvinceChanging(value);
+                ReportPropertyChanging("StateProvince");
+                _StateProvince = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StateProvince");
+                OnStateProvinceChanged();
+            }
+        }
+        private global::System.String _StateProvince;
+        partial void OnStateProvinceChanging(global::System.String value);
+        partial void OnStateProvinceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CityActive
+        {
+            get
+            {
+                return _CityActive;
+            }
+            set
+            {
+                OnCityActiveChanging(value);
+                ReportPropertyChanging("CityActive");
+                _CityActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CityActive");
+                OnCityActiveChanged();
+            }
+        }
+        private global::System.Boolean _CityActive;
+        partial void OnCityActiveChanging(global::System.Boolean value);
+        partial void OnCityActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UserCityActive
+        {
+            get
+            {
+                return _UserCityActive;
+            }
+            set
+            {
+                OnUserCityActiveChanging(value);
+                ReportPropertyChanging("UserCityActive");
+                _UserCityActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserCityActive");
+                OnUserCityActiveChanged();
+            }
+        }
+        private global::System.Boolean _UserCityActive;
+        partial void OnUserCityActiveChanging(global::System.Boolean value);
+        partial void OnUserCityActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ListingCategoryActive
+        {
+            get
+            {
+                return _ListingCategoryActive;
+            }
+            set
+            {
+                OnListingCategoryActiveChanging(value);
+                ReportPropertyChanging("ListingCategoryActive");
+                _ListingCategoryActive = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ListingCategoryActive");
+                OnListingCategoryActiveChanged();
+            }
+        }
+        private global::System.Boolean _ListingCategoryActive;
+        partial void OnListingCategoryActiveChanging(global::System.Boolean value);
+        partial void OnListingCategoryActiveChanged();
 
         #endregion
     

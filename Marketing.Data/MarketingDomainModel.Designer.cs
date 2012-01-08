@@ -260,22 +260,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserListingData> UserListingDatas
-        {
-            get
-            {
-                if ((_UserListingDatas == null))
-                {
-                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
-                }
-                return _UserListingDatas;
-            }
-        }
-        private ObjectSet<UserListingData> _UserListingDatas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<UserListingResponse> UserListingResponses
         {
             get
@@ -304,6 +288,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserPreference> _UserPreferences;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingData> UserListingDatas
+        {
+            get
+            {
+                if ((_UserListingDatas == null))
+                {
+                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
+                }
+                return _UserListingDatas;
+            }
+        }
+        private ObjectSet<UserListingData> _UserListingDatas;
 
         #endregion
         #region AddTo Methods
@@ -397,14 +397,6 @@ namespace Marketing.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserListingDatas(UserListingData userListingData)
-        {
-            base.AddObject("UserListingDatas", userListingData);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the UserListingResponses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUserListingResponses(UserListingResponse userListingResponse)
@@ -418,6 +410,14 @@ namespace Marketing.Data
         public void AddToUserPreferences(UserPreference userPreference)
         {
             base.AddObject("UserPreferences", userPreference);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingDatas(UserListingData userListingData)
+        {
+            base.AddObject("UserListingDatas", userListingData);
         }
 
         #endregion
@@ -1258,6 +1258,30 @@ namespace Marketing.Data
         private global::System.Boolean _Active;
         partial void OnActiveChanging(global::System.Boolean value);
         partial void OnActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StateProvince
+        {
+            get
+            {
+                return _StateProvince;
+            }
+            set
+            {
+                OnStateProvinceChanging(value);
+                ReportPropertyChanging("StateProvince");
+                _StateProvince = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StateProvince");
+                OnStateProvinceChanged();
+            }
+        }
+        private global::System.String _StateProvince;
+        partial void OnStateProvinceChanging(global::System.String value);
+        partial void OnStateProvinceChanged();
 
         #endregion
     
@@ -2863,7 +2887,10 @@ namespace Marketing.Data
         /// <param name="regionName">Initial value of the RegionName property.</param>
         /// <param name="cityName">Initial value of the CityName property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
-        public static UserListingData CreateUserListingData(global::System.DateTime userListingCreated, global::System.String url, global::System.String title, global::System.Int64 postId, global::System.DateTime listingUrlCreated, global::System.Guid listingCategoryId, global::System.String listingCategoryName, global::System.Guid listingGroupId, global::System.String listingGroupName, global::System.Guid userListingUrlId, global::System.Guid cityId, global::System.String regionName, global::System.String cityName, global::System.Guid userId)
+        /// <param name="cityActive">Initial value of the CityActive property.</param>
+        /// <param name="userCityActive">Initial value of the UserCityActive property.</param>
+        /// <param name="listingCategoryActive">Initial value of the ListingCategoryActive property.</param>
+        public static UserListingData CreateUserListingData(global::System.DateTime userListingCreated, global::System.String url, global::System.String title, global::System.Int64 postId, global::System.DateTime listingUrlCreated, global::System.Guid listingCategoryId, global::System.String listingCategoryName, global::System.Guid listingGroupId, global::System.String listingGroupName, global::System.Guid userListingUrlId, global::System.Guid cityId, global::System.String regionName, global::System.String cityName, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive)
         {
             UserListingData userListingData = new UserListingData();
             userListingData.UserListingCreated = userListingCreated;
@@ -2880,6 +2907,9 @@ namespace Marketing.Data
             userListingData.RegionName = regionName;
             userListingData.CityName = cityName;
             userListingData.UserId = userId;
+            userListingData.CityActive = cityActive;
+            userListingData.UserCityActive = userCityActive;
+            userListingData.ListingCategoryActive = listingCategoryActive;
             return userListingData;
         }
 
@@ -3293,24 +3323,24 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Created
+        public Nullable<global::System.DateTime> Responded
         {
             get
             {
-                return _Created;
+                return _Responded;
             }
             set
             {
-                OnCreatedChanging(value);
-                ReportPropertyChanging("Created");
-                _Created = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Created");
-                OnCreatedChanged();
+                OnRespondedChanging(value);
+                ReportPropertyChanging("Responded");
+                _Responded = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Responded");
+                OnRespondedChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Created;
-        partial void OnCreatedChanging(Nullable<global::System.DateTime> value);
-        partial void OnCreatedChanged();
+        private Nullable<global::System.DateTime> _Responded;
+        partial void OnRespondedChanging(Nullable<global::System.DateTime> value);
+        partial void OnRespondedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3389,24 +3419,24 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> Responded
+        public Nullable<global::System.DateTime> Created
         {
             get
             {
-                return _Responded;
+                return _Created;
             }
             set
             {
-                OnRespondedChanging(value);
-                ReportPropertyChanging("Responded");
-                _Responded = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("Responded");
-                OnRespondedChanged();
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
             }
         }
-        private Nullable<global::System.DateTime> _Responded;
-        partial void OnRespondedChanging(Nullable<global::System.DateTime> value);
-        partial void OnRespondedChanged();
+        private Nullable<global::System.DateTime> _Created;
+        partial void OnCreatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreatedChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -3479,6 +3509,135 @@ namespace Marketing.Data
         private global::System.String _PostContent;
         partial void OnPostContentChanging(global::System.String value);
         partial void OnPostContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ReplyTo
+        {
+            get
+            {
+                return _ReplyTo;
+            }
+            set
+            {
+                OnReplyToChanging(value);
+                ReportPropertyChanging("ReplyTo");
+                _ReplyTo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ReplyTo");
+                OnReplyToChanged();
+            }
+        }
+        private global::System.String _ReplyTo;
+        partial void OnReplyToChanging(global::System.String value);
+        partial void OnReplyToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String StateProvince
+        {
+            get
+            {
+                return _StateProvince;
+            }
+            set
+            {
+                OnStateProvinceChanging(value);
+                ReportPropertyChanging("StateProvince");
+                _StateProvince = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("StateProvince");
+                OnStateProvinceChanged();
+            }
+        }
+        private global::System.String _StateProvince;
+        partial void OnStateProvinceChanging(global::System.String value);
+        partial void OnStateProvinceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean CityActive
+        {
+            get
+            {
+                return _CityActive;
+            }
+            set
+            {
+                if (_CityActive != value)
+                {
+                    OnCityActiveChanging(value);
+                    ReportPropertyChanging("CityActive");
+                    _CityActive = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CityActive");
+                    OnCityActiveChanged();
+                }
+            }
+        }
+        private global::System.Boolean _CityActive;
+        partial void OnCityActiveChanging(global::System.Boolean value);
+        partial void OnCityActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UserCityActive
+        {
+            get
+            {
+                return _UserCityActive;
+            }
+            set
+            {
+                if (_UserCityActive != value)
+                {
+                    OnUserCityActiveChanging(value);
+                    ReportPropertyChanging("UserCityActive");
+                    _UserCityActive = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("UserCityActive");
+                    OnUserCityActiveChanged();
+                }
+            }
+        }
+        private global::System.Boolean _UserCityActive;
+        partial void OnUserCityActiveChanging(global::System.Boolean value);
+        partial void OnUserCityActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ListingCategoryActive
+        {
+            get
+            {
+                return _ListingCategoryActive;
+            }
+            set
+            {
+                if (_ListingCategoryActive != value)
+                {
+                    OnListingCategoryActiveChanging(value);
+                    ReportPropertyChanging("ListingCategoryActive");
+                    _ListingCategoryActive = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ListingCategoryActive");
+                    OnListingCategoryActiveChanged();
+                }
+            }
+        }
+        private global::System.Boolean _ListingCategoryActive;
+        partial void OnListingCategoryActiveChanging(global::System.Boolean value);
+        partial void OnListingCategoryActiveChanged();
 
         #endregion
     
