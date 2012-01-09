@@ -22,12 +22,12 @@ namespace Marketing.Services.Extensions {
                   select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, CategoryId = category.Id };
       return query.AsQueryable();
     }
-    public static IQueryable<UserCitySelection> GetUserCitySelectionFromContext( this MarketingEntities context ) {
+    public static IQueryable<UserCitySelection> GetUserCitySelectionByUserId( this MarketingEntities context,Guid userId ) {
       var query = from city in context.Cities
-                  join uc in context.UserCities
+                  join uc in context.UserCities.Where(x=>x.UserId == userId)
                   on city.Id equals uc.CityId into usc
                   from item in usc.DefaultIfEmpty()
-                  select new UserCitySelection { Id = item.Id != Guid.Empty ? item.Id : Guid.NewGuid(), Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, Selected = item != null };
+                  select new UserCitySelection { Id = item.Id != Guid.Empty ? item.Id : Guid.NewGuid(), Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item != null };
 
       return query.AsQueryable();
     }

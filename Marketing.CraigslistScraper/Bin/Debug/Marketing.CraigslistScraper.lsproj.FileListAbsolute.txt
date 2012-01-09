@@ -415,3 +415,10 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\zh-Hans\M
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\zh-Hant\System.ComponentModel.Composition.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\zh-Hant\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\web\Marketing_CraigslistScraper.Client.xap
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.ServiceLocation.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.Configuration.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.Interception.Configuration.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.Interception.dll

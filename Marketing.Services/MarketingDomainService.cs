@@ -20,7 +20,7 @@ namespace Marketing.Services {
     MarketingEntities _Context;
     [Query(IsDefault=true)]
     public IQueryable<UserCitySelection> DefaultUserCitySelections() {
-      return Context.GetUserCitySelectionFromContext();
+      return new List<UserCitySelection>().AsQueryable();
     }
 
     [Query( IsDefault = true )]
@@ -55,6 +55,11 @@ namespace Marketing.Services {
     [Query( IsDefault = true )]
     public IQueryable<Operation> DefaultServerOperations() {
       return DomainExtensions.GetDefaultServerOperations();
+    }
+
+    public IQueryable<UserCitySelection> GetUserCitySelectionByUserId( Guid? userId ) {
+      var result = Context.GetUserCitySelectionByUserId( userId.GetValueOrDefault() );
+      return result;
     }
     private void RunPostingRefresh( Operation operation ) {
       //call host eventually

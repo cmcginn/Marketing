@@ -55,6 +55,20 @@ namespace XamlStaticHelperNamespace {
             assemblyList.Add(Load("Marketing.Utils, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"));
             assemblyList.Add(Load("Microsoft.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a" +
                         "3a"));
+            assemblyList.Add(Load("Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral," +
+                        " PublicKeyToken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.505.0, Culture=neutral" +
+                        ", PublicKeyToken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyT" +
+                        "oken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, Publ" +
+                        "icKeyToken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31b" +
+                        "f3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=" +
+                        "neutral, PublicKeyToken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, Publi" +
+                        "cKeyToken=31bf3856ad364e35"));
             assemblyList.Add(Load("mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
             assemblyList.Add(Load("System.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364" +
                         "e35"));
@@ -65,6 +79,8 @@ namespace XamlStaticHelperNamespace {
             assemblyList.Add(Load("System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934" +
                         "e089"));
             assemblyList.Add(Load("System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"));
+            assemblyList.Add(Load("System.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50" +
+                        "a3a"));
             assemblyList.Add(Load("System.ServiceModel.Activities, Version=4.0.0.0, Culture=neutral, PublicKeyToken=" +
                         "31bf3856ad364e35"));
             assemblyList.Add(Load("System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c56193" +

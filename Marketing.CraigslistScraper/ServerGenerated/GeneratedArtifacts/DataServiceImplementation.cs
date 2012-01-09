@@ -688,6 +688,11 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("GetUserListingCategorySelectionByUserId", frameworkOperators, userId);
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", frameworkOperators, userId);
+        }
+    
     #endregion
     
         [global::System.ServiceModel.DomainServices.Server.Invoke(HasSideEffects=false)]
@@ -977,6 +982,13 @@ namespace LightSwitchApplication.Implementation
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection> query;
             query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("GetUserListingCategorySelectionByUserId", userId).AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", userId).AsQueryable();
             return query;
         }
     

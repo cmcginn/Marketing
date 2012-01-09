@@ -20,34 +20,42 @@
           <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserListingData" EntityType="Marketing.CraigslistScraperModel.Store.UserListingData" store:Type="Views" store:Schema="dbo" store:Name="UserListingData">
             <DefiningQuery>SELECT 
-      [UserListingData].[UserListingCreated] AS [UserListingCreated], 
+      [UserListingData].[UserListingUrlId] AS [UserListingUrlId], 
+      [UserListingData].[ListingUrlId] AS [ListingUrlId], 
+      [UserListingData].[UserId] AS [UserId], 
       [UserListingData].[Url] AS [Url], 
       [UserListingData].[Title] AS [Title], 
       [UserListingData].[PostId] AS [PostId], 
       [UserListingData].[ListingUrlCreated] AS [ListingUrlCreated], 
-      [UserListingData].[ListingCategoryId] AS [ListingCategoryId], 
       [UserListingData].[ListingCategoryName] AS [ListingCategoryName], 
-      [UserListingData].[ListingGroupId] AS [ListingGroupId], 
+      [UserListingData].[CategoryBaseUrl] AS [CategoryBaseUrl], 
+      [UserListingData].[ListingCategoryActive] AS [ListingCategoryActive], 
       [UserListingData].[ListingGroupName] AS [ListingGroupName], 
-      [UserListingData].[UserListingUrlId] AS [UserListingUrlId], 
-      [UserListingData].[ListingContentId] AS [ListingContentId], 
-      [UserListingData].[CityId] AS [CityId], 
+      [UserListingData].[ListingBaseUrl] AS [ListingBaseUrl], 
+      [UserListingData].[ListingGroupActive] AS [ListingGroupActive], 
       [UserListingData].[RegionName] AS [RegionName], 
-      [UserListingData].[CityName] AS [CityName], 
-      [UserListingData].[UserId] AS [UserId], 
-      [UserListingData].[Responded] AS [Responded], 
-      [UserListingData].[Response] AS [Response], 
-      [UserListingData].[ResponseSent] AS [ResponseSent], 
-      [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
-      [UserListingData].[Created] AS [Created], 
-      [UserListingData].[PostElement] AS [PostElement], 
-      [UserListingData].[ResponseText] AS [ResponseText], 
-      [UserListingData].[PostContent] AS [PostContent], 
-      [UserListingData].[ReplyTo] AS [ReplyTo], 
       [UserListingData].[StateProvince] AS [StateProvince], 
+      [UserListingData].[CityName] AS [CityName], 
+      [UserListingData].[CityBaseUrl] AS [CityBaseUrl], 
       [UserListingData].[CityActive] AS [CityActive], 
+      [UserListingData].[Response] AS [Response], 
+      [UserListingData].[ResponseText] AS [ResponseText], 
+      [UserListingData].[ResponseSent] AS [ResponseSent], 
+      [UserListingData].[UserListingCategoryActive] AS [UserListingCategoryActive], 
       [UserListingData].[UserCityActive] AS [UserCityActive], 
-      [UserListingData].[ListingCategoryActive] AS [ListingCategoryActive]
+      [UserListingData].[Responded] AS [Responded], 
+      [UserListingData].[CityId] AS [CityId], 
+      [UserListingData].[UserListingCategoryId] AS [UserListingCategoryId], 
+      [UserListingData].[UserCityId] AS [UserCityId], 
+      [UserListingData].[ListingCategoryId] AS [ListingCategoryId], 
+      [UserListingData].[ListingGroupId] AS [ListingGroupId], 
+      [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
+      [UserListingData].[ListingContentId] AS [ListingContentId], 
+      [UserListingData].[PostContent] AS [PostContent], 
+      [UserListingData].[PostElement] AS [PostElement], 
+      [UserListingData].[PostDate] AS [PostDate], 
+      [UserListingData].[ReplyTo] AS [ReplyTo], 
+      [UserListingData].[ListingContentCreated] AS [ListingContentCreated]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -250,52 +258,73 @@
       -->
         <EntityType Name="UserListingData">
           <Key>
-            <PropertyRef Name="UserListingCreated" />
+            <PropertyRef Name="UserListingUrlId" />
+            <PropertyRef Name="ListingUrlId" />
+            <PropertyRef Name="UserId" />
             <PropertyRef Name="Url" />
             <PropertyRef Name="Title" />
             <PropertyRef Name="PostId" />
             <PropertyRef Name="ListingUrlCreated" />
-            <PropertyRef Name="ListingCategoryId" />
             <PropertyRef Name="ListingCategoryName" />
-            <PropertyRef Name="ListingGroupId" />
+            <PropertyRef Name="CategoryBaseUrl" />
+            <PropertyRef Name="ListingCategoryActive" />
             <PropertyRef Name="ListingGroupName" />
-            <PropertyRef Name="UserListingUrlId" />
-            <PropertyRef Name="CityId" />
+            <PropertyRef Name="ListingBaseUrl" />
+            <PropertyRef Name="ListingGroupActive" />
             <PropertyRef Name="RegionName" />
             <PropertyRef Name="CityName" />
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CityBaseUrl" />
             <PropertyRef Name="CityActive" />
+            <PropertyRef Name="UserListingCategoryActive" />
             <PropertyRef Name="UserCityActive" />
-            <PropertyRef Name="ListingCategoryActive" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="UserListingCategoryId" />
+            <PropertyRef Name="UserCityId" />
+            <PropertyRef Name="ListingCategoryId" />
+            <PropertyRef Name="ListingGroupId" />
+            <PropertyRef Name="ListingContentId" />
+            <PropertyRef Name="PostContent" />
+            <PropertyRef Name="PostElement" />
+            <PropertyRef Name="PostDate" />
+            <PropertyRef Name="ReplyTo" />
+            <PropertyRef Name="ListingContentCreated" />
           </Key>
-          <Property Name="UserListingCreated" Type="datetime" Nullable="false" />
+          <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Url" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="PostId" Type="bigint" Nullable="false" />
           <Property Name="ListingUrlCreated" Type="datetime" Nullable="false" />
-          <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ListingCategoryName" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ListingGroupName" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="ListingContentId" Type="uniqueidentifier" />
-          <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="Responded" Type="datetime" />
-          <Property Name="Response" Type="xml" />
-          <Property Name="ResponseSent" Type="datetime" />
-          <Property Name="UserListingResponseId" Type="uniqueidentifier" />
-          <Property Name="Created" Type="datetime" />
-          <Property Name="PostElement" Type="xml" />
-          <Property Name="ResponseText" Type="nvarchar(max)" />
-          <Property Name="PostContent" Type="xml" />
-          <Property Name="ReplyTo" Type="nvarchar" MaxLength="255" />
-          <Property Name="StateProvince" Type="nvarchar" MaxLength="50" />
-          <Property Name="CityActive" Type="bit" Nullable="false" />
-          <Property Name="UserCityActive" Type="bit" Nullable="false" />
+          <Property Name="CategoryBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="ListingCategoryActive" Type="bit" Nullable="false" />
+          <Property Name="ListingGroupName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="ListingBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ListingGroupActive" Type="bit" Nullable="false" />
+          <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="StateProvince" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="CityActive" Type="bit" Nullable="false" />
+          <Property Name="Response" Type="xml" />
+          <Property Name="ResponseText" Type="nvarchar(max)" />
+          <Property Name="ResponseSent" Type="datetime" />
+          <Property Name="UserListingCategoryActive" Type="bit" Nullable="false" />
+          <Property Name="UserCityActive" Type="bit" Nullable="false" />
+          <Property Name="Responded" Type="datetime" />
+          <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserListingCategoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserCityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserListingResponseId" Type="uniqueidentifier" />
+          <Property Name="ListingContentId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PostContent" Type="xml" Nullable="false" />
+          <Property Name="PostElement" Type="xml" Nullable="false" />
+          <Property Name="PostDate" Type="datetime" Nullable="false" />
+          <Property Name="ReplyTo" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="ListingContentCreated" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -839,52 +868,73 @@
         </Association>
         <EntityType Name="UserListingData">
           <Key>
-            <PropertyRef Name="UserListingCreated" />
+            <PropertyRef Name="UserListingUrlId" />
+            <PropertyRef Name="ListingUrlId" />
+            <PropertyRef Name="UserId" />
             <PropertyRef Name="Url" />
             <PropertyRef Name="Title" />
             <PropertyRef Name="PostId" />
             <PropertyRef Name="ListingUrlCreated" />
-            <PropertyRef Name="ListingCategoryId" />
             <PropertyRef Name="ListingCategoryName" />
-            <PropertyRef Name="ListingGroupId" />
+            <PropertyRef Name="CategoryBaseUrl" />
+            <PropertyRef Name="ListingCategoryActive" />
             <PropertyRef Name="ListingGroupName" />
-            <PropertyRef Name="UserListingUrlId" />
-            <PropertyRef Name="CityId" />
+            <PropertyRef Name="ListingBaseUrl" />
+            <PropertyRef Name="ListingGroupActive" />
             <PropertyRef Name="RegionName" />
             <PropertyRef Name="CityName" />
-            <PropertyRef Name="UserId" />
+            <PropertyRef Name="CityBaseUrl" />
             <PropertyRef Name="CityActive" />
+            <PropertyRef Name="UserListingCategoryActive" />
             <PropertyRef Name="UserCityActive" />
-            <PropertyRef Name="ListingCategoryActive" />
+            <PropertyRef Name="CityId" />
+            <PropertyRef Name="UserListingCategoryId" />
+            <PropertyRef Name="UserCityId" />
+            <PropertyRef Name="ListingCategoryId" />
+            <PropertyRef Name="ListingGroupId" />
+            <PropertyRef Name="ListingContentId" />
+            <PropertyRef Name="PostContent" />
+            <PropertyRef Name="PostElement" />
+            <PropertyRef Name="PostDate" />
+            <PropertyRef Name="ReplyTo" />
+            <PropertyRef Name="ListingContentCreated" />
           </Key>
-          <Property Type="DateTime" Name="UserListingCreated" Nullable="false" />
+          <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
+          <Property Type="Guid" Name="ListingUrlId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
           <Property Type="String" Name="Url" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Type="Int64" Name="PostId" Nullable="false" />
           <Property Type="DateTime" Name="ListingUrlCreated" Nullable="false" />
-          <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
           <Property Type="String" Name="ListingCategoryName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
-          <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="UserListingUrlId" Nullable="false" />
-          <Property Type="Guid" Name="ListingContentId" />
-          <Property Type="Guid" Name="CityId" Nullable="false" />
-          <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Guid" Name="UserId" Nullable="false" />
-          <Property Type="DateTime" Name="Responded" />
-          <Property Type="String" Name="Response" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="ResponseSent" />
-          <Property Type="Guid" Name="UserListingResponseId" />
-          <Property Type="DateTime" Name="Created" />
-          <Property Type="String" Name="PostElement" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ResponseText" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="PostContent" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ReplyTo" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="StateProvince" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="CityActive" Nullable="false" />
-          <Property Type="Boolean" Name="UserCityActive" Nullable="false" />
+          <Property Type="String" Name="CategoryBaseUrl" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="ListingCategoryActive" Nullable="false" />
+          <Property Type="String" Name="ListingGroupName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ListingBaseUrl" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="ListingGroupActive" Nullable="false" />
+          <Property Type="String" Name="RegionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StateProvince" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CityBaseUrl" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="CityActive" Nullable="false" />
+          <Property Type="String" Name="Response" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ResponseText" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ResponseSent" />
+          <Property Type="Boolean" Name="UserListingCategoryActive" Nullable="false" />
+          <Property Type="Boolean" Name="UserCityActive" Nullable="false" />
+          <Property Type="DateTime" Name="Responded" />
+          <Property Type="Guid" Name="CityId" Nullable="false" />
+          <Property Type="Guid" Name="UserListingCategoryId" Nullable="false" />
+          <Property Type="Guid" Name="UserCityId" Nullable="false" />
+          <Property Type="Guid" Name="ListingCategoryId" Nullable="false" />
+          <Property Type="Guid" Name="ListingGroupId" Nullable="false" />
+          <Property Type="Guid" Name="UserListingResponseId" />
+          <Property Type="Guid" Name="ListingContentId" Nullable="false" />
+          <Property Type="String" Name="PostContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="PostDate" Nullable="false" />
+          <Property Type="String" Name="ReplyTo" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ListingContentCreated" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1059,34 +1109,42 @@
           <EntitySetMapping Name="UserListingDatas">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
               <MappingFragment StoreEntitySet="UserListingData">
-                <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
-                <ScalarProperty Name="UserCityActive" ColumnName="UserCityActive" />
-                <ScalarProperty Name="CityActive" ColumnName="CityActive" />
-                <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+                <ScalarProperty Name="ListingContentCreated" ColumnName="ListingContentCreated" />
                 <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
-                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
-                <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
                 <ScalarProperty Name="PostElement" ColumnName="PostElement" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
-                <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
-                <ScalarProperty Name="Response" ColumnName="Response" />
-                <ScalarProperty Name="Responded" ColumnName="Responded" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="PostContent" ColumnName="PostContent" />
                 <ScalarProperty Name="ListingContentId" ColumnName="ListingContentId" />
-                <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
-                <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
+                <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
                 <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
-                <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
                 <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+                <ScalarProperty Name="UserCityId" ColumnName="UserCityId" />
+                <ScalarProperty Name="UserListingCategoryId" ColumnName="UserListingCategoryId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Responded" ColumnName="Responded" />
+                <ScalarProperty Name="UserCityActive" ColumnName="UserCityActive" />
+                <ScalarProperty Name="UserListingCategoryActive" ColumnName="UserListingCategoryActive" />
+                <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
+                <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
+                <ScalarProperty Name="Response" ColumnName="Response" />
+                <ScalarProperty Name="CityActive" ColumnName="CityActive" />
+                <ScalarProperty Name="CityBaseUrl" ColumnName="CityBaseUrl" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+                <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+                <ScalarProperty Name="ListingGroupActive" ColumnName="ListingGroupActive" />
+                <ScalarProperty Name="ListingBaseUrl" ColumnName="ListingBaseUrl" />
+                <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
+                <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
+                <ScalarProperty Name="CategoryBaseUrl" ColumnName="CategoryBaseUrl" />
+                <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
                 <ScalarProperty Name="ListingUrlCreated" ColumnName="ListingUrlCreated" />
                 <ScalarProperty Name="PostId" ColumnName="PostId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
-                <ScalarProperty Name="UserListingCreated" ColumnName="UserListingCreated" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ListingUrlId" ColumnName="ListingUrlId" />
+                <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1189,7 +1247,7 @@
           <ConnectorPoint PointX="2.625" PointY="16.664195149739584" />
           <ConnectorPoint PointX="3" PointY="16.664195149739584" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="10.375" PointY="7.75" Height="5.5366422526041674" />
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="10.375" PointY="7.75" Height="6.8514208984375031" />
         </Diagram>
     </Diagrams>
   </Designer>
