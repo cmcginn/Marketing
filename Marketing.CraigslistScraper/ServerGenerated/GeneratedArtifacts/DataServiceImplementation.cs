@@ -643,11 +643,6 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItems", frameworkOperators, userId);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id)
-        {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemById", frameworkOperators, id);
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingResponseItem> UserListingResponseItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingResponseItem>("UserListingResponseItems_Single", frameworkOperators, Id);
@@ -691,6 +686,16 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> GetUserKeywordSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserKeywordSelection>("GetUserKeywordSelectionByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemsByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemsByUserId", frameworkOperators, userId);
         }
     
     #endregion
@@ -912,13 +917,6 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemById(global::System.Nullable<global::System.Guid> id)
-        {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemById", id).AsQueryable();
-            return query;
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingResponseItem> UserListingResponseItems_Single(global::System.Nullable<global::System.Guid> Id)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingResponseItem> query;
@@ -989,6 +987,20 @@ namespace LightSwitchApplication.Implementation
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
             query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", userId).AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> GetUserKeywordSelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserKeywordSelection>("GetUserKeywordSelectionByUserId", userId).AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemsByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemsByUserId", userId).AsQueryable();
             return query;
         }
     

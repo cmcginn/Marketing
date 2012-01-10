@@ -34,7 +34,7 @@ namespace Marketing.Services {
     }
     [Query( IsDefault = true )]
     public IQueryable<UserKeywordSelection> DefaultUserKeywords() {
-      var result = Context.GetUserKeywordSelectionFromContext();
+      var result = new List<UserKeywordSelection>().AsQueryable();
       return result;
     }
     [Query( IsDefault = true )]
@@ -44,7 +44,7 @@ namespace Marketing.Services {
     }
     [Query( IsDefault = true )]
     public IQueryable<UserListingItem> DefaultUserListingItems() {
-      var result = Context.GetUserListingItems();
+      var result = new List<UserListingItem>().AsQueryable();
       return result;
     }
     [Query( IsDefault = true )]   
@@ -56,7 +56,14 @@ namespace Marketing.Services {
     public IQueryable<Operation> DefaultServerOperations() {
       return DomainExtensions.GetDefaultServerOperations();
     }
-
+    public IQueryable<UserListingItem> GetUserListingItemsByUserId( Guid? userId ) {
+      var result = Context.GetUserListingItemsByUserId( userId.Value );
+      return result;
+    }
+    public IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( Guid? userId ) {
+      var result = Context.GetUserKeywordSelectionByUserId( userId.GetValueOrDefault() );
+      return result;
+    }
     public IQueryable<UserCitySelection> GetUserCitySelectionByUserId( Guid? userId ) {
       var result = Context.GetUserCitySelectionByUserId( userId.GetValueOrDefault() );
       return result;
@@ -86,11 +93,6 @@ namespace Marketing.Services {
     public void UpdateUserListingItem( UserListingItem item ) {
       var response = Context.SaveUserListingResponse( item );
       Context.SendUserListingResponse( response );
-    }
-    public UserListingItem GetUserListingItemById( Guid? id ) {
-      var key = id.GetValueOrDefault();
-      var result = Context.GetUserListingItems().Single( x => x.Id == key) ;
-      return result;
     }
     public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
       Context.GetUserPreferenceSelectionByUserId( userId.GetValueOrDefault() );

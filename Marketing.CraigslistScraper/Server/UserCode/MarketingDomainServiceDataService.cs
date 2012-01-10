@@ -8,9 +8,7 @@ namespace LightSwitchApplication {
   public partial class MarketingDomainServiceDataService {
     static Guid _UserId;
 
-    partial void UserCitySelections_Updating( UserCitySelection entity ) {
-      entity.UserId = UserId;
-    }
+
 
     partial void GetUserCitySelections_Executed( Guid? userId, IEnumerable<UserCitySelection> result ) {
       UserId = userId.GetValueOrDefault();
@@ -24,13 +22,6 @@ namespace LightSwitchApplication {
       }
     }
 
-    partial void UserListingCategorySelections_Updating( UserListingCategorySelection entity ) {
-      entity.UserId = UserId;
-    }
-
-    partial void UserKeywordSelections_Inserting( UserKeywordSelection entity ) {
-      entity.UserId = UserId;
-    }
 
     partial void GetUserListingResponseById_Executed( Guid? responseId, IEnumerable<UserListingResponseItem> result ) {
       if( result.Count() == 0 ) {
@@ -39,9 +30,6 @@ namespace LightSwitchApplication {
       }
     }
 
-    partial void GetUserListingResponseById_PreprocessQuery( Guid? responseId, ref IQueryable<UserListingResponseItem> query ) {
-
-    }
 
 
   }

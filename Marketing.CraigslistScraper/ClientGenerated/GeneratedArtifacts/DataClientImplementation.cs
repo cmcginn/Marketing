@@ -2709,12 +2709,6 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginGetUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingItem> EndGetUserListingItems(global::System.IAsyncResult result);
             
-            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemById", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemByIdResponse"),
-             global::System.ServiceModel.Web.WebGet(),
-             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemByIdDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginGetUserListingItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id, global::System.AsyncCallback callback, global::System.Object asyncState);
-            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingItem> EndGetUserListingItemById(global::System.IAsyncResult result);
-            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserListingResponseItems_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserListingResponseItems_SingleResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserListingResponseItems_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
@@ -2768,6 +2762,18 @@ namespace LightSwitchApplication.Implementation
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserCitySelectionByUserIdDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginGetUserCitySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserCitySelection> EndGetUserCitySelectionByUserId(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserKeywordSelectionByUserId", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserKeywordSelectionByUserIdResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserKeywordSelectionByUserIdDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserKeywordSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserKeywordSelection> EndGetUserKeywordSelectionByUserId(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemsByUserId", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemsByUserIdResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemsByUserIdDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserListingItemsByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingItem> EndGetUserListingItemsByUserId(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]

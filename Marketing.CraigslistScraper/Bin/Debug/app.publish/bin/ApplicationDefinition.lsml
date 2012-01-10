@@ -2278,6 +2278,17 @@
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
     </QueryOperation>
+    <QueryOperation Name="GetUserKeywordSelectionByUserId"
+                    ReturnType="UserKeywordSelection*">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserKeywordSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   
   
@@ -2320,34 +2331,6 @@
           <IsParameter />
         </ScreenProperty.Attributes>
       </ScreenProperty>
-      <ScreenCollectionProperty Name="GetUserKeywordSelections"
-                                PageSize="45"
-                                PropertyType="CollectionView$UserKeywordSelection">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="GetUserKeywordSelectionsQuery"
-                                 ReturnType="UserKeywordSelection*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserKeywordSelections]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="Preferences/Properties[GetUserKeywordSelections]/Query">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
       <ScreenProperty Name="GetUserPreferenceSelectionByUserId"
                       PropertyType="UserPreferenceSelection">
         <ScreenExpressionTree>
@@ -2457,9 +2440,37 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenCollectionProperty Name="GetUserKeywordSelectionByUserId"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserKeywordSelection">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetUserKeywordSelectionByUserIdQuery"
+                                 ReturnType="UserKeywordSelection*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserKeywordSelectionByUserId]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Preferences/Properties[GetUserKeywordSelectionByUserId]/Query">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2511,6 +2522,105 @@
         <ContentItem Kind="Group"
                      Name="ScreenLayout"
                      View=":TabsLayout">
+          <ContentItem DataType="CollectionView$UserCitySelection"
+                       Kind="Collection"
+                       Name="GetUserCitySelectionByUserId">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="GetUserCitySelectionByUserId_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserCitySelectionByUserId_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserCitySelectionByUserId_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType="UserCitySelection"
+                         Kind="Details"
+                         Name="GetUserCitySelectionByUserIdTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="RegionName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[RegionName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="StateProvince">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[StateProvince]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="CityName">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[CityName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Boolean"
+                           Kind="Value"
+                           Name="Selected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserCitySelection/Properties[Selected]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
           <ContentItem DataType="CollectionView$UserListingCategorySelection"
                        Kind="Collection"
                        Name="GetUserListingCategorySelectionByUserId">
@@ -2601,36 +2711,36 @@
           </ContentItem>
           <ContentItem DataType="CollectionView$UserKeywordSelection"
                        Kind="Collection"
-                       Name="GetUserKeywordSelections">
+                       Name="GetUserKeywordSelectionByUserId">
             <ContentItem.CommandItems>
               <ContentItem Kind="Command"
-                           Name="GetUserKeywordSelections_AddAndEditNew">
+                           Name="GetUserKeywordSelectionByUserId_AddAndEditNew">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelectionByUserId]" />
                       <CallExpression Target="AddAndEditNew" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem Kind="Command"
-                           Name="GetUserKeywordSelections_EditSelected">
+                           Name="GetUserKeywordSelectionByUserId_EditSelected">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelectionByUserId]" />
                       <CallExpression Target="EditSelected" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem Kind="Command"
-                           Name="GetUserKeywordSelections_DeleteSelected">
+                           Name="GetUserKeywordSelectionByUserId_DeleteSelected">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                      <MemberExpression Member="Preferences/Properties[GetUserKeywordSelectionByUserId]" />
                       <CallExpression Target="DeleteSelected" />
                     </ChainExpression>
                   </ScreenExpressionTree>
@@ -2640,13 +2750,13 @@
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[GetUserKeywordSelections]" />
+                  <MemberExpression Member="Preferences/Properties[GetUserKeywordSelectionByUserId]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
             <ContentItem DataType="UserKeywordSelection"
                          Kind="Details"
-                         Name="GetUserKeywordSelectionsTemplate">
+                         Name="GetUserKeywordSelectionByUserIdTemplate">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression />
@@ -2777,105 +2887,6 @@
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
-            </ContentItem>
-          </ContentItem>
-          <ContentItem DataType="CollectionView$UserCitySelection"
-                       Kind="Collection"
-                       Name="GetUserCitySelectionByUserId">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="GetUserCitySelectionByUserId_AddAndEditNew">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                      <CallExpression Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserCitySelectionByUserId_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserCitySelectionByUserId_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                      <CallExpression Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem DataType="UserCitySelection"
-                         Kind="Details"
-                         Name="GetUserCitySelectionByUserIdTemplate">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression />
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem DataType=":String?"
-                           Kind="Value"
-                           Name="RegionName">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserCitySelection/Properties[RegionName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String?"
-                           Kind="Value"
-                           Name="StateProvince">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserCitySelection/Properties[StateProvince]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String?"
-                           Kind="Value"
-                           Name="CityName">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserCitySelection/Properties[CityName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Boolean"
-                           Kind="Value"
-                           Name="Selected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserCitySelection/Properties[Selected]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
             </ContentItem>
           </ContentItem>
         </ContentItem>
@@ -3308,7 +3319,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3764,7 +3775,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3946,7 +3957,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4128,7 +4139,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4255,7 +4266,7 @@
   </Screen>
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
+               Name="MarketingDomainServiceDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -4336,6 +4347,13 @@
                         Property="UserKeywordSelection/Properties[UserId]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserKeywordSelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserKeywordSelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserKeywordSelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
     <EntitySetMapping EntitySet="UserPreferenceSelections">
       <EntitySetMapping.Attributes>
         <WcfRiaEntitySet EntitySetQuery="DefaultUserPreferenceSelections"
@@ -4451,6 +4469,8 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
 
   
 

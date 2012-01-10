@@ -40,3 +40,14 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Pr
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.Unity.Interception.xml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetCraigslistListingUrlsActivity.g.cs
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetCraigslistListingUrlsActivity.g.xaml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetListingContentActivity.g.cs
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetListingContentActivity.g.xaml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserCraigslistContent.g.cs
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserCraigslistContent.g.xaml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserCraigslistListingUrls.g.cs
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserCraigslistListingUrls.g.xaml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserDataActivity.g.cs
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserDataActivity.g.xaml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\_Marketing.WorkflowActivities.g.cs

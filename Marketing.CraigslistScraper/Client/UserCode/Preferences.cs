@@ -17,14 +17,13 @@ namespace LightSwitchApplication
       partial void Preferences_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
         this.UserId = Application.UserId;
       }
-      void SaveUserCitySelections() {
-        var x = "Y";
+      partial void GetUserKeywordSelectionByUserId_Changed( NotifyCollectionChangedEventArgs e ) {
+        if( e.NewItems != null ) {
+          var added = e.NewItems.OfType<UserKeywordSelection>().LastOrDefault();
+          if( added != null )
+            added.UserId = UserId.GetValueOrDefault();
+        }
       }
-      partial void Preferences_Saving( ref bool handled ) {
-        // Write your code here.
-        SaveUserCitySelections();
-      }
-
 
 
     }

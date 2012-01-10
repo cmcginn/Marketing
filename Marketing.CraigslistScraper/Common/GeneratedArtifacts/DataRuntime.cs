@@ -922,17 +922,6 @@ namespace LightSwitchApplication
         }
         
         /// <summary>
-        /// No Modeled Description Available
-        /// </summary>
-        /// <param name="id">
-        /// No Modeled Description Available
-        /// </param>
-        public global::LightSwitchApplication.UserListingItem GetUserListingItemById(global::System.Nullable<global::System.Guid> id)
-        {
-            return this.Details.Methods.GetUserListingItemById.CreateInvocation(id).Execute();
-        }
-        
-        /// <summary>
         /// Returns the entity whose identity is specified by the parameter(s).
         /// </summary>
         /// <param name="Id">
@@ -1007,6 +996,28 @@ namespace LightSwitchApplication
         public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserCitySelection> GetUserCitySelectionByUserId(global::System.Nullable<global::System.Guid> userId)
         {
             return this.Details.Methods.GetUserCitySelectionByUserId.CreateInvocation(userId).Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        /// <param name="userId">
+        /// No Modeled Description Available
+        /// </param>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserKeywordSelection> GetUserKeywordSelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.Details.Methods.GetUserKeywordSelectionByUserId.CreateInvocation(userId).Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        /// <param name="userId">
+        /// No Modeled Description Available
+        /// </param>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserListingItem> GetUserListingItemsByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.Details.Methods.GetUserListingItemsByUserId.CreateInvocation(userId).Execute();
         }
         
         #endregion
@@ -1177,14 +1188,6 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem> GetUserListingItemById
-                {
-                    get
-                    {
-                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetUserListingItemById) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>;
-                    }
-                }
-                
                 public global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingResponseItem> UserListingResponseItems_Single
                 {
                     get
@@ -1238,6 +1241,22 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetUserCitySelectionByUserId) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection> GetUserKeywordSelectionByUserId
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetUserKeywordSelectionByUserId) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem> GetUserListingItemsByUserId
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetUserListingItemsByUserId) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>;
                     }
                 }
                 
@@ -1469,16 +1488,6 @@ namespace LightSwitchApplication
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry
-                    GetUserListingItemById = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry(
-                        "GetUserListingItemById",
-                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._GetUserListingItemById_Stub);
-                private static void _GetUserListingItemById_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
-                {
-                    c(d, ref d._GetUserListingItemById, sf);
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingResponseItem>.Entry
                     UserListingResponseItems_Single = new global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingResponseItem>.Entry(
                         "UserListingResponseItems_Single",
@@ -1546,6 +1555,26 @@ namespace LightSwitchApplication
                 private static void _GetUserCitySelectionByUserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
                 {
                     c(d, ref d._GetUserCitySelectionByUserId, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Entry
+                    GetUserKeywordSelectionByUserId = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Entry(
+                        "GetUserKeywordSelectionByUserId",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._GetUserKeywordSelectionByUserId_Stub);
+                private static void _GetUserKeywordSelectionByUserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserKeywordSelectionByUserId, sf);
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry
+                    GetUserListingItemsByUserId = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry(
+                        "GetUserListingItemsByUserId",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._GetUserListingItemsByUserId_Stub);
+                private static void _GetUserListingItemsByUserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserListingItemsByUserId, sf);
                 }
     
             }
@@ -1695,9 +1724,6 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data _GetUserListingItems;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data _GetUserListingItemById;
-            
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingResponseItem>.Data _UserListingResponseItems_Single;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1717,6 +1743,12 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserCitySelection>.Data _GetUserCitySelectionByUserId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserKeywordSelection>.Data _GetUserKeywordSelectionByUserId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data _GetUserListingItemsByUserId;
             
         }
     

@@ -19,7 +19,7 @@ namespace Marketing.Services.Extensions {
                   on category.Id equals userCategory.ListingCategoryId into ulc
 
                   from item in ulc.DefaultIfEmpty()
-                  select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, CategoryId = category.Id };
+                  select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false, UserId = item.UserId != Guid.Empty ? item.UserId : userId, CategoryId = category.Id };
       return query.AsQueryable();
     }
     public static IQueryable<UserCitySelection> GetUserCitySelectionByUserId( this MarketingEntities context,Guid userId ) {
@@ -31,8 +31,8 @@ namespace Marketing.Services.Extensions {
 
       return query.AsQueryable();
     }
-    public static IQueryable<UserKeywordSelection> GetUserKeywordSelectionFromContext( this MarketingEntities context ) {
-      var query = from userKeyword in context.UserKeywords
+    public static IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( this MarketingEntities context,Guid userId ) {
+      var query = from userKeyword in context.UserKeywords.Where(x=>x.UserId==userId)
                   select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
       return query;
     }
@@ -41,8 +41,8 @@ namespace Marketing.Services.Extensions {
                   select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress, SMTPUsername = userPreference.SMTPUser, SMTPServer = userPreference.SMTPServer, SMTPPort = userPreference.SMTPPort, RequiresSSL = userPreference.RequiresSSL, SMTPPassword = userPreference.SMTPPassword };
       return query;
     }
-    public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context ) {
-      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) )
+    public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context,Guid userId ) {
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) && x.UserId==userId)
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,
