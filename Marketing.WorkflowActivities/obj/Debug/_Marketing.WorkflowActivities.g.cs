@@ -57,6 +57,10 @@ namespace XamlStaticHelperNamespace {
                         "3a"));
             assemblyList.Add(Load("Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral," +
                         " PublicKeyToken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.505.0, Culture=neutral, P" +
+                        "ublicKeyToken=31bf3856ad364e35"));
+            assemblyList.Add(Load("Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=5.0.505.0, Cultur" +
+                        "e=neutral, PublicKeyToken=31bf3856ad364e35"));
             assemblyList.Add(Load("Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.505.0, Culture=neutral" +
                         ", PublicKeyToken=31bf3856ad364e35"));
             assemblyList.Add(Load("Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyT" +

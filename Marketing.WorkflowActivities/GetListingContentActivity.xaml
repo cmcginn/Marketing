@@ -29,7 +29,7 @@
             <av:Size x:Key="ShapeSize">200,49</av:Size>
           </scg3:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <Sequence DisplayName="Get Content For Url" sap:VirtualizedContainerService.HintSize="264,709">
+        <Sequence DisplayName="Get Content For Url" sap:VirtualizedContainerService.HintSize="264,806">
           <Sequence.Variables>
             <Variable x:TypeArguments="s:Byte[]" Name="rawResponse" />
             <Variable x:TypeArguments="x:String" Name="responseString" />
@@ -68,6 +68,14 @@
             </Assign.To>
             <Assign.Value>
               <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(responseString,"&lt;!DOCTYPE html .*&gt;","")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign DisplayName="Close Empty BR" sap:VirtualizedContainerService.HintSize="242,57">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[responseString]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[responseString.Replace("&lt;br&gt;","&lt;br/&gt;")]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="Assign Result" sap:VirtualizedContainerService.HintSize="242,57">

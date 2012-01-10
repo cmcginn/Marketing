@@ -43,6 +43,14 @@
                 <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(responseString,"&lt;!DOCTYPE html .*&gt;","")]</InArgument>
               </Assign.Value>
             </Assign>
+            <Assign DisplayName="Close Empty BR">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[responseString]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[responseString.Replace("&lt;br&gt;","&lt;br/&gt;")]</InArgument>
+              </Assign.Value>
+            </Assign>
             <Assign DisplayName="Assign Result">
               <Assign.To>
                 <OutArgument x:TypeArguments="mu:ListingContentItem">[Result]</OutArgument>

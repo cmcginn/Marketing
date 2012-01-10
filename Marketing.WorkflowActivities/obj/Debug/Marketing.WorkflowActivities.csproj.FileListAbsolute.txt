@@ -40,6 +40,12 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Pr
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.Unity.Interception.xml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.xml
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.dll
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.pdb
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetCraigslistListingUrlsActivity.g.cs
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetCraigslistListingUrlsActivity.g.xaml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetListingContentActivity.g.cs

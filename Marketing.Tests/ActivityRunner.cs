@@ -8,7 +8,7 @@ using System.Workflow.Activities;
 using System.Workflow.Runtime;
 using Marketing.WorkflowActivities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using Microsoft.Practices.EnterpriseLibrary.Logging;
 namespace Marketing.Tests {
   /// <summary>
   /// Summary description for ActivityRunner
@@ -60,10 +60,11 @@ namespace Marketing.Tests {
 
     [TestMethod]
     public void RunActivity() {
+     
       var inputs = new Dictionary<string, object>();
       var userId = new Guid( "D1111E48-27EF-4774-9DEF-40B4A03D1925" );
       inputs.Add( "UserId", userId );
-      var host = new WorkflowInvoker( new RefreshUserDataActivity());
+      var host = new WorkflowInvoker( new RefreshUserDataActivity() );
       host.Invoke( inputs );
      
     }

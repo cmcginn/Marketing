@@ -34,7 +34,7 @@ namespace Marketing.Utils.Extensions {
     }
     public static XElement GetPostingElement( string response ) {
       var converter = new HtmlToXmlConverter();
-      var element = converter.ConvertToXml( response.Replace( "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">", "" ) );
+      var element = converter.ConvertToXml( response.Replace( "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">", "" ).Replace("<br>","<br/>") );
       return element;
     }
     public static void GetListingContentItem( this ListingContentItem  listingContentItem ) {
