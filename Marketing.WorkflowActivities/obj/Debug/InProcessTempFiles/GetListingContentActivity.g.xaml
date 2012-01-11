@@ -48,7 +48,7 @@
                 <OutArgument x:TypeArguments="x:String">[responseString]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[responseString.Replace("&lt;br&gt;","&lt;br/&gt;")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[responseString.Replace("&lt;br&gt;","&lt;div style='clear:both;'&gt;&lt;/div&gt;")]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="Assign Result">

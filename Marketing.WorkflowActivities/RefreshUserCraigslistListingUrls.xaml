@@ -50,12 +50,12 @@
                 <av:Size x:Key="ShapeSize">200,49</av:Size>
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ForEach x:TypeArguments="md:UserListingRefresh" DisplayName="For Each UserListingCategory" sap:VirtualizedContainerService.HintSize="444,415" Values="[UserListingRefreshes]">
+            <ForEach x:TypeArguments="md:UserListingRefresh" DisplayName="For Each UserListingCategory" sap:VirtualizedContainerService.HintSize="586,1733" Values="[UserListingRefreshes]">
               <ActivityAction x:TypeArguments="md:UserListingRefresh">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="md:UserListingRefresh" Name="item" />
                 </ActivityAction.Argument>
-                <TryCatch sap:VirtualizedContainerService.HintSize="414,312">
+                <TryCatch sap:VirtualizedContainerService.HintSize="556,1630">
                   <TryCatch.Try>
                     <Sequence DisplayName="Refresh Listings" sap:VirtualizedContainerService.HintSize="538,1452">
                       <Sequence.Variables>
@@ -128,6 +128,7 @@
                               </InvokeMethod.Result>
                               <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
                               <InArgument x:TypeArguments="md:ListingUrl">[listingUrl]</InArgument>
+                              <InArgument x:TypeArguments="s:Guid">[UserId]</InArgument>
                             </InvokeMethod>
                             <If Condition="[userListingUrl Is Nothing]" DisplayName="If UserListingUrl Does Not Exist" sap:VirtualizedContainerService.HintSize="464,616">
                               <If.Then>
@@ -165,10 +166,10 @@
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,158">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="542,20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>

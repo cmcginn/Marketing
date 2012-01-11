@@ -78,6 +78,7 @@
                                 </InvokeMethod.Result>
                                 <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
                                 <InArgument x:TypeArguments="md:ListingUrl">[listingUrl]</InArgument>
+                                <InArgument x:TypeArguments="s:Guid">[UserId]</InArgument>
                               </InvokeMethod>
                               <If Condition="[userListingUrl Is Nothing]" DisplayName="If UserListingUrl Does Not Exist">
                                 <If.Then>

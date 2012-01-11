@@ -20,7 +20,7 @@
         <xsl:value-of select="/html/head/title/text()"/>
       </xsl:element>
       <xsl:element name="Body">
-        <xsl:value-of select="extensions:GetCraigslistJobDetails($userbody)"/>
+        <!--<xsl:value-of select="extensions:GetCraigslistJobDetails($userbody)"/>-->
         <xsl:call-template name="blurbs">
         </xsl:call-template>
       </xsl:element>
@@ -51,7 +51,7 @@
   <xsl:template name="contact">
     <xsl:variable name="contact" select="*//a[contains(@href,'mailto:')]"></xsl:variable>
     <xsl:attribute name="contact">
-      <xsl:value-of select="$contact/@href"/>
+      <xsl:value-of select="substring-before($contact/@href,'&amp;amp;body=')"/>
     </xsl:attribute>
   </xsl:template>
 </xsl:stylesheet>
