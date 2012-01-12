@@ -135,5 +135,24 @@ namespace Marketing.Tests {
                 return ResourceManager.GetString("cl4", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;html&gt;
+        ///  &lt;head&gt;
+        ///    &lt;title&gt;Yard Sale All Day 12/3/2011&lt;/title&gt;
+        ///    &lt;meta name=&quot;robots&quot; content=&quot;NOARCHIVE,NOFOLLOW&quot;&gt;
+        ///      &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; media=&quot;all&quot; href=&quot;http://www.craigslist.org/styles/craigslist.css?v=9&quot;&gt;&lt;/link&gt;
+        ///    &lt;/meta&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body class=&quot;posting&quot;&gt;
+        ///    &lt;div class=&quot;bchead&quot;&gt;
+        ///      &lt;a id=&quot;ef&quot; href=&quot;https://accounts.craigslist.org/eaf?postingID=2733727968&amp;amp;amp;token=U2FsdGVkX18yNzcyMjc3MqVaifFAyukNI0PVO8F5a8WeXJXyzZF3bHX3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string cl5 {
+            get {
+                return ResourceManager.GetString("cl5", resourceCulture);
+            }
+        }
     }
 }

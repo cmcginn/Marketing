@@ -418,3 +418,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.Unity.Configuration.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.Unity.Interception.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.xml

@@ -48,10 +48,10 @@
       <xsl:value-of select="substring-before(substring-after($head,'postingID='),'&amp;')"/>
     </xsl:attribute>
   </xsl:template>
-  <xsl:template name="contact">
-    <xsl:variable name="contact" select="*//a[contains(@href,'mailto:')]"></xsl:variable>
-    <xsl:attribute name="contact">
-      <xsl:value-of select="substring-before($contact/@href,'&amp;amp;body=')"/>
+  <xsl:template name="contact">   
+    <xsl:variable name="contact" select="*//a[contains(@href,'mailto:')]/@href"></xsl:variable>
+    <xsl:attribute name="contact">   
+      <xsl:value-of select="$contact"/>
     </xsl:attribute>
   </xsl:template>
 </xsl:stylesheet>

@@ -45,6 +45,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dependencies\Common.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -112,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="XsltExtensionsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Marketing.Data\Marketing.Data.csproj">
@@ -137,6 +140,7 @@
     <Content Include="Resources\cl2.xml" />
     <Content Include="Resources\cl3.xml" />
     <Content Include="Resources\cl4.xml" />
+    <Content Include="Resources\cl5.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestResources.resx">

@@ -422,3 +422,5 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.Interception.Configuration.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.Unity.Interception.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll

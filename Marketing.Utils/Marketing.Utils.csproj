@@ -65,7 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TransformationResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TransformationResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

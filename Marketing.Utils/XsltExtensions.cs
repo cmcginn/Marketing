@@ -20,5 +20,6 @@ namespace Marketing.Utils {
       var result = resultDocument.ToXmlDocument().FirstChild;
       return result;
     }
+
   }
 }

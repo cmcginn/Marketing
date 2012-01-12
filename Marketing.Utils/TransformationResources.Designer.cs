@@ -22,7 +22,7 @@ namespace Marketing.Utils {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class TransformationResources {
+    public class TransformationResources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Marketing.Utils {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Marketing.Utils.TransformationResources", typeof(TransformationResources).Assembly);
@@ -51,7 +51,7 @@ namespace Marketing.Utils {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -67,14 +67,13 @@ namespace Marketing.Utils {
         ///  &lt;xsl:output method=&quot;xml&quot; indent=&quot;yes&quot;/&gt;
         ///
         ///  &lt;xsl:template match=&quot;/&quot;&gt;
-        ///    &lt;xsl:element name=&quot;Posts&quot;&gt;
-        ///      &lt;xsl:apply-templates select=&quot;/Posts//Post&quot;/&gt;
-        ///    &lt;/xsl:element&gt;
+        ///    &lt;xsl:apply-templates select=&quot;/html&quot;/&gt;
         ///  &lt;/xsl:template&gt;
-        ///  &lt;xsl:template match=&quot;/Posts/Post&quot;&gt;
-        ///    &lt;xsl:variable name=&quot;body&quot; select =&quot;./ [rest of string was truncated]&quot;;.
+        ///  &lt;xsl:template match=&quot;/html&quot;&gt;
+        ///    &lt;xsl:variable name=&quot;body&quot; select =&quot;/html/body&quot;&gt;&lt;/xsl:variable&gt;
+        ///    &lt;xsl:variable name=&quot;userbody&quot; select [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string CraigslistResponse {
+        public static string CraigslistResponse {
             get {
                 return ResourceManager.GetString("CraigslistResponse", resourceCulture);
             }

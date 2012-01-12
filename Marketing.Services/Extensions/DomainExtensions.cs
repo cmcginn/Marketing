@@ -120,7 +120,10 @@ namespace Marketing.Services.Extensions {
       var address = String.Format( "{0}@{1}", uri.UserInfo, uri.DnsSafeHost );
       var subject = nvc[ 0 ];
       var body = item.Response.ToString();
-
+      if( nvc.Count > 1 )
+        body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] );    
+      
+      
       var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
       //if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
       address = fromAddress;
