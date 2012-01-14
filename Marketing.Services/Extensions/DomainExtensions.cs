@@ -41,8 +41,8 @@ namespace Marketing.Services.Extensions {
                   select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress, SMTPUsername = userPreference.SMTPUser, SMTPServer = userPreference.SMTPServer, SMTPPort = userPreference.SMTPPort, RequiresSSL = userPreference.RequiresSSL, SMTPPassword = userPreference.SMTPPassword };
       return query;
     }
-    public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context,Guid userId ) {
-      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) && x.UserId==userId)
+    public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context) {
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null)
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,
@@ -63,7 +63,31 @@ namespace Marketing.Services.Extensions {
                     CityActive = userListingData.CityActive,
                     UserCityActive = userListingData.UserCityActive,
                     ListingCategoryActive = userListingData.ListingCategoryActive
-
+                  };
+      return query;
+    }
+    public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context,Guid userId ) {
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) && x.UserId == userId )
+                  select new UserListingItem {
+                    Id = userListingData.UserListingUrlId,
+                    CategoryName = userListingData.ListingCategoryName,
+                    CityName = userListingData.CityName,
+                    StateProvince = userListingData.StateProvince,
+                    GroupName = userListingData.ListingGroupName,
+                    RegionName = userListingData.RegionName,
+                    PostElement = userListingData.PostElement,
+                    Created = userListingData.ListingUrlCreated,
+                    Title = userListingData.Title,
+                    UserId = userListingData.UserId,
+                    Responded = userListingData.Responded,
+                    ResponseId = userListingData.UserListingResponseId,
+                    Response = userListingData.Response,
+                    ResponseSent = userListingData.ResponseSent,
+                    ResponseText = userListingData.ResponseText,
+                    PostHtml = userListingData.PostContent,
+                    CityActive = userListingData.CityActive,
+                    UserCityActive = userListingData.UserCityActive,
+                    ListingCategoryActive = userListingData.ListingCategoryActive
                   };
       return query;
     }
@@ -160,6 +184,30 @@ namespace Marketing.Services.Extensions {
         context.UserPreferences.AddObject( result );
         context.SaveChanges();
       }
+      return result;
+    }
+    static UserListingItem ToUserListingItem(this UserListingData userListingData ) {
+      var result = new UserListingItem {
+        Id = userListingData.UserListingUrlId,
+        CategoryName = userListingData.ListingCategoryName,
+        CityName = userListingData.CityName,
+        StateProvince = userListingData.StateProvince,
+        GroupName = userListingData.ListingGroupName,
+        RegionName = userListingData.RegionName,
+        PostElement = userListingData.PostElement,
+        Created = userListingData.ListingUrlCreated,
+        Title = userListingData.Title,
+        UserId = userListingData.UserId,
+        Responded = userListingData.Responded,
+        ResponseId = userListingData.UserListingResponseId,
+        Response = userListingData.Response,
+        ResponseSent = userListingData.ResponseSent,
+        ResponseText = userListingData.ResponseText,
+        PostHtml = userListingData.PostContent,
+        CityActive = userListingData.CityActive,
+        UserCityActive = userListingData.UserCityActive,
+        ListingCategoryActive = userListingData.ListingCategoryActive
+      };
       return result;
     }
   }

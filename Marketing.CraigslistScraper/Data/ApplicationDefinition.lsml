@@ -2472,7 +2472,7 @@
       </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3321,7 +3321,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3346,6 +3346,12 @@
       </ScreenMethod>
     </Screen.Methods>
     <Screen.Properties>
+      <ScreenProperty Name="UserListingItemuserId"
+                      PropertyType=":Guid" />
+      <ScreenProperty Name="UserId"
+                      PropertyType=":Guid?" />
+      <ScreenProperty Name="ResponseId"
+                      PropertyType=":Guid?" />
       <ScreenCollectionProperty Name="GetUserListingItems"
                                 PageSize="45"
                                 PropertyType="CollectionView$UserListingItem">
@@ -3365,40 +3371,6 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression Target="UserListItemsView/Properties[GetUserListingItems]/Query">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="UserListItemsView/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-      <ScreenProperty Name="UserListingItemuserId"
-                      PropertyType=":Guid" />
-      <ScreenProperty Name="UserId"
-                      PropertyType=":Guid?" />
-      <ScreenProperty Name="ResponseId"
-                      PropertyType=":Guid?" />
-      <ScreenCollectionProperty Name="GetUserListingItemsByUserId"
-                                PageSize="45"
-                                PropertyType="CollectionView$UserListingItem">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="GetUserListingItemsByUserIdQuery"
-                                 ReturnType="UserListingItem*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserListingItemsByUserId]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="UserListItemsView/Properties[GetUserListingItemsByUserId]/Query">
               <ArgumentExpression Parameter="userId">
                 <ChainExpression>
                   <MemberExpression Member="UserListItemsView/Properties[UserId]" />
@@ -3439,24 +3411,57 @@
                      View="Microsoft.LightSwitch:ColumnsLayout">
           <ContentItem DataType="CollectionView$UserListingItem"
                        Kind="Collection"
-                       Name="GetUserListingItemsByUserId">
+                       Name="GetUserListingItems">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="GetUserListingItems_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserListingItems_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserListingItems_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="UserListItemsView/Properties[GetUserListingItemsByUserId]" />
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
             <ContentItem DataType="UserListingItem"
                          Kind="Details"
-                         Name="GetUserListingItemsByUserIdTemplate">
+                         Name="GetUserListingItemsTemplate">
               <ContentItem.PropertySources>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[BrowseOnly]">
                   <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":Boolean"
-                                          Value="True" />
-                    </ChainExpression>
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="True" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
@@ -3479,7 +3484,7 @@
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
-                                          Value="125" />
+                                          Value="130" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -3491,18 +3496,38 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="Title"
+                           View=":Label">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[ShowAsLink]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Boolean"
+                                            Value="True" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="300" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingItem/Properties[Title]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
               <ContentItem DataType=":Int32"
                            Kind="Value"
                            Name="Score">
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Left" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
@@ -3518,76 +3543,6 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
-              <ContentItem DataType=":DateTime?"
-                           Kind="Value"
-                           Name="ResponseSent"
-                           View=":Label">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MaxWidth]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="75" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Pixels" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="125" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-                <ContentItem.Attributes>
-                  <DisplayName Value="Responded" />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String?"
-                           Kind="Value"
-                           Name="Title">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Auto" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="300" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[ShowAsLink]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Boolean"
-                                          Value="True" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[Title]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
               <ContentItem DataType=":String?"
                            Kind="Value"
                            Name="GroupName">
@@ -3595,19 +3550,7 @@
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
-                                          Value="60" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Auto" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="200" />
+                                          Value="75" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -3626,16 +3569,10 @@
                            Kind="Value"
                            Name="CategoryName">
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Pixels" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
-                                          Value="100" />
+                                          Value="125" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -3652,18 +3589,34 @@
               </ContentItem>
               <ContentItem DataType=":String?"
                            Kind="Value"
-                           Name="RegionName">
+                           Name="StateProvince">
+                <ContentItem.Attributes>
+                  <DisplayName Value="State" />
+                </ContentItem.Attributes>
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Pixels" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
-                                          Value="55" />
+                                          Value="100" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingItem/Properties[StateProvince]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="RegionName">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="65" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -3682,12 +3635,6 @@
                            Kind="Value"
                            Name="CityName">
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Pixels" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
@@ -3706,30 +3653,22 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
-              <ContentItem DataType=":String?"
+              <ContentItem DataType=":DateTime?"
                            Kind="Value"
-                           Name="StateProvince">
+                           Name="ResponseSent"
+                           View=":Label">
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Pixels" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
-                                          Value="100" />
+                                          Value="130" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
-                <ContentItem.Attributes>
-                  <DisplayName Value="State" />
-                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[StateProvince]" />
+                      <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3738,19 +3677,28 @@
           </ContentItem>
           <ContentItem DataType="UserListingItem"
                        Kind="Details"
-                       Name="GetUserListingItemsByUserId_SelectedItem">
+                       Name="GetUserListingItems_SelectedItem">
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="UserListItemsView/Properties[GetUserListingItemsByUserId]" />
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
                   <MemberExpression Member="SelectedItem" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
             <ContentItem DataType=":String?"
                          Kind="Value"
-                         Name="PostHtml"
+                         Name="GetUserListingItems_SelectedItem_PostHtml"
                          View=":ValueCustomContentControl">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
+                    <MemberExpression Member="SelectedItem" />
+                    <MemberExpression Member="PostHtml" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
               <ContentItem.PropertySources>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
                   <ScreenExpressionTree>
@@ -3762,18 +3710,29 @@
                 </ControlPropertySource>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
                   <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="None" />
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="None" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserListingItem/Properties[PostHtml]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
             </ContentItem>
           </ContentItem>
         </ContentItem>
@@ -3825,7 +3784,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3945,14 +3904,6 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="None" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
               </ContentItem.PropertySources>
             </ContentItem>
           </ContentItem>
@@ -4007,7 +3958,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4189,7 +4140,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4316,7 +4267,7 @@
   </Screen>
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
+               Name="MarketingDomainServiceDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -4519,6 +4470,8 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
 
   
 

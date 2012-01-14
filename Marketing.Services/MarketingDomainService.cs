@@ -44,7 +44,7 @@ namespace Marketing.Services {
     }
     [Query( IsDefault = true )]
     public IQueryable<UserListingItem> DefaultUserListingItems() {
-      var result = new List<UserListingItem>().AsQueryable();
+      var result = Context.GetUserListingItems();
       return result;
     }
     [Query( IsDefault = true )]   
