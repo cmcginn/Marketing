@@ -33,14 +33,14 @@
                         <InvokeMethod DisplayName="Process Listing Content" MethodName="GetListingContentItem" TargetType="mue:CraigslistMessageParsing">
                           <InArgument x:TypeArguments="mu:ListingContentItem">[listingContentItem]</InArgument>
                         </InvokeMethod>
-                        <Assign DisplayName="Assign ListingContent">
-                          <Assign.To>
+                        <InvokeMethod DisplayName="Get Listing Content" MethodName="GetListingContentItemByListingUrlId" TargetType="local:DataHelper">
+                          <InvokeMethod.Result>
                             <OutArgument x:TypeArguments="md:ListingContent">[listingContent]</OutArgument>
-                          </Assign.To>
-                          <Assign.Value>
-                            <InArgument x:TypeArguments="md:ListingContent">[New ListingContent With {.Id=Guid.NewGuid(), .PostContent=listingContentItem.ContentHtml.ToString(), .PostElement=listingContentItem.ContentElement.ToString(), .ListingUrlId=item.Id, .Created=System.DateTime.Now,.PostDate=listingContentItem.PostDate,.ReplyTo=listingContentItem.ReplyTo }]</InArgument>
-                          </Assign.Value>
-                        </Assign>
+                          </InvokeMethod.Result>
+                          <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
+                          <InArgument x:TypeArguments="md:ListingUrl">[item]</InArgument>
+                          <InArgument x:TypeArguments="mu:ListingContentItem">[listingContentItem]</InArgument>
+                        </InvokeMethod>
                         <InvokeMethod DisplayName="Add Listing Content" MethodName="AddObject">
                           <InvokeMethod.TargetObject>
                             <InArgument x:TypeArguments="sdo:ObjectSet(md:ListingContent)">[domainContext.ListingContents]</InArgument>

@@ -1,0 +1,5 @@
+obj\Release\RefreshUserCraigslistListingUrls.g.xaml
+obj\Release\GetCraigslistListingUrlsActivity.g.xaml
+obj\Release\RefreshUserCraigslistContent.g.xaml
+obj\Release\GetListingContentActivity.g.xaml
+obj\Release\RefreshUserDataActivity.g.xaml

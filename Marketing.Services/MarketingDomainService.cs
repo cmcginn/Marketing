@@ -34,7 +34,7 @@ namespace Marketing.Services {
     }
     [Query( IsDefault = true )]
     public IQueryable<UserKeywordSelection> DefaultUserKeywords() {
-      var result = new List<UserKeywordSelection>().AsQueryable();
+      var result = Context.GetUserKeywordSelections();
       return result;
     }
     [Query( IsDefault = true )]
@@ -94,11 +94,11 @@ namespace Marketing.Services {
       var response = Context.SaveUserListingResponse( item );
       Context.SendUserListingResponse( response );
     }
-    public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
-      Context.GetUserPreferenceSelectionByUserId( userId.GetValueOrDefault() );
-      var result = Context.GetUserPreferenceSelection().First();
-      return result;
-    }
+    //public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
+    //  Context.GetUserPreferenceSelectionByUserId( userId.GetValueOrDefault() );
+    //  var result = Context.GetUserPreferenceSelection().First();
+    //  return result;
+    //}
     public void UpdateUserPreferenceSelection( UserPreferenceSelection userPreferenceSelection ) {
       Context.SaveUserPreferencesSelection( userPreferenceSelection );
     }

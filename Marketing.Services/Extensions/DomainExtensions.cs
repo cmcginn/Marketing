@@ -31,6 +31,11 @@ namespace Marketing.Services.Extensions {
 
       return query.AsQueryable();
     }
+    public static IQueryable<UserKeywordSelection> GetUserKeywordSelections( this MarketingEntities context) {
+      var query = from userKeyword in context.UserKeywords
+                  select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
+      return query;
+    }
     public static IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( this MarketingEntities context,Guid userId ) {
       var query = from userKeyword in context.UserKeywords.Where(x=>x.UserId==userId)
                   select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
@@ -138,6 +143,7 @@ namespace Marketing.Services.Extensions {
       return result.AsQueryable();
     }
     public static System.Net.Mail.MailMessage GetMailMessage( this UserListingResponse item ) {
+      var userPreference = item.UserListingUrl.aspnet_Membership.UserPreferences.Single( x => x.UserId == item.UserListingUrl.UserId );
       System.Net.Mail.MailMessage result = null;
       var uri = new Uri( item.UserListingUrl.ListingUrl.ListingContents.First().ReplyTo );
       var nvc = System.Web.HttpUtility.ParseQueryString( uri.Query );
@@ -145,12 +151,13 @@ namespace Marketing.Services.Extensions {
       var subject = nvc[ 0 ];
       var body = item.Response.ToString();
       if( nvc.Count > 1 )
-        body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] );    
-      
+        body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] ); 
       
       var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
-      //if( !item.UserListingUrl.aspnet_Membership.UserPreferences.First().LiveMode )
-      address = fromAddress;
+      //if not live use BCC email, dont send to recipient
+      
+      if( !userPreference.LiveMode)
+       address = fromAddress;
       result = new MailMessage( fromAddress, address, subject, body );
       result.IsBodyHtml = true;
       result.Bcc.Add( fromAddress );

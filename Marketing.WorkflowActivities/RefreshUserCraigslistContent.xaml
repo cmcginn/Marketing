@@ -45,14 +45,14 @@
                 <av:Size x:Key="ShapeSize">200,49</av:Size>
               </scg3:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ForEach x:TypeArguments="md:ListingUrl" DisplayName="ForEach&lt;ListingUrl&gt;" sap:VirtualizedContainerService.HintSize="444,415" Values="[listingUrls]">
+            <ForEach x:TypeArguments="md:ListingUrl" DisplayName="ForEach&lt;ListingUrl&gt;" sap:VirtualizedContainerService.HintSize="448,1095" Values="[listingUrls]">
               <ActivityAction x:TypeArguments="md:ListingUrl">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="md:ListingUrl" Name="item" />
                 </ActivityAction.Argument>
-                <TryCatch sap:VirtualizedContainerService.HintSize="414,312">
+                <TryCatch sap:VirtualizedContainerService.HintSize="418,992">
                   <TryCatch.Try>
-                    <Sequence DisplayName="Get Content" sap:VirtualizedContainerService.HintSize="400,744">
+                    <Sequence DisplayName="Get Content" sap:VirtualizedContainerService.HintSize="400,814">
                       <Sequence.Variables>
                         <Variable x:TypeArguments="mu:ListingContentItem" Name="listingContentItem" />
                         <Variable x:TypeArguments="md:ListingContent" Name="listingContent" />
@@ -62,25 +62,25 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <local:GetListingContentActivity sap:VirtualizedContainerService.HintSize="242,22" ListingUrl="[item.Url]" Result="[listingContentItem]" />
-                      <InvokeMethod DisplayName="Process Listing Content" sap:VirtualizedContainerService.HintSize="242,127" MethodName="GetListingContentItem" TargetType="mue:CraigslistMessageParsing">
+                      <local:GetListingContentActivity sap:VirtualizedContainerService.HintSize="208,22" ListingUrl="[item.Url]" Result="[listingContentItem]" />
+                      <InvokeMethod DisplayName="Process Listing Content" sap:VirtualizedContainerService.HintSize="208,127" MethodName="GetListingContentItem" TargetType="mue:CraigslistMessageParsing">
                         <InArgument x:TypeArguments="mu:ListingContentItem">[listingContentItem]</InArgument>
                       </InvokeMethod>
-                      <Assign DisplayName="Assign ListingContent" sap:VirtualizedContainerService.HintSize="242,57">
-                        <Assign.To>
+                      <InvokeMethod DisplayName="Get Listing Content" sap:VirtualizedContainerService.HintSize="208,127" MethodName="GetListingContentItemByListingUrlId" TargetType="local:DataHelper">
+                        <InvokeMethod.Result>
                           <OutArgument x:TypeArguments="md:ListingContent">[listingContent]</OutArgument>
-                        </Assign.To>
-                        <Assign.Value>
-                          <InArgument x:TypeArguments="md:ListingContent">[New ListingContent With {.Id=Guid.NewGuid(), .PostContent=listingContentItem.ContentHtml.ToString(), .PostElement=listingContentItem.ContentElement.ToString(), .ListingUrlId=item.Id, .Created=System.DateTime.Now,.PostDate=listingContentItem.PostDate,.ReplyTo=listingContentItem.ReplyTo }]</InArgument>
-                        </Assign.Value>
-                      </Assign>
-                      <InvokeMethod DisplayName="Add Listing Content" sap:VirtualizedContainerService.HintSize="242,127" MethodName="AddObject">
+                        </InvokeMethod.Result>
+                        <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
+                        <InArgument x:TypeArguments="md:ListingUrl">[item]</InArgument>
+                        <InArgument x:TypeArguments="mu:ListingContentItem">[listingContentItem]</InArgument>
+                      </InvokeMethod>
+                      <InvokeMethod DisplayName="Add Listing Content" sap:VirtualizedContainerService.HintSize="208,127" MethodName="AddObject">
                         <InvokeMethod.TargetObject>
                           <InArgument x:TypeArguments="sdo:ObjectSet(md:ListingContent)">[domainContext.ListingContents]</InArgument>
                         </InvokeMethod.TargetObject>
                         <InArgument x:TypeArguments="md:ListingContent">[listingContent]</InArgument>
                       </InvokeMethod>
-                      <InvokeMethod DisplayName="Save Context Changes" sap:VirtualizedContainerService.HintSize="242,127" MethodName="SaveChanges">
+                      <InvokeMethod DisplayName="Save Context Changes" sap:VirtualizedContainerService.HintSize="208,127" MethodName="SaveChanges">
                         <InvokeMethod.TargetObject>
                           <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
                         </InvokeMethod.TargetObject>
@@ -88,10 +88,10 @@
                     </Sequence>
                   </TryCatch.Try>
                   <TryCatch.Catches>
-                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,158">
+                    <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,20">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg3:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>

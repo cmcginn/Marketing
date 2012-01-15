@@ -42,3 +42,4 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExp
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.RichEdit.v11.1.Core.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\Marketing.UI.Controls.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.Printing.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\DevExpress.Data.v11.1.Linq.dll

@@ -1767,16 +1767,7 @@
                EntityType="UserPreferenceSelection"
                Name="UserPreferenceSelections" />
   
-    <QueryOperation Name="GetUserPreferenceSelectionByUserId"
-                    ReturnType="UserPreferenceSelection">
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserPreferenceSelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-      <QueryOperationParameter Name="userId"
-                               ParameterType=":Guid?" />
-    </QueryOperation>
+    
   
     <QueryOperation Name="UserPreferenceSelections_Single"
                     ReturnType="UserPreferenceSelection">
@@ -2290,6 +2281,31 @@
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
     </QueryOperation>
+    <QueryOperation Name="GetUserPreferencesSelectionByUserId"
+                    ReturnType="UserPreferenceSelection">
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="UserId" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression  Parameter="userId" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserPreferenceSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   
   
@@ -2332,20 +2348,6 @@
         <ScreenProperty.Attributes>
           <IsParameter />
         </ScreenProperty.Attributes>
-      </ScreenProperty>
-      <ScreenProperty Name="GetUserPreferenceSelectionByUserId"
-                      PropertyType="UserPreferenceSelection">
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPreferenceSelectionByUserId]">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
       </ScreenProperty>
       <ScreenCollectionProperty Name="GetUserListingCategorySelectionByUserId"
                                 PageSize="45"
@@ -2470,6 +2472,20 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty Name="GetUserPreferencesSelectionByUserId"
+                      PropertyType="UserPreferenceSelection">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPreferencesSelectionByUserId]">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
     </Screen.Properties>
     <Screen.Attributes>
       <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
@@ -2527,41 +2543,9 @@
           <ContentItem DataType="CollectionView$UserCitySelection"
                        Kind="Collection"
                        Name="GetUserCitySelectionByUserId">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="GetUserCitySelectionByUserId_AddAndEditNew">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                      <CallExpression Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserCitySelectionByUserId_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserCitySelectionByUserId_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserCitySelectionByUserId]" />
-                      <CallExpression Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
+            <ContentItem.Attributes>
+              <DisplayName Value="City Selection" />
+            </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
@@ -2626,41 +2610,9 @@
           <ContentItem DataType="CollectionView$UserListingCategorySelection"
                        Kind="Collection"
                        Name="GetUserListingCategorySelectionByUserId">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="GetUserListingCategorySelectionByUserId_AddAndEditNew">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
-                      <CallExpression Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserListingCategorySelectionByUserId_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserListingCategorySelectionByUserId_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Preferences/Properties[GetUserListingCategorySelectionByUserId]" />
-                      <CallExpression Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
+            <ContentItem.Attributes>
+              <DisplayName Value="Category Selection" />
+            </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
@@ -2714,6 +2666,9 @@
           <ContentItem DataType="CollectionView$UserKeywordSelection"
                        Kind="Collection"
                        Name="GetUserKeywordSelectionByUserId">
+            <ContentItem.Attributes>
+              <DisplayName Value="Keywords" />
+            </ContentItem.Attributes>
             <ContentItem.CommandItems>
               <ContentItem Kind="Command"
                            Name="GetUserKeywordSelectionByUserId_AddAndEditNew">
@@ -2790,11 +2745,14 @@
           </ContentItem>
           <ContentItem DataType="UserPreferenceSelection"
                        Kind="Details"
-                       Name="GetUserPreferenceSelectionByUserId">
+                       Name="GetUserPreferencesSelectionByUserId">
+            <ContentItem.Attributes>
+              <DisplayName Value="System Settings" />
+            </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[GetUserPreferenceSelectionByUserId]" />
+                  <MemberExpression Member="Preferences/Properties[GetUserPreferencesSelectionByUserId]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -2812,9 +2770,6 @@
             <ContentItem DataType=":String?"
                          Kind="Value"
                          Name="BCCEmailAddress">
-              <ContentItem.Attributes>
-                <DisplayName Value="BCC Email Address" />
-              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -2826,9 +2781,6 @@
             <ContentItem DataType=":String?"
                          Kind="Value"
                          Name="SMTPUsername">
-              <ContentItem.Attributes>
-                <DisplayName Value="SMTP Username" />
-              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -2840,9 +2792,6 @@
             <ContentItem DataType=":String?"
                          Kind="Value"
                          Name="SMTPServer">
-              <ContentItem.Attributes>
-                <DisplayName Value="SMTP Server" />
-              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -2854,27 +2803,10 @@
             <ContentItem DataType=":Int32"
                          Kind="Value"
                          Name="SMTPPort">
-              <ContentItem.Attributes>
-                <DisplayName Value="SMTP Port" />
-              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression Member="UserPreferenceSelection/Properties[SMTPPort]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
-            <ContentItem DataType=":String?"
-                         Kind="Value"
-                         Name="SMTPPassword">
-              <ContentItem.Attributes>
-                <DisplayName Value="SMTP Password" />
-              </ContentItem.Attributes>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserPreferenceSelection/Properties[SMTPPassword]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -2886,6 +2818,17 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression Member="UserPreferenceSelection/Properties[RequiresSSL]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="SMTPPassword">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[SMTPPassword]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
@@ -3322,6 +3265,7 @@
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
       <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3412,41 +3356,9 @@
           <ContentItem DataType="CollectionView$UserListingItem"
                        Kind="Collection"
                        Name="GetUserListingItems">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="GetUserListingItems_AddAndEditNew">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                      <CallExpression Target="AddAndEditNew" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserListingItems_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserListingItems_DeleteSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                      <CallExpression Target="DeleteSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
+            <ContentItem.Attributes>
+              <DisplayName  Value="Matching Posts" />
+            </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
@@ -3492,6 +3404,29 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="UserListingItem/Properties[Created]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime?"
+                           Kind="Value"
+                           Name="ResponseSent"
+                           View=":Label">
+                <ContentItem.Attributes>
+                  <DisplayName Value="Responded" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="130" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3653,22 +3588,24 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
-              <ContentItem DataType=":DateTime?"
+              <ContentItem DataType=":Guid"
                            Kind="Value"
-                           Name="ResponseSent"
-                           View=":Label">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="130" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
+                           Name="UserId">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
+                      <MemberExpression Member="UserListingItem/Properties[UserId]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Guid"
+                           Kind="Value"
+                           Name="Id">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingItem/Properties[Id]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3785,6 +3722,7 @@
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
       <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <DisplayName Value="Post Detail" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3888,7 +3826,7 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <ConstantExpression ResultType=":String"
@@ -3896,7 +3834,7 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <ConstantExpression ResultType=":String"
@@ -4379,13 +4317,6 @@
                         Property="UserPreferenceSelection/Properties[RequiresSSL]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserPreferenceSelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserPreferenceSelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPreferenceSelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
     <EntitySetMapping EntitySet="UserListingItems">
       <EntitySetMapping.Attributes>
         <WcfRiaEntitySet EntitySetQuery="DefaultUserListingItems"
@@ -4470,6 +4401,8 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
 
   
 

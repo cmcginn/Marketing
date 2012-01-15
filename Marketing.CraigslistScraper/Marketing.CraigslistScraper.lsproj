@@ -22,7 +22,7 @@
     <RequireSecureConnection>true</RequireSecureConnection>
     <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>Marketing_CraigslistScraper</ApplicationName>
-    <AssemblyVersion>1.0.14.0</AssemblyVersion>
+    <AssemblyVersion>1.0.17.0</AssemblyVersion>
     <ServiceDefinitionFile>ServiceDefinition.csdef</ServiceDefinitionFile>
     <ServiceConfigurationFile>ServiceConfiguration.cscfg</ServiceConfigurationFile>
     <SqlExpressInstanceName>SQLEXPRESS</SqlExpressInstanceName>

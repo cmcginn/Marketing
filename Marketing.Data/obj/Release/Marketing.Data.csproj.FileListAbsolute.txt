@@ -1,0 +1,6 @@
+C:\Projects\Urbana\Marketing\Marketing.Data\bin\Release\Marketing.Data.dll.config
+C:\Projects\Urbana\Marketing\Marketing.Data\bin\Release\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Data\bin\Release\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\Marketing.Data\obj\Release\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Data\obj\Release\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Data\obj\Release\Marketing.Data.pdb

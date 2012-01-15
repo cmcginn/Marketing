@@ -245,7 +245,7 @@
     <Property Type="DateTime" Name="Created" Nullable="false" />
     <NavigationProperty Name="ListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_ListingContent_ListingUrl" FromRole="ListingContent" ToRole="ListingUrl" />
     <Property Type="DateTime" Name="PostDate" Nullable="false" />
-    <Property Type="String" Name="ReplyTo" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReplyTo" Nullable="false" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="ListingUrl">
     <Key>
@@ -454,7 +454,7 @@
     <Property Type="String" Name="PostContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="PostElement" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="PostDate" Nullable="false" />
-    <Property Type="String" Name="ReplyTo" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReplyTo" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="ListingContentCreated" Nullable="false" />
   </EntityType>
 </Schema>

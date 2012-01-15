@@ -1,0 +1,6 @@
+obj\Release\_Marketing.WorkflowActivities.g.cs
+obj\Release\RefreshUserCraigslistListingUrls.g.cs
+obj\Release\GetCraigslistListingUrlsActivity.g.cs
+obj\Release\RefreshUserCraigslistContent.g.cs
+obj\Release\GetListingContentActivity.g.cs
+obj\Release\RefreshUserDataActivity.g.cs

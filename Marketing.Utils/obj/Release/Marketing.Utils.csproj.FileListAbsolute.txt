@@ -1,0 +1,10 @@
+C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Release\Marketing.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Release\Marketing.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Release\Common.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Release\Common.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Release\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Release\Marketing.Utils.TransformationResources.resources
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Release\GenerateResource.read.1.tlog
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Release\GenerateResource.write.1.tlog
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Release\Marketing.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Utils\obj\Release\Marketing.Utils.pdb

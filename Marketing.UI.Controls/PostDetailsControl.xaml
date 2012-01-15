@@ -132,7 +132,7 @@
             </dxr:RibbonPage>
           </dxr:RibbonDefaultPageCategory>
         </dxr:RibbonControl>
-        <dxre:RichEditControl Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}" Ribbon="{Binding ElementName=ribbonControl1, Mode=OneTime}" HtmlTextChanged="richEditControl_HtmlTextChanged" />
+        <dxre:RichEditControl Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}" Ribbon="{Binding ElementName=ribbonControl1, Mode=OneTime}" HtmlTextChanged="richEditControl_HtmlTextChanged" DocumentLoaded="richEditControl_DocumentLoaded" />
       </dx:DockPanel>
     </dxb:BarManager>
   </Grid>

@@ -42,6 +42,7 @@
     <AssemblyPart x:Name="DevExpress.RichEdit.v11.1.Core" Source="DevExpress.RichEdit.v11.1.Core.dll" />
     <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
     <AssemblyPart x:Name="DevExpress.Data.v11.1" Source="DevExpress.Data.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Data.v11.1.Linq" Source="DevExpress.Data.v11.1.Linq.dll" />
     <AssemblyPart x:Name="DevExpress.Printing.v11.1.Core" Source="DevExpress.Printing.v11.1.Core.dll" />
     <AssemblyPart x:Name="Microsoft.VisualStudio.Debugger.Runtime.dll" Source="Microsoft.VisualStudio.Debugger.Runtime.dll.dll" />
   </Deployment.Parts>

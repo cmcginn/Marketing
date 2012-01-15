@@ -1,0 +1,4 @@
+<sitemanifest>
+<IisApp path="C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Release\app.publish\" />
+<LightSwitchApplication path="C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Release\app.publish\" authenticationmode="Forms"/>
+</sitemanifest>

@@ -14,13 +14,12 @@ namespace Marketing.WorkflowActivities {
       var result = context.ListingUrls.SingleOrDefault( n => n.Url == url );
       return result;
     }
-    public static UserListingUrl GetUserListingUrl( MarketingEntities context, ListingUrl listingUrl,Guid userId ) {
-      var result = context.UserListingUrls.SingleOrDefault( n => n.ListingUrlId == listingUrl.Id && n.UserId == userId);
+    public static UserListingUrl GetUserListingUrl( MarketingEntities context, ListingUrl listingUrl, Guid userId ) {
+      var result = context.UserListingUrls.SingleOrDefault( n => n.ListingUrlId == listingUrl.Id && n.UserId == userId );
       return result;
     }
-    public static List<ListingUrl> GetListingUrlsForUser(MarketingEntities context,Guid userId)
-    {
-      var query = from userListing in context.UserListingUrls.Where(x=>x.UserId == userId)
+    public static List<ListingUrl> GetListingUrlsForUser( MarketingEntities context, Guid userId ) {
+      var query = from userListing in context.UserListingUrls.Where( x => x.UserId == userId )
                   join listing in context.ListingUrls
                   on userListing.ListingUrlId equals listing.Id
                   join listingContent in context.ListingContents
@@ -28,9 +27,25 @@ namespace Marketing.WorkflowActivities {
                   from content in contents.DefaultIfEmpty()
                   where content == null
                   select listing;
-      return query.ToList();                  
-                  
+      return query.ToList();
+
     }
-    
+    public static ListingContent GetListingContentItemByListingUrlId( MarketingEntities context, ListingUrl item, ListingContentItem listingContentItem ) {
+      //New ListingContent With { }
+      var result = context.ListingContents.SingleOrDefault( x => x.ListingUrlId == item.Id );
+      if( result == null ) {
+        result = new ListingContent {
+          Id = Guid.NewGuid(),
+          PostContent = listingContentItem.ContentHtml.ToString(),
+          PostElement = listingContentItem.ContentElement.ToString(),
+          ListingUrlId = item.Id,
+          Created = System.DateTime.Now,
+          PostDate = listingContentItem.PostDate,
+          ReplyTo = listingContentItem.ReplyTo
+        };
+        context.ListingContents.AddObject( result );
+      }
+      return result;
+    }
   }
 }
