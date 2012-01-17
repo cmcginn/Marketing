@@ -25,6 +25,12 @@ namespace LightSwitchApplication
         }
       }
 
+      partial void GetUserCitySelectionByUserId_Changed( NotifyCollectionChangedEventArgs e ) {
+        if( this.GetUserCitySelectionByUserId.SelectedItem.UserId == Guid.Empty )
+          this.GetUserCitySelectionByUserId.SelectedItem.UserId = Application.UserId;
+      }
+
+
 
     }
 }

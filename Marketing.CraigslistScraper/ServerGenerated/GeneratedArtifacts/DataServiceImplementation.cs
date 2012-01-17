@@ -543,14 +543,14 @@ namespace LightSwitchApplication.Implementation
     #endregion
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_Single", frameworkOperators, Id);
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_Single", frameworkOperators, CityId);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_SingleOrDefault", frameworkOperators, Id);
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_SingleOrDefault", frameworkOperators, CityId);
         }
     
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_All(string frameworkOperators)
@@ -678,11 +678,6 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingCategorySelection>("GetUserListingCategorySelectionByUserId", frameworkOperators, userId);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
-        {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", frameworkOperators, userId);
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> GetUserKeywordSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserKeywordSelection>("GetUserKeywordSelectionByUserId", frameworkOperators, userId);
@@ -696,6 +691,11 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> GetUserPreferencesSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("GetUserPreferencesSelectionByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", frameworkOperators, userId);
         }
     
     #endregion
@@ -731,21 +731,21 @@ namespace LightSwitchApplication.Implementation
         }
     
     #region Queries
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(global::System.Nullable<global::System.Guid> CityId)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
             query = global::System.Linq.Queryable.Where(
                 this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_All"),
-                (u) => (Id.HasValue && (u.Id == Id)));
+                (u) => (CityId.HasValue && (u.CityId == CityId)));
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_SingleOrDefault(global::System.Nullable<global::System.Guid> CityId)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
             query = global::System.Linq.Queryable.Where(
                 this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_All"),
-                (u) => (Id.HasValue && (u.Id == Id)));
+                (u) => (CityId.HasValue && (u.CityId == CityId)));
             return query;
         }
     
@@ -759,10 +759,12 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelections(global::System.Nullable<global::System.Guid> userId)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
-            query = global::System.Linq.Queryable.OrderBy(
-                global::System.Linq.Queryable.Where(
-                    this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_All"),
-                    (u) => ((userId.HasValue && (u.UserId == userId)) || (u.UserId == new global::System.Guid("00000000-0000-0000-0000-000000000000")))),
+            query = global::System.Linq.Queryable.ThenBy(
+                global::System.Linq.Queryable.OrderByDescending(
+                    global::System.Linq.Queryable.Where(
+                        this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("UserCitySelections_All"),
+                        (u) => ((userId.HasValue && (u.UserId == userId)) || (u.UserId == new global::System.Guid("00000000-0000-0000-0000-000000000000")))),
+                    (u) => u.Selected),
                 (u) => u.CityName);
             return query;
         }
@@ -976,13 +978,6 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(global::System.Nullable<global::System.Guid> userId)
-        {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", userId).AsQueryable();
-            return query;
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> GetUserKeywordSelectionByUserId(global::System.Nullable<global::System.Guid> userId)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserKeywordSelection> query;
@@ -1003,6 +998,13 @@ namespace LightSwitchApplication.Implementation
             query = global::System.Linq.Queryable.Where(
                 this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("UserPreferenceSelections_All"),
                 (u) => (userId.HasValue && (u.UserId == userId)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", userId).AsQueryable();
             return query;
         }
     
@@ -1121,14 +1123,14 @@ namespace LightSwitchApplication.Implementation
             if (userCitySelection != null)
             {
                 global::Marketing.Services.UserCitySelection result = new global::Marketing.Services.UserCitySelection();
-                result.Id = userCitySelection.Id;
                 result.Selected = userCitySelection.Selected;
-                result.CityId = userCitySelection.CityId;
                 result.UserId = userCitySelection.UserId;
                 result.CityName = userCitySelection.CityName;
                 result.RegionName = userCitySelection.RegionName;
                 result.Active = userCitySelection.Active;
                 result.StateProvince = userCitySelection.StateProvince;
+                result.CityId = userCitySelection.CityId;
+                result.Id = userCitySelection.Id;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingCategorySelection userListingCategorySelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingCategorySelection;
@@ -1226,14 +1228,14 @@ namespace LightSwitchApplication.Implementation
             global::Marketing.Services.UserCitySelection innerUserCitySelection = innerResult as global::Marketing.Services.UserCitySelection;
             if ((outerUserCitySelection != null) && (innerUserCitySelection != null))
             {
-                outerUserCitySelection.Id = innerUserCitySelection.Id;
                 outerUserCitySelection.Selected = innerUserCitySelection.Selected;
-                outerUserCitySelection.CityId = innerUserCitySelection.CityId;
                 outerUserCitySelection.UserId = innerUserCitySelection.UserId;
                 outerUserCitySelection.CityName = innerUserCitySelection.CityName;
                 outerUserCitySelection.RegionName = innerUserCitySelection.RegionName;
                 outerUserCitySelection.Active = innerUserCitySelection.Active;
                 outerUserCitySelection.StateProvince = innerUserCitySelection.StateProvince;
+                outerUserCitySelection.CityId = innerUserCitySelection.CityId;
+                outerUserCitySelection.Id = innerUserCitySelection.Id;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingCategorySelection outerUserListingCategorySelection = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingCategorySelection;

@@ -2,16 +2,16 @@
 <Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Namespace="MarketingDomainServiceData" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
   <EntityType Name="UserCitySelection">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="CityId" />
     </Key>
-    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Selected" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
-    <Property Name="CityId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="CityName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="RegionName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Active" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="StateProvince" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="CityId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingCategorySelection">
     <Key>

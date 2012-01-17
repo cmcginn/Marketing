@@ -409,51 +409,24 @@ namespace MarketingDomainServiceData.Implementation
         /// <summary>
         /// Create a new UserCitySelection object.
         /// </summary>
-        /// <param name="id">Initial value of the Id property.</param>
         /// <param name="selected">Initial value of the Selected property.</param>
-        /// <param name="cityId">Initial value of the CityId property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="active">Initial value of the Active property.</param>
-        public static UserCitySelection CreateUserCitySelection(global::System.Guid id, global::System.Boolean selected, global::System.Guid cityId, global::System.Guid userId, global::System.Boolean active)
+        /// <param name="cityId">Initial value of the CityId property.</param>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static UserCitySelection CreateUserCitySelection(global::System.Boolean selected, global::System.Guid userId, global::System.Boolean active, global::System.Guid cityId, global::System.Guid id)
         {
             UserCitySelection userCitySelection = new UserCitySelection();
-            userCitySelection.Id = id;
             userCitySelection.Selected = selected;
-            userCitySelection.CityId = cityId;
             userCitySelection.UserId = userId;
             userCitySelection.Active = active;
+            userCitySelection.CityId = cityId;
+            userCitySelection.Id = id;
             return userCitySelection;
         }
 
         #endregion
         #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid Id
-        {
-            get
-            {
-                return _Id;
-            }
-            set
-            {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
-            }
-        }
-        private global::System.Guid _Id;
-        partial void OnIdChanging(global::System.Guid value);
-        partial void OnIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -478,30 +451,6 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Boolean _Selected;
         partial void OnSelectedChanging(global::System.Boolean value);
         partial void OnSelectedChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Guid CityId
-        {
-            get
-            {
-                return _CityId;
-            }
-            set
-            {
-                OnCityIdChanging(value);
-                ReportPropertyChanging("CityId");
-                _CityId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CityId");
-                OnCityIdChanged();
-            }
-        }
-        private global::System.Guid _CityId;
-        partial void OnCityIdChanging(global::System.Guid value);
-        partial void OnCityIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -622,6 +571,57 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _StateProvince;
         partial void OnStateProvinceChanging(global::System.String value);
         partial void OnStateProvinceChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                if (_CityId != value)
+                {
+                    OnCityIdChanging(value);
+                    ReportPropertyChanging("CityId");
+                    _CityId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CityId");
+                    OnCityIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _CityId;
+        partial void OnCityIdChanging(global::System.Guid value);
+        partial void OnCityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                OnIdChanging(value);
+                ReportPropertyChanging("Id");
+                _Id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Id");
+                OnIdChanged();
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
 
         #endregion
     

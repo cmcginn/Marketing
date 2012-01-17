@@ -11,16 +11,16 @@
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="CityId" />
     </Key>
-    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Selected" Type="bit" Nullable="false" />
-    <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityName" Type="nvarchar(max)" />
     <Property Name="RegionName" Type="nvarchar(max)" />
     <Property Name="Active" Type="bit" Nullable="false" />
     <Property Name="StateProvince" Type="nvarchar(max)" />
+    <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <EntityType Name="UserListingCategorySelection">
     <Key>

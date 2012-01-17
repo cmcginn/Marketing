@@ -30,6 +30,12 @@ namespace LightSwitchApplication {
       }
     }
 
+    partial void UserCitySelections_All_PreprocessQuery( ref IQueryable<UserCitySelection> query ) {
+      query = query.OrderByDescending( n => n.Selected ).ThenBy(n=>n.RegionName).ThenBy(n=>n.StateProvince).ThenBy(n=>n.CityName);
+    }
+
+
+
 
 
   }

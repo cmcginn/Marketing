@@ -20,7 +20,8 @@ namespace Marketing.Services {
     MarketingEntities _Context;
     [Query(IsDefault=true)]
     public IQueryable<UserCitySelection> DefaultUserCitySelections() {
-      return new List<UserCitySelection>().AsQueryable();
+      var result = Context.GetUserCitySelections();
+      return result;
     }
 
     [Query( IsDefault = true )]

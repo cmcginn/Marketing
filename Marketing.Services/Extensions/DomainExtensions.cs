@@ -22,12 +22,21 @@ namespace Marketing.Services.Extensions {
                   select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false, UserId = item.UserId != Guid.Empty ? item.UserId : userId, CategoryId = category.Id };
       return query.AsQueryable();
     }
-    public static IQueryable<UserCitySelection> GetUserCitySelectionByUserId( this MarketingEntities context,Guid userId ) {
+    public static IQueryable<UserCitySelection> GetUserCitySelections( this MarketingEntities context) {
       var query = from city in context.Cities
-                  join uc in context.UserCities.Where(x=>x.UserId == userId)
+                  join uc in context.UserCities
                   on city.Id equals uc.CityId into usc
                   from item in usc.DefaultIfEmpty()
-                  select new UserCitySelection { Id = item.Id != Guid.Empty ? item.Id : Guid.NewGuid(), Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item != null };
+                  select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : Guid.Empty, Selected = item != null };
+
+      return query.AsQueryable();
+    }
+    public static IQueryable<UserCitySelection> GetUserCitySelectionByUserId( this MarketingEntities context, Guid userId ) {
+      var query = from city in context.Cities
+                  join uc in context.UserCities.Where( x => x.UserId == userId )
+                  on city.Id equals uc.CityId into usc
+                  from item in usc.DefaultIfEmpty()
+                  select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item != null };
 
       return query.AsQueryable();
     }
@@ -47,7 +56,7 @@ namespace Marketing.Services.Extensions {
       return query;
     }
     public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context) {
-      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null)
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null &! String.IsNullOrEmpty(x.ReplyTo))
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,
@@ -110,6 +119,8 @@ namespace Marketing.Services.Extensions {
     public static UserListingResponse SaveUserListingResponse( this MarketingEntities context, UserListingItem item ) {
       UserListingResponse result = null;
       var responseElement = System.Text.RegularExpressions.Regex.Replace( item.Response, "<!DOCTYPE html .*>", "" );
+      var converter = new Marketing.Utils.HtmlToXml.HtmlToXmlConverter();
+      responseElement = converter.ConvertToXml( responseElement ).ToString();
       result = context.UserListingResponses.SingleOrDefault( x => x.UserListingUrlId == item.Id );
       if( result == null ) {
         result = new UserListingResponse {
@@ -150,8 +161,8 @@ namespace Marketing.Services.Extensions {
       var address = String.Format( "{0}@{1}", uri.UserInfo, uri.DnsSafeHost );
       var subject = nvc[ 0 ];
       var body = item.Response.ToString();
-      if( nvc.Count > 1 )
-        body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] ); 
+      //if( nvc.Count > 1 )
+      //  body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] ); 
       
       var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
       //if not live use BCC email, dont send to recipient

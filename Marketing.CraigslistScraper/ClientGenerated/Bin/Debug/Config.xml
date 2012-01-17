@@ -18,7 +18,7 @@
     <SubsystemPackage>DiagnosticsLoader</SubsystemPackage>
     <SubsystemPackage>RuntimeUserCodeLoader</SubsystemPackage>
   <SubsystemPackage>RuntimeEditLoader</SubsystemPackage><SubsystemPackage>AppBridgeLoader</SubsystemPackage></SubsystemPackages>
-  <UserCodeAssemblies><UserCodeAssembly>Application.Common, Version=1.0.17.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.Client, Version=1.0.17.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.ClientGenerated, Version=1.0.17.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
+  <UserCodeAssemblies><UserCodeAssembly>Application.Common, Version=1.0.18.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.Client, Version=1.0.18.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.ClientGenerated, Version=1.0.18.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
   <ExtensionAssemblies>
     <ExtensionAssembly>ExtensionsMadeEasy.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
     <ExtensionAssembly>ExtensionsMadeEasy.ClientAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
@@ -26,4 +26,4 @@
     <ExtensionAssembly>Microsoft.LightSwitch.SDKProxy, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
     <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
   <ExtensionAssembly>ExtensionsMadeEasy.Client.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly><ExtensionAssembly>Microsoft.LightSwitch.Extensions.Design.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</ExtensionAssembly></ExtensionAssemblies>
-<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129711282768281250</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.0.17.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>
+<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129712745517343750</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.0.18.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>

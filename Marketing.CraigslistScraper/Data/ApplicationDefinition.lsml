@@ -1329,22 +1329,8 @@
       </EntityMethod>
     </EntityType.Methods>
     <EntityType.Properties>
-      <KeyProperty Name="Id"
-                   PropertyType=":Guid">
-        <KeyProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </KeyProperty.Attributes>
-      </KeyProperty>
       <EntityProperty Name="Selected"
                       PropertyType=":Boolean">
-        <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty Name="CityId"
-                      PropertyType=":Guid">
         <EntityProperty.Attributes>
           <Required />
           <NotSearchable />
@@ -1353,8 +1339,8 @@
       <EntityProperty Name="UserId"
                       PropertyType=":Guid">
         <EntityProperty.Attributes>
-          <Required />
           <NotSearchable />
+          <Required />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty Name="CityName"
@@ -1370,6 +1356,20 @@
       </EntityProperty>
       <EntityProperty Name="StateProvince"
                       PropertyType=":String?" />
+      <KeyProperty Name="CityId"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Id"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 <EntityContainer Name="MarketingDomainServiceData"
@@ -1394,11 +1394,11 @@
           <BinaryExpression NodeType="Equal">
             <BinaryExpression.Left>
               <ChainExpression>
-                <MemberExpression Member="Id" />
+                <MemberExpression Member="CityId" />
               </ChainExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
-              <ParameterExpression Parameter="Id" />
+              <ParameterExpression Parameter="CityId" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -1408,10 +1408,10 @@
           <MemberExpression Member="UserCitySelections" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
-      <QueryOperationParameter Name="Id"
+      <QueryOperationParameter Name="CityId"
                                ParameterType=":Guid?">
         <QueryOperationParameter.Attributes>
-          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+          <Description Value="The value of the 'CityId' key property of the entity to retrieve." />
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
@@ -1427,11 +1427,11 @@
           <BinaryExpression NodeType="Equal">
             <BinaryExpression.Left>
               <ChainExpression>
-                <MemberExpression Member="Id" />
+                <MemberExpression Member="CityId" />
               </ChainExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
-              <ParameterExpression Parameter="Id" />
+              <ParameterExpression Parameter="CityId" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -1441,10 +1441,10 @@
           <MemberExpression Member="UserCitySelections" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
-      <QueryOperationParameter Name="Id"
+      <QueryOperationParameter Name="CityId"
                                ParameterType=":Guid?">
         <QueryOperationParameter.Attributes>
-          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+          <Description Value="The value of the 'CityId' key property of the entity to retrieve." />
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
@@ -1464,6 +1464,11 @@
     <QueryOperation Name="GetUserCitySelections"
                     ReturnType="UserCitySelection*">
       <QueryOperation.SortCriteria>
+        <SortCriterion Direction="Descending">
+          <ChainExpression>
+            <MemberExpression Member="Selected" />
+          </ChainExpression>
+        </SortCriterion>
         <SortCriterion>
           <ChainExpression>
             <MemberExpression Member="CityName" />
@@ -2250,16 +2255,7 @@
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
     </QueryOperation>
-    <QueryOperation Name="GetUserCitySelectionByUserId"
-                    ReturnType="UserCitySelection*">
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserCitySelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-      <QueryOperationParameter Name="userId"
-                               ParameterType=":Guid?" />
-    </QueryOperation>
+    
     <QueryOperation Name="GetUserKeywordSelectionByUserId"
                     ReturnType="UserKeywordSelection*">
       <QueryOperation.Source>
@@ -2305,6 +2301,17 @@
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
     </QueryOperation>
+    <QueryOperation Name="GetUserCitySelectionByUserId"
+                    ReturnType="UserCitySelection*">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserCitySelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   
   
@@ -2394,56 +2401,6 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
-      <ScreenCollectionProperty Name="GetUserCitySelectionByUserId"
-                                PageSize="45"
-                                PropertyType="CollectionView$UserCitySelection">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="GetUserCitySelectionByUserIdQuery"
-                                 ReturnType="UserCitySelection*">
-            <ScreenQueryDefinition.SortCriteria>
-              <SortCriterion>
-                <ChainExpression>
-                  <MemberExpression Member="Selected" />
-                </ChainExpression>
-              </SortCriterion>
-              <SortCriterion>
-                <ChainExpression>
-                  <MemberExpression Member="RegionName" />
-                </ChainExpression>
-              </SortCriterion>
-              <SortCriterion>
-                <ChainExpression>
-                  <MemberExpression Member="StateProvince" />
-                </ChainExpression>
-              </SortCriterion>
-              <SortCriterion>
-                <ChainExpression>
-                  <MemberExpression Member="CityName" />
-                </ChainExpression>
-              </SortCriterion>
-            </ScreenQueryDefinition.SortCriteria>
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="Preferences/Properties[GetUserCitySelectionByUserId]/Query">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
       <ScreenCollectionProperty Name="GetUserKeywordSelectionByUserId"
                                 PageSize="45"
                                 PropertyType="CollectionView$UserKeywordSelection">
@@ -2486,9 +2443,37 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenProperty>
+      <ScreenCollectionProperty Name="GetUserCitySelectionByUserId"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserCitySelection">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetUserCitySelectionByUserIdQuery"
+                                 ReturnType="UserCitySelection*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Preferences/Properties[GetUserCitySelectionByUserId]/Query">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3264,7 +3249,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -3721,7 +3706,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Post Detail" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -3896,7 +3881,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4078,7 +4063,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4205,7 +4190,7 @@
   </Screen>
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
+               Name="MarketingDomainServiceDataDataService1">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -4401,6 +4386,8 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
 
   
 

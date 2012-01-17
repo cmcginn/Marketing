@@ -969,31 +969,31 @@ namespace LightSwitchApplication
         partial void UserCitySelections_Single_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+        partial void UserCitySelections_Single_Executing(global::System.Nullable<global::System.Guid> CityId);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query);
+        partial void UserCitySelections_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> CityId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection> result);
+        partial void UserCitySelections_Single_Executed(global::System.Nullable<global::System.Guid> CityId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+        partial void UserCitySelections_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> CityId, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserCitySelections_SingleOrDefault_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+        partial void UserCitySelections_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> CityId);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query);
+        partial void UserCitySelections_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> CityId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection> result);
+        partial void UserCitySelections_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> CityId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelections_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+        partial void UserCitySelections_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> CityId, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserCitySelections_All_CanExecute(ref bool result);
@@ -1371,21 +1371,6 @@ namespace LightSwitchApplication
         partial void GetUserListingCategorySelectionByUserId_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserCitySelectionByUserId_CanExecute(ref bool result);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserCitySelectionByUserId_Executing(global::System.Nullable<global::System.Guid> userId);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserCitySelectionByUserId_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserCitySelectionByUserId_Executed(global::System.Nullable<global::System.Guid> userId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection> result);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserCitySelectionByUserId_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
-    
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserKeywordSelectionByUserId_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -1429,6 +1414,21 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserPreferencesSelectionByUserId_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCitySelectionByUserId_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCitySelectionByUserId_Executing(global::System.Nullable<global::System.Guid> userId);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCitySelectionByUserId_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCitySelectionByUserId_Executed(global::System.Nullable<global::System.Guid> userId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserCitySelectionByUserId_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
     
         #endregion
     
@@ -2670,39 +2670,6 @@ namespace LightSwitchApplication
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserCitySelection>
-                __GetUserCitySelectionByUserIdEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserCitySelection>(
-                    "GetUserCitySelectionByUserId",
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_CanExecute,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_Executing,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_Executed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_Failed,
-                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_PreprocessQuery);
-            private static bool __GetUserCitySelectionByUserId_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
-            {
-                d.GetUserCitySelectionByUserId_CanExecute(ref r);
-                return r;
-            }
-            private static void __GetUserCitySelectionByUserId_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                d.GetUserCitySelectionByUserId_Executing((global::System.Nullable<global::System.Guid>)args[0]);
-            }
-            private static void __GetUserCitySelectionByUserId_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                d.GetUserCitySelectionByUserId_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection>)args[1]);
-            }
-            private static void __GetUserCitySelectionByUserId_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
-            {
-                d.GetUserCitySelectionByUserId_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
-            }
-            private static global::System.Linq.IQueryable __GetUserCitySelectionByUserId_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
-            {
-                global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection>)args[1];
-                d.GetUserCitySelectionByUserId_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
-                return query;
-            }
-            
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>
                 __GetUserKeywordSelectionByUserIdEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserKeywordSelection>(
                     "GetUserKeywordSelectionByUserId",
@@ -2798,6 +2765,39 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.UserPreferenceSelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserPreferenceSelection>)args[1];
                 d.GetUserPreferencesSelectionByUserId_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserCitySelection>
+                __GetUserCitySelectionByUserIdEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserCitySelection>(
+                    "GetUserCitySelectionByUserId",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserCitySelectionByUserId_PreprocessQuery);
+            private static bool __GetUserCitySelectionByUserId_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.GetUserCitySelectionByUserId_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetUserCitySelectionByUserId_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserCitySelectionByUserId_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __GetUserCitySelectionByUserId_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserCitySelectionByUserId_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserCitySelection>)args[1]);
+            }
+            private static void __GetUserCitySelectionByUserId_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetUserCitySelectionByUserId_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __GetUserCitySelectionByUserId_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserCitySelection>)args[1];
+                d.GetUserCitySelectionByUserId_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
                 return query;
             }
     

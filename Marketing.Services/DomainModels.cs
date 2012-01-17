@@ -7,11 +7,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 namespace Marketing.Services {
   public class UserCitySelection {
-    [Key]
+   
     public Guid Id { get; set; }
     public bool Selected { get; set; }
+     [Key]
     public Guid CityId { get; set; }
     public Guid UserId { get; set; }
+
     public string CityName { get; set; }
     public string RegionName { get; set; }
     public string StateProvince { get; set; }

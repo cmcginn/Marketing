@@ -4,14 +4,14 @@
     <EntitySetMapping Name="UserCitySelections">
       <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserCitySelection)">
         <MappingFragment StoreEntitySet="DefaultUserCitySelections">
-          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Selected" ColumnName="Selected" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="CityName" ColumnName="CityName" />
           <ScalarProperty Name="RegionName" ColumnName="RegionName" />
           <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
