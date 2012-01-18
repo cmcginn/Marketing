@@ -515,8 +515,7 @@
             <dxb:BarButtonItemLink BarItemName="biEditRedo" />
           </dxr:RibbonControl.ToolbarItemLinks>
         </dxr:RibbonControl>
-        <dxre:RichEditControl x:Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}"
-                                          AutoCorrect="richEdit_AutoCorrect"    
+        <dxre:RichEditControl x:Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}"                                             
                                           HtmlTextChanged="richEditControl_HtmlTextChanged" DocumentLoaded="richEditControl_DocumentLoaded" 
                                           ShowBorder="False" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}"></dxre:RichEditControl>
       </dx:DXDockPanel>

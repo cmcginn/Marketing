@@ -3,7 +3,7 @@
   <PropertyGroup>
     <EnableENC>False</EnableENC>
     <ProjectView>ShowAllFiles</ProjectView>
-    <ServerPort>48173</ServerPort>
+    <ServerPort>58551</ServerPort>
     <GrantedPermissions>Microsoft.LightSwitch.Security:SecurityAdministration</GrantedPermissions>
     <PublishConnectionString>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAe5LAgpKu5UKIWmvQ9FNAeQAAAAACAAAAAAAQZgAAAAEAACAAAAB5AxdYQ2nIWqzOxF8zNS+U6LsO3/pvUep5OFWMjZX5VAAAAAAOgAAAAAIAACAAAAAUJ4NT5mEb3Oj4c1WG5Iym8jEQeHOdE0FZS3kgPy0gvgABAADzBuaYxN7vH57ICePA4ZtSbM5COzoeB5Az3Zt9OIQRfp8cvE7sg8qtWw1sGTAAOqISLpnuJdyx3JCDp6nSIqgRWVewAm2WjipVcM4G5/2+E0Oz2y2fL+E2niyQsyMpLaJ9w1hZd5XS7ZFyL9lxMX+/NM7WrfLmLVyYJmOw36apZNzDryYiubtOgMCQFTz8Hu+0DPqLa+6GMutk+AJ2oWfb/0asOi3xgraaZpQexEo031LB0i9TSa0S4gg7i5JOqYFSUq5rHvemICnx3y3OwAENBcowQ3BmhKT7qg3tCrH67vmYlDwCtloN0bPsSUD+CbN/LRkHqaFQTzt8soKh/q6rQAAAANuAQfENTElYxuv4NE55xWW1Cc188JfFwmIHzF6bBmtHR1Xixjl+CLKNcaYf53ErrZehnbwnmsfsEh1ur9ASvAQ=</PublishConnectionString>
     <PublishSchemaConnectionString />
@@ -12,6 +12,6 @@
     <PublishUserName />
     <PublishUserPassword />
     <SchemaManagementSchemaBuildState>0</SchemaManagementSchemaBuildState>
-    <SchemaManagementLastModelWriteTime>634622514719384765</SchemaManagementLastModelWriteTime>
+    <SchemaManagementLastModelWriteTime>634623977475859375</SchemaManagementLastModelWriteTime>
   </PropertyGroup>
 </Project>

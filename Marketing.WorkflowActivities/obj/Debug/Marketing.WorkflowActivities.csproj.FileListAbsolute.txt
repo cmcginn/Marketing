@@ -55,3 +55,5 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTem
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserDataActivity.g.cs
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\RefreshUserDataActivity.g.xaml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\_Marketing.WorkflowActivities.g.cs
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.dll
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.pdb

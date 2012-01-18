@@ -14,7 +14,7 @@ namespace Marketing.UI.Controls.Extensions {
   public static class DocumentExtensions {
     public static string ToEditorDocument( this string content ) {
       var builder = new StringBuilder();
-      content = System.Windows.Browser.HttpUtility.HtmlDecode( System.Text.RegularExpressions.Regex.Replace( content, "<!DOCTYPE html .*>", "" ) );
+      content = System.Text.RegularExpressions.Regex.Replace( content, "<!DOCTYPE html .*>", "" );
       var element = XElement.Parse( content );
       var head = element.Element( "head" );
       var style = head.Element( "style" );

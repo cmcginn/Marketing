@@ -36,7 +36,7 @@ namespace Marketing.Utils.HtmlToXml
         {
             Dictionary<string, string> replacements = new Dictionary<string, string>();
             
-            replacements.Add("&nbsp;", "#160;");
+            replacements.Add("&nbsp;", "&#160;");
             replacements.Add("&mdash;", "&#8212;");
             replacements.Add("&rsquo;","&#8217;");
             replacements.Add("&lsquo;", "&#8216;");
@@ -44,7 +44,8 @@ namespace Marketing.Utils.HtmlToXml
             replacements.Add("&ldquo", "&#8220;");
             replacements.Add("&rdquo", "&#8221;");
             replacements.Add("&ndash;", "&#8211;");
-            replacements.Add("&", "&#38;");
+            replacements.Add("&copy;", "&#169;" );
+            replacements.Add("& ", "&#38;");
 
 
             if (toSgml)
