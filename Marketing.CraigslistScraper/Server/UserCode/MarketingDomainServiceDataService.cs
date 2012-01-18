@@ -26,17 +26,13 @@ namespace LightSwitchApplication {
     partial void GetUserListingResponseById_Executed( Guid? responseId, IEnumerable<UserListingResponseItem> result ) {
       if( result.Count() == 0 ) {
         result = new List<UserListingResponseItem> { this.DataWorkspace.MarketingDomainServiceData.UserListingResponseItems.AddNew() };
-        result.First().Id = Guid.Empty;       
+        result.First().Id = Guid.Empty;
       }
     }
 
     partial void UserCitySelections_All_PreprocessQuery( ref IQueryable<UserCitySelection> query ) {
-      query = query.OrderByDescending( n => n.Selected ).ThenBy(n=>n.RegionName).ThenBy(n=>n.StateProvince).ThenBy(n=>n.CityName);
+      query = query.OrderByDescending( n => n.Selected ).ThenBy( n => n.RegionName ).ThenBy( n => n.StateProvince ).ThenBy( n => n.CityName );
     }
-
-
-
-
 
   }
 }

@@ -293,7 +293,7 @@ namespace LightSwitchApplication
             {
                 return global::Microsoft.LightSwitch.DataServiceQueryable.ThenBy(
                     global::Microsoft.LightSwitch.DataServiceQueryable.ThenBy(
-                        global::Microsoft.LightSwitch.DataServiceQueryable.OrderBy(
+                        global::Microsoft.LightSwitch.DataServiceQueryable.OrderByDescending(
                             this.Screen.DataWorkspace.MarketingDomainServiceData.GetUserListingCategorySelectionByUserId(userId),
                             (u) => u.Selected),
                         (u) => u.GroupName),

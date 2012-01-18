@@ -2363,7 +2363,7 @@
           <ScreenQueryDefinition Name="GetUserListingCategorySelectionByUserIdQuery"
                                  ReturnType="UserListingCategorySelection*">
             <ScreenQueryDefinition.SortCriteria>
-              <SortCriterion>
+              <SortCriterion Direction="Descending">
                 <ChainExpression>
                   <MemberExpression Member="Selected" />
                 </ChainExpression>

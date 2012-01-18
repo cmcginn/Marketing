@@ -29,6 +29,7 @@ namespace LightSwitchApplication
         {
             // Write your code here.
             this.SetDisplayNameFromEntity(this.UserListingItem);
+            this.Close( false );
         }
 
         partial void UserListingItemDetail_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {

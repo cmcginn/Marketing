@@ -30,6 +30,11 @@ namespace LightSwitchApplication
           this.GetUserCitySelectionByUserId.SelectedItem.UserId = Application.UserId;
       }
 
+      partial void Preferences_Saved() {
+        // Write your code here.
+        this.Close( false );
+      }
+
 
 
     }
