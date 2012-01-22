@@ -30,6 +30,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingResponse), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserPreference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserPreference), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
 
 #endregion
 
@@ -292,22 +294,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserListingData> UserListingDatas
-        {
-            get
-            {
-                if ((_UserListingDatas == null))
-                {
-                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
-                }
-                return _UserListingDatas;
-            }
-        }
-        private ObjectSet<UserListingData> _UserListingDatas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<vw_aspnet_MembershipUsers> vw_aspnet_MembershipUsers
         {
             get
@@ -320,6 +306,38 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<vw_aspnet_MembershipUsers> _vw_aspnet_MembershipUsers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingKeywordScore> UserListingKeywordScores
+        {
+            get
+            {
+                if ((_UserListingKeywordScores == null))
+                {
+                    _UserListingKeywordScores = base.CreateObjectSet<UserListingKeywordScore>("UserListingKeywordScores");
+                }
+                return _UserListingKeywordScores;
+            }
+        }
+        private ObjectSet<UserListingKeywordScore> _UserListingKeywordScores;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingData> UserListingDatas
+        {
+            get
+            {
+                if ((_UserListingDatas == null))
+                {
+                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
+                }
+                return _UserListingDatas;
+            }
+        }
+        private ObjectSet<UserListingData> _UserListingDatas;
 
         #endregion
         #region AddTo Methods
@@ -429,19 +447,27 @@ namespace Marketing.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserListingDatas(UserListingData userListingData)
-        {
-            base.AddObject("UserListingDatas", userListingData);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the vw_aspnet_MembershipUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddTovw_aspnet_MembershipUsers(vw_aspnet_MembershipUsers vw_aspnet_MembershipUsers)
         {
             base.AddObject("vw_aspnet_MembershipUsers", vw_aspnet_MembershipUsers);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingKeywordScores EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingKeywordScores(UserListingKeywordScore userListingKeywordScore)
+        {
+            base.AddObject("UserListingKeywordScores", userListingKeywordScore);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingDatas(UserListingData userListingData)
+        {
+            base.AddObject("UserListingDatas", userListingData);
         }
 
         #endregion
@@ -1121,6 +1147,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserPreference>("Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership", "UserPreference", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore")]
+        public EntityCollection<UserListingKeywordScore> UserListingKeywordScores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore", value);
                 }
             }
         }
@@ -2927,7 +2975,8 @@ namespace Marketing.Data
         /// <param name="postDate">Initial value of the PostDate property.</param>
         /// <param name="replyTo">Initial value of the ReplyTo property.</param>
         /// <param name="listingContentCreated">Initial value of the ListingContentCreated property.</param>
-        public static UserListingData CreateUserListingData(global::System.Guid userListingUrlId, global::System.Guid listingUrlId, global::System.Guid userId, global::System.String url, global::System.String title, global::System.Int64 postId, global::System.DateTime listingUrlCreated, global::System.String listingCategoryName, global::System.String categoryBaseUrl, global::System.Boolean listingCategoryActive, global::System.String listingGroupName, global::System.String listingBaseUrl, global::System.Boolean listingGroupActive, global::System.String regionName, global::System.String cityName, global::System.String cityBaseUrl, global::System.Boolean cityActive, global::System.Boolean userListingCategoryActive, global::System.Boolean userCityActive, global::System.Guid cityId, global::System.Guid userListingCategoryId, global::System.Guid userCityId, global::System.Guid listingCategoryId, global::System.Guid listingGroupId, global::System.Guid listingContentId, global::System.String postContent, global::System.String postElement, global::System.DateTime postDate, global::System.String replyTo, global::System.DateTime listingContentCreated)
+        /// <param name="keywordScore">Initial value of the KeywordScore property.</param>
+        public static UserListingData CreateUserListingData(global::System.Guid userListingUrlId, global::System.Guid listingUrlId, global::System.Guid userId, global::System.String url, global::System.String title, global::System.Int64 postId, global::System.DateTime listingUrlCreated, global::System.String listingCategoryName, global::System.String categoryBaseUrl, global::System.Boolean listingCategoryActive, global::System.String listingGroupName, global::System.String listingBaseUrl, global::System.Boolean listingGroupActive, global::System.String regionName, global::System.String cityName, global::System.String cityBaseUrl, global::System.Boolean cityActive, global::System.Boolean userListingCategoryActive, global::System.Boolean userCityActive, global::System.Guid cityId, global::System.Guid userListingCategoryId, global::System.Guid userCityId, global::System.Guid listingCategoryId, global::System.Guid listingGroupId, global::System.Guid listingContentId, global::System.String postContent, global::System.String postElement, global::System.DateTime postDate, global::System.String replyTo, global::System.DateTime listingContentCreated, global::System.Int32 keywordScore)
         {
             UserListingData userListingData = new UserListingData();
             userListingData.UserListingUrlId = userListingUrlId;
@@ -2960,6 +3009,7 @@ namespace Marketing.Data
             userListingData.PostDate = postDate;
             userListingData.ReplyTo = replyTo;
             userListingData.ListingContentCreated = listingContentCreated;
+            userListingData.KeywordScore = keywordScore;
             return userListingData;
         }
 
@@ -3919,9 +3969,293 @@ namespace Marketing.Data
         private global::System.DateTime _ListingContentCreated;
         partial void OnListingContentCreatedChanging(global::System.DateTime value);
         partial void OnListingContentCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KeywordScore
+        {
+            get
+            {
+                return _KeywordScore;
+            }
+            set
+            {
+                OnKeywordScoreChanging(value);
+                ReportPropertyChanging("KeywordScore");
+                _KeywordScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("KeywordScore");
+                OnKeywordScoreChanged();
+            }
+        }
+        private global::System.Int32 _KeywordScore;
+        partial void OnKeywordScoreChanging(global::System.Int32 value);
+        partial void OnKeywordScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KeywordDisplay
+        {
+            get
+            {
+                return _KeywordDisplay;
+            }
+            set
+            {
+                OnKeywordDisplayChanging(value);
+                ReportPropertyChanging("KeywordDisplay");
+                _KeywordDisplay = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("KeywordDisplay");
+                OnKeywordDisplayChanged();
+            }
+        }
+        private global::System.String _KeywordDisplay;
+        partial void OnKeywordDisplayChanging(global::System.String value);
+        partial void OnKeywordDisplayChanged();
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserListingKeywordScore")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserListingKeywordScore : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserListingKeywordScore object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="userListingId">Initial value of the UserListingId property.</param>
+        /// <param name="keywordScore">Initial value of the KeywordScore property.</param>
+        public static UserListingKeywordScore CreateUserListingKeywordScore(global::System.Guid id, global::System.Guid userId, global::System.Guid userListingId, global::System.Int32 keywordScore)
+        {
+            UserListingKeywordScore userListingKeywordScore = new UserListingKeywordScore();
+            userListingKeywordScore.Id = id;
+            userListingKeywordScore.UserId = userId;
+            userListingKeywordScore.UserListingId = userListingId;
+            userListingKeywordScore.KeywordScore = keywordScore;
+            return userListingKeywordScore;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserListingId
+        {
+            get
+            {
+                return _UserListingId;
+            }
+            set
+            {
+                OnUserListingIdChanging(value);
+                ReportPropertyChanging("UserListingId");
+                _UserListingId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserListingId");
+                OnUserListingIdChanged();
+            }
+        }
+        private global::System.Guid _UserListingId;
+        partial void OnUserListingIdChanging(global::System.Guid value);
+        partial void OnUserListingIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KeywordScore
+        {
+            get
+            {
+                return _KeywordScore;
+            }
+            set
+            {
+                OnKeywordScoreChanging(value);
+                ReportPropertyChanging("KeywordScore");
+                _KeywordScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("KeywordScore");
+                OnKeywordScoreChanged();
+            }
+        }
+        private global::System.Int32 _KeywordScore;
+        partial void OnKeywordScoreChanging(global::System.Int32 value);
+        partial void OnKeywordScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KeywordDisplay
+        {
+            get
+            {
+                return _KeywordDisplay;
+            }
+            set
+            {
+                OnKeywordDisplayChanging(value);
+                ReportPropertyChanging("KeywordDisplay");
+                _KeywordDisplay = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("KeywordDisplay");
+                OnKeywordDisplayChanged();
+            }
+        }
+        private global::System.String _KeywordDisplay;
+        partial void OnKeywordDisplayChanging(global::System.String value);
+        partial void OnKeywordDisplayChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl")]
+        public UserListingUrl UserListingUrl
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserListingUrl> UserListingUrlReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -4546,6 +4880,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingResponse>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingResponse", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingKeywordScore")]
+        public EntityCollection<UserListingKeywordScore> UserListingKeywordScores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingKeywordScore");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingKeywordScore", value);
                 }
             }
         }

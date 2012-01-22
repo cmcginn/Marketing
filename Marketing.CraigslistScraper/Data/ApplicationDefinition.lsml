@@ -760,6 +760,11 @@
     <QueryOperation Name="GetUserListingItems"
                     ReturnType="UserListingItem*">
       <QueryOperation.SortCriteria>
+        <SortCriterion Direction="Descending">
+          <ChainExpression>
+            <MemberExpression Member="KeywordScore" />
+          </ChainExpression>
+        </SortCriterion>
         <SortCriterion>
           <ChainExpression>
             <MemberExpression Member="Created" />
@@ -1971,6 +1976,15 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="KeywordScore"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="KeywordDisplay"
+                      PropertyType=":String?" />
     </EntityType.Properties>
   </EntityType>
 
@@ -2178,19 +2192,25 @@
               </ContentItem>
               <ContentItem DataType=":Int32"
                            Kind="Value"
-                           Name="Score">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="50" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
+                           Name="KeywordScore">
+                <ContentItem.Attributes>
+                  <DisplayName Value="Score" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[Score]" />
+                      <MemberExpression Member="UserListingItem/Properties[KeywordScore]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="KeywordDisplay">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListingItem/Properties[KeywordDisplay]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2301,28 +2321,6 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="UserListingItem/Properties[CityName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Guid"
-                           Kind="Value"
-                           Name="UserId">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[UserId]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Guid"
-                           Kind="Value"
-                           Name="Id">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListingItem/Properties[Id]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2609,6 +2607,13 @@
                       PropertyType=":String?" />
       <EntityProperty Name="UserId"
                       PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Visible"
+                      PropertyType=":Boolean">
         <EntityProperty.Attributes>
           <Required />
           <NotSearchable />
@@ -3113,6 +3118,10 @@
                         Property="UserListingItem/Properties[UserCityActive]" />
         <WcfRiaProperty Name="ListingCategoryActive"
                         Property="UserListingItem/Properties[ListingCategoryActive]" />
+        <WcfRiaProperty Name="KeywordScore"
+                        Property="UserListingItem/Properties[KeywordScore]" />
+        <WcfRiaProperty Name="KeywordDisplay"
+                        Property="UserListingItem/Properties[KeywordDisplay]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <QueryOperationMapping Operation="GetUserListingItemsByUserId">
@@ -3144,6 +3153,8 @@
                          EntityTypeName="Marketing.Services.Operation" />
         <WcfRiaProperty Name="Id"
                         Property="Operation/Properties[Id]" />
+        <WcfRiaProperty Name="Visible"
+                        Property="Operation/Properties[Visible]" />
         <WcfRiaProperty Name="Created"
                         Property="Operation/Properties[Created]" />
         <WcfRiaProperty Name="OperationName"

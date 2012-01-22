@@ -281,12 +281,14 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="created">Initial value of the Created property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
-        public static Operation CreateOperation(global::System.Int32 id, global::System.DateTime created, global::System.Guid userId)
+        /// <param name="visible">Initial value of the Visible property.</param>
+        public static Operation CreateOperation(global::System.Int32 id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean visible)
         {
             Operation operation = new Operation();
             operation.Id = id;
             operation.Created = created;
             operation.UserId = userId;
+            operation.Visible = visible;
             return operation;
         }
 
@@ -415,6 +417,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Guid _UserId;
         partial void OnUserIdChanging(global::System.Guid value);
         partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Visible
+        {
+            get
+            {
+                return _Visible;
+            }
+            set
+            {
+                OnVisibleChanging(value);
+                ReportPropertyChanging("Visible");
+                _Visible = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Visible");
+                OnVisibleChanged();
+            }
+        }
+        private global::System.Boolean _Visible;
+        partial void OnVisibleChanging(global::System.Boolean value);
+        partial void OnVisibleChanged();
 
         #endregion
     
@@ -1087,7 +1113,8 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="cityActive">Initial value of the CityActive property.</param>
         /// <param name="userCityActive">Initial value of the UserCityActive property.</param>
         /// <param name="listingCategoryActive">Initial value of the ListingCategoryActive property.</param>
-        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive)
+        /// <param name="keywordScore">Initial value of the KeywordScore property.</param>
+        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Int32 keywordScore)
         {
             UserListingItem userListingItem = new UserListingItem();
             userListingItem.Id = id;
@@ -1096,6 +1123,7 @@ namespace MarketingDomainServiceData.Implementation
             userListingItem.CityActive = cityActive;
             userListingItem.UserCityActive = userCityActive;
             userListingItem.ListingCategoryActive = listingCategoryActive;
+            userListingItem.KeywordScore = keywordScore;
             return userListingItem;
         }
 
@@ -1560,6 +1588,54 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Boolean _ListingCategoryActive;
         partial void OnListingCategoryActiveChanging(global::System.Boolean value);
         partial void OnListingCategoryActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 KeywordScore
+        {
+            get
+            {
+                return _KeywordScore;
+            }
+            set
+            {
+                OnKeywordScoreChanging(value);
+                ReportPropertyChanging("KeywordScore");
+                _KeywordScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("KeywordScore");
+                OnKeywordScoreChanged();
+            }
+        }
+        private global::System.Int32 _KeywordScore;
+        partial void OnKeywordScoreChanging(global::System.Int32 value);
+        partial void OnKeywordScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KeywordDisplay
+        {
+            get
+            {
+                return _KeywordDisplay;
+            }
+            set
+            {
+                OnKeywordDisplayChanging(value);
+                ReportPropertyChanging("KeywordDisplay");
+                _KeywordDisplay = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("KeywordDisplay");
+                OnKeywordDisplayChanged();
+            }
+        }
+        private global::System.String _KeywordDisplay;
+        partial void OnKeywordDisplayChanging(global::System.String value);
+        partial void OnKeywordDisplayChanged();
 
         #endregion
     

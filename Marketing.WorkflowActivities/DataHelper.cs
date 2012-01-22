@@ -6,6 +6,18 @@ using Marketing.Data;
 using Marketing.Utils;
 namespace Marketing.WorkflowActivities {
   public class DataHelper {
+    public static List<UserListingData> GetUserListingDatasForUser( MarketingEntities context,Guid userId) {
+      return context.UserListingDatas.Where( n => n.UserId == userId ).ToList();
+    }
+    public static List<UserListingKeywordScore> GetUserListingKeywordScoresForUser( MarketingEntities context, Guid userId ) {
+      return context.UserListingKeywordScores.Where( n => n.UserId == userId ).ToList();
+    }
+    public static List<UserKeyword> GetUserKeywordsForUser( MarketingEntities context, Guid userId ) {
+      return context.UserKeywords.Where( n => n.UserId == userId ).ToList();
+    }
+    public static List<UserListingData> GetUserListingDataForUser( MarketingEntities context, Guid userId ) {
+      return context.UserListingDatas.Where( n => n.UserId == userId ).ToList();
+    }
     public static List<UserListingRefresh> GetUrlsForUser( MarketingEntities context, Guid userId ) {
       var result = context.UserListingRefreshes.Where( n => n.UserId == userId ).ToList();
       return result;

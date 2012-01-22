@@ -74,6 +74,15 @@ namespace Marketing.Services {
       var result = Context.GetUserCitySelectionByUserId( userId.GetValueOrDefault() );
       return result;
     }
+    public void RunKeywordRefresh( Operation operation ) {
+      //call host eventually
+      var invoker = new WorkflowInvoker( new RefreshUserListingKeywordScoreActivity() );
+      Task t = new Task( () => {
+        Dictionary<string, object> inputs = new Dictionary<string, object> { { "UserId", operation.UserId } };
+        invoker.Invoke( inputs );
+      } );
+      t.Start();
+    }
     private void RunPostingRefresh( Operation operation ) {
       //call host eventually
       var invoker = new WorkflowInvoker( new RefreshUserDataActivity() );
@@ -88,6 +97,9 @@ namespace Marketing.Services {
       {
         case 1:
           RunPostingRefresh( operation );
+          break;
+        case 2:
+          RunKeywordRefresh( operation );
           break;
         default: break;
       }
@@ -117,7 +129,7 @@ namespace Marketing.Services {
       var current = Context.UserKeywords.Single( x => x.Id == userKeywordSelection.Id );
       current.Keyword = userKeywordSelection.Keyword;
       current.WeightedScore = userKeywordSelection.WeightedScore;
-      Context.SaveChanges();
+      Context.SaveChanges();      
     }
     public void DeleteUserKeyword(UserKeywordSelection userKeywordSelection)
     {

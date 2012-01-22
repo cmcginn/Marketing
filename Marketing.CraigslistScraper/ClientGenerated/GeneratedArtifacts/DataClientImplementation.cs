@@ -1199,6 +1199,48 @@ namespace LightSwitchApplication.Implementation
         }
         private bool _ListingCategoryActive;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public int KeywordScore
+        {
+            get
+            {
+                return this._KeywordScore;
+            }
+            set
+            {
+                if (this._KeywordScore != value)
+                {
+                    this.RaiseDataMemberChanging("KeywordScore");
+                    this.ValidateProperty("KeywordScore", value);
+                    this._KeywordScore = value;
+                    this.RaiseDataMemberChanged("KeywordScore");
+                }
+            }
+        }
+        private int _KeywordScore;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string KeywordDisplay
+        {
+            get
+            {
+                return this._KeywordDisplay;
+            }
+            set
+            {
+                if (this._KeywordDisplay != value)
+                {
+                    this.RaiseDataMemberChanging("KeywordDisplay");
+                    this.ValidateProperty("KeywordDisplay", value);
+                    this._KeywordDisplay = value;
+                    this.RaiseDataMemberChanged("KeywordDisplay");
+                }
+            }
+        }
+        private string _KeywordDisplay;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -1500,6 +1542,27 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private global::System.Guid _UserId;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool Visible
+        {
+            get
+            {
+                return this._Visible;
+            }
+            set
+            {
+                if (this._Visible != value)
+                {
+                    this.RaiseDataMemberChanging("Visible");
+                    this.ValidateProperty("Visible", value);
+                    this._Visible = value;
+                    this.RaiseDataMemberChanged("Visible");
+                }
+            }
+        }
+        private bool _Visible;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;

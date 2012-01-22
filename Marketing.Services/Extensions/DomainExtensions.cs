@@ -59,7 +59,7 @@ namespace Marketing.Services.Extensions {
       return query;
     }
     public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context) {
-      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null &! String.IsNullOrEmpty(x.ReplyTo))
+      var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) )
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
                     CategoryName = userListingData.ListingCategoryName,
@@ -79,8 +79,11 @@ namespace Marketing.Services.Extensions {
                     PostHtml = userListingData.PostContent,
                     CityActive = userListingData.CityActive,
                     UserCityActive = userListingData.UserCityActive,
-                    ListingCategoryActive = userListingData.ListingCategoryActive
+                    ListingCategoryActive = userListingData.ListingCategoryActive,
+                    KeywordScore = userListingData.KeywordScore,
+                    KeywordDisplay = userListingData.KeywordDisplay
                   };
+      
       return query;
     }
     public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context,Guid userId ) {
@@ -104,7 +107,9 @@ namespace Marketing.Services.Extensions {
                     PostHtml = userListingData.PostContent,
                     CityActive = userListingData.CityActive,
                     UserCityActive = userListingData.UserCityActive,
-                    ListingCategoryActive = userListingData.ListingCategoryActive
+                    ListingCategoryActive = userListingData.ListingCategoryActive,
+                    KeywordScore = userListingData.KeywordScore,
+                    KeywordDisplay = userListingData.KeywordDisplay
                   };
       return query;
     }
@@ -152,7 +157,8 @@ namespace Marketing.Services.Extensions {
     }
     public static IQueryable<Operation> GetDefaultServerOperations() {
       List<Operation> result = new List<Operation>{
-        new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;"}        
+        new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;",Visible=true},
+        new Operation{Id=2, OperationName="Refresh Keyword Scores",Parameters="UserId=;",Visible=false}
       };
       return result.AsQueryable();
     }

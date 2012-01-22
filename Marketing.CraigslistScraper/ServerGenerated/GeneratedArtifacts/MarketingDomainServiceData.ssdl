@@ -81,6 +81,8 @@
     <Property Name="CityActive" Type="bit" Nullable="false" />
     <Property Name="UserCityActive" Type="bit" Nullable="false" />
     <Property Name="ListingCategoryActive" Type="bit" Nullable="false" />
+    <Property Name="KeywordScore" Type="int" Nullable="false" />
+    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -101,6 +103,7 @@
     <Property Name="OperationName" Type="nvarchar(max)" />
     <Property Name="Parameters" Type="nvarchar(max)" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Visible" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="User">
     <Key>

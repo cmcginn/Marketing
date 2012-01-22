@@ -75,6 +75,8 @@
           <ScalarProperty Name="CityActive" ColumnName="CityActive" />
           <ScalarProperty Name="UserCityActive" ColumnName="UserCityActive" />
           <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
+          <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
+          <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -97,6 +99,7 @@
           <ScalarProperty Name="OperationName" ColumnName="OperationName" />
           <ScalarProperty Name="Parameters" ColumnName="Parameters" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Visible" ColumnName="Visible" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

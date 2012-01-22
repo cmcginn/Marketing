@@ -75,6 +75,8 @@ namespace Marketing.Services {
     public bool CityActive { get; set; }
     public bool UserCityActive { get; set; }
     public bool ListingCategoryActive { get; set; }
+    public int KeywordScore { get; set; }
+    public string KeywordDisplay { get; set; }
   }
   public class UserListingResponseItem {
     [Key]
@@ -88,6 +90,7 @@ namespace Marketing.Services {
 
     [Key]
     public int Id { get; set; }
+    public bool Visible { get; set; }
     public DateTime Created { get; set; }
     public string OperationName { get; set; }
     public String Parameters { get; set; }

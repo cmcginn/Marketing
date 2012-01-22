@@ -10,6 +10,7 @@
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingKeywordScore" EntityType="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingResponse" EntityType="Marketing.CraigslistScraperModel.Store.UserListingResponse" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.UserListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
@@ -50,7 +51,9 @@
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[PostDate] AS [PostDate], 
       [UserListingData].[ReplyTo] AS [ReplyTo], 
-      [UserListingData].[ListingContentCreated] AS [ListingContentCreated]
+      [UserListingData].[ListingContentCreated] AS [ListingContentCreated], 
+      [UserListingData].[KeywordScore] AS [KeywordScore], 
+      [UserListingData].[KeywordDisplay] AS [KeywordDisplay]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -116,6 +119,14 @@
     <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_ListingCategory">
       <End Role="ListingCategory" EntitySet="ListingCategory" />
       <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserListingKeywordScore_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingKeywordScore_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserListingKeywordScore_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingKeywordScore_UserListingUrl">
+      <End Role="UserListingUrl" EntitySet="UserListingUrl" />
+      <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingUrl">
       <End Role="UserListingUrl" EntitySet="UserListingUrl" />
@@ -241,6 +252,16 @@
     <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserListingKeywordScore">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserListingId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
+    <Property Name="KeywordScore" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="UserListingResponse">
     <Key>
       <PropertyRef Name="Id" />
@@ -347,6 +368,8 @@
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="ReplyTo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ListingContentCreated" Type="datetime" Nullable="false" />
+    <Property Name="KeywordScore" Type="int" />
+    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -492,6 +515,30 @@
       </Principal>
       <Dependent Role="UserListingCategory">
         <PropertyRef Name="ListingCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserListingKeywordScore_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserListingKeywordScore" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserListingKeywordScore">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserListingKeywordScore_UserListingUrl">
+    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1" />
+    <End Role="UserListingKeywordScore" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserListingUrl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserListingKeywordScore">
+        <PropertyRef Name="UserListingId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

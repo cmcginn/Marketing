@@ -71,6 +71,8 @@
     <Property Name="CityActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="UserCityActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="ListingCategoryActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="KeywordScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="KeywordDisplay" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -91,6 +93,7 @@
     <Property Name="OperationName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Parameters" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Visible" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="User">
     <Key>

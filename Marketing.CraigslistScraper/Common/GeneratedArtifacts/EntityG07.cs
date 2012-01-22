@@ -198,6 +198,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserId_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool Visible
+        {
+            get
+            {
+                return global::LightSwitchApplication.Operation.DetailsClass.GetValue(this, global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Visible);
+            }
+            set
+            {
+                global::LightSwitchApplication.Operation.DetailsClass.SetValue(this, global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Visible, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Visible_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Visible_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Visible_Changed();
+
         #endregion
     
         #region Details Class
@@ -320,6 +344,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, bool> Visible
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties.Visible) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, bool>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -331,6 +363,7 @@ namespace LightSwitchApplication
                 new string OperationName { get; set; }
                 new string Parameters { get; set; }
                 new global::System.Guid UserId { get; set; }
+                new bool Visible { get; set; }
             }
             #pragma warning restore 109
     
@@ -525,6 +558,43 @@ namespace LightSwitchApplication
                     e.UserId_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, bool>.Entry
+                    Visible = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, bool>.Entry(
+                        "Visible",
+                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Visible_Stub,
+                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Visible_ComputeIsReadOnly,
+                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Visible_Validate,
+                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Visible_GetImplementationValue,
+                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Visible_SetImplementationValue,
+                        global::LightSwitchApplication.Operation.DetailsClass.PropertySetProperties._Visible_OnValueChanged);
+                private static void _Visible_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Operation.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, bool>.Data> c, global::LightSwitchApplication.Operation.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Visible, sf);
+                }
+                private static bool _Visible_ComputeIsReadOnly(global::LightSwitchApplication.Operation e)
+                {
+                    bool result = false;
+                    e.Visible_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Visible_Validate(global::LightSwitchApplication.Operation e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Visible_Validate(r);
+                }
+                private static bool _Visible_GetImplementationValue(global::LightSwitchApplication.Operation.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Visible;
+                }
+                private static void _Visible_SetImplementationValue(global::LightSwitchApplication.Operation.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.Visible = v;
+                }
+                private static void _Visible_OnValueChanged(global::LightSwitchApplication.Operation e)
+                {
+                    e.Visible_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -541,6 +611,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, global::System.Guid>.Data _UserId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.Operation, global::LightSwitchApplication.Operation.DetailsClass, bool>.Data _Visible;
             
         }
     

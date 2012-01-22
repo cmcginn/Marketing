@@ -638,10 +638,12 @@ namespace LightSwitchApplication.Implementation
                 global::System.Linq.Queryable.ThenBy(
                     global::System.Linq.Queryable.ThenBy(
                         global::System.Linq.Queryable.ThenBy(
-                            global::System.Linq.Queryable.OrderBy(
-                                global::System.Linq.Queryable.Where(
-                                    this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All"),
-                                    (u) => ((((userId.HasValue && (u.UserId == userId)) && (u.CityActive == true)) && (u.UserCityActive == true)) && (u.ListingCategoryActive == true))),
+                            global::System.Linq.Queryable.ThenBy(
+                                global::System.Linq.Queryable.OrderByDescending(
+                                    global::System.Linq.Queryable.Where(
+                                        this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All"),
+                                        (u) => ((((userId.HasValue && (u.UserId == userId)) && (u.CityActive == true)) && (u.UserCityActive == true)) && (u.ListingCategoryActive == true))),
+                                    (u) => u.KeywordScore),
                                 (u) => u.Created),
                             (u) => u.RegionName),
                         (u) => u.CityName),
@@ -969,6 +971,8 @@ namespace LightSwitchApplication.Implementation
                 result.CityActive = userListingItem.CityActive;
                 result.UserCityActive = userListingItem.UserCityActive;
                 result.ListingCategoryActive = userListingItem.ListingCategoryActive;
+                result.KeywordScore = userListingItem.KeywordScore;
+                result.KeywordDisplay = userListingItem.KeywordDisplay;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -991,6 +995,7 @@ namespace LightSwitchApplication.Implementation
                 result.OperationName = operation.OperationName;
                 result.Parameters = operation.Parameters;
                 result.UserId = operation.UserId;
+                result.Visible = operation.Visible;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.User user = outerEntity as global::MarketingDomainServiceData.Implementation.User;
@@ -1082,6 +1087,8 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.CityActive = innerUserListingItem.CityActive;
                 outerUserListingItem.UserCityActive = innerUserListingItem.UserCityActive;
                 outerUserListingItem.ListingCategoryActive = innerUserListingItem.ListingCategoryActive;
+                outerUserListingItem.KeywordScore = innerUserListingItem.KeywordScore;
+                outerUserListingItem.KeywordDisplay = innerUserListingItem.KeywordDisplay;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1104,6 +1111,7 @@ namespace LightSwitchApplication.Implementation
                 outerOperation.OperationName = innerOperation.OperationName;
                 outerOperation.Parameters = innerOperation.Parameters;
                 outerOperation.UserId = innerOperation.UserId;
+                outerOperation.Visible = innerOperation.Visible;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.User outerUser = outerEntity as global::MarketingDomainServiceData.Implementation.User;

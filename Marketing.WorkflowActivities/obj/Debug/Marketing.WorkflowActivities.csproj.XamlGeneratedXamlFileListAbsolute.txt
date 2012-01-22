@@ -3,3 +3,4 @@ obj\Debug\GetCraigslistListingUrlsActivity.g.xaml
 obj\Debug\RefreshUserCraigslistContent.g.xaml
 obj\Debug\GetListingContentActivity.g.xaml
 obj\Debug\RefreshUserDataActivity.g.xaml
+obj\Debug\RefreshUserListingKeywordScoreActivity.g.xaml
