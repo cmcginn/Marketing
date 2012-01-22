@@ -62,6 +62,33 @@
       [UserListingRefresh].[CityId] AS [CityId]
       FROM [dbo].[UserListingRefresh] AS [UserListingRefresh]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="Marketing.CraigslistScraperModel.Store.vw_aspnet_MembershipUsers" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_MembershipUsers">
+      <DefiningQuery>SELECT 
+      [vw_aspnet_MembershipUsers].[UserId] AS [UserId], 
+      [vw_aspnet_MembershipUsers].[PasswordFormat] AS [PasswordFormat], 
+      [vw_aspnet_MembershipUsers].[MobilePIN] AS [MobilePIN], 
+      [vw_aspnet_MembershipUsers].[Email] AS [Email], 
+      [vw_aspnet_MembershipUsers].[LoweredEmail] AS [LoweredEmail], 
+      [vw_aspnet_MembershipUsers].[PasswordQuestion] AS [PasswordQuestion], 
+      [vw_aspnet_MembershipUsers].[PasswordAnswer] AS [PasswordAnswer], 
+      [vw_aspnet_MembershipUsers].[IsApproved] AS [IsApproved], 
+      [vw_aspnet_MembershipUsers].[IsLockedOut] AS [IsLockedOut], 
+      [vw_aspnet_MembershipUsers].[CreateDate] AS [CreateDate], 
+      [vw_aspnet_MembershipUsers].[LastLoginDate] AS [LastLoginDate], 
+      [vw_aspnet_MembershipUsers].[LastPasswordChangedDate] AS [LastPasswordChangedDate], 
+      [vw_aspnet_MembershipUsers].[LastLockoutDate] AS [LastLockoutDate], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAttemptCount] AS [FailedPasswordAttemptCount], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAttemptWindowStart] AS [FailedPasswordAttemptWindowStart], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAnswerAttemptCount] AS [FailedPasswordAnswerAttemptCount], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAnswerAttemptWindowStart] AS [FailedPasswordAnswerAttemptWindowStart], 
+      [vw_aspnet_MembershipUsers].[Comment] AS [Comment], 
+      [vw_aspnet_MembershipUsers].[ApplicationId] AS [ApplicationId], 
+      [vw_aspnet_MembershipUsers].[UserName] AS [UserName], 
+      [vw_aspnet_MembershipUsers].[MobileAlias] AS [MobileAlias], 
+      [vw_aspnet_MembershipUsers].[IsAnonymous] AS [IsAnonymous], 
+      [vw_aspnet_MembershipUsers].[LastActivityDate] AS [LastActivityDate]
+      FROM [dbo].[vw_aspnet_MembershipUsers] AS [vw_aspnet_MembershipUsers]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
       <End Role="ListingGroup" EntitySet="ListingGroup" />
       <End Role="ListingCategory" EntitySet="ListingCategory" />
@@ -249,9 +276,6 @@
     <Property Name="RequiresSSL" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
-      warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserCitySelectionView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
-      -->
-  <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
   <EntityType Name="UserListingData">
@@ -340,6 +364,52 @@
     <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.vw_aspnet_MembershipUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vw_aspnet_MembershipUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK_ListingCategory_ListingGroup">
     <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />

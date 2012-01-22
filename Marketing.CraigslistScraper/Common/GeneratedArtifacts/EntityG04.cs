@@ -17,32 +17,32 @@ namespace LightSwitchApplication
     /// No Modeled Description Available
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    public sealed partial class UserCitySelection : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass>
+    public sealed partial class UserPreferenceSelection : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass>
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new instance of the UserCitySelection entity.
+        /// Initializes a new instance of the UserPreferenceSelection entity.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public UserCitySelection()
+        public UserPreferenceSelection()
             : this(null)
         {
         }
     
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public UserCitySelection(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserCitySelection> entitySet)
+        public UserPreferenceSelection(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserPreferenceSelection> entitySet)
             : base(entitySet)
         {
-            global::LightSwitchApplication.UserCitySelection.DetailsClass.Initialize(this);
+            global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.Initialize(this);
         }
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelection_Created();
+        partial void UserPreferenceSelection_Created();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserCitySelection_AllowSaveWithErrors(ref bool result);
+        partial void UserPreferenceSelection_AllowSaveWithErrors(ref bool result);
     
         #endregion
     
@@ -83,24 +83,24 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool Selected
+        public global::System.Guid Id
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Selected);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.Id);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Selected, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.Id, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Selected_IsReadOnly(ref bool result);
+        partial void Id_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Selected_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void Id_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Selected_Changed();
+        partial void Id_Changed();
 
         /// <summary>
         /// No Modeled Description Available
@@ -111,11 +111,11 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.UserId);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.UserId);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.UserId, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.UserId, value);
             }
         }
         
@@ -131,144 +131,168 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string CityName
+        public bool LiveMode
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.CityName);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.LiveMode);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.CityName, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.LiveMode, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CityName_IsReadOnly(ref bool result);
+        partial void LiveMode_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CityName_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void LiveMode_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CityName_Changed();
+        partial void LiveMode_Changed();
 
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string RegionName
+        public string BCCEmailAddress
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.RegionName);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.BCCEmailAddress);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.RegionName, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.BCCEmailAddress, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RegionName_IsReadOnly(ref bool result);
+        partial void BCCEmailAddress_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RegionName_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void BCCEmailAddress_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void RegionName_Changed();
+        partial void BCCEmailAddress_Changed();
 
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool Active
+        public string SMTPUsername
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Active);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPUsername);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Active, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPUsername, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Active_IsReadOnly(ref bool result);
+        partial void SMTPUsername_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Active_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void SMTPUsername_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Active_Changed();
+        partial void SMTPUsername_Changed();
 
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string StateProvince
+        public string SMTPServer
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.StateProvince);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPServer);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.StateProvince, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPServer, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void StateProvince_IsReadOnly(ref bool result);
+        partial void SMTPServer_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void StateProvince_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void SMTPServer_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void StateProvince_Changed();
+        partial void SMTPServer_Changed();
 
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Guid CityId
+        public int SMTPPort
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.CityId);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPPort);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.CityId, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPPort, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CityId_IsReadOnly(ref bool result);
+        partial void SMTPPort_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CityId_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void SMTPPort_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void CityId_Changed();
+        partial void SMTPPort_Changed();
 
         /// <summary>
         /// No Modeled Description Available
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Guid Id
+        public bool RequiresSSL
         {
             get
             {
-                return global::LightSwitchApplication.UserCitySelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Id);
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.RequiresSSL);
             }
             set
             {
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Id, value);
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.RequiresSSL, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Id_IsReadOnly(ref bool result);
+        partial void RequiresSSL_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Id_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void RequiresSSL_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Id_Changed();
+        partial void RequiresSSL_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string SMTPPassword
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPPassword);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPPassword, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SMTPPassword_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SMTPPassword_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void SMTPPassword_Changed();
 
         #endregion
     
@@ -279,37 +303,37 @@ namespace LightSwitchApplication
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<
-                global::LightSwitchApplication.UserCitySelection,
-                global::LightSwitchApplication.UserCitySelection.DetailsClass,
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.IImplementation,
-                global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySet,
-                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass>,
-                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass>>
+                global::LightSwitchApplication.UserPreferenceSelection,
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass,
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.IImplementation,
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySet,
+                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass>,
+                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass>>
         {
     
             static DetailsClass()
             {
-                var initializeEntry = global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Selected;
+                var initializeEntry = global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.Id;
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass>.Entry
-                __UserCitySelectionEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass>.Entry(
-                    global::LightSwitchApplication.UserCitySelection.DetailsClass.__UserCitySelection_CreateNew,
-                    global::LightSwitchApplication.UserCitySelection.DetailsClass.__UserCitySelection_Created,
-                    global::LightSwitchApplication.UserCitySelection.DetailsClass.__UserCitySelection_AllowSaveWithErrors);
-            private static global::LightSwitchApplication.UserCitySelection __UserCitySelection_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserCitySelection> es)
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass>.Entry
+                __UserPreferenceSelectionEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass>.Entry(
+                    global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.__UserPreferenceSelection_CreateNew,
+                    global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.__UserPreferenceSelection_Created,
+                    global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.__UserPreferenceSelection_AllowSaveWithErrors);
+            private static global::LightSwitchApplication.UserPreferenceSelection __UserPreferenceSelection_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserPreferenceSelection> es)
             {
-                return new global::LightSwitchApplication.UserCitySelection(es);
+                return new global::LightSwitchApplication.UserPreferenceSelection(es);
             }
-            private static void __UserCitySelection_Created(global::LightSwitchApplication.UserCitySelection e)
+            private static void __UserPreferenceSelection_Created(global::LightSwitchApplication.UserPreferenceSelection e)
             {
-                e.UserCitySelection_Created();
+                e.UserPreferenceSelection_Created();
             }
-            private static bool __UserCitySelection_AllowSaveWithErrors(global::LightSwitchApplication.UserCitySelection e)
+            private static bool __UserPreferenceSelection_AllowSaveWithErrors(global::LightSwitchApplication.UserPreferenceSelection e)
             {
                 bool result = false;
-                e.UserCitySelection_AllowSaveWithErrors(ref result);
+                e.UserPreferenceSelection_AllowSaveWithErrors(ref result);
                 return result;
             }
     
@@ -317,7 +341,7 @@ namespace LightSwitchApplication
             {
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass> Commands
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass> Commands
             {
                 get
                 {
@@ -325,7 +349,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass> Methods
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass> Methods
             {
                 get
                 {
@@ -333,7 +357,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySet Properties
+            public new global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySet Properties
             {
                 get
                 {
@@ -345,74 +369,82 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass>
+            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass>
             {
     
                 public PropertySet() : base()
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool> Selected
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid> Id
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Selected) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid> UserId
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid> UserId
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.UserId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.UserId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string> CityName
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool> LiveMode
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.CityName) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.LiveMode) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string> RegionName
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string> BCCEmailAddress
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.RegionName) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.BCCEmailAddress) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool> Active
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string> SMTPUsername
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Active) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPUsername) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string> StateProvince
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string> SMTPServer
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.StateProvince) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPServer) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid> CityId
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int> SMTPPort
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.CityId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPPort) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid> Id
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool> RequiresSSL
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.RequiresSSL) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string> SMTPPassword
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.SMTPPassword) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>;
                     }
                 }
                 
@@ -422,14 +454,15 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
-                new bool Selected { get; set; }
-                new global::System.Guid UserId { get; set; }
-                new string CityName { get; set; }
-                new string RegionName { get; set; }
-                new bool Active { get; set; }
-                new string StateProvince { get; set; }
-                new global::System.Guid CityId { get; set; }
                 new global::System.Guid Id { get; set; }
+                new global::System.Guid UserId { get; set; }
+                new bool LiveMode { get; set; }
+                new string BCCEmailAddress { get; set; }
+                new string SMTPUsername { get; set; }
+                new string SMTPServer { get; set; }
+                new int SMTPPort { get; set; }
+                new bool RequiresSSL { get; set; }
+                new string SMTPPassword { get; set; }
             }
             #pragma warning restore 109
     
@@ -440,326 +473,366 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Entry
-                    Selected = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Entry(
-                        "Selected",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_OnValueChanged);
-                private static void _Selected_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._Selected, sf);
-                }
-                private static bool _Selected_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.Selected_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _Selected_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.Selected_Validate(r);
-                }
-                private static bool _Selected_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.Selected;
-                }
-                private static void _Selected_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, bool v)
-                {
-                    d.ImplementationEntity.Selected = v;
-                }
-                private static void _Selected_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.Selected_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Entry
-                    UserId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Entry(
-                        "UserId",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._UserId_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._UserId_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._UserId_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._UserId_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._UserId_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._UserId_OnValueChanged);
-                private static void _UserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._UserId, sf);
-                }
-                private static bool _UserId_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.UserId_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _UserId_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.UserId_Validate(r);
-                }
-                private static global::System.Guid _UserId_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.UserId;
-                }
-                private static void _UserId_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, global::System.Guid v)
-                {
-                    d.ImplementationEntity.UserId = v;
-                }
-                private static void _UserId_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.UserId_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Entry
-                    CityName = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Entry(
-                        "CityName",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityName_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityName_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityName_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityName_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityName_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityName_OnValueChanged);
-                private static void _CityName_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._CityName, sf);
-                }
-                private static bool _CityName_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.CityName_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _CityName_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.CityName_Validate(r);
-                }
-                private static string _CityName_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.CityName;
-                }
-                private static void _CityName_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, string v)
-                {
-                    d.ImplementationEntity.CityName = v;
-                }
-                private static void _CityName_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.CityName_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Entry
-                    RegionName = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Entry(
-                        "RegionName",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._RegionName_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._RegionName_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._RegionName_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._RegionName_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._RegionName_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._RegionName_OnValueChanged);
-                private static void _RegionName_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._RegionName, sf);
-                }
-                private static bool _RegionName_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.RegionName_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _RegionName_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.RegionName_Validate(r);
-                }
-                private static string _RegionName_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.RegionName;
-                }
-                private static void _RegionName_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, string v)
-                {
-                    d.ImplementationEntity.RegionName = v;
-                }
-                private static void _RegionName_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.RegionName_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Entry
-                    Active = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Entry(
-                        "Active",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Active_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Active_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Active_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Active_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Active_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Active_OnValueChanged);
-                private static void _Active_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._Active, sf);
-                }
-                private static bool _Active_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.Active_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _Active_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.Active_Validate(r);
-                }
-                private static bool _Active_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.Active;
-                }
-                private static void _Active_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, bool v)
-                {
-                    d.ImplementationEntity.Active = v;
-                }
-                private static void _Active_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.Active_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Entry
-                    StateProvince = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Entry(
-                        "StateProvince",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._StateProvince_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._StateProvince_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._StateProvince_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._StateProvince_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._StateProvince_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._StateProvince_OnValueChanged);
-                private static void _StateProvince_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._StateProvince, sf);
-                }
-                private static bool _StateProvince_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.StateProvince_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _StateProvince_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.StateProvince_Validate(r);
-                }
-                private static string _StateProvince_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.StateProvince;
-                }
-                private static void _StateProvince_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, string v)
-                {
-                    d.ImplementationEntity.StateProvince = v;
-                }
-                private static void _StateProvince_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.StateProvince_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Entry
-                    CityId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Entry(
-                        "CityId",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityId_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityId_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityId_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityId_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityId_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._CityId_OnValueChanged);
-                private static void _CityId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._CityId, sf);
-                }
-                private static bool _CityId_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    bool result = false;
-                    e.CityId_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _CityId_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.CityId_Validate(r);
-                }
-                private static global::System.Guid _CityId_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.CityId;
-                }
-                private static void _CityId_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, global::System.Guid v)
-                {
-                    d.ImplementationEntity.CityId = v;
-                }
-                private static void _CityId_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
-                {
-                    e.CityId_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Entry
-                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Entry
+                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Entry(
                         "Id",
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Id_Stub,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Id_Validate,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
-                        global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Id_OnValueChanged);
-                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._Id_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._Id_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._Id_OnValueChanged);
+                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
                 {
                     c(d, ref d._Id, sf);
                 }
-                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.UserCitySelection e)
+                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
                 {
                     bool result = false;
                     e.Id_IsReadOnly(ref result);
                     return result;
                 }
-                private static void _Id_Validate(global::LightSwitchApplication.UserCitySelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                private static void _Id_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
                 {
                     e.Id_Validate(r);
                 }
-                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
+                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
                 {
                     return d.ImplementationEntity.Id;
                 }
-                private static void _Id_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, global::System.Guid v)
+                private static void _Id_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, global::System.Guid v)
                 {
                     d.ImplementationEntity.Id = v;
                 }
-                private static void _Id_OnValueChanged(global::LightSwitchApplication.UserCitySelection e)
+                private static void _Id_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
                 {
                     e.Id_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Entry
+                    UserId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Entry(
+                        "UserId",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._UserId_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._UserId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._UserId_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._UserId_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._UserId_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._UserId_OnValueChanged);
+                private static void _UserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserId, sf);
+                }
+                private static bool _UserId_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.UserId_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _UserId_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.UserId_Validate(r);
+                }
+                private static global::System.Guid _UserId_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.UserId;
+                }
+                private static void _UserId_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, global::System.Guid v)
+                {
+                    d.ImplementationEntity.UserId = v;
+                }
+                private static void _UserId_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.UserId_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Entry
+                    LiveMode = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Entry(
+                        "LiveMode",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._LiveMode_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._LiveMode_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._LiveMode_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._LiveMode_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._LiveMode_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._LiveMode_OnValueChanged);
+                private static void _LiveMode_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._LiveMode, sf);
+                }
+                private static bool _LiveMode_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.LiveMode_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _LiveMode_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.LiveMode_Validate(r);
+                }
+                private static bool _LiveMode_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.LiveMode;
+                }
+                private static void _LiveMode_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.LiveMode = v;
+                }
+                private static void _LiveMode_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.LiveMode_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry
+                    BCCEmailAddress = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry(
+                        "BCCEmailAddress",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._BCCEmailAddress_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._BCCEmailAddress_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._BCCEmailAddress_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._BCCEmailAddress_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._BCCEmailAddress_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._BCCEmailAddress_OnValueChanged);
+                private static void _BCCEmailAddress_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._BCCEmailAddress, sf);
+                }
+                private static bool _BCCEmailAddress_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.BCCEmailAddress_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _BCCEmailAddress_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.BCCEmailAddress_Validate(r);
+                }
+                private static string _BCCEmailAddress_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.BCCEmailAddress;
+                }
+                private static void _BCCEmailAddress_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.BCCEmailAddress = v;
+                }
+                private static void _BCCEmailAddress_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.BCCEmailAddress_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry
+                    SMTPUsername = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry(
+                        "SMTPUsername",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPUsername_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPUsername_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPUsername_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPUsername_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPUsername_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPUsername_OnValueChanged);
+                private static void _SMTPUsername_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SMTPUsername, sf);
+                }
+                private static bool _SMTPUsername_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.SMTPUsername_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SMTPUsername_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SMTPUsername_Validate(r);
+                }
+                private static string _SMTPUsername_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SMTPUsername;
+                }
+                private static void _SMTPUsername_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.SMTPUsername = v;
+                }
+                private static void _SMTPUsername_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.SMTPUsername_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry
+                    SMTPServer = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry(
+                        "SMTPServer",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPServer_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPServer_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPServer_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPServer_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPServer_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPServer_OnValueChanged);
+                private static void _SMTPServer_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SMTPServer, sf);
+                }
+                private static bool _SMTPServer_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.SMTPServer_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SMTPServer_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SMTPServer_Validate(r);
+                }
+                private static string _SMTPServer_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SMTPServer;
+                }
+                private static void _SMTPServer_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.SMTPServer = v;
+                }
+                private static void _SMTPServer_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.SMTPServer_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Entry
+                    SMTPPort = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Entry(
+                        "SMTPPort",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPort_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPort_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPort_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPort_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPort_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPort_OnValueChanged);
+                private static void _SMTPPort_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SMTPPort, sf);
+                }
+                private static bool _SMTPPort_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.SMTPPort_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SMTPPort_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SMTPPort_Validate(r);
+                }
+                private static int _SMTPPort_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SMTPPort;
+                }
+                private static void _SMTPPort_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, int v)
+                {
+                    d.ImplementationEntity.SMTPPort = v;
+                }
+                private static void _SMTPPort_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.SMTPPort_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Entry
+                    RequiresSSL = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Entry(
+                        "RequiresSSL",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._RequiresSSL_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._RequiresSSL_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._RequiresSSL_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._RequiresSSL_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._RequiresSSL_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._RequiresSSL_OnValueChanged);
+                private static void _RequiresSSL_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._RequiresSSL, sf);
+                }
+                private static bool _RequiresSSL_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.RequiresSSL_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _RequiresSSL_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.RequiresSSL_Validate(r);
+                }
+                private static bool _RequiresSSL_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.RequiresSSL;
+                }
+                private static void _RequiresSSL_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.RequiresSSL = v;
+                }
+                private static void _RequiresSSL_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.RequiresSSL_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry
+                    SMTPPassword = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Entry(
+                        "SMTPPassword",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPassword_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPassword_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPassword_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPassword_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPassword_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._SMTPPassword_OnValueChanged);
+                private static void _SMTPPassword_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SMTPPassword, sf);
+                }
+                private static bool _SMTPPassword_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.SMTPPassword_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _SMTPPassword_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.SMTPPassword_Validate(r);
+                }
+                private static string _SMTPPassword_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.SMTPPassword;
+                }
+                private static void _SMTPPassword_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.SMTPPassword = v;
+                }
+                private static void _SMTPPassword_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.SMTPPassword_Changed();
                 }
     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Data _Selected;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Data _Id;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data _UserId;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::System.Guid>.Data _UserId;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Data _CityName;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Data _LiveMode;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Data _RegionName;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data _BCCEmailAddress;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Data _Active;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data _SMTPUsername;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, string>.Data _StateProvince;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data _SMTPServer;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data _CityId;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Data _SMTPPort;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data _Id;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, bool>.Data _RequiresSSL;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data _SMTPPassword;
             
         }
     

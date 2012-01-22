@@ -8,6 +8,7 @@
     <EntitySet Name="DefaultUserListingItems" EntityType="MarketingDomainServiceDataStore.UserListingItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingItem" />
     <EntitySet Name="DefaultUserListingResponseItems" EntityType="MarketingDomainServiceDataStore.UserListingResponseItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingResponseItem" />
     <EntitySet Name="DefaultServerOperations" EntityType="MarketingDomainServiceDataStore.Operation" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Operation" />
+    <EntitySet Name="DefaultUsers" EntityType="MarketingDomainServiceDataStore.User" store:Type="Tables" Schema="dbo" Table="Marketing.Services.User" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -100,5 +101,12 @@
     <Property Name="OperationName" Type="nvarchar(max)" />
     <Property Name="Parameters" Type="nvarchar(max)" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

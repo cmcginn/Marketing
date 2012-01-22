@@ -18,6 +18,11 @@ namespace Marketing.Services {
 
   public class MarketingDomainService : DomainService {
     MarketingEntities _Context;
+   [Query( IsDefault = true )]
+    public IQueryable<User> DefaultUsers() {
+      var result = Context.GetUsers();
+      return result;
+    }
     [Query(IsDefault=true)]
     public IQueryable<UserCitySelection> DefaultUserCitySelections() {
       var result = Context.GetUserCitySelections();

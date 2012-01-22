@@ -92,6 +92,13 @@
     <Property Name="Parameters" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Username" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -100,5 +107,6 @@
     <EntitySet Name="UserListingItems" EntityType="MarketingDomainServiceData.UserListingItem" />
     <EntitySet Name="UserListingResponseItems" EntityType="MarketingDomainServiceData.UserListingResponseItem" />
     <EntitySet Name="Operations" EntityType="MarketingDomainServiceData.Operation" />
+    <EntitySet Name="Users" EntityType="MarketingDomainServiceData.User" />
   </EntityContainer>
 </Schema>

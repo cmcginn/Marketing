@@ -10,7 +10,10 @@ using System.Net.Mail;
 using System.Web;
 namespace Marketing.Services.Extensions {
   public static class DomainExtensions {
-
+    public static IQueryable<User> GetUsers( this MarketingEntities context ) {
+      var result = context.vw_aspnet_MembershipUsers.Select( n => new User { Id = n.UserId, Username = n.UserName } );
+      return result.AsQueryable();
+    }
     public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionByUserId( this MarketingEntities context,Guid userId ) {
       var query = from category in context.ListingCategories
                   join categoryGroup in context.ListingGroups

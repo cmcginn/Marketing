@@ -13,8 +13,9 @@ namespace LightSwitchApplication {
     private Guid _UserId;
 
     partial void Application_LoggedIn() {
-      var workspace = this.CreateDataWorkspace().Marketing_CraigslistScraperData;
-      UserId = workspace.vw_aspnet_MembershipUsers.Where( x => x.UserName == this.User.Name ).Single().UserId;
+      var workspace = this.CreateDataWorkspace().MarketingDomainServiceData;
+      UserId = workspace.Users.Where( x => x.Username == this.User.Name ).Single().Id;
+      
     }
     public Guid UserId {
       get {

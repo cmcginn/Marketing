@@ -17,32 +17,32 @@ namespace LightSwitchApplication
     /// No Modeled Description Available
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    public sealed partial class UserKeywordSelection : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass>
+    public sealed partial class UserListingResponseItem : global::Microsoft.LightSwitch.Framework.Base.EntityObject<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass>
     {
         #region Constructors
     
         /// <summary>
-        /// Initializes a new instance of the UserKeywordSelection entity.
+        /// Initializes a new instance of the UserListingResponseItem entity.
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public UserKeywordSelection()
+        public UserListingResponseItem()
             : this(null)
         {
         }
     
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public UserKeywordSelection(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserKeywordSelection> entitySet)
+        public UserListingResponseItem(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserListingResponseItem> entitySet)
             : base(entitySet)
         {
-            global::LightSwitchApplication.UserKeywordSelection.DetailsClass.Initialize(this);
+            global::LightSwitchApplication.UserListingResponseItem.DetailsClass.Initialize(this);
         }
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserKeywordSelection_Created();
+        partial void UserListingResponseItem_Created();
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserKeywordSelection_AllowSaveWithErrors(ref bool result);
+        partial void UserListingResponseItem_AllowSaveWithErrors(ref bool result);
     
         #endregion
     
@@ -87,11 +87,11 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.UserKeywordSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Id);
+                return global::LightSwitchApplication.UserListingResponseItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Id);
             }
             set
             {
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Id, value);
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Id, value);
             }
         }
         
@@ -107,48 +107,24 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string Keyword
+        public global::System.Guid UserListingUrlId
         {
             get
             {
-                return global::LightSwitchApplication.UserKeywordSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Keyword);
+                return global::LightSwitchApplication.UserListingResponseItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.UserListingUrlId);
             }
             set
             {
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Keyword, value);
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.UserListingUrlId, value);
             }
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Keyword_IsReadOnly(ref bool result);
+        partial void UserListingUrlId_IsReadOnly(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Keyword_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        partial void UserListingUrlId_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void Keyword_Changed();
-
-        /// <summary>
-        /// No Modeled Description Available
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public int WeightedScore
-        {
-            get
-            {
-                return global::LightSwitchApplication.UserKeywordSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.WeightedScore);
-            }
-            set
-            {
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.WeightedScore, value);
-            }
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void WeightedScore_IsReadOnly(ref bool result);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void WeightedScore_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void WeightedScore_Changed();
+        partial void UserListingUrlId_Changed();
 
         /// <summary>
         /// No Modeled Description Available
@@ -159,11 +135,11 @@ namespace LightSwitchApplication
         {
             get
             {
-                return global::LightSwitchApplication.UserKeywordSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.UserId);
+                return global::LightSwitchApplication.UserListingResponseItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.UserId);
             }
             set
             {
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.UserId, value);
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.UserId, value);
             }
         }
         
@@ -174,6 +150,54 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserId_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingResponseItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Created);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Created, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Created_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Created_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Created_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string Response
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingResponseItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Response);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Response, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Response_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Response_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Response_Changed();
+
         #endregion
     
         #region Details Class
@@ -183,37 +207,37 @@ namespace LightSwitchApplication
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public sealed class DetailsClass : global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<
-                global::LightSwitchApplication.UserKeywordSelection,
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass,
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass.IImplementation,
-                global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySet,
-                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass>,
-                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass>>
+                global::LightSwitchApplication.UserListingResponseItem,
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass,
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.IImplementation,
+                global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySet,
+                global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass>,
+                global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass>>
         {
     
             static DetailsClass()
             {
-                var initializeEntry = global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Id;
+                var initializeEntry = global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Id;
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass>.Entry
-                __UserKeywordSelectionEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass>.Entry(
-                    global::LightSwitchApplication.UserKeywordSelection.DetailsClass.__UserKeywordSelection_CreateNew,
-                    global::LightSwitchApplication.UserKeywordSelection.DetailsClass.__UserKeywordSelection_Created,
-                    global::LightSwitchApplication.UserKeywordSelection.DetailsClass.__UserKeywordSelection_AllowSaveWithErrors);
-            private static global::LightSwitchApplication.UserKeywordSelection __UserKeywordSelection_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserKeywordSelection> es)
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass>.Entry
+                __UserListingResponseItemEntry = new global::Microsoft.LightSwitch.Details.Framework.Base.EntityDetails<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass>.Entry(
+                    global::LightSwitchApplication.UserListingResponseItem.DetailsClass.__UserListingResponseItem_CreateNew,
+                    global::LightSwitchApplication.UserListingResponseItem.DetailsClass.__UserListingResponseItem_Created,
+                    global::LightSwitchApplication.UserListingResponseItem.DetailsClass.__UserListingResponseItem_AllowSaveWithErrors);
+            private static global::LightSwitchApplication.UserListingResponseItem __UserListingResponseItem_CreateNew(global::Microsoft.LightSwitch.Framework.EntitySet<global::LightSwitchApplication.UserListingResponseItem> es)
             {
-                return new global::LightSwitchApplication.UserKeywordSelection(es);
+                return new global::LightSwitchApplication.UserListingResponseItem(es);
             }
-            private static void __UserKeywordSelection_Created(global::LightSwitchApplication.UserKeywordSelection e)
+            private static void __UserListingResponseItem_Created(global::LightSwitchApplication.UserListingResponseItem e)
             {
-                e.UserKeywordSelection_Created();
+                e.UserListingResponseItem_Created();
             }
-            private static bool __UserKeywordSelection_AllowSaveWithErrors(global::LightSwitchApplication.UserKeywordSelection e)
+            private static bool __UserListingResponseItem_AllowSaveWithErrors(global::LightSwitchApplication.UserListingResponseItem e)
             {
                 bool result = false;
-                e.UserKeywordSelection_AllowSaveWithErrors(ref result);
+                e.UserListingResponseItem_AllowSaveWithErrors(ref result);
                 return result;
             }
     
@@ -221,7 +245,7 @@ namespace LightSwitchApplication
             {
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass> Commands
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityCommandSet<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass> Commands
             {
                 get
                 {
@@ -229,7 +253,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass> Methods
+            public new global::Microsoft.LightSwitch.Details.Framework.EntityMethodSet<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass> Methods
             {
                 get
                 {
@@ -237,7 +261,7 @@ namespace LightSwitchApplication
                 }
             }
     
-            public new global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySet Properties
+            public new global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySet Properties
             {
                 get
                 {
@@ -249,42 +273,50 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass>
+            public sealed class PropertySet : global::Microsoft.LightSwitch.Details.Framework.Base.EntityPropertySet<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass>
             {
     
                 public PropertySet() : base()
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid> Id
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid> Id
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Id) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, string> Keyword
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid> UserListingUrlId
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.Keyword) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, string>;
+                        return base.GetItem(global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.UserListingUrlId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, int> WeightedScore
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid> UserId
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.WeightedScore) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, int>;
+                        return base.GetItem(global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.UserId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>;
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid> UserId
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.DateTime> Created
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties.UserId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>;
+                        return base.GetItem(global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Created) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.DateTime>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, string> Response
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties.Response) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, string>;
                     }
                 }
                 
@@ -295,9 +327,10 @@ namespace LightSwitchApplication
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
                 new global::System.Guid Id { get; set; }
-                new string Keyword { get; set; }
-                new int WeightedScore { get; set; }
+                new global::System.Guid UserListingUrlId { get; set; }
                 new global::System.Guid UserId { get; set; }
+                new global::System.DateTime Created { get; set; }
+                new string Response { get; set; }
             }
             #pragma warning restore 109
     
@@ -308,166 +341,206 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Entry
-                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Entry
+                    Id = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Entry(
                         "Id",
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Id_Stub,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Id_Validate,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Id_OnValueChanged);
-                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, object sf)
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Id_Stub,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Id_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Id_Validate,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Id_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Id_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Id_OnValueChanged);
+                private static void _Id_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, object sf)
                 {
                     c(d, ref d._Id, sf);
                 }
-                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.UserKeywordSelection e)
+                private static bool _Id_ComputeIsReadOnly(global::LightSwitchApplication.UserListingResponseItem e)
                 {
                     bool result = false;
                     e.Id_IsReadOnly(ref result);
                     return result;
                 }
-                private static void _Id_Validate(global::LightSwitchApplication.UserKeywordSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                private static void _Id_Validate(global::LightSwitchApplication.UserListingResponseItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
                 {
                     e.Id_Validate(r);
                 }
-                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d)
+                private static global::System.Guid _Id_GetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d)
                 {
                     return d.ImplementationEntity.Id;
                 }
-                private static void _Id_SetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, global::System.Guid v)
+                private static void _Id_SetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, global::System.Guid v)
                 {
                     d.ImplementationEntity.Id = v;
                 }
-                private static void _Id_OnValueChanged(global::LightSwitchApplication.UserKeywordSelection e)
+                private static void _Id_OnValueChanged(global::LightSwitchApplication.UserListingResponseItem e)
                 {
                     e.Id_Changed();
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, string>.Entry
-                    Keyword = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, string>.Entry(
-                        "Keyword",
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Keyword_Stub,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Keyword_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Keyword_Validate,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Keyword_GetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Keyword_SetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._Keyword_OnValueChanged);
-                private static void _Keyword_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, object sf)
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Entry
+                    UserListingUrlId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Entry(
+                        "UserListingUrlId",
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserListingUrlId_Stub,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserListingUrlId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserListingUrlId_Validate,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserListingUrlId_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserListingUrlId_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserListingUrlId_OnValueChanged);
+                private static void _UserListingUrlId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, object sf)
                 {
-                    c(d, ref d._Keyword, sf);
+                    c(d, ref d._UserListingUrlId, sf);
                 }
-                private static bool _Keyword_ComputeIsReadOnly(global::LightSwitchApplication.UserKeywordSelection e)
+                private static bool _UserListingUrlId_ComputeIsReadOnly(global::LightSwitchApplication.UserListingResponseItem e)
                 {
                     bool result = false;
-                    e.Keyword_IsReadOnly(ref result);
+                    e.UserListingUrlId_IsReadOnly(ref result);
                     return result;
                 }
-                private static void _Keyword_Validate(global::LightSwitchApplication.UserKeywordSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                private static void _UserListingUrlId_Validate(global::LightSwitchApplication.UserListingResponseItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
                 {
-                    e.Keyword_Validate(r);
+                    e.UserListingUrlId_Validate(r);
                 }
-                private static string _Keyword_GetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d)
+                private static global::System.Guid _UserListingUrlId_GetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d)
                 {
-                    return d.ImplementationEntity.Keyword;
+                    return d.ImplementationEntity.UserListingUrlId;
                 }
-                private static void _Keyword_SetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, string v)
+                private static void _UserListingUrlId_SetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, global::System.Guid v)
                 {
-                    d.ImplementationEntity.Keyword = v;
+                    d.ImplementationEntity.UserListingUrlId = v;
                 }
-                private static void _Keyword_OnValueChanged(global::LightSwitchApplication.UserKeywordSelection e)
+                private static void _UserListingUrlId_OnValueChanged(global::LightSwitchApplication.UserListingResponseItem e)
                 {
-                    e.Keyword_Changed();
+                    e.UserListingUrlId_Changed();
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, int>.Entry
-                    WeightedScore = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, int>.Entry(
-                        "WeightedScore",
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._WeightedScore_Stub,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._WeightedScore_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._WeightedScore_Validate,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._WeightedScore_GetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._WeightedScore_SetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._WeightedScore_OnValueChanged);
-                private static void _WeightedScore_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, int>.Data> c, global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, object sf)
-                {
-                    c(d, ref d._WeightedScore, sf);
-                }
-                private static bool _WeightedScore_ComputeIsReadOnly(global::LightSwitchApplication.UserKeywordSelection e)
-                {
-                    bool result = false;
-                    e.WeightedScore_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _WeightedScore_Validate(global::LightSwitchApplication.UserKeywordSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.WeightedScore_Validate(r);
-                }
-                private static int _WeightedScore_GetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d)
-                {
-                    return d.ImplementationEntity.WeightedScore;
-                }
-                private static void _WeightedScore_SetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, int v)
-                {
-                    d.ImplementationEntity.WeightedScore = v;
-                }
-                private static void _WeightedScore_OnValueChanged(global::LightSwitchApplication.UserKeywordSelection e)
-                {
-                    e.WeightedScore_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Entry
-                    UserId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Entry
+                    UserId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Entry(
                         "UserId",
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._UserId_Stub,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._UserId_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._UserId_Validate,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._UserId_GetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._UserId_SetImplementationValue,
-                        global::LightSwitchApplication.UserKeywordSelection.DetailsClass.PropertySetProperties._UserId_OnValueChanged);
-                private static void _UserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, object sf)
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserId_Stub,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserId_Validate,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserId_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserId_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._UserId_OnValueChanged);
+                private static void _UserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, object sf)
                 {
                     c(d, ref d._UserId, sf);
                 }
-                private static bool _UserId_ComputeIsReadOnly(global::LightSwitchApplication.UserKeywordSelection e)
+                private static bool _UserId_ComputeIsReadOnly(global::LightSwitchApplication.UserListingResponseItem e)
                 {
                     bool result = false;
                     e.UserId_IsReadOnly(ref result);
                     return result;
                 }
-                private static void _UserId_Validate(global::LightSwitchApplication.UserKeywordSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                private static void _UserId_Validate(global::LightSwitchApplication.UserListingResponseItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
                 {
                     e.UserId_Validate(r);
                 }
-                private static global::System.Guid _UserId_GetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d)
+                private static global::System.Guid _UserId_GetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d)
                 {
                     return d.ImplementationEntity.UserId;
                 }
-                private static void _UserId_SetImplementationValue(global::LightSwitchApplication.UserKeywordSelection.DetailsClass d, global::System.Guid v)
+                private static void _UserId_SetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, global::System.Guid v)
                 {
                     d.ImplementationEntity.UserId = v;
                 }
-                private static void _UserId_OnValueChanged(global::LightSwitchApplication.UserKeywordSelection e)
+                private static void _UserId_OnValueChanged(global::LightSwitchApplication.UserListingResponseItem e)
                 {
                     e.UserId_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.DateTime>.Entry
+                    Created = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.DateTime>.Entry(
+                        "Created",
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Created_Stub,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Created_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Created_Validate,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Created_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Created_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Created_OnValueChanged);
+                private static void _Created_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.DateTime>.Data> c, global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Created, sf);
+                }
+                private static bool _Created_ComputeIsReadOnly(global::LightSwitchApplication.UserListingResponseItem e)
+                {
+                    bool result = false;
+                    e.Created_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Created_Validate(global::LightSwitchApplication.UserListingResponseItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Created_Validate(r);
+                }
+                private static global::System.DateTime _Created_GetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Created;
+                }
+                private static void _Created_SetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, global::System.DateTime v)
+                {
+                    d.ImplementationEntity.Created = global::LightSwitchApplication.UserListingResponseItem.DetailsClass.ClearDateTimeKind(v);
+                }
+                private static void _Created_OnValueChanged(global::LightSwitchApplication.UserListingResponseItem e)
+                {
+                    e.Created_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, string>.Entry
+                    Response = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, string>.Entry(
+                        "Response",
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Response_Stub,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Response_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Response_Validate,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Response_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Response_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingResponseItem.DetailsClass.PropertySetProperties._Response_OnValueChanged);
+                private static void _Response_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._Response, sf);
+                }
+                private static bool _Response_ComputeIsReadOnly(global::LightSwitchApplication.UserListingResponseItem e)
+                {
+                    bool result = false;
+                    e.Response_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _Response_Validate(global::LightSwitchApplication.UserListingResponseItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.Response_Validate(r);
+                }
+                private static string _Response_GetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.Response;
+                }
+                private static void _Response_SetImplementationValue(global::LightSwitchApplication.UserListingResponseItem.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.Response = v;
+                }
+                private static void _Response_OnValueChanged(global::LightSwitchApplication.UserListingResponseItem e)
+                {
+                    e.Response_Changed();
                 }
     
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Data _Id;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Data _Id;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, string>.Data _Keyword;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Data _UserListingUrlId;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, int>.Data _WeightedScore;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.Guid>.Data _UserId;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserKeywordSelection, global::LightSwitchApplication.UserKeywordSelection.DetailsClass, global::System.Guid>.Data _UserId;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, global::System.DateTime>.Data _Created;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingResponseItem, global::LightSwitchApplication.UserListingResponseItem.DetailsClass, string>.Data _Response;
             
         }
     

@@ -15,313 +15,6 @@ namespace LightSwitchApplication.Implementation
     [global::System.ServiceModel.DomainServices.Hosting.EnableClientAccess()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public class Marketing_CraigslistScraperDataDomainService
-        : global::Microsoft.LightSwitch.ServerGenerated.Implementation.DomainService<global::Marketing_CraigslistScraperData.Implementation.Marketing_CraigslistScraperDataObjectContext>
-    {
-    
-        public Marketing_CraigslistScraperDataDomainService() : base()
-        {
-        }
-    
-    #region Public Methods
-    
-    #region City
-    
-        public void InsertCity(global::Marketing_CraigslistScraperData.Implementation.City entity)
-        {
-            if (entity.EntityState != global::System.Data.EntityState.Detached)
-            {
-                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
-            }
-            else
-            {
-                this.ObjectContext.Cities.AddObject(entity);
-            }
-        }
-    
-        public void UpdateCity(global::Marketing_CraigslistScraperData.Implementation.City currentEntity)
-        {
-            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.Cities, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
-        }
-    
-        public void DeleteCity(global::Marketing_CraigslistScraperData.Implementation.City entity)
-        {
-            if (entity.EntityState == global::System.Data.EntityState.Detached)
-            {
-                this.ObjectContext.Cities.Attach(entity);
-            }
-    
-            this.DeleteEntity(entity);
-        }
-    #endregion
-    
-    #region UserCity
-    
-        public void InsertUserCity(global::Marketing_CraigslistScraperData.Implementation.UserCity entity)
-        {
-            if (entity.EntityState != global::System.Data.EntityState.Detached)
-            {
-                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
-            }
-            else
-            {
-                this.ObjectContext.UserCities.AddObject(entity);
-            }
-        }
-    
-        public void UpdateUserCity(global::Marketing_CraigslistScraperData.Implementation.UserCity currentEntity)
-        {
-            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserCities, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
-        }
-    
-        public void DeleteUserCity(global::Marketing_CraigslistScraperData.Implementation.UserCity entity)
-        {
-            if (entity.EntityState == global::System.Data.EntityState.Detached)
-            {
-                this.ObjectContext.UserCities.Attach(entity);
-            }
-    
-            this.DeleteEntity(entity);
-        }
-    #endregion
-    
-    #region vw_aspnet_MembershipUser
-    
-        public void Insertvw_aspnet_MembershipUser(global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser entity)
-        {
-            if (entity.EntityState != global::System.Data.EntityState.Detached)
-            {
-                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
-            }
-            else
-            {
-                this.ObjectContext.vw_aspnet_MembershipUsers.AddObject(entity);
-            }
-        }
-    
-        public void Updatevw_aspnet_MembershipUser(global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser currentEntity)
-        {
-            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.vw_aspnet_MembershipUsers, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
-        }
-    
-        public void Deletevw_aspnet_MembershipUser(global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser entity)
-        {
-            if (entity.EntityState == global::System.Data.EntityState.Detached)
-            {
-                this.ObjectContext.vw_aspnet_MembershipUsers.Attach(entity);
-            }
-    
-            this.DeleteEntity(entity);
-        }
-    #endregion
-    
-    #region Queries
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> Cities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.City>("Cities_Single", frameworkOperators, Id);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> Cities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.City>("Cities_SingleOrDefault", frameworkOperators, Id);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> Cities_All(string frameworkOperators)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.City>("Cities_All", frameworkOperators);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> UserCities_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.UserCity>("UserCities_Single", frameworkOperators, Id);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> UserCities_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.UserCity>("UserCities_SingleOrDefault", frameworkOperators, Id);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> UserCities_All(string frameworkOperators)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.UserCity>("UserCities_All", frameworkOperators);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> vw_aspnet_MembershipUsers_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<int> PasswordFormat, global::System.Nullable<bool> IsApproved, global::System.Nullable<bool> IsLockedOut, global::System.Nullable<global::System.DateTime> CreateDate, global::System.Nullable<global::System.DateTime> LastLoginDate, global::System.Nullable<global::System.DateTime> LastPasswordChangedDate, global::System.Nullable<global::System.DateTime> LastLockoutDate, global::System.Nullable<int> FailedPasswordAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAttemptWindowStart, global::System.Nullable<int> FailedPasswordAnswerAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAnswerAttemptWindowStart, global::System.Nullable<global::System.Guid> ApplicationId, string UserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser>("vw_aspnet_MembershipUsers_Single", frameworkOperators, UserId, PasswordFormat, IsApproved, IsLockedOut, CreateDate, LastLoginDate, LastPasswordChangedDate, LastLockoutDate, FailedPasswordAttemptCount, FailedPasswordAttemptWindowStart, FailedPasswordAnswerAttemptCount, FailedPasswordAnswerAttemptWindowStart, ApplicationId, UserName, IsAnonymous, LastActivityDate);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> vw_aspnet_MembershipUsers_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<int> PasswordFormat, global::System.Nullable<bool> IsApproved, global::System.Nullable<bool> IsLockedOut, global::System.Nullable<global::System.DateTime> CreateDate, global::System.Nullable<global::System.DateTime> LastLoginDate, global::System.Nullable<global::System.DateTime> LastPasswordChangedDate, global::System.Nullable<global::System.DateTime> LastLockoutDate, global::System.Nullable<int> FailedPasswordAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAttemptWindowStart, global::System.Nullable<int> FailedPasswordAnswerAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAnswerAttemptWindowStart, global::System.Nullable<global::System.Guid> ApplicationId, string UserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser>("vw_aspnet_MembershipUsers_SingleOrDefault", frameworkOperators, UserId, PasswordFormat, IsApproved, IsLockedOut, CreateDate, LastLoginDate, LastPasswordChangedDate, LastLockoutDate, FailedPasswordAttemptCount, FailedPasswordAttemptWindowStart, FailedPasswordAnswerAttemptCount, FailedPasswordAnswerAttemptWindowStart, ApplicationId, UserName, IsAnonymous, LastActivityDate);
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> vw_aspnet_MembershipUsers_All(string frameworkOperators)
-        {
-            return this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser>("vw_aspnet_MembershipUsers_All", frameworkOperators);
-        }
-    
-    #endregion
-    
-        [global::System.ServiceModel.DomainServices.Server.Invoke(HasSideEffects=false)]
-        public int __GetEntitySetCanInformation(string entitySetName)
-        {
-            return base.GetEntitySetCanInformation(entitySetName);
-        }
-    
-        [global::System.ServiceModel.DomainServices.Server.Invoke(HasSideEffects=false)]
-        public bool __CanExecuteOperation(string operationName)
-        {
-            return base.CanExecuteOperation(operationName);
-        }
-    
-    #endregion
-    
-        protected override global::Microsoft.LightSwitch.IDataService CreateDataService()
-        {
-            return new global::LightSwitchApplication.DataWorkspace().Marketing_CraigslistScraperData;
-        }
-    
-    }
-    
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public class Marketing_CraigslistScraperDataServiceImplementation
-        : global::Microsoft.LightSwitch.ServerGenerated.Implementation.DataServiceImplementation<global::Marketing_CraigslistScraperData.Implementation.Marketing_CraigslistScraperDataObjectContext>
-    {
-        public Marketing_CraigslistScraperDataServiceImplementation(global::Microsoft.LightSwitch.IDataService dataService) : base(dataService)
-        {
-        }
-    
-    #region Queries
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> Cities_Single(global::System.Nullable<global::System.Guid> Id)
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> query;
-            query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.City>("Cities_All"),
-                (c) => (Id.HasValue && (c.Id == Id)));
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> Cities_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> query;
-            query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.City>("Cities_All"),
-                (c) => (Id.HasValue && (c.Id == Id)));
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> Cities_All()
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.City> query;
-            query = base.CreateQuery<global::Marketing_CraigslistScraperData.Implementation.City>("[Cities]").AsQueryable();
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> UserCities_Single(global::System.Nullable<global::System.Guid> Id)
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> query;
-            query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.UserCity>("UserCities_All"),
-                (u) => (Id.HasValue && (u.Id == Id)));
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> UserCities_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> query;
-            query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.UserCity>("UserCities_All"),
-                (u) => (Id.HasValue && (u.Id == Id)));
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> UserCities_All()
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.UserCity> query;
-            query = base.CreateQuery<global::Marketing_CraigslistScraperData.Implementation.UserCity>("[UserCities]").AsQueryable();
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> vw_aspnet_MembershipUsers_Single(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<int> PasswordFormat, global::System.Nullable<bool> IsApproved, global::System.Nullable<bool> IsLockedOut, global::System.Nullable<global::System.DateTime> CreateDate, global::System.Nullable<global::System.DateTime> LastLoginDate, global::System.Nullable<global::System.DateTime> LastPasswordChangedDate, global::System.Nullable<global::System.DateTime> LastLockoutDate, global::System.Nullable<int> FailedPasswordAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAttemptWindowStart, global::System.Nullable<int> FailedPasswordAnswerAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAnswerAttemptWindowStart, global::System.Nullable<global::System.Guid> ApplicationId, string UserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> query;
-            query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser>("vw_aspnet_MembershipUsers_All"),
-                (v) => ((((((((((((((((LastActivityDate.HasValue && (v.LastActivityDate == LastActivityDate)) && (IsAnonymous.HasValue && (v.IsAnonymous == IsAnonymous))) && (v.UserName.CompareTo(UserName) == 0)) && (ApplicationId.HasValue && (v.ApplicationId == ApplicationId))) && (FailedPasswordAnswerAttemptWindowStart.HasValue && (v.FailedPasswordAnswerAttemptWindowStart == FailedPasswordAnswerAttemptWindowStart))) && (FailedPasswordAnswerAttemptCount.HasValue && (v.FailedPasswordAnswerAttemptCount == FailedPasswordAnswerAttemptCount))) && (FailedPasswordAttemptWindowStart.HasValue && (v.FailedPasswordAttemptWindowStart == FailedPasswordAttemptWindowStart))) && (FailedPasswordAttemptCount.HasValue && (v.FailedPasswordAttemptCount == FailedPasswordAttemptCount))) && (LastLockoutDate.HasValue && (v.LastLockoutDate == LastLockoutDate))) && (LastPasswordChangedDate.HasValue && (v.LastPasswordChangedDate == LastPasswordChangedDate))) && (LastLoginDate.HasValue && (v.LastLoginDate == LastLoginDate))) && (CreateDate.HasValue && (v.CreateDate == CreateDate))) && (IsLockedOut.HasValue && (v.IsLockedOut == IsLockedOut))) && (IsApproved.HasValue && (v.IsApproved == IsApproved))) && (PasswordFormat.HasValue && (v.PasswordFormat == PasswordFormat))) && (UserId.HasValue && (v.UserId == UserId))));
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> vw_aspnet_MembershipUsers_SingleOrDefault(global::System.Nullable<global::System.Guid> UserId, global::System.Nullable<int> PasswordFormat, global::System.Nullable<bool> IsApproved, global::System.Nullable<bool> IsLockedOut, global::System.Nullable<global::System.DateTime> CreateDate, global::System.Nullable<global::System.DateTime> LastLoginDate, global::System.Nullable<global::System.DateTime> LastPasswordChangedDate, global::System.Nullable<global::System.DateTime> LastLockoutDate, global::System.Nullable<int> FailedPasswordAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAttemptWindowStart, global::System.Nullable<int> FailedPasswordAnswerAttemptCount, global::System.Nullable<global::System.DateTime> FailedPasswordAnswerAttemptWindowStart, global::System.Nullable<global::System.Guid> ApplicationId, string UserName, global::System.Nullable<bool> IsAnonymous, global::System.Nullable<global::System.DateTime> LastActivityDate)
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> query;
-            query = global::System.Linq.Queryable.Where(
-                this.GetQuery<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser>("vw_aspnet_MembershipUsers_All"),
-                (v) => ((((((((((((((((LastActivityDate.HasValue && (v.LastActivityDate == LastActivityDate)) && (IsAnonymous.HasValue && (v.IsAnonymous == IsAnonymous))) && (v.UserName.CompareTo(UserName) == 0)) && (ApplicationId.HasValue && (v.ApplicationId == ApplicationId))) && (FailedPasswordAnswerAttemptWindowStart.HasValue && (v.FailedPasswordAnswerAttemptWindowStart == FailedPasswordAnswerAttemptWindowStart))) && (FailedPasswordAnswerAttemptCount.HasValue && (v.FailedPasswordAnswerAttemptCount == FailedPasswordAnswerAttemptCount))) && (FailedPasswordAttemptWindowStart.HasValue && (v.FailedPasswordAttemptWindowStart == FailedPasswordAttemptWindowStart))) && (FailedPasswordAttemptCount.HasValue && (v.FailedPasswordAttemptCount == FailedPasswordAttemptCount))) && (LastLockoutDate.HasValue && (v.LastLockoutDate == LastLockoutDate))) && (LastPasswordChangedDate.HasValue && (v.LastPasswordChangedDate == LastPasswordChangedDate))) && (LastLoginDate.HasValue && (v.LastLoginDate == LastLoginDate))) && (CreateDate.HasValue && (v.CreateDate == CreateDate))) && (IsLockedOut.HasValue && (v.IsLockedOut == IsLockedOut))) && (IsApproved.HasValue && (v.IsApproved == IsApproved))) && (PasswordFormat.HasValue && (v.PasswordFormat == PasswordFormat))) && (UserId.HasValue && (v.UserId == UserId))));
-            return query;
-        }
-    
-        public global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> vw_aspnet_MembershipUsers_All()
-        {
-            global::System.Linq.IQueryable<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser> query;
-            query = base.CreateQuery<global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser>("[vw_aspnet_MembershipUsers]").AsQueryable();
-            return query;
-        }
-    
-    #endregion
-
-    #region Protected Methods
-        protected override object CreateObject(global::System.Type type)
-        {
-            if (type == typeof(global::Marketing_CraigslistScraperData.Implementation.City))
-            {
-                return new global::Marketing_CraigslistScraperData.Implementation.City();
-            }
-            if (type == typeof(global::Marketing_CraigslistScraperData.Implementation.UserCity))
-            {
-                return new global::Marketing_CraigslistScraperData.Implementation.UserCity();
-            }
-            if (type == typeof(global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser))
-            {
-                return new global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser();
-            }
-    
-            return base.CreateObject(type);
-        }
-    
-        protected override global::Marketing_CraigslistScraperData.Implementation.Marketing_CraigslistScraperDataObjectContext CreateObjectContext()
-        {
-            return new global::Marketing_CraigslistScraperData.Implementation.Marketing_CraigslistScraperDataObjectContext(base.GetEntityConnectionString(
-                "Marketing_CraigslistScraperData", 
-                "res://*/Marketing_CraigslistScraperData.csdl|res://*/Marketing_CraigslistScraperData.ssdl|res://*/Marketing_CraigslistScraperData.msl",
-                "System.Data.SqlClient"));
-        }
-    
-        protected override global::Microsoft.LightSwitch.Internal.IEntityImplementation CreateEntityImplementation<T>()
-        {
-            if (typeof(T) == typeof(global::LightSwitchApplication.City))
-            {
-                return new global::Marketing_CraigslistScraperData.Implementation.City();
-            }
-            if (typeof(T) == typeof(global::LightSwitchApplication.UserCity))
-            {
-                return new global::Marketing_CraigslistScraperData.Implementation.UserCity();
-            }
-            if (typeof(T) == typeof(global::LightSwitchApplication.vw_aspnet_MembershipUser))
-            {
-                return new global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser();
-            }
-            return null;
-        }
-    
-    #endregion
-    
-    }
-    
-    [global::System.ServiceModel.DomainServices.Hosting.EnableClientAccess()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public class MarketingDomainServiceDataDomainService
         : global::Microsoft.LightSwitch.ServerGenerated.Implementation.DomainService<global::MarketingDomainServiceData.Implementation.MarketingDomainServiceDataObjectContext>
     {
@@ -542,6 +235,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region User
+    
+        public void InsertUser(global::MarketingDomainServiceData.Implementation.User entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.Users.AddObject(entity);
+            }
+        }
+    
+        public void UpdateUser(global::MarketingDomainServiceData.Implementation.User currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.Users, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUser(global::MarketingDomainServiceData.Implementation.User entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.Users.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
@@ -696,6 +419,21 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> GetUserCitySelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserCitySelection>("GetUserCitySelectionByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.User>("Users_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.User>("Users_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.User>("Users_All", frameworkOperators);
         }
     
     #endregion
@@ -1008,6 +746,31 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.User>("Users_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.User>("Users_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.User>("DefaultUsers").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -1040,6 +803,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.Operation))
             {
                 return new global::MarketingDomainServiceData.Implementation.Operation();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.User))
+            {
+                return new global::MarketingDomainServiceData.Implementation.User();
             }
     
             return base.CreateObject(type);
@@ -1083,6 +850,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.Operation();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.User))
+            {
+                return new global::MarketingDomainServiceData.Implementation.User();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -1114,6 +885,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.Operation))
             {
                 return typeof(global::Marketing.Services.Operation);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.User))
+            {
+                return typeof(global::Marketing.Services.User);
             }
             return base.ConvertType(outerType);
         }
@@ -1216,6 +991,14 @@ namespace LightSwitchApplication.Implementation
                 result.OperationName = operation.OperationName;
                 result.Parameters = operation.Parameters;
                 result.UserId = operation.UserId;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.User user = outerEntity as global::MarketingDomainServiceData.Implementation.User;
+            if (user != null)
+            {
+                global::Marketing.Services.User result = new global::Marketing.Services.User();
+                result.Id = user.Id;
+                result.Username = user.Username;
                 return result;
             }
             return null;
@@ -1323,6 +1106,14 @@ namespace LightSwitchApplication.Implementation
                 outerOperation.UserId = innerOperation.UserId;
                 return;
             }
+            global::MarketingDomainServiceData.Implementation.User outerUser = outerEntity as global::MarketingDomainServiceData.Implementation.User;
+            global::Marketing.Services.User innerUser = innerResult as global::Marketing.Services.User;
+            if ((outerUser != null) && (innerUser != null))
+            {
+                outerUser.Id = innerUser.Id;
+                outerUser.Username = innerUser.Username;
+                return;
+            }
         }
     
     #endregion
@@ -1340,10 +1131,6 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.IDataService CreateDataService(global::System.Type dataServiceType)
         {
-            if (dataServiceType == typeof(global::LightSwitchApplication.Marketing_CraigslistScraperData))
-            {
-                return new global::LightSwitchApplication.Marketing_CraigslistScraperDataService();
-            }
             if (dataServiceType == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
             {
                 return new global::LightSwitchApplication.MarketingDomainServiceDataService();
@@ -1353,10 +1140,6 @@ namespace LightSwitchApplication.Implementation
     
         protected override global::Microsoft.LightSwitch.Internal.IDataServiceImplementation CreateDataServiceImplementation<TDataService>(TDataService dataService)
         {
-            if (typeof(TDataService) == typeof(global::LightSwitchApplication.Marketing_CraigslistScraperData))
-            {
-                return new global::LightSwitchApplication.Implementation.Marketing_CraigslistScraperDataServiceImplementation(dataService);
-            }
             if (typeof(TDataService) == typeof(global::LightSwitchApplication.MarketingDomainServiceData))
             {
                 return new global::LightSwitchApplication.Implementation.MarketingDomainServiceDataServiceImplementation(dataService);
@@ -1375,18 +1158,6 @@ namespace LightSwitchApplication.Implementation
     {
         global::System.Type global::Microsoft.LightSwitch.Internal.ITypeMappingProvider.GetImplementationType(global::System.Type definitionType)
         {
-            if (typeof(global::LightSwitchApplication.City) == definitionType)
-            {
-                return typeof(global::Marketing_CraigslistScraperData.Implementation.City);
-            }
-            if (typeof(global::LightSwitchApplication.UserCity) == definitionType)
-            {
-                return typeof(global::Marketing_CraigslistScraperData.Implementation.UserCity);
-            }
-            if (typeof(global::LightSwitchApplication.vw_aspnet_MembershipUser) == definitionType)
-            {
-                return typeof(global::Marketing_CraigslistScraperData.Implementation.vw_aspnet_MembershipUser);
-            }
             if (typeof(global::LightSwitchApplication.UserCitySelection) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserCitySelection);
@@ -1415,113 +1186,13 @@ namespace LightSwitchApplication.Implementation
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.Operation);
             }
+            if (typeof(global::LightSwitchApplication.User) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.User);
+            }
             return null;
         }
     }
-}
-
-namespace Marketing_CraigslistScraperData.Implementation
-{
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public partial class City :
-        global::LightSwitchApplication.City.DetailsClass.IImplementation
-    {
-    
-        #region IEntityImplementation Members
-        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
-        
-        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
-        {
-            get
-            {
-                return this.__host;
-            }
-        }
-        
-        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
-        {
-            this.__host = host;
-        }
-        
-        protected override void OnPropertyChanged(string propertyName)
-        {
-            base.OnPropertyChanged(propertyName);
-            if (this.__host != null)
-            {
-                this.__host.RaisePropertyChanged(propertyName);
-            }
-        }
-        #endregion
-    }
-    
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public partial class UserCity :
-        global::LightSwitchApplication.UserCity.DetailsClass.IImplementation
-    {
-    
-        #region IEntityImplementation Members
-        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
-        
-        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
-        {
-            get
-            {
-                return this.__host;
-            }
-        }
-        
-        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
-        {
-            this.__host = host;
-        }
-        
-        protected override void OnPropertyChanged(string propertyName)
-        {
-            base.OnPropertyChanged(propertyName);
-            if (this.__host != null)
-            {
-                this.__host.RaisePropertyChanged(propertyName);
-            }
-        }
-        #endregion
-    }
-    
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    public partial class vw_aspnet_MembershipUser :
-        global::LightSwitchApplication.vw_aspnet_MembershipUser.DetailsClass.IImplementation
-    {
-    
-        #region IEntityImplementation Members
-        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
-        
-        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
-        {
-            get
-            {
-                return this.__host;
-            }
-        }
-        
-        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
-        {
-            this.__host = host;
-        }
-        
-        protected override void OnPropertyChanged(string propertyName)
-        {
-            base.OnPropertyChanged(propertyName);
-            if (this.__host != null)
-            {
-                this.__host.RaisePropertyChanged(propertyName);
-            }
-        }
-        #endregion
-    }
-    
 }
 
 namespace MarketingDomainServiceData.Implementation
@@ -1729,6 +1400,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class Operation :
         global::LightSwitchApplication.Operation.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class User :
+        global::LightSwitchApplication.User.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members
