@@ -20,10 +20,6 @@
   </SubsystemPackages>
   <UserCodeAssemblies></UserCodeAssemblies>
   <ExtensionAssemblies>
-    <ExtensionAssembly>ExtensionsMadeEasy.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
-    <ExtensionAssembly>ExtensionsMadeEasy.ClientAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
-    <ExtensionAssembly>ExtensionsMadeEasy.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</ExtensionAssembly>
-    <ExtensionAssembly>Microsoft.LightSwitch.SDKProxy, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
     <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
   </ExtensionAssemblies>
 </Configuration>

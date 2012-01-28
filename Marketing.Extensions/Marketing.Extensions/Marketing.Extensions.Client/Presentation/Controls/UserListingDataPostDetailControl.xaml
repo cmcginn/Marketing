@@ -1,0 +1,5 @@
+<UserControl xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"  x:Class="Marketing.Extensions.Presentation.Controls.UserListingDataPostDetailControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <sdk:DataGrid DataContext="{Binding EntityProperty.Value, Mode=TwoWay}" />
+</UserControl>

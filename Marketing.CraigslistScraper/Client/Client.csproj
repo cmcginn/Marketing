@@ -49,19 +49,6 @@
     <NoWarn>1522</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExtensionsMadeEasy.Client">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\ExtensionsMadeEasy.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.Client.Design">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\DebugOnlyRef\ExtensionsMadeEasy.Client.Design.dll</HintPath>
-      <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.ClientAPI">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\ExtensionsMadeEasy.ClientAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.Common">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\ExtensionsMadeEasy.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.LightSwitch, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(LightSwitchPath)\LightSwitch\1.0\Client\Microsoft.LightSwitch.dll</HintPath>
@@ -85,9 +72,6 @@
     <Reference Include="Microsoft.LightSwitch.Extensions.Design.Client">
       <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\Client\DebugOnlyRef\Microsoft.LightSwitch.Extensions.Design.Client.dll</HintPath>
       <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
-    </Reference>
-    <Reference Include="Microsoft.LightSwitch.SDKProxy">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\Microsoft.LightSwitch.SDKProxy.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=4.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -113,6 +97,7 @@
       <HintPath>$(WCFRIASERVICESSDKPath)\v1.0\Libraries\Silverlight\System.ServiceModel.DomainServices.Client.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
@@ -136,6 +121,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoadingModal.xaml.cs">
+      <DependentUpon>LoadingModal.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCode\Application.cs" />
     <Compile Include="UserCode\RunWorkflow.cs" />
@@ -152,6 +140,12 @@
     <Folder Include="DataLogic\" />
     <Folder Include="DataSources\" />
     <Folder Include="Screens\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="LoadingModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />

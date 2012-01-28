@@ -1,0 +1,5 @@
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Server\bin\Debug\Marketing.Extensions.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Server\bin\Debug\Marketing.Extensions.Server.pdb
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Server\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Server\obj\Debug\Marketing.Extensions.Server.dll
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Server\obj\Debug\Marketing.Extensions.Server.pdb

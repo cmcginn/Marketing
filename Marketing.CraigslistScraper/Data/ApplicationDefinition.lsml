@@ -2019,6 +2019,7 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod Name="OpenResponseView" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty Name="UserListingItemuserId"
@@ -2086,7 +2087,18 @@
                      View="Microsoft.LightSwitch:ColumnsLayout">
           <ContentItem DataType="CollectionView$UserListingItem"
                        Kind="Collection"
-                       Name="GetUserListingItems">
+                       Name="GetUserListingItems"
+                       View=":CollectionCustomContentControl">
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Marketing.UI.Controls.UserListItemsViewControl, Marketing.UI.Controls" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
             <ContentItem.Attributes>
               <DisplayName  Value="Matching Posts" />
             </ContentItem.Attributes>

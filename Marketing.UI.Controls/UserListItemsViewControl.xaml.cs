@@ -12,6 +12,11 @@ using System.Windows.Shapes;
 
 namespace Marketing.UI.Controls {
   public partial class UserListItemsViewControl : UserControl {
+    public event EventHandler TitleLinkClick;
+    private void HyperlinkButton_Click( object sender, RoutedEventArgs e ) {
+      if( null != TitleLinkClick )
+        TitleLinkClick( this, EventArgs.Empty );
+    }
     public UserListItemsViewControl() {
       InitializeComponent();
     }

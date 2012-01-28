@@ -11,7 +11,6 @@ using Microsoft.LightSwitch.Presentation.Extensions;
 namespace LightSwitchApplication {
   public partial class Application {
     private Guid _UserId;
-
     partial void Application_LoggedIn() {
       var workspace = this.CreateDataWorkspace().MarketingDomainServiceData;
       UserId = workspace.Users.Where( x => x.Username == this.User.Name ).Single().Id;

@@ -4,9 +4,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
-    
-    <Grid x:Name="LayoutRoot" Background="White">
-
-    </Grid>
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk">
+  <UserControl.Resources>
+    <DataTemplate x:Key="PostDetailsCardCellTemplate">
+      <Grid>
+        <StackPanel Margin="10,0,0,0">
+          <StackPanel Orientation="Horizontal" Height="22">
+            <TextBlock FontWeight="Bold" Width="70" TextWrapping="Wrap" Text="Title:" FontSize="13.333" />
+            <HyperlinkButton Content="{Binding Title}" Click="HyperlinkButton_Click"></HyperlinkButton>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Width="70" TextWrapping="Wrap" Text="Created:" />
+            <TextBlock TextWrapping="Wrap" Text="{Binding Created}" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Width="70" TextWrapping="Wrap" Text="Responded:" />
+            <TextBlock TextWrapping="Wrap" Text="{Binding ResponseSent}" />
+          </StackPanel>
+        </StackPanel>
+      </Grid>
+    </DataTemplate>
+  </UserControl.Resources>
+  <Grid x:Name="LayoutRoot" Background="White">
+    <sdk:DataGrid AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetUserListingItems}" SelectedItem="{Binding GetUserListingItems.SelectedItem,Mode=TwoWay}">
+      <sdk:DataGrid.Columns>
+        <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostDetailsCardCellTemplate}" Width="Auto" />
+      </sdk:DataGrid.Columns>
+    </sdk:DataGrid>
+  </Grid>
 </UserControl>

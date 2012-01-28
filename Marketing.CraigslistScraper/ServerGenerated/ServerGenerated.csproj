@@ -52,12 +52,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dependencies\Common.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="ExtensionsMadeEasy.Common">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Server\Reference\ExtensionsMadeEasy.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.Server">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Server\Reference\ExtensionsMadeEasy.Server.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.LightSwitch.Extensions.Server">
       <HintPath>..\_Pvt_Extensions\Microsoft.LightSwitch.Extensions\ServerGen\Reference\Microsoft.LightSwitch.Extensions.Server.dll</HintPath>
     </Reference>

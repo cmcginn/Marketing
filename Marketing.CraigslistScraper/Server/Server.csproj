@@ -40,12 +40,6 @@
     <NoWarn>1522</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExtensionsMadeEasy.Common">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Server\Reference\ExtensionsMadeEasy.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.Server">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Server\Reference\ExtensionsMadeEasy.Server.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />

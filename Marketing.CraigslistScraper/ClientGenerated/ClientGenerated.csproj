@@ -66,19 +66,6 @@
     <NoWarn>1522</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ExtensionsMadeEasy.Client">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\ExtensionsMadeEasy.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.Client.Design">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\DebugOnlyRef\ExtensionsMadeEasy.Client.Design.dll</HintPath>
-      <ExtensionReferenceType>DebugOnly</ExtensionReferenceType>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.ClientAPI">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\ExtensionsMadeEasy.ClientAPI.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsMadeEasy.Common">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\ExtensionsMadeEasy.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.LightSwitch, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(LightSwitchPath)\LightSwitch\1.0\Client\Microsoft.LightSwitch.dll</HintPath>
@@ -120,9 +107,6 @@
     <Reference Include="Microsoft.LightSwitch.Model.Xaml.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(LightSwitchPath)\LightSwitch\1.0\Client\Microsoft.LightSwitch.Model.Xaml.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.LightSwitch.SDKProxy">
-      <HintPath>..\_Pvt_Extensions\ExtensionsMadeEasy\Client\Reference\Microsoft.LightSwitch.SDKProxy.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition, Version=4.0.0.0, Culture=neutral, PublicKeyToken=8e9329cecb4700e9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

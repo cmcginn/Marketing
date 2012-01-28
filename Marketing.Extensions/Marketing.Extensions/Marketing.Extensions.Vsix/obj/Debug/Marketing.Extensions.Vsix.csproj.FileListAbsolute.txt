@@ -1,0 +1,6 @@
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Vsix\bin\Debug\Marketing.Extensions.vsix
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Vsix\bin\Debug\extension.vsixmanifest
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Vsix\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Vsix\obj\Debug\Marketing.Extensions.dll
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Vsix\obj\Debug\Marketing.Extensions.pdb
+C:\Projects\Urbana\Marketing\Marketing.Extensions\Marketing.Extensions\Marketing.Extensions.Vsix\obj\Debug\extension.vsixmanifest

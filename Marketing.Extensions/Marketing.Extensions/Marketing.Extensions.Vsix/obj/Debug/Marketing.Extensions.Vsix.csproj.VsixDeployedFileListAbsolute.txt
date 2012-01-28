@@ -1,0 +1,2 @@
+C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\My Company\Marketing.Extensions\1.0\\extension.vsixmanifest
+C:\Users\Administrator\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\My Company\Marketing.Extensions\1.0\\Marketing.Extensions.lspkg
