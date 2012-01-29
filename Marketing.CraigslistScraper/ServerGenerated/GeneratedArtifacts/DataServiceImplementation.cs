@@ -1069,6 +1069,7 @@ namespace LightSwitchApplication.Implementation
                 result.ListingCategoryActive = userListingItem.ListingCategoryActive;
                 result.KeywordScore = userListingItem.KeywordScore;
                 result.KeywordDisplay = userListingItem.KeywordDisplay;
+                result.UseDefaultResponse = userListingItem.UseDefaultResponse;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1111,8 +1112,9 @@ namespace LightSwitchApplication.Implementation
                 result.Created = userTemplateItem.Created;
                 result.LastUpdated = userTemplateItem.LastUpdated;
                 result.IsDefault = userTemplateItem.IsDefault;
-                result.TemplateContent = userTemplateItem.TemplateContent;
                 result.TemplateName = userTemplateItem.TemplateName;
+                result.TemplateHtml = userTemplateItem.TemplateHtml;
+                result.TemplateText = userTemplateItem.TemplateText;
                 return result;
             }
             return null;
@@ -1198,6 +1200,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.ListingCategoryActive = innerUserListingItem.ListingCategoryActive;
                 outerUserListingItem.KeywordScore = innerUserListingItem.KeywordScore;
                 outerUserListingItem.KeywordDisplay = innerUserListingItem.KeywordDisplay;
+                outerUserListingItem.UseDefaultResponse = innerUserListingItem.UseDefaultResponse;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1240,8 +1243,9 @@ namespace LightSwitchApplication.Implementation
                 outerUserTemplateItem.Created = innerUserTemplateItem.Created;
                 outerUserTemplateItem.LastUpdated = innerUserTemplateItem.LastUpdated;
                 outerUserTemplateItem.IsDefault = innerUserTemplateItem.IsDefault;
-                outerUserTemplateItem.TemplateContent = innerUserTemplateItem.TemplateContent;
                 outerUserTemplateItem.TemplateName = innerUserTemplateItem.TemplateName;
+                outerUserTemplateItem.TemplateHtml = innerUserTemplateItem.TemplateHtml;
+                outerUserTemplateItem.TemplateText = innerUserTemplateItem.TemplateText;
                 return;
             }
         }

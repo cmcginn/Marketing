@@ -7,6 +7,7 @@
     d:DesignHeight="300" d:DesignWidth="400" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:my="clr-namespace:Marketing.UI.Controls">
   <UserControl.Resources>
     <my:TitleValueConverter x:Key="TitleDisplayValueConverter" />
+    <my:DefaultResponseEnabledValueConverter x:Key="DefaultResponseEnabledValueConverterResource" />
     <DataTemplate x:Key="PostDetailsCardCellTemplate">
       <Grid>
         <StackPanel Orientation="Horizontal" Margin="10,0">
@@ -30,7 +31,7 @@
           </StackPanel>
           <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
             <HyperlinkButton Content="Open View" Click="OnOpenViewLinkClick" FontSize="12" />
-            <HyperlinkButton Content="Send Default" Click="OnSendDefaultLinkClick" FontSize="12"/>
+            <HyperlinkButton Content="Send Default" Click="OnSendDefaultLinkClick" FontSize="12" IsEnabled="{Binding Converter={StaticResource DefaultResponseEnabledValueConverterResource}, Path=ResponseSent}" />
           </StackPanel>
         </StackPanel>
       </Grid>
@@ -71,6 +72,7 @@
         <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource ScoreCellTemplate}" SortMemberPath="KeywordScore" Header="Score" Width="Auto" />
         <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostLocationCardCellTemplate}" Header="Location" SortMemberPath="City" Width="Auto" />
       </sdk:DataGrid.Columns>      
-    </sdk:DataGrid>   
+    </sdk:DataGrid> 
+    <sdk:DataPager Source="{Binding Screen.GetUserListingItems}" Grid.Column="0" />  
   </Grid>
 </UserControl>

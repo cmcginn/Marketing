@@ -31,7 +31,13 @@ namespace LightSwitchApplication {
     }
 
     void OnSendDefaultLinkClick( object sender, EventArgs e ) {
-      
+      var userListingResponse = this.GetUserListingItems.SelectedItem;
+      userListingResponse.UseDefaultResponse = true;
+      userListingResponse.Responded = System.DateTime.Now;
+      userListingResponse.ResponseSent = System.DateTime.Now;
+      this.Details.Dispatcher.BeginInvoke( () => {
+        this.Save();
+      } );
     }
 
     void OnOpenViewLinkClick( object sender, EventArgs e ) {

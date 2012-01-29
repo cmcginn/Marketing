@@ -27,19 +27,22 @@ namespace Marketing.UI.Controls {
     private void Source_TextChanged( object sender, TextChangedEventArgs e ) {
       if( String.IsNullOrEmpty( _editorContent ) ) {
         _editorContent = this.EditSource.Text.ToEditorDocument();
+        EditText.Text = richEditControl.Text;
         richEditControl.HtmlText = _editorContent;
       }
     }
 
     private void richEditControl_HtmlTextChanged( object sender, EventArgs e ) {
       if( this.richEditControl.IsEnabled ) {
-        HtmlEdit.Text = richEditControl.HtmlText;       
+        HtmlEdit.Text = richEditControl.HtmlText;
+        EditText.Text = richEditControl.Text;
         _editorContent = richEditControl.HtmlText;
       }
     }
     private void richEditControl_DocumentLoaded( object sender, EventArgs e ) {
       if( this.richEditControl.IsEnabled ) {
-        HtmlEdit.Text = richEditControl.HtmlText;    
+        HtmlEdit.Text = richEditControl.HtmlText;
+        EditText.Text = richEditControl.Text;
         _editorContent = richEditControl.HtmlText;
       }
     }

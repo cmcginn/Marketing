@@ -600,6 +600,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void KeywordDisplay_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool UseDefaultResponse
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.UseDefaultResponse);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.UseDefaultResponse, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UseDefaultResponse_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UseDefaultResponse_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UseDefaultResponse_Changed();
+
         #endregion
     
         #region Details Class
@@ -858,6 +882,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool> UseDefaultResponse
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.UseDefaultResponse) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -885,6 +917,7 @@ namespace LightSwitchApplication
                 new bool ListingCategoryActive { get; set; }
                 new int KeywordScore { get; set; }
                 new string KeywordDisplay { get; set; }
+                new bool UseDefaultResponse { get; set; }
             }
             #pragma warning restore 109
     
@@ -1693,6 +1726,43 @@ namespace LightSwitchApplication
                     e.KeywordDisplay_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Entry
+                    UseDefaultResponse = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Entry(
+                        "UseDefaultResponse",
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UseDefaultResponse_Stub,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UseDefaultResponse_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UseDefaultResponse_Validate,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UseDefaultResponse_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UseDefaultResponse_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UseDefaultResponse_OnValueChanged);
+                private static void _UseDefaultResponse_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserListingItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UseDefaultResponse, sf);
+                }
+                private static bool _UseDefaultResponse_ComputeIsReadOnly(global::LightSwitchApplication.UserListingItem e)
+                {
+                    bool result = false;
+                    e.UseDefaultResponse_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _UseDefaultResponse_Validate(global::LightSwitchApplication.UserListingItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.UseDefaultResponse_Validate(r);
+                }
+                private static bool _UseDefaultResponse_GetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.UseDefaultResponse;
+                }
+                private static void _UseDefaultResponse_SetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.UseDefaultResponse = v;
+                }
+                private static void _UseDefaultResponse_OnValueChanged(global::LightSwitchApplication.UserListingItem e)
+                {
+                    e.UseDefaultResponse_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1760,6 +1830,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Data _KeywordDisplay;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Data _UseDefaultResponse;
             
         }
     

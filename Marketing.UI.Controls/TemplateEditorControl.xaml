@@ -23,8 +23,9 @@
 
     </Grid.RowDefinitions>
 
-    <TextBox Name="EditSource"  Text="{Binding Value}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="Source_TextChanged"></TextBox>
-    <TextBox Name="HtmlEdit"  Text="{Binding Value,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+    <TextBox Name="EditSource"  Text="{Binding Screen.GetUserTemplates.SelectedItem.TemplateHtml}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="Source_TextChanged"></TextBox>
+    <TextBox Name="HtmlEdit"  Text="{Binding Screen.GetUserTemplates.SelectedItem.TemplateHtml,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+    <TextBox Name="EditText" Text="{Binding Screen.GetUserTemplates.SelectedItem.TemplateText,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
 
 
     <dxb:BarManager Name="barManager1">

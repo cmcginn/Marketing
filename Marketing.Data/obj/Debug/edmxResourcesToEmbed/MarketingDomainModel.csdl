@@ -564,7 +564,8 @@
     <Property Type="Guid" Name="UserId" Nullable="false" />
     <Property Type="Boolean" Name="IsDefault" Nullable="false" />
     <Property Type="String" Name="TemplateName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="TemplateContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TemplateHtml" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TemplateText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="Created" Nullable="false" />
     <Property Type="DateTime" Name="Updated" />
     <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership" FromRole="UserTemplate" ToRole="aspnet_Membership" />

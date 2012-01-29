@@ -77,6 +77,7 @@ namespace Marketing.Services {
     public bool ListingCategoryActive { get; set; }
     public int KeywordScore { get; set; }
     public string KeywordDisplay { get; set; }
+    public bool UseDefaultResponse { get; set; }
   }
   public class UserListingResponseItem {
     [Key]
@@ -85,6 +86,7 @@ namespace Marketing.Services {
     public Guid UserId { get; set; }
     public DateTime Created { get; set; }
     public string Response { get; set; }
+    
   }
   public class Operation {
 
@@ -103,7 +105,8 @@ namespace Marketing.Services {
     public DateTime Created { get; set; }
     public DateTime? LastUpdated { get; set; }
     public bool IsDefault { get; set; }
-    public string TemplateContent { get; set; }
+    public string TemplateHtml { get; set; }
+    public string TemplateText { get; set; }
     public string TemplateName { get; set; }
   }
 }

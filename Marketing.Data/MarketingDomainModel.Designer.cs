@@ -5271,16 +5271,18 @@ namespace Marketing.Data
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="isDefault">Initial value of the IsDefault property.</param>
         /// <param name="templateName">Initial value of the TemplateName property.</param>
-        /// <param name="templateContent">Initial value of the TemplateContent property.</param>
+        /// <param name="templateHtml">Initial value of the TemplateHtml property.</param>
+        /// <param name="templateText">Initial value of the TemplateText property.</param>
         /// <param name="created">Initial value of the Created property.</param>
-        public static UserTemplate CreateUserTemplate(global::System.Guid id, global::System.Guid userId, global::System.Boolean isDefault, global::System.String templateName, global::System.String templateContent, global::System.DateTime created)
+        public static UserTemplate CreateUserTemplate(global::System.Guid id, global::System.Guid userId, global::System.Boolean isDefault, global::System.String templateName, global::System.String templateHtml, global::System.String templateText, global::System.DateTime created)
         {
             UserTemplate userTemplate = new UserTemplate();
             userTemplate.Id = id;
             userTemplate.UserId = userId;
             userTemplate.IsDefault = isDefault;
             userTemplate.TemplateName = templateName;
-            userTemplate.TemplateContent = templateContent;
+            userTemplate.TemplateHtml = templateHtml;
+            userTemplate.TemplateText = templateText;
             userTemplate.Created = created;
             return userTemplate;
         }
@@ -5392,24 +5394,48 @@ namespace Marketing.Data
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String TemplateContent
+        public global::System.String TemplateHtml
         {
             get
             {
-                return _TemplateContent;
+                return _TemplateHtml;
             }
             set
             {
-                OnTemplateContentChanging(value);
-                ReportPropertyChanging("TemplateContent");
-                _TemplateContent = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("TemplateContent");
-                OnTemplateContentChanged();
+                OnTemplateHtmlChanging(value);
+                ReportPropertyChanging("TemplateHtml");
+                _TemplateHtml = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TemplateHtml");
+                OnTemplateHtmlChanged();
             }
         }
-        private global::System.String _TemplateContent;
-        partial void OnTemplateContentChanging(global::System.String value);
-        partial void OnTemplateContentChanged();
+        private global::System.String _TemplateHtml;
+        partial void OnTemplateHtmlChanging(global::System.String value);
+        partial void OnTemplateHtmlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TemplateText
+        {
+            get
+            {
+                return _TemplateText;
+            }
+            set
+            {
+                OnTemplateTextChanging(value);
+                ReportPropertyChanging("TemplateText");
+                _TemplateText = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TemplateText");
+                OnTemplateTextChanged();
+            }
+        }
+        private global::System.String _TemplateText;
+        partial void OnTemplateTextChanging(global::System.String value);
+        partial void OnTemplateTextChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

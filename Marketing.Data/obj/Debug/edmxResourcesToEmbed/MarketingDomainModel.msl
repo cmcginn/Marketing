@@ -254,7 +254,8 @@
         <MappingFragment StoreEntitySet="UserTemplate">
           <ScalarProperty Name="Updated" ColumnName="Updated" />
           <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="TemplateContent" ColumnName="TemplateContent" />
+          <ScalarProperty Name="TemplateText" ColumnName="TemplateText" />
+          <ScalarProperty Name="TemplateHtml" ColumnName="TemplateHtml" />
           <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
           <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />

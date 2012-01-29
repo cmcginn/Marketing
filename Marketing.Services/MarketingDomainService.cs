@@ -127,7 +127,10 @@ namespace Marketing.Services {
       Context.SaveUserListingResponse( item );
             
     }
+
     public void UpdateUserListingItem( UserListingItem item ) {
+      if( item.UseDefaultResponse )
+        Context.SetDefaultUserTemplateItem( item );
       var response = Context.SaveUserListingResponse( item );
       Context.SendUserListingResponse( response );
     }

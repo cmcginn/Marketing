@@ -84,6 +84,7 @@
     <Property Name="ListingCategoryActive" Type="bit" Nullable="false" />
     <Property Name="KeywordScore" Type="int" Nullable="false" />
     <Property Name="KeywordDisplay" Type="nvarchar(max)" />
+    <Property Name="UseDefaultResponse" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -122,7 +123,8 @@
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="LastUpdated" Type="datetime" />
     <Property Name="IsDefault" Type="bit" Nullable="false" />
-    <Property Name="TemplateContent" Type="nvarchar(max)" />
     <Property Name="TemplateName" Type="nvarchar(max)" />
+    <Property Name="TemplateHtml" Type="nvarchar(max)" />
+    <Property Name="TemplateText" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

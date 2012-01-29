@@ -1138,7 +1138,8 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="userCityActive">Initial value of the UserCityActive property.</param>
         /// <param name="listingCategoryActive">Initial value of the ListingCategoryActive property.</param>
         /// <param name="keywordScore">Initial value of the KeywordScore property.</param>
-        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Int32 keywordScore)
+        /// <param name="useDefaultResponse">Initial value of the UseDefaultResponse property.</param>
+        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Int32 keywordScore, global::System.Boolean useDefaultResponse)
         {
             UserListingItem userListingItem = new UserListingItem();
             userListingItem.Id = id;
@@ -1148,6 +1149,7 @@ namespace MarketingDomainServiceData.Implementation
             userListingItem.UserCityActive = userCityActive;
             userListingItem.ListingCategoryActive = listingCategoryActive;
             userListingItem.KeywordScore = keywordScore;
+            userListingItem.UseDefaultResponse = useDefaultResponse;
             return userListingItem;
         }
 
@@ -1660,6 +1662,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _KeywordDisplay;
         partial void OnKeywordDisplayChanging(global::System.String value);
         partial void OnKeywordDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean UseDefaultResponse
+        {
+            get
+            {
+                return _UseDefaultResponse;
+            }
+            set
+            {
+                OnUseDefaultResponseChanging(value);
+                ReportPropertyChanging("UseDefaultResponse");
+                _UseDefaultResponse = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UseDefaultResponse");
+                OnUseDefaultResponseChanged();
+            }
+        }
+        private global::System.Boolean _UseDefaultResponse;
+        partial void OnUseDefaultResponseChanging(global::System.Boolean value);
+        partial void OnUseDefaultResponseChanged();
 
         #endregion
     
@@ -2235,30 +2261,6 @@ namespace MarketingDomainServiceData.Implementation
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String TemplateContent
-        {
-            get
-            {
-                return _TemplateContent;
-            }
-            set
-            {
-                OnTemplateContentChanging(value);
-                ReportPropertyChanging("TemplateContent");
-                _TemplateContent = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("TemplateContent");
-                OnTemplateContentChanged();
-            }
-        }
-        private global::System.String _TemplateContent;
-        partial void OnTemplateContentChanging(global::System.String value);
-        partial void OnTemplateContentChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String TemplateName
         {
             get
@@ -2277,6 +2279,54 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _TemplateName;
         partial void OnTemplateNameChanging(global::System.String value);
         partial void OnTemplateNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TemplateHtml
+        {
+            get
+            {
+                return _TemplateHtml;
+            }
+            set
+            {
+                OnTemplateHtmlChanging(value);
+                ReportPropertyChanging("TemplateHtml");
+                _TemplateHtml = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TemplateHtml");
+                OnTemplateHtmlChanged();
+            }
+        }
+        private global::System.String _TemplateHtml;
+        partial void OnTemplateHtmlChanging(global::System.String value);
+        partial void OnTemplateHtmlChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String TemplateText
+        {
+            get
+            {
+                return _TemplateText;
+            }
+            set
+            {
+                OnTemplateTextChanging(value);
+                ReportPropertyChanging("TemplateText");
+                _TemplateText = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("TemplateText");
+                OnTemplateTextChanged();
+            }
+        }
+        private global::System.String _TemplateText;
+        partial void OnTemplateTextChanging(global::System.String value);
+        partial void OnTemplateTextChanged();
 
         #endregion
     

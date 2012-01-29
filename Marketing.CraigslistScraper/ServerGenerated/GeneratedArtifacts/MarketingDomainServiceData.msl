@@ -77,6 +77,7 @@
           <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
           <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
           <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
+          <ScalarProperty Name="UseDefaultResponse" ColumnName="UseDefaultResponse" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -119,8 +120,9 @@
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
           <ScalarProperty Name="IsDefault" ColumnName="IsDefault" />
-          <ScalarProperty Name="TemplateContent" ColumnName="TemplateContent" />
           <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
+          <ScalarProperty Name="TemplateHtml" ColumnName="TemplateHtml" />
+          <ScalarProperty Name="TemplateText" ColumnName="TemplateText" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

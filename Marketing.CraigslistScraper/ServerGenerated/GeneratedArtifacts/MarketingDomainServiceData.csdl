@@ -73,6 +73,7 @@
     <Property Name="ListingCategoryActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="KeywordScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="KeywordDisplay" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="UseDefaultResponse" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -111,8 +112,9 @@
     <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="LastUpdated" Type="DateTime" ConcurrencyMode="Fixed" />
     <Property Name="IsDefault" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
-    <Property Name="TemplateContent" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="TemplateName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="TemplateHtml" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="TemplateText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />

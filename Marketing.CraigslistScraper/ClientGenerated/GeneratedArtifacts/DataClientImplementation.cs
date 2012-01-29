@@ -1241,6 +1241,27 @@ namespace LightSwitchApplication.Implementation
         }
         private string _KeywordDisplay;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool UseDefaultResponse
+        {
+            get
+            {
+                return this._UseDefaultResponse;
+            }
+            set
+            {
+                if (this._UseDefaultResponse != value)
+                {
+                    this.RaiseDataMemberChanging("UseDefaultResponse");
+                    this.ValidateProperty("UseDefaultResponse", value);
+                    this._UseDefaultResponse = value;
+                    this.RaiseDataMemberChanged("UseDefaultResponse");
+                }
+            }
+        }
+        private bool _UseDefaultResponse;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -1805,27 +1826,6 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public string TemplateContent
-        {
-            get
-            {
-                return this._TemplateContent;
-            }
-            set
-            {
-                if (this._TemplateContent != value)
-                {
-                    this.RaiseDataMemberChanging("TemplateContent");
-                    this.ValidateProperty("TemplateContent", value);
-                    this._TemplateContent = value;
-                    this.RaiseDataMemberChanged("TemplateContent");
-                }
-            }
-        }
-        private string _TemplateContent;
-        
-        [global::System.Runtime.Serialization.DataMember()]
-        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
         public string TemplateName
         {
             get
@@ -1844,6 +1844,48 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _TemplateName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string TemplateHtml
+        {
+            get
+            {
+                return this._TemplateHtml;
+            }
+            set
+            {
+                if (this._TemplateHtml != value)
+                {
+                    this.RaiseDataMemberChanging("TemplateHtml");
+                    this.ValidateProperty("TemplateHtml", value);
+                    this._TemplateHtml = value;
+                    this.RaiseDataMemberChanged("TemplateHtml");
+                }
+            }
+        }
+        private string _TemplateHtml;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string TemplateText
+        {
+            get
+            {
+                return this._TemplateText;
+            }
+            set
+            {
+                if (this._TemplateText != value)
+                {
+                    this.RaiseDataMemberChanging("TemplateText");
+                    this.ValidateProperty("TemplateText", value);
+                    this._TemplateText = value;
+                    this.RaiseDataMemberChanged("TemplateText");
+                }
+            }
+        }
+        private string _TemplateText;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;

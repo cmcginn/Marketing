@@ -57,7 +57,7 @@
     </Application.Attributes>
     <Application.NavigationItems>
       <ApplicationNavigationGroup Name="Tasks"
-                                  DefaultItem="!module/NavigationItems[Tasks]/Children[Templates]">
+                                  DefaultItem="!module/NavigationItems[Tasks]/Children[UserListItemsView]">
         <ApplicationNavigationGroup.Attributes>
           <DisplayName Value="Tasks" />
         </ApplicationNavigationGroup.Attributes>
@@ -1509,7 +1509,7 @@
       </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2113,6 +2113,13 @@
       </EntityProperty>
       <EntityProperty Name="KeywordDisplay"
                       PropertyType=":String?" />
+      <EntityProperty Name="UseDefaultResponse"
+                      PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -2123,7 +2130,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -2157,7 +2164,7 @@
       <ScreenProperty Name="ResponseId"
                       PropertyType=":Guid?" />
       <ScreenCollectionProperty Name="GetUserListingItems"
-                                PageSize="45"
+                                PageSize="5"
                                 PropertyType="CollectionView$UserListingItem">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition Name="GetUserListingItemsQuery"
@@ -2582,7 +2589,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Post Detail" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -2770,7 +2777,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2952,7 +2959,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3148,9 +3155,11 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <EntityProperty Name="TemplateContent"
-                      PropertyType=":String?" />
       <EntityProperty Name="TemplateName"
+                      PropertyType=":String?" />
+      <EntityProperty Name="TemplateHtml"
+                      PropertyType=":String?" />
+      <EntityProperty Name="TemplateText"
                       PropertyType=":String?" />
     </EntityType.Properties>
   </EntityType>
@@ -3164,7 +3173,7 @@
   
   <Screen Name="UserTemplateDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3324,17 +3333,6 @@
             </ContentItem>
             <ContentItem DataType=":String?"
                          Kind="Value"
-                         Name="TemplateContent">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserTemplateItem/Properties[TemplateContent]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
-            <ContentItem DataType=":String?"
-                         Kind="Value"
                          Name="TemplateName">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
@@ -3352,7 +3350,7 @@
 
   <Screen Name="Templates">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3666,24 +3664,14 @@
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
-            <ContentItem DataType=":String?"
-                         Kind="Value"
-                         Name="TemplateContent"
-                         View=":ValueCustomContentControl">
+            <ContentItem Kind="ScreenContent"
+                         Name="TemplateContent">
               <ContentItem.PropertySources>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <ConstantExpression ResultType=":String"
                                           Value="Marketing.UI.Controls.TemplateEditorControl, Marketing.UI.Controls" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="None" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
@@ -3703,24 +3691,24 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="None" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
               </ContentItem.PropertySources>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserTemplateItem/Properties[TemplateContent]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
             </ContentItem>
           </ContentItem>
         </ContentItem>
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
-
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
+               Name="MarketingDomainServiceDataDataService1">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -3888,6 +3876,8 @@
                         Property="UserListingItem/Properties[KeywordScore]" />
         <WcfRiaProperty Name="KeywordDisplay"
                         Property="UserListingItem/Properties[KeywordDisplay]" />
+        <WcfRiaProperty Name="UseDefaultResponse"
+                        Property="UserListingItem/Properties[UseDefaultResponse]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <EntitySetMapping EntitySet="UserListingResponseItems">
@@ -3938,8 +3928,10 @@
                         Property="UserTemplateItem/Properties[LastUpdated]" />
         <WcfRiaProperty Name="IsDefault"
                         Property="UserTemplateItem/Properties[IsDefault]" />
-        <WcfRiaProperty Name="TemplateContent"
-                        Property="UserTemplateItem/Properties[TemplateContent]" />
+        <WcfRiaProperty Name="TemplateHtml"
+                        Property="UserTemplateItem/Properties[TemplateHtml]" />
+        <WcfRiaProperty Name="TemplateText"
+                        Property="UserTemplateItem/Properties[TemplateText]" />
         <WcfRiaProperty Name="TemplateName"
                         Property="UserTemplateItem/Properties[TemplateName]" />
       </EntitySetMapping.Attributes>
@@ -3952,6 +3944,9 @@
       </QueryOperationMapping.Attributes>
     </QueryOperationMapping>
   </DataService>
+
+
+  
 
 
 

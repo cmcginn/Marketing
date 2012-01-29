@@ -130,7 +130,8 @@ namespace Marketing.Services.Extensions {
         Id = n.Id,
         IsDefault = n.IsDefault,
         LastUpdated = n.Updated,
-        TemplateContent = n.TemplateContent,
+        TemplateHtml = n.TemplateHtml,
+        TemplateText = n.TemplateText,
         TemplateName = n.TemplateName,
         UserId = n.UserId
       } );
@@ -141,14 +142,14 @@ namespace Marketing.Services.Extensions {
       context.UserTemplates.DeleteObject( target );
       context.SaveChanges();
     }
-    static void SetDefaultUserTemplateItems( this MarketingEntities context, UserTemplate userTemplate) {
+    static void SetDefaultUserTemplateItems( this MarketingEntities context, UserTemplate userTemplate ) {
       var userTemplates = context.UserTemplates.Where( n => n.UserId == userTemplate.UserId ).ToList();
       //set default if template is the only one
-      if( userTemplates.Count == 0 || userTemplates.Where(n=>n.IsDefault).Count()==0 )
+      if( userTemplates.Count == 0 || userTemplates.Where( n => n.IsDefault ).Count() == 0 )
         userTemplate.IsDefault = true;
       else {
         if( userTemplate.IsDefault )
-          userTemplates.Where(n=>n.Id != userTemplate.Id).ToList().ForEach( n => n.IsDefault = false );
+          userTemplates.Where( n => n.Id != userTemplate.Id ).ToList().ForEach( n => n.IsDefault = false );
       }
     }
     public static void AddUserTemplateItem( this MarketingEntities context, UserTemplateItem userTemplateItem ) {
@@ -157,7 +158,8 @@ namespace Marketing.Services.Extensions {
         Id = userTemplateItem.Id,
         UserId = userTemplateItem.UserId,
         Created = userTemplateItem.Created,
-        TemplateContent = XElement.Parse( userTemplateItem.TemplateContent ).ToString(),
+        TemplateHtml = XElement.Parse( userTemplateItem.TemplateHtml ).ToString(),
+        TemplateText = userTemplateItem.TemplateText,
         TemplateName = userTemplateItem.TemplateName,
         IsDefault = userTemplateItem.IsDefault
 
@@ -168,18 +170,24 @@ namespace Marketing.Services.Extensions {
     }
     public static void UpdateUserTemplateItem( this MarketingEntities context, UserTemplateItem userTemplateItem ) {
       var template = context.UserTemplates.Single( n => n.Id == userTemplateItem.Id );
-      template.TemplateContent = XElement.Parse( userTemplateItem.TemplateContent ).ToString();
+      template.TemplateHtml = XElement.Parse( userTemplateItem.TemplateHtml).ToString();
+      template.TemplateText = userTemplateItem.TemplateText;
       template.TemplateName = userTemplateItem.TemplateName;
       template.IsDefault = userTemplateItem.IsDefault;
       template.Updated = System.DateTime.Now;
-      context.SetDefaultUserTemplateItems( template );     
+      context.SetDefaultUserTemplateItems( template );
       context.SaveChanges();
     }
     public static UserListingResponse SaveUserListingResponse( this MarketingEntities context, UserListingItem item ) {
       UserListingResponse result = null;
       var responseElement = System.Text.RegularExpressions.Regex.Replace( item.Response, "<!DOCTYPE html .*>", "" );
       var converter = new Marketing.Utils.HtmlToXml.HtmlToXmlConverter();
-      responseElement = converter.ConvertToXml( responseElement ).ToString();
+      var responseHtml = converter.ConvertToXml( responseElement );
+      var title = responseHtml.Descendants().FirstOrDefault(n=>n.Name.LocalName.ToLower()=="title");
+      if(title != null)
+        title.Remove();
+      responseElement = responseHtml.ToString();
+   
       result = context.UserListingResponses.SingleOrDefault( x => x.UserListingUrlId == item.Id );
       if( result == null ) {
         result = new UserListingResponse {
@@ -287,6 +295,11 @@ namespace Marketing.Services.Extensions {
         ListingCategoryActive = userListingData.ListingCategoryActive
       };
       return result;
+    }
+    public static void SetDefaultUserTemplateItem( this MarketingEntities context, UserListingItem userListingItem ) {
+      var template = context.UserTemplates.Single( n => n.UserId == userListingItem.UserId && n.IsDefault );
+      userListingItem.Response = XElement.Parse( template.TemplateHtml ).ToString();
+      userListingItem.ResponseText = template.TemplateText;
     }
   }
 }

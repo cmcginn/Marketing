@@ -203,30 +203,6 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string TemplateContent
-        {
-            get
-            {
-                return global::LightSwitchApplication.UserTemplateItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateContent);
-            }
-            set
-            {
-                global::LightSwitchApplication.UserTemplateItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateContent, value);
-            }
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void TemplateContent_IsReadOnly(ref bool result);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void TemplateContent_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void TemplateContent_Changed();
-
-        /// <summary>
-        /// No Modeled Description Available
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         public string TemplateName
         {
             get
@@ -245,6 +221,54 @@ namespace LightSwitchApplication
         partial void TemplateName_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void TemplateName_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string TemplateHtml
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserTemplateItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateHtml);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserTemplateItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateHtml, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void TemplateHtml_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void TemplateHtml_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void TemplateHtml_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string TemplateText
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserTemplateItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateText);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserTemplateItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateText, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void TemplateText_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void TemplateText_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void TemplateText_Changed();
 
         #endregion
     
@@ -368,19 +392,27 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string> TemplateContent
-                {
-                    get
-                    {
-                        return base.GetItem(global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateContent) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>;
-                    }
-                }
-                
                 public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string> TemplateName
                 {
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateName) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string> TemplateHtml
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateHtml) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string> TemplateText
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.TemplateText) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>;
                     }
                 }
                 
@@ -395,8 +427,9 @@ namespace LightSwitchApplication
                 new global::System.DateTime Created { get; set; }
                 new global::System.Nullable<global::System.DateTime> LastUpdated { get; set; }
                 new bool IsDefault { get; set; }
-                new string TemplateContent { get; set; }
                 new string TemplateName { get; set; }
+                new string TemplateHtml { get; set; }
+                new string TemplateText { get; set; }
             }
             #pragma warning restore 109
     
@@ -593,43 +626,6 @@ namespace LightSwitchApplication
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry
-                    TemplateContent = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry(
-                        "TemplateContent",
-                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateContent_Stub,
-                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateContent_ComputeIsReadOnly,
-                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateContent_Validate,
-                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateContent_GetImplementationValue,
-                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateContent_SetImplementationValue,
-                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateContent_OnValueChanged);
-                private static void _TemplateContent_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserTemplateItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserTemplateItem.DetailsClass d, object sf)
-                {
-                    c(d, ref d._TemplateContent, sf);
-                }
-                private static bool _TemplateContent_ComputeIsReadOnly(global::LightSwitchApplication.UserTemplateItem e)
-                {
-                    bool result = false;
-                    e.TemplateContent_IsReadOnly(ref result);
-                    return result;
-                }
-                private static void _TemplateContent_Validate(global::LightSwitchApplication.UserTemplateItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
-                {
-                    e.TemplateContent_Validate(r);
-                }
-                private static string _TemplateContent_GetImplementationValue(global::LightSwitchApplication.UserTemplateItem.DetailsClass d)
-                {
-                    return d.ImplementationEntity.TemplateContent;
-                }
-                private static void _TemplateContent_SetImplementationValue(global::LightSwitchApplication.UserTemplateItem.DetailsClass d, string v)
-                {
-                    d.ImplementationEntity.TemplateContent = v;
-                }
-                private static void _TemplateContent_OnValueChanged(global::LightSwitchApplication.UserTemplateItem e)
-                {
-                    e.TemplateContent_Changed();
-                }
-    
-                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry
                     TemplateName = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry(
                         "TemplateName",
                         global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateName_Stub,
@@ -665,6 +661,80 @@ namespace LightSwitchApplication
                     e.TemplateName_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry
+                    TemplateHtml = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry(
+                        "TemplateHtml",
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateHtml_Stub,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateHtml_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateHtml_Validate,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateHtml_GetImplementationValue,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateHtml_SetImplementationValue,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateHtml_OnValueChanged);
+                private static void _TemplateHtml_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserTemplateItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserTemplateItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._TemplateHtml, sf);
+                }
+                private static bool _TemplateHtml_ComputeIsReadOnly(global::LightSwitchApplication.UserTemplateItem e)
+                {
+                    bool result = false;
+                    e.TemplateHtml_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _TemplateHtml_Validate(global::LightSwitchApplication.UserTemplateItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.TemplateHtml_Validate(r);
+                }
+                private static string _TemplateHtml_GetImplementationValue(global::LightSwitchApplication.UserTemplateItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.TemplateHtml;
+                }
+                private static void _TemplateHtml_SetImplementationValue(global::LightSwitchApplication.UserTemplateItem.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.TemplateHtml = v;
+                }
+                private static void _TemplateHtml_OnValueChanged(global::LightSwitchApplication.UserTemplateItem e)
+                {
+                    e.TemplateHtml_Changed();
+                }
+    
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry
+                    TemplateText = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry(
+                        "TemplateText",
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateText_Stub,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateText_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateText_Validate,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateText_GetImplementationValue,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateText_SetImplementationValue,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._TemplateText_OnValueChanged);
+                private static void _TemplateText_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserTemplateItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserTemplateItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._TemplateText, sf);
+                }
+                private static bool _TemplateText_ComputeIsReadOnly(global::LightSwitchApplication.UserTemplateItem e)
+                {
+                    bool result = false;
+                    e.TemplateText_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _TemplateText_Validate(global::LightSwitchApplication.UserTemplateItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.TemplateText_Validate(r);
+                }
+                private static string _TemplateText_GetImplementationValue(global::LightSwitchApplication.UserTemplateItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.TemplateText;
+                }
+                private static void _TemplateText_SetImplementationValue(global::LightSwitchApplication.UserTemplateItem.DetailsClass d, string v)
+                {
+                    d.ImplementationEntity.TemplateText = v;
+                }
+                private static void _TemplateText_OnValueChanged(global::LightSwitchApplication.UserTemplateItem e)
+                {
+                    e.TemplateText_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -683,10 +753,13 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, bool>.Data _IsDefault;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data _TemplateContent;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data _TemplateName;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data _TemplateName;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data _TemplateHtml;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data _TemplateText;
             
         }
     

@@ -309,7 +309,8 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="IsDefault" Type="bit" Nullable="false" />
     <Property Name="TemplateName" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="TemplateContent" Type="xml" Nullable="false" />
+    <Property Name="TemplateHtml" Type="xml" Nullable="false" />
+    <Property Name="TemplateText" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Updated" Type="datetime" />
   </EntityType>
