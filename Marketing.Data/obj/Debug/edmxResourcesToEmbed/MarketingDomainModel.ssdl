@@ -14,6 +14,7 @@
     <EntitySet Name="UserListingResponse" EntityType="Marketing.CraigslistScraperModel.Store.UserListingResponse" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.UserListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTemplate" EntityType="Marketing.CraigslistScraperModel.Store.UserTemplate" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingData" EntityType="Marketing.CraigslistScraperModel.Store.UserListingData" store:Type="Views" store:Schema="dbo" store:Name="UserListingData">
       <DefiningQuery>SELECT 
       [UserListingData].[UserListingUrlId] AS [UserListingUrlId], 
@@ -143,6 +144,10 @@
     <AssociationSet Name="FK_UserPreference_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserPreference_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserPreference" EntitySet="UserPreference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTemplate_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserTemplate" EntitySet="UserTemplate" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
@@ -295,6 +300,18 @@
     <Property Name="SMTPPort" Type="int" Nullable="false" />
     <Property Name="SMTPPassword" Type="nvarchar" MaxLength="50" />
     <Property Name="RequiresSSL" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="TemplateName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="TemplateContent" Type="xml" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -586,6 +603,18 @@
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="UserPreference">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTemplate_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserTemplate" Type="Marketing.CraigslistScraperModel.Store.UserTemplate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserTemplate">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>

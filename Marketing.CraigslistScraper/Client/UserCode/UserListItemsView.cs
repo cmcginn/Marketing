@@ -26,10 +26,15 @@ namespace LightSwitchApplication {
 
     void UserListItemsView_ControlAvailable( object sender, ControlAvailableEventArgs e ) {
       _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
-      _UserListItemsViewControl.TitleLinkClick += new EventHandler( _UserListItemsViewControl_TitleLinkClick );
+      _UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
+      _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );
     }
 
-    void _UserListItemsViewControl_TitleLinkClick( object sender, EventArgs e ) {
+    void OnSendDefaultLinkClick( object sender, EventArgs e ) {
+      
+    }
+
+    void OnOpenViewLinkClick( object sender, EventArgs e ) {
       OpenResponseView_Execute();
     }
 

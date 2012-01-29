@@ -34,5 +34,7 @@ namespace LightSwitchApplication {
       query = query.OrderByDescending( n => n.Selected ).ThenBy( n => n.RegionName ).ThenBy( n => n.StateProvince ).ThenBy( n => n.CityName );
     }
 
+
+
   }
 }

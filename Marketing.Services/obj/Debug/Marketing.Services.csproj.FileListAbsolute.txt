@@ -5,6 +5,8 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Net.Interfaces.
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Types.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Utils.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.WorkflowActivities.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Workflow.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.dll
@@ -12,6 +14,8 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Unity
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Data.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Utils.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.WorkflowActivities.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Workflow.pdb
 C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Neovolve.Toolkit.Workflow.xml
@@ -24,7 +28,3 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Un
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.pdb
-C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Utils.dll
-C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.Utils.pdb
-C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.WorkflowActivities.dll
-C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Marketing.WorkflowActivities.pdb

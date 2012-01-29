@@ -62,16 +62,35 @@ namespace Marketing.Services {
     public IQueryable<Operation> DefaultServerOperations() {
       return DomainExtensions.GetDefaultServerOperations();
     }
-    public IQueryable<UserListingItem> GetUserListingItemsByUserId( Guid? userId ) {
-      var result = Context.GetUserListingItemsByUserId( userId.Value );
+    [Query( IsDefault = true )]
+    public IQueryable<UserTemplateItem> DefaultUserTemplates() {
+      var result = Context.GetUserTemplates();
       return result;
     }
+
+    //public IQueryable<UserListingItem> GetUserListingItemsByUserId( Guid? userId ) {
+    //  var result = Context.GetUserListingItemsByUserId( userId.Value );
+    //  return result;
+    //}
     public IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( Guid? userId ) {
       var result = Context.GetUserKeywordSelectionByUserId( userId.GetValueOrDefault() );
       return result;
     }
     public IQueryable<UserCitySelection> GetUserCitySelectionByUserId( Guid? userId ) {
       var result = Context.GetUserCitySelectionByUserId( userId.GetValueOrDefault() );
+      return result;
+    }
+    public void AddUserTemplateItem( UserTemplateItem userTemplateItem ) {
+      Context.AddUserTemplateItem( userTemplateItem );      
+    }
+    public void DeleteUserTemplateItem( UserTemplateItem userTemplateItem ) {
+      Context.DeleteUserTemplateItem( userTemplateItem );
+    }
+    public void UpdateUserTemplateItem( UserTemplateItem userTemplateItem ) {
+      Context.UpdateUserTemplateItem( userTemplateItem );
+    }
+    public IQueryable<UserTemplateItem> GetUserTemplateItemById( Guid? id ) {
+      var result = Context.GetUserTemplates().Where( n => n.Id == id );
       return result;
     }
     public void RunKeywordRefresh( Operation operation ) {
@@ -112,11 +131,7 @@ namespace Marketing.Services {
       var response = Context.SaveUserListingResponse( item );
       Context.SendUserListingResponse( response );
     }
-    //public UserPreferenceSelection GetUserPreferenceSelectionByUserId( Guid? userId ) {
-    //  Context.GetUserPreferenceSelectionByUserId( userId.GetValueOrDefault() );
-    //  var result = Context.GetUserPreferenceSelection().First();
-    //  return result;
-    //}
+
     public void UpdateUserPreferenceSelection( UserPreferenceSelection userPreferenceSelection ) {
       Context.SaveUserPreferencesSelection( userPreferenceSelection );
     }

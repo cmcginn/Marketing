@@ -14,18 +14,18 @@ namespace Marketing.Services.Extensions {
       var result = context.vw_aspnet_MembershipUsers.Select( n => new User { Id = n.UserId, Username = n.UserName } );
       return result.AsQueryable();
     }
-    public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionByUserId( this MarketingEntities context,Guid userId ) {
+    public static IQueryable<UserListingCategorySelection> GetUserListingCategorySelectionByUserId( this MarketingEntities context, Guid userId ) {
       var query = from category in context.ListingCategories
                   join categoryGroup in context.ListingGroups
                   on category.ListingGroupId equals categoryGroup.Id
-                  join userCategory in context.UserListingCategories.Where(n=>n.UserId==userId)
+                  join userCategory in context.UserListingCategories.Where( n => n.UserId == userId )
                   on category.Id equals userCategory.ListingCategoryId into ulc
 
                   from item in ulc.DefaultIfEmpty()
                   select new UserListingCategorySelection { Id = item != null ? item.Id : Guid.NewGuid(), Active = item != null ? item.Active : true, CategoryName = category.ListingCategoryName, GroupName = categoryGroup.ListingGroupName, Selected = item != null ? true : false, UserId = item.UserId != Guid.Empty ? item.UserId : userId, CategoryId = category.Id };
       return query.AsQueryable();
     }
-    public static IQueryable<UserCitySelection> GetUserCitySelections( this MarketingEntities context) {
+    public static IQueryable<UserCitySelection> GetUserCitySelections( this MarketingEntities context ) {
       var query = from city in context.Cities
                   join uc in context.UserCities
                   on city.Id equals uc.CityId into usc
@@ -43,13 +43,13 @@ namespace Marketing.Services.Extensions {
 
       return query.AsQueryable();
     }
-    public static IQueryable<UserKeywordSelection> GetUserKeywordSelections( this MarketingEntities context) {
+    public static IQueryable<UserKeywordSelection> GetUserKeywordSelections( this MarketingEntities context ) {
       var query = from userKeyword in context.UserKeywords
                   select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
       return query;
     }
-    public static IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( this MarketingEntities context,Guid userId ) {
-      var query = from userKeyword in context.UserKeywords.Where(x=>x.UserId==userId)
+    public static IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( this MarketingEntities context, Guid userId ) {
+      var query = from userKeyword in context.UserKeywords.Where( x => x.UserId == userId )
                   select new UserKeywordSelection { Id = userKeyword.Id, Keyword = userKeyword.Keyword, UserId = userKeyword.UserId, WeightedScore = userKeyword.WeightedScore };
       return query;
     }
@@ -58,7 +58,7 @@ namespace Marketing.Services.Extensions {
                   select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress, SMTPUsername = userPreference.SMTPUser, SMTPServer = userPreference.SMTPServer, SMTPPort = userPreference.SMTPPort, RequiresSSL = userPreference.RequiresSSL, SMTPPassword = userPreference.SMTPPassword };
       return query;
     }
-    public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context) {
+    public static IQueryable<UserListingItem> GetUserListingItems( this MarketingEntities context ) {
       var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) )
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
@@ -83,10 +83,10 @@ namespace Marketing.Services.Extensions {
                     KeywordScore = userListingData.KeywordScore,
                     KeywordDisplay = userListingData.KeywordDisplay
                   };
-      
+
       return query;
     }
-    public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context,Guid userId ) {
+    public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context, Guid userId ) {
       var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) && x.UserId == userId )
                   select new UserListingItem {
                     Id = userListingData.UserListingUrlId,
@@ -123,6 +123,57 @@ namespace Marketing.Services.Extensions {
                     Response = userListingResponse.Response
                   };
       return query;
+    }
+    public static IQueryable<UserTemplateItem> GetUserTemplates( this MarketingEntities context ) {
+      var result = context.UserTemplates.Select( n => new UserTemplateItem {
+        Created = n.Created,
+        Id = n.Id,
+        IsDefault = n.IsDefault,
+        LastUpdated = n.Updated,
+        TemplateContent = n.TemplateContent,
+        TemplateName = n.TemplateName,
+        UserId = n.UserId
+      } );
+      return result;
+    }
+    public static void DeleteUserTemplateItem( this MarketingEntities context, UserTemplateItem item ) {
+      var target = context.UserTemplates.Single( x => x.Id == item.Id );
+      context.UserTemplates.DeleteObject( target );
+      context.SaveChanges();
+    }
+    static void SetDefaultUserTemplateItems( this MarketingEntities context, UserTemplate userTemplate) {
+      var userTemplates = context.UserTemplates.Where( n => n.UserId == userTemplate.UserId ).ToList();
+      //set default if template is the only one
+      if( userTemplates.Count == 0 || userTemplates.Where(n=>n.IsDefault).Count()==0 )
+        userTemplate.IsDefault = true;
+      else {
+        if( userTemplate.IsDefault )
+          userTemplates.Where(n=>n.Id != userTemplate.Id).ToList().ForEach( n => n.IsDefault = false );
+      }
+    }
+    public static void AddUserTemplateItem( this MarketingEntities context, UserTemplateItem userTemplateItem ) {
+
+      var template = new UserTemplate {
+        Id = userTemplateItem.Id,
+        UserId = userTemplateItem.UserId,
+        Created = userTemplateItem.Created,
+        TemplateContent = XElement.Parse( userTemplateItem.TemplateContent ).ToString(),
+        TemplateName = userTemplateItem.TemplateName,
+        IsDefault = userTemplateItem.IsDefault
+
+      };
+      context.SetDefaultUserTemplateItems( template );
+      context.UserTemplates.AddObject( template );
+      context.SaveChanges();
+    }
+    public static void UpdateUserTemplateItem( this MarketingEntities context, UserTemplateItem userTemplateItem ) {
+      var template = context.UserTemplates.Single( n => n.Id == userTemplateItem.Id );
+      template.TemplateContent = XElement.Parse( userTemplateItem.TemplateContent ).ToString();
+      template.TemplateName = userTemplateItem.TemplateName;
+      template.IsDefault = userTemplateItem.IsDefault;
+      template.Updated = System.DateTime.Now;
+      context.SetDefaultUserTemplateItems( template );     
+      context.SaveChanges();
     }
     public static UserListingResponse SaveUserListingResponse( this MarketingEntities context, UserListingItem item ) {
       UserListingResponse result = null;
@@ -172,12 +223,12 @@ namespace Marketing.Services.Extensions {
       var body = item.Response.ToString();
       //if( nvc.Count > 1 )
       //  body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] ); 
-      
+
       var fromAddress = item.UserListingUrl.aspnet_Membership.UserPreferences.First().BCCEmailAddress;
       //if not live use BCC email, dont send to recipient
-      
-      if( !userPreference.LiveMode)
-       address = fromAddress;
+
+      if( !userPreference.LiveMode )
+        address = fromAddress;
       result = new MailMessage( fromAddress, address, subject, body );
       result.IsBodyHtml = true;
       result.Bcc.Add( fromAddress );
@@ -213,7 +264,7 @@ namespace Marketing.Services.Extensions {
       }
       return result;
     }
-    static UserListingItem ToUserListingItem(this UserListingData userListingData ) {
+    static UserListingItem ToUserListingItem( this UserListingData userListingData ) {
       var result = new UserListingItem {
         Id = userListingData.UserListingUrlId,
         CategoryName = userListingData.ListingCategoryName,

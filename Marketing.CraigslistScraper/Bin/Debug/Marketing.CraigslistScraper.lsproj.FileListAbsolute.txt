@@ -16,8 +16,6 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Applicati
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Application.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Common.Net.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Common.Utils.dll
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\ExtensionsMadeEasy.Common.dll
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\ExtensionsMadeEasy.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Marketing.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Bin\Debug\bin\Marketing.Utils.dll

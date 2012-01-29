@@ -12,7 +12,13 @@ using System.Text;
 using System.Xml.Linq;
 namespace Marketing.UI.Controls.Extensions {
   public static class DocumentExtensions {
+    public const string DEFAULT_DOC = @"<html> <head> <meta HTTP-EQUIV=""Content-Type"" CONTENT=""text/html; charset=utf-8"" /> <title /> <style type=""text/css""></style> </head> <body> </body> </html>"; 
+
+
     public static string ToEditorDocument( this string content ) {
+      if( string.IsNullOrEmpty( content ) )
+        content = DEFAULT_DOC;
+     
       var builder = new StringBuilder();
       content = System.Text.RegularExpressions.Regex.Replace( content, "<!DOCTYPE html .*>", "" );
       var element = XElement.Parse( content );

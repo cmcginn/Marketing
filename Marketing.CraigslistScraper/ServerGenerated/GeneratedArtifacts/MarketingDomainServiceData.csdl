@@ -102,6 +102,18 @@
     <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Username" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserTemplateItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="LastUpdated" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="IsDefault" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="TemplateContent" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="TemplateName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -111,5 +123,6 @@
     <EntitySet Name="UserListingResponseItems" EntityType="MarketingDomainServiceData.UserListingResponseItem" />
     <EntitySet Name="Operations" EntityType="MarketingDomainServiceData.Operation" />
     <EntitySet Name="Users" EntityType="MarketingDomainServiceData.User" />
+    <EntitySet Name="UserTemplateItems" EntityType="MarketingDomainServiceData.UserTemplateItem" />
   </EntityContainer>
 </Schema>

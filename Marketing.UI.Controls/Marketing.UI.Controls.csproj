@@ -72,6 +72,7 @@
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Windows.Controls.Data.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Windows.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
@@ -95,8 +96,15 @@
     <Compile Include="ServerOperationList.xaml.cs">
       <DependentUpon>ServerOperationList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TemplateEditorControl.xaml.cs">
+      <DependentUpon>TemplateEditorControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TitleValueConverter.cs" />
     <Compile Include="UserListItemsViewControl.xaml.cs">
       <DependentUpon>UserListItemsViewControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserTemplateViewControl.xaml.cs">
+      <DependentUpon>UserTemplateViewControl.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +124,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TemplateEditorControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserListItemsViewControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserTemplateViewControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,6 +9,7 @@
     <EntitySet Name="DefaultUserListingResponseItems" EntityType="MarketingDomainServiceDataStore.UserListingResponseItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserListingResponseItem" />
     <EntitySet Name="DefaultServerOperations" EntityType="MarketingDomainServiceDataStore.Operation" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Operation" />
     <EntitySet Name="DefaultUsers" EntityType="MarketingDomainServiceDataStore.User" store:Type="Tables" Schema="dbo" Table="Marketing.Services.User" />
+    <EntitySet Name="DefaultUserTemplates" EntityType="MarketingDomainServiceDataStore.UserTemplateItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserTemplateItem" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -111,5 +112,17 @@
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Username" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserTemplateItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="LastUpdated" Type="datetime" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="TemplateContent" Type="nvarchar(max)" />
+    <Property Name="TemplateName" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

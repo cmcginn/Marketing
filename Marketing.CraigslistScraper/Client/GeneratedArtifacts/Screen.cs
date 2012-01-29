@@ -1986,4 +1986,774 @@ namespace LightSwitchApplication
             }
         }
     }
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    public sealed partial class UserTemplateDetail
+        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass>
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private UserTemplateDetail(global::System.Guid UserTemplateItemId) : base("LightSwitchApplication:UserTemplateDetail")
+        {
+                this.UserTemplateItemId = UserTemplateItemId;
+            global::LightSwitchApplication.UserTemplateDetail.DetailsClass.Initialize(this);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public static UserTemplateDetail CreateInstance(global::System.Guid UserTemplateItemId)
+        {
+            return new global::LightSwitchApplication.UserTemplateDetail(
+                        UserTemplateItemId
+            );
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_Created();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_Activated();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_Saving(ref bool handled);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_Saved();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_Closing(ref bool cancel);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateDetail_SaveError(global::System.Exception exception, ref bool handled);
+     
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)((global::Microsoft.LightSwitch.Details.Client.IScreenDetails)this.Details).DataWorkspace;
+            }
+        }
+        
+        #endregion
+ 
+        partial void UserTemplateItem_Changed();
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateItem_Loaded(bool succeeded);
+
+        partial void UserTemplateItemId_Changed();
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::LightSwitchApplication.UserTemplateItem UserTemplateItem
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserTemplateDetail.DetailsClass.GetValue(this, global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties.UserTemplateItem);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateItem_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Guid UserTemplateItemId
+        {
+            get 
+            {
+                return global::LightSwitchApplication.UserTemplateDetail.DetailsClass.GetValue(this, global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties.UserTemplateItemId);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserTemplateDetail.DetailsClass.SetValue(this, global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties.UserTemplateItemId, value);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserTemplateItemId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public sealed class DetailsClass
+            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySet, global::LightSwitchApplication.UserTemplateDetail.DetailsClass.CommandSet, global::LightSwitchApplication.UserTemplateDetail.DetailsClass.MethodSet>
+        {
+
+            static DetailsClass()
+            {
+                var initializePropertyEntry = global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties.UserTemplateItem;
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass>.Entry
+                __UserTemplateDetailEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass>.Entry(
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeInitializeDataWorkspace,
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeSavingEvent,
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeSavedEvent,
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeClosingEvent,
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeCreated,
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeActivated,
+                    global::LightSwitchApplication.UserTemplateDetail.DetailsClass.__UserTemplateDetail_InvokeSaveErrorEvent);
+            private static void __UserTemplateDetail_InvokeInitializeDataWorkspace(global::LightSwitchApplication.UserTemplateDetail s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
+            {
+                s.UserTemplateDetail_InitializeDataWorkspace(saveChangesTo);
+            }
+            private static bool __UserTemplateDetail_InvokeSavingEvent(global::LightSwitchApplication.UserTemplateDetail s)
+            {
+                bool handled = false;
+                s.UserTemplateDetail_Saving(ref handled);
+                return handled;
+            }
+            private static void __UserTemplateDetail_InvokeSavedEvent(global::LightSwitchApplication.UserTemplateDetail s)
+            {
+                s.UserTemplateDetail_Saved();
+            }
+            private static bool __UserTemplateDetail_InvokeClosingEvent(global::LightSwitchApplication.UserTemplateDetail s)
+            {
+                bool cancel = false;
+                s.UserTemplateDetail_Closing(ref cancel);
+                return cancel;
+            }
+            private static void __UserTemplateDetail_InvokeCreated(global::LightSwitchApplication.UserTemplateDetail s)
+            {
+                s.UserTemplateDetail_Created();
+            }
+            private static void __UserTemplateDetail_InvokeActivated(global::LightSwitchApplication.UserTemplateDetail s)
+            {
+                s.UserTemplateDetail_Activated();
+            }
+            private static bool __UserTemplateDetail_InvokeSaveErrorEvent(global::LightSwitchApplication.UserTemplateDetail s, global::System.Exception ex)
+            {
+                bool handled = false;
+                s.UserTemplateDetail_SaveError(ex, ref handled);
+                return handled;
+            }
+
+            public DetailsClass() : base()
+            {
+            }
+
+            public new global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySet Properties
+            {
+                get
+                {
+                    return base.Properties;
+                }
+            }
+
+            public new global::LightSwitchApplication.UserTemplateDetail.DetailsClass.CommandSet Commands
+            {
+                get
+                {
+                    return base.Commands;
+                }
+            }
+
+            public new global::LightSwitchApplication.UserTemplateDetail.DetailsClass.MethodSet Methods
+            {
+                get
+                {
+                    return base.Methods;
+                }
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Data _UserTemplateItem;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::System.Guid>.Data _UserTemplateItemId;
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class PropertySet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateItem> UserTemplateItem
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateItem>)base.GetItem(global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties.UserTemplateItem);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::System.Guid> UserTemplateItemId
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::System.Guid>)base.GetItem(global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties.UserTemplateItemId);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class CommandSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class MethodSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass>
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class PropertySetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Entry
+                    UserTemplateItem = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Entry(
+                        "UserTemplateItem",
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItem_Stub,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItem_Validate,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItem_CreateQuery,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItem_OnValueChanged,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItem_OnLoaded);
+                private static void _UserTemplateItem_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Data> c, global::LightSwitchApplication.UserTemplateDetail.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserTemplateItem, sf);
+                }
+                private static void _UserTemplateItem_Validate(global::LightSwitchApplication.UserTemplateDetail s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.UserTemplateItem_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _UserTemplateItem_CreateQuery(global::LightSwitchApplication.UserTemplateDetail.DetailsClass d, object[] args)
+                {
+                    return null;
+                }
+                private static void _UserTemplateItem_OnValueChanged(global::LightSwitchApplication.UserTemplateDetail s)
+                {
+                    s.UserTemplateItem_Changed();
+                }
+
+                private static void _UserTemplateItem_OnLoaded(global::LightSwitchApplication.UserTemplateDetail s, bool succeeded)
+                {
+                    s.UserTemplateItem_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::System.Guid>.Entry
+                    UserTemplateItemId = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::System.Guid>.Entry(
+                        "UserTemplateItemId",
+                        false,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItemId_Stub,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItemId_Validate,
+                        global::LightSwitchApplication.UserTemplateDetail.DetailsClass.PropertySetProperties._UserTemplateItemId_OnValueChanged);
+                private static void _UserTemplateItemId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserTemplateDetail, global::LightSwitchApplication.UserTemplateDetail.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.UserTemplateDetail.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserTemplateItemId, sf);
+                }
+                private static void _UserTemplateItemId_Validate(global::LightSwitchApplication.UserTemplateDetail s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.UserTemplateItemId_Validate(r);
+                }
+                private static void _UserTemplateItemId_OnValueChanged(global::LightSwitchApplication.UserTemplateDetail s)
+                {
+                    s.UserTemplateItemId_Changed();
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class CommandSetProperties
+            {
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class MethodSetProperties
+            {
+            }
+        }
+    }
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    public sealed partial class Templates
+        : global::Microsoft.LightSwitch.Framework.Client.ScreenObject<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private Templates() : base("LightSwitchApplication:Templates")
+        {
+            global::LightSwitchApplication.Templates.DetailsClass.Initialize(this);
+        }
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        public static Templates CreateInstance()
+        {
+            return new global::LightSwitchApplication.Templates(
+            );
+        }
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_InitializeDataWorkspace(global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_Created();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_Activated();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_Saving(ref bool handled);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_Saved();
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_Closing(ref bool cancel);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void Templates_SaveError(global::System.Exception exception, ref bool handled);
+     
+        #region Private Properties
+        
+        /// <summary>
+        /// Gets the Application object for this application.  The Application object provides access to active screens, methods to open screens and access to the current user.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.Application Application
+        {
+            get
+            {
+                return global::LightSwitchApplication.Application.Current;
+            }
+        }
+        
+        /// <summary>
+        /// Gets the containing data workspace.  The data workspace provides access to all data sources in the application.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private global::LightSwitchApplication.DataWorkspace DataWorkspace
+        {
+            get
+            {
+                return (global::LightSwitchApplication.DataWorkspace)((global::Microsoft.LightSwitch.Details.Client.IScreenDetails)this.Details).DataWorkspace;
+            }
+        }
+        
+        #endregion
+ 
+        partial void GetUserTemplates_SelectionChanged();
+
+        partial void GetUserTemplates_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserTemplates_Loaded(bool succeeded);
+
+        partial void UserId_Changed();
+
+        /// <summary>
+        /// Gets the GetUserTemplates visual collection. The collection contains all records currently shown on the respective list or grid control.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::Microsoft.LightSwitch.Framework.Client.VisualCollection<global::LightSwitchApplication.UserTemplateItem> GetUserTemplates
+        {
+            get
+            {
+                return global::LightSwitchApplication.Templates.DetailsClass.GetValue(this, global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.GetUserTemplates);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserTemplates_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Guid UserId
+        {
+            get 
+            {
+                return global::LightSwitchApplication.Templates.DetailsClass.GetValue(this, global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.UserId);
+            }
+            set
+            {
+                global::LightSwitchApplication.Templates.DetailsClass.SetValue(this, global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.UserId, value);
+            }
+        }
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
+ 
+        /// <summary>
+        /// Calls the gridAddAndEditNew screen method.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void gridAddAndEditNew()
+        {
+            this.Details.Methods.gridAddAndEditNew.CreateInvocation().Execute();
+        }
+        partial void gridAddAndEditNew_CanExecute(ref bool result);
+        partial void gridAddAndEditNew_Execute();
+
+        /// <summary>
+        /// Calls the gridDeleteSelected screen method.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void gridDeleteSelected()
+        {
+            this.Details.Methods.gridDeleteSelected.CreateInvocation().Execute();
+        }
+        partial void gridDeleteSelected_CanExecute(ref bool result);
+        partial void gridDeleteSelected_Execute();
+
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public sealed class DetailsClass
+            : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.Templates.DetailsClass.PropertySet, global::LightSwitchApplication.Templates.DetailsClass.CommandSet, global::LightSwitchApplication.Templates.DetailsClass.MethodSet>
+        {
+
+            static DetailsClass()
+            {
+                var initializePropertyEntry = global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.GetUserTemplates;
+                var initializeCommandEntry = global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties.gridAddAndEditNew;
+                var initializeMethodEntry = global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties.gridAddAndEditNew;
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry
+                __TemplatesEntry = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenDetails<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry(
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeInitializeDataWorkspace,
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeSavingEvent,
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeSavedEvent,
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeClosingEvent,
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeCreated,
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeActivated,
+                    global::LightSwitchApplication.Templates.DetailsClass.__Templates_InvokeSaveErrorEvent);
+            private static void __Templates_InvokeInitializeDataWorkspace(global::LightSwitchApplication.Templates s, global::System.Collections.Generic.List<global::Microsoft.LightSwitch.IDataService> saveChangesTo)
+            {
+                s.Templates_InitializeDataWorkspace(saveChangesTo);
+            }
+            private static bool __Templates_InvokeSavingEvent(global::LightSwitchApplication.Templates s)
+            {
+                bool handled = false;
+                s.Templates_Saving(ref handled);
+                return handled;
+            }
+            private static void __Templates_InvokeSavedEvent(global::LightSwitchApplication.Templates s)
+            {
+                s.Templates_Saved();
+            }
+            private static bool __Templates_InvokeClosingEvent(global::LightSwitchApplication.Templates s)
+            {
+                bool cancel = false;
+                s.Templates_Closing(ref cancel);
+                return cancel;
+            }
+            private static void __Templates_InvokeCreated(global::LightSwitchApplication.Templates s)
+            {
+                s.Templates_Created();
+            }
+            private static void __Templates_InvokeActivated(global::LightSwitchApplication.Templates s)
+            {
+                s.Templates_Activated();
+            }
+            private static bool __Templates_InvokeSaveErrorEvent(global::LightSwitchApplication.Templates s, global::System.Exception ex)
+            {
+                bool handled = false;
+                s.Templates_SaveError(ex, ref handled);
+                return handled;
+            }
+
+            public DetailsClass() : base()
+            {
+            }
+
+            public new global::LightSwitchApplication.Templates.DetailsClass.PropertySet Properties
+            {
+                get
+                {
+                    return base.Properties;
+                }
+            }
+
+            public new global::LightSwitchApplication.Templates.DetailsClass.CommandSet Commands
+            {
+                get
+                {
+                    return base.Commands;
+                }
+            }
+
+            public new global::LightSwitchApplication.Templates.DetailsClass.MethodSet Methods
+            {
+                get
+                {
+                    return base.Methods;
+                }
+            }
+
+            private global::Microsoft.LightSwitch.IDataServiceQueryable GetUserTemplatesQuery(global::System.Nullable<global::System.Guid> userId)
+            {
+                return this.Screen.DataWorkspace.MarketingDomainServiceData.GetUserTemplates(userId);
+            }
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Data _GetUserTemplates;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>.Data _UserId;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data _gridAddAndEditNewCommand;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data _gridDeleteSelectedCommand;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data _gridAddAndEditNewMethod;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data _gridDeleteSelectedMethod;
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class PropertySet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenPropertySet<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.UserTemplateItem> GetUserTemplates
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.UserTemplateItem>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.GetUserTemplates);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid> UserId
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.UserId);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class CommandSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass> gridAddAndEditNew
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties.gridAddAndEditNew);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass> gridDeleteSelected
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties.gridDeleteSelected);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public sealed class MethodSet
+                : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>
+            {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass> gridAddAndEditNew
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties.gridAddAndEditNew);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass> gridDeleteSelected
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties.gridDeleteSelected);
+                    }
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class PropertySetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Entry
+                    GetUserTemplates = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Entry(
+                        "GetUserTemplates",
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._GetUserTemplates_Stub,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._GetUserTemplates_Validate,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._GetUserTemplates_CreateQuery,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._GetUserTemplates_SelectionChanged,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._GetUserTemplates_OnCollectionChanged,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._GetUserTemplates_OnLoaded);
+                private static void _GetUserTemplates_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::LightSwitchApplication.UserTemplateItem>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetUserTemplates, sf);
+                }
+                private static void _GetUserTemplates_Validate(global::LightSwitchApplication.Templates s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.GetUserTemplates_Validate(r);
+                }
+                private static global::Microsoft.LightSwitch.IDataServiceQueryable _GetUserTemplates_CreateQuery(global::LightSwitchApplication.Templates.DetailsClass d, object[] args)
+                {
+                    return d.GetUserTemplatesQuery((global::System.Nullable<global::System.Guid>)args[0]);
+                }
+                private static void _GetUserTemplates_SelectionChanged(global::LightSwitchApplication.Templates s)
+                {
+                    s.GetUserTemplates_SelectionChanged();
+                }
+                private static void _GetUserTemplates_OnCollectionChanged(global::LightSwitchApplication.Templates s, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    s.GetUserTemplates_Changed(e);
+                }
+                private static void _GetUserTemplates_OnLoaded(global::LightSwitchApplication.Templates s, bool succeeded)
+                {
+                    s.GetUserTemplates_Loaded(succeeded);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>.Entry
+                    UserId = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>.Entry(
+                        "UserId",
+                        false,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._UserId_Stub,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._UserId_Validate,
+                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._UserId_OnValueChanged);
+                private static void _UserId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserId, sf);
+                }
+                private static void _UserId_Validate(global::LightSwitchApplication.Templates s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
+                {
+                    s.UserId_Validate(r);
+                }
+                private static void _UserId_OnValueChanged(global::LightSwitchApplication.Templates s)
+                {
+                    s.UserId_Changed();
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class CommandSetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry
+                    gridAddAndEditNew = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry(
+                        "gridAddAndEditNew",
+                        global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties._gridAddAndEditNew_Stub,
+                        global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties._gridAddAndEditNew_CreateExecutableObject);
+                private static void _gridAddAndEditNew_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
+                {
+                    c(d, ref d._gridAddAndEditNewCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _gridAddAndEditNew_CreateExecutableObject(global::LightSwitchApplication.Templates.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Templates.DetailsClass)d).Methods.gridAddAndEditNew.CreateInvocation();
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry
+                    gridDeleteSelected = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry(
+                        "gridDeleteSelected",
+                        global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties._gridDeleteSelected_Stub,
+                        global::LightSwitchApplication.Templates.DetailsClass.CommandSetProperties._gridDeleteSelected_CreateExecutableObject);
+                private static void _gridDeleteSelected_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
+                {
+                    c(d, ref d._gridDeleteSelectedCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _gridDeleteSelected_CreateExecutableObject(global::LightSwitchApplication.Templates.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Templates.DetailsClass)d).Methods.gridDeleteSelected.CreateInvocation();
+                }
+
+            }
+
+            [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal sealed class MethodSetProperties
+            {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry
+                    gridAddAndEditNew = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry(
+                        "gridAddAndEditNew",
+                        global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties._gridAddAndEditNew_Stub,
+                        global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties._gridAddAndEditNew_CanInvoke,
+                        global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties._gridAddAndEditNew_InvokeMethod);
+                private static void _gridAddAndEditNew_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
+                {
+                    c(d, ref d._gridAddAndEditNewMethod, sf);
+                }
+                private static global::System.Exception _gridAddAndEditNew_CanInvoke(global::LightSwitchApplication.Templates.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Screen.gridAddAndEditNew_CanExecute(ref result);
+                    return result ? null : ex;
+                }
+                private static void _gridAddAndEditNew_InvokeMethod(global::LightSwitchApplication.Templates.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    d.Screen.gridAddAndEditNew_Execute();
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry
+                    gridDeleteSelected = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Entry(
+                        "gridDeleteSelected",
+                        global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties._gridDeleteSelected_Stub,
+                        global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties._gridDeleteSelected_CanInvoke,
+                        global::LightSwitchApplication.Templates.DetailsClass.MethodSetProperties._gridDeleteSelected_InvokeMethod);
+                private static void _gridDeleteSelected_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
+                {
+                    c(d, ref d._gridDeleteSelectedMethod, sf);
+                }
+                private static global::System.Exception _gridDeleteSelected_CanInvoke(global::LightSwitchApplication.Templates.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Screen.gridDeleteSelected_CanExecute(ref result);
+                    return result ? null : ex;
+                }
+                private static void _gridDeleteSelected_InvokeMethod(global::LightSwitchApplication.Templates.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    d.Screen.gridDeleteSelected_Execute();
+                }
+
+            }
+        }
+    }
 }

@@ -96,4 +96,14 @@ namespace Marketing.Services {
     public String Parameters { get; set; }
     public Guid UserId { get; set; }
   }
+  public class UserTemplateItem {
+    [Key]
+    public Guid Id { get; set; }
+    public Guid UserId { get; set; }
+    public DateTime Created { get; set; }
+    public DateTime? LastUpdated { get; set; }
+    public bool IsDefault { get; set; }
+    public string TemplateContent { get; set; }
+    public string TemplateName { get; set; }
+  }
 }

@@ -32,6 +32,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserPreference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserPreference), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserTemplate), true)]
 
 #endregion
 
@@ -338,6 +339,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserListingData> _UserListingDatas;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserTemplate> UserTemplates
+        {
+            get
+            {
+                if ((_UserTemplates == null))
+                {
+                    _UserTemplates = base.CreateObjectSet<UserTemplate>("UserTemplates");
+                }
+                return _UserTemplates;
+            }
+        }
+        private ObjectSet<UserTemplate> _UserTemplates;
 
         #endregion
         #region AddTo Methods
@@ -468,6 +485,14 @@ namespace Marketing.Data
         public void AddToUserListingDatas(UserListingData userListingData)
         {
             base.AddObject("UserListingDatas", userListingData);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserTemplates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserTemplates(UserTemplate userTemplate)
+        {
+            base.AddObject("UserTemplates", userTemplate);
         }
 
         #endregion
@@ -1169,6 +1194,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "UserTemplate")]
+        public EntityCollection<UserTemplate> UserTemplates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "UserTemplate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "UserTemplate", value);
                 }
             }
         }
@@ -5200,6 +5247,256 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership", "aspnet_Membership", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserTemplate")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserTemplate : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserTemplate object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="isDefault">Initial value of the IsDefault property.</param>
+        /// <param name="templateName">Initial value of the TemplateName property.</param>
+        /// <param name="templateContent">Initial value of the TemplateContent property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        public static UserTemplate CreateUserTemplate(global::System.Guid id, global::System.Guid userId, global::System.Boolean isDefault, global::System.String templateName, global::System.String templateContent, global::System.DateTime created)
+        {
+            UserTemplate userTemplate = new UserTemplate();
+            userTemplate.Id = id;
+            userTemplate.UserId = userId;
+            userTemplate.IsDefault = isDefault;
+            userTemplate.TemplateName = templateName;
+            userTemplate.TemplateContent = templateContent;
+            userTemplate.Created = created;
+            return userTemplate;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsDefault
+        {
+            get
+            {
+                return _IsDefault;
+            }
+            set
+            {
+                OnIsDefaultChanging(value);
+                ReportPropertyChanging("IsDefault");
+                _IsDefault = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsDefault");
+                OnIsDefaultChanged();
+            }
+        }
+        private global::System.Boolean _IsDefault;
+        partial void OnIsDefaultChanging(global::System.Boolean value);
+        partial void OnIsDefaultChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TemplateName
+        {
+            get
+            {
+                return _TemplateName;
+            }
+            set
+            {
+                OnTemplateNameChanging(value);
+                ReportPropertyChanging("TemplateName");
+                _TemplateName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TemplateName");
+                OnTemplateNameChanged();
+            }
+        }
+        private global::System.String _TemplateName;
+        partial void OnTemplateNameChanging(global::System.String value);
+        partial void OnTemplateNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String TemplateContent
+        {
+            get
+            {
+                return _TemplateContent;
+            }
+            set
+            {
+                OnTemplateContentChanging(value);
+                ReportPropertyChanging("TemplateContent");
+                _TemplateContent = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("TemplateContent");
+                OnTemplateContentChanged();
+            }
+        }
+        private global::System.String _TemplateContent;
+        partial void OnTemplateContentChanging(global::System.String value);
+        partial void OnTemplateContentChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Updated
+        {
+            get
+            {
+                return _Updated;
+            }
+            set
+            {
+                OnUpdatedChanging(value);
+                ReportPropertyChanging("Updated");
+                _Updated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Updated");
+                OnUpdatedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Updated;
+        partial void OnUpdatedChanging(Nullable<global::System.DateTime> value);
+        partial void OnUpdatedChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }

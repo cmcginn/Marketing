@@ -12,13 +12,24 @@ using System.Windows.Shapes;
 
 namespace Marketing.UI.Controls {
   public partial class UserListItemsViewControl : UserControl {
-    public event EventHandler TitleLinkClick;
-    private void HyperlinkButton_Click( object sender, RoutedEventArgs e ) {
-      if( null != TitleLinkClick )
-        TitleLinkClick( this, EventArgs.Empty );
-    }
+    public event EventHandler OpenViewLinkClick;
+
+    public event EventHandler SendDefaultLinkClick;
+
     public UserListItemsViewControl() {
       InitializeComponent();
+    }
+
+
+    public virtual void OnOpenViewLinkClick( object sender, EventArgs e ) {
+      EventHandler handler = OpenViewLinkClick;
+      if( handler != null )
+        handler( sender, e );
+    }
+    public virtual void OnSendDefaultLinkClick( object sender, EventArgs e ) {
+      EventHandler handler = SendDefaultLinkClick;
+      if( handler != null )
+        handler( sender, e );
     }
   }
 }

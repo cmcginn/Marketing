@@ -1,0 +1,29 @@
+﻿using System;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Ink;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using System.Windows.Data;
+
+namespace Marketing.UI.Controls {
+  public class TitleValueConverter:IValueConverter {
+    static int maxLength = 40;
+    public object Convert( object value, Type targetType, object parameter, System.Globalization.CultureInfo culture ) {
+      var result = value.ToString();
+      if( !String.IsNullOrEmpty( result ) ) {
+        if( result.Length > maxLength )
+          result = String.Format( "{0}...", result.Substring( 0, maxLength - 3 ) );
+      }
+      return result;
+    }
+
+    public object ConvertBack( object value, Type targetType, object parameter, System.Globalization.CultureInfo culture ) {
+      return value.ToString();
+    }
+  }
+}

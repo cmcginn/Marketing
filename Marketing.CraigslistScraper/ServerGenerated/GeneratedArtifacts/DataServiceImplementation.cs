@@ -265,6 +265,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region UserTemplateItem
+    
+        public void InsertUserTemplateItem(global::MarketingDomainServiceData.Implementation.UserTemplateItem entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.UserTemplateItems.AddObject(entity);
+            }
+        }
+    
+        public void UpdateUserTemplateItem(global::MarketingDomainServiceData.Implementation.UserTemplateItem currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserTemplateItems, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUserTemplateItem(global::MarketingDomainServiceData.Implementation.UserTemplateItem entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.UserTemplateItems.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
@@ -406,11 +436,6 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserKeywordSelection>("GetUserKeywordSelectionByUserId", frameworkOperators, userId);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemsByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
-        {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemsByUserId", frameworkOperators, userId);
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> GetUserPreferencesSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("GetUserPreferencesSelectionByUserId", frameworkOperators, userId);
@@ -434,6 +459,31 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.User> Users_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.User>("Users_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> UserTemplateItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("UserTemplateItems_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> UserTemplateItems_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("UserTemplateItems_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> UserTemplateItems_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("UserTemplateItems_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> GetUserTemplates(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("GetUserTemplates", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> GetUserTemplateItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("GetUserTemplateItemById", frameworkOperators, id);
         }
     
     #endregion
@@ -725,13 +775,6 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemsByUserId(global::System.Nullable<global::System.Guid> userId)
-        {
-            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemsByUserId", userId).AsQueryable();
-            return query;
-        }
-    
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> GetUserPreferencesSelectionByUserId(global::System.Nullable<global::System.Guid> userId)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> query;
@@ -773,6 +816,47 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> UserTemplateItems_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("UserTemplateItems_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> UserTemplateItems_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("UserTemplateItems_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> UserTemplateItems_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("DefaultUserTemplates").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> GetUserTemplates(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("UserTemplateItems_All"),
+                (u) => (userId.HasValue && (u.UserId == userId)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> GetUserTemplateItemById(global::System.Nullable<global::System.Guid> id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("GetUserTemplateItemById", id).AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -809,6 +893,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.User))
             {
                 return new global::MarketingDomainServiceData.Implementation.User();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.UserTemplateItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserTemplateItem();
             }
     
             return base.CreateObject(type);
@@ -856,6 +944,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.User();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserTemplateItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserTemplateItem();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -891,6 +983,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.User))
             {
                 return typeof(global::Marketing.Services.User);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserTemplateItem))
+            {
+                return typeof(global::Marketing.Services.UserTemplateItem);
             }
             return base.ConvertType(outerType);
         }
@@ -1004,6 +1100,19 @@ namespace LightSwitchApplication.Implementation
                 global::Marketing.Services.User result = new global::Marketing.Services.User();
                 result.Id = user.Id;
                 result.Username = user.Username;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.UserTemplateItem userTemplateItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserTemplateItem;
+            if (userTemplateItem != null)
+            {
+                global::Marketing.Services.UserTemplateItem result = new global::Marketing.Services.UserTemplateItem();
+                result.Id = userTemplateItem.Id;
+                result.UserId = userTemplateItem.UserId;
+                result.Created = userTemplateItem.Created;
+                result.LastUpdated = userTemplateItem.LastUpdated;
+                result.IsDefault = userTemplateItem.IsDefault;
+                result.TemplateContent = userTemplateItem.TemplateContent;
+                result.TemplateName = userTemplateItem.TemplateName;
                 return result;
             }
             return null;
@@ -1122,6 +1231,19 @@ namespace LightSwitchApplication.Implementation
                 outerUser.Username = innerUser.Username;
                 return;
             }
+            global::MarketingDomainServiceData.Implementation.UserTemplateItem outerUserTemplateItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserTemplateItem;
+            global::Marketing.Services.UserTemplateItem innerUserTemplateItem = innerResult as global::Marketing.Services.UserTemplateItem;
+            if ((outerUserTemplateItem != null) && (innerUserTemplateItem != null))
+            {
+                outerUserTemplateItem.Id = innerUserTemplateItem.Id;
+                outerUserTemplateItem.UserId = innerUserTemplateItem.UserId;
+                outerUserTemplateItem.Created = innerUserTemplateItem.Created;
+                outerUserTemplateItem.LastUpdated = innerUserTemplateItem.LastUpdated;
+                outerUserTemplateItem.IsDefault = innerUserTemplateItem.IsDefault;
+                outerUserTemplateItem.TemplateContent = innerUserTemplateItem.TemplateContent;
+                outerUserTemplateItem.TemplateName = innerUserTemplateItem.TemplateName;
+                return;
+            }
         }
     
     #endregion
@@ -1197,6 +1319,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.User) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.User);
+            }
+            if (typeof(global::LightSwitchApplication.UserTemplateItem) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.UserTemplateItem);
             }
             return null;
         }
@@ -1441,6 +1567,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class User :
         global::LightSwitchApplication.User.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class UserTemplateItem :
+        global::LightSwitchApplication.UserTemplateItem.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members
