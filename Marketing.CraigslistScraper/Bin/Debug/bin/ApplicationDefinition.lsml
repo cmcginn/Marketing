@@ -2164,7 +2164,7 @@
       <ScreenProperty Name="ResponseId"
                       PropertyType=":Guid?" />
       <ScreenCollectionProperty Name="GetUserListingItems"
-                                PageSize="5"
+                                PageSize="45"
                                 PropertyType="CollectionView$UserListingItem">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition Name="GetUserListingItemsQuery"
@@ -2191,6 +2191,12 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty Name="LoadingModalDisplayText"
+                      PropertyType=":String">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
     </Screen.Properties>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -2538,6 +2544,45 @@
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem Kind="Group"
+                       Name="LoadingModal"
+                       View=":ModalWindow"
+                       IsHidden="False">
+            <ContentItem.Attributes>
+              <DisplayName Value="Loading" />
+            </ContentItem.Attributes>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:ModalWindow/Properties[ShowButton]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="False" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="Left" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem Kind="Group"
+                         Name="Group">
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="LoadingModalDisplayText"
+                           View=":Label">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListItemsView/Properties[LoadingModalDisplayText]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
             </ContentItem>
           </ContentItem>
         </ContentItem>

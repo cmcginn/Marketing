@@ -121,9 +121,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LoadingModal.xaml.cs">
-      <DependentUpon>LoadingModal.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserCode\Application.cs" />
     <Compile Include="UserCode\RunWorkflow.cs" />
@@ -144,12 +141,6 @@
     <Folder Include="DataLogic\" />
     <Folder Include="DataSources\" />
     <Folder Include="Screens\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="LoadingModal.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\LightSwitch\$(LightSwitchVersion)\Microsoft.LightSwitch.Build.Tasks.targets" />

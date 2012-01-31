@@ -78,7 +78,5 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\ru\Mic
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\zh-Hans\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\zh-Hant\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\ResolveAssemblyReference.cache
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\LoadingModal.g.i.cs
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.g.resources
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.pdb

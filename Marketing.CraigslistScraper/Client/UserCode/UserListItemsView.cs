@@ -16,20 +16,22 @@ namespace LightSwitchApplication {
     partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
       this.UserId = Application.UserId;
+      this.LoadingModalDisplayText = "Please be patient";
     }
 
     partial void UserListItemsView_Activated() {
-
-      this.FindControl( "GetUserListingItems" ).ControlAvailable += new EventHandler<ControlAvailableEventArgs>( UserListItemsView_ControlAvailable );
-
+      if(_UserListItemsViewControl==null)      
+        this.FindControl( "GetUserListingItems" ).ControlAvailable += new EventHandler<ControlAvailableEventArgs>( UserListItemsView_ControlAvailable );
+      this.CloseModalWindow( "LoadingModal" );
     }
 
     void UserListItemsView_ControlAvailable( object sender, ControlAvailableEventArgs e ) {
       _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
+      _UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
+      _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );
       _Pager = _UserListItemsViewControl.PagerControl as Marketing.UI.Controls.CustomDataPagerControl;
       _Pager.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler( _Pager_PropertyChanged );
-      //_UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
-      //_UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );
+
     }
 
     void _Pager_PropertyChanged( object sender, System.ComponentModel.PropertyChangedEventArgs e ) {
@@ -42,8 +44,10 @@ namespace LightSwitchApplication {
       userListingResponse.UseDefaultResponse = true;
       userListingResponse.Responded = System.DateTime.Now;
       userListingResponse.ResponseSent = System.DateTime.Now;
+      
       this.Details.Dispatcher.BeginInvoke( () => {
         this.Save();
+       
       } );
     }
 
@@ -58,9 +62,12 @@ namespace LightSwitchApplication {
 
     partial void OpenResponseView_Execute() {
       // Write your code here.
-      this.Details.Dispatcher.BeginInvoke( () => {
+      this.OpenModalWindow( "LoadingModal" );
+      this.Details.Dispatcher.BeginInvoke( () => {        
         Application.ShowDefaultScreen( this.GetUserListingItems.SelectedItem );       
+        
       } );
+      
     }
 
     partial void GetUserListingItems_Loaded( bool succeeded ) {

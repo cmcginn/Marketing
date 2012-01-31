@@ -69,8 +69,8 @@
   </UserControl.Resources>
   <Grid x:Name="LayoutRoot" Background="White">
     <Grid.RowDefinitions>
-      <RowDefinition></RowDefinition>
-      <RowDefinition></RowDefinition>
+      <RowDefinition Height="1*"></RowDefinition>
+      <RowDefinition Height="27"></RowDefinition>
     </Grid.RowDefinitions>
     
     <sdk:DataGrid Grid.Row="0" AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetUserListingItems}" SelectedItem="{Binding GetUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">

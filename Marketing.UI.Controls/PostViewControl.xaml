@@ -6,9 +6,13 @@
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
     
-    <Grid x:Name="LayoutRoot" Background="White" >
-   
-    <TextBox Name="BodyText" Width="0" Height="0" Text="{Binding Path=Value,Mode=TwoWay}" TextChanged="BodyText_TextChanged"></TextBox>
-    <dxre:RichEditControl Name="richEditControl" HorizontalScrollBarVisibility="Collapsed" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MinHeight="1000" MaxHeight="1000" />
-  </Grid>
+    <Grid x:Name="LayoutRoot"  Background="White" >
+    <Grid.RowDefinitions>
+      <RowDefinition Height="1*"></RowDefinition>
+      
+    </Grid.RowDefinitions>
+    <TextBox Grid.Row="0" Name="BodyText" Width="0" Height="0" Text="{Binding Path=Value,Mode=TwoWay}" TextChanged="BodyText_TextChanged"></TextBox>
+    <dxre:RichEditControl Grid.Row="0" Name="richEditControl" HorizontalScrollBarVisibility="Visible" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+
+    </Grid>
 </UserControl>

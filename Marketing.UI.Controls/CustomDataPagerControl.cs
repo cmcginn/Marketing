@@ -121,7 +121,7 @@ namespace Marketing.UI.Controls {
       _CurrentPageTextBox = this.GetTemplateChild( "CurrentPageTextBox" ) as TextBox;
 
       _PreviousPageButton.Command = new PageCommand( ( a ) => {
-        return PageIndex > 0;
+        return PageIndex > 1;
       }, ( a ) => { PageIndex -= 1; } );
 
       _NextPageButton.Command = new PageCommand( ( a ) => {
@@ -129,12 +129,12 @@ namespace Marketing.UI.Controls {
       }, ( a ) => { PageIndex += 1; } );
 
       _LastPageButton.Command = new PageCommand( ( a ) => {
-        return PageIndex != PageCount;
+        return PageIndex < PageCount;
       }, ( a ) => { PageIndex = PageCount; } );
 
       _FirstPageButton.Command = new PageCommand( ( a ) => {
-        return PageIndex != 0;
-      }, ( a ) => { PageIndex = 0; } );
+        return PageIndex > 1;
+      }, ( a ) => { PageIndex = 1; } );
       Refresh();
     }
 

@@ -13,6 +13,7 @@ using DevExpress.Xpf.RichEdit;
 using System.Xml.Linq;
 namespace Marketing.UI.Controls {
   public partial class PostViewControl : UserControl {
+    const string MARKUP_ERROR = "There was a problem retrieving this post. The post may no longer be available.";
     public PostViewControl() {
       InitializeComponent();
       var document = this.richEditControl.Document;
@@ -20,10 +21,14 @@ namespace Marketing.UI.Controls {
 
 
     private void BodyText_TextChanged( object sender, TextChangedEventArgs e ) {
-      try {
-        this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode( XElement.Parse( this.BodyText.Text ).Element( "body" ).ToString() );
-      } catch {
-        this.richEditControl.HtmlText = "There was a problem retrieving this post. The post may no longer be available.";
+      if( !String.IsNullOrEmpty( this.BodyText.Text ) ) {
+        try {
+          this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode( XElement.Parse( this.BodyText.Text ).Element( "body" ).ToString() );
+        } catch {
+          this.richEditControl.HtmlText = MARKUP_ERROR;
+        }
+      }else{
+        this.richEditControl.HtmlText = MARKUP_ERROR;
       }
 
     }
