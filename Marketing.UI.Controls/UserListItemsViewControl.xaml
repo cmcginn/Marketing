@@ -6,6 +6,11 @@
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="400" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:my="clr-namespace:Marketing.UI.Controls">
   <UserControl.Resources>
+    <ResourceDictionary x:Key="pagerStyles">
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="CustomDataPagerControlStyle.xaml"></ResourceDictionary>
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
     <my:TitleValueConverter x:Key="TitleDisplayValueConverter" />
     <my:DefaultResponseEnabledValueConverter x:Key="DefaultResponseEnabledValueConverterResource" />
     <DataTemplate x:Key="PostDetailsCardCellTemplate">
@@ -63,16 +68,18 @@
     
   </UserControl.Resources>
   <Grid x:Name="LayoutRoot" Background="White">
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition></ColumnDefinition>      
-    </Grid.ColumnDefinitions>
-    <sdk:DataGrid Grid.Column="0" AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetUserListingItems}" SelectedItem="{Binding GetUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">
+    <Grid.RowDefinitions>
+      <RowDefinition></RowDefinition>
+      <RowDefinition></RowDefinition>
+    </Grid.RowDefinitions>
+    
+    <sdk:DataGrid Grid.Row="0" AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetUserListingItems}" SelectedItem="{Binding GetUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">
       <sdk:DataGrid.Columns>
         <sdk:DataGridTemplateColumn Header="Details" CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostDetailsCardCellTemplate}" Width="Auto" />
         <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource ScoreCellTemplate}" SortMemberPath="KeywordScore" Header="Score" Width="Auto" />
         <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostLocationCardCellTemplate}" Header="Location" SortMemberPath="City" Width="Auto" />
       </sdk:DataGrid.Columns>      
-    </sdk:DataGrid> 
-    <sdk:DataPager Source="{Binding Screen.GetUserListingItems}" Grid.Column="0" />  
+    </sdk:DataGrid>
+    <my:CustomDataPagerControl x:Name="Pager" Grid.Row="1" Style="{StaticResource CustomDataPagerControlStyle}"></my:CustomDataPagerControl>
   </Grid>
 </UserControl>

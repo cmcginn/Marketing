@@ -1,0 +1,6 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Microsoft.LightSwitch.Presentation.Implementation.Controls;assembly=Microsoft.LightSwitch.Client.Internal">
+  <Style TargetType="controls:BaseDataGridControl" x:Key="UserListingItemsGrid"></Style>
+</ResourceDictionary>

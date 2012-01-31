@@ -11,7 +11,7 @@ using System.Windows.Threading;
 namespace LightSwitchApplication {
   public partial class UserListItemsView {
     Marketing.UI.Controls.UserListItemsViewControl _UserListItemsViewControl;
-
+    Marketing.UI.Controls.CustomDataPagerControl _Pager;
 
     partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
@@ -26,8 +26,15 @@ namespace LightSwitchApplication {
 
     void UserListItemsView_ControlAvailable( object sender, ControlAvailableEventArgs e ) {
       _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
-      _UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
-      _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );
+      _Pager = _UserListItemsViewControl.PagerControl as Marketing.UI.Controls.CustomDataPagerControl;
+      _Pager.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler( _Pager_PropertyChanged );
+      //_UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
+      //_UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );
+    }
+
+    void _Pager_PropertyChanged( object sender, System.ComponentModel.PropertyChangedEventArgs e ) {
+      if(_Pager.PageIndex>0)
+        this.GetUserListingItems.Details.PageNumber = _Pager.PageIndex;
     }
 
     void OnSendDefaultLinkClick( object sender, EventArgs e ) {
@@ -53,6 +60,14 @@ namespace LightSwitchApplication {
       // Write your code here.
       this.Details.Dispatcher.BeginInvoke( () => {
         Application.ShowDefaultScreen( this.GetUserListingItems.SelectedItem );       
+      } );
+    }
+
+    partial void GetUserListingItems_Loaded( bool succeeded ) {
+      _Pager.Dispatcher.BeginInvoke( () => {
+        _Pager.PageCount = this.GetUserListingItems.Details.PageCount;
+        _Pager.PageIndex = this.GetUserListingItems.Details.PageNumber;
+        _Pager.PageSize = this.GetUserListingItems.Details.PageSize;
       } );
     }
   }

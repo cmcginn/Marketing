@@ -20,6 +20,7 @@ namespace Marketing.UI.Controls {
       InitializeComponent();
     }
 
+    public CustomDataPagerControl PagerControl { get { return this.Pager; } }
 
     public virtual void OnOpenViewLinkClick( object sender, EventArgs e ) {
       EventHandler handler = OpenViewLinkClick;
