@@ -5,3 +5,4 @@ obj\Debug\RefreshUserCraigslistContent.g.cs
 obj\Debug\GetListingContentActivity.g.cs
 obj\Debug\RefreshUserDataActivity.g.cs
 obj\Debug\RefreshUserListingKeywordScoreActivity.g.cs
+obj\Debug\PurgePostsActivity.g.cs

@@ -59,5 +59,17 @@ namespace Marketing.WorkflowActivities {
       }
       return result;
     }
+    public static void PurgeExpiredListings( MarketingEntities context, DateTime expiration ) {
+      var query = from lc in context.ListingContents.Where( n => n.PostDate < expiration )
+                  join liu in context.ListingUrls on lc.ListingUrlId equals liu.Id
+                  join ulu in context.UserListingUrls on liu.Id equals ulu.ListingUrlId
+                  let ulr = context.UserListingResponses.Where( n => n.UserListingUrlId == ulu.ListingUrlId ).Count()
+                  select new { Listing = liu, ResponseCount = ulr };
+      var purge = query.Where( n => n.ResponseCount == 0 ).Select( n => n.Listing ).Distinct();
+      purge.ToList().ForEach( n => {
+        context.ListingUrls.DeleteObject( n );  
+      } );
+      context.SaveChanges();
+    }
   }
 }

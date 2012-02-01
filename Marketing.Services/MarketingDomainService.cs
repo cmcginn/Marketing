@@ -68,10 +68,7 @@ namespace Marketing.Services {
       return result;
     }
 
-    //public IQueryable<UserListingItem> GetUserListingItemsByUserId( Guid? userId ) {
-    //  var result = Context.GetUserListingItemsByUserId( userId.Value );
-    //  return result;
-    //}
+  
     public IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId( Guid? userId ) {
       var result = Context.GetUserKeywordSelectionByUserId( userId.GetValueOrDefault() );
       return result;
@@ -92,6 +89,14 @@ namespace Marketing.Services {
     public IQueryable<UserTemplateItem> GetUserTemplateItemById( Guid? id ) {
       var result = Context.GetUserTemplates().Where( n => n.Id == id );
       return result;
+    }
+    public void RunPurgeOperation( Operation operation ) {
+      //call host eventually
+      var invoker = new WorkflowInvoker( new PurgePostsActivity() );
+      Task t = new Task( () => {        
+        invoker.Invoke();
+      } );
+      t.Start();
     }
     public void RunKeywordRefresh( Operation operation ) {
       //call host eventually
@@ -119,6 +124,9 @@ namespace Marketing.Services {
           break;
         case 2:
           RunKeywordRefresh( operation );
+          break;
+        case 3:
+          RunPurgeOperation( operation );
           break;
         default: break;
       }

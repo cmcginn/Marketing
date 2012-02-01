@@ -217,7 +217,8 @@ namespace Marketing.Services.Extensions {
     public static IQueryable<Operation> GetDefaultServerOperations() {
       List<Operation> result = new List<Operation>{
         new Operation{Id=1, OperationName="Refresh Posts",Parameters="UserId=;",Visible=true},
-        new Operation{Id=2, OperationName="Refresh Keyword Scores",Parameters="UserId=;",Visible=false}
+        new Operation{Id=2, OperationName="Refresh Keyword Scores",Parameters="UserId=;",Visible=false},
+        new Operation{Id=3, OperationName="Purge Expired Content",Visible=true}
       };
       return result.AsQueryable();
     }
