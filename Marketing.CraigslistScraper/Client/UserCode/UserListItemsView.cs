@@ -77,5 +77,10 @@ namespace LightSwitchApplication {
         _Pager.PageSize = this.GetUserListingItems.Details.PageSize;
       } );
     }
+
+    partial void ShowFilter_Execute() {
+      this.OpenModalWindow( "FilterModal" );
+    }
+
   }
 }
