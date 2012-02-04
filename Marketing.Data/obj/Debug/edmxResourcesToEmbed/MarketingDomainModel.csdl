@@ -561,6 +561,7 @@
     <Property Type="DateTime" Name="ListingContentCreated" Nullable="false" />
     <Property Type="Int32" Name="KeywordScore" Nullable="false" />
     <Property Type="String" Name="KeywordDisplay" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostText" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="UserTemplate">
     <Key>

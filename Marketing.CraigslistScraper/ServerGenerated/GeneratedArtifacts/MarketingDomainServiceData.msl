@@ -78,6 +78,8 @@
           <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
           <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
           <ScalarProperty Name="UseDefaultResponse" ColumnName="UseDefaultResponse" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PostText" ColumnName="PostText" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

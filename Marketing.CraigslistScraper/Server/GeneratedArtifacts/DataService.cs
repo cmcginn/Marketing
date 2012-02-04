@@ -522,16 +522,16 @@ namespace LightSwitchApplication
         partial void GetUserListingItems_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserListingItems_Executing(global::System.Nullable<global::System.Guid> userId);
+        partial void GetUserListingItems_Executing(global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserListingItems_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query);
+        partial void GetUserListingItems_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserListingItems_Executed(global::System.Nullable<global::System.Guid> userId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem> result);
+        partial void GetUserListingItems_Executed(global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem> result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void GetUserListingItems_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
+        partial void GetUserListingItems_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate, global::System.Exception exception);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserListingResponseItems_Single_CanExecute(ref bool result);
@@ -877,6 +877,21 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserPostListFilterItems_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetFilteredUserListingItems_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetFilteredUserListingItems_Executing(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetFilteredUserListingItems_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetFilteredUserListingItems_Executed(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetFilteredUserListingItems_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, global::System.Exception exception);
     
         #endregion
     
@@ -1970,20 +1985,20 @@ namespace LightSwitchApplication
             }
             private static void __GetUserListingItems_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.GetUserListingItems_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+                d.GetUserListingItems_Executing((global::System.Nullable<global::System.Guid>)args[0], (string)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3]);
             }
             private static void __GetUserListingItems_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                d.GetUserListingItems_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem>)args[1]);
+                d.GetUserListingItems_Executed((global::System.Nullable<global::System.Guid>)args[0], (string)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem>)args[4]);
             }
             private static void __GetUserListingItems_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
             {
-                d.GetUserListingItems_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+                d.GetUserListingItems_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], (string)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], ex);
             }
             private static global::System.Linq.IQueryable __GetUserListingItems_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
             {
-                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem>)args[1];
-                d.GetUserListingItems_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem>)args[4];
+                d.GetUserListingItems_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (string)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], ref query);
                 return query;
             }
             
@@ -2743,6 +2758,39 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem>)args[0];
                 d.UserPostListFilterItems_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingItem>
+                __GetFilteredUserListingItemsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingItem>(
+                    "GetFilteredUserListingItems",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetFilteredUserListingItems_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetFilteredUserListingItems_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetFilteredUserListingItems_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetFilteredUserListingItems_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetFilteredUserListingItems_PreprocessQuery);
+            private static bool __GetFilteredUserListingItems_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.GetFilteredUserListingItems_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetFilteredUserListingItems_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetFilteredUserListingItems_Executing((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.DateTime>)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], (global::System.Nullable<global::System.DateTime>)args[4], (string)args[5]);
+            }
+            private static void __GetFilteredUserListingItems_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetFilteredUserListingItems_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.DateTime>)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], (global::System.Nullable<global::System.DateTime>)args[4], (string)args[5], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem>)args[6]);
+            }
+            private static void __GetFilteredUserListingItems_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetFilteredUserListingItems_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.DateTime>)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], (global::System.Nullable<global::System.DateTime>)args[4], (string)args[5], ex);
+            }
+            private static global::System.Linq.IQueryable __GetFilteredUserListingItems_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem>)args[6];
+                d.GetFilteredUserListingItems_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<global::System.DateTime>)args[1], (global::System.Nullable<global::System.DateTime>)args[2], (global::System.Nullable<global::System.DateTime>)args[3], (global::System.Nullable<global::System.DateTime>)args[4], (string)args[5], ref query);
                 return query;
             }
     

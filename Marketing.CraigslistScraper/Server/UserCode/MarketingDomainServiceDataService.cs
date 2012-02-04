@@ -34,7 +34,14 @@ namespace LightSwitchApplication {
       query = query.OrderByDescending( n => n.Selected ).ThenBy( n => n.RegionName ).ThenBy( n => n.StateProvince ).ThenBy( n => n.CityName );
     }
 
+    partial void GetUserListingItems_PreprocessQuery(Guid? userId, string filterKeywords, DateTime? filterStartDate, DateTime? filterEndDate, ref IQueryable<UserListingItem> query)
+    {
+        if (filterStartDate != null)
+            query = query.Where(n => n.PostDate >= System.DateTime.Now);
+        if (filterEndDate != null)
+            query = query.Where(n => n.PostDate <= System.DateTime.Now);
+    }
 
-
+   
   }
 }

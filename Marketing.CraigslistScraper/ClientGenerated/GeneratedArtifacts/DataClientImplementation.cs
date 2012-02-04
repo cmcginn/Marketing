@@ -1262,6 +1262,48 @@ namespace LightSwitchApplication.Implementation
         }
         private bool _UseDefaultResponse;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime PostDate
+        {
+            get
+            {
+                return this._PostDate;
+            }
+            set
+            {
+                if (this._PostDate != value)
+                {
+                    this.RaiseDataMemberChanging("PostDate");
+                    this.ValidateProperty("PostDate", value);
+                    this._PostDate = value;
+                    this.RaiseDataMemberChanged("PostDate");
+                }
+            }
+        }
+        private global::System.DateTime _PostDate;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string PostText
+        {
+            get
+            {
+                return this._PostText;
+            }
+            set
+            {
+                if (this._PostText != value)
+                {
+                    this.RaiseDataMemberChanging("PostText");
+                    this.ValidateProperty("PostText", value);
+                    this._PostText = value;
+                    this.RaiseDataMemberChanged("PostText");
+                }
+            }
+        }
+        private string _PostText;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -2453,7 +2495,7 @@ namespace LightSwitchApplication.Implementation
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItems", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemsResponse"),
              global::System.ServiceModel.Web.WebGet(),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserListingItemsDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
-            global::System.IAsyncResult BeginGetUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.IAsyncResult BeginGetUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingItem> EndGetUserListingItems(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserListingResponseItems_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserListingResponseItems_SingleResponse"),
@@ -2593,6 +2635,12 @@ namespace LightSwitchApplication.Implementation
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginUserPostListFilterItems_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserPostListFilterItem> EndUserPostListFilterItems_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetFilteredUserListingItems", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetFilteredUserListingItemsResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetFilteredUserListingItemsDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetFilteredUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserListingItem> EndGetFilteredUserListingItems(global::System.IAsyncResult result);
             
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]

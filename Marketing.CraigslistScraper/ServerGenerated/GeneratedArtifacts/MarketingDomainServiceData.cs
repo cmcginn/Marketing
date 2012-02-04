@@ -1163,7 +1163,8 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="listingCategoryActive">Initial value of the ListingCategoryActive property.</param>
         /// <param name="keywordScore">Initial value of the KeywordScore property.</param>
         /// <param name="useDefaultResponse">Initial value of the UseDefaultResponse property.</param>
-        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Int32 keywordScore, global::System.Boolean useDefaultResponse)
+        /// <param name="postDate">Initial value of the PostDate property.</param>
+        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Int32 keywordScore, global::System.Boolean useDefaultResponse, global::System.DateTime postDate)
         {
             UserListingItem userListingItem = new UserListingItem();
             userListingItem.Id = id;
@@ -1174,6 +1175,7 @@ namespace MarketingDomainServiceData.Implementation
             userListingItem.ListingCategoryActive = listingCategoryActive;
             userListingItem.KeywordScore = keywordScore;
             userListingItem.UseDefaultResponse = useDefaultResponse;
+            userListingItem.PostDate = postDate;
             return userListingItem;
         }
 
@@ -1710,6 +1712,54 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Boolean _UseDefaultResponse;
         partial void OnUseDefaultResponseChanging(global::System.Boolean value);
         partial void OnUseDefaultResponseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime PostDate
+        {
+            get
+            {
+                return _PostDate;
+            }
+            set
+            {
+                OnPostDateChanging(value);
+                ReportPropertyChanging("PostDate");
+                _PostDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostDate");
+                OnPostDateChanged();
+            }
+        }
+        private global::System.DateTime _PostDate;
+        partial void OnPostDateChanging(global::System.DateTime value);
+        partial void OnPostDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostText
+        {
+            get
+            {
+                return _PostText;
+            }
+            set
+            {
+                OnPostTextChanging(value);
+                ReportPropertyChanging("PostText");
+                _PostText = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostText");
+                OnPostTextChanged();
+            }
+        }
+        private global::System.String _PostText;
+        partial void OnPostTextChanging(global::System.String value);
+        partial void OnPostTextChanged();
 
         #endregion
     

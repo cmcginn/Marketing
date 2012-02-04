@@ -86,6 +86,8 @@
     <Property Name="KeywordScore" Type="int" Nullable="false" />
     <Property Name="KeywordDisplay" Type="nvarchar(max)" />
     <Property Name="UseDefaultResponse" Type="bit" Nullable="false" />
+    <Property Name="PostDate" Type="datetime" Nullable="false" />
+    <Property Name="PostText" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

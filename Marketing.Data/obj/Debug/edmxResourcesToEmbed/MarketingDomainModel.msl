@@ -208,6 +208,7 @@
     <EntitySetMapping Name="UserListingDatas">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
         <MappingFragment StoreEntitySet="UserListingData">
+          <ScalarProperty Name="PostText" ColumnName="PostText" />
           <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
           <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
           <ScalarProperty Name="ListingContentCreated" ColumnName="ListingContentCreated" />

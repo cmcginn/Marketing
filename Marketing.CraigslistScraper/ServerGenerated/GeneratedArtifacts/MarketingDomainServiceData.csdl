@@ -74,6 +74,8 @@
     <Property Name="KeywordScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="KeywordDisplay" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="UseDefaultResponse" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>

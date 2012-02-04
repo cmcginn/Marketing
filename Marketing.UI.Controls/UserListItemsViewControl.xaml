@@ -72,8 +72,8 @@
       <RowDefinition Height="1*"></RowDefinition>
       <RowDefinition Height="27"></RowDefinition>
     </Grid.RowDefinitions>
-    
-    <sdk:DataGrid Grid.Row="0" AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetUserListingItems}" SelectedItem="{Binding GetUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">
+
+        <sdk:DataGrid Grid.Row="0" AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetFilteredUserListingItems}" SelectedItem="{Binding GetFilteredUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">
       <sdk:DataGrid.Columns>
         <sdk:DataGridTemplateColumn Header="Details" CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostDetailsCardCellTemplate}" Width="Auto" />
         <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource ScoreCellTemplate}" SortMemberPath="KeywordScore" Header="Score" Width="Auto" />

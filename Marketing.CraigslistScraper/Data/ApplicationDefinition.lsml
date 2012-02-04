@@ -888,6 +888,12 @@
       </QueryOperation.Source>
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
+      <QueryOperationParameter Name="filterKeywords"
+                               ParameterType=":String?" />
+      <QueryOperationParameter Name="filterStartDate"
+                               ParameterType=":DateTime?" />
+      <QueryOperationParameter Name="filterEndDate"
+                               ParameterType=":DateTime?" />
     </QueryOperation>
   
     
@@ -1448,6 +1454,27 @@
       </QueryOperation.Source>
     </QueryOperation>
   
+    <QueryOperation Name="GetFilteredUserListingItems"
+                    ReturnType="UserListingItem*">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserListingItems" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+      <QueryOperationParameter Name="postStartDate"
+                               ParameterType=":DateTime?" />
+      <QueryOperationParameter Name="postEndDate"
+                               ParameterType=":DateTime?" />
+      <QueryOperationParameter Name="responseStartDate"
+                               ParameterType=":DateTime?" />
+      <QueryOperationParameter Name="responseEndDate"
+                               ParameterType=":DateTime?" />
+      <QueryOperationParameter Name="keywords"
+                               ParameterType=":String?" />
+    </QueryOperation>
+  
   
   
   
@@ -1612,7 +1639,7 @@
       </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2223,6 +2250,15 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="PostDate"
+                      PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="PostText"
+                      PropertyType=":String?" />
     </EntityType.Properties>
   </EntityType>
 
@@ -2233,7 +2269,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -2263,31 +2299,11 @@
       <ScreenMethod Name="SaveFilters" />
     </Screen.Methods>
     <Screen.Properties>
-      <ScreenProperty Name="UserListingItemuserId"
-                      PropertyType=":Guid" />
-      <ScreenProperty Name="UserId"
-                      PropertyType=":Guid?" />
-      <ScreenProperty Name="ResponseId"
-                      PropertyType=":Guid?" />
-      <ScreenCollectionProperty Name="GetUserListingItems"
-                                PageSize="45"
-                                PropertyType="CollectionView$UserListingItem">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="GetUserListingItemsQuery"
-                                 ReturnType="UserListingItem*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserListingItems]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
+      <ScreenProperty Name="GetUserPostListItemByUserId"
+                      PropertyType="UserPostListFilterItem">
         <ScreenExpressionTree>
           <ChainExpression>
-            <CallExpression Target="UserListItemsView/Properties[GetUserListingItems]/Query">
+            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]">
               <ArgumentExpression Parameter="userId">
                 <ChainExpression>
                   <MemberExpression Member="UserListItemsView/Properties[UserId]" />
@@ -2296,23 +2312,48 @@
             </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
-      </ScreenCollectionProperty>
+      </ScreenProperty>
+      <ScreenProperty Name="UserListingItemuserId"
+                      PropertyType=":Guid" />
+      <ScreenProperty Name="UserId"
+                      PropertyType=":Guid?" />
+      <ScreenProperty Name="ResponseId"
+                      PropertyType=":Guid?" />
       <ScreenProperty Name="LoadingModalDisplayText"
                       PropertyType=":String">
         <ScreenProperty.Attributes>
           <Required />
         </ScreenProperty.Attributes>
       </ScreenProperty>
-      <ScreenProperty Name="GetUserPostListItemByUserId"
-                      PropertyType="UserPostListFilterItem">
+      <ScreenCollectionProperty Name="GetFilteredUserListingItems"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserListingItem">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetFilteredUserListingItemsQuery"
+                                 ReturnType="UserListingItem*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetFilteredUserListingItems]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
           <ChainExpression>
-            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]">
+            <CallExpression Target="UserListItemsView/Properties[GetFilteredUserListingItems]/Query">
               <ArgumentExpression Parameter="userId" />
+              <ArgumentExpression Parameter="postStartDate" />
+              <ArgumentExpression Parameter="postEndDate" />
+              <ArgumentExpression Parameter="responseStartDate" />
+              <ArgumentExpression Parameter="responseEndDate" />
+              <ArgumentExpression Parameter="keywords" />
             </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
-      </ScreenProperty>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -2360,20 +2401,6 @@
             </ContentItem.PropertySources>
             <ContentItem Kind="Group"
                          Name="FilterRowContainer">
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Left" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Top" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
               <ContentItem DataType="UserPostListFilterItem"
                            Kind="Details"
                            Name="GetUserPostListItemByUserId"
@@ -2479,6 +2506,9 @@
                 <ContentItem DataType=":String?"
                              Kind="Value"
                              Name="FilteredKeywords">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="Post Contains" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2522,7 +2552,8 @@
                 </ContentItem>
                 <ContentItem DataType=":Boolean"
                              Kind="Value"
-                             Name="ShowResponded">
+                             Name="ShowResponded"
+                             IsHidden="True">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2533,7 +2564,8 @@
                 </ContentItem>
                 <ContentItem DataType=":Boolean"
                              Kind="Value"
-                             Name="ShowNotResponded">
+                             Name="ShowNotResponded"
+                             IsHidden="True">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2544,7 +2576,8 @@
                 </ContentItem>
                 <ContentItem DataType=":Boolean"
                              Kind="Value"
-                             Name="FiltersEnabled">
+                             Name="FiltersEnabled"
+                             IsHidden="True">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2554,340 +2587,365 @@
                   </ContentItem.DataSource>
                 </ContentItem>
               </ContentItem>
-            </ContentItem>
-            <ContentItem DataType="CollectionView$UserListingItem"
-                         Kind="Collection"
-                         Name="GetUserListingItems"
-                         View=":CollectionCustomContentControl">
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property=":RootCustomContentControl/Properties[CustomControl]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Marketing.UI.Controls.UserListItemsViewControl, Marketing.UI.Controls" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="None" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Stretch" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-              <ContentItem.Attributes>
-                <DisplayName  Value="Matching Posts" />
-              </ContentItem.Attributes>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem DataType="UserListingItem"
-                           Kind="Details"
-                           Name="GetUserListingItemsTemplate">
+              <ContentItem DataType="CollectionView$UserListingItem"
+                           Kind="Collection"
+                           Name="GetFilteredUserListingItems"
+                           View=":CollectionCustomContentControl">
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property=":RootControl/Properties[BrowseOnly]">
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
                     <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Boolean"
-                                          Value="True" />
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Marketing.UI.Controls.UserListItemsViewControl, Marketing.UI.Controls" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="None" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression />
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem DataType=":DateTime"
-                             Kind="Value"
-                             Name="Created"
-                             View=":Label">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[WidthSizingMode]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":String"
-                                            Value="Pixels" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="130" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[Created]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":DateTime?"
-                             Kind="Value"
-                             Name="ResponseSent"
-                             View=":Label">
-                  <ContentItem.Attributes>
-                    <DisplayName Value="Responded" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
-                      <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="130" />
-                      </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="Title"
-                             View=":Label">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[ShowAsLink]">
+                <ContentItem.CommandItems>
+                  <ContentItem Kind="Command"
+                               Name="GetFilteredUserListingItems_AddAndEditNew">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
-                          <ConstantExpression ResultType=":Boolean"
-                                              Value="True" />
+                          <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
+                          <CallExpression Target="AddAndEditNew" />
                         </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem Kind="Command"
+                               Name="GetFilteredUserListingItems_EditSelected">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="300" />
+                        <ChainExpression>
+                          <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
+                          <CallExpression Target="EditSelected" />
+                        </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[Title]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":Int32"
-                             Kind="Value"
-                             Name="KeywordScore">
-                  <ContentItem.Attributes>
-                    <DisplayName Value="Score" />
-                  </ContentItem.Attributes>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[KeywordScore]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="KeywordDisplay">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[KeywordDisplay]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="GroupName">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem Kind="Command"
+                               Name="GetFilteredUserListingItems_DeleteSelected">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="75" />
+                        <ChainExpression>
+                          <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
+                          <CallExpression Target="DeleteSelected" />
+                        </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.Attributes>
-                    <DisplayName Value="Group" />
-                  </ContentItem.Attributes>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem.CommandItems>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem DataType="UserListingItem"
+                             Kind="Details"
+                             Name="GetFilteredUserListingItemsTemplate">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[GroupName]" />
-                      </ChainExpression>
+                      <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="CategoryName">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
+                  <ContentItem DataType=":Guid"
+                               Kind="Value"
+                               Name="Id1">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="125" />
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[Id]" />
+                        </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.Attributes>
-                    <DisplayName Value="Category" />
-                  </ContentItem.Attributes>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[CategoryName]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="StateProvince">
-                  <ContentItem.Attributes>
-                    <DisplayName Value="State" />
-                  </ContentItem.Attributes>
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="Title">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="100" />
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[Title]" />
+                        </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[StateProvince]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="RegionName">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="CategoryName">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="65" />
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[CategoryName]" />
+                        </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.Attributes>
-                    <DisplayName Value="Region" />
-                  </ContentItem.Attributes>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[RegionName]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem DataType=":String?"
-                             Kind="Value"
-                             Name="CityName">
-                  <ContentItem.PropertySources>
-                    <ControlPropertySource Property=":RootControl/Properties[Width]">
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="GroupName">
+                    <ContentItem.DataSource>
                       <ScreenExpressionTree>
-                        <ConstantExpression ResultType=":Double"
-                                            Value="100" />
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[GroupName]" />
+                        </ChainExpression>
                       </ScreenExpressionTree>
-                    </ControlPropertySource>
-                  </ContentItem.PropertySources>
-                  <ContentItem.Attributes>
-                    <DisplayName Value="City" />
-                  </ContentItem.Attributes>
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression Member="UserListingItem/Properties[CityName]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="RegionName">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[RegionName]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="CityName">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[CityName]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":DateTime"
+                               Kind="Value"
+                               Name="Created">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[Created]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="PostElement">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[PostElement]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Guid"
+                               Kind="Value"
+                               Name="UserId1">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[UserId]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":DateTime?"
+                               Kind="Value"
+                               Name="Responded">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[Responded]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Guid?"
+                               Kind="Value"
+                               Name="ResponseId">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[ResponseId]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="Response">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[Response]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="ResponseText">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[ResponseText]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="PostHtml">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[PostHtml]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":DateTime?"
+                               Kind="Value"
+                               Name="ResponseSent">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[ResponseSent]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Int32"
+                               Kind="Value"
+                               Name="Score">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[Score]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="StateProvince">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[StateProvince]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Boolean"
+                               Kind="Value"
+                               Name="CityActive">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[CityActive]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Boolean"
+                               Kind="Value"
+                               Name="UserCityActive">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[UserCityActive]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Boolean"
+                               Kind="Value"
+                               Name="ListingCategoryActive">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[ListingCategoryActive]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Int32"
+                               Kind="Value"
+                               Name="KeywordScore">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[KeywordScore]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="KeywordDisplay">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[KeywordDisplay]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":Boolean"
+                               Kind="Value"
+                               Name="UseDefaultResponse">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[UseDefaultResponse]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":DateTime"
+                               Kind="Value"
+                               Name="PostDate">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[PostDate]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem DataType=":String?"
+                               Kind="Value"
+                               Name="PostText">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression Member="UserListingItem/Properties[PostText]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
               </ContentItem>
-            </ContentItem>
-          </ContentItem>
-          <ContentItem DataType="UserListingItem"
-                       Kind="Details"
-                       Name="GetUserListingItems_SelectedItem">
-            <ContentItem.PropertySources>
-              <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":Boolean"
-                                      Value="True" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                  <MemberExpression Member="SelectedItem" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem DataType=":String?"
-                         Kind="Value"
-                         Name="GetUserListingItems_SelectedItem_PostHtml"
-                         View=":ValueCustomContentControl">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserListItemsView/Properties[GetUserListingItems]" />
-                    <MemberExpression Member="SelectedItem" />
-                    <MemberExpression Member="PostHtml" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Marketing.UI.Controls.PostViewControl, Marketing.UI.Controls" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="None" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
             </ContentItem>
           </ContentItem>
           <ContentItem Kind="Group"
@@ -2927,6 +2985,64 @@
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
               </ContentItem>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem DataType="UserListingItem"
+                       Kind="Details"
+                       Name="GetFilteredUserListingItems_SelectedItem">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
+                  <MemberExpression Member="SelectedItem" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="PostHtml1"
+                         View=":ValueCustomContentControl">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.PostViewControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="None" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserListingItem/Properties[PostHtml]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
             </ContentItem>
           </ContentItem>
         </ContentItem>
@@ -2978,7 +3094,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Post Detail" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -3166,7 +3282,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3348,7 +3464,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3562,7 +3678,7 @@
   
   <Screen Name="UserTemplateDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3739,7 +3855,7 @@
 
   <Screen Name="Templates">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4174,287 +4290,9 @@
     </EntityType.Properties>
   </EntityType>
 
-  <DataService DataProvider="CustomDataProvider"
-               EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="AssemblyName"
-                          Value="Marketing.Services" />
-      <ConnectionProperty Name="FullClassName"
-                          Value="Marketing.Services.MarketingDomainService" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="43a69a18-9f3c-4c9b-bcca-8526b5cb1f64" />
-      <ConnectionProperty Name="ConnectionStringDescription"
-                          Value="" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="Users">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUsers"
-                         EntityTypeName="Marketing.Services.User" />
-        <WcfRiaProperty Name="Id"
-                        Property="User/Properties[Id]" />
-        <WcfRiaProperty Name="Username"
-                        Property="User/Properties[Username]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserCitySelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserCitySelections"
-                         EntityTypeName="Marketing.Services.UserCitySelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserCitySelection/Properties[Id]" />
-        <WcfRiaProperty Name="Selected"
-                        Property="UserCitySelection/Properties[Selected]" />
-        <WcfRiaProperty Name="CityId"
-                        Property="UserCitySelection/Properties[CityId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserCitySelection/Properties[UserId]" />
-        <WcfRiaProperty Name="CityName"
-                        Property="UserCitySelection/Properties[CityName]" />
-        <WcfRiaProperty Name="RegionName"
-                        Property="UserCitySelection/Properties[RegionName]" />
-        <WcfRiaProperty Name="StateProvince"
-                        Property="UserCitySelection/Properties[StateProvince]" />
-        <WcfRiaProperty Name="Active"
-                        Property="UserCitySelection/Properties[Active]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserCitySelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserCitySelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserListingCategorySelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingCategorySelection"
-                         EntityTypeName="Marketing.Services.UserListingCategorySelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserListingCategorySelection/Properties[Id]" />
-        <WcfRiaProperty Name="Selected"
-                        Property="UserListingCategorySelection/Properties[Selected]" />
-        <WcfRiaProperty Name="CategoryName"
-                        Property="UserListingCategorySelection/Properties[CategoryName]" />
-        <WcfRiaProperty Name="CategoryId"
-                        Property="UserListingCategorySelection/Properties[CategoryId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserListingCategorySelection/Properties[UserId]" />
-        <WcfRiaProperty Name="GroupName"
-                        Property="UserListingCategorySelection/Properties[GroupName]" />
-        <WcfRiaProperty Name="Active"
-                        Property="UserListingCategorySelection/Properties[Active]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserListingCategorySelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserListingCategorySelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingCategorySelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserKeywordSelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserKeywords"
-                         EntityTypeName="Marketing.Services.UserKeywordSelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserKeywordSelection/Properties[Id]" />
-        <WcfRiaProperty Name="Keyword"
-                        Property="UserKeywordSelection/Properties[Keyword]" />
-        <WcfRiaProperty Name="WeightedScore"
-                        Property="UserKeywordSelection/Properties[WeightedScore]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserKeywordSelection/Properties[UserId]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserKeywordSelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserKeywordSelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserKeywordSelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserPreferenceSelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserPreferenceSelections"
-                         EntityTypeName="Marketing.Services.UserPreferenceSelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserPreferenceSelection/Properties[Id]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserPreferenceSelection/Properties[UserId]" />
-        <WcfRiaProperty Name="LiveMode"
-                        Property="UserPreferenceSelection/Properties[LiveMode]" />
-        <WcfRiaProperty Name="BCCEmailAddress"
-                        Property="UserPreferenceSelection/Properties[BCCEmailAddress]" />
-        <WcfRiaProperty Name="SMTPUsername"
-                        Property="UserPreferenceSelection/Properties[SMTPUsername]" />
-        <WcfRiaProperty Name="SMTPPassword"
-                        Property="UserPreferenceSelection/Properties[SMTPPassword]" />
-        <WcfRiaProperty Name="SMTPServer"
-                        Property="UserPreferenceSelection/Properties[SMTPServer]" />
-        <WcfRiaProperty Name="SMTPPort"
-                        Property="UserPreferenceSelection/Properties[SMTPPort]" />
-        <WcfRiaProperty Name="RequiresSSL"
-                        Property="UserPreferenceSelection/Properties[RequiresSSL]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserListingItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingItems"
-                         EntityTypeName="Marketing.Services.UserListingItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserListingItem/Properties[Id]" />
-        <WcfRiaProperty Name="Title"
-                        Property="UserListingItem/Properties[Title]" />
-        <WcfRiaProperty Name="CategoryName"
-                        Property="UserListingItem/Properties[CategoryName]" />
-        <WcfRiaProperty Name="GroupName"
-                        Property="UserListingItem/Properties[GroupName]" />
-        <WcfRiaProperty Name="RegionName"
-                        Property="UserListingItem/Properties[RegionName]" />
-        <WcfRiaProperty Name="CityName"
-                        Property="UserListingItem/Properties[CityName]" />
-        <WcfRiaProperty Name="StateProvince"
-                        Property="UserListingItem/Properties[StateProvince]" />
-        <WcfRiaProperty Name="Created"
-                        Property="UserListingItem/Properties[Created]" />
-        <WcfRiaProperty Name="PostElement"
-                        Property="UserListingItem/Properties[PostElement]" />
-        <WcfRiaProperty Name="PostHtml"
-                        Property="UserListingItem/Properties[PostHtml]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserListingItem/Properties[UserId]" />
-        <WcfRiaProperty Name="Responded"
-                        Property="UserListingItem/Properties[Responded]" />
-        <WcfRiaProperty Name="ResponseSent"
-                        Property="UserListingItem/Properties[ResponseSent]" />
-        <WcfRiaProperty Name="ResponseId"
-                        Property="UserListingItem/Properties[ResponseId]" />
-        <WcfRiaProperty Name="Response"
-                        Property="UserListingItem/Properties[Response]" />
-        <WcfRiaProperty Name="ResponseText"
-                        Property="UserListingItem/Properties[ResponseText]" />
-        <WcfRiaProperty Name="CityActive"
-                        Property="UserListingItem/Properties[CityActive]" />
-        <WcfRiaProperty Name="UserCityActive"
-                        Property="UserListingItem/Properties[UserCityActive]" />
-        <WcfRiaProperty Name="ListingCategoryActive"
-                        Property="UserListingItem/Properties[ListingCategoryActive]" />
-        <WcfRiaProperty Name="KeywordScore"
-                        Property="UserListingItem/Properties[KeywordScore]" />
-        <WcfRiaProperty Name="KeywordDisplay"
-                        Property="UserListingItem/Properties[KeywordDisplay]" />
-        <WcfRiaProperty Name="UseDefaultResponse"
-                        Property="UserListingItem/Properties[UseDefaultResponse]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserListingResponseItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingResponseItems"
-                         EntityTypeName="Marketing.Services.UserListingResponseItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserListingResponseItem/Properties[Id]" />
-        <WcfRiaProperty Name="UserListingUrlId"
-                        Property="UserListingResponseItem/Properties[UserListingUrlId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserListingResponseItem/Properties[UserId]" />
-        <WcfRiaProperty Name="Created"
-                        Property="UserListingResponseItem/Properties[Created]" />
-        <WcfRiaProperty Name="Response"
-                        Property="UserListingResponseItem/Properties[Response]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="Operations">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultServerOperations"
-                         EntityTypeName="Marketing.Services.Operation" />
-        <WcfRiaProperty Name="Id"
-                        Property="Operation/Properties[Id]" />
-        <WcfRiaProperty Name="Visible"
-                        Property="Operation/Properties[Visible]" />
-        <WcfRiaProperty Name="Created"
-                        Property="Operation/Properties[Created]" />
-        <WcfRiaProperty Name="OperationName"
-                        Property="Operation/Properties[OperationName]" />
-        <WcfRiaProperty Name="Parameters"
-                        Property="Operation/Properties[Parameters]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="Operation/Properties[UserId]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserTemplateItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserTemplates"
-                         EntityTypeName="Marketing.Services.UserTemplateItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserTemplateItem/Properties[Id]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserTemplateItem/Properties[UserId]" />
-        <WcfRiaProperty Name="Created"
-                        Property="UserTemplateItem/Properties[Created]" />
-        <WcfRiaProperty Name="LastUpdated"
-                        Property="UserTemplateItem/Properties[LastUpdated]" />
-        <WcfRiaProperty Name="IsDefault"
-                        Property="UserTemplateItem/Properties[IsDefault]" />
-        <WcfRiaProperty Name="TemplateHtml"
-                        Property="UserTemplateItem/Properties[TemplateHtml]" />
-        <WcfRiaProperty Name="TemplateText"
-                        Property="UserTemplateItem/Properties[TemplateText]" />
-        <WcfRiaProperty Name="TemplateName"
-                        Property="UserTemplateItem/Properties[TemplateName]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserTemplateItemById">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserTemplateItemById" />
-        <WcfRiaQueryOperationParameter Name="id"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserTemplateItemById]/Parameters[id]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserPostListFilterItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="GetDefaultUserPostListFilterItems"
-                         EntityTypeName="Marketing.Services.UserPostListFilterItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserPostListFilterItem/Properties[Id]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserPostListFilterItem/Properties[UserId]" />
-        <WcfRiaProperty Name="PostStartDate"
-                        Property="UserPostListFilterItem/Properties[PostStartDate]" />
-        <WcfRiaProperty Name="PostEndDate"
-                        Property="UserPostListFilterItem/Properties[PostEndDate]" />
-        <WcfRiaProperty Name="ResponseStartDate"
-                        Property="UserPostListFilterItem/Properties[ResponseStartDate]" />
-        <WcfRiaProperty Name="ResponseEndDate"
-                        Property="UserPostListFilterItem/Properties[ResponseEndDate]" />
-        <WcfRiaProperty Name="FilteredKeywords"
-                        Property="UserPostListFilterItem/Properties[FilteredKeywords]" />
-        <WcfRiaProperty Name="FilteredCities"
-                        Property="UserPostListFilterItem/Properties[FilteredCities]" />
-        <WcfRiaProperty Name="FilteredStates"
-                        Property="UserPostListFilterItem/Properties[FilteredStates]" />
-        <WcfRiaProperty Name="FilteredCountries"
-                        Property="UserPostListFilterItem/Properties[FilteredCountries]" />
-        <WcfRiaProperty Name="ShowResponded"
-                        Property="UserPostListFilterItem/Properties[ShowResponded]" />
-        <WcfRiaProperty Name="ShowNotResponded"
-                        Property="UserPostListFilterItem/Properties[ShowNotResponded]" />
-        <WcfRiaProperty Name="FiltersEnabled"
-                        Property="UserPostListFilterItem/Properties[FiltersEnabled]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserPostListItemByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserPostListItemByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-  </DataService>
-
   <Screen Name="UserPostListFilterDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4702,6 +4540,305 @@
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService1">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="43a69a18-9f3c-4c9b-bcca-8526b5cb1f64" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="Users">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUsers"
+                         EntityTypeName="Marketing.Services.User" />
+        <WcfRiaProperty Name="Id"
+                        Property="User/Properties[Id]" />
+        <WcfRiaProperty Name="Username"
+                        Property="User/Properties[Username]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserCitySelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserCitySelections"
+                         EntityTypeName="Marketing.Services.UserCitySelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserCitySelection/Properties[Id]" />
+        <WcfRiaProperty Name="Selected"
+                        Property="UserCitySelection/Properties[Selected]" />
+        <WcfRiaProperty Name="CityId"
+                        Property="UserCitySelection/Properties[CityId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserCitySelection/Properties[UserId]" />
+        <WcfRiaProperty Name="CityName"
+                        Property="UserCitySelection/Properties[CityName]" />
+        <WcfRiaProperty Name="RegionName"
+                        Property="UserCitySelection/Properties[RegionName]" />
+        <WcfRiaProperty Name="StateProvince"
+                        Property="UserCitySelection/Properties[StateProvince]" />
+        <WcfRiaProperty Name="Active"
+                        Property="UserCitySelection/Properties[Active]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserCitySelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserCitySelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserListingCategorySelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingCategorySelection"
+                         EntityTypeName="Marketing.Services.UserListingCategorySelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserListingCategorySelection/Properties[Id]" />
+        <WcfRiaProperty Name="Selected"
+                        Property="UserListingCategorySelection/Properties[Selected]" />
+        <WcfRiaProperty Name="CategoryName"
+                        Property="UserListingCategorySelection/Properties[CategoryName]" />
+        <WcfRiaProperty Name="CategoryId"
+                        Property="UserListingCategorySelection/Properties[CategoryId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserListingCategorySelection/Properties[UserId]" />
+        <WcfRiaProperty Name="GroupName"
+                        Property="UserListingCategorySelection/Properties[GroupName]" />
+        <WcfRiaProperty Name="Active"
+                        Property="UserListingCategorySelection/Properties[Active]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserListingCategorySelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserListingCategorySelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingCategorySelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserKeywordSelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserKeywords"
+                         EntityTypeName="Marketing.Services.UserKeywordSelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserKeywordSelection/Properties[Id]" />
+        <WcfRiaProperty Name="Keyword"
+                        Property="UserKeywordSelection/Properties[Keyword]" />
+        <WcfRiaProperty Name="WeightedScore"
+                        Property="UserKeywordSelection/Properties[WeightedScore]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserKeywordSelection/Properties[UserId]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserKeywordSelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserKeywordSelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserKeywordSelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserPreferenceSelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserPreferenceSelections"
+                         EntityTypeName="Marketing.Services.UserPreferenceSelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserPreferenceSelection/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserPreferenceSelection/Properties[UserId]" />
+        <WcfRiaProperty Name="LiveMode"
+                        Property="UserPreferenceSelection/Properties[LiveMode]" />
+        <WcfRiaProperty Name="BCCEmailAddress"
+                        Property="UserPreferenceSelection/Properties[BCCEmailAddress]" />
+        <WcfRiaProperty Name="SMTPUsername"
+                        Property="UserPreferenceSelection/Properties[SMTPUsername]" />
+        <WcfRiaProperty Name="SMTPPassword"
+                        Property="UserPreferenceSelection/Properties[SMTPPassword]" />
+        <WcfRiaProperty Name="SMTPServer"
+                        Property="UserPreferenceSelection/Properties[SMTPServer]" />
+        <WcfRiaProperty Name="SMTPPort"
+                        Property="UserPreferenceSelection/Properties[SMTPPort]" />
+        <WcfRiaProperty Name="RequiresSSL"
+                        Property="UserPreferenceSelection/Properties[RequiresSSL]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserListingItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingItems"
+                         EntityTypeName="Marketing.Services.UserListingItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserListingItem/Properties[Id]" />
+        <WcfRiaProperty Name="Title"
+                        Property="UserListingItem/Properties[Title]" />
+        <WcfRiaProperty Name="CategoryName"
+                        Property="UserListingItem/Properties[CategoryName]" />
+        <WcfRiaProperty Name="GroupName"
+                        Property="UserListingItem/Properties[GroupName]" />
+        <WcfRiaProperty Name="RegionName"
+                        Property="UserListingItem/Properties[RegionName]" />
+        <WcfRiaProperty Name="CityName"
+                        Property="UserListingItem/Properties[CityName]" />
+        <WcfRiaProperty Name="StateProvince"
+                        Property="UserListingItem/Properties[StateProvince]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserListingItem/Properties[Created]" />
+        <WcfRiaProperty Name="PostElement"
+                        Property="UserListingItem/Properties[PostElement]" />
+        <WcfRiaProperty Name="PostHtml"
+                        Property="UserListingItem/Properties[PostHtml]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserListingItem/Properties[UserId]" />
+        <WcfRiaProperty Name="Responded"
+                        Property="UserListingItem/Properties[Responded]" />
+        <WcfRiaProperty Name="ResponseSent"
+                        Property="UserListingItem/Properties[ResponseSent]" />
+        <WcfRiaProperty Name="ResponseId"
+                        Property="UserListingItem/Properties[ResponseId]" />
+        <WcfRiaProperty Name="Response"
+                        Property="UserListingItem/Properties[Response]" />
+        <WcfRiaProperty Name="ResponseText"
+                        Property="UserListingItem/Properties[ResponseText]" />
+        <WcfRiaProperty Name="CityActive"
+                        Property="UserListingItem/Properties[CityActive]" />
+        <WcfRiaProperty Name="UserCityActive"
+                        Property="UserListingItem/Properties[UserCityActive]" />
+        <WcfRiaProperty Name="ListingCategoryActive"
+                        Property="UserListingItem/Properties[ListingCategoryActive]" />
+        <WcfRiaProperty Name="KeywordScore"
+                        Property="UserListingItem/Properties[KeywordScore]" />
+        <WcfRiaProperty Name="KeywordDisplay"
+                        Property="UserListingItem/Properties[KeywordDisplay]" />
+        <WcfRiaProperty Name="UseDefaultResponse"
+                        Property="UserListingItem/Properties[UseDefaultResponse]" />
+        <WcfRiaProperty Name="PostDate"
+                        Property="UserListingItem/Properties[PostDate]" />
+        <WcfRiaProperty Name="PostText"
+                        Property="UserListingItem/Properties[PostText]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetFilteredUserListingItems">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetFilteredUserListingItems" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[userId]" />
+        <WcfRiaQueryOperationParameter Name="postStartDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postStartDate]" />
+        <WcfRiaQueryOperationParameter Name="postEndDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postEndDate]" />
+        <WcfRiaQueryOperationParameter Name="responseStartDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseStartDate]" />
+        <WcfRiaQueryOperationParameter Name="responseEndDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseEndDate]" />
+        <WcfRiaQueryOperationParameter Name="keywords"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[keywords]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserListingResponseItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingResponseItems"
+                         EntityTypeName="Marketing.Services.UserListingResponseItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserListingResponseItem/Properties[Id]" />
+        <WcfRiaProperty Name="UserListingUrlId"
+                        Property="UserListingResponseItem/Properties[UserListingUrlId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserListingResponseItem/Properties[UserId]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserListingResponseItem/Properties[Created]" />
+        <WcfRiaProperty Name="Response"
+                        Property="UserListingResponseItem/Properties[Response]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="Operations">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultServerOperations"
+                         EntityTypeName="Marketing.Services.Operation" />
+        <WcfRiaProperty Name="Id"
+                        Property="Operation/Properties[Id]" />
+        <WcfRiaProperty Name="Visible"
+                        Property="Operation/Properties[Visible]" />
+        <WcfRiaProperty Name="Created"
+                        Property="Operation/Properties[Created]" />
+        <WcfRiaProperty Name="OperationName"
+                        Property="Operation/Properties[OperationName]" />
+        <WcfRiaProperty Name="Parameters"
+                        Property="Operation/Properties[Parameters]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="Operation/Properties[UserId]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserTemplateItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserTemplates"
+                         EntityTypeName="Marketing.Services.UserTemplateItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserTemplateItem/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserTemplateItem/Properties[UserId]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserTemplateItem/Properties[Created]" />
+        <WcfRiaProperty Name="LastUpdated"
+                        Property="UserTemplateItem/Properties[LastUpdated]" />
+        <WcfRiaProperty Name="IsDefault"
+                        Property="UserTemplateItem/Properties[IsDefault]" />
+        <WcfRiaProperty Name="TemplateHtml"
+                        Property="UserTemplateItem/Properties[TemplateHtml]" />
+        <WcfRiaProperty Name="TemplateText"
+                        Property="UserTemplateItem/Properties[TemplateText]" />
+        <WcfRiaProperty Name="TemplateName"
+                        Property="UserTemplateItem/Properties[TemplateName]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserTemplateItemById">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserTemplateItemById" />
+        <WcfRiaQueryOperationParameter Name="id"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserTemplateItemById]/Parameters[id]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserPostListFilterItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetDefaultUserPostListFilterItems"
+                         EntityTypeName="Marketing.Services.UserPostListFilterItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserPostListFilterItem/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserPostListFilterItem/Properties[UserId]" />
+        <WcfRiaProperty Name="PostStartDate"
+                        Property="UserPostListFilterItem/Properties[PostStartDate]" />
+        <WcfRiaProperty Name="PostEndDate"
+                        Property="UserPostListFilterItem/Properties[PostEndDate]" />
+        <WcfRiaProperty Name="ResponseStartDate"
+                        Property="UserPostListFilterItem/Properties[ResponseStartDate]" />
+        <WcfRiaProperty Name="ResponseEndDate"
+                        Property="UserPostListFilterItem/Properties[ResponseEndDate]" />
+        <WcfRiaProperty Name="FilteredKeywords"
+                        Property="UserPostListFilterItem/Properties[FilteredKeywords]" />
+        <WcfRiaProperty Name="FilteredCities"
+                        Property="UserPostListFilterItem/Properties[FilteredCities]" />
+        <WcfRiaProperty Name="FilteredStates"
+                        Property="UserPostListFilterItem/Properties[FilteredStates]" />
+        <WcfRiaProperty Name="FilteredCountries"
+                        Property="UserPostListFilterItem/Properties[FilteredCountries]" />
+        <WcfRiaProperty Name="ShowResponded"
+                        Property="UserPostListFilterItem/Properties[ShowResponded]" />
+        <WcfRiaProperty Name="ShowNotResponded"
+                        Property="UserPostListFilterItem/Properties[ShowNotResponded]" />
+        <WcfRiaProperty Name="FiltersEnabled"
+                        Property="UserPostListFilterItem/Properties[FiltersEnabled]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserPostListItemByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserPostListItemByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+  </DataService>
 
   
 

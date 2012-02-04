@@ -16,12 +16,13 @@ namespace LightSwitchApplication {
     partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
       this.UserId = Application.UserId;
-      this.LoadingModalDisplayText = "Please be patient";      
+      this.LoadingModalDisplayText = "Please be patient";
+    
     }
 
     partial void UserListItemsView_Activated() {
-      if(_UserListItemsViewControl==null)      
-        this.FindControl( "GetUserListingItems" ).ControlAvailable += new EventHandler<ControlAvailableEventArgs>( UserListItemsView_ControlAvailable );
+      if(_UserListItemsViewControl==null)
+          this.FindControl("GetFilteredUserListingItems").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(UserListItemsView_ControlAvailable);
       this.CloseModalWindow( "LoadingModal" );
     }
 
@@ -36,11 +37,11 @@ namespace LightSwitchApplication {
 
     void _Pager_PropertyChanged( object sender, System.ComponentModel.PropertyChangedEventArgs e ) {
       if(_Pager.PageIndex>0)
-        this.GetUserListingItems.Details.PageNumber = _Pager.PageIndex;
+        this.GetFilteredUserListingItems.Details.PageNumber = _Pager.PageIndex;
     }
 
     void OnSendDefaultLinkClick( object sender, EventArgs e ) {
-      var userListingResponse = this.GetUserListingItems.SelectedItem;
+      var userListingResponse = this.GetFilteredUserListingItems.SelectedItem;
       userListingResponse.UseDefaultResponse = true;
       userListingResponse.Responded = System.DateTime.Now;
       userListingResponse.ResponseSent = System.DateTime.Now;
@@ -63,18 +64,19 @@ namespace LightSwitchApplication {
     partial void OpenResponseView_Execute() {
       // Write your code here.
       this.OpenModalWindow( "LoadingModal" );
-      this.Details.Dispatcher.BeginInvoke( () => {        
-        Application.ShowDefaultScreen( this.GetUserListingItems.SelectedItem );       
+      this.Details.Dispatcher.BeginInvoke( () => {
+          Application.ShowDefaultScreen(this.GetFilteredUserListingItems.SelectedItem);       
         
       } );
       
     }
 
-    partial void GetUserListingItems_Loaded( bool succeeded ) {
+    partial void GetFilteredUserListingItems_Loaded(bool succeeded)
+    {
       _Pager.Dispatcher.BeginInvoke( () => {
-        _Pager.PageCount = this.GetUserListingItems.Details.PageCount;
-        _Pager.PageIndex = this.GetUserListingItems.Details.PageNumber;
-        _Pager.PageSize = this.GetUserListingItems.Details.PageSize;
+          _Pager.PageCount = this.GetFilteredUserListingItems.Details.PageCount;
+          _Pager.PageIndex = this.GetFilteredUserListingItems.Details.PageNumber;
+          _Pager.PageSize = this.GetFilteredUserListingItems.Details.PageSize;
       } );
     }
 
@@ -88,7 +90,8 @@ namespace LightSwitchApplication {
             this.GetUserPostListItemByUserId.UserId = Application.UserId;
         this.Save();
         this.CloseModalWindow("GetUserPostListItemByUserId");
-        this.Refresh();
+
+        
 
     }
 

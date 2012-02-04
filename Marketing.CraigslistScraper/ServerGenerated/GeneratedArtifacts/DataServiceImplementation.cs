@@ -416,9 +416,9 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("UserListingItems_All", frameworkOperators);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItems", frameworkOperators, userId);
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItems", frameworkOperators, userId, filterKeywords, filterStartDate, filterEndDate);
         }
     
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingResponseItem> UserListingResponseItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
@@ -534,6 +534,11 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", frameworkOperators, userId, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords);
         }
     
     #endregion
@@ -731,7 +736,7 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItems(global::System.Nullable<global::System.Guid> userId)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItems(global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
             query = global::System.Linq.Queryable.ThenBy(
@@ -936,6 +941,13 @@ namespace LightSwitchApplication.Implementation
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> query;
             query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("GetDefaultUserPostListFilterItems").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", userId, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords).AsQueryable();
             return query;
         }
     
@@ -1164,6 +1176,8 @@ namespace LightSwitchApplication.Implementation
                 result.KeywordScore = userListingItem.KeywordScore;
                 result.KeywordDisplay = userListingItem.KeywordDisplay;
                 result.UseDefaultResponse = userListingItem.UseDefaultResponse;
+                result.PostDate = userListingItem.PostDate;
+                result.PostText = userListingItem.PostText;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1314,6 +1328,8 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.KeywordScore = innerUserListingItem.KeywordScore;
                 outerUserListingItem.KeywordDisplay = innerUserListingItem.KeywordDisplay;
                 outerUserListingItem.UseDefaultResponse = innerUserListingItem.UseDefaultResponse;
+                outerUserListingItem.PostDate = innerUserListingItem.PostDate;
+                outerUserListingItem.PostText = innerUserListingItem.PostText;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;

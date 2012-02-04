@@ -4503,6 +4503,30 @@ namespace Marketing.Data
         private global::System.String _KeywordDisplay;
         partial void OnKeywordDisplayChanging(global::System.String value);
         partial void OnKeywordDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PostText
+        {
+            get
+            {
+                return _PostText;
+            }
+            set
+            {
+                OnPostTextChanging(value);
+                ReportPropertyChanging("PostText");
+                _PostText = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PostText");
+                OnPostTextChanged();
+            }
+        }
+        private global::System.String _PostText;
+        partial void OnPostTextChanging(global::System.String value);
+        partial void OnPostTextChanged();
 
         #endregion
     

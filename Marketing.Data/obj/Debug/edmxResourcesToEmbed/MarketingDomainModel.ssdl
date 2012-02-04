@@ -50,6 +50,7 @@
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
       [UserListingData].[ListingContentId] AS [ListingContentId], 
       [UserListingData].[PostContent] AS [PostContent], 
+      [UserListingData].[PostText] AS [PostText], 
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[PostDate] AS [PostDate], 
       [UserListingData].[ReplyTo] AS [ReplyTo], 
@@ -405,6 +406,7 @@
     <Property Name="UserListingResponseId" Type="uniqueidentifier" />
     <Property Name="ListingContentId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PostContent" Type="xml" Nullable="false" />
+    <Property Name="PostText" Type="nvarchar(max)" />
     <Property Name="PostElement" Type="xml" Nullable="false" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="ReplyTo" Type="nvarchar(max)" Nullable="false" />

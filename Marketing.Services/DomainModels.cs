@@ -78,6 +78,8 @@ namespace Marketing.Services {
     public int KeywordScore { get; set; }
     public string KeywordDisplay { get; set; }
     public bool UseDefaultResponse { get; set; }
+    public DateTime PostDate { get; set; }
+    public string PostText { get; set; }
   }
   public class UserListingResponseItem {
     [Key]

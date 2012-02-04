@@ -117,6 +117,10 @@ namespace Marketing.Services {
         var result = Context.GetUserTemplates().Where(n => n.Id == id);
         return result;
     }
+    public IQueryable<UserListingItem> GetFilteredUserListingItems(Guid? userId, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords)
+    {
+        return DefaultUserListingItems();
+    }
     #endregion
 
 

@@ -421,9 +421,18 @@ namespace LightSwitchApplication
         /// <param name="userId">
         /// No Modeled Description Available
         /// </param>
-        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserListingItem> GetUserListingItems(global::System.Nullable<global::System.Guid> userId)
+        /// <param name="filterKeywords">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="filterStartDate">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="filterEndDate">
+        /// No Modeled Description Available
+        /// </param>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserListingItem> GetUserListingItems(global::System.Nullable<global::System.Guid> userId, string filterKeywords, global::System.Nullable<global::System.DateTime> filterStartDate, global::System.Nullable<global::System.DateTime> filterEndDate)
         {
-            return this.Details.Methods.GetUserListingItems.CreateInvocation(userId).Execute();
+            return this.Details.Methods.GetUserListingItems.CreateInvocation(userId, filterKeywords, filterStartDate, filterEndDate).Execute();
         }
         
         /// <summary>
@@ -622,6 +631,32 @@ namespace LightSwitchApplication
         public global::LightSwitchApplication.UserPostListFilterItem UserPostListFilterItems_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
         {
             return this.Details.Methods.UserPostListFilterItems_SingleOrDefault.CreateInvocation(Id).Execute();
+        }
+        
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        /// <param name="userId">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="postStartDate">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="postEndDate">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="responseStartDate">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="responseEndDate">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="keywords">
+        /// No Modeled Description Available
+        /// </param>
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserListingItem> GetFilteredUserListingItems(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords)
+        {
+            return this.Details.Methods.GetFilteredUserListingItems.CreateInvocation(userId, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords).Execute();
         }
         
         #endregion
@@ -925,6 +960,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.UserPostListFilterItems_SingleOrDefault) as global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPostListFilterItem>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem> GetFilteredUserListingItems
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties.GetFilteredUserListingItems) as global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>;
                     }
                 }
                 
@@ -1349,6 +1392,16 @@ namespace LightSwitchApplication
                     c(d, ref d._UserPostListFilterItems_SingleOrDefault, sf);
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry
+                    GetFilteredUserListingItems = new global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry(
+                        "GetFilteredUserListingItems",
+                        global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass.MethodSetProperties._GetFilteredUserListingItems_Stub);
+                private static void _GetFilteredUserListingItems_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data> c, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass d, object sf)
+                {
+                    c(d, ref d._GetFilteredUserListingItems, sf);
+                }
+    
             }
     
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -1584,6 +1637,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.CreateScalarQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserPostListFilterItem>.Data _UserPostListFilterItems_SingleOrDefault;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.CreateQueryMethod<global::LightSwitchApplication.MarketingDomainServiceData, global::LightSwitchApplication.MarketingDomainServiceData.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data _GetFilteredUserListingItems;
             
         }
     

@@ -293,7 +293,9 @@ namespace Marketing.Services.Extensions {
         PostHtml = userListingData.PostContent,
         CityActive = userListingData.CityActive,
         UserCityActive = userListingData.UserCityActive,
-        ListingCategoryActive = userListingData.ListingCategoryActive
+        ListingCategoryActive = userListingData.ListingCategoryActive,
+        PostDate=userListingData.PostDate,
+        PostText = userListingData.PostContent
       };
       return result;
     }
