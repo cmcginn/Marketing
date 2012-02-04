@@ -1463,6 +1463,8 @@
       </QueryOperation.Source>
       <QueryOperationParameter Name="userId"
                                ParameterType=":Guid?" />
+      <QueryOperationParameter Name="filtersEnabled"
+                               ParameterType=":Boolean?" />
       <QueryOperationParameter Name="postStartDate"
                                ParameterType=":DateTime?" />
       <QueryOperationParameter Name="postEndDate"
@@ -1472,6 +1474,12 @@
       <QueryOperationParameter Name="responseEndDate"
                                ParameterType=":DateTime?" />
       <QueryOperationParameter Name="keywords"
+                               ParameterType=":String?" />
+      <QueryOperationParameter Name="regionsFilter"
+                               ParameterType=":String?" />
+      <QueryOperationParameter Name="statesFilter"
+                               ParameterType=":String?" />
+      <QueryOperationParameter Name="citiesFilter"
                                ParameterType=":String?" />
     </QueryOperation>
   
@@ -1639,7 +1647,7 @@
       </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2269,7 +2277,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
       <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -2297,9 +2305,11 @@
       <ScreenMethod Name="ShowFilter" />
       <ScreenMethod Name="ApplyFilter" />
       <ScreenMethod Name="SaveFilters" />
+      <ScreenMethod Name="ClearFilters" />
+      <ScreenMethod Name="CloseFilters" />
     </Screen.Methods>
     <Screen.Properties>
-      <ScreenProperty Name="GetUserPostListItemByUserId"
+      <ScreenProperty Name="GetUserPostListFilterItemByUserId"
                       PropertyType="UserPostListFilterItem">
         <ScreenExpressionTree>
           <ChainExpression>
@@ -2344,12 +2354,65 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression Target="UserListItemsView/Properties[GetFilteredUserListingItems]/Query">
-              <ArgumentExpression Parameter="userId" />
-              <ArgumentExpression Parameter="postStartDate" />
-              <ArgumentExpression Parameter="postEndDate" />
-              <ArgumentExpression Parameter="responseStartDate" />
-              <ArgumentExpression Parameter="responseEndDate" />
-              <ArgumentExpression Parameter="keywords" />
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="filtersEnabled">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="FiltersEnabled" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="postStartDate">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="PostStartDate" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="postEndDate">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="PostEndDate" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="responseStartDate">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="ResponseStartDate" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="responseEndDate">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="ResponseEndDate" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="keywords">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="FilteredKeywords" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="regionsFilter">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="FilteredCountries" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="statesFilter">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="FilteredStates" />
+                </ChainExpression>
+              </ArgumentExpression>
+              <ArgumentExpression Parameter="citiesFilter">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
+                  <MemberExpression Member="FilteredCities" />
+                </ChainExpression>
+              </ArgumentExpression>
             </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
@@ -2401,17 +2464,44 @@
             </ContentItem.PropertySources>
             <ContentItem Kind="Group"
                          Name="FilterRowContainer">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Left" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
               <ContentItem DataType="UserPostListFilterItem"
                            Kind="Details"
-                           Name="GetUserPostListItemByUserId"
+                           Name="GetUserPostListFilterItemByUserId"
                            View=":ModalWindow">
                 <ContentItem.CommandItems>
                   <ContentItem Kind="Command"
                                Name="SaveFilters">
+                    <ContentItem.Attributes>
+                      <DisplayName Value="Close" />
+                    </ContentItem.Attributes>
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <CallExpression Target="UserListItemsView/Methods[SaveFilters]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem Kind="Command"
+                               Name="ClearFilters">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression Target="UserListItemsView/Methods[ClearFilters]" />
                         </ChainExpression>
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
@@ -2431,7 +2521,7 @@
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserListItemsView/Properties[GetUserPostListItemByUserId]" />
+                      <MemberExpression Member="UserListItemsView/Properties[GetUserPostListFilterItemByUserId]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2520,6 +2610,9 @@
                 <ContentItem DataType=":String?"
                              Kind="Value"
                              Name="FilteredCities">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="City" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2531,6 +2624,9 @@
                 <ContentItem DataType=":String?"
                              Kind="Value"
                              Name="FilteredStates">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="State" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2542,6 +2638,9 @@
                 <ContentItem DataType=":String?"
                              Kind="Value"
                              Name="FilteredCountries">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="Country" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2577,7 +2676,10 @@
                 <ContentItem DataType=":Boolean"
                              Kind="Value"
                              Name="FiltersEnabled"
-                             IsHidden="True">
+                             IsHidden="False">
+                  <ContentItem.Attributes>
+                    <DisplayName Value="Enabled" />
+                  </ContentItem.Attributes>
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
@@ -2600,18 +2702,6 @@
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":String"
@@ -2619,41 +2709,6 @@
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
-                <ContentItem.CommandItems>
-                  <ContentItem Kind="Command"
-                               Name="GetFilteredUserListingItems_AddAndEditNew">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
-                          <CallExpression Target="AddAndEditNew" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem Kind="Command"
-                               Name="GetFilteredUserListingItems_EditSelected">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
-                          <CallExpression Target="EditSelected" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem Kind="Command"
-                               Name="GetFilteredUserListingItems_DeleteSelected">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression Member="UserListItemsView/Properties[GetFilteredUserListingItems]" />
-                          <CallExpression Target="DeleteSelected" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem.CommandItems>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -3094,7 +3149,7 @@
 
   <Screen Name="UserListingItemDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
       <DisplayName Value="Post Detail" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -3282,7 +3337,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3464,7 +3519,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3678,7 +3733,7 @@
   
   <Screen Name="UserTemplateDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3855,7 +3910,7 @@
 
   <Screen Name="Templates">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4292,7 +4347,7 @@
 
   <Screen Name="UserPostListFilterDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4543,7 +4598,7 @@
 
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
+               Name="MarketingDomainServiceDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -4724,6 +4779,8 @@
         <WcfRiaQueryOperation Name="GetFilteredUserListingItems" />
         <WcfRiaQueryOperationParameter Name="userId"
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[userId]" />
+        <WcfRiaQueryOperationParameter Name="filtersEnabled"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[filtersEnabled]" />
         <WcfRiaQueryOperationParameter Name="postStartDate"
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postStartDate]" />
         <WcfRiaQueryOperationParameter Name="postEndDate"
@@ -4734,6 +4791,12 @@
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseEndDate]" />
         <WcfRiaQueryOperationParameter Name="keywords"
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[keywords]" />
+        <WcfRiaQueryOperationParameter Name="regionsFilter"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[regionsFilter]" />
+        <WcfRiaQueryOperationParameter Name="statesFilter"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[statesFilter]" />
+        <WcfRiaQueryOperationParameter Name="citiesFilter"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[citiesFilter]" />
       </QueryOperationMapping.Attributes>
     </QueryOperationMapping>
     <EntitySetMapping EntitySet="UserListingResponseItems">

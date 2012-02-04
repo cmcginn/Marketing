@@ -23,9 +23,16 @@ namespace LightSwitchApplication {
     partial void UserListItemsView_Activated() {
       if(_UserListItemsViewControl==null)
           this.FindControl("GetFilteredUserListingItems").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(UserListItemsView_ControlAvailable);
+      this.FindControl("GetUserPostListFilterItemByUserId").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GetUserPostListFilterItemByUserId_ControlAvailable);
       this.CloseModalWindow( "LoadingModal" );
     }
 
+    void GetUserPostListFilterItemByUserId_ControlAvailable(object sender, ControlAvailableEventArgs e)
+    {
+        var ctl =e.Control as Microsoft.LightSwitch.Runtime.Shell.Framework.ScreenChildWindow;
+        ctl.HasCloseButton = false;
+
+    }
     void UserListItemsView_ControlAvailable( object sender, ControlAvailableEventArgs e ) {
       _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
       _UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
@@ -86,14 +93,30 @@ namespace LightSwitchApplication {
 
     partial void SaveFilters_Execute()
     {
-        if (this.GetUserPostListItemByUserId.UserId == Guid.Empty)
-            this.GetUserPostListItemByUserId.UserId = Application.UserId;
+        if (this.GetUserPostListFilterItemByUserId.UserId == Guid.Empty)
+            this.GetUserPostListFilterItemByUserId.UserId = Application.UserId;
         this.Save();
-        this.CloseModalWindow("GetUserPostListItemByUserId");
+        this.CloseModalWindow("GetUserPostListFilterItemByUserId");
 
         
 
     }
+
+    partial void ClearFilters_Execute()
+    {
+        // Write your code here.
+        this.GetUserPostListFilterItemByUserId.FilteredCities = null;
+        this.GetUserPostListFilterItemByUserId.FilteredCountries = null;
+        GetUserPostListFilterItemByUserId.FilteredKeywords = null;
+        GetUserPostListFilterItemByUserId.FilteredStates = null;
+        GetUserPostListFilterItemByUserId.PostEndDate = null;
+        GetUserPostListFilterItemByUserId.PostStartDate = null;
+        GetUserPostListFilterItemByUserId.ResponseEndDate = null;
+        GetUserPostListFilterItemByUserId.ResponseStartDate = null;
+        GetUserPostListFilterItemByUserId.FiltersEnabled = true;
+    }
+
+
 
 
   }

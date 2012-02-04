@@ -86,6 +86,74 @@ namespace Marketing.Services.Extensions {
 
       return query;
     }
+    public static IQueryable<UserListingItem> GetUserFilteredUserListingItems(this MarketingEntities context, Guid? userId, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
+    {
+        var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo));
+
+        var userIdValue = userId.GetValueOrDefault();
+        var postStartDateValue = postStartDate.GetValueOrDefault();
+        var postEndDateValue = postStartDate.GetValueOrDefault();
+        var responseStartDateValue = responseStartDate.GetValueOrDefault();
+        var responseEndDateValue = responseEndDate.GetValueOrDefault();
+
+        if (userId.HasValue)
+            items = items.Where(n => n.UserId == userIdValue);
+        if (postStartDate.HasValue)
+            items = items.Where(n => n.PostDate >= postStartDateValue);
+        if (postEndDate.HasValue)
+            items = items.Where(n => n.PostDate <= postEndDateValue);
+        if (responseStartDate.HasValue)
+            items = items.Where(n => n.Responded != null && n.Responded.Value >= responseStartDateValue);
+        if (responseEndDate.HasValue)
+            items = items.Where(n => n.Responded != null && n.Responded.Value <= responseEndDateValue);
+        if (!String.IsNullOrEmpty(keywords))
+        {
+            keywords = keywords.ToLower();
+            items = items.Where(n => n.PostText.Contains(keywords));
+        }
+        if (!String.IsNullOrEmpty(regionsFilter))
+        {
+            regionsFilter = regionsFilter.ToLower();
+            items = items.Where(n => n.RegionName.ToLower().Contains(regionsFilter));
+        }
+        if (!String.IsNullOrEmpty(statesFilter))
+        {
+            statesFilter = statesFilter.ToLower();
+            items = items.Where(n => n.StateProvince.ToLower().Contains(statesFilter));
+        }
+        if (!String.IsNullOrEmpty(citiesFilter))
+        {
+            citiesFilter = citiesFilter.ToLower();
+            items = items.Where(n => n.CityName.ToLower().Contains(citiesFilter));
+        }
+        var query = from userListingData in items
+                    select new UserListingItem
+                    {
+                        Id = userListingData.UserListingUrlId,
+                        CategoryName = userListingData.ListingCategoryName,
+                        CityName = userListingData.CityName,
+                        StateProvince = userListingData.StateProvince,
+                        GroupName = userListingData.ListingGroupName,
+                        RegionName = userListingData.RegionName,
+                        PostElement = userListingData.PostElement,
+                        Created = userListingData.ListingUrlCreated,
+                        Title = userListingData.Title,
+                        UserId = userListingData.UserId,
+                        Responded = userListingData.Responded,
+                        ResponseId = userListingData.UserListingResponseId,
+                        Response = userListingData.Response,
+                        ResponseSent = userListingData.ResponseSent,
+                        ResponseText = userListingData.ResponseText,
+                        PostHtml = userListingData.PostContent,
+                        CityActive = userListingData.CityActive,
+                        UserCityActive = userListingData.UserCityActive,
+                        ListingCategoryActive = userListingData.ListingCategoryActive,
+                        KeywordScore = userListingData.KeywordScore,
+                        KeywordDisplay = userListingData.KeywordDisplay
+                    };
+        
+        return query;
+    }
     public static IQueryable<UserListingItem> GetUserListingItemsByUserId( this MarketingEntities context, Guid userId ) {
       var query = from userListingData in context.UserListingDatas.Where( x => x.PostContent != null & !String.IsNullOrEmpty( x.ReplyTo ) && x.UserId == userId )
                   select new UserListingItem {

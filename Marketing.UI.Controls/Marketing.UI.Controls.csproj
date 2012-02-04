@@ -85,6 +85,9 @@
     <Compile Include="CustomDataPagerControl.cs" />
     <Compile Include="DefaultResponseEnabledValueConverter.cs" />
     <Compile Include="Extensions\DocumentExtensions.cs" />
+    <Compile Include="PageControl.xaml.cs">
+      <DependentUpon>PageControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PostDetailsControl.xaml.cs">
       <DependentUpon>PostDetailsControl.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Page Include="PageControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PostDetailsControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

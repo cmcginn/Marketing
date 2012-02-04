@@ -16,6 +16,7 @@ namespace LightSwitchApplication
         {
             // Write your code here.
             this.SetDisplayNameFromEntity(this.UserListingItem);
+            
         }
       
         partial void UserListingItem_Changed()
