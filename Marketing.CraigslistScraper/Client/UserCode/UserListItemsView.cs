@@ -24,6 +24,7 @@ namespace LightSwitchApplication {
       if(_UserListItemsViewControl==null)
           this.FindControl("GetFilteredUserListingItems").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(UserListItemsView_ControlAvailable);
       this.FindControl("GetUserPostListFilterItemByUserId").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GetUserPostListFilterItemByUserId_ControlAvailable);
+      this.FindControl("GridPager").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GridPager_ControlAvailable);
       this.CloseModalWindow( "LoadingModal" );
     }
 
@@ -33,12 +34,18 @@ namespace LightSwitchApplication {
         ctl.HasCloseButton = false;
 
     }
+    void GridPager_ControlAvailable(object sender, ControlAvailableEventArgs e)
+    {
+        var ctl = e.Control as Marketing.UI.Controls.PageControl;
+
+        _Pager = ctl.Page as Marketing.UI.Controls.CustomDataPagerControl;
+        _Pager.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(_Pager_PropertyChanged);
+
+    }
     void UserListItemsView_ControlAvailable( object sender, ControlAvailableEventArgs e ) {
       _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
       _UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
-      _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );
-      _Pager = _UserListItemsViewControl.PagerControl as Marketing.UI.Controls.CustomDataPagerControl;
-      _Pager.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler( _Pager_PropertyChanged );
+      _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );    
 
     }
 

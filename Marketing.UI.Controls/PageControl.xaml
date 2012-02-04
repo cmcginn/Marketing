@@ -6,8 +6,14 @@
     mc:Ignorable="d"
     xmlns:my="clr-namespace:Marketing.UI.Controls"
     d:DesignHeight="300" d:DesignWidth="400">
-    
+    <UserControl.Resources>
+        <ResourceDictionary x:Key="pagerStyles">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="CustomDataPagerControlStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid x:Name="LayoutRoot" Background="White">
-
+        <my:CustomDataPagerControl x:Name="Pager" Grid.Row="1" Style="{StaticResource CustomDataPagerControlStyle}"></my:CustomDataPagerControl>
     </Grid>
 </UserControl>

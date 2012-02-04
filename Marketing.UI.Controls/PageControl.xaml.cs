@@ -18,5 +18,7 @@ namespace Marketing.UI.Controls
         {
             InitializeComponent();
         }
+
+        public CustomDataPagerControl Page { get { return this.Pager; } }
     }
 }

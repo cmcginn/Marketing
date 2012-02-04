@@ -208,3 +208,4 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserTemplateViewCon
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.g.resources
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PageControl.g.i.cs

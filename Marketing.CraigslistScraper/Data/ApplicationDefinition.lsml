@@ -2449,32 +2449,41 @@
           <ContentItem Kind="Group"
                        Name="GridContainer">
             <ContentItem.PropertySources>
-              <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":Boolean"
-                                      Value="True" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
               <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
                 <ScreenExpressionTree>
                   <ConstantExpression ResultType=":Boolean"
                                       Value="True" />
                 </ScreenExpressionTree>
               </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="Left" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="Top" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
             </ContentItem.PropertySources>
             <ContentItem Kind="Group"
                          Name="FilterRowContainer">
+              <ContentItem.Attributes>
+                <DisplayName />
+              </ContentItem.Attributes>
               <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
                   <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Left" />
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="True" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinHeight]">
                   <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Top" />
+                    <ConstantExpression ResultType=":Double"
+                                        Value="30" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
@@ -2508,7 +2517,7 @@
                   </ContentItem>
                 </ContentItem.CommandItems>
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ControlPropertySource Property=":RootControl/Properties[HorizontalAlignment]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":String"
                                           Value="Left" />
@@ -2689,12 +2698,35 @@
                   </ContentItem.DataSource>
                 </ContentItem>
               </ContentItem>
+            </ContentItem>
+            <ContentItem Kind="Group"
+                         Name="Group1">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="True" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RowsLayout/Properties[IsRowResizable]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Boolean"
+                                        Value="True" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RowsLayout/Properties[WeightedRowHeight]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="40" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
               <ContentItem DataType="CollectionView$UserListingItem"
                            Kind="Collection"
                            Name="GetFilteredUserListingItems"
                            View=":CollectionCustomContentControl">
                 <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ControlPropertySource Property=":RootCustomContentControl/Properties[CustomControl]">
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <ConstantExpression ResultType=":String"
@@ -2702,7 +2734,7 @@
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":String"
                                           Value="None" />
@@ -3002,6 +3034,63 @@
                 </ContentItem>
               </ContentItem>
             </ContentItem>
+            <ContentItem Kind="Group"
+                         Name="Group2">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Left" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinHeight]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="40" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem Kind="ScreenContent"
+                           Name="GridPager">
+                <ContentItem.Attributes>
+                  <DisplayName Value="GridPager" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property=":RootCustomContentControl/Properties[CustomControl]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Marketing.UI.Controls.PageControl, Marketing.UI.Controls" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property=":RootControl/Properties[HorizontalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="None" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property=":RowsLayout/Properties[WeightedRowHeight]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="2" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+            </ContentItem>
           </ContentItem>
           <ContentItem Kind="Group"
                        Name="LoadingModal"
@@ -3028,6 +3117,26 @@
             </ContentItem.PropertySources>
             <ContentItem Kind="Group"
                          Name="Group">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Left" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MaxHeight]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="40" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
               <ContentItem DataType=":String"
                            Kind="Value"
                            Name="LoadingModalDisplayText"
