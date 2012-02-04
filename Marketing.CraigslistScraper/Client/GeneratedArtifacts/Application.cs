@@ -138,6 +138,21 @@ namespace LightSwitchApplication
             ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowTemplates);
         }
         
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterDetail_CanRun(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterDetail_Run(ref bool handled);
+    
+        /// <summary>
+        /// Opens the ShowUserPostListFilterDetail screen.  If the screen is already opened, it is activated and shown.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void ShowUserPostListFilterDetail()
+        {
+            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowUserPostListFilterDetail);
+        }
+        
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -211,6 +226,8 @@ namespace LightSwitchApplication
                         return global::LightSwitchApplication.UserTemplateDetail.CreateInstance((global::System.Guid)args[0]);
                     case "Templates":
                         return global::LightSwitchApplication.Templates.CreateInstance();
+                    case "UserPostListFilterDetail":
+                        return global::LightSwitchApplication.UserPostListFilterDetail.CreateInstance();
                 }
             
                 return base.CreateScreen(screenName, args);
@@ -265,6 +282,15 @@ namespace LightSwitchApplication
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
                                base.GetItem(global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties.ShowTemplates);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowUserPostListFilterDetail
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties.ShowUserPostListFilterDetail);
                     }
                 }
 
@@ -340,6 +366,15 @@ namespace LightSwitchApplication
                     }
                 }
 
+                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowUserPostListFilterDetail
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowUserPostListFilterDetail);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -410,6 +445,20 @@ namespace LightSwitchApplication
                 private static global::Microsoft.LightSwitch.IExecutable _ShowTemplates_CreateExecutableObject(global::LightSwitchApplication.Application.DetailsClass d)
                 {
                     return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowTemplates.CreateInvocation(new object[0]);
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowUserPostListFilterDetail = new global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowUserPostListFilterDetail",
+                        global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties._ShowUserPostListFilterDetail_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties._ShowUserPostListFilterDetail_CreateExecutableObject);
+                private static void _ShowUserPostListFilterDetail_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowUserPostListFilterDetailCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _ShowUserPostListFilterDetail_CreateExecutableObject(global::LightSwitchApplication.Application.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowUserPostListFilterDetail.CreateInvocation(new object[0]);
                 }
 
             }
@@ -602,6 +651,32 @@ namespace LightSwitchApplication
                     }
                 }
  
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowUserPostListFilterDetail = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowUserPostListFilterDetail",
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserPostListFilterDetail_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserPostListFilterDetail_CanInvoke,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserPostListFilterDetail_InvokeMethod);
+                private static void _ShowUserPostListFilterDetail_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowUserPostListFilterDetailMethod, sf);
+                }
+                private static global::System.Exception _ShowUserPostListFilterDetail_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Application.UserPostListFilterDetail_CanRun(ref result);
+                    return result ? null : ex;
+                }
+                private static void _ShowUserPostListFilterDetail_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    bool handled = false;
+                    d.Application.UserPostListFilterDetail_Run(ref handled);
+                    if (!handled)
+                    {
+                        d.ShowScreen("LightSwitchApplication:UserPostListFilterDetail", () => global::LightSwitchApplication.UserPostListFilterDetail.CreateInstance(), args);
+                    }
+                }
+ 
             }
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesMethod;
@@ -618,6 +693,8 @@ namespace LightSwitchApplication
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowTemplatesMethod;
 
+            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserPostListFilterDetailMethod;
+
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesCommand;
 
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserListItemsViewCommand;
@@ -625,6 +702,8 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowWorkflowsCommand;
 
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowTemplatesCommand;
+
+            private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserPostListFilterDetailCommand;
 
         }
     }

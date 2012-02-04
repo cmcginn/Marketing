@@ -126,5 +126,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserPostListFilterItems">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.UserPostListFilterItem)">
+        <MappingFragment StoreEntitySet="GetDefaultUserPostListFilterItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="PostStartDate" ColumnName="PostStartDate" />
+          <ScalarProperty Name="PostEndDate" ColumnName="PostEndDate" />
+          <ScalarProperty Name="ResponseStartDate" ColumnName="ResponseStartDate" />
+          <ScalarProperty Name="ResponseEndDate" ColumnName="ResponseEndDate" />
+          <ScalarProperty Name="FilteredKeywords" ColumnName="FilteredKeywords" />
+          <ScalarProperty Name="FilteredCities" ColumnName="FilteredCities" />
+          <ScalarProperty Name="FilteredStates" ColumnName="FilteredStates" />
+          <ScalarProperty Name="FilteredCountries" ColumnName="FilteredCountries" />
+          <ScalarProperty Name="ShowResponded" ColumnName="ShowResponded" />
+          <ScalarProperty Name="ShowNotResponded" ColumnName="ShowNotResponded" />
+          <ScalarProperty Name="FiltersEnabled" ColumnName="FiltersEnabled" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

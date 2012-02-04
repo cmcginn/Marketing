@@ -116,6 +116,24 @@
     <Property Name="TemplateHtml" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="TemplateText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserPostListFilterItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="PostStartDate" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="PostEndDate" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseStartDate" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="ResponseEndDate" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="FilteredKeywords" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="FilteredCities" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="FilteredStates" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="FilteredCountries" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ShowResponded" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ShowNotResponded" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FiltersEnabled" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -126,5 +144,6 @@
     <EntitySet Name="Operations" EntityType="MarketingDomainServiceData.Operation" />
     <EntitySet Name="Users" EntityType="MarketingDomainServiceData.User" />
     <EntitySet Name="UserTemplateItems" EntityType="MarketingDomainServiceData.UserTemplateItem" />
+    <EntitySet Name="UserPostListFilterItems" EntityType="MarketingDomainServiceData.UserPostListFilterItem" />
   </EntityContainer>
 </Schema>

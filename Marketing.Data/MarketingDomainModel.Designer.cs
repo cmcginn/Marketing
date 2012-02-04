@@ -33,6 +33,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserTemplate), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserFilter", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserFilter), true)]
 
 #endregion
 
@@ -355,6 +356,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserTemplate> _UserTemplates;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserFilter> UserFilters
+        {
+            get
+            {
+                if ((_UserFilters == null))
+                {
+                    _UserFilters = base.CreateObjectSet<UserFilter>("UserFilters");
+                }
+                return _UserFilters;
+            }
+        }
+        private ObjectSet<UserFilter> _UserFilters;
 
         #endregion
         #region AddTo Methods
@@ -493,6 +510,14 @@ namespace Marketing.Data
         public void AddToUserTemplates(UserTemplate userTemplate)
         {
             base.AddObject("UserTemplates", userTemplate);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserFilters EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserFilters(UserFilter userFilter)
+        {
+            base.AddObject("UserFilters", userFilter);
         }
 
         #endregion
@@ -1216,6 +1241,28 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "UserTemplate", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "UserFilter")]
+        public EntityCollection<UserFilter> UserFilters
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserFilter>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "UserFilter");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserFilter>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "UserFilter", value);
                 }
             }
         }
@@ -2586,6 +2633,398 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="UserFilter")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserFilter : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserFilter object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="showResponded">Initial value of the ShowResponded property.</param>
+        /// <param name="showNotResponded">Initial value of the ShowNotResponded property.</param>
+        /// <param name="filtersEnabled">Initial value of the FiltersEnabled property.</param>
+        public static UserFilter CreateUserFilter(global::System.Guid id, global::System.Guid userId, global::System.Boolean showResponded, global::System.Boolean showNotResponded, global::System.Boolean filtersEnabled)
+        {
+            UserFilter userFilter = new UserFilter();
+            userFilter.Id = id;
+            userFilter.UserId = userId;
+            userFilter.ShowResponded = showResponded;
+            userFilter.ShowNotResponded = showNotResponded;
+            userFilter.FiltersEnabled = filtersEnabled;
+            return userFilter;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> PostStart
+        {
+            get
+            {
+                return _PostStart;
+            }
+            set
+            {
+                OnPostStartChanging(value);
+                ReportPropertyChanging("PostStart");
+                _PostStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostStart");
+                OnPostStartChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _PostStart;
+        partial void OnPostStartChanging(Nullable<global::System.DateTime> value);
+        partial void OnPostStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> PostEnd
+        {
+            get
+            {
+                return _PostEnd;
+            }
+            set
+            {
+                OnPostEndChanging(value);
+                ReportPropertyChanging("PostEnd");
+                _PostEnd = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostEnd");
+                OnPostEndChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _PostEnd;
+        partial void OnPostEndChanging(Nullable<global::System.DateTime> value);
+        partial void OnPostEndChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ResponseStart
+        {
+            get
+            {
+                return _ResponseStart;
+            }
+            set
+            {
+                OnResponseStartChanging(value);
+                ReportPropertyChanging("ResponseStart");
+                _ResponseStart = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ResponseStart");
+                OnResponseStartChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ResponseStart;
+        partial void OnResponseStartChanging(Nullable<global::System.DateTime> value);
+        partial void OnResponseStartChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> ResponseEnd
+        {
+            get
+            {
+                return _ResponseEnd;
+            }
+            set
+            {
+                OnResponseEndChanging(value);
+                ReportPropertyChanging("ResponseEnd");
+                _ResponseEnd = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ResponseEnd");
+                OnResponseEndChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _ResponseEnd;
+        partial void OnResponseEndChanging(Nullable<global::System.DateTime> value);
+        partial void OnResponseEndChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FilteredCities
+        {
+            get
+            {
+                return _FilteredCities;
+            }
+            set
+            {
+                OnFilteredCitiesChanging(value);
+                ReportPropertyChanging("FilteredCities");
+                _FilteredCities = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FilteredCities");
+                OnFilteredCitiesChanged();
+            }
+        }
+        private global::System.String _FilteredCities;
+        partial void OnFilteredCitiesChanging(global::System.String value);
+        partial void OnFilteredCitiesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FilteredStates
+        {
+            get
+            {
+                return _FilteredStates;
+            }
+            set
+            {
+                OnFilteredStatesChanging(value);
+                ReportPropertyChanging("FilteredStates");
+                _FilteredStates = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FilteredStates");
+                OnFilteredStatesChanged();
+            }
+        }
+        private global::System.String _FilteredStates;
+        partial void OnFilteredStatesChanging(global::System.String value);
+        partial void OnFilteredStatesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FilteredCountries
+        {
+            get
+            {
+                return _FilteredCountries;
+            }
+            set
+            {
+                OnFilteredCountriesChanging(value);
+                ReportPropertyChanging("FilteredCountries");
+                _FilteredCountries = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FilteredCountries");
+                OnFilteredCountriesChanged();
+            }
+        }
+        private global::System.String _FilteredCountries;
+        partial void OnFilteredCountriesChanging(global::System.String value);
+        partial void OnFilteredCountriesChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FilteredKeywords
+        {
+            get
+            {
+                return _FilteredKeywords;
+            }
+            set
+            {
+                OnFilteredKeywordsChanging(value);
+                ReportPropertyChanging("FilteredKeywords");
+                _FilteredKeywords = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FilteredKeywords");
+                OnFilteredKeywordsChanged();
+            }
+        }
+        private global::System.String _FilteredKeywords;
+        partial void OnFilteredKeywordsChanging(global::System.String value);
+        partial void OnFilteredKeywordsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ShowResponded
+        {
+            get
+            {
+                return _ShowResponded;
+            }
+            set
+            {
+                OnShowRespondedChanging(value);
+                ReportPropertyChanging("ShowResponded");
+                _ShowResponded = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShowResponded");
+                OnShowRespondedChanged();
+            }
+        }
+        private global::System.Boolean _ShowResponded;
+        partial void OnShowRespondedChanging(global::System.Boolean value);
+        partial void OnShowRespondedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean ShowNotResponded
+        {
+            get
+            {
+                return _ShowNotResponded;
+            }
+            set
+            {
+                OnShowNotRespondedChanging(value);
+                ReportPropertyChanging("ShowNotResponded");
+                _ShowNotResponded = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ShowNotResponded");
+                OnShowNotRespondedChanged();
+            }
+        }
+        private global::System.Boolean _ShowNotResponded;
+        partial void OnShowNotRespondedChanging(global::System.Boolean value);
+        partial void OnShowNotRespondedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean FiltersEnabled
+        {
+            get
+            {
+                return _FiltersEnabled;
+            }
+            set
+            {
+                OnFiltersEnabledChanging(value);
+                ReportPropertyChanging("FiltersEnabled");
+                _FiltersEnabled = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FiltersEnabled");
+                OnFiltersEnabledChanged();
+            }
+        }
+        private global::System.Boolean _FiltersEnabled;
+        partial void OnFiltersEnabledChanging(global::System.Boolean value);
+        partial void OnFiltersEnabledChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }

@@ -302,5 +302,63 @@ namespace Marketing.Services.Extensions {
       userListingItem.Response = XElement.Parse( template.TemplateHtml ).ToString();
       userListingItem.ResponseText = template.TemplateText;
     }
+    static UserFilter InsertDefaultUserFilterListItem(this MarketingEntities context, Guid userId)
+    {
+        var result = new UserFilter
+        {
+            Id = Guid.NewGuid(),
+            UserId=userId            
+        };
+        context.UserFilters.AddObject(result);
+        context.SaveChanges();
+        return result;
+    }
+    public static UserPostListFilterItem GetUserPostListFilterItemByUserId(this MarketingEntities context, Guid userId)
+    {
+        UserPostListFilterItem result = null;
+        var item = context.UserFilters.SingleOrDefault(n => n.UserId == userId);
+        if (item == null)
+            item = context.InsertDefaultUserFilterListItem(userId);
+        result = new UserPostListFilterItem
+        {
+            Id = item.Id,
+            FilteredCities = item.FilteredCities,
+            FilteredCountries = item.FilteredCountries,
+            FilteredStates = item.FilteredStates,
+            FilteredKeywords = item.FilteredKeywords,
+            FiltersEnabled = item.FiltersEnabled,
+            PostEndDate = item.PostEnd,
+            PostStartDate = item.PostStart,
+            ResponseEndDate = item.ResponseEnd,
+            ResponseStartDate = item.ResponseStart,
+            ShowNotResponded = item.ShowNotResponded,
+            ShowResponded = item.ShowResponded,
+            UserId = item.UserId
+        };
+        return result;
+    }
+    public static void UpdateUserPostListFilterItem(this MarketingEntities context, UserPostListFilterItem item)
+    {
+        var existing = context.UserFilters.SingleOrDefault(n => n.UserId== item.UserId);
+        if (existing == null)
+        {
+            existing = new UserFilter { Id = item.Id, UserId = item.UserId };
+            context.UserFilters.AddObject(existing);
+        }
+            existing.FilteredCities = item.FilteredCities;
+            existing.FilteredCountries = item.FilteredCountries;
+            existing.FilteredStates = item.FilteredStates;
+            existing.FilteredKeywords = item.FilteredKeywords;
+            existing.FiltersEnabled = item.FiltersEnabled;
+            existing.PostEnd = item.PostEndDate;
+            existing.PostStart = item.PostStartDate;
+            existing.ResponseEnd = item.ResponseEndDate;
+            existing.ResponseStart = item.ResponseStartDate;
+            existing.ShowNotResponded = item.ShowNotResponded;
+            existing.ShowResponded = item.ShowResponded;
+
+            context.SaveChanges();
+     
+    }
   }
 }

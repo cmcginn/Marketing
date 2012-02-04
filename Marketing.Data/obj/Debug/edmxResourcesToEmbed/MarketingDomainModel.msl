@@ -263,5 +263,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserFilters">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserFilter">
+        <MappingFragment StoreEntitySet="UserFilter">
+          <ScalarProperty Name="FiltersEnabled" ColumnName="FiltersEnabled" />
+          <ScalarProperty Name="ShowNotResponded" ColumnName="ShowNotResponded" />
+          <ScalarProperty Name="ShowResponded" ColumnName="ShowResponded" />
+          <ScalarProperty Name="FilteredKeywords" ColumnName="FilteredKeywords" />
+          <ScalarProperty Name="FilteredCountries" ColumnName="FilteredCountries" />
+          <ScalarProperty Name="FilteredStates" ColumnName="FilteredStates" />
+          <ScalarProperty Name="FilteredCities" ColumnName="FilteredCities" />
+          <ScalarProperty Name="ResponseEnd" ColumnName="ResponseEnd" />
+          <ScalarProperty Name="ResponseStart" ColumnName="ResponseStart" />
+          <ScalarProperty Name="PostEnd" ColumnName="PostEnd" />
+          <ScalarProperty Name="PostStart" ColumnName="PostStart" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

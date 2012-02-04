@@ -1915,6 +1915,325 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region UserPostListFilterItem
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class UserPostListFilterItem :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.UserPostListFilterItem.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if (this._UserId != value)
+                {
+                    this.RaiseDataMemberChanging("UserId");
+                    this.ValidateProperty("UserId", value);
+                    this._UserId = value;
+                    this.RaiseDataMemberChanged("UserId");
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> PostStartDate
+        {
+            get
+            {
+                return this._PostStartDate;
+            }
+            set
+            {
+                if (this._PostStartDate != value)
+                {
+                    this.RaiseDataMemberChanging("PostStartDate");
+                    this.ValidateProperty("PostStartDate", value);
+                    this._PostStartDate = value;
+                    this.RaiseDataMemberChanged("PostStartDate");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _PostStartDate;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> PostEndDate
+        {
+            get
+            {
+                return this._PostEndDate;
+            }
+            set
+            {
+                if (this._PostEndDate != value)
+                {
+                    this.RaiseDataMemberChanging("PostEndDate");
+                    this.ValidateProperty("PostEndDate", value);
+                    this._PostEndDate = value;
+                    this.RaiseDataMemberChanged("PostEndDate");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _PostEndDate;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> ResponseStartDate
+        {
+            get
+            {
+                return this._ResponseStartDate;
+            }
+            set
+            {
+                if (this._ResponseStartDate != value)
+                {
+                    this.RaiseDataMemberChanging("ResponseStartDate");
+                    this.ValidateProperty("ResponseStartDate", value);
+                    this._ResponseStartDate = value;
+                    this.RaiseDataMemberChanged("ResponseStartDate");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _ResponseStartDate;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> ResponseEndDate
+        {
+            get
+            {
+                return this._ResponseEndDate;
+            }
+            set
+            {
+                if (this._ResponseEndDate != value)
+                {
+                    this.RaiseDataMemberChanging("ResponseEndDate");
+                    this.ValidateProperty("ResponseEndDate", value);
+                    this._ResponseEndDate = value;
+                    this.RaiseDataMemberChanged("ResponseEndDate");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _ResponseEndDate;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string FilteredKeywords
+        {
+            get
+            {
+                return this._FilteredKeywords;
+            }
+            set
+            {
+                if (this._FilteredKeywords != value)
+                {
+                    this.RaiseDataMemberChanging("FilteredKeywords");
+                    this.ValidateProperty("FilteredKeywords", value);
+                    this._FilteredKeywords = value;
+                    this.RaiseDataMemberChanged("FilteredKeywords");
+                }
+            }
+        }
+        private string _FilteredKeywords;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string FilteredCities
+        {
+            get
+            {
+                return this._FilteredCities;
+            }
+            set
+            {
+                if (this._FilteredCities != value)
+                {
+                    this.RaiseDataMemberChanging("FilteredCities");
+                    this.ValidateProperty("FilteredCities", value);
+                    this._FilteredCities = value;
+                    this.RaiseDataMemberChanged("FilteredCities");
+                }
+            }
+        }
+        private string _FilteredCities;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string FilteredStates
+        {
+            get
+            {
+                return this._FilteredStates;
+            }
+            set
+            {
+                if (this._FilteredStates != value)
+                {
+                    this.RaiseDataMemberChanging("FilteredStates");
+                    this.ValidateProperty("FilteredStates", value);
+                    this._FilteredStates = value;
+                    this.RaiseDataMemberChanged("FilteredStates");
+                }
+            }
+        }
+        private string _FilteredStates;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string FilteredCountries
+        {
+            get
+            {
+                return this._FilteredCountries;
+            }
+            set
+            {
+                if (this._FilteredCountries != value)
+                {
+                    this.RaiseDataMemberChanging("FilteredCountries");
+                    this.ValidateProperty("FilteredCountries", value);
+                    this._FilteredCountries = value;
+                    this.RaiseDataMemberChanged("FilteredCountries");
+                }
+            }
+        }
+        private string _FilteredCountries;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool ShowResponded
+        {
+            get
+            {
+                return this._ShowResponded;
+            }
+            set
+            {
+                if (this._ShowResponded != value)
+                {
+                    this.RaiseDataMemberChanging("ShowResponded");
+                    this.ValidateProperty("ShowResponded", value);
+                    this._ShowResponded = value;
+                    this.RaiseDataMemberChanged("ShowResponded");
+                }
+            }
+        }
+        private bool _ShowResponded;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool ShowNotResponded
+        {
+            get
+            {
+                return this._ShowNotResponded;
+            }
+            set
+            {
+                if (this._ShowNotResponded != value)
+                {
+                    this.RaiseDataMemberChanging("ShowNotResponded");
+                    this.ValidateProperty("ShowNotResponded", value);
+                    this._ShowNotResponded = value;
+                    this.RaiseDataMemberChanged("ShowNotResponded");
+                }
+            }
+        }
+        private bool _ShowNotResponded;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool FiltersEnabled
+        {
+            get
+            {
+                return this._FiltersEnabled;
+            }
+            set
+            {
+                if (this._FiltersEnabled != value)
+                {
+                    this.RaiseDataMemberChanging("FiltersEnabled");
+                    this.ValidateProperty("FiltersEnabled", value);
+                    this._FiltersEnabled = value;
+                    this.RaiseDataMemberChanged("FiltersEnabled");
+                }
+            }
+        }
+        private bool _FiltersEnabled;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
     #region MarketingDomainServiceData
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1989,6 +2308,13 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.UserTemplateItem>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.UserPostListFilterItem> UserPostListFilterItemEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.UserPostListFilterItem>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDomainServiceDataEntityContainer();
@@ -2007,6 +2333,7 @@ namespace LightSwitchApplication.Implementation
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.Operation>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.User>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserTemplateItem>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserPostListFilterItem>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -2243,6 +2570,30 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginGetUserTemplateItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserTemplateItem> EndGetUserTemplateItemById(global::System.IAsyncResult result);
             
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserPostListItemByUserId", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserPostListItemByUserIdResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/GetUserPostListItemByUserIdDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginGetUserPostListItemByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserPostListFilterItem> EndGetUserPostListItemByUserId(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserPostListFilterItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserPostListFilterItem> EndUserPostListFilterItems_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserPostListFilterItems_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserPostListFilterItem> EndUserPostListFilterItems_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserPostListFilterItems_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserPostListFilterItems_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserPostListFilterItem> EndUserPostListFilterItems_All(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
@@ -2301,6 +2652,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.UserTemplateItem))
             {
                 return new global::LightSwitchApplication.Implementation.UserTemplateItem();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserPostListFilterItem))
+            {
+                return new global::LightSwitchApplication.Implementation.UserPostListFilterItem();
             }
             return null;
         }
@@ -2380,6 +2735,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserTemplateItem) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.UserTemplateItem);
+            }
+            if (typeof(global::LightSwitchApplication.UserPostListFilterItem) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.UserPostListFilterItem);
             }
             return null;
         }

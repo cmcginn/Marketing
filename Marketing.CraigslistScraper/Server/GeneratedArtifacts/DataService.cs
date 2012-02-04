@@ -222,6 +222,21 @@ namespace LightSwitchApplication
         partial void UserTemplateItems_Validate(global::LightSwitchApplication.UserTemplateItem entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Updating(global::LightSwitchApplication.UserPostListFilterItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Updated(global::LightSwitchApplication.UserPostListFilterItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Validate(global::LightSwitchApplication.UserPostListFilterItem entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -803,6 +818,66 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserTemplateItemById_ExecuteFailed(global::System.Nullable<global::System.Guid> id, global::System.Exception exception);
     
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPostListItemByUserId_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPostListItemByUserId_Executing(global::System.Nullable<global::System.Guid> userId);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPostListItemByUserId_PreprocessQuery(global::System.Nullable<global::System.Guid> userId, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPostListItemByUserId_Executed(global::System.Nullable<global::System.Guid> userId, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserPostListItemByUserId_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserPostListFilterItems_All_ExecuteFailed(global::System.Exception exception);
+    
         #endregion
     
         #region Details Class
@@ -1217,6 +1292,46 @@ namespace LightSwitchApplication
             private static void __UserTemplateItems_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserTemplateItem e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.UserTemplateItems_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>
+                __UserPostListFilterItemsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>(
+                    "UserPostListFilterItems",
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_CanUpdate,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_CanRead,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Updating,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Updated,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Validate);
+            private static bool __UserPostListFilterItems_CanUpdate(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserPostListFilterItems_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __UserPostListFilterItems_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserPostListFilterItems_CanRead(ref result);
+                return result;
+            }
+            private static void __UserPostListFilterItems_Updating(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserPostListFilterItem e)
+            {
+                d.UserPostListFilterItems_Updating(e);
+            }
+            private static void __UserPostListFilterItems_Updated(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserPostListFilterItem e)
+            {
+                d.UserPostListFilterItems_Updated(e);
+            }
+            private static void __UserPostListFilterItems_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserPostListFilterItem e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.UserPostListFilterItems_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -2496,6 +2611,138 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.UserTemplateItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserTemplateItem>)args[1];
                 d.GetUserTemplateItemById_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>
+                __GetUserPostListItemByUserIdEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>(
+                    "GetUserPostListItemByUserId",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserPostListItemByUserId_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserPostListItemByUserId_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserPostListItemByUserId_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserPostListItemByUserId_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserPostListItemByUserId_PreprocessQuery);
+            private static bool __GetUserPostListItemByUserId_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.GetUserPostListItemByUserId_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetUserPostListItemByUserId_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserPostListItemByUserId_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __GetUserPostListItemByUserId_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserPostListItemByUserId_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem>)args[1]);
+            }
+            private static void __GetUserPostListItemByUserId_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetUserPostListItemByUserId_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __GetUserPostListItemByUserId_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem>)args[1];
+                d.GetUserPostListItemByUserId_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>
+                __UserPostListFilterItems_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>(
+                    "UserPostListFilterItems_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_Single_PreprocessQuery);
+            private static bool __UserPostListFilterItems_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserPostListFilterItems_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserPostListFilterItems_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserPostListFilterItems_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __UserPostListFilterItems_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserPostListFilterItems_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem>)args[1]);
+            }
+            private static void __UserPostListFilterItems_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserPostListFilterItems_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __UserPostListFilterItems_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem>)args[1];
+                d.UserPostListFilterItems_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>
+                __UserPostListFilterItems_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>(
+                    "UserPostListFilterItems_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_SingleOrDefault_PreprocessQuery);
+            private static bool __UserPostListFilterItems_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserPostListFilterItems_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserPostListFilterItems_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserPostListFilterItems_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __UserPostListFilterItems_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserPostListFilterItems_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem>)args[1]);
+            }
+            private static void __UserPostListFilterItems_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserPostListFilterItems_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __UserPostListFilterItems_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem>)args[1];
+                d.UserPostListFilterItems_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>
+                __UserPostListFilterItems_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserPostListFilterItem>(
+                    "UserPostListFilterItems_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserPostListFilterItems_All_PreprocessQuery);
+            private static bool __UserPostListFilterItems_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.UserPostListFilterItems_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __UserPostListFilterItems_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserPostListFilterItems_All_Executing();
+            }
+            private static void __UserPostListFilterItems_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.UserPostListFilterItems_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserPostListFilterItem>)args[0]);
+            }
+            private static void __UserPostListFilterItems_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.UserPostListFilterItems_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __UserPostListFilterItems_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserPostListFilterItem>)args[0];
+                d.UserPostListFilterItems_All_PreprocessQuery(ref query);
                 return query;
             }
     

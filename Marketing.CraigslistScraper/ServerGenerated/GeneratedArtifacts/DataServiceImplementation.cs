@@ -295,6 +295,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region UserPostListFilterItem
+    
+        public void InsertUserPostListFilterItem(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.UserPostListFilterItems.AddObject(entity);
+            }
+        }
+    
+        public void UpdateUserPostListFilterItem(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.UserPostListFilterItems, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteUserPostListFilterItem(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.UserPostListFilterItems.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
@@ -484,6 +514,26 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserTemplateItem> GetUserTemplateItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserTemplateItem>("GetUserTemplateItemById", frameworkOperators, id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> GetUserPostListItemByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("GetUserPostListItemByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_All", frameworkOperators);
         }
     
     #endregion
@@ -857,6 +907,38 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> GetUserPostListItemByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("GetUserPostListItemByUserId", userId).AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_All"),
+                (u) => (Id.HasValue && (u.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> UserPostListFilterItems_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("GetDefaultUserPostListFilterItems").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -897,6 +979,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserTemplateItem))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserTemplateItem();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserPostListFilterItem();
             }
     
             return base.CreateObject(type);
@@ -948,6 +1034,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserTemplateItem();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserPostListFilterItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.UserPostListFilterItem();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -987,6 +1077,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserTemplateItem))
             {
                 return typeof(global::Marketing.Services.UserTemplateItem);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem))
+            {
+                return typeof(global::Marketing.Services.UserPostListFilterItem);
             }
             return base.ConvertType(outerType);
         }
@@ -1115,6 +1209,25 @@ namespace LightSwitchApplication.Implementation
                 result.TemplateName = userTemplateItem.TemplateName;
                 result.TemplateHtml = userTemplateItem.TemplateHtml;
                 result.TemplateText = userTemplateItem.TemplateText;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.UserPostListFilterItem userPostListFilterItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserPostListFilterItem;
+            if (userPostListFilterItem != null)
+            {
+                global::Marketing.Services.UserPostListFilterItem result = new global::Marketing.Services.UserPostListFilterItem();
+                result.Id = userPostListFilterItem.Id;
+                result.UserId = userPostListFilterItem.UserId;
+                result.PostStartDate = userPostListFilterItem.PostStartDate;
+                result.PostEndDate = userPostListFilterItem.PostEndDate;
+                result.ResponseStartDate = userPostListFilterItem.ResponseStartDate;
+                result.ResponseEndDate = userPostListFilterItem.ResponseEndDate;
+                result.FilteredKeywords = userPostListFilterItem.FilteredKeywords;
+                result.FilteredCities = userPostListFilterItem.FilteredCities;
+                result.FilteredStates = userPostListFilterItem.FilteredStates;
+                result.FilteredCountries = userPostListFilterItem.FilteredCountries;
+                result.ShowResponded = userPostListFilterItem.ShowResponded;
+                result.ShowNotResponded = userPostListFilterItem.ShowNotResponded;
+                result.FiltersEnabled = userPostListFilterItem.FiltersEnabled;
                 return result;
             }
             return null;
@@ -1248,6 +1361,25 @@ namespace LightSwitchApplication.Implementation
                 outerUserTemplateItem.TemplateText = innerUserTemplateItem.TemplateText;
                 return;
             }
+            global::MarketingDomainServiceData.Implementation.UserPostListFilterItem outerUserPostListFilterItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserPostListFilterItem;
+            global::Marketing.Services.UserPostListFilterItem innerUserPostListFilterItem = innerResult as global::Marketing.Services.UserPostListFilterItem;
+            if ((outerUserPostListFilterItem != null) && (innerUserPostListFilterItem != null))
+            {
+                outerUserPostListFilterItem.Id = innerUserPostListFilterItem.Id;
+                outerUserPostListFilterItem.UserId = innerUserPostListFilterItem.UserId;
+                outerUserPostListFilterItem.PostStartDate = innerUserPostListFilterItem.PostStartDate;
+                outerUserPostListFilterItem.PostEndDate = innerUserPostListFilterItem.PostEndDate;
+                outerUserPostListFilterItem.ResponseStartDate = innerUserPostListFilterItem.ResponseStartDate;
+                outerUserPostListFilterItem.ResponseEndDate = innerUserPostListFilterItem.ResponseEndDate;
+                outerUserPostListFilterItem.FilteredKeywords = innerUserPostListFilterItem.FilteredKeywords;
+                outerUserPostListFilterItem.FilteredCities = innerUserPostListFilterItem.FilteredCities;
+                outerUserPostListFilterItem.FilteredStates = innerUserPostListFilterItem.FilteredStates;
+                outerUserPostListFilterItem.FilteredCountries = innerUserPostListFilterItem.FilteredCountries;
+                outerUserPostListFilterItem.ShowResponded = innerUserPostListFilterItem.ShowResponded;
+                outerUserPostListFilterItem.ShowNotResponded = innerUserPostListFilterItem.ShowNotResponded;
+                outerUserPostListFilterItem.FiltersEnabled = innerUserPostListFilterItem.FiltersEnabled;
+                return;
+            }
         }
     
     #endregion
@@ -1327,6 +1459,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserTemplateItem) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserTemplateItem);
+            }
+            if (typeof(global::LightSwitchApplication.UserPostListFilterItem) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem);
             }
             return null;
         }
@@ -1604,6 +1740,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserTemplateItem :
         global::LightSwitchApplication.UserTemplateItem.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class UserPostListFilterItem :
+        global::LightSwitchApplication.UserPostListFilterItem.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

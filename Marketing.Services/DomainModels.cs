@@ -109,4 +109,23 @@ namespace Marketing.Services {
     public string TemplateText { get; set; }
     public string TemplateName { get; set; }
   }
+  public class UserPostListFilterItem
+  {
+      // Fields...
+      [Key]
+      public Guid Id { get; set; }
+      public Guid UserId { get; set; }
+      public DateTime? PostStartDate { get; set; }
+      public DateTime? PostEndDate { get; set; }
+      public DateTime? ResponseStartDate { get; set; }
+      public DateTime? ResponseEndDate { get; set; }
+      public string FilteredKeywords { get; set; }
+      public string FilteredCities { get; set; }
+      public string FilteredStates { get; set; }
+      public string FilteredCountries { get; set; }
+      public bool ShowResponded { get; set; }
+      public bool ShowNotResponded { get; set; }
+      public bool FiltersEnabled { get; set; }      
+      
+  }
 }

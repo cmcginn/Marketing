@@ -16,7 +16,7 @@ namespace LightSwitchApplication {
     partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
       this.UserId = Application.UserId;
-      this.LoadingModalDisplayText = "Please be patient";
+      this.LoadingModalDisplayText = "Please be patient";      
     }
 
     partial void UserListItemsView_Activated() {
@@ -81,6 +81,17 @@ namespace LightSwitchApplication {
     partial void ShowFilter_Execute() {
       this.OpenModalWindow( "FilterModal" );
     }
+
+    partial void SaveFilters_Execute()
+    {
+        if (this.GetUserPostListItemByUserId.UserId == Guid.Empty)
+            this.GetUserPostListItemByUserId.UserId = Application.UserId;
+        this.Save();
+        this.CloseModalWindow("GetUserPostListItemByUserId");
+        this.Refresh();
+
+    }
+
 
   }
 }
