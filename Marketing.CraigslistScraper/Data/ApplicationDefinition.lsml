@@ -2446,13 +2446,33 @@
         <ContentItem Kind="Group"
                      Name="ScreenLayout"
                      View="Microsoft.LightSwitch:ColumnsLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ConstantExpression ResultType=":Boolean"
+                                    Value="True" />
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
           <ContentItem Kind="Group"
                        Name="GridContainer">
             <ContentItem.PropertySources>
-              <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                 <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":Boolean"
-                                      Value="True" />
+                  <ConstantExpression ResultType=":Double"
+                                      Value="700" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Double"
+                                      Value="680" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="Pixels" />
                 </ScreenExpressionTree>
               </ControlPropertySource>
               <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
@@ -2484,6 +2504,18 @@
                   <ScreenExpressionTree>
                     <ConstantExpression ResultType=":Double"
                                         Value="30" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Pixels" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="700" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
@@ -2720,6 +2752,12 @@
                                         Value="40" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="700" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
               </ContentItem.PropertySources>
               <ContentItem DataType="CollectionView$UserListingItem"
                            Kind="Collection"
@@ -2738,6 +2776,18 @@
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":String"
                                           Value="None" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Pixels" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="680" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -3037,10 +3087,10 @@
             <ContentItem Kind="Group"
                          Name="Group2">
               <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinHeight]">
                   <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Left" />
+                    <ConstantExpression ResultType=":Double"
+                                        Value="40" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
@@ -3049,10 +3099,10 @@
                                         Value="Top" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinHeight]">
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
                   <ScreenExpressionTree>
                     <ConstantExpression ResultType=":Double"
-                                        Value="40" />
+                                        Value="700" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
@@ -3070,12 +3120,6 @@
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
-                  <ControlPropertySource Property=":RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":String"
@@ -3086,6 +3130,18 @@
                     <ScreenExpressionTree>
                       <ConstantExpression ResultType=":Double"
                                           Value="2" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Pixels" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="680" />
                     </ScreenExpressionTree>
                   </ControlPropertySource>
                 </ContentItem.PropertySources>
@@ -3154,6 +3210,20 @@
           <ContentItem DataType="UserListingItem"
                        Kind="Details"
                        Name="GetFilteredUserListingItems_SelectedItem">
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Double"
+                                      Value="600" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
@@ -3185,18 +3255,26 @@
                 </ControlPropertySource>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
                   <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
                   <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="600" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MaxWidth]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":Double"
+                                        Value="800" />
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>

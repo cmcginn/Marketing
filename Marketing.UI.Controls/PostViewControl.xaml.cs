@@ -28,7 +28,7 @@ namespace Marketing.UI.Controls {
           this.richEditControl.HtmlText = MARKUP_ERROR;
         }
       }else{
-        this.richEditControl.HtmlText = MARKUP_ERROR;
+          this.richEditControl.IsEnabled = false;
       }
 
     }

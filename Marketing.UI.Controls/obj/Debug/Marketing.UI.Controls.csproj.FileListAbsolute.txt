@@ -11,12 +11,16 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.ComponentMod
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Data.Input.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Toolkit.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Toolkit.Internals.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Xml.Linq.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.ComponentModel.DataAnnotations.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Data.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Data.Input.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Toolkit.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Controls.Toolkit.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Data.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Xml.Linq.xml
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\ar\System.ComponentModel.DataAnnotations.resources.dll
@@ -198,6 +202,7 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\ru\System.Xml.Linq.
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PageControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PostDetailsControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PostViewControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\ScoreControl.g.i.cs
@@ -208,4 +213,3 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserTemplateViewCon
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.g.resources
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.pdb
-C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PageControl.g.i.cs

@@ -43,7 +43,7 @@
         </DataTemplate>
         <DataTemplate x:Key="PostLocationCardCellTemplate">
             <Grid>
-                <StackPanel Margin="10,0,0,0">
+                <StackPanel Margin="10,0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock  Width="50" TextWrapping="Wrap" Text="Region:" />
                         <TextBlock TextWrapping="Wrap" Text="{Binding RegionName}" />
@@ -62,7 +62,9 @@
 
         <DataTemplate x:Key="ScoreCellTemplate">
             <Grid ToolTipService.ToolTip="{Binding KeywordDisplay}">
+                <StackPanel Orientation="Horizontal" Margin="10,0">
                 <TextBlock TextWrapping="Wrap" Text="{Binding KeywordScore}" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+                </StackPanel>
             </Grid>
         </DataTemplate>
 

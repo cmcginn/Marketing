@@ -3,16 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
-    
-    <Grid x:Name="LayoutRoot"  Background="White" >
-    <Grid.RowDefinitions>
-      <RowDefinition Height="1*"></RowDefinition>
-      
-    </Grid.RowDefinitions>
-    <TextBox Grid.Row="0" Name="BodyText" Width="0" Height="0" Text="{Binding Path=Value,Mode=TwoWay}" TextChanged="BodyText_TextChanged"></TextBox>
-    <dxre:RichEditControl Grid.Row="0" Name="richEditControl" HorizontalScrollBarVisibility="Visible" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" />
+             
+    mc:Ignorable="d" xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit" d:DesignHeight="800" d:DesignWidth="800">
 
+    <Grid x:Name="LayoutRoot" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel Orientation="Horizontal" Height="Auto" Width="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TextBox Name="BodyText" Width="0" Height="0" Text="{Binding Path=Value,Mode=TwoWay}" TextChanged="BodyText_TextChanged"></TextBox>
+            <dxre:RichEditControl Name="richEditControl" Height="Auto" Width="Auto"  ActiveViewType="Simple" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">                
+            </dxre:RichEditControl>
+        </StackPanel>
     </Grid>
+   
 </UserControl>

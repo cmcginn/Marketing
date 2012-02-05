@@ -31,7 +31,10 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.DomainServices.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Input.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Layout.Toolkit.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Navigation.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Toolkit.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Toolkit.Internals.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Data.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Xml.Linq.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\DevExpress.Xpf.RichEdit.v11.1.dll
@@ -56,10 +59,14 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Data.Input.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Input.xml
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Layout.Toolkit.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Layout.Toolkit.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Navigation.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.DomainServices.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.ServiceModel.DomainServices.Client.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.ServiceModel.DomainServices.Client.Web.xml
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Toolkit.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Controls.Toolkit.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Xml.Linq.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\System.Windows.Data.xml
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Debug\Microsoft.CSharp.xml

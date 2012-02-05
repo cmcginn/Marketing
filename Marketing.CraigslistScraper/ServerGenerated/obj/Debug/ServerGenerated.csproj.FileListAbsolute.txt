@@ -1,6 +1,5 @@
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\LSResourceGeneratorsTask.mcs
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\LSCodeGeneratorsTask.mcs
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Application.ServerGenerated.dll.config
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\Application.ServerGenerated.pdb
@@ -418,5 +417,6 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Deb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\ru\System.ServiceModel.DomainServices.Server.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\zh-Hans\System.ServiceModel.DomainServices.Server.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\bin\Debug\zh-Hant\System.ServiceModel.DomainServices.Server.resources.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\Application.ServerGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ServerGenerated\obj\Debug\Application.ServerGenerated.pdb
