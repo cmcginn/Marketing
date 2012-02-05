@@ -46,8 +46,6 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\RefreshUserL
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\PurgePostsActivity.g.cs
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\Marketing.WorkflowActivities.csproj.XamlGeneratedCodeFileListAbsolute.txt
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\Marketing.WorkflowActivities.csproj.XamlGeneratedXamlFileListAbsolute.txt
-C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.dll
-C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.pdb
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetCraigslistListingUrlsActivity.g.cs
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetCraigslistListingUrlsActivity.g.xaml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\InProcessTempFiles\GetListingContentActivity.g.cs

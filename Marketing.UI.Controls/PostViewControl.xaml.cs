@@ -15,21 +15,30 @@ namespace Marketing.UI.Controls {
   public partial class PostViewControl : UserControl {
     const string MARKUP_ERROR = "There was a problem retrieving this post. The post may no longer be available.";
     public PostViewControl() {
-      InitializeComponent();
-      var document = this.richEditControl.Document;
+      InitializeComponent(); 
+        
     }
-
+    
 
     private void BodyText_TextChanged( object sender, TextChangedEventArgs e ) {
       if( !String.IsNullOrEmpty( this.BodyText.Text ) ) {
+        
         try {
-          this.richEditControl.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode( XElement.Parse( this.BodyText.Text ).Element( "body" ).ToString() );
+          this.richEditControl.Document.HtmlText = System.Windows.Browser.HttpUtility.HtmlDecode( XElement.Parse( this.BodyText.Text ).Element( "body" ).ToString() );
         } catch {
-          this.richEditControl.HtmlText = MARKUP_ERROR;
+          this.richEditControl.Document.HtmlText = MARKUP_ERROR;
         }
       }else{
           this.richEditControl.IsEnabled = false;
       }
+
+    }
+
+    private void userControl_SizeChanged(object sender, SizeChangedEventArgs e)
+    {
+        this.richEditControl.Width = this.ActualWidth-40;
+        this.richEditControl.MinHeight = this.richEditControl.Document.HtmlText.Length / 10;
+
 
     }
   }
