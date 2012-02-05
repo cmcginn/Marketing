@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:my="clr-namespace:Marketing.UI.Controls"
-    d:DesignHeight="300" d:DesignWidth="400">
+    d:DesignHeight="300" d:DesignWidth="400" Width="{Binding RelativeSource=TemplatedParent,Path=Width}" >
     <UserControl.Resources>
         <ResourceDictionary x:Key="pagerStyles">
             <ResourceDictionary.MergedDictionaries>
@@ -14,6 +14,8 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid x:Name="LayoutRoot" Background="White">
-        <my:CustomDataPagerControl x:Name="Pager" Grid.Row="1" Style="{StaticResource CustomDataPagerControlStyle}"></my:CustomDataPagerControl>
+        <StackPanel Orientation="Horizontal">
+            <my:CustomDataPagerControl x:Name="Pager" Style="{StaticResource CustomDataPagerControlStyle}" HorizontalContentAlignment="Stretch"></my:CustomDataPagerControl>
+        </StackPanel>
     </Grid>
 </UserControl>

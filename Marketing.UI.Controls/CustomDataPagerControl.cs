@@ -97,6 +97,8 @@ namespace Marketing.UI.Controls {
       ( ( PageCommand )_FirstPageButton.Command ).MayBeExecuted = _FirstPageButton.Command.CanExecute( null );
       ( ( PageCommand )_PreviousPageButton.Command ).MayBeExecuted = _PreviousPageButton.Command.CanExecute( null );
       _CurrentPageTextBox.Text = PageIndex.ToString();
+      _CurrentPageSuffixTextBlock.Text = String.Format("of {0}", PageCount);
+      
 
     }
     void CustomDataPagerControl_PropertyChanged( object sender, PropertyChangedEventArgs e ) {
@@ -111,9 +113,15 @@ namespace Marketing.UI.Controls {
     Button _NextPageButton;
     Button _LastPageButton;
     TextBox _CurrentPageTextBox;
-
+    TextBlock _CurrentPagePrefixTextBlock;
+    TextBlock _CurrentPageSuffixTextBlock;
     public override void OnApplyTemplate() {
       base.OnApplyTemplate();
+      _CurrentPagePrefixTextBlock = this.GetTemplateChild("CurrentPagePrefixTextBlock") as TextBlock;
+      _CurrentPagePrefixTextBlock.Text = "Page";
+
+      _CurrentPageSuffixTextBlock = this.GetTemplateChild("CurrentPageSuffixTextBlock") as TextBlock;
+      _CurrentPageSuffixTextBlock.Text = String.Format("of {0}",PageCount);
       _PreviousPageButton = this.GetTemplateChild( "PreviousPageButton" ) as Button;
       _FirstPageButton = this.GetTemplateChild( "FirstPageButton" ) as Button;
       _LastPageButton = this.GetTemplateChild( "LastPageButton" ) as Button;
