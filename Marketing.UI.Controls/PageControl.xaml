@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     xmlns:my="clr-namespace:Marketing.UI.Controls"
-    d:DesignHeight="300" d:DesignWidth="400" Width="{Binding RelativeSource=TemplatedParent,Path=Width}" >
+    d:DesignHeight="300" d:DesignWidth="400">
     <UserControl.Resources>
         <ResourceDictionary x:Key="pagerStyles">
             <ResourceDictionary.MergedDictionaries>
