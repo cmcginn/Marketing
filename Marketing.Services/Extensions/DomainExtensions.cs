@@ -86,9 +86,10 @@ namespace Marketing.Services.Extensions {
 
       return query;
     }
-    public static IQueryable<UserListingItem> GetUserFilteredUserListingItems(this MarketingEntities context, Guid? userId, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
+    public static IQueryable<UserListingItem> GetUserFilteredUserListingItems(this MarketingEntities context, Guid? userId, bool? filtersEnabled, bool? showResponded, bool? showNotResponded, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
     {
-        var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo));
+        var expiration = System.DateTime.Now.AddDays(-30);
+        var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.PostDate>expiration);
 
         var userIdValue = userId.GetValueOrDefault();
         var postStartDateValue = postStartDate.GetValueOrDefault();
@@ -98,33 +99,41 @@ namespace Marketing.Services.Extensions {
 
         if (userId.HasValue)
             items = items.Where(n => n.UserId == userIdValue);
-        if (postStartDate.HasValue)
-            items = items.Where(n => n.PostDate >= postStartDateValue);
-        if (postEndDate.HasValue)
-            items = items.Where(n => n.PostDate <= postEndDateValue);
-        if (responseStartDate.HasValue)
-            items = items.Where(n => n.Responded != null && n.Responded.Value >= responseStartDateValue);
-        if (responseEndDate.HasValue)
-            items = items.Where(n => n.Responded != null && n.Responded.Value <= responseEndDateValue);
-        if (!String.IsNullOrEmpty(keywords))
+
+        if (filtersEnabled.GetValueOrDefault())
         {
-            keywords = keywords.ToLower();
-            items = items.Where(n => n.PostText.Contains(keywords));
-        }
-        if (!String.IsNullOrEmpty(regionsFilter))
-        {
-            regionsFilter = regionsFilter.ToLower();
-            items = items.Where(n => n.RegionName.ToLower().Contains(regionsFilter));
-        }
-        if (!String.IsNullOrEmpty(statesFilter))
-        {
-            statesFilter = statesFilter.ToLower();
-            items = items.Where(n => n.StateProvince.ToLower().Contains(statesFilter));
-        }
-        if (!String.IsNullOrEmpty(citiesFilter))
-        {
-            citiesFilter = citiesFilter.ToLower();
-            items = items.Where(n => n.CityName.ToLower().Contains(citiesFilter));
+            if (postStartDate.HasValue)
+                items = items.Where(n => n.PostDate >= postStartDateValue);
+            if (postEndDate.HasValue)
+                items = items.Where(n => n.PostDate <= postEndDateValue);
+            if (responseStartDate.HasValue)
+                items = items.Where(n => n.Responded != null && n.Responded.Value >= responseStartDateValue);
+            if (responseEndDate.HasValue)
+                items = items.Where(n => n.Responded != null && n.Responded.Value <= responseEndDateValue);
+            if (!String.IsNullOrEmpty(keywords))
+            {
+                keywords = keywords.ToLower();
+                items = items.Where(n => n.PostText.Contains(keywords));
+            }
+            if (!String.IsNullOrEmpty(regionsFilter))
+            {
+                regionsFilter = regionsFilter.ToLower();
+                items = items.Where(n => n.RegionName.ToLower().Contains(regionsFilter));
+            }
+            if (!String.IsNullOrEmpty(statesFilter))
+            {
+                statesFilter = statesFilter.ToLower();
+                items = items.Where(n => n.StateProvince.ToLower().Contains(statesFilter));
+            }
+            if (!String.IsNullOrEmpty(citiesFilter))
+            {
+                citiesFilter = citiesFilter.ToLower();
+                items = items.Where(n => n.CityName.ToLower().Contains(citiesFilter));
+            }
+            if (!showResponded.GetValueOrDefault())
+                items = items.Where(n => n.Responded == null);
+            if (!showNotResponded.GetValueOrDefault())
+                items = items.Where(n => n.Responded != null);
         }
         var query = from userListingData in items
                     select new UserListingItem

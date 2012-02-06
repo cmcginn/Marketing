@@ -536,9 +536,9 @@ namespace LightSwitchApplication.Implementation
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPostListFilterItem>("UserPostListFilterItems_All", frameworkOperators);
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<bool> showResponded, global::System.Nullable<bool> showNotResponded, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
         {
-            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", frameworkOperators, userId, filtersEnabled, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter);
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", frameworkOperators, userId, filtersEnabled, showResponded, showNotResponded, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter);
         }
     
     #endregion
@@ -944,10 +944,10 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
-        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<bool> showResponded, global::System.Nullable<bool> showNotResponded, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
         {
             global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
-            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", userId, filtersEnabled, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter).AsQueryable();
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", userId, filtersEnabled, showResponded, showNotResponded, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter).AsQueryable();
             return query;
         }
     

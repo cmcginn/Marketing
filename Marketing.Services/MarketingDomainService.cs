@@ -117,13 +117,9 @@ namespace Marketing.Services {
         var result = Context.GetUserTemplates().Where(n => n.Id == id);
         return result;
     }
-    public IQueryable<UserListingItem> GetFilteredUserListingItems(Guid? userId, bool? filtersEnabled, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords,string regionsFilter,string statesFilter,string citiesFilter)
+    public IQueryable<UserListingItem> GetFilteredUserListingItems(Guid? userId, bool? filtersEnabled, bool? showResponded, bool? showNotResponded, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords,string regionsFilter,string statesFilter,string citiesFilter)
     {
-        IQueryable<UserListingItem> result = null;
-        if (filtersEnabled.GetValueOrDefault())
-            result = Context.GetUserFilteredUserListingItems(userId, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter);           
-        else
-            result = DefaultUserListingItems();
+        var result = Context.GetUserFilteredUserListingItems(userId, filtersEnabled, showResponded, showNotResponded, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter);          
         return result;
     }
     #endregion

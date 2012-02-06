@@ -642,6 +642,12 @@ namespace LightSwitchApplication
         /// <param name="filtersEnabled">
         /// No Modeled Description Available
         /// </param>
+        /// <param name="showResponded">
+        /// No Modeled Description Available
+        /// </param>
+        /// <param name="showNotResponded">
+        /// No Modeled Description Available
+        /// </param>
         /// <param name="postStartDate">
         /// No Modeled Description Available
         /// </param>
@@ -666,9 +672,9 @@ namespace LightSwitchApplication
         /// <param name="citiesFilter">
         /// No Modeled Description Available
         /// </param>
-        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserListingItem> GetFilteredUserListingItems(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
+        public global::Microsoft.LightSwitch.IDataServiceQueryable<global::LightSwitchApplication.UserListingItem> GetFilteredUserListingItems(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<bool> showResponded, global::System.Nullable<bool> showNotResponded, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
         {
-            return this.Details.Methods.GetFilteredUserListingItems.CreateInvocation(userId, filtersEnabled, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter).Execute();
+            return this.Details.Methods.GetFilteredUserListingItems.CreateInvocation(userId, filtersEnabled, showResponded, showNotResponded, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter).Execute();
         }
         
         #endregion

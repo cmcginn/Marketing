@@ -91,6 +91,7 @@ namespace LightSwitchApplication {
           _Pager.PageCount = this.GetFilteredUserListingItems.Details.PageCount;
           _Pager.PageIndex = this.GetFilteredUserListingItems.Details.PageNumber;
           _Pager.PageSize = this.GetFilteredUserListingItems.Details.PageSize;
+          _Pager.Refresh();
       } );
     }
 

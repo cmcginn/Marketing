@@ -91,7 +91,7 @@ namespace Marketing.UI.Controls {
       DefaultStyleKey = typeof( CustomDataPagerControl );
 
     }
-    void Refresh() {
+    public void Refresh() {
       ( ( PageCommand )_NextPageButton.Command ).MayBeExecuted = _NextPageButton.Command.CanExecute( null );
       ( ( PageCommand )_LastPageButton.Command ).MayBeExecuted = _LastPageButton.Command.CanExecute( null );
       ( ( PageCommand )_FirstPageButton.Command ).MayBeExecuted = _FirstPageButton.Command.CanExecute( null );
@@ -102,8 +102,8 @@ namespace Marketing.UI.Controls {
 
     }
     void CustomDataPagerControl_PropertyChanged( object sender, PropertyChangedEventArgs e ) {
-      if( e.PropertyName == "PageIndex" )
-        Refresh();
+      //if( e.PropertyName == "PageIndex" )
+      //  Refresh();
     }
     private int _PageCount;
     private int _PageSize;

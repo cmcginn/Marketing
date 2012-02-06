@@ -130,7 +130,6 @@
     <Compile Include="UserCode\UserListingItemDetail.cs" />
     <Compile Include="UserCode\UserListItemsView.cs" />
     <Compile Include="UserCode\Preferences.cs" />
-    <Compile Include="UserCode\UserPostListFilterDetail.cs" />
     <Compile Include="UserCode\UserTemplateDetail.cs" />
   </ItemGroup>
   <ItemGroup>
