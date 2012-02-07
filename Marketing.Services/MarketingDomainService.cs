@@ -119,6 +119,7 @@ namespace Marketing.Services {
     }
     public IQueryable<UserListingItem> GetFilteredUserListingItems(Guid? userId, bool? filtersEnabled, bool? showResponded, bool? showNotResponded, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords,string regionsFilter,string statesFilter,string citiesFilter)
     {
+        
         var result = Context.GetUserFilteredUserListingItems(userId, filtersEnabled, showResponded, showNotResponded, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter);          
         return result;
     }

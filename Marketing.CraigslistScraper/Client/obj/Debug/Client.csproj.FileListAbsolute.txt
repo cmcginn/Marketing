@@ -80,3 +80,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\zh-Han
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Debug\Marketing_CraigslistScraper.Client.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.Internals.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.pdb
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.xml

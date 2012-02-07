@@ -2324,12 +2324,6 @@
                       PropertyType=":Guid?" />
       <ScreenProperty Name="ResponseId"
                       PropertyType=":Guid?" />
-      <ScreenProperty Name="LoadingModalDisplayText"
-                      PropertyType=":String">
-        <ScreenProperty.Attributes>
-          <Required />
-        </ScreenProperty.Attributes>
-      </ScreenProperty>
       <ScreenCollectionProperty Name="GetFilteredUserListingItems"
                                 PageSize="45"
                                 PropertyType="CollectionView$UserListingItem">
@@ -2453,27 +2447,23 @@
         <ContentItem Kind="Group"
                      Name="ScreenLayout"
                      View="Microsoft.LightSwitch:ColumnsLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ConstantExpression ResultType=":Boolean"
+                                    Value="True" />
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+            <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+              <ScreenExpressionTree>
+                <ConstantExpression ResultType=":Double"
+                                    Value="1000" />
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
           <ContentItem Kind="Group"
                        Name="GridContainer">
             <ContentItem.PropertySources>
-              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":Double"
-                                      Value="700" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":Double"
-                                      Value="680" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":String"
-                                      Value="Pixels" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
               <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
                 <ScreenExpressionTree>
                   <ConstantExpression ResultType=":String"
@@ -2484,6 +2474,18 @@
                 <ScreenExpressionTree>
                   <ConstantExpression ResultType=":String"
                                       Value="Top" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Double"
+                                      Value="500" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:ScrollableControl/Properties[IsHorizontalScrollBarEnabled]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
                 </ScreenExpressionTree>
               </ControlPropertySource>
             </ContentItem.PropertySources>
@@ -3153,65 +3155,6 @@
               </ContentItem>
             </ContentItem>
           </ContentItem>
-          <ContentItem Kind="Group"
-                       Name="LoadingModal"
-                       View=":ModalWindow"
-                       IsHidden="False">
-            <ContentItem.Attributes>
-              <DisplayName Value="Loading" />
-            </ContentItem.Attributes>
-            <ContentItem.PropertySources>
-              <ControlPropertySource Property="Microsoft.LightSwitch:ModalWindow/Properties[ShowButton]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":Boolean"
-                                        Value="False" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":String"
-                                      Value="Left" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
-            <ContentItem Kind="Group"
-                         Name="Group">
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Left" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Top" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MaxHeight]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":Double"
-                                        Value="40" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-              <ContentItem DataType=":String"
-                           Kind="Value"
-                           Name="LoadingModalDisplayText"
-                           View=":Label">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserListItemsView/Properties[LoadingModalDisplayText]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem>
-          </ContentItem>
           <ContentItem DataType="UserListingItem"
                        Kind="Details"
                        Name="GetFilteredUserListingItems_SelectedItem">
@@ -3220,6 +3163,12 @@
                 <ScreenExpressionTree>
                   <ConstantExpression ResultType=":Boolean"
                                       Value="True" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":Double"
+                                      Value="500" />
                 </ScreenExpressionTree>
               </ControlPropertySource>
             </ContentItem.PropertySources>

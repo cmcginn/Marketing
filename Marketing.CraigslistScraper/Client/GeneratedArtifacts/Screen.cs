@@ -686,8 +686,6 @@ namespace LightSwitchApplication
 
         partial void ResponseId_Changed();
 
-        partial void LoadingModalDisplayText_Changed();
-
         partial void GetFilteredUserListingItems_SelectionChanged();
 
         partial void GetFilteredUserListingItems_Changed(global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e);
@@ -754,22 +752,6 @@ namespace LightSwitchApplication
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void ResponseId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
- 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string LoadingModalDisplayText
-        {
-            get 
-            {
-                return global::LightSwitchApplication.UserListItemsView.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties.LoadingModalDisplayText);
-            }
-            set
-            {
-                global::LightSwitchApplication.UserListItemsView.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties.LoadingModalDisplayText, value);
-            }
-        }
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void LoadingModalDisplayText_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         /// <summary>
         /// Gets the GetFilteredUserListingItems visual collection. The collection contains all records currently shown on the respective list or grid control.
@@ -963,9 +945,6 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, global::System.Nullable<global::System.Guid>>.Data _ResponseId;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, string>.Data _LoadingModalDisplayText;
-
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, global::LightSwitchApplication.UserListingItem>.Data _GetFilteredUserListingItems;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1040,14 +1019,6 @@ namespace LightSwitchApplication
                     get
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, global::System.Nullable<global::System.Guid>>)base.GetItem(global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties.ResponseId);
-                    }
-                }
-
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, string> LoadingModalDisplayText
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, string>)base.GetItem(global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties.LoadingModalDisplayText);
                     }
                 }
 
@@ -1269,26 +1240,6 @@ namespace LightSwitchApplication
                 private static void _ResponseId_OnValueChanged(global::LightSwitchApplication.UserListItemsView s)
                 {
                     s.ResponseId_Changed();
-                }
-
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, string>.Entry
-                    LoadingModalDisplayText = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, string>.Entry(
-                        "LoadingModalDisplayText",
-                        false,
-                        global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties._LoadingModalDisplayText_Stub,
-                        global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties._LoadingModalDisplayText_Validate,
-                        global::LightSwitchApplication.UserListItemsView.DetailsClass.PropertySetProperties._LoadingModalDisplayText_OnValueChanged);
-                private static void _LoadingModalDisplayText_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListItemsView.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserListItemsView.DetailsClass d, object sf)
-                {
-                    c(d, ref d._LoadingModalDisplayText, sf);
-                }
-                private static void _LoadingModalDisplayText_Validate(global::LightSwitchApplication.UserListItemsView s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
-                {
-                    s.LoadingModalDisplayText_Validate(r);
-                }
-                private static void _LoadingModalDisplayText_OnValueChanged(global::LightSwitchApplication.UserListItemsView s)
-                {
-                    s.LoadingModalDisplayText_Changed();
                 }
 
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCollectionProperty<global::LightSwitchApplication.UserListItemsView, global::LightSwitchApplication.UserListItemsView.DetailsClass, global::LightSwitchApplication.UserListingItem>.Entry

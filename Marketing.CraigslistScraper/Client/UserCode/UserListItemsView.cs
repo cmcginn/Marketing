@@ -8,44 +8,60 @@ using Microsoft.LightSwitch.Framework.Client;
 using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
 using System.Windows.Threading;
+using System.Windows.Controls;
 namespace LightSwitchApplication {
   public partial class UserListItemsView {
     Marketing.UI.Controls.UserListItemsViewControl _UserListItemsViewControl;
     Marketing.UI.Controls.CustomDataPagerControl _Pager;
-
+ 
+    bool _Activated;
     partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
       this.UserId = Application.UserId;
-      this.LoadingModalDisplayText = "Please be patient";
+
     
     }
 
     partial void UserListItemsView_Activated() {
-      if(_UserListItemsViewControl==null)
-          this.FindControl("GetFilteredUserListingItems").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(UserListItemsView_ControlAvailable);
-      this.FindControl("GetUserPostListFilterItemByUserId").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GetUserPostListFilterItemByUserId_ControlAvailable);
-      this.FindControl("GridPager").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GridPager_ControlAvailable);
-      this.CloseModalWindow( "LoadingModal" );
+        if (!_Activated)
+        {
+            if (_UserListItemsViewControl == null)
+                this.FindControl("GetFilteredUserListingItems").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(UserListItemsView_ControlAvailable);
+            this.FindControl("GetUserPostListFilterItemByUserId").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GetUserPostListFilterItemByUserId_ControlAvailable);           
+
+            this.FindControl("GridPager").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GridPager_ControlAvailable);
+            _Activated = true;
+        }
+
     }
 
     void GetUserPostListFilterItemByUserId_ControlAvailable(object sender, ControlAvailableEventArgs e)
     {
-        var ctl =e.Control as Microsoft.LightSwitch.Runtime.Shell.Framework.ScreenChildWindow;
-        ctl.HasCloseButton = false;
+        if (!_Activated)
+        {
+            var ctl = e.Control as Microsoft.LightSwitch.Runtime.Shell.Framework.ScreenChildWindow;
+            ctl.HasCloseButton = false;
+        }
 
     }
     void GridPager_ControlAvailable(object sender, ControlAvailableEventArgs e)
     {
-        var ctl = e.Control as Marketing.UI.Controls.PageControl;
+        if (!_Activated)
+        {
+            var ctl = e.Control as Marketing.UI.Controls.PageControl;
 
-        _Pager = ctl.Page as Marketing.UI.Controls.CustomDataPagerControl;
-        _Pager.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(_Pager_PropertyChanged);
+            _Pager = ctl.Page as Marketing.UI.Controls.CustomDataPagerControl;
+            _Pager.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(_Pager_PropertyChanged);
+        }
 
     }
     void UserListItemsView_ControlAvailable( object sender, ControlAvailableEventArgs e ) {
-      _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
-      _UserListItemsViewControl.OpenViewLinkClick += new EventHandler( OnOpenViewLinkClick );
-      _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler( OnSendDefaultLinkClick );    
+        if (!_Activated)
+        {
+            _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
+            _UserListItemsViewControl.OpenViewLinkClick += new EventHandler(OnOpenViewLinkClick);
+            _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler(OnSendDefaultLinkClick);
+        }
 
     }
 
@@ -77,17 +93,18 @@ namespace LightSwitchApplication {
 
     partial void OpenResponseView_Execute() {
       // Write your code here.
-      this.OpenModalWindow( "LoadingModal" );
+   
       this.Details.Dispatcher.BeginInvoke( () => {
           Application.ShowDefaultScreen(this.GetFilteredUserListingItems.SelectedItem);       
         
       } );
       
     }
-
+   
     partial void GetFilteredUserListingItems_Loaded(bool succeeded)
     {
-      _Pager.Dispatcher.BeginInvoke( () => {
+      
+      _Pager.Dispatcher.BeginInvoke( () => {  
           _Pager.PageCount = this.GetFilteredUserListingItems.Details.PageCount;
           _Pager.PageIndex = this.GetFilteredUserListingItems.Details.PageNumber;
           _Pager.PageSize = this.GetFilteredUserListingItems.Details.PageSize;
