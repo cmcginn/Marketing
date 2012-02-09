@@ -35,25 +35,31 @@ namespace Marketing.Utils.HtmlToXml
         public string Filter(string source,bool toSgml)
         {
             Dictionary<string, string> replacements = new Dictionary<string, string>();
-            
+
             replacements.Add("&nbsp;", "&#160;");
             replacements.Add("&mdash;", "&#8212;");
-            replacements.Add("&rsquo;","&#8217;");
+            replacements.Add("&rsquo;", "&#8217;");
             replacements.Add("&lsquo;", "&#8216;");
             replacements.Add("&middot;", "&#183;");
             replacements.Add("&ldquo", "&#8220;");
             replacements.Add("&rdquo", "&#8221;");
             replacements.Add("&ndash;", "&#8211;");
-            replacements.Add("&copy;", "&#169;" );
-            replacements.Add("& ", "&#38;");
+            replacements.Add("&copy;", "&#169;");
+            replacements.Add("&quote;", "&#34;");
+            replacements.Add("&quot;", "&#34;");
+            replacements.Add("(&)(?:[A-Za-z ])", "&amp;");
 
 
             if (toSgml)
-                replacements.Keys.ToList().ForEach(n => source = source.Replace(n, replacements[n]));
+            {
+                replacements.Keys.ToList().ForEach(n => {
+                    source = System.Text.RegularExpressions.Regex.Replace(source, n, replacements[n]);                  
+                });
+            }
             else
             {
                 //
-                //replacements.Remove("&");
+                replacements.Remove("&");
                 replacements.Keys.ToList().ForEach(n => source = source.Replace(replacements[n], n));
                 source = source.Replace("&amp;", "&");
             }

@@ -1987,6 +1987,17 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
             </ContentItem>
+            <ContentItem DataType=":Int32"
+                         Kind="Value"
+                         Name="MinimumKeywordScore">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[MinimumKeywordScore]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
           </ContentItem>
         </ContentItem>
       </ContentItem>
@@ -2131,6 +2142,13 @@
       </EntityProperty>
       <EntityProperty Name="SMTPPassword"
                       PropertyType=":String?" />
+      <EntityProperty Name="MinimumKeywordScore"
+                      PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   <EntityType Name="UserListingItem">
@@ -4595,6 +4613,8 @@
                         Property="UserPreferenceSelection/Properties[SMTPPort]" />
         <WcfRiaProperty Name="RequiresSSL"
                         Property="UserPreferenceSelection/Properties[RequiresSSL]" />
+        <WcfRiaProperty Name="MinimumKeywordScore"
+                        Property="UserPreferenceSelection/Properties[MinimumKeywordScore]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <EntitySetMapping EntitySet="UserListingItems">
@@ -4783,6 +4803,8 @@
       </QueryOperationMapping.Attributes>
     </QueryOperationMapping>
   </DataService>
+
+  
 
 
   

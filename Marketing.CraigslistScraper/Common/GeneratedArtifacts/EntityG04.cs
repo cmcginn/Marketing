@@ -294,6 +294,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SMTPPassword_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public int MinimumKeywordScore
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.GetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.MinimumKeywordScore);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.SetValue(this, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.MinimumKeywordScore, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MinimumKeywordScore_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MinimumKeywordScore_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void MinimumKeywordScore_Changed();
+
         #endregion
     
         #region Details Class
@@ -448,6 +472,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int> MinimumKeywordScore
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties.MinimumKeywordScore) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -463,6 +495,7 @@ namespace LightSwitchApplication
                 new int SMTPPort { get; set; }
                 new bool RequiresSSL { get; set; }
                 new string SMTPPassword { get; set; }
+                new int MinimumKeywordScore { get; set; }
             }
             #pragma warning restore 109
     
@@ -805,6 +838,43 @@ namespace LightSwitchApplication
                     e.SMTPPassword_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Entry
+                    MinimumKeywordScore = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Entry(
+                        "MinimumKeywordScore",
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._MinimumKeywordScore_Stub,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._MinimumKeywordScore_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._MinimumKeywordScore_Validate,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._MinimumKeywordScore_GetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._MinimumKeywordScore_SetImplementationValue,
+                        global::LightSwitchApplication.UserPreferenceSelection.DetailsClass.PropertySetProperties._MinimumKeywordScore_OnValueChanged);
+                private static void _MinimumKeywordScore_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Data> c, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, object sf)
+                {
+                    c(d, ref d._MinimumKeywordScore, sf);
+                }
+                private static bool _MinimumKeywordScore_ComputeIsReadOnly(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    bool result = false;
+                    e.MinimumKeywordScore_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _MinimumKeywordScore_Validate(global::LightSwitchApplication.UserPreferenceSelection e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.MinimumKeywordScore_Validate(r);
+                }
+                private static int _MinimumKeywordScore_GetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d)
+                {
+                    return d.ImplementationEntity.MinimumKeywordScore;
+                }
+                private static void _MinimumKeywordScore_SetImplementationValue(global::LightSwitchApplication.UserPreferenceSelection.DetailsClass d, int v)
+                {
+                    d.ImplementationEntity.MinimumKeywordScore = v;
+                }
+                private static void _MinimumKeywordScore_OnValueChanged(global::LightSwitchApplication.UserPreferenceSelection e)
+                {
+                    e.MinimumKeywordScore_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -833,6 +903,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, string>.Data _SMTPPassword;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserPreferenceSelection, global::LightSwitchApplication.UserPreferenceSelection.DetailsClass, int>.Data _MinimumKeywordScore;
             
         }
     

@@ -50,6 +50,7 @@
           <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />
           <ScalarProperty Name="RequiresSSL" ColumnName="RequiresSSL" />
           <ScalarProperty Name="SMTPPassword" ColumnName="SMTPPassword" />
+          <ScalarProperty Name="MinimumKeywordScore" ColumnName="MinimumKeywordScore" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

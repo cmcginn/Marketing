@@ -202,6 +202,14 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\ru\System.Xml.Linq.
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\zh-Hans\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\zh-Hant\System.Xml.Linq.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.g.resources
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.pdb
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Interactivity.dll
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\System.Windows.Interactivity.xml
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\GridStyles.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PageControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PostDetailsControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\PostViewControl.g.i.cs
@@ -210,6 +218,3 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\ServerOperationList
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\TemplateEditorControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserListItemsViewControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserTemplateViewControl.g.i.cs
-C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.g.resources
-C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.dll
-C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\Marketing.UI.Controls.pdb

@@ -4,81 +4,82 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" xmlns:my="clr-namespace:Marketing.UI.Controls">
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk" 
+    xmlns:my="clr-namespace:Marketing.UI.Controls"   
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit">
     <UserControl.Resources>
-        <ResourceDictionary x:Key="pagerStyles">
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="CustomDataPagerControlStyle.xaml"></ResourceDictionary>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-        <my:TitleValueConverter x:Key="TitleDisplayValueConverter" />
-        <my:DefaultResponseEnabledValueConverter x:Key="DefaultResponseEnabledValueConverterResource" />
-        <DataTemplate x:Key="PostDetailsCardCellTemplate">
-            <Grid>
-                <StackPanel Orientation="Horizontal" Margin="10,0">
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="400">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock FontWeight="Bold" Width="70" TextWrapping="Wrap" Text="Title:" FontSize="13.333" />
-                            <TextBlock ToolTipService.ToolTip="{Binding Title}" Text="{Binding Converter={StaticResource TitleDisplayValueConverter}}" FontWeight="Bold" FontSize="13.333" MaxWidth="300"></TextBlock>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="70" TextWrapping="Wrap" Text="Created:" />
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Created}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="70" TextWrapping="Wrap" Text="Responded:" />
-                            <TextBlock TextWrapping="Wrap" Text="{Binding ResponseSent}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Width="70" TextWrapping="Wrap" Text="Category:" />
-                            <TextBlock TextWrapping="Wrap" Text="{Binding CategoryName}" />
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
-                        <HyperlinkButton Content="Open View" Click="OnOpenViewLinkClick" FontSize="12" />
-                        <HyperlinkButton Content="Send Default" Click="OnSendDefaultLinkClick" FontSize="12" IsEnabled="{Binding Converter={StaticResource DefaultResponseEnabledValueConverterResource}, Path=ResponseSent}" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate x:Key="PostLocationCardCellTemplate">
-            <Grid>
-                <StackPanel Margin="10,0">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock  Width="50" TextWrapping="Wrap" Text="Region:" />
-                        <TextBlock TextWrapping="Wrap" Text="{Binding RegionName}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="50" TextWrapping="Wrap" Text="State:" />
-                        <TextBlock TextWrapping="Wrap" Text="{Binding StateProvince}" />
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="50" TextWrapping="Wrap" Text="City:" />
-                        <TextBlock TextWrapping="Wrap" Text="{Binding CityName}" />
-                    </StackPanel>
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
+        
+    	<ResourceDictionary>
+    
+        
+    		<my:TitleValueConverter x:Key="TitleDisplayValueConverter" />
+    		<my:DefaultResponseEnabledValueConverter x:Key="DefaultResponseEnabledValueConverterResource" />
+    		<DataTemplate x:Key="PostDetailsCardCellTemplate">
+    			<Grid>
+    				<StackPanel Orientation="Horizontal" Margin="10,0">
+    					<StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="400">
+    						<StackPanel Orientation="Horizontal">
+    							<TextBlock FontWeight="Bold" Width="70" TextWrapping="Wrap" Text="Title:" FontSize="13.333" />
+    							<TextBlock ToolTipService.ToolTip="{Binding Title}" Text="{Binding Converter={StaticResource TitleDisplayValueConverter}}" FontWeight="Bold" FontSize="13.333" MaxWidth="300"/>
+    						</StackPanel>
+    						<StackPanel Orientation="Horizontal">
+    							<TextBlock Width="70" TextWrapping="Wrap" Text="Created:" />
+    							<TextBlock TextWrapping="Wrap" Text="{Binding Created}" />
+    						</StackPanel>
+    						<StackPanel Orientation="Horizontal">
+    							<TextBlock Width="70" TextWrapping="Wrap" Text="Responded:" />
+    							<TextBlock TextWrapping="Wrap" Text="{Binding ResponseSent}" />
+    						</StackPanel>
+    						<StackPanel Orientation="Horizontal">
+    							<TextBlock Width="70" TextWrapping="Wrap" Text="Category:" />
+    							<TextBlock TextWrapping="Wrap" Text="{Binding CategoryName}" />
+    						</StackPanel>
+    					</StackPanel>
+    					<StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
+    						<HyperlinkButton Content="Open View" Click="OnOpenViewLinkClick" FontSize="12" />
+    						<HyperlinkButton Content="Send Default" Click="OnSendDefaultLinkClick" FontSize="12" IsEnabled="{Binding ResponseSent, Converter={StaticResource DefaultResponseEnabledValueConverterResource}}" />
+    					</StackPanel>
+    				</StackPanel>
+    			</Grid>
+    		</DataTemplate>
+    		<DataTemplate x:Key="PostLocationCardCellTemplate">
+    			<Grid>
+    				<StackPanel Margin="10,0">
+    					<StackPanel Orientation="Horizontal">
+    						<TextBlock  Width="50" TextWrapping="Wrap" Text="Region:" />
+    						<TextBlock TextWrapping="Wrap" Text="{Binding RegionName}" />
+    					</StackPanel>
+    					<StackPanel Orientation="Horizontal">
+    						<TextBlock Width="50" TextWrapping="Wrap" Text="State:" />
+    						<TextBlock TextWrapping="Wrap" Text="{Binding StateProvince}" />
+    					</StackPanel>
+    					<StackPanel Orientation="Horizontal">
+    						<TextBlock Width="50" TextWrapping="Wrap" Text="City:" />
+    						<TextBlock TextWrapping="Wrap" Text="{Binding CityName}" />
+    					</StackPanel>
+    				</StackPanel>
+    			</Grid>
+    		</DataTemplate>
 
-        <DataTemplate x:Key="ScoreCellTemplate">
-            <Grid ToolTipService.ToolTip="{Binding KeywordDisplay}">
-                <StackPanel Orientation="Horizontal" Margin="10,0">
-                <TextBlock TextWrapping="Wrap" Text="{Binding KeywordScore}" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
-                </StackPanel>
-            </Grid>
-        </DataTemplate>
+    		<DataTemplate x:Key="ScoreCellTemplate">
+    			<Grid ToolTipService.ToolTip="{Binding KeywordDisplay}">
+    				<StackPanel Orientation="Horizontal" Margin="10,0">
+    					<TextBlock TextWrapping="Wrap" Text="{Binding KeywordScore}" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+    				</StackPanel>
+    			</Grid>
+    		</DataTemplate>
+
+    	</ResourceDictionary>
 
     </UserControl.Resources>
-    <Grid x:Name="LayoutRoot" Background="White">
-
-
-        <sdk:DataGrid  AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetFilteredUserListingItems}" SelectedItem="{Binding GetFilteredUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">
+    <Grid x:Name="LayoutRoot">        
+            <sdk:DataGrid AutoGenerateColumns="False"  Name="DataGridControl" DataContext="{Binding Screen}" ItemsSource="{Binding GetFilteredUserListingItems}" SelectedItem="{Binding GetFilteredUserListingItems.SelectedItem,Mode=TwoWay}" Width="Auto">
             <sdk:DataGrid.Columns>
                 <sdk:DataGridTemplateColumn Header="Details" CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostDetailsCardCellTemplate}" Width="Auto" />
                 <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource ScoreCellTemplate}" SortMemberPath="KeywordScore" Header="Score" Width="Auto" />
                 <sdk:DataGridTemplateColumn CanUserReorder="True" CanUserResize="True" CanUserSort="True" CellTemplate="{StaticResource PostLocationCardCellTemplate}" Header="Location" SortMemberPath="City" Width="Auto" />
             </sdk:DataGrid.Columns>
         </sdk:DataGrid>
-
+      
     </Grid>
 </UserControl>

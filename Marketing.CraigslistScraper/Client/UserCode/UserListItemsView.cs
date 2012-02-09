@@ -13,7 +13,7 @@ namespace LightSwitchApplication {
   public partial class UserListItemsView {
     Marketing.UI.Controls.UserListItemsViewControl _UserListItemsViewControl;
     Marketing.UI.Controls.CustomDataPagerControl _Pager;
- 
+    
     bool _Activated;
     partial void UserListItemsView_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
       // Write your code here.
@@ -32,7 +32,7 @@ namespace LightSwitchApplication {
             this.FindControl("GridPager").ControlAvailable += new EventHandler<ControlAvailableEventArgs>(GridPager_ControlAvailable);
             _Activated = true;
         }
-
+       
     }
 
     void GetUserPostListFilterItemByUserId_ControlAvailable(object sender, ControlAvailableEventArgs e)
@@ -60,7 +60,9 @@ namespace LightSwitchApplication {
         {
             _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
             _UserListItemsViewControl.OpenViewLinkClick += new EventHandler(OnOpenViewLinkClick);
-            _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler(OnSendDefaultLinkClick);
+            _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler(OnSendDefaultLinkClick); 
+           
+            
         }
 
     }
@@ -92,15 +94,16 @@ namespace LightSwitchApplication {
     }
 
     partial void OpenResponseView_Execute() {
-      // Write your code here.
-   
-      this.Details.Dispatcher.BeginInvoke( () => {
-          Application.ShowDefaultScreen(this.GetFilteredUserListingItems.SelectedItem);       
-        
+      // Write your code here.       
+      this.Details.Dispatcher.BeginInvoke( () => {     
+          
+          Application.ShowDefaultScreen(this.GetFilteredUserListingItems.SelectedItem);            
+          
       } );
       
     }
-   
+
+
     partial void GetFilteredUserListingItems_Loaded(bool succeeded)
     {
       

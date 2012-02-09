@@ -10,27 +10,31 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace Marketing.UI.Controls {
-  public partial class UserListItemsViewControl : UserControl {
-    public event EventHandler OpenViewLinkClick;
+namespace Marketing.UI.Controls
+{
+    public partial class UserListItemsViewControl : UserControl
+    {
+        public event EventHandler OpenViewLinkClick;
 
-    public event EventHandler SendDefaultLinkClick;
+        public event EventHandler SendDefaultLinkClick;
 
-    public UserListItemsViewControl() {
-      InitializeComponent();
+        public UserListItemsViewControl()
+        {
+            InitializeComponent();
+            
+        }
+
+        public virtual void OnOpenViewLinkClick(object sender, EventArgs e)
+        {
+            EventHandler handler = OpenViewLinkClick;
+            if (handler != null)
+                handler(sender, e);
+        }
+        public virtual void OnSendDefaultLinkClick(object sender, EventArgs e)
+        {
+            EventHandler handler = SendDefaultLinkClick;
+            if (handler != null)
+                handler(sender, e);
+        }
     }
-
-    //public CustomDataPagerControl PagerControl { get { return this.Pager; } }
-
-    public virtual void OnOpenViewLinkClick( object sender, EventArgs e ) {
-      EventHandler handler = OpenViewLinkClick;
-      if( handler != null )
-        handler( sender, e );
-    }
-    public virtual void OnSendDefaultLinkClick( object sender, EventArgs e ) {
-      EventHandler handler = SendDefaultLinkClick;
-      if( handler != null )
-        handler( sender, e );
-    }
-  }
 }

@@ -59,6 +59,7 @@
     <Property Name="SMTPPort" Type="int" Nullable="false" />
     <Property Name="RequiresSSL" Type="bit" Nullable="false" />
     <Property Name="SMTPPassword" Type="nvarchar(max)" />
+    <Property Name="MinimumKeywordScore" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserListingItem">
     <Key>

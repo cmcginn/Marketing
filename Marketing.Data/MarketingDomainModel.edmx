@@ -54,8 +54,8 @@
       [UserListingData].[ListingGroupId] AS [ListingGroupId], 
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
       [UserListingData].[ListingContentId] AS [ListingContentId], 
-      [UserListingData].[PostContent] AS [PostContent], 
       [UserListingData].[PostText] AS [PostText], 
+      [UserListingData].[PostContent] AS [PostContent], 
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[PostDate] AS [PostDate], 
       [UserListingData].[ReplyTo] AS [ReplyTo], 
@@ -329,6 +329,7 @@
           <Property Name="SMTPPort" Type="int" Nullable="false" />
           <Property Name="SMTPPassword" Type="nvarchar" MaxLength="50" />
           <Property Name="RequiresSSL" Type="bit" Nullable="false" />
+          <Property Name="MinimumKeywordScore" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="UserTemplate">
           <Key>
@@ -373,11 +374,11 @@
             <PropertyRef Name="ListingCategoryId" />
             <PropertyRef Name="ListingGroupId" />
             <PropertyRef Name="ListingContentId" />
-            <PropertyRef Name="PostContent" />
-            <PropertyRef Name="PostElement" />
             <PropertyRef Name="PostDate" />
             <PropertyRef Name="ReplyTo" />
             <PropertyRef Name="ListingContentCreated" />
+            <PropertyRef Name="PostContent" />
+            <PropertyRef Name="PostElement" />
           </Key>
           <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
@@ -397,7 +398,7 @@
           <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="CityActive" Type="bit" Nullable="false" />
-          <Property Name="Response" Type="xml" />
+          <Property Name="Response" Type="nvarchar(max)" />
           <Property Name="ResponseText" Type="nvarchar(max)" />
           <Property Name="ResponseSent" Type="datetime" />
           <Property Name="UserListingCategoryActive" Type="bit" Nullable="false" />
@@ -410,9 +411,9 @@
           <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserListingResponseId" Type="uniqueidentifier" />
           <Property Name="ListingContentId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PostContent" Type="xml" Nullable="false" />
           <Property Name="PostText" Type="nvarchar(max)" />
-          <Property Name="PostElement" Type="xml" Nullable="false" />
+          <Property Name="PostContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PostElement" Type="nvarchar(max)" Nullable="false" />
           <Property Name="PostDate" Type="datetime" Nullable="false" />
           <Property Name="ReplyTo" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ListingContentCreated" Type="datetime" Nullable="false" />
@@ -1072,6 +1073,7 @@
           <Property Type="String" Name="SMTPPassword" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="RequiresSSL" Nullable="false" />
           <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" FromRole="UserPreference" ToRole="aspnet_Membership" />
+          <Property Type="Int32" Name="MinimumKeywordScore" Nullable="false" />
         </EntityType>
         <Association Name="FK_UserPreference_aspnet_Membership">
           <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
@@ -1452,6 +1454,7 @@
           <EntitySetMapping Name="UserPreferences">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
               <MappingFragment StoreEntitySet="UserPreference">
+                <ScalarProperty Name="MinimumKeywordScore" ColumnName="MinimumKeywordScore" />
                 <ScalarProperty Name="RequiresSSL" ColumnName="RequiresSSL" />
                 <ScalarProperty Name="SMTPPassword" ColumnName="SMTPPassword" />
                 <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />

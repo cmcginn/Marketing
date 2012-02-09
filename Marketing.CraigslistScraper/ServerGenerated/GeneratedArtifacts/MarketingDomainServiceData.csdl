@@ -47,6 +47,7 @@
     <Property Name="SMTPPort" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="RequiresSSL" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="SMTPPassword" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="MinimumKeywordScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingItem">
     <Key>

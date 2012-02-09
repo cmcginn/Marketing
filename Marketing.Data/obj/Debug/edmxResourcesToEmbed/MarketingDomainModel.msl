@@ -153,6 +153,7 @@
     <EntitySetMapping Name="UserPreferences">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserPreference">
         <MappingFragment StoreEntitySet="UserPreference">
+          <ScalarProperty Name="MinimumKeywordScore" ColumnName="MinimumKeywordScore" />
           <ScalarProperty Name="RequiresSSL" ColumnName="RequiresSSL" />
           <ScalarProperty Name="SMTPPassword" ColumnName="SMTPPassword" />
           <ScalarProperty Name="SMTPPort" ColumnName="SMTPPort" />

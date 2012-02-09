@@ -71,5 +71,25 @@ namespace Marketing.WorkflowActivities {
       } );
       context.SaveChanges();
     }
+    public static int GetMinimumKeywordScoreByUserId(MarketingEntities context, Guid userId)
+    {
+        var result = context.UserPreferences.Single(n => n.UserId == userId).MinimumKeywordScore;
+        return result;
+    }
+    public static int GetMatchingKeywordsForContent(List<UserKeyword> keywords, string content)
+    {       
+        var result = 0;
+
+
+        var loweredContent = content.ToLower();
+        keywords.ForEach(n =>
+            {
+                if (loweredContent.Contains(n.Keyword.ToLower()))   
+                    result += n.WeightedScore;
+                
+            
+            });
+        return result;
+    }
   }
 }

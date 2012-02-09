@@ -53,6 +53,7 @@ namespace Marketing.Services {
     public string SMTPServer { get; set; }
     public int SMTPPort { get; set; }
     public bool RequiresSSL { get; set; }
+    public int MinimumKeywordScore { get; set; }
   }
   public class UserListingItem {
     [Key]

@@ -754,6 +754,27 @@ namespace LightSwitchApplication.Implementation
         }
         private string _SMTPPassword;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public int MinimumKeywordScore
+        {
+            get
+            {
+                return this._MinimumKeywordScore;
+            }
+            set
+            {
+                if (this._MinimumKeywordScore != value)
+                {
+                    this.RaiseDataMemberChanging("MinimumKeywordScore");
+                    this.ValidateProperty("MinimumKeywordScore", value);
+                    this._MinimumKeywordScore = value;
+                    this.RaiseDataMemberChanged("MinimumKeywordScore");
+                }
+            }
+        }
+        private int _MinimumKeywordScore;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         

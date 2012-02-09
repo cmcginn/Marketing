@@ -1148,6 +1148,7 @@ namespace LightSwitchApplication.Implementation
                 result.SMTPPort = userPreferenceSelection.SMTPPort;
                 result.RequiresSSL = userPreferenceSelection.RequiresSSL;
                 result.SMTPPassword = userPreferenceSelection.SMTPPassword;
+                result.MinimumKeywordScore = userPreferenceSelection.MinimumKeywordScore;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingItem userListingItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingItem;
@@ -1300,6 +1301,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserPreferenceSelection.SMTPPort = innerUserPreferenceSelection.SMTPPort;
                 outerUserPreferenceSelection.RequiresSSL = innerUserPreferenceSelection.RequiresSSL;
                 outerUserPreferenceSelection.SMTPPassword = innerUserPreferenceSelection.SMTPPassword;
+                outerUserPreferenceSelection.MinimumKeywordScore = innerUserPreferenceSelection.MinimumKeywordScore;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingItem outerUserListingItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingItem;

@@ -2,36 +2,63 @@
   <x:Members>
     <x:Property Name="UserId" Type="InArgument(s:Guid)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>654,676</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>704,676</sap:VirtualizedContainerService.HintSize>
   <mva:VisualBasic.Settings>Assembly references and imported namespaces for internal implementation</mva:VisualBasic.Settings>
-  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\RefreshUserDataActivity.xaml" sap:VirtualizedContainerService.HintSize="614,636">
+  <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\RefreshUserDataActivity.xaml" sap:VirtualizedContainerService.HintSize="664,636">
     <sap:WorkflowViewStateService.ViewState>
       <scg3:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
         <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
         <av:Size x:Key="ShapeSize">60,75</av:Size>
-        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,155.5</av:PointCollection>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 300,109</av:PointCollection>
+        <x:Double x:Key="Width">650</x:Double>
       </scg3:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID0</x:Reference>
-    </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID0">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-          <av:Point x:Key="ShapeLocation">200,155.5</av:Point>
-          <av:Size x:Key="ShapeSize">200,49</av:Size>
-        </scg3:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Refresh User Data Sequence" sap:VirtualizedContainerService.HintSize="222,208">
+      <FlowStep x:Name="__ReferenceID1">
         <sap:WorkflowViewStateService.ViewState>
           <scg3:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <av:Point x:Key="ShapeLocation">200,109</av:Point>
+            <av:Size x:Key="ShapeSize">200,22</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,131 300,145.5</av:PointCollection>
           </scg3:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <local:RefreshUserCraigslistListingUrls sap:VirtualizedContainerService.HintSize="200,22" UserId="[UserId]" />
-        <local:RefreshUserCraigslistContent sap:VirtualizedContainerService.HintSize="200,22" UserId="[UserId]" />
-      </Sequence>
-    </FlowStep>
+        <local:PurgePostsActivity sap:VirtualizedContainerService.HintSize="200,22" />
+        <FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID0">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                <av:Point x:Key="ShapeLocation">200,145.5</av:Point>
+                <av:Size x:Key="ShapeSize">200,49</av:Size>
+                <av:PointCollection x:Key="ConnectorLocation">300,194.5 300,224.5 300,239</av:PointCollection>
+              </scg3:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Sequence DisplayName="Refresh User Data Sequence" sap:VirtualizedContainerService.HintSize="200,49">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg3:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <local:RefreshUserCraigslistListingUrls sap:VirtualizedContainerService.HintSize="200,22" UserId="[UserId]" />
+              <local:RefreshUserCraigslistContent sap:VirtualizedContainerService.HintSize="200,22" UserId="[UserId]" />
+            </Sequence>
+            <FlowStep.Next>
+              <FlowStep x:Name="__ReferenceID2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg3:Dictionary x:TypeArguments="x:String, x:Object">
+                    <av:Point x:Key="ShapeLocation">200,239</av:Point>
+                    <av:Size x:Key="ShapeSize">200,22</av:Size>
+                  </scg3:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <local:RefreshUserListingKeywordScoreActivity sap:VirtualizedContainerService.HintSize="200,22" UserId="[UserId]" />
+              </FlowStep>
+            </FlowStep.Next>
+          </FlowStep>
+        </FlowStep.Next>
+      </FlowStep>
+    </Flowchart.StartNode>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
   </Flowchart>
 </Activity>

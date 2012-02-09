@@ -2291,7 +2291,8 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="liveMode">Initial value of the LiveMode property.</param>
         /// <param name="sMTPPort">Initial value of the SMTPPort property.</param>
         /// <param name="requiresSSL">Initial value of the RequiresSSL property.</param>
-        public static UserPreferenceSelection CreateUserPreferenceSelection(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode, global::System.Int32 sMTPPort, global::System.Boolean requiresSSL)
+        /// <param name="minimumKeywordScore">Initial value of the MinimumKeywordScore property.</param>
+        public static UserPreferenceSelection CreateUserPreferenceSelection(global::System.Guid id, global::System.Guid userId, global::System.Boolean liveMode, global::System.Int32 sMTPPort, global::System.Boolean requiresSSL, global::System.Int32 minimumKeywordScore)
         {
             UserPreferenceSelection userPreferenceSelection = new UserPreferenceSelection();
             userPreferenceSelection.Id = id;
@@ -2299,6 +2300,7 @@ namespace MarketingDomainServiceData.Implementation
             userPreferenceSelection.LiveMode = liveMode;
             userPreferenceSelection.SMTPPort = sMTPPort;
             userPreferenceSelection.RequiresSSL = requiresSSL;
+            userPreferenceSelection.MinimumKeywordScore = minimumKeywordScore;
             return userPreferenceSelection;
         }
 
@@ -2523,6 +2525,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _SMTPPassword;
         partial void OnSMTPPasswordChanging(global::System.String value);
         partial void OnSMTPPasswordChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MinimumKeywordScore
+        {
+            get
+            {
+                return _MinimumKeywordScore;
+            }
+            set
+            {
+                OnMinimumKeywordScoreChanging(value);
+                ReportPropertyChanging("MinimumKeywordScore");
+                _MinimumKeywordScore = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MinimumKeywordScore");
+                OnMinimumKeywordScoreChanged();
+            }
+        }
+        private global::System.Int32 _MinimumKeywordScore;
+        partial void OnMinimumKeywordScoreChanging(global::System.Int32 value);
+        partial void OnMinimumKeywordScoreChanged();
 
         #endregion
     
