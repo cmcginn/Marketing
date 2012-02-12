@@ -5288,17 +5288,6 @@
                 </ControlPropertySource>
               </ContentItem.PropertySources>
             </ContentItem>
-            <ContentItem DataType=":String?"
-                         Kind="Value"
-                         Name="Title">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserListingItem/Properties[Title]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-            </ContentItem>
           </ContentItem>
         </ContentItem>
       </ContentItem>

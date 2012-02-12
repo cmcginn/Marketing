@@ -147,7 +147,7 @@ namespace Marketing.Services.Extensions
                 if (!showNotResponded.GetValueOrDefault())
                     items = items.Where(n => n.Responded != null);
             }
-            items = items.OrderByDescending(n => n.KeywordScore).ThenByDescending(n => n.Responded).ThenBy(n => n.ListingCategoryName).ThenBy(n => n.RegionName).ThenBy(n => n.StateProvince).ThenBy(n => n.CityName);
+            
             var query = from userListingData in items
                         select new UserListingItem
                         {
