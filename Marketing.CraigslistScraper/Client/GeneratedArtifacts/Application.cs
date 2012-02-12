@@ -64,21 +64,6 @@ namespace LightSwitchApplication
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserListingItemDetail_CanRun(ref bool result, global::System.Guid UserListingItemId);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserListingItemDetail_Run(ref bool handled, global::System.Guid UserListingItemId);
-    
-        /// <summary>
-        /// Opens the ShowUserListingItemDetail screen.  If the screen is already opened, it is activated and shown.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public void ShowUserListingItemDetail(global::System.Guid UserListingItemId)
-        {
-            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowUserListingItemDetail, UserListingItemId);
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Workflows_CanRun(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void Workflows_Run(ref bool handled);
@@ -136,6 +121,36 @@ namespace LightSwitchApplication
         public void ShowTemplates()
         {
             ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowTemplates);
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReports_CanRun(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReports_Run(ref bool handled);
+    
+        /// <summary>
+        /// Opens the ShowBugReports screen.  If the screen is already opened, it is activated and shown.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void ShowBugReports()
+        {
+            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowBugReports);
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemByIdDetail_CanRun(ref bool result, global::System.Guid UserListingItemid);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemByIdDetail_Run(ref bool handled, global::System.Guid UserListingItemid);
+    
+        /// <summary>
+        /// Opens the ShowGetUserListingItemByIdDetail screen.  If the screen is already opened, it is activated and shown.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void ShowGetUserListingItemByIdDetail(global::System.Guid UserListingItemid)
+        {
+            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowGetUserListingItemByIdDetail, UserListingItemid);
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -201,8 +216,6 @@ namespace LightSwitchApplication
                         return global::LightSwitchApplication.Preferences.CreateInstance((global::System.Nullable<global::System.Guid>)args[0]);
                     case "UserListItemsView":
                         return global::LightSwitchApplication.UserListItemsView.CreateInstance();
-                    case "UserListingItemDetail":
-                        return global::LightSwitchApplication.UserListingItemDetail.CreateInstance((global::System.Guid)args[0]);
                     case "Workflows":
                         return global::LightSwitchApplication.Workflows.CreateInstance();
                     case "RunWorkflow":
@@ -211,6 +224,10 @@ namespace LightSwitchApplication
                         return global::LightSwitchApplication.UserTemplateDetail.CreateInstance((global::System.Guid)args[0]);
                     case "Templates":
                         return global::LightSwitchApplication.Templates.CreateInstance();
+                    case "BugReports":
+                        return global::LightSwitchApplication.BugReports.CreateInstance();
+                    case "GetUserListingItemByIdDetail":
+                        return global::LightSwitchApplication.GetUserListingItemByIdDetail.CreateInstance((global::System.Guid)args[0]);
                 }
             
                 return base.CreateScreen(screenName, args);
@@ -268,6 +285,15 @@ namespace LightSwitchApplication
                     }
                 }
 
+                public global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowBugReports
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties.ShowBugReports);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -292,15 +318,6 @@ namespace LightSwitchApplication
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
                                base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowUserListItemsView);
-                    }
-                }
-
-                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowUserListingItemDetail
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
-                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowUserListingItemDetail);
                     }
                 }
 
@@ -337,6 +354,24 @@ namespace LightSwitchApplication
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
                                base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowTemplates);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowBugReports
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowBugReports);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowGetUserListingItemByIdDetail
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
+                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowGetUserListingItemByIdDetail);
                     }
                 }
 
@@ -412,6 +447,20 @@ namespace LightSwitchApplication
                     return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowTemplates.CreateInvocation(new object[0]);
                 }
 
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowBugReports = new global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowBugReports",
+                        global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties._ShowBugReports_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.CommandSetProperties._ShowBugReports_CreateExecutableObject);
+                private static void _ShowBugReports_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowBugReportsCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _ShowBugReports_CreateExecutableObject(global::LightSwitchApplication.Application.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Application.DetailsClass)d).Methods.ShowBugReports.CreateInvocation(new object[0]);
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -469,32 +518,6 @@ namespace LightSwitchApplication
                     if (!handled)
                     {
                         d.ShowScreen("LightSwitchApplication:UserListItemsView", () => global::LightSwitchApplication.UserListItemsView.CreateInstance(), args);
-                    }
-                }
- 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
-                    ShowUserListingItemDetail = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
-                        "ShowUserListingItemDetail",
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserListingItemDetail_Stub,
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserListingItemDetail_CanInvoke,
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserListingItemDetail_InvokeMethod);
-                private static void _ShowUserListingItemDetail_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
-                {
-                    c(d, ref d._ShowUserListingItemDetailMethod, sf);
-                }
-                private static global::System.Exception _ShowUserListingItemDetail_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
-                {
-                    bool result = true;
-                    d.Application.UserListingItemDetail_CanRun(ref result, (global::System.Guid)args[0]);
-                    return result ? null : ex;
-                }
-                private static void _ShowUserListingItemDetail_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
-                {
-                    bool handled = false;
-                    d.Application.UserListingItemDetail_Run(ref handled, (global::System.Guid)args[0]);
-                    if (!handled)
-                    {
-                        d.ShowScreen("LightSwitchApplication:UserListingItemDetail", () => global::LightSwitchApplication.UserListingItemDetail.CreateInstance((global::System.Guid)args[0]), args);
                     }
                 }
  
@@ -602,13 +625,63 @@ namespace LightSwitchApplication
                     }
                 }
  
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowBugReports = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowBugReports",
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowBugReports_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowBugReports_CanInvoke,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowBugReports_InvokeMethod);
+                private static void _ShowBugReports_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowBugReportsMethod, sf);
+                }
+                private static global::System.Exception _ShowBugReports_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Application.BugReports_CanRun(ref result);
+                    return result ? null : ex;
+                }
+                private static void _ShowBugReports_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    bool handled = false;
+                    d.Application.BugReports_Run(ref handled);
+                    if (!handled)
+                    {
+                        d.ShowScreen("LightSwitchApplication:BugReports", () => global::LightSwitchApplication.BugReports.CreateInstance(), args);
+                    }
+                }
+ 
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
+                    ShowGetUserListingItemByIdDetail = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
+                        "ShowGetUserListingItemByIdDetail",
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowGetUserListingItemByIdDetail_Stub,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowGetUserListingItemByIdDetail_CanInvoke,
+                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowGetUserListingItemByIdDetail_InvokeMethod);
+                private static void _ShowGetUserListingItemByIdDetail_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
+                {
+                    c(d, ref d._ShowGetUserListingItemByIdDetailMethod, sf);
+                }
+                private static global::System.Exception _ShowGetUserListingItemByIdDetail_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Application.GetUserListingItemByIdDetail_CanRun(ref result, (global::System.Guid)args[0]);
+                    return result ? null : ex;
+                }
+                private static void _ShowGetUserListingItemByIdDetail_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    bool handled = false;
+                    d.Application.GetUserListingItemByIdDetail_Run(ref handled, (global::System.Guid)args[0]);
+                    if (!handled)
+                    {
+                        d.ShowScreen("LightSwitchApplication:GetUserListingItemByIdDetail", () => global::LightSwitchApplication.GetUserListingItemByIdDetail.CreateInstance((global::System.Guid)args[0]), args);
+                    }
+                }
+ 
             }
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserListItemsViewMethod;
-
-            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserListingItemDetailMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowWorkflowsMethod;
 
@@ -618,6 +691,10 @@ namespace LightSwitchApplication
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowTemplatesMethod;
 
+            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowBugReportsMethod;
+
+            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowGetUserListingItemByIdDetailMethod;
+
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesCommand;
 
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserListItemsViewCommand;
@@ -625,6 +702,8 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowWorkflowsCommand;
 
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowTemplatesCommand;
+
+            private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowBugReportsCommand;
 
         }
     }

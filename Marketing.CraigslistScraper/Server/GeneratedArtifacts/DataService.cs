@@ -237,6 +237,30 @@ namespace LightSwitchApplication
         partial void UserPostListFilterItems_Validate(global::LightSwitchApplication.UserPostListFilterItem entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_CanInsert(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_CanUpdate(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_CanRead(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Inserting(global::LightSwitchApplication.BugReportItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Inserted(global::LightSwitchApplication.BugReportItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Updating(global::LightSwitchApplication.BugReportItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Updated(global::LightSwitchApplication.BugReportItem entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Validate(global::LightSwitchApplication.BugReportItem entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void SaveChanges_CanExecute(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -893,6 +917,66 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetFilteredUserListingItems_ExecuteFailed(global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<bool> showResponded, global::System.Nullable<bool> showNotResponded, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter, global::System.Exception exception);
     
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Single_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Single_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Single_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Single_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.BugReportItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_Single_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_SingleOrDefault_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_SingleOrDefault_Executing(global::System.Nullable<global::System.Guid> Id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_SingleOrDefault_PreprocessQuery(global::System.Nullable<global::System.Guid> Id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_SingleOrDefault_Executed(global::System.Nullable<global::System.Guid> Id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.BugReportItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_SingleOrDefault_ExecuteFailed(global::System.Nullable<global::System.Guid> Id, global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_All_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_All_Executing();
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_All_PreprocessQuery(ref global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_All_Executed(global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.BugReportItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void BugReportItems_All_ExecuteFailed(global::System.Exception exception);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemById_CanExecute(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemById_Executing(global::System.Nullable<global::System.Guid> id);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemById_PreprocessQuery(global::System.Nullable<global::System.Guid> id, ref global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemById_Executed(global::System.Nullable<global::System.Guid> id, global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem> result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void GetUserListingItemById_ExecuteFailed(global::System.Nullable<global::System.Guid> id, global::System.Exception exception);
+    
         #endregion
     
         #region Details Class
@@ -1347,6 +1431,60 @@ namespace LightSwitchApplication
             private static void __UserPostListFilterItems_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserPostListFilterItem e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {
                 d.UserPostListFilterItems_Validate(e, r);
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>
+                __BugReportItemsEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.EntitySetEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>(
+                    "BugReportItems",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_CanInsert,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_CanUpdate,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_CanRead,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Inserting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Inserted,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Updating,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Updated,
+                    null,
+                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Validate);
+            private static bool __BugReportItems_CanInsert(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.BugReportItems_CanInsert(ref result);
+                return result;
+            }
+            private static bool __BugReportItems_CanUpdate(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.BugReportItems_CanUpdate(ref result);
+                return result;
+            }
+            private static bool __BugReportItems_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.BugReportItems_CanRead(ref result);
+                return result;
+            }
+            private static void __BugReportItems_Inserting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.BugReportItem e)
+            {
+                d.BugReportItems_Inserting(e);
+            }
+            private static void __BugReportItems_Inserted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.BugReportItem e)
+            {
+                d.BugReportItems_Inserted(e);
+            }
+            private static void __BugReportItems_Updating(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.BugReportItem e)
+            {
+                d.BugReportItems_Updating(e);
+            }
+            private static void __BugReportItems_Updated(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.BugReportItem e)
+            {
+                d.BugReportItems_Updated(e);
+            }
+            private static void __BugReportItems_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.BugReportItem e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
+            {
+                d.BugReportItems_Validate(e, r);
             }
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -2791,6 +2929,138 @@ namespace LightSwitchApplication
             {
                 global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem>)args[12];
                 d.GetFilteredUserListingItems_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], (global::System.Nullable<bool>)args[1], (global::System.Nullable<bool>)args[2], (global::System.Nullable<bool>)args[3], (global::System.Nullable<global::System.DateTime>)args[4], (global::System.Nullable<global::System.DateTime>)args[5], (global::System.Nullable<global::System.DateTime>)args[6], (global::System.Nullable<global::System.DateTime>)args[7], (string)args[8], (string)args[9], (string)args[10], (string)args[11], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>
+                __BugReportItems_SingleEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>(
+                    "BugReportItems_Single",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Single_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Single_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Single_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Single_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_Single_PreprocessQuery);
+            private static bool __BugReportItems_Single_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.BugReportItems_Single_CanExecute(ref r);
+                return r;
+            }
+            private static void __BugReportItems_Single_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.BugReportItems_Single_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __BugReportItems_Single_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.BugReportItems_Single_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.BugReportItem>)args[1]);
+            }
+            private static void __BugReportItems_Single_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.BugReportItems_Single_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __BugReportItems_Single_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem>)args[1];
+                d.BugReportItems_Single_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>
+                __BugReportItems_SingleOrDefaultEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>(
+                    "BugReportItems_SingleOrDefault",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_SingleOrDefault_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_SingleOrDefault_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_SingleOrDefault_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_SingleOrDefault_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_SingleOrDefault_PreprocessQuery);
+            private static bool __BugReportItems_SingleOrDefault_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.BugReportItems_SingleOrDefault_CanExecute(ref r);
+                return r;
+            }
+            private static void __BugReportItems_SingleOrDefault_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.BugReportItems_SingleOrDefault_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __BugReportItems_SingleOrDefault_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.BugReportItems_SingleOrDefault_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.BugReportItem>)args[1]);
+            }
+            private static void __BugReportItems_SingleOrDefault_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.BugReportItems_SingleOrDefault_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __BugReportItems_SingleOrDefault_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem>)args[1];
+                d.BugReportItems_SingleOrDefault_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>
+                __BugReportItems_AllEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.BugReportItem>(
+                    "BugReportItems_All",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_All_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_All_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_All_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_All_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__BugReportItems_All_PreprocessQuery);
+            private static bool __BugReportItems_All_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.BugReportItems_All_CanExecute(ref r);
+                return r;
+            }
+            private static void __BugReportItems_All_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.BugReportItems_All_Executing();
+            }
+            private static void __BugReportItems_All_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.BugReportItems_All_Executed((global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.BugReportItem>)args[0]);
+            }
+            private static void __BugReportItems_All_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.BugReportItems_All_ExecuteFailed(ex);
+            }
+            private static global::System.Linq.IQueryable __BugReportItems_All_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.BugReportItem>)args[0];
+                d.BugReportItems_All_PreprocessQuery(ref query);
+                return query;
+            }
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private static readonly global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingItem>
+                __GetUserListingItemByIdEntry = new global::Microsoft.LightSwitch.Details.Framework.Server.QueryOperationEntry<global::LightSwitchApplication.MarketingDomainServiceDataService, global::LightSwitchApplication.UserListingItem>(
+                    "GetUserListingItemById",
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingItemById_CanExecute,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingItemById_Executing,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingItemById_Executed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingItemById_Failed,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__GetUserListingItemById_PreprocessQuery);
+            private static bool __GetUserListingItemById_CanExecute(global::LightSwitchApplication.MarketingDomainServiceDataService d, bool r)
+            {
+                d.GetUserListingItemById_CanExecute(ref r);
+                return r;
+            }
+            private static void __GetUserListingItemById_Executing(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserListingItemById_Executing((global::System.Nullable<global::System.Guid>)args[0]);
+            }
+            private static void __GetUserListingItemById_Executed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                d.GetUserListingItemById_Executed((global::System.Nullable<global::System.Guid>)args[0], (global::System.Collections.Generic.IEnumerable<global::LightSwitchApplication.UserListingItem>)args[1]);
+            }
+            private static void __GetUserListingItemById_Failed(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args, global::System.Exception ex)
+            {
+                d.GetUserListingItemById_ExecuteFailed((global::System.Nullable<global::System.Guid>)args[0], ex);
+            }
+            private static global::System.Linq.IQueryable __GetUserListingItemById_PreprocessQuery(global::LightSwitchApplication.MarketingDomainServiceDataService d, object[] args)
+            {
+                global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem> query = (global::System.Linq.IQueryable<global::LightSwitchApplication.UserListingItem>)args[1];
+                d.GetUserListingItemById_PreprocessQuery((global::System.Nullable<global::System.Guid>)args[0], ref query);
                 return query;
             }
     

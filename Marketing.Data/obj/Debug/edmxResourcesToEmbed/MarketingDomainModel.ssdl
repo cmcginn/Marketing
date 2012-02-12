@@ -2,6 +2,7 @@
 <Schema Namespace="Marketing.CraigslistScraperModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BugReport" EntityType="Marketing.CraigslistScraperModel.Store.BugReport" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingContent" EntityType="Marketing.CraigslistScraperModel.Store.ListingContent" store:Type="Tables" Schema="dbo" />
@@ -181,6 +182,17 @@
     <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
     <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
     <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BugReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Resolution" Type="nvarchar(max)" />
+    <Property Name="ReproductionSteps" Type="nvarchar(max)" />
+    <Property Name="Reported" Type="datetime" Nullable="false" />
+    <Property Name="Resolved" Type="datetime" />
   </EntityType>
   <EntityType Name="City">
     <Key>

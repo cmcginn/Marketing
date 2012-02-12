@@ -44,7 +44,7 @@ namespace Marketing.UI.Controls {
         _editorContent = richEditControl.HtmlText;
       }
     }
-
+     
     private void ResponseSent_TextChanged( object sender, TextChangedEventArgs e ) {
       this.richEditControl.IsEnabled = false;
     }

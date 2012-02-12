@@ -284,5 +284,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="BugReports">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.BugReport">
+        <MappingFragment StoreEntitySet="BugReport">
+          <ScalarProperty Name="Resolved" ColumnName="Resolved" />
+          <ScalarProperty Name="Reported" ColumnName="Reported" />
+          <ScalarProperty Name="ReproductionSteps" ColumnName="ReproductionSteps" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

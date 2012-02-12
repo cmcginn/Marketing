@@ -137,6 +137,17 @@
     <Property Name="ShowNotResponded" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="FiltersEnabled" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="BugReportItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Description" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Resolution" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ReproductionSteps" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Resolved" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="Reported" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -148,5 +159,6 @@
     <EntitySet Name="Users" EntityType="MarketingDomainServiceData.User" />
     <EntitySet Name="UserTemplateItems" EntityType="MarketingDomainServiceData.UserTemplateItem" />
     <EntitySet Name="UserPostListFilterItems" EntityType="MarketingDomainServiceData.UserPostListFilterItem" />
+    <EntitySet Name="BugReportItems" EntityType="MarketingDomainServiceData.BugReportItem" />
   </EntityContainer>
 </Schema>

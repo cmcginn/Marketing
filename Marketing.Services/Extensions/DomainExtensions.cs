@@ -64,7 +64,7 @@ namespace Marketing.Services.Extensions
         public static IQueryable<UserPreferenceSelection> GetUserPreferenceSelection(this MarketingEntities context)
         {
             var query = from userPreference in context.UserPreferences
-                        select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId,MinimumKeywordScore=userPreference.MinimumKeywordScore, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress, SMTPUsername = userPreference.SMTPUser, SMTPServer = userPreference.SMTPServer, SMTPPort = userPreference.SMTPPort, RequiresSSL = userPreference.RequiresSSL, SMTPPassword = userPreference.SMTPPassword };
+                        select new UserPreferenceSelection { Id = userPreference.Id, UserId = userPreference.UserId, MinimumKeywordScore = userPreference.MinimumKeywordScore, LiveMode = userPreference.LiveMode, BCCEmailAddress = userPreference.BCCEmailAddress, SMTPUsername = userPreference.SMTPUser, SMTPServer = userPreference.SMTPServer, SMTPPort = userPreference.SMTPPort, RequiresSSL = userPreference.RequiresSSL, SMTPPassword = userPreference.SMTPPassword };
             return query;
         }
         public static IQueryable<UserListingItem> GetUserListingItems(this MarketingEntities context)
@@ -272,7 +272,10 @@ namespace Marketing.Services.Extensions
         public static void UpdateUserTemplateItem(this MarketingEntities context, UserTemplateItem userTemplateItem)
         {
             var template = context.UserTemplates.Single(n => n.Id == userTemplateItem.Id);
-            template.TemplateHtml = XElement.Parse(userTemplateItem.TemplateHtml).ToString();
+            var content = System.Text.RegularExpressions.Regex.Replace(userTemplateItem.TemplateHtml, "<!DOCTYPE html .*>", "");
+            var converter = new Marketing.Utils.HtmlToXml.HtmlToXmlConverter();
+            var templateHtml = converter.ConvertToXml(content);
+            template.TemplateHtml = templateHtml.ToString();
             template.TemplateText = userTemplateItem.TemplateText;
             template.TemplateName = userTemplateItem.TemplateName;
             template.IsDefault = userTemplateItem.IsDefault;
@@ -386,7 +389,12 @@ namespace Marketing.Services.Extensions
             }
             return result;
         }
-        static UserListingItem ToUserListingItem(this UserListingData userListingData)
+        public static UserListingItem GetUserListingItemById(this MarketingEntities context, Guid id)
+        {
+            var result = context.UserListingDatas.Single(n => n.UserListingUrlId == id).ToUserListingItem();
+            return result;
+        }
+        public static UserListingItem ToUserListingItem(this UserListingData userListingData)
         {
             var result = new UserListingItem
             {
@@ -475,6 +483,43 @@ namespace Marketing.Services.Extensions
             existing.ShowNotResponded = item.ShowNotResponded;
             existing.ShowResponded = item.ShowResponded;
 
+            context.SaveChanges();
+
+        }
+        public static IQueryable<BugReportItem> GetDefaultBugReports(this MarketingEntities context)
+        {
+            var result = context.BugReports.Select(n => new BugReportItem
+             {
+                 Id = n.Id,
+                 Description = n.Description,
+                 Reported = n.Reported,
+                 ReproductionSteps = n.ReproductionSteps,
+                 Resolution = n.Resolution,
+                 Resolved = n.Resolved
+             });
+            return result;
+        }
+        public static void InsertBugReportItem(this MarketingEntities context, BugReportItem item)
+        {
+            var bugReport = new BugReport
+            {
+                Id = item.Id,
+                Description = item.Description,
+                ReproductionSteps = item.ReproductionSteps,
+                Reported = System.DateTime.Now
+            };
+            context.BugReports.AddObject(bugReport);
+            context.SaveChanges();
+        }
+        public static void UpdateBugReportItem(this MarketingEntities context, BugReportItem item)
+        {
+            var bugReport = context.BugReports.Single(n => n.Id == item.Id);
+
+            bugReport.Description = item.Description;
+            bugReport.ReproductionSteps = item.ReproductionSteps;
+            bugReport.Reported = System.DateTime.Now;
+            bugReport.Resolution = item.Resolution;
+            bugReport.Resolved = item.Resolved;
             context.SaveChanges();
 
         }

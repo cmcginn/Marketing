@@ -18,14 +18,14 @@
       <dxre:HtmlToContentConverter x:Key="converter"/>
     </ResourceDictionary>
   </UserControl.Resources>
-  <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot" Background="White">
     <Grid.RowDefinitions>
 
     </Grid.RowDefinitions>
-    <TextBox Name="ResponseSent"  Text="{Binding Screen.UserListingItem.ResponseSent}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="ResponseSent_TextChanged"></TextBox>
-    <TextBox Name="ResponseEditSource"  Text="{Binding Screen.UserListingItem.Response}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="ResponseEditSource_TextChanged"></TextBox>
-    <TextBox Name="ResponseHtmlEdit"  Text="{Binding Screen.UserListingItem.Response,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-    <TextBox Name="ResponseEditText" Text="{Binding Screen.UserListingItem.ResponseText,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+        <TextBox Name="ResponseSent"  Text="{Binding Screen.GetUserListingItemById.ResponseSent}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="ResponseSent_TextChanged"></TextBox>
+        <TextBox Name="ResponseEditSource"  Text="{Binding Screen.GetUserListingItemById.Response}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="ResponseEditSource_TextChanged"></TextBox>
+        <TextBox Name="ResponseHtmlEdit"  Text="{Binding Screen.GetUserListingItemById.Response,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+        <TextBox Name="ResponseEditText" Text="{Binding Screen.GetUserListingItemById.ResponseText,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
 
     <dxb:BarManager Name="barManager1">
       <dxb:BarManager.Items>
@@ -63,8 +63,8 @@
         <dxb:BarButtonItem Command="{Binding Path=PageLayoutPageMarginsOptions, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutPageMarginsOptions" />
         <dxb:BarSubItem Command="{Binding Path=PageLayoutOrientation, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutOrientation">
           <dxb:BarSubItem.ItemLinks>
-            <dxb:BarCheckItemLink BarItemName="biPageLayoutPortraitOrientation" />
-            <dxb:BarCheckItemLink BarItemName="biPageLayoutLandscapeOrientation" />
+                        <dxb:BarCheckItemLink BarItemName="biPageLayoutPortraitOrientation" />
+                        <dxb:BarCheckItemLink BarItemName="biPageLayoutLandscapeOrientation" />
           </dxb:BarSubItem.ItemLinks>
         </dxb:BarSubItem>
         <dxb:BarCheckItem Command="{Binding Path=PageLayoutPortraitOrientation, Mode=OneTime, Source={StaticResource commands}}" Name="biPageLayoutPortraitOrientation" />

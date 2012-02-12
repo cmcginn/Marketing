@@ -325,6 +325,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region BugReportItem
+    
+        public void InsertBugReportItem(global::MarketingDomainServiceData.Implementation.BugReportItem entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.BugReportItems.AddObject(entity);
+            }
+        }
+    
+        public void UpdateBugReportItem(global::MarketingDomainServiceData.Implementation.BugReportItem currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.BugReportItems, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteBugReportItem(global::MarketingDomainServiceData.Implementation.BugReportItem entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.BugReportItems.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
@@ -539,6 +569,26 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetFilteredUserListingItems(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.Nullable<bool> filtersEnabled, global::System.Nullable<bool> showResponded, global::System.Nullable<bool> showNotResponded, global::System.Nullable<global::System.DateTime> postStartDate, global::System.Nullable<global::System.DateTime> postEndDate, global::System.Nullable<global::System.DateTime> responseStartDate, global::System.Nullable<global::System.DateTime> responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetFilteredUserListingItems", frameworkOperators, userId, filtersEnabled, showResponded, showNotResponded, postStartDate, postEndDate, responseStartDate, responseEndDate, keywords, regionsFilter, statesFilter, citiesFilter);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> BugReportItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.BugReportItem>("BugReportItems_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> BugReportItems_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.BugReportItem>("BugReportItems_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> BugReportItems_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.BugReportItem>("BugReportItems_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemById(string frameworkOperators, global::System.Nullable<global::System.Guid> id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemById", frameworkOperators, id);
         }
     
     #endregion
@@ -951,6 +1001,38 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> BugReportItems_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.BugReportItem>("BugReportItems_All"),
+                (b) => (Id.HasValue && (b.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> BugReportItems_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.BugReportItem>("BugReportItems_All"),
+                (b) => (Id.HasValue && (b.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> BugReportItems_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.BugReportItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.BugReportItem>("DefaultBugReportItems").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> GetUserListingItemById(global::System.Nullable<global::System.Guid> id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserListingItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.UserListingItem>("GetUserListingItemById", id).AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -995,6 +1077,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserPostListFilterItem();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.BugReportItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.BugReportItem();
             }
     
             return base.CreateObject(type);
@@ -1050,6 +1136,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserPostListFilterItem();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.BugReportItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.BugReportItem();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -1093,6 +1183,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem))
             {
                 return typeof(global::Marketing.Services.UserPostListFilterItem);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.BugReportItem))
+            {
+                return typeof(global::Marketing.Services.BugReportItem);
             }
             return base.ConvertType(outerType);
         }
@@ -1243,6 +1337,18 @@ namespace LightSwitchApplication.Implementation
                 result.ShowResponded = userPostListFilterItem.ShowResponded;
                 result.ShowNotResponded = userPostListFilterItem.ShowNotResponded;
                 result.FiltersEnabled = userPostListFilterItem.FiltersEnabled;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.BugReportItem bugReportItem = outerEntity as global::MarketingDomainServiceData.Implementation.BugReportItem;
+            if (bugReportItem != null)
+            {
+                global::Marketing.Services.BugReportItem result = new global::Marketing.Services.BugReportItem();
+                result.Id = bugReportItem.Id;
+                result.Description = bugReportItem.Description;
+                result.Resolution = bugReportItem.Resolution;
+                result.ReproductionSteps = bugReportItem.ReproductionSteps;
+                result.Resolved = bugReportItem.Resolved;
+                result.Reported = bugReportItem.Reported;
                 return result;
             }
             return null;
@@ -1398,6 +1504,18 @@ namespace LightSwitchApplication.Implementation
                 outerUserPostListFilterItem.FiltersEnabled = innerUserPostListFilterItem.FiltersEnabled;
                 return;
             }
+            global::MarketingDomainServiceData.Implementation.BugReportItem outerBugReportItem = outerEntity as global::MarketingDomainServiceData.Implementation.BugReportItem;
+            global::Marketing.Services.BugReportItem innerBugReportItem = innerResult as global::Marketing.Services.BugReportItem;
+            if ((outerBugReportItem != null) && (innerBugReportItem != null))
+            {
+                outerBugReportItem.Id = innerBugReportItem.Id;
+                outerBugReportItem.Description = innerBugReportItem.Description;
+                outerBugReportItem.Resolution = innerBugReportItem.Resolution;
+                outerBugReportItem.ReproductionSteps = innerBugReportItem.ReproductionSteps;
+                outerBugReportItem.Resolved = innerBugReportItem.Resolved;
+                outerBugReportItem.Reported = innerBugReportItem.Reported;
+                return;
+            }
         }
     
     #endregion
@@ -1481,6 +1599,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserPostListFilterItem) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserPostListFilterItem);
+            }
+            if (typeof(global::LightSwitchApplication.BugReportItem) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.BugReportItem);
             }
             return null;
         }
@@ -1791,6 +1913,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserPostListFilterItem :
         global::LightSwitchApplication.UserPostListFilterItem.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class BugReportItem :
+        global::LightSwitchApplication.BugReportItem.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

@@ -13,9 +13,11 @@ namespace LightSwitchApplication
     public partial class UserListItemDetail
     {
 
-
-     
-
-        
+        partial void UserListItemDetail_InitializeDataWorkspace(List<IDataService> saveChangesTo)
+        {
+            // Write your code here.
+          
+            var x = "Y";
+        }
     }
 }

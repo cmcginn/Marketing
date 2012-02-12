@@ -221,6 +221,22 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<UserPostListFilterItem> _UserPostListFilterItems;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BugReportItem> BugReportItems
+        {
+            get
+            {
+                if ((_BugReportItems == null))
+                {
+                    _BugReportItems = base.CreateObjectSet<BugReportItem>("BugReportItems");
+                }
+                return _BugReportItems;
+            }
+        }
+        private ObjectSet<BugReportItem> _BugReportItems;
 
         #endregion
         #region AddTo Methods
@@ -304,6 +320,14 @@ namespace MarketingDomainServiceData.Implementation
         {
             base.AddObject("UserPostListFilterItems", userPostListFilterItem);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BugReportItems EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBugReportItems(BugReportItem bugReportItem)
+        {
+            base.AddObject("BugReportItems", bugReportItem);
+        }
 
         #endregion
     }
@@ -312,6 +336,183 @@ namespace MarketingDomainServiceData.Implementation
     #endregion
     
     #region Entities
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="BugReportItem")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BugReportItem : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BugReportItem object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="reported">Initial value of the Reported property.</param>
+        public static BugReportItem CreateBugReportItem(global::System.Guid id, global::System.DateTime reported)
+        {
+            BugReportItem bugReportItem = new BugReportItem();
+            bugReportItem.Id = id;
+            bugReportItem.Reported = reported;
+            return bugReportItem;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Resolution
+        {
+            get
+            {
+                return _Resolution;
+            }
+            set
+            {
+                OnResolutionChanging(value);
+                ReportPropertyChanging("Resolution");
+                _Resolution = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Resolution");
+                OnResolutionChanged();
+            }
+        }
+        private global::System.String _Resolution;
+        partial void OnResolutionChanging(global::System.String value);
+        partial void OnResolutionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ReproductionSteps
+        {
+            get
+            {
+                return _ReproductionSteps;
+            }
+            set
+            {
+                OnReproductionStepsChanging(value);
+                ReportPropertyChanging("ReproductionSteps");
+                _ReproductionSteps = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ReproductionSteps");
+                OnReproductionStepsChanged();
+            }
+        }
+        private global::System.String _ReproductionSteps;
+        partial void OnReproductionStepsChanging(global::System.String value);
+        partial void OnReproductionStepsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Resolved
+        {
+            get
+            {
+                return _Resolved;
+            }
+            set
+            {
+                OnResolvedChanging(value);
+                ReportPropertyChanging("Resolved");
+                _Resolved = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Resolved");
+                OnResolvedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Resolved;
+        partial void OnResolvedChanging(Nullable<global::System.DateTime> value);
+        partial void OnResolvedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Reported
+        {
+            get
+            {
+                return _Reported;
+            }
+            set
+            {
+                OnReportedChanging(value);
+                ReportPropertyChanging("Reported");
+                _Reported = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Reported");
+                OnReportedChanged();
+            }
+        }
+        private global::System.DateTime _Reported;
+        partial void OnReportedChanging(global::System.DateTime value);
+        partial void OnReportedChanged();
+
+        #endregion
+    
+    }
     
     /// <summary>
     /// No Metadata Documentation available.

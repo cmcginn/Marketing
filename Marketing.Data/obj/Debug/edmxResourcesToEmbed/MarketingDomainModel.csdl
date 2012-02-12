@@ -83,6 +83,7 @@
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserFilter" EntitySet="UserFilters" />
     </AssociationSet>
+    <EntitySet Name="BugReports" EntityType="Marketing.CraigslistScraperModel.BugReport" />
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -621,4 +622,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="BugReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Resolution" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ReproductionSteps" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Reported" Nullable="false" />
+    <Property Type="DateTime" Name="Resolved" />
+  </EntityType>
 </Schema>

@@ -131,4 +131,14 @@ namespace Marketing.Services {
       public bool FiltersEnabled { get; set; }      
       
   }
+  public class BugReportItem
+  {
+      [Key]
+      public Guid Id { get; set; }
+      public string Description { get; set; }
+      public string Resolution { get; set; }
+      public string ReproductionSteps { get; set; }
+      public DateTime? Resolved { get; set; }
+      public DateTime Reported { get; set; }
+  }
 }

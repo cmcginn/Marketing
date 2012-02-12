@@ -28,7 +28,7 @@
     						</StackPanel>
     						<StackPanel Orientation="Horizontal">
     							<TextBlock Width="70" TextWrapping="Wrap" Text="Responded:" />
-    							<TextBlock TextWrapping="Wrap" Text="{Binding ResponseSent}" />
+    							<TextBlock TextWrapping="Wrap" Text="{Binding ResponseSent,Mode=TwoWay}" />
     						</StackPanel>
     						<StackPanel Orientation="Horizontal">
     							<TextBlock Width="70" TextWrapping="Wrap" Text="Category:" />

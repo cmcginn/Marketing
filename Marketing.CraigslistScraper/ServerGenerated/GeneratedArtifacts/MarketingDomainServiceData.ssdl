@@ -11,6 +11,7 @@
     <EntitySet Name="DefaultUsers" EntityType="MarketingDomainServiceDataStore.User" store:Type="Tables" Schema="dbo" Table="Marketing.Services.User" />
     <EntitySet Name="DefaultUserTemplates" EntityType="MarketingDomainServiceDataStore.UserTemplateItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserTemplateItem" />
     <EntitySet Name="GetDefaultUserPostListFilterItems" EntityType="MarketingDomainServiceDataStore.UserPostListFilterItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserPostListFilterItem" />
+    <EntitySet Name="DefaultBugReportItems" EntityType="MarketingDomainServiceDataStore.BugReportItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.BugReportItem" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -148,5 +149,16 @@
     <Property Name="ShowResponded" Type="bit" Nullable="false" />
     <Property Name="ShowNotResponded" Type="bit" Nullable="false" />
     <Property Name="FiltersEnabled" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BugReportItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Resolution" Type="nvarchar(max)" />
+    <Property Name="ReproductionSteps" Type="nvarchar(max)" />
+    <Property Name="Resolved" Type="datetime" />
+    <Property Name="Reported" Type="datetime" Nullable="false" />
   </EntityType>
 </Schema>

@@ -83,7 +83,12 @@ namespace Marketing.Services {
     {
         return new List<UserPostListFilterItem>().AsQueryable();
     }
-
+    [Query(IsDefault = true)]
+    public IQueryable<BugReportItem> DefaultBugReportItems()
+    {
+        var result = Context.GetDefaultBugReports();
+        return result;
+    }
     #endregion
 
 
@@ -221,6 +226,20 @@ namespace Marketing.Services {
     public void UpdateUserPostListFilterItem(UserPostListFilterItem item)
     {
         Context.UpdateUserPostListFilterItem(item);
+    }
+    public void AddBugReportItem(BugReportItem item)
+    {
+        Context.InsertBugReportItem(item);
+    }
+    public void UpdateBugReportItem(BugReportItem item)
+    {
+        Context.UpdateBugReportItem(item);
+    }
+    public UserListingItem GetUserListingItemById(Guid? id)
+    {
+        var userListingUrlId = id.GetValueOrDefault();
+        var result = Context.GetUserListingItemById(userListingUrlId);
+        return result;
     }
     #endregion
 

@@ -7,6 +7,7 @@
     <Schema Namespace="Marketing.CraigslistScraperModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
           <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BugReport" EntityType="Marketing.CraigslistScraperModel.Store.BugReport" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ListingContent" EntityType="Marketing.CraigslistScraperModel.Store.ListingContent" store:Type="Tables" Schema="dbo" />
@@ -186,6 +187,17 @@
           <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
           <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
           <Property Name="Comment" Type="ntext" />
+        </EntityType>
+        <EntityType Name="BugReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Resolution" Type="nvarchar(max)" />
+          <Property Name="ReproductionSteps" Type="nvarchar(max)" />
+          <Property Name="Reported" Type="datetime" Nullable="false" />
+          <Property Name="Resolved" Type="datetime" />
         </EntityType>
         <EntityType Name="City">
           <Key>
@@ -758,6 +770,7 @@
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
             <End Role="UserFilter" EntitySet="UserFilters" />
           </AssociationSet>
+          <EntitySet Name="BugReports" EntityType="Marketing.CraigslistScraperModel.BugReport" />
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -1296,6 +1309,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BugReport">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Resolution" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ReproductionSteps" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Reported" Nullable="false" />
+          <Property Type="DateTime" Name="Resolved" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1585,6 +1609,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="BugReports">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.BugReport">
+              <MappingFragment StoreEntitySet="BugReport">
+                <ScalarProperty Name="Resolved" ColumnName="Resolved" />
+                <ScalarProperty Name="Reported" ColumnName="Reported" />
+                <ScalarProperty Name="ReproductionSteps" ColumnName="ReproductionSteps" />
+                <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1614,19 +1650,24 @@
           <ConnectorPoint PointX="3" PointY="3.46050048828125" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.UserCityCity">
-          <ConnectorPoint PointX="4.5" PointY="3.1792509882812503" />
-          <ConnectorPoint PointX="7.09375" PointY="3.1792509882812503" />
-          <ConnectorPoint PointX="7.09375" PointY="2.6710009765625" />
+          <ConnectorPoint PointX="4.5" PointY="2.6676741536458337" />
+          <ConnectorPoint PointX="5.354166666666667" PointY="2.6676741536458328" />
+          <ConnectorPoint PointX="5.583333333333333" PointY="2.6676741536458337" />
+          <ConnectorPoint PointX="5.75" PointY="2.6676741536458337" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingCategory" Width="1.5" PointX="0.75" PointY="8.5" Height="2.0853483072916639" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.ListingGroup" Width="1.5" PointX="0.75" PointY="11.75" Height="1.7566536458333353" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingCategory" Width="1.5" PointX="8.25" PointY="1.75" Height="1.9210009765624996" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="4.6438767656001687" />
-          <ConnectorPoint PointX="5.4793514420572924" PointY="4.6438767656001678" />
-          <ConnectorPoint PointX="5.6460181087239585" PointY="4.6438767656001687" />
-          <ConnectorPoint PointX="8.6874975" PointY="4.6438767656001687" />
-          <ConnectorPoint PointX="8.6874975" PointY="3.6710009765624996" />
+          <ConnectorPoint PointX="1.5" PointY="1" />
+          <ConnectorPoint PointX="1.5" PointY="0.75" />
+          <ConnectorPoint PointX="1.8229186666666666" PointY="0.74999999999999944" />
+          <ConnectorPoint PointX="1.9895853333333331" PointY="0.75" />
+          <ConnectorPoint PointX="5.5" PointY="0.75" />
+          <ConnectorPoint PointX="5.5" PointY="3.0853483072916674" />
+          <ConnectorPoint PointX="7.875" PointY="3.0853483072916674" />
+          <ConnectorPoint PointX="7.875" PointY="2.71050048828125" />
+          <ConnectorPoint PointX="8.25" PointY="2.71050048828125" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingCategory_ListingGroup" >
           <ConnectorPoint PointX="1.5" PointY="11.75" />
@@ -1653,9 +1694,13 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingUrl" Width="1.5" PointX="5.25" PointY="6.5" Height="1.921000976562496" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" PointX="9.375" PointY="4.75" Width="1.5" Height="1.7566536458333388" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="5.0719408828000851" />
-          <ConnectorPoint PointX="5.3750898876953128" PointY="5.0719408828000851" />
-          <ConnectorPoint PointX="5.3750898876953128" PointY="6.5" />
+          <ConnectorPoint PointX="1.450286461538461" PointY="6.7009895833333326" />
+          <ConnectorPoint PointX="1.450286461538461" PointY="7.8671203926282054" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="7.8671203926282045" />
+          <ConnectorPoint PointX="2.8020833333333335" PointY="7.8671203926282054" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="7.8671203926282045" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="7.8671203926282054" />
+          <ConnectorPoint PointX="5.25" PointY="7.8671203926282054" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingUrl_ListingCategory" >
           <ConnectorPoint PointX="2.25" PointY="9.349383486328124" />
@@ -1683,36 +1728,36 @@
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="6.6640655064102567" />
           <ConnectorPoint PointX="2.6875" PointY="7.1015655064102567" />
-          <ConnectorPoint PointX="2.6875" PointY="16.664195149739584" />
-          <ConnectorPoint PointX="3" PointY="16.664195149739584" />
+          <ConnectorPoint PointX="2.6875" PointY="16.746368815104169" />
+          <ConnectorPoint PointX="3" PointY="16.746368815104169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="7.375" PointY="10.75" Height="4.7149055989583388" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingKeywordScore" Width="1.5" PointX="10.5" PointY="1.875" Height="1.921000976562496" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="4.5324363710813333" />
-          <ConnectorPoint PointX="5.4793514420572924" PointY="4.5324363710813325" />
-          <ConnectorPoint PointX="5.6460181087239585" PointY="4.5324363710813333" />
-          <ConnectorPoint PointX="8.6041641666666653" PointY="4.5324363710813325" />
-          <ConnectorPoint PointX="8.7708308333333331" PointY="4.5324363710813333" />
-          <ConnectorPoint PointX="9.1041666666666661" PointY="4.5324363710813325" />
-          <ConnectorPoint PointX="9.2708333333333339" PointY="4.5324363710813333" />
-          <ConnectorPoint PointX="11.46875" PointY="4.5324363710813333" />
-          <ConnectorPoint PointX="11.46875" PointY="3.9603483072916661" />
+          <ConnectorPoint PointX="1.9062519999999998" PointY="1" />
+          <ConnectorPoint PointX="1.9062519999999998" PointY="0.5" />
+          <ConnectorPoint PointX="5.4375" PointY="0.5" />
+          <ConnectorPoint PointX="5.4375" PointY="3.2103483072916674" />
+          <ConnectorPoint PointX="8" PointY="3.2103483072916674" />
+          <ConnectorPoint PointX="8" PointY="3.9210009765624996" />
+          <ConnectorPoint PointX="9.1041666666666661" PointY="3.9210009765624991" />
+          <ConnectorPoint PointX="9.2708333333333339" PointY="3.9210009765624996" />
+          <ConnectorPoint PointX="10.125" PointY="3.9210009765624996" />
+          <ConnectorPoint PointX="10.125" PointY="2.9176741536458328" />
+          <ConnectorPoint PointX="10.5" PointY="2.9176741536458328" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl" >
-          <ConnectorPoint PointX="5.5626847753906254" PointY="6.5" />
-          <ConnectorPoint PointX="5.5626847753906254" PointY="3.8469246419270826" />
-          <ConnectorPoint PointX="8.6041641666666653" PointY="3.8469246419270822" />
-          <ConnectorPoint PointX="8.7708308333333331" PointY="3.8469246419270826" />
-          <ConnectorPoint PointX="9.1041666666666661" PointY="3.8469246419270822" />
-          <ConnectorPoint PointX="9.2708333333333339" PointY="3.8469246419270826" />
-          <ConnectorPoint PointX="10.5" PointY="3.8469246419270826" />
+          <ConnectorPoint PointX="6.75" PointY="7.0658268229166694" />
+          <ConnectorPoint PointX="9.1041666666666661" PointY="7.0658268229166685" />
+          <ConnectorPoint PointX="9.2708333333333339" PointY="7.0658268229166694" />
+          <ConnectorPoint PointX="11.96875" PointY="7.0658268229166694" />
+          <ConnectorPoint PointX="11.96875" PointY="3.9603483072916661" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="10.375" PointY="7.75" Height="7.0157682291666674" />
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserTemplate" Width="1.5" PointX="3" PointY="19.5" Height="2.4140429687500031" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="6.669834737179487" />
-          <ConnectorPoint PointX="2.71875" PointY="7.138584737179487" />
+          <ConnectorPoint PointX="2.2499999999999991" PointY="6.7009895833333326" />
+          <ConnectorPoint PointX="2.71875" PointY="7.1697395833333335" />
           <ConnectorPoint PointX="2.71875" PointY="20.707021484375" />
           <ConnectorPoint PointX="3" PointY="20.707021484375" />
         </AssociationConnector>
@@ -1723,6 +1768,7 @@
           <ConnectorPoint PointX="2.625" PointY="24.867889811197919" />
           <ConnectorPoint PointX="3" PointY="24.867889811197919" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.BugReport" Width="1.5" PointX="5.375" PointY="3.75" Height="1.9210009765625031" />
         </Diagram>
     </Diagrams>
   </Designer>

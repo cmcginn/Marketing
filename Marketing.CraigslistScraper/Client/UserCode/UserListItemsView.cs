@@ -9,6 +9,8 @@ using Microsoft.LightSwitch.Presentation;
 using Microsoft.LightSwitch.Presentation.Extensions;
 using System.Windows.Threading;
 using System.Windows.Controls;
+using System.Collections.Specialized;
+
 namespace LightSwitchApplication {
   public partial class UserListItemsView {
     Marketing.UI.Controls.UserListItemsViewControl _UserListItemsViewControl;
@@ -19,7 +21,7 @@ namespace LightSwitchApplication {
       // Write your code here.
       this.UserId = Application.UserId;
 
-    
+   
     }
 
     partial void UserListItemsView_Activated() {
@@ -95,9 +97,8 @@ namespace LightSwitchApplication {
 
     partial void OpenResponseView_Execute() {
       // Write your code here.       
-      this.Details.Dispatcher.BeginInvoke( () => {     
-          
-          Application.ShowDefaultScreen(this.GetFilteredUserListingItems.SelectedItem);            
+      this.Details.Dispatcher.BeginInvoke( () => {
+          Application.ShowGetUserListingItemByIdDetail(this.GetFilteredUserListingItems.SelectedItem.Id);          
           
       } );
       
@@ -143,9 +144,6 @@ namespace LightSwitchApplication {
         GetUserPostListFilterItemByUserId.ResponseStartDate = null;
         GetUserPostListFilterItemByUserId.FiltersEnabled = true;
     }
-
-
-
 
   }
 }
