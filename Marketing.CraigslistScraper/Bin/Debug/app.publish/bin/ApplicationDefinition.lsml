@@ -19,13 +19,6 @@
           <ShowScreenMethod TargetScreen="UserListItemsView" />
         </ApplicationMethod.Attributes>
       </ApplicationMethod>
-      <ApplicationMethod Name="ShowUserListingItemDetail">
-        <ApplicationMethod.Attributes>
-          <ShowScreenMethod TargetScreen="UserListingItemDetail" />
-        </ApplicationMethod.Attributes>
-        <ApplicationMethodParameter Name="UserListingItemId"
-                                    ParameterType=":Guid" />
-      </ApplicationMethod>
       <ApplicationMethod Name="ShowWorkflows">
         <ApplicationMethod.Attributes>
           <ShowScreenMethod TargetScreen="Workflows" />
@@ -50,6 +43,18 @@
           <ShowScreenMethod TargetScreen="Templates" />
         </ApplicationMethod.Attributes>
       </ApplicationMethod>
+      <ApplicationMethod Name="ShowBugReports">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="BugReports" />
+        </ApplicationMethod.Attributes>
+      </ApplicationMethod>
+      <ApplicationMethod Name="ShowGetUserListingItemByIdDetail">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="GetUserListingItemByIdDetail" />
+        </ApplicationMethod.Attributes>
+        <ApplicationMethodParameter Name="UserListingItemid"
+                                    ParameterType=":Guid" />
+      </ApplicationMethod>
     </Application.Methods>
     <Application.Attributes>
       <AutomaticDisplayName Expression="(\p{Ll})(\p{Lu})|_+"
@@ -69,6 +74,8 @@
                                    Name="Workflows" />
         <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowTemplates]"
                                    Name="Templates" />
+        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowBugReports]"
+                                   Name="BugReports" />
       </ApplicationNavigationGroup>
       <ApplicationNavigationGroup Name="Administration">
         <ApplicationNavigationGroup.Attributes>
@@ -88,6 +95,8 @@
                         Target="!module/Methods[ShowWorkflows]" />
     <ApplicationCommand Name="ScreenCommandShowTemplates"
                         Target="!module/Methods[ShowTemplates]" />
+    <ApplicationCommand Name="ScreenCommandShowBugReports"
+                        Target="!module/Methods[ShowBugReports]" />
   </Application>
 
   <EntityContainerGroup Name="DataWorkspace">
@@ -1477,6 +1486,101 @@
       <QueryOperationParameter Name="citiesFilter"
                                ParameterType=":String?" />
     </QueryOperation>
+    <EntitySet CanInsert="True"
+               CanUpdate="True"
+               EntityType="BugReportItem"
+               Name="BugReportItems" />
+  
+    <QueryOperation Name="BugReportItems_Single"
+                    ReturnType="BugReportItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="BugReportItems" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="BugReportItems_SingleOrDefault"
+                    ReturnType="BugReportItem">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="BugReportItems" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="BugReportItems_All"
+                    ReturnType="BugReportItem*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="BugReportItems" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
+    <QueryOperation Name="GetUserListingItemById"
+                    ReturnType="UserListingItem">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserListingItems" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="id"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   
   
@@ -1642,7 +1746,7 @@
       </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2152,14 +2256,6 @@
     </EntityType.Properties>
   </EntityType>
   <EntityType Name="UserListingItem">
-    <EntityType.Attributes>
-      <DefaultScreen Value="UserListingItemDetail">
-        <DefaultScreen.Attributes>
-          <ScreenParameterMapping KeyProperty="UserListingItem/Properties[Id]"
-                                  ScreenParameter="UserListingItemDetail/Properties[UserListingItemId]" />
-        </DefaultScreen.Attributes>
-      </DefaultScreen>
-    </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod Name="Delete">
         <EntityMethod.Attributes>
@@ -2290,7 +2386,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
       <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -2322,26 +2418,6 @@
       <ScreenMethod Name="CloseFilters" />
     </Screen.Methods>
     <Screen.Properties>
-      <ScreenProperty Name="GetUserPostListFilterItemByUserId"
-                      PropertyType="UserPostListFilterItem">
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="UserListItemsView/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenProperty>
-      <ScreenProperty Name="UserListingItemuserId"
-                      PropertyType=":Guid" />
-      <ScreenProperty Name="UserId"
-                      PropertyType=":Guid?" />
-      <ScreenProperty Name="ResponseId"
-                      PropertyType=":Guid?" />
       <ScreenCollectionProperty Name="GetFilteredUserListingItems"
                                 PageSize="45"
                                 PropertyType="CollectionView$UserListingItem">
@@ -2436,6 +2512,26 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty Name="GetUserPostListFilterItemByUserId"
+                      PropertyType="UserPostListFilterItem">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="UserListItemsView/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
+      <ScreenProperty Name="UserListingItemuserId"
+                      PropertyType=":Guid" />
+      <ScreenProperty Name="UserId"
+                      PropertyType=":Guid?" />
+      <ScreenProperty Name="ResponseId"
+                      PropertyType=":Guid?" />
     </Screen.Properties>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -3294,142 +3390,7 @@
   </EntityType>
   
 
-  <Screen Name="UserListingItemDetail">
-    <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
-      <DisplayName Value="Post Detail" />
-    </Screen.Attributes>
-    <Screen.Methods>
-      <ScreenMethod Name="Save">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="Refresh">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="Close">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-    </Screen.Methods>
-    <Screen.Properties>
-      <ScreenProperty Name="UserListingItem"
-                      PropertyType="UserListingItem">
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="LightSwitchApplication:MarketingDomainServiceData/Members[UserListingItems_SingleOrDefault]">
-              <ArgumentExpression Parameter="Id">
-                <ChainExpression>
-                  <MemberExpression Member="UserListingItemDetail/Properties[UserListingItemId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenProperty>
-      <ScreenProperty Name="UserListingItemId"
-                      PropertyType=":Guid">
-        <ScreenProperty.Attributes>
-          <IsParameter />
-        </ScreenProperty.Attributes>
-      </ScreenProperty>
-    </Screen.Properties>
-    <Screen.RootContentItem>
-      <ContentItem Kind="Screen"
-                   Name="RootContentItem">
-        <ContentItem.CommandItems>
-          <ContentItem Kind="Command"
-                       Name="Save">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="UserListingItemDetail/Methods[Save]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-          <ContentItem Kind="Command"
-                       Name="Refresh">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="UserListingItemDetail/Methods[Refresh]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-        </ContentItem.CommandItems>
-        <ContentItem Kind="Group"
-                     Name="ScreenLayout">
-          <ContentItem.PropertySources>
-            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <ConstantExpression ResultType=":Boolean"
-                                      Value="True" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ControlPropertySource>
-          </ContentItem.PropertySources>
-          <ContentItem DataType="UserListingItem"
-                       Kind="Details"
-                       Name="details">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="UserListingItemDetail/Properties[UserListingItem]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem Kind="ScreenContent"
-                         Name="ScreenContent">
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Marketing.UI.Controls.PostDetailsControl, Marketing.UI.Controls" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ConstantExpression ResultType=":String"
-                                        Value="None" />
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-            </ContentItem>
-          </ContentItem>
-        </ContentItem>
-      </ContentItem>
-    </Screen.RootContentItem>
-  </Screen>
+  
   <EntityType Name="Operation">
     <EntityType.Attributes>
       <DefaultScreen Value="RunWorkflow">
@@ -3484,7 +3445,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3666,7 +3627,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3880,7 +3841,7 @@
   
   <Screen Name="UserTemplateDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4057,7 +4018,7 @@
 
   <Screen Name="Templates">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4491,9 +4452,375 @@
       </EntityProperty>
     </EntityType.Properties>
   </EntityType>
+  <EntityType Name="BugReportItem">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="Description"
+                      PropertyType=":String?" />
+      <EntityProperty Name="Resolution"
+                      PropertyType=":String?" />
+      <EntityProperty Name="ReproductionSteps"
+                      PropertyType=":String?" />
+      <EntityProperty Name="Resolved"
+                      PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Reported"
+                      PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+
+  <Screen Name="BugReports">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty Name="BugReportItems"
+                                PageSize="45"
+                                PropertyType="CollectionView$BugReportItem">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="BugReportItemsQuery"
+                                 ReturnType="BugReportItem*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[BugReportItems_All]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="BugReports/Properties[BugReportItems]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="BugReports/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="BugReports/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem DataType="CollectionView$BugReportItem"
+                       Kind="Collection"
+                       Name="grid">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="BugReportItems_AddAndEditNew">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReports/Properties[BugReportItems]" />
+                      <CallExpression Target="AddAndEditNew" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="BugReportItems_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReports/Properties[BugReportItems]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="BugReportItems_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReports/Properties[BugReportItems]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="BugReports/Properties[BugReportItems]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Collapsed" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem DataType="BugReportItem"
+                         Kind="Details"
+                         Name="RowTemplate">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":Guid"
+                           Kind="Value"
+                           Name="Id"
+                           IsHidden="True">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReportItem/Properties[Id]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="Description">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HeightSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Lines" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="300" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Characters]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression ResultType=":Int32"
+                                          Value="300" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Characters" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Lines]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Int32"
+                                            Value="10" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReportItem/Properties[Description]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="Resolution">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HeightSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Lines" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Characters" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Characters]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Int32"
+                                            Value="300" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Lines]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Int32"
+                                            Value="10" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReportItem/Properties[Resolution]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="ReproductionSteps">
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HeightSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Lines" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":String"
+                                            Value="Characters" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Characters]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Int32"
+                                            Value="300" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:TextBox/Properties[Lines]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Int32"
+                                            Value="10" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReportItem/Properties[ReproductionSteps]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime?"
+                           Kind="Value"
+                           Name="Resolved">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReportItem/Properties[Resolved]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime"
+                           Kind="Value"
+                           Name="Reported">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="BugReportItem/Properties[Reported]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService1">
+               Name="MarketingDomainServiceDataDataService">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -4700,6 +5027,13 @@
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[citiesFilter]" />
       </QueryOperationMapping.Attributes>
     </QueryOperationMapping>
+    <QueryOperationMapping Operation="GetUserListingItemById">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserListingItemById" />
+        <WcfRiaQueryOperationParameter Name="id"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingItemById]/Parameters[id]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
     <EntitySetMapping EntitySet="UserListingResponseItems">
       <EntitySetMapping.Attributes>
         <WcfRiaEntitySet EntitySetQuery="DefaultUserListingResponseItems"
@@ -4802,7 +5136,165 @@
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]/Parameters[userId]" />
       </QueryOperationMapping.Attributes>
     </QueryOperationMapping>
+    <EntitySetMapping EntitySet="BugReportItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultBugReportItems"
+                         EntityTypeName="Marketing.Services.BugReportItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="BugReportItem/Properties[Id]" />
+        <WcfRiaProperty Name="Description"
+                        Property="BugReportItem/Properties[Description]" />
+        <WcfRiaProperty Name="Resolution"
+                        Property="BugReportItem/Properties[Resolution]" />
+        <WcfRiaProperty Name="ReproductionSteps"
+                        Property="BugReportItem/Properties[ReproductionSteps]" />
+        <WcfRiaProperty Name="Resolved"
+                        Property="BugReportItem/Properties[Resolved]" />
+        <WcfRiaProperty Name="Reported"
+                        Property="BugReportItem/Properties[Reported]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
   </DataService>
+
+  <Screen Name="GetUserListingItemByIdDetail">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty Name="GetUserListingItemById"
+                      PropertyType="UserListingItem">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="LightSwitchApplication:MarketingDomainServiceData/Members[GetUserListingItemById]">
+              <ArgumentExpression Parameter="id">
+                <ChainExpression>
+                  <MemberExpression Member="GetUserListingItemByIdDetail/Properties[UserListingItemid]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
+      <ScreenProperty Name="UserListingItemid"
+                      PropertyType=":Guid">
+        <ScreenProperty.Attributes>
+          <IsParameter />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="GetUserListingItemByIdDetail/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="GetUserListingItemByIdDetail/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+          <ContentItem DataType="UserListingItem"
+                       Kind="Details"
+                       Name="details">
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ConstantExpression ResultType=":String"
+                                      Value="None" />
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="GetUserListingItemByIdDetail/Properties[GetUserListingItemById]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem Kind="ScreenContent"
+                         Name="ScreenContent">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.PostDetailsControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Stretch" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
+  
 
   
 

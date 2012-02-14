@@ -38,11 +38,6 @@
         <ApplicationMethodParameter Name="UserTemplateItemId"
                                     ParameterType=":Guid" />
       </ApplicationMethod>
-      <ApplicationMethod Name="ShowTemplates">
-        <ApplicationMethod.Attributes>
-          <ShowScreenMethod TargetScreen="Templates" />
-        </ApplicationMethod.Attributes>
-      </ApplicationMethod>
       <ApplicationMethod Name="ShowBugReports">
         <ApplicationMethod.Attributes>
           <ShowScreenMethod TargetScreen="BugReports" />
@@ -55,6 +50,23 @@
         <ApplicationMethodParameter Name="UserListingItemid"
                                     ParameterType=":Guid" />
       </ApplicationMethod>
+      <ApplicationMethod Name="ShowTemplates">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="Templates" />
+        </ApplicationMethod.Attributes>
+      </ApplicationMethod>
+      <ApplicationMethod Name="ShowTemplateEdit">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="TemplateEdit" />
+        </ApplicationMethod.Attributes>
+        <ApplicationMethodParameter Name="UserTemplateItemId"
+                                    ParameterType=":Guid" />
+      </ApplicationMethod>
+      <ApplicationMethod Name="ShowCreateNewTemplate">
+        <ApplicationMethod.Attributes>
+          <ShowScreenMethod TargetScreen="CreateNewTemplate" />
+        </ApplicationMethod.Attributes>
+      </ApplicationMethod>
     </Application.Methods>
     <Application.Attributes>
       <AutomaticDisplayName Expression="(\p{Ll})(\p{Lu})|_+"
@@ -62,7 +74,7 @@
     </Application.Attributes>
     <Application.NavigationItems>
       <ApplicationNavigationGroup Name="Tasks"
-                                  DefaultItem="!module/NavigationItems[Tasks]/Children[UserListItemsView]">
+                                  DefaultItem="!module/NavigationItems[Tasks]/Children[Templates]">
         <ApplicationNavigationGroup.Attributes>
           <DisplayName Value="Tasks" />
         </ApplicationNavigationGroup.Attributes>
@@ -72,10 +84,12 @@
                                    Name="UserListItemsView" />
         <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowWorkflows]"
                                    Name="Workflows" />
-        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowTemplates]"
-                                   Name="Templates" />
         <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowBugReports]"
                                    Name="BugReports" />
+        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowTemplates]"
+                                   Name="Templates" />
+        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowCreateNewTemplate]"
+                                   Name="CreateNewTemplate" />
       </ApplicationNavigationGroup>
       <ApplicationNavigationGroup Name="Administration">
         <ApplicationNavigationGroup.Attributes>
@@ -93,10 +107,12 @@
                         Target="!module/Methods[ShowUserListItemsView]" />
     <ApplicationCommand Name="ScreenCommandShowWorkflows"
                         Target="!module/Methods[ShowWorkflows]" />
-    <ApplicationCommand Name="ScreenCommandShowTemplates"
-                        Target="!module/Methods[ShowTemplates]" />
     <ApplicationCommand Name="ScreenCommandShowBugReports"
                         Target="!module/Methods[ShowBugReports]" />
+    <ApplicationCommand Name="ScreenCommandShowTemplates"
+                        Target="!module/Methods[ShowTemplates]" />
+    <ApplicationCommand Name="ScreenCommandShowCreateNewTemplate"
+                        Target="!module/Methods[ShowCreateNewTemplate]" />
   </Application>
 
   <EntityContainerGroup Name="DataWorkspace">
@@ -3774,10 +3790,10 @@
   </EntityType>
   <EntityType Name="UserTemplateItem">
     <EntityType.Attributes>
-      <DefaultScreen Value="UserTemplateDetail">
+      <DefaultScreen Value="TemplateEdit">
         <DefaultScreen.Attributes>
           <ScreenParameterMapping KeyProperty="UserTemplateItem/Properties[Id]"
-                                  ScreenParameter="UserTemplateDetail/Properties[UserTemplateItemId]" />
+                                  ScreenParameter="TemplateEdit/Properties[UserTemplateItemId]" />
         </DefaultScreen.Attributes>
       </DefaultScreen>
     </EntityType.Attributes>
@@ -4016,364 +4032,7 @@
     </Screen.RootContentItem>
   </Screen>
 
-  <Screen Name="Templates">
-    <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
-    </Screen.Attributes>
-    <Screen.Methods>
-      <ScreenMethod Name="Save">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="Refresh">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="Close">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault Display="True" />
-          <Generated />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="gridAddAndEditNew">
-        <ScreenMethod.Attributes>
-          <BuiltInMethodOverride MethodName="AddAndEditNew" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-      <ScreenMethod Name="gridDeleteSelected">
-        <ScreenMethod.Attributes>
-          <BuiltInMethodOverride MethodName="DeleteSelected" />
-        </ScreenMethod.Attributes>
-      </ScreenMethod>
-    </Screen.Methods>
-    <Screen.Properties>
-      <ScreenCollectionProperty Name="GetUserTemplates"
-                                PageSize="45"
-                                PropertyType="CollectionView$UserTemplateItem">
-        <ScreenCollectionProperty.Query>
-          <ScreenQueryDefinition Name="GetUserTemplatesQuery"
-                                 ReturnType="UserTemplateItem*">
-            <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree />
-            </ScreenQueryDefinition.FilterExpression>
-            <ScreenQueryDefinition.Source>
-              <QuerySourceExpressionTree>
-                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserTemplates]" />
-              </QuerySourceExpressionTree>
-            </ScreenQueryDefinition.Source>
-          </ScreenQueryDefinition>
-        </ScreenCollectionProperty.Query>
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="Templates/Properties[GetUserTemplates]/Query">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="Templates/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenCollectionProperty>
-      <ScreenProperty Name="UserId"
-                      PropertyType=":Guid" />
-    </Screen.Properties>
-    <Screen.RootContentItem>
-      <ContentItem Kind="Screen"
-                   Name="RootContentItem">
-        <ContentItem.CommandItems>
-          <ContentItem Kind="Command"
-                       Name="Save">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="Templates/Methods[Save]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-          <ContentItem Kind="Command"
-                       Name="Refresh">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <CallExpression Target="Templates/Methods[Refresh]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-          </ContentItem>
-        </ContentItem.CommandItems>
-        <ContentItem Kind="Group"
-                     Name="ScreenLayout"
-                     View=":ColumnsLayout">
-          <ContentItem DataType="CollectionView$UserTemplateItem"
-                       Kind="Collection"
-                       Name="grid">
-            <ContentItem.CommandItems>
-              <ContentItem Kind="Command"
-                           Name="gridAddAndEditNew">
-                <ContentItem.Attributes>
-                  <DisplayName Value="Add..." />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <CallExpression Target="Templates/Methods[gridAddAndEditNew]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="GetUserTemplates_EditSelected">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="Templates/Properties[GetUserTemplates]" />
-                      <CallExpression Target="EditSelected" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem Kind="Command"
-                           Name="gridDeleteSelected">
-                <ContentItem.Attributes>
-                  <DisplayName Value="Delete" />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <CallExpression Target="Templates/Methods[gridDeleteSelected]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem.CommandItems>
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="Templates/Properties[GetUserTemplates]" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem.PropertySources>
-              <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Stretch" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-              <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <ConstantExpression ResultType=":String"
-                                        Value="Collapsed" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-              <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                <ScreenExpressionTree>
-                  <ConstantExpression ResultType=":String"
-                                      Value="Left" />
-                </ScreenExpressionTree>
-              </ControlPropertySource>
-            </ContentItem.PropertySources>
-            <ContentItem DataType="UserTemplateItem"
-                         Kind="Details"
-                         Name="RowTemplate">
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression />
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem DataType=":Guid"
-                           Kind="Value"
-                           Name="Id"
-                           IsHidden="True">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserTemplateItem/Properties[Id]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Guid"
-                           Kind="Value"
-                           Name="UserId"
-                           IsHidden="True">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserTemplateItem/Properties[UserId]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":DateTime"
-                           Kind="Value"
-                           Name="Created"
-                           IsHidden="False"
-                           View=":Label">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Left" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="120" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserTemplateItem/Properties[Created]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":DateTime?"
-                           Kind="Value"
-                           Name="LastUpdated"
-                           IsHidden="False"
-                           View=":Label">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Left" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="120" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-                <ContentItem.Attributes>
-                  <DisplayName Value="Updated" />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserTemplateItem/Properties[LastUpdated]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":Boolean"
-                           Kind="Value"
-                           Name="IsDefault">
-                <ContentItem.PropertySources>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Left" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[WidthSizingMode]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Pixels" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[Width]">
-                    <ScreenExpressionTree>
-                      <ConstantExpression ResultType=":Double"
-                                          Value="55" />
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-                <ContentItem.Attributes>
-                  <DisplayName Value="Default" />
-                </ContentItem.Attributes>
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserTemplateItem/Properties[IsDefault]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem DataType=":String?"
-                           Kind="Value"
-                           Name="TemplateName">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression Member="UserTemplateItem/Properties[TemplateName]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-            </ContentItem>
-          </ContentItem>
-          <ContentItem DataType="UserTemplateItem"
-                       Kind="Details"
-                       Name="GetUserTemplates_SelectedItem">
-            <ContentItem.DataSource>
-              <ScreenExpressionTree>
-                <ChainExpression>
-                  <MemberExpression Member="Templates/Properties[GetUserTemplates]" />
-                  <MemberExpression Member="SelectedItem" />
-                </ChainExpression>
-              </ScreenExpressionTree>
-            </ContentItem.DataSource>
-            <ContentItem Kind="ScreenContent"
-                         Name="TemplateContent">
-              <ContentItem.PropertySources>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Marketing.UI.Controls.TemplateEditorControl, Marketing.UI.Controls" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="Stretch" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression ResultType=":String"
-                                          Value="None" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
-            </ContentItem>
-          </ContentItem>
-        </ContentItem>
-      </ContentItem>
-    </Screen.RootContentItem>
-  </Screen>
+  
   <EntityType Name="UserPostListFilterItem">
     <EntityType.Methods>
       <EntityMethod Name="Delete">
@@ -5293,6 +4952,771 @@
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+  <Screen Name="Templates">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="gridAddAndEditNew">
+        <ScreenMethod.Attributes>
+          <BuiltInMethodOverride MethodName="AddAndEditNew" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenCollectionProperty Name="GetUserTemplates"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserTemplateItem">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetUserTemplatesQuery"
+                                 ReturnType="UserTemplateItem*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserTemplates]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="Templates/Properties[GetUserTemplates]/Query">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Templates/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenProperty Name="UserTemplateItemuserId"
+                      PropertyType=":Guid" />
+      <ScreenProperty Name="UserId"
+                      PropertyType=":Guid">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+      <ScreenProperty Name="EditLink"
+                      PropertyType=":String">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="Templates/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="Templates/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem DataType="CollectionView$UserTemplateItem"
+                       Kind="Collection"
+                       Name="grid">
+            <ContentItem.CommandItems>
+              <ContentItem Kind="Command"
+                           Name="gridAddAndEditNew">
+                <ContentItem.Attributes>
+                  <DisplayName Value="Add..." />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression Target="Templates/Methods[gridAddAndEditNew]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserTemplates_EditSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Templates/Properties[GetUserTemplates]" />
+                      <CallExpression Target="EditSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem Kind="Command"
+                           Name="GetUserTemplates_DeleteSelected">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="Templates/Properties[GetUserTemplates]" />
+                      <CallExpression Target="DeleteSelected" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem.CommandItems>
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="Templates/Properties[GetUserTemplates]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem.PropertySources>
+              <ControlPropertySource Property=":RootControl/Properties[VerticalAlignment]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+              <ControlPropertySource Property=":RootControl/Properties[AttachedLabelPosition]">
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Collapsed" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ControlPropertySource>
+            </ContentItem.PropertySources>
+            <ContentItem DataType="UserTemplateItem"
+                         Kind="Details"
+                         Name="RowTemplate">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[BrowseOnly]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":Boolean"
+                                          Value="True" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression />
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem DataType=":Guid"
+                           Kind="Value"
+                           Name="Id"
+                           IsHidden="True">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[Id]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Guid"
+                           Kind="Value"
+                           Name="UserId"
+                           IsHidden="True">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[UserId]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime"
+                           Kind="Value"
+                           Name="Created"
+                           IsHidden="True">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[Created]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":DateTime?"
+                           Kind="Value"
+                           Name="LastUpdated">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[LastUpdated]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":Boolean"
+                           Kind="Value"
+                           Name="IsDefault">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[IsDefault]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="TemplateName">
+                <ContentItem.Attributes>
+                  <ShowAsLinkSettings Value="TemplateEdit">
+                    <ShowAsLinkSettings.Attributes>
+                      <ScreenParameterMapping KeyProperty="UserTemplateItem/Properties[Id]"
+                                              ScreenParameter="TemplateEdit/Properties[UserTemplateItemId]" />
+                    </ShowAsLinkSettings.Attributes>
+                  </ShowAsLinkSettings>
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[ShowAsLink]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression ResultType=":Boolean"
+                                            Value="True" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[TemplateName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="TemplateHtml"
+                           IsHidden="True">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[TemplateHtml]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String?"
+                           Kind="Value"
+                           Name="TemplateText"
+                           IsHidden="True">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[TemplateText]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
+  <Screen Name="TemplateEdit">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty Name="UserTemplateItem"
+                      PropertyType="UserTemplateItem">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="LightSwitchApplication:MarketingDomainServiceData/Members[UserTemplateItems_SingleOrDefault]">
+              <ArgumentExpression Parameter="Id">
+                <ChainExpression>
+                  <MemberExpression Member="TemplateEdit/Properties[UserTemplateItemId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
+      <ScreenProperty Name="UserTemplateItemId"
+                      PropertyType=":Guid">
+        <ScreenProperty.Attributes>
+          <IsParameter />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="TemplateEdit/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="TemplateEdit/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+          <ContentItem DataType="UserTemplateItem"
+                       Kind="Details"
+                       Name="details">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="TemplateEdit/Properties[UserTemplateItem]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType=":Guid"
+                         Kind="Value"
+                         Name="Id"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[Id]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Guid"
+                         Kind="Value"
+                         Name="UserId"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[UserId]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":DateTime"
+                         Kind="Value"
+                         Name="Created"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[Created]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":DateTime?"
+                         Kind="Value"
+                         Name="LastUpdated"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[LastUpdated]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Boolean"
+                         Kind="Value"
+                         Name="IsDefault">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[IsDefault]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateName">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateName]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateHtml"
+                         View=":ValueCustomContentControl">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.TemplateEditorControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="None" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateHtml]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateText"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateText]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
+  <Screen LaunchMode="Multiple"
+          Name="CreateNewTemplate">
+    <Screen.Attributes>
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+    </Screen.Attributes>
+    <Screen.Methods>
+      <ScreenMethod Name="Save">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Save.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Refresh">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+          <ImageResource ResourceId="Microsoft.LightSwitch.BuiltInImageResources::BuiltInResources/Refresh.png" />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+      <ScreenMethod Name="Close">
+        <ScreenMethod.Attributes>
+          <DisplayMethodByDefault Display="True" />
+          <Generated />
+        </ScreenMethod.Attributes>
+      </ScreenMethod>
+    </Screen.Methods>
+    <Screen.Properties>
+      <ScreenProperty Name="UserTemplateItemProperty"
+                      PropertyType="UserTemplateItem" />
+    </Screen.Properties>
+    <Screen.RootContentItem>
+      <ContentItem Kind="Screen"
+                   Name="RootContentItem">
+        <ContentItem.CommandItems>
+          <ContentItem Kind="Command"
+                       Name="Save">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="CreateNewTemplate/Methods[Save]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+          <ContentItem Kind="Command"
+                       Name="Refresh">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <CallExpression Target="CreateNewTemplate/Methods[Refresh]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+          </ContentItem>
+        </ContentItem.CommandItems>
+        <ContentItem Kind="Group"
+                     Name="ScreenLayout">
+          <ContentItem.PropertySources>
+            <ControlPropertySource Property=":ScrollableControl/Properties[IsVerticalScrollBarEnabled]">
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <ConstantExpression ResultType=":Boolean"
+                                      Value="True" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ControlPropertySource>
+          </ContentItem.PropertySources>
+          <ContentItem DataType="UserTemplateItem"
+                       Kind="Details"
+                       Name="details"
+                       View="Microsoft.LightSwitch:RowsLayout">
+            <ContentItem.DataSource>
+              <ScreenExpressionTree>
+                <ChainExpression>
+                  <MemberExpression Member="CreateNewTemplate/Properties[UserTemplateItemProperty]" />
+                </ChainExpression>
+              </ScreenExpressionTree>
+            </ContentItem.DataSource>
+            <ContentItem DataType=":Guid"
+                         Kind="Value"
+                         Name="Id"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[Id]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Guid"
+                         Kind="Value"
+                         Name="UserId"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[UserId]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":DateTime"
+                         Kind="Value"
+                         Name="Created"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[Created]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":DateTime?"
+                         Kind="Value"
+                         Name="LastUpdated"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[LastUpdated]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateName">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateName]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Boolean"
+                         Kind="Value"
+                         Name="IsDefault">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Top" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[IsDefault]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateHtml"
+                         View=":ValueCustomContentControl">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.TemplateEditorControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[VerticalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[HorizontalAlignment]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="Stretch" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[AttachedLabelPosition]">
+                  <ScreenExpressionTree>
+                    <ConstantExpression ResultType=":String"
+                                        Value="None" />
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateHtml]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateText"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateText]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
+      </ContentItem>
+    </Screen.RootContentItem>
+  </Screen>
+
 
   
 

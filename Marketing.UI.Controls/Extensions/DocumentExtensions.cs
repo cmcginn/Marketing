@@ -21,8 +21,9 @@ namespace Marketing.UI.Controls.Extensions {
      
       var builder = new StringBuilder();
       content = System.Text.RegularExpressions.Regex.Replace( content, "<!DOCTYPE html .*>", "" );
+
       var element = XElement.Parse( content );
-      var head = element.Element( "head" );
+      var head = element.Element( "head" );      
       var style = head.Element( "style" );
       var body = element.Element( "body" );
       builder.Append( style.ToString() );

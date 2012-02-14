@@ -9,25 +9,20 @@
     xmlns:dxre="http://schemas.devexpress.com/winfx/2008/xaml/richedit"
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     mc:Ignorable="d"
-    d:DesignHeight="300" d:DesignWidth="400">
+    d:DesignHeight="300" d:DesignWidth="400" xmlns:my="clr-namespace:Marketing.UI.Controls">
   <UserControl.Resources>
     <ResourceDictionary>
       <dxre:RichEditUICommand x:Key="commands" />
       <dxre:RichEditStringIdConverter x:Key="stringIdConverter" />
       <dxre:DefaultBarItemDataTemplates x:Key="defaultBarItemTemplates" />
       <dxre:HtmlToContentConverter x:Key="converter"/>
-    </ResourceDictionary>
+   
+        </ResourceDictionary>
   </UserControl.Resources>
-  <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot" Background="White">
     <Grid.RowDefinitions>
-
     </Grid.RowDefinitions>
-
-    <TextBox Name="EditSource"  Text="{Binding Screen.GetUserTemplates.SelectedItem.TemplateHtml}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top" TextChanged="Source_TextChanged"></TextBox>
-    <TextBox Name="HtmlEdit"  Text="{Binding Screen.GetUserTemplates.SelectedItem.TemplateHtml,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-    <TextBox Name="EditText" Text="{Binding Screen.GetUserTemplates.SelectedItem.TemplateText,Mode=TwoWay}" Width="0" Height="0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-
-
+        
     <dxb:BarManager Name="barManager1">
       <dxb:BarManager.Items>
         <dxb:BarButtonItem Command="{Binding Path=FileNew, Mode=OneTime, Source={StaticResource commands}}" Name="biFileNew" />
@@ -516,9 +511,8 @@
             <dxb:BarButtonItemLink BarItemName="biEditRedo" />
           </dxr:RibbonControl.ToolbarItemLinks>
         </dxr:RibbonControl>
-        <dxre:RichEditControl x:Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}"                                             
-                                          HtmlTextChanged="richEditControl_HtmlTextChanged" DocumentLoaded="richEditControl_DocumentLoaded" 
-                                          ShowBorder="False" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}"></dxre:RichEditControl>
+                <dxre:RichEditControl x:Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}"   
+                                          ShowBorder="False" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}" Loaded="richEditControl_Loaded"></dxre:RichEditControl>
       </dx:DXDockPanel>
     </dxb:BarManager>
   </Grid>

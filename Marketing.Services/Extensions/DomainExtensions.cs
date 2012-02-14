@@ -253,13 +253,13 @@ namespace Marketing.Services.Extensions
         }
         public static void AddUserTemplateItem(this MarketingEntities context, UserTemplateItem userTemplateItem)
         {
-
+       
             var template = new UserTemplate
             {
                 Id = userTemplateItem.Id,
                 UserId = userTemplateItem.UserId,
                 Created = userTemplateItem.Created,
-                TemplateHtml = XElement.Parse(userTemplateItem.TemplateHtml).ToString(),
+                TemplateHtml = userTemplateItem.TemplateHtml.NormalizeHtml(),
                 TemplateText = userTemplateItem.TemplateText,
                 TemplateName = userTemplateItem.TemplateName,
                 IsDefault = userTemplateItem.IsDefault
@@ -272,10 +272,8 @@ namespace Marketing.Services.Extensions
         public static void UpdateUserTemplateItem(this MarketingEntities context, UserTemplateItem userTemplateItem)
         {
             var template = context.UserTemplates.Single(n => n.Id == userTemplateItem.Id);
-            var content = System.Text.RegularExpressions.Regex.Replace(userTemplateItem.TemplateHtml, "<!DOCTYPE html .*>", "");
-            var converter = new Marketing.Utils.HtmlToXml.HtmlToXmlConverter();
-            var templateHtml = converter.ConvertToXml(content);
-            template.TemplateHtml = templateHtml.ToString();
+
+            template.TemplateHtml = userTemplateItem.TemplateHtml.NormalizeHtml();
             template.TemplateText = userTemplateItem.TemplateText;
             template.TemplateName = userTemplateItem.TemplateName;
             template.IsDefault = userTemplateItem.IsDefault;
@@ -522,6 +520,24 @@ namespace Marketing.Services.Extensions
             bugReport.Resolved = item.Resolved;
             context.SaveChanges();
 
+        }
+        public static String NormalizeHtml(this string content)
+        {
+            var result = content;
+            result = System.Text.RegularExpressions.Regex.Replace(result, "<!DOCTYPE html .*>", "");
+            var converter = new Marketing.Utils.HtmlToXml.HtmlToXmlConverter();
+            var element = converter.ConvertToXml(result);
+            //handle title
+            var head = element.Descendants("head").First();
+            var title = element.Descendants("title").FirstOrDefault();
+            
+            if (title == null)
+            {
+                head.Add(new XElement("title", "Untitled Document"));
+            }else if(String.IsNullOrEmpty(title.Value))
+                title.Value = "Untitled Document";
+
+            return element.ToString();
         }
     }
 }

@@ -12,39 +12,35 @@ using System.Windows.Shapes;
 using DevExpress.XtraRichEdit.Services;
 using DevExpress.Utils;
 using Marketing.UI.Controls.Extensions;
+using System.ComponentModel;
 namespace Marketing.UI.Controls {
   public partial class TemplateEditorControl : UserControl {
     string _editorContent;
     public TemplateEditorControl() {
       InitializeComponent();
-    }
-    public void Refresh() {
-      this.Dispatcher.BeginInvoke( () => {
-        _editorContent = this.EditSource.Text.ToEditorDocument();
-        richEditControl.HtmlText = _editorContent;
-      } );
-    }
-    private void Source_TextChanged( object sender, TextChangedEventArgs e ) {
-      if( String.IsNullOrEmpty( _editorContent ) ) {
-        _editorContent = this.EditSource.Text.ToEditorDocument();
-        EditText.Text = richEditControl.Text;
-        richEditControl.HtmlText = _editorContent;
-      }
+
     }
 
-    private void richEditControl_HtmlTextChanged( object sender, EventArgs e ) {
-      if( this.richEditControl.IsEnabled ) {
-        HtmlEdit.Text = richEditControl.HtmlText;
-        EditText.Text = richEditControl.Text;
-        _editorContent = richEditControl.HtmlText;
-      }
+    string _TemplateHtml = "".ToEditorDocument();
+    public string TemplateHtml 
+    {
+        get { return richEditControl.HtmlText; }
+        set {
+            _TemplateHtml = value;
+            richEditControl.HtmlText = value;
+            
+        } 
     }
-    private void richEditControl_DocumentLoaded( object sender, EventArgs e ) {
-      if( this.richEditControl.IsEnabled ) {
-        HtmlEdit.Text = richEditControl.HtmlText;
-        EditText.Text = richEditControl.Text;
-        _editorContent = richEditControl.HtmlText;
-      }
+    public string TemplateText { get { return richEditControl.Text; } }
+
+    private void richEditControl_Loaded(object sender, RoutedEventArgs e)
+    {
+
+        richEditControl.HtmlText = _TemplateHtml;
     }
+
+
+
+
   }
 }
