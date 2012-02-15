@@ -74,7 +74,7 @@
     </Application.Attributes>
     <Application.NavigationItems>
       <ApplicationNavigationGroup Name="Tasks"
-                                  DefaultItem="!module/NavigationItems[Tasks]/Children[Templates]">
+                                  DefaultItem="!module/NavigationItems[Tasks]/Children[UserListItemsView]">
         <ApplicationNavigationGroup.Attributes>
           <DisplayName Value="Tasks" />
         </ApplicationNavigationGroup.Attributes>
@@ -88,8 +88,6 @@
                                    Name="BugReports" />
         <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowTemplates]"
                                    Name="Templates" />
-        <ApplicationNavigationLink Command="!module/Commands[ScreenCommandShowCreateNewTemplate]"
-                                   Name="CreateNewTemplate" />
       </ApplicationNavigationGroup>
       <ApplicationNavigationGroup Name="Administration">
         <ApplicationNavigationGroup.Attributes>
@@ -5016,12 +5014,6 @@
                       PropertyType=":Guid" />
       <ScreenProperty Name="UserId"
                       PropertyType=":Guid">
-        <ScreenProperty.Attributes>
-          <Required />
-        </ScreenProperty.Attributes>
-      </ScreenProperty>
-      <ScreenProperty Name="EditLink"
-                      PropertyType=":String">
         <ScreenProperty.Attributes>
           <Required />
         </ScreenProperty.Attributes>

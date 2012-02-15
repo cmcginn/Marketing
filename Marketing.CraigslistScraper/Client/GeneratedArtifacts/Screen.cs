@@ -3042,8 +3042,6 @@ namespace LightSwitchApplication
 
         partial void UserId_Changed();
 
-        partial void EditLink_Changed();
-
         /// <summary>
         /// Gets the GetUserTemplates visual collection. The collection contains all records currently shown on the respective list or grid control.
         /// </summary>
@@ -3090,22 +3088,6 @@ namespace LightSwitchApplication
         }
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
- 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public string EditLink
-        {
-            get 
-            {
-                return global::LightSwitchApplication.Templates.DetailsClass.GetValue(this, global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.EditLink);
-            }
-            set
-            {
-                global::LightSwitchApplication.Templates.DetailsClass.SetValue(this, global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.EditLink, value);
-            }
-        }
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void EditLink_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
         /// <summary>
         /// Calls the gridAddAndEditNew screen method.
@@ -3221,9 +3203,6 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>.Data _UserId;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, string>.Data _EditLink;
-
-            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass>.Data _gridAddAndEditNewCommand;
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -3257,14 +3236,6 @@ namespace LightSwitchApplication
                     get
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, global::System.Guid>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.UserId);
-                    }
-                }
-
-                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, string> EditLink
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, string>)base.GetItem(global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties.EditLink);
                     }
                 }
 
@@ -3382,26 +3353,6 @@ namespace LightSwitchApplication
                 private static void _UserId_OnValueChanged(global::LightSwitchApplication.Templates s)
                 {
                     s.UserId_Changed();
-                }
-
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, string>.Entry
-                    EditLink = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, string>.Entry(
-                        "EditLink",
-                        false,
-                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._EditLink_Stub,
-                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._EditLink_Validate,
-                        global::LightSwitchApplication.Templates.DetailsClass.PropertySetProperties._EditLink_OnValueChanged);
-                private static void _EditLink_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Templates.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenLocalProperty<global::LightSwitchApplication.Templates, global::LightSwitchApplication.Templates.DetailsClass, string>.Data> c, global::LightSwitchApplication.Templates.DetailsClass d, object sf)
-                {
-                    c(d, ref d._EditLink, sf);
-                }
-                private static void _EditLink_Validate(global::LightSwitchApplication.Templates s, global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder r)
-                {
-                    s.EditLink_Validate(r);
-                }
-                private static void _EditLink_OnValueChanged(global::LightSwitchApplication.Templates s)
-                {
-                    s.EditLink_Changed();
                 }
 
             }
