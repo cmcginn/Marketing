@@ -13,11 +13,17 @@ namespace LightSwitchApplication
     public partial class TemplateEdit
     {
         Marketing.UI.Controls.TemplateEditorControl _TemplateEditor;
+        string _Template;
         partial void UserTemplateItem_Loaded(bool succeeded)
         {
             // Write your code here.
             this.SetDisplayNameFromEntity(this.UserTemplateItem);
-            _TemplateEditor.TemplateHtml = this.UserTemplateItem.TemplateHtml;
+            _Template = this.UserTemplateItem.TemplateHtml;
+            _TemplateEditor.Dispatcher.BeginInvoke(() =>
+                {
+                    _TemplateEditor.TemplateHtml = _Template;
+                });
+            this.UserTemplateItem.LastUpdated = System.DateTime.Now;
         }
 
         partial void UserTemplateItem_Changed()
@@ -32,7 +38,7 @@ namespace LightSwitchApplication
             this.SetDisplayNameFromEntity(this.UserTemplateItem);
             this.Close(false);
         }
-
+        
         partial void TemplateEdit_Saving(ref bool handled)
         {
 
@@ -52,14 +58,17 @@ namespace LightSwitchApplication
         void TemplateEdit_ControlAvailable(object sender, ControlAvailableEventArgs e)
         {
             _TemplateEditor = e.Control as Marketing.UI.Controls.TemplateEditorControl;
+          
             
         }
 
-        partial void TemplateEdit_InitializeDataWorkspace(List<IDataService> saveChangesTo)
-        {
-            // Write your code here.
-            
-            var x = "Y";
-        }
+    
+    }
+}
+
+namespace UserCode
+{
+    public partial class TemplateEdit
+    {
     }
 }

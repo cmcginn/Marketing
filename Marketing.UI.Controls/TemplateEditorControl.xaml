@@ -22,7 +22,7 @@
     <Grid x:Name="LayoutRoot" Background="White">
     <Grid.RowDefinitions>
     </Grid.RowDefinitions>
-        
+        <!--<TextBox Name="EditSource" Grid.Row="0" Text="{Binding Value}" Visibility="Collapsed"  TextChanged="EditSource_TextChanged"></TextBox>-->
     <dxb:BarManager Name="barManager1">
       <dxb:BarManager.Items>
         <dxb:BarButtonItem Command="{Binding Path=FileNew, Mode=OneTime, Source={StaticResource commands}}" Name="biFileNew" />
@@ -353,7 +353,7 @@
       </dxb:BarManager.Items>
       <dx:DXDockPanel>
 
-        <dxr:RibbonControl dx:DXDockPanel.Dock="Top" x:Name="ribbonControl" ApplicationButtonLargeIcon="/RichEditDemo;component/Images/ribbon-application-32x32.png">
+        <dxr:RibbonControl dx:DXDockPanel.Dock="Top" x:Name="ribbonControl">
           <dxr:RibbonControl.ApplicationMenu>
             <dxr:ApplicationMenuInfo RightPaneWidth="100" ShowRightPane="false">
               <dxr:ApplicationMenuInfo.ItemLinks>
@@ -512,7 +512,7 @@
           </dxr:RibbonControl.ToolbarItemLinks>
         </dxr:RibbonControl>
                 <dxre:RichEditControl x:Name="richEditControl" BarManager="{Binding ElementName=barManager1, Mode=OneTime}"   
-                                          ShowBorder="False" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}" Loaded="richEditControl_Loaded"></dxre:RichEditControl>
+                                          ShowBorder="False" Ribbon="{Binding ElementName=ribbonControl, Mode=OneTime}"></dxre:RichEditControl>
       </dx:DXDockPanel>
     </dxb:BarManager>
   </Grid>

@@ -5440,6 +5440,13 @@
                          Kind="Value"
                          Name="TemplateHtml"
                          View=":ValueCustomContentControl">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateHtml]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
               <ContentItem.PropertySources>
                 <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
                   <ScreenExpressionTree>
@@ -5468,13 +5475,6 @@
                   </ScreenExpressionTree>
                 </ControlPropertySource>
               </ContentItem.PropertySources>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression Member="UserTemplateItem/Properties[TemplateHtml]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
             </ContentItem>
             <ContentItem DataType=":String?"
                          Kind="Value"
@@ -5484,6 +5484,17 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression Member="UserTemplateItem/Properties[TemplateText]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":String?"
+                         Kind="Value"
+                         Name="TemplateHtml1">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[TemplateHtml]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
