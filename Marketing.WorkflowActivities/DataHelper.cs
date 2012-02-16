@@ -30,7 +30,7 @@ namespace Marketing.WorkflowActivities {
       var result = context.UserListingUrls.SingleOrDefault( n => n.ListingUrlId == listingUrl.Id && n.UserId == userId );
       return result;
     }
-    public static List<ListingUrl> GetListingUrlsForUser( MarketingEntities context, Guid userId ) {
+    public static List<UserListingUrl> GetListingUrlsForUser( MarketingEntities context, Guid userId ) {
       var query = from userListing in context.UserListingUrls.Where( x => x.UserId == userId )
                   join listing in context.ListingUrls
                   on userListing.ListingUrlId equals listing.Id
@@ -38,7 +38,7 @@ namespace Marketing.WorkflowActivities {
                   on listing.Id equals listingContent.ListingUrlId into contents
                   from content in contents.DefaultIfEmpty()
                   where content == null
-                  select listing;
+                  select userListing;
       return query.ToList();
 
     }
@@ -76,20 +76,38 @@ namespace Marketing.WorkflowActivities {
         var result = context.UserPreferences.Single(n => n.UserId == userId).MinimumKeywordScore;
         return result;
     }
-    public static int GetMatchingKeywordsForContent(List<UserKeyword> keywords, string content)
-    {       
-        var result = 0;
-
-
-        var loweredContent = content.ToLower();
-        keywords.ForEach(n =>
-            {
-                if (loweredContent.Contains(n.Keyword.ToLower()))   
-                    result += n.WeightedScore;
-                
+    public static UserListingKeywordScore GetUserListingKeywordScoreForContent(MarketingEntities context,UserListingUrl userListingUrl,List<UserKeyword> keywords, string content)
+    {
+        var result = userListingUrl.UserListingKeywordScores.SingleOrDefault();
+        
+        if (result == null)
+        {
+            result = new UserListingKeywordScore { Id = Guid.NewGuid(), UserListingUrl = userListingUrl };
             
-            });
+        }
+        //reset keyword object we do not want to keep appending every refresh
+        result.KeywordScore = 0;
+        result.KeywordDisplay = String.Empty;
+        var loweredContent = content.ToLower();
+        List<string> keywordsMatched = new List<string>();
+        keywords.ForEach(n =>
+        {
+            if (loweredContent.Contains(n.Keyword.ToLower()))
+            {
+                result.KeywordScore += n.WeightedScore;
+                keywordsMatched.Add(n.Keyword);
+            }
+
+        });
+        result.KeywordDisplay = String.Join(",", keywordsMatched);
         return result;
+        
     }
+    public static void SaveUserListingKeywordScore(MarketingEntities context, UserListingKeywordScore userListingKeywordScore)
+    {
+        if (context.UserListingKeywordScores.Count(x => x.Id == userListingKeywordScore.Id) < 1)
+            context.UserListingKeywordScores.AddObject(userListingKeywordScore);
+    }
+    
   }
 }

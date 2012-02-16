@@ -4,7 +4,7 @@
     <Flowchart sad:XamlDebuggerXmlReader.FileName="C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\RefreshUserCraigslistContent.xaml">
       <Flowchart.Variables>
         <Variable x:TypeArguments="md:MarketingEntities" Default="[New MarketingEntities]" Name="domainContext" />
-        <Variable x:TypeArguments="scg3:List(md:ListingUrl)" Name="listingUrls" />
+        <Variable x:TypeArguments="scg3:List(md:UserListingUrl)" Name="userListingUrls" />
         <Variable x:TypeArguments="x:Int32" Name="minimumKeywordScore" />
         <Variable x:TypeArguments="scg3:List(md:UserKeyword)" Name="userKeywords" />
       </Flowchart.Variables>
@@ -12,7 +12,7 @@
         <FlowStep x:Name="__ReferenceID0">
           <InvokeMethod DisplayName="Assign Listing Urls For User Without COntent" MethodName="GetListingUrlsForUser" TargetType="local:DataHelper">
             <InvokeMethod.Result>
-              <OutArgument x:TypeArguments="scg3:List(md:ListingUrl)">[listingUrls]</OutArgument>
+              <OutArgument x:TypeArguments="scg3:List(md:UserListingUrl)">[userListingUrls]</OutArgument>
             </InvokeMethod.Result>
             <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
             <InArgument x:TypeArguments="s:Guid">[UserId]</InArgument>
@@ -37,10 +37,10 @@
                   </InvokeMethod>
                   <FlowStep.Next>
                     <FlowStep x:Name="__ReferenceID1">
-                      <ForEach x:TypeArguments="md:ListingUrl" DisplayName="ForEach&lt;ListingUrl&gt;" Values="[listingUrls]">
-                        <ActivityAction x:TypeArguments="md:ListingUrl">
+                      <ForEach x:TypeArguments="md:UserListingUrl" DisplayName="ForEach&lt;UserListingUrl&gt;" Values="[userListingUrls]">
+                        <ActivityAction x:TypeArguments="md:UserListingUrl">
                           <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="md:ListingUrl" Name="item" />
+                            <DelegateInArgument x:TypeArguments="md:UserListingUrl" Name="item" />
                           </ActivityAction.Argument>
                           <TryCatch>
                             <TryCatch.Try>
@@ -50,16 +50,19 @@
                                   <Variable x:TypeArguments="md:ListingContent" Name="listingContent" />
                                   <Variable x:TypeArguments="x:Int32" Name="postKeywordScore" />
                                   <Variable x:TypeArguments="x:Int32" Name="keywordScore" />
+                                  <Variable x:TypeArguments="md:UserListingKeywordScore" Name="userListingKeyword" />
                                 </Sequence.Variables>
-                                <local:GetListingContentActivity ListingUrl="[item.Url]" Result="[listingContentItem]" />
-                                <InvokeMethod DisplayName="InvokeMethod Calculate Keyword Score" MethodName="GetMatchingKeywordsForContent" TargetType="local:DataHelper">
+                                <local:GetListingContentActivity ListingUrl="[item.ListingUrl.Url]" Result="[listingContentItem]" />
+                                <InvokeMethod DisplayName="InvokeMethod Get Userlisting Keyword Score" MethodName="GetUserListingKeywordScoreForContent" TargetType="local:DataHelper">
                                   <InvokeMethod.Result>
-                                    <OutArgument x:TypeArguments="x:Int32">[keywordScore]</OutArgument>
+                                    <OutArgument x:TypeArguments="md:UserListingKeywordScore">[userListingKeyword]</OutArgument>
                                   </InvokeMethod.Result>
+                                  <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
+                                  <InArgument x:TypeArguments="md:UserListingUrl">[item]</InArgument>
                                   <InArgument x:TypeArguments="scg3:List(md:UserKeyword)">[userKeywords]</InArgument>
-                                  <InArgument x:TypeArguments="x:String">[listingContentItem.ContentHtml.ToString()]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[listingContent.PostContent]</InArgument>
                                 </InvokeMethod>
-                                <If Condition="[keywordScore &gt;= minimumKeywordScore]" DisplayName="If Has Minimum Keyword Score">
+                                <If Condition="[userListingKeyword.KeywordScore &gt;= minimumKeywordScore]" DisplayName="If Has Minimum Keyword Score">
                                   <If.Then>
                                     <Sequence DisplayName="Sequence Has Minimum Keyword Score">
                                       <InvokeMethod DisplayName="Process Listing Content" MethodName="GetListingContentItem" TargetType="mue:CraigslistMessageParsing">
@@ -70,8 +73,12 @@
                                           <OutArgument x:TypeArguments="md:ListingContent">[listingContent]</OutArgument>
                                         </InvokeMethod.Result>
                                         <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
-                                        <InArgument x:TypeArguments="md:ListingUrl">[item]</InArgument>
+                                        <InArgument x:TypeArguments="md:ListingUrl">[item.ListingUrl]</InArgument>
                                         <InArgument x:TypeArguments="mu:ListingContentItem">[listingContentItem]</InArgument>
+                                      </InvokeMethod>
+                                      <InvokeMethod DisplayName="Add Or Update UserListingKeywordScore" MethodName="SaveUserListingKeywordScore" TargetType="local:DataHelper">
+                                        <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
+                                        <InArgument x:TypeArguments="md:UserListingKeywordScore">[userListingKeyword]</InArgument>
                                       </InvokeMethod>
                                       <InvokeMethod DisplayName="Add Listing Content" MethodName="AddObject">
                                         <InvokeMethod.TargetObject>

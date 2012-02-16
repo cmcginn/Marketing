@@ -3,7 +3,7 @@
   <PropertyGroup>
     <EnableENC>False</EnableENC>
     <ProjectView>ProjectFiles</ProjectView>
-    <ServerPort>13116</ServerPort>
+    <ServerPort>4790</ServerPort>
     <GrantedPermissions>Microsoft.LightSwitch.Security:SecurityAdministration</GrantedPermissions>
     <PublishConnectionString>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAe5LAgpKu5UKIWmvQ9FNAeQAAAAACAAAAAAAQZgAAAAEAACAAAACNeBCc9aK7uwVKWCMsikpALarwCF5+kTyIjpP7BkMFJQAAAAAOgAAAAAIAACAAAABxQWAZeUHqhTjIQJ4Tj/gFqp/6Efhdxd7gQsE7RcOaOgABAAB2jZt+0Q3bJESSw0Y4Cy3Fr5fjSlUv7LeBOu6Cjk6HUI4K94HJ9sKXkUBC9rWQZ1mjMmAHPll+1IEsrWgTnnIhM1Q1HF6EkrFNAK11u8QujkI22TGGNee9Cp4orPQHtPz5g/L4Dkq8FXGKm/ieKmVReg61V8V5XEB5QfNMIneuhLSEYzrwro91iGWiAPaQE5L09/TT+0DchkUfu3iv3hZhdmaedQlmeYF1/ue7Sly6pbXHjlgyK8thMLJxGZVNPpPg7oweVXHAVs4NBVi7Jk+Z0cQ6Itf65eGxe1WVh68lJBTcuIzKz7ecGmGiRZ9Jeh3C2GBHxLse6nslOo9r1ksqQAAAAOU2DX/thzKA3MD/f0t8wX69eky4KRRpzl0MHsP3YEhj2MGDnblgxk4R+2EZhGEQXc0YMuIV2w+Jrb01NNkJfIo=</PublishConnectionString>
     <PublishSchemaConnectionString />
