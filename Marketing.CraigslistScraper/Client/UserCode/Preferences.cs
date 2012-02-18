@@ -14,9 +14,11 @@ namespace LightSwitchApplication
     public partial class Preferences
     {
 
-      partial void Preferences_InitializeDataWorkspace( List<IDataService> saveChangesTo ) {
+        partial void Preferences_InitializeDataWorkspace(List<IDataService> saveChangesTo)
+        {
         this.UserId = Application.UserId;
-      }
+            
+        }  
       partial void GetUserKeywordSelectionByUserId_Changed( NotifyCollectionChangedEventArgs e ) {
         if( e.NewItems != null ) {
           var added = e.NewItems.OfType<UserKeywordSelection>().LastOrDefault();

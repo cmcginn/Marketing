@@ -10,19 +10,14 @@
               <Sequence DisplayName="Refresh User Data Sequence">
                 <local:RefreshUserCraigslistListingUrls UserId="[UserId]" />
                 <local:RefreshUserCraigslistContent UserId="[UserId]" />
+                <local:RefreshUserKeywordScoresActivity UserId="[UserId]" />
               </Sequence>
-              <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID2">
-                  <local:RefreshUserListingKeywordScoreActivity UserId="[UserId]" />
-                </FlowStep>
-              </FlowStep.Next>
             </FlowStep>
           </FlowStep.Next>
         </FlowStep>
       </Flowchart.StartNode>
       <x:Reference>__ReferenceID0</x:Reference>
       <x:Reference>__ReferenceID1</x:Reference>
-      <x:Reference>__ReferenceID2</x:Reference>
     </Flowchart>
   </local:RefreshUserDataActivity.Implementation>
 </local:RefreshUserDataActivity>

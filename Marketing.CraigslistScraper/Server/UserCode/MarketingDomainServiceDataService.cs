@@ -47,6 +47,7 @@ namespace LightSwitchApplication {
         query = query.OrderByDescending(n => n.KeywordScore).ThenByDescending(n => n.Responded).ThenBy(n => n.CategoryName).ThenBy(n => n.RegionName).ThenBy(n => n.StateProvince).ThenBy(n => n.CityName);
     }
 
+
    
   }
 }

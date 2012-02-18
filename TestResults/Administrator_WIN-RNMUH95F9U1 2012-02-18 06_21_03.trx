@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="13d6dded-0a2d-424d-a403-e52940c30e9c" name="Administrator@WIN-RNMUH95F9U1 2012-02-18 06:21:03" runUser="WIN-RNMUH95F9U1\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="0cd03c8d-b04e-44e0-89e7-79f70e91391f">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment userDeploymentRoot="C:\Projects\Urbana\Marketing\TestResults" useDefaultDeploymentRoot="false" runDeploymentRoot="Administrator_WIN-RNMUH95F9U1 2012-02-18 06_21_03">
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.Data\bin\Debug\Marketing.Data.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Dependencies\Common.Net.Interfaces.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll" />
+      <DeploymentItem filename="packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\EnterpriseLibrary.Logging.Database.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+      <DeploymentItem filename="packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Dependencies\Common.Types.dll" />
+      <DeploymentItem filename="packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+      <DeploymentItem filename="packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll" />
+      <DeploymentItem filename="packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\bin\Debug\Marketing.WorkflowActivities.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll" />
+      <DeploymentItem filename="packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug\Common.Utils.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Marketing.Utils\bin\Debug\Marketing.Utils.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\Dependencies\Common.Net.dll" />
+      <DeploymentItem filename="C:\Projects\Urbana\Marketing\packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Data.dll" />
+      <DeploymentItem filename="packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific>
+        <UnitTestRunConfig testTypeId="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b">
+          <AssemblyResolution applicationBaseDirectory="%HOMEDRIVE%\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug">
+            <TestDirectory useLoadContext="true" />
+            <RuntimeResolution>
+              <Directory path="%HOMEDRIVE%\Projects\Urbana\Marketing\Marketing.Tests\bin\Debug" includeSubDirectories="true" />
+            </RuntimeResolution>
+          </AssemblyResolution>
+        </UnitTestRunConfig>
+        <WebTestRunConfiguration testTypeId="4e7599fa-5ecb-43e9-a887-cd63cf72d207">
+          <Browser name="Internet Explorer 7.0">
+            <Headers>
+              <Header name="User-Agent" value="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)" />
+              <Header name="Accept" value="*/*" />
+              <Header name="Accept-Language" value="{{$IEAcceptLanguage}}" />
+              <Header name="Accept-Encoding" value="GZIP" />
+            </Headers>
+          </Browser>
+        </WebTestRunConfiguration>
+      </TestTypeSpecific>
+      <AgentRule name="LocalMachineDefaultRole">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-02-18T06:21:03.5720625-05:00" queuing="2012-02-18T06:21:07.9597578-05:00" start="2012-02-18T06:21:08.6033125-05:00" finish="2012-02-18T06:37:02.5144453-05:00" />
+  <ResultSummary outcome="Warning">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="WIN-RNMUH95F9U1" outcome="Warning" timestamp="2012-02-18T06:21:07.9578047-05:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'Microsoft.Practices.Unity.Interception' directly or indirectly referenced by deployment item 'packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll' specified by the test settings was not found.</Text>
+      </RunInfo>
+      <RunInfo computerName="WIN-RNMUH95F9U1" outcome="Warning" timestamp="2012-02-18T06:21:07.9578047-05:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'Microsoft.Practices.ServiceLocation' directly or indirectly referenced by deployment item 'packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll' specified by the test settings was not found.</Text>
+      </RunInfo>
+      <RunInfo computerName="WIN-RNMUH95F9U1" outcome="Warning" timestamp="2012-02-18T06:21:07.9578047-05:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'Microsoft.Practices.Unity' directly or indirectly referenced by deployment item 'packages\Unity.Interception.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Interception.dll' specified by the test settings was not found.</Text>
+      </RunInfo>
+      <RunInfo computerName="WIN-RNMUH95F9U1" outcome="Warning" timestamp="2012-02-18T06:21:07.9578047-05:00">
+        <Text>Warning: Test Run deployment issue: The assembly or module 'Microsoft.Practices.EnterpriseLibrary.Common' directly or indirectly referenced by deployment item 'packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.dll' specified by the test settings was not found.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="RunActivity" storage="c:\projects\urbana\marketing\marketing.tests\bin\debug\marketing.tests.dll" id="6f728e12-6235-f7f0-264e-f1aa35850d58">
+      <Execution id="d1a986e6-99ea-4f82-a60d-3c84b41903f0" />
+      <TestMethod codeBase="C:/Projects/Urbana/Marketing/Marketing.Tests/bin/Debug/Marketing.Tests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="Marketing.Tests.ActivityRunner, Marketing.Tests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="RunActivity" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="6f728e12-6235-f7f0-264e-f1aa35850d58" executionId="d1a986e6-99ea-4f82-a60d-3c84b41903f0" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="d1a986e6-99ea-4f82-a60d-3c84b41903f0" testId="6f728e12-6235-f7f0-264e-f1aa35850d58" testName="RunActivity" computerName="WIN-RNMUH95F9U1" duration="00:15:47.6552673" startTime="2012-02-18T06:21:09.0759688-05:00" endTime="2012-02-18T06:37:00.9167891-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d1a986e6-99ea-4f82-a60d-3c84b41903f0">
+    </UnitTestResult>
+  </Results>
+</TestRun>

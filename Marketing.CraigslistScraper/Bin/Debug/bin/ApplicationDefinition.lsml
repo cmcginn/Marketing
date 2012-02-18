@@ -1139,30 +1139,7 @@
     </QueryOperation>
   
     
-    <QueryOperation Name="GetUserPreferencesSelectionByUserId"
-                    ReturnType="UserPreferenceSelection">
-      <QueryOperation.FilterExpression>
-        <QueryFilterExpressionTree>
-          <BinaryExpression NodeType="Equal">
-            <BinaryExpression.Left>
-              <ChainExpression>
-                <MemberExpression Member="UserId" />
-              </ChainExpression>
-            </BinaryExpression.Left>
-            <BinaryExpression.Right>
-              <ParameterExpression  Parameter="userId" />
-            </BinaryExpression.Right>
-          </BinaryExpression>
-        </QueryFilterExpressionTree>
-      </QueryOperation.FilterExpression>
-      <QueryOperation.Source>
-        <QuerySourceExpressionTree>
-          <MemberExpression Member="UserPreferenceSelections" />
-        </QuerySourceExpressionTree>
-      </QueryOperation.Source>
-      <QueryOperationParameter Name="userId"
-                               ParameterType=":Guid?" />
-    </QueryOperation>
+    
     <QueryOperation Name="GetUserCitySelectionByUserId"
                     ReturnType="UserCitySelection*">
       <QueryOperation.Source>
@@ -1594,6 +1571,17 @@
       <QueryOperationParameter Name="id"
                                ParameterType=":Guid?" />
     </QueryOperation>
+    <QueryOperation Name="GetUserPreferenceSelectionByUserId"
+                    ReturnType="UserPreferenceSelection">
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserPreferenceSelections" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="userId"
+                               ParameterType=":Guid?" />
+    </QueryOperation>
+  
   
   
   
@@ -1716,20 +1704,6 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
-      <ScreenProperty Name="GetUserPreferencesSelectionByUserId"
-                      PropertyType="UserPreferenceSelection">
-        <ScreenExpressionTree>
-          <ChainExpression>
-            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPreferencesSelectionByUserId]">
-              <ArgumentExpression Parameter="userId">
-                <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[UserId]" />
-                </ChainExpression>
-              </ArgumentExpression>
-            </CallExpression>
-          </ChainExpression>
-        </ScreenExpressionTree>
-      </ScreenProperty>
       <ScreenCollectionProperty Name="GetUserCitySelectionByUserId"
                                 PageSize="45"
                                 PropertyType="CollectionView$UserCitySelection">
@@ -1758,6 +1732,20 @@
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty Name="GetUserPreferenceSelectionByUserId"
+                      PropertyType="UserPreferenceSelection">
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="MarketingDomainServiceData/Members[GetUserPreferenceSelectionByUserId]">
+              <ArgumentExpression Parameter="userId">
+                <ChainExpression>
+                  <MemberExpression Member="Preferences/Properties[UserId]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenProperty>
     </Screen.Properties>
     <Screen.Attributes>
       <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
@@ -1868,11 +1856,11 @@
               </ContentItem>
               <ContentItem DataType=":Boolean"
                            Kind="Value"
-                           Name="Selected">
+                           Name="Active">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
-                      <MemberExpression Member="UserCitySelection/Properties[Selected]" />
+                      <MemberExpression Member="UserCitySelection/Properties[Active]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2017,17 +2005,38 @@
           </ContentItem>
           <ContentItem DataType="UserPreferenceSelection"
                        Kind="Details"
-                       Name="GetUserPreferencesSelectionByUserId">
-            <ContentItem.Attributes>
-              <DisplayName Value="System Settings" />
-            </ContentItem.Attributes>
+                       Name="GetUserPreferenceSelectionByUserId">
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
-                  <MemberExpression Member="Preferences/Properties[GetUserPreferencesSelectionByUserId]" />
+                  <MemberExpression Member="Preferences/Properties[GetUserPreferenceSelectionByUserId]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
+            <ContentItem DataType=":Guid"
+                         Kind="Value"
+                         Name="Id"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[Id]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+            <ContentItem DataType=":Guid"
+                         Kind="Value"
+                         Name="UserId"
+                         IsHidden="True">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserPreferenceSelection/Properties[UserId]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
             <ContentItem DataType=":Boolean"
                          Kind="Value"
                          Name="LiveMode">
@@ -4475,343 +4484,7 @@
     </Screen.RootContentItem>
   </Screen>
 
-  <DataService DataProvider="CustomDataProvider"
-               EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
-    <DataService.ConnectionProperties>
-      <ConnectionProperty Name="AssemblyName"
-                          Value="Marketing.Services" />
-      <ConnectionProperty Name="FullClassName"
-                          Value="Marketing.Services.MarketingDomainService" />
-      <ConnectionProperty Name="ConnectionStringGuid"
-                          Value="43a69a18-9f3c-4c9b-bcca-8526b5cb1f64" />
-      <ConnectionProperty Name="ConnectionStringDescription"
-                          Value="" />
-    </DataService.ConnectionProperties>
-    <EntitySetMapping EntitySet="Users">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUsers"
-                         EntityTypeName="Marketing.Services.User" />
-        <WcfRiaProperty Name="Id"
-                        Property="User/Properties[Id]" />
-        <WcfRiaProperty Name="Username"
-                        Property="User/Properties[Username]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserCitySelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserCitySelections"
-                         EntityTypeName="Marketing.Services.UserCitySelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserCitySelection/Properties[Id]" />
-        <WcfRiaProperty Name="Selected"
-                        Property="UserCitySelection/Properties[Selected]" />
-        <WcfRiaProperty Name="CityId"
-                        Property="UserCitySelection/Properties[CityId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserCitySelection/Properties[UserId]" />
-        <WcfRiaProperty Name="CityName"
-                        Property="UserCitySelection/Properties[CityName]" />
-        <WcfRiaProperty Name="RegionName"
-                        Property="UserCitySelection/Properties[RegionName]" />
-        <WcfRiaProperty Name="StateProvince"
-                        Property="UserCitySelection/Properties[StateProvince]" />
-        <WcfRiaProperty Name="Active"
-                        Property="UserCitySelection/Properties[Active]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserCitySelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserCitySelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserListingCategorySelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingCategorySelection"
-                         EntityTypeName="Marketing.Services.UserListingCategorySelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserListingCategorySelection/Properties[Id]" />
-        <WcfRiaProperty Name="Selected"
-                        Property="UserListingCategorySelection/Properties[Selected]" />
-        <WcfRiaProperty Name="CategoryName"
-                        Property="UserListingCategorySelection/Properties[CategoryName]" />
-        <WcfRiaProperty Name="CategoryId"
-                        Property="UserListingCategorySelection/Properties[CategoryId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserListingCategorySelection/Properties[UserId]" />
-        <WcfRiaProperty Name="GroupName"
-                        Property="UserListingCategorySelection/Properties[GroupName]" />
-        <WcfRiaProperty Name="Active"
-                        Property="UserListingCategorySelection/Properties[Active]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserListingCategorySelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserListingCategorySelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingCategorySelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserKeywordSelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserKeywords"
-                         EntityTypeName="Marketing.Services.UserKeywordSelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserKeywordSelection/Properties[Id]" />
-        <WcfRiaProperty Name="Keyword"
-                        Property="UserKeywordSelection/Properties[Keyword]" />
-        <WcfRiaProperty Name="WeightedScore"
-                        Property="UserKeywordSelection/Properties[WeightedScore]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserKeywordSelection/Properties[UserId]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserKeywordSelectionByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserKeywordSelectionByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserKeywordSelectionByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserPreferenceSelections">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserPreferenceSelections"
-                         EntityTypeName="Marketing.Services.UserPreferenceSelection" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserPreferenceSelection/Properties[Id]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserPreferenceSelection/Properties[UserId]" />
-        <WcfRiaProperty Name="LiveMode"
-                        Property="UserPreferenceSelection/Properties[LiveMode]" />
-        <WcfRiaProperty Name="BCCEmailAddress"
-                        Property="UserPreferenceSelection/Properties[BCCEmailAddress]" />
-        <WcfRiaProperty Name="SMTPUsername"
-                        Property="UserPreferenceSelection/Properties[SMTPUsername]" />
-        <WcfRiaProperty Name="SMTPPassword"
-                        Property="UserPreferenceSelection/Properties[SMTPPassword]" />
-        <WcfRiaProperty Name="SMTPServer"
-                        Property="UserPreferenceSelection/Properties[SMTPServer]" />
-        <WcfRiaProperty Name="SMTPPort"
-                        Property="UserPreferenceSelection/Properties[SMTPPort]" />
-        <WcfRiaProperty Name="RequiresSSL"
-                        Property="UserPreferenceSelection/Properties[RequiresSSL]" />
-        <WcfRiaProperty Name="MinimumKeywordScore"
-                        Property="UserPreferenceSelection/Properties[MinimumKeywordScore]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserListingItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingItems"
-                         EntityTypeName="Marketing.Services.UserListingItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserListingItem/Properties[Id]" />
-        <WcfRiaProperty Name="Title"
-                        Property="UserListingItem/Properties[Title]" />
-        <WcfRiaProperty Name="CategoryName"
-                        Property="UserListingItem/Properties[CategoryName]" />
-        <WcfRiaProperty Name="GroupName"
-                        Property="UserListingItem/Properties[GroupName]" />
-        <WcfRiaProperty Name="RegionName"
-                        Property="UserListingItem/Properties[RegionName]" />
-        <WcfRiaProperty Name="CityName"
-                        Property="UserListingItem/Properties[CityName]" />
-        <WcfRiaProperty Name="StateProvince"
-                        Property="UserListingItem/Properties[StateProvince]" />
-        <WcfRiaProperty Name="Created"
-                        Property="UserListingItem/Properties[Created]" />
-        <WcfRiaProperty Name="PostElement"
-                        Property="UserListingItem/Properties[PostElement]" />
-        <WcfRiaProperty Name="PostHtml"
-                        Property="UserListingItem/Properties[PostHtml]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserListingItem/Properties[UserId]" />
-        <WcfRiaProperty Name="Responded"
-                        Property="UserListingItem/Properties[Responded]" />
-        <WcfRiaProperty Name="ResponseSent"
-                        Property="UserListingItem/Properties[ResponseSent]" />
-        <WcfRiaProperty Name="ResponseId"
-                        Property="UserListingItem/Properties[ResponseId]" />
-        <WcfRiaProperty Name="Response"
-                        Property="UserListingItem/Properties[Response]" />
-        <WcfRiaProperty Name="ResponseText"
-                        Property="UserListingItem/Properties[ResponseText]" />
-        <WcfRiaProperty Name="CityActive"
-                        Property="UserListingItem/Properties[CityActive]" />
-        <WcfRiaProperty Name="UserCityActive"
-                        Property="UserListingItem/Properties[UserCityActive]" />
-        <WcfRiaProperty Name="ListingCategoryActive"
-                        Property="UserListingItem/Properties[ListingCategoryActive]" />
-        <WcfRiaProperty Name="KeywordScore"
-                        Property="UserListingItem/Properties[KeywordScore]" />
-        <WcfRiaProperty Name="KeywordDisplay"
-                        Property="UserListingItem/Properties[KeywordDisplay]" />
-        <WcfRiaProperty Name="UseDefaultResponse"
-                        Property="UserListingItem/Properties[UseDefaultResponse]" />
-        <WcfRiaProperty Name="PostDate"
-                        Property="UserListingItem/Properties[PostDate]" />
-        <WcfRiaProperty Name="PostText"
-                        Property="UserListingItem/Properties[PostText]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetFilteredUserListingItems">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetFilteredUserListingItems" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[userId]" />
-        <WcfRiaQueryOperationParameter Name="filtersEnabled"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[filtersEnabled]" />
-        <WcfRiaQueryOperationParameter Name="showResponded"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[showResponded]" />
-        <WcfRiaQueryOperationParameter Name="showNotResponded"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[showNotResponded]" />
-        <WcfRiaQueryOperationParameter Name="postStartDate"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postStartDate]" />
-        <WcfRiaQueryOperationParameter Name="postEndDate"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postEndDate]" />
-        <WcfRiaQueryOperationParameter Name="responseStartDate"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseStartDate]" />
-        <WcfRiaQueryOperationParameter Name="responseEndDate"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseEndDate]" />
-        <WcfRiaQueryOperationParameter Name="keywords"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[keywords]" />
-        <WcfRiaQueryOperationParameter Name="regionsFilter"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[regionsFilter]" />
-        <WcfRiaQueryOperationParameter Name="statesFilter"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[statesFilter]" />
-        <WcfRiaQueryOperationParameter Name="citiesFilter"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[citiesFilter]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <QueryOperationMapping Operation="GetUserListingItemById">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserListingItemById" />
-        <WcfRiaQueryOperationParameter Name="id"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingItemById]/Parameters[id]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserListingResponseItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingResponseItems"
-                         EntityTypeName="Marketing.Services.UserListingResponseItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserListingResponseItem/Properties[Id]" />
-        <WcfRiaProperty Name="UserListingUrlId"
-                        Property="UserListingResponseItem/Properties[UserListingUrlId]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserListingResponseItem/Properties[UserId]" />
-        <WcfRiaProperty Name="Created"
-                        Property="UserListingResponseItem/Properties[Created]" />
-        <WcfRiaProperty Name="Response"
-                        Property="UserListingResponseItem/Properties[Response]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="Operations">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultServerOperations"
-                         EntityTypeName="Marketing.Services.Operation" />
-        <WcfRiaProperty Name="Id"
-                        Property="Operation/Properties[Id]" />
-        <WcfRiaProperty Name="Visible"
-                        Property="Operation/Properties[Visible]" />
-        <WcfRiaProperty Name="Created"
-                        Property="Operation/Properties[Created]" />
-        <WcfRiaProperty Name="OperationName"
-                        Property="Operation/Properties[OperationName]" />
-        <WcfRiaProperty Name="Parameters"
-                        Property="Operation/Properties[Parameters]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="Operation/Properties[UserId]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <EntitySetMapping EntitySet="UserTemplateItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultUserTemplates"
-                         EntityTypeName="Marketing.Services.UserTemplateItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserTemplateItem/Properties[Id]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserTemplateItem/Properties[UserId]" />
-        <WcfRiaProperty Name="Created"
-                        Property="UserTemplateItem/Properties[Created]" />
-        <WcfRiaProperty Name="LastUpdated"
-                        Property="UserTemplateItem/Properties[LastUpdated]" />
-        <WcfRiaProperty Name="IsDefault"
-                        Property="UserTemplateItem/Properties[IsDefault]" />
-        <WcfRiaProperty Name="TemplateHtml"
-                        Property="UserTemplateItem/Properties[TemplateHtml]" />
-        <WcfRiaProperty Name="TemplateText"
-                        Property="UserTemplateItem/Properties[TemplateText]" />
-        <WcfRiaProperty Name="TemplateName"
-                        Property="UserTemplateItem/Properties[TemplateName]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserTemplateItemById">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserTemplateItemById" />
-        <WcfRiaQueryOperationParameter Name="id"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserTemplateItemById]/Parameters[id]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="UserPostListFilterItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="GetDefaultUserPostListFilterItems"
-                         EntityTypeName="Marketing.Services.UserPostListFilterItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="UserPostListFilterItem/Properties[Id]" />
-        <WcfRiaProperty Name="UserId"
-                        Property="UserPostListFilterItem/Properties[UserId]" />
-        <WcfRiaProperty Name="PostStartDate"
-                        Property="UserPostListFilterItem/Properties[PostStartDate]" />
-        <WcfRiaProperty Name="PostEndDate"
-                        Property="UserPostListFilterItem/Properties[PostEndDate]" />
-        <WcfRiaProperty Name="ResponseStartDate"
-                        Property="UserPostListFilterItem/Properties[ResponseStartDate]" />
-        <WcfRiaProperty Name="ResponseEndDate"
-                        Property="UserPostListFilterItem/Properties[ResponseEndDate]" />
-        <WcfRiaProperty Name="FilteredKeywords"
-                        Property="UserPostListFilterItem/Properties[FilteredKeywords]" />
-        <WcfRiaProperty Name="FilteredCities"
-                        Property="UserPostListFilterItem/Properties[FilteredCities]" />
-        <WcfRiaProperty Name="FilteredStates"
-                        Property="UserPostListFilterItem/Properties[FilteredStates]" />
-        <WcfRiaProperty Name="FilteredCountries"
-                        Property="UserPostListFilterItem/Properties[FilteredCountries]" />
-        <WcfRiaProperty Name="ShowResponded"
-                        Property="UserPostListFilterItem/Properties[ShowResponded]" />
-        <WcfRiaProperty Name="ShowNotResponded"
-                        Property="UserPostListFilterItem/Properties[ShowNotResponded]" />
-        <WcfRiaProperty Name="FiltersEnabled"
-                        Property="UserPostListFilterItem/Properties[FiltersEnabled]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-    <QueryOperationMapping Operation="GetUserPostListItemByUserId">
-      <QueryOperationMapping.Attributes>
-        <WcfRiaQueryOperation Name="GetUserPostListItemByUserId" />
-        <WcfRiaQueryOperationParameter Name="userId"
-                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]/Parameters[userId]" />
-      </QueryOperationMapping.Attributes>
-    </QueryOperationMapping>
-    <EntitySetMapping EntitySet="BugReportItems">
-      <EntitySetMapping.Attributes>
-        <WcfRiaEntitySet EntitySetQuery="DefaultBugReportItems"
-                         EntityTypeName="Marketing.Services.BugReportItem" />
-        <WcfRiaProperty Name="Id"
-                        Property="BugReportItem/Properties[Id]" />
-        <WcfRiaProperty Name="Description"
-                        Property="BugReportItem/Properties[Description]" />
-        <WcfRiaProperty Name="Resolution"
-                        Property="BugReportItem/Properties[Resolution]" />
-        <WcfRiaProperty Name="ReproductionSteps"
-                        Property="BugReportItem/Properties[ReproductionSteps]" />
-        <WcfRiaProperty Name="Resolved"
-                        Property="BugReportItem/Properties[Resolved]" />
-        <WcfRiaProperty Name="Reported"
-                        Property="BugReportItem/Properties[Reported]" />
-      </EntitySetMapping.Attributes>
-    </EntitySetMapping>
-  </DataService>
+  
 
   <Screen Name="GetUserListingItemByIdDetail">
     <Screen.Attributes>
@@ -5719,6 +5392,351 @@
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+  <DataService DataProvider="CustomDataProvider"
+               EntityContainer="MarketingDomainServiceData"
+               Name="MarketingDomainServiceDataDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty Name="AssemblyName"
+                          Value="Marketing.Services" />
+      <ConnectionProperty Name="FullClassName"
+                          Value="Marketing.Services.MarketingDomainService" />
+      <ConnectionProperty Name="ConnectionStringGuid"
+                          Value="43a69a18-9f3c-4c9b-bcca-8526b5cb1f64" />
+      <ConnectionProperty Name="ConnectionStringDescription"
+                          Value="" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping EntitySet="Users">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUsers"
+                         EntityTypeName="Marketing.Services.User" />
+        <WcfRiaProperty Name="Id"
+                        Property="User/Properties[Id]" />
+        <WcfRiaProperty Name="Username"
+                        Property="User/Properties[Username]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserCitySelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserCitySelections"
+                         EntityTypeName="Marketing.Services.UserCitySelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserCitySelection/Properties[Id]" />
+        <WcfRiaProperty Name="Selected"
+                        Property="UserCitySelection/Properties[Selected]" />
+        <WcfRiaProperty Name="CityId"
+                        Property="UserCitySelection/Properties[CityId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserCitySelection/Properties[UserId]" />
+        <WcfRiaProperty Name="CityName"
+                        Property="UserCitySelection/Properties[CityName]" />
+        <WcfRiaProperty Name="RegionName"
+                        Property="UserCitySelection/Properties[RegionName]" />
+        <WcfRiaProperty Name="StateProvince"
+                        Property="UserCitySelection/Properties[StateProvince]" />
+        <WcfRiaProperty Name="Active"
+                        Property="UserCitySelection/Properties[Active]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserCitySelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserCitySelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserListingCategorySelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingCategorySelection"
+                         EntityTypeName="Marketing.Services.UserListingCategorySelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserListingCategorySelection/Properties[Id]" />
+        <WcfRiaProperty Name="Selected"
+                        Property="UserListingCategorySelection/Properties[Selected]" />
+        <WcfRiaProperty Name="CategoryName"
+                        Property="UserListingCategorySelection/Properties[CategoryName]" />
+        <WcfRiaProperty Name="CategoryId"
+                        Property="UserListingCategorySelection/Properties[CategoryId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserListingCategorySelection/Properties[UserId]" />
+        <WcfRiaProperty Name="GroupName"
+                        Property="UserListingCategorySelection/Properties[GroupName]" />
+        <WcfRiaProperty Name="Active"
+                        Property="UserListingCategorySelection/Properties[Active]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserListingCategorySelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserListingCategorySelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingCategorySelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserKeywordSelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserKeywords"
+                         EntityTypeName="Marketing.Services.UserKeywordSelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserKeywordSelection/Properties[Id]" />
+        <WcfRiaProperty Name="Keyword"
+                        Property="UserKeywordSelection/Properties[Keyword]" />
+        <WcfRiaProperty Name="WeightedScore"
+                        Property="UserKeywordSelection/Properties[WeightedScore]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserKeywordSelection/Properties[UserId]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserKeywordSelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserKeywordSelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserKeywordSelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserPreferenceSelections">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserPreferenceSelections"
+                         EntityTypeName="Marketing.Services.UserPreferenceSelection" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserPreferenceSelection/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserPreferenceSelection/Properties[UserId]" />
+        <WcfRiaProperty Name="LiveMode"
+                        Property="UserPreferenceSelection/Properties[LiveMode]" />
+        <WcfRiaProperty Name="BCCEmailAddress"
+                        Property="UserPreferenceSelection/Properties[BCCEmailAddress]" />
+        <WcfRiaProperty Name="SMTPUsername"
+                        Property="UserPreferenceSelection/Properties[SMTPUsername]" />
+        <WcfRiaProperty Name="SMTPPassword"
+                        Property="UserPreferenceSelection/Properties[SMTPPassword]" />
+        <WcfRiaProperty Name="SMTPServer"
+                        Property="UserPreferenceSelection/Properties[SMTPServer]" />
+        <WcfRiaProperty Name="SMTPPort"
+                        Property="UserPreferenceSelection/Properties[SMTPPort]" />
+        <WcfRiaProperty Name="RequiresSSL"
+                        Property="UserPreferenceSelection/Properties[RequiresSSL]" />
+        <WcfRiaProperty Name="MinimumKeywordScore"
+                        Property="UserPreferenceSelection/Properties[MinimumKeywordScore]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserPreferenceSelectionByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserPreferenceSelectionByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPreferenceSelectionByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserListingItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingItems"
+                         EntityTypeName="Marketing.Services.UserListingItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserListingItem/Properties[Id]" />
+        <WcfRiaProperty Name="Title"
+                        Property="UserListingItem/Properties[Title]" />
+        <WcfRiaProperty Name="CategoryName"
+                        Property="UserListingItem/Properties[CategoryName]" />
+        <WcfRiaProperty Name="GroupName"
+                        Property="UserListingItem/Properties[GroupName]" />
+        <WcfRiaProperty Name="RegionName"
+                        Property="UserListingItem/Properties[RegionName]" />
+        <WcfRiaProperty Name="CityName"
+                        Property="UserListingItem/Properties[CityName]" />
+        <WcfRiaProperty Name="StateProvince"
+                        Property="UserListingItem/Properties[StateProvince]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserListingItem/Properties[Created]" />
+        <WcfRiaProperty Name="PostElement"
+                        Property="UserListingItem/Properties[PostElement]" />
+        <WcfRiaProperty Name="PostHtml"
+                        Property="UserListingItem/Properties[PostHtml]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserListingItem/Properties[UserId]" />
+        <WcfRiaProperty Name="Responded"
+                        Property="UserListingItem/Properties[Responded]" />
+        <WcfRiaProperty Name="ResponseSent"
+                        Property="UserListingItem/Properties[ResponseSent]" />
+        <WcfRiaProperty Name="ResponseId"
+                        Property="UserListingItem/Properties[ResponseId]" />
+        <WcfRiaProperty Name="Response"
+                        Property="UserListingItem/Properties[Response]" />
+        <WcfRiaProperty Name="ResponseText"
+                        Property="UserListingItem/Properties[ResponseText]" />
+        <WcfRiaProperty Name="CityActive"
+                        Property="UserListingItem/Properties[CityActive]" />
+        <WcfRiaProperty Name="UserCityActive"
+                        Property="UserListingItem/Properties[UserCityActive]" />
+        <WcfRiaProperty Name="ListingCategoryActive"
+                        Property="UserListingItem/Properties[ListingCategoryActive]" />
+        <WcfRiaProperty Name="KeywordScore"
+                        Property="UserListingItem/Properties[KeywordScore]" />
+        <WcfRiaProperty Name="KeywordDisplay"
+                        Property="UserListingItem/Properties[KeywordDisplay]" />
+        <WcfRiaProperty Name="UseDefaultResponse"
+                        Property="UserListingItem/Properties[UseDefaultResponse]" />
+        <WcfRiaProperty Name="PostDate"
+                        Property="UserListingItem/Properties[PostDate]" />
+        <WcfRiaProperty Name="PostText"
+                        Property="UserListingItem/Properties[PostText]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetFilteredUserListingItems">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetFilteredUserListingItems" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[userId]" />
+        <WcfRiaQueryOperationParameter Name="filtersEnabled"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[filtersEnabled]" />
+        <WcfRiaQueryOperationParameter Name="showResponded"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[showResponded]" />
+        <WcfRiaQueryOperationParameter Name="showNotResponded"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[showNotResponded]" />
+        <WcfRiaQueryOperationParameter Name="postStartDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postStartDate]" />
+        <WcfRiaQueryOperationParameter Name="postEndDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[postEndDate]" />
+        <WcfRiaQueryOperationParameter Name="responseStartDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseStartDate]" />
+        <WcfRiaQueryOperationParameter Name="responseEndDate"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[responseEndDate]" />
+        <WcfRiaQueryOperationParameter Name="keywords"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[keywords]" />
+        <WcfRiaQueryOperationParameter Name="regionsFilter"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[regionsFilter]" />
+        <WcfRiaQueryOperationParameter Name="statesFilter"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[statesFilter]" />
+        <WcfRiaQueryOperationParameter Name="citiesFilter"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetFilteredUserListingItems]/Parameters[citiesFilter]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <QueryOperationMapping Operation="GetUserListingItemById">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserListingItemById" />
+        <WcfRiaQueryOperationParameter Name="id"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserListingItemById]/Parameters[id]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserListingResponseItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserListingResponseItems"
+                         EntityTypeName="Marketing.Services.UserListingResponseItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserListingResponseItem/Properties[Id]" />
+        <WcfRiaProperty Name="UserListingUrlId"
+                        Property="UserListingResponseItem/Properties[UserListingUrlId]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserListingResponseItem/Properties[UserId]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserListingResponseItem/Properties[Created]" />
+        <WcfRiaProperty Name="Response"
+                        Property="UserListingResponseItem/Properties[Response]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="Operations">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultServerOperations"
+                         EntityTypeName="Marketing.Services.Operation" />
+        <WcfRiaProperty Name="Id"
+                        Property="Operation/Properties[Id]" />
+        <WcfRiaProperty Name="Visible"
+                        Property="Operation/Properties[Visible]" />
+        <WcfRiaProperty Name="Created"
+                        Property="Operation/Properties[Created]" />
+        <WcfRiaProperty Name="OperationName"
+                        Property="Operation/Properties[OperationName]" />
+        <WcfRiaProperty Name="Parameters"
+                        Property="Operation/Properties[Parameters]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="Operation/Properties[UserId]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping EntitySet="UserTemplateItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserTemplates"
+                         EntityTypeName="Marketing.Services.UserTemplateItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserTemplateItem/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserTemplateItem/Properties[UserId]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserTemplateItem/Properties[Created]" />
+        <WcfRiaProperty Name="LastUpdated"
+                        Property="UserTemplateItem/Properties[LastUpdated]" />
+        <WcfRiaProperty Name="IsDefault"
+                        Property="UserTemplateItem/Properties[IsDefault]" />
+        <WcfRiaProperty Name="TemplateHtml"
+                        Property="UserTemplateItem/Properties[TemplateHtml]" />
+        <WcfRiaProperty Name="TemplateText"
+                        Property="UserTemplateItem/Properties[TemplateText]" />
+        <WcfRiaProperty Name="TemplateName"
+                        Property="UserTemplateItem/Properties[TemplateName]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserTemplateItemById">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserTemplateItemById" />
+        <WcfRiaQueryOperationParameter Name="id"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserTemplateItemById]/Parameters[id]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserPostListFilterItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="GetDefaultUserPostListFilterItems"
+                         EntityTypeName="Marketing.Services.UserPostListFilterItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserPostListFilterItem/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserPostListFilterItem/Properties[UserId]" />
+        <WcfRiaProperty Name="PostStartDate"
+                        Property="UserPostListFilterItem/Properties[PostStartDate]" />
+        <WcfRiaProperty Name="PostEndDate"
+                        Property="UserPostListFilterItem/Properties[PostEndDate]" />
+        <WcfRiaProperty Name="ResponseStartDate"
+                        Property="UserPostListFilterItem/Properties[ResponseStartDate]" />
+        <WcfRiaProperty Name="ResponseEndDate"
+                        Property="UserPostListFilterItem/Properties[ResponseEndDate]" />
+        <WcfRiaProperty Name="FilteredKeywords"
+                        Property="UserPostListFilterItem/Properties[FilteredKeywords]" />
+        <WcfRiaProperty Name="FilteredCities"
+                        Property="UserPostListFilterItem/Properties[FilteredCities]" />
+        <WcfRiaProperty Name="FilteredStates"
+                        Property="UserPostListFilterItem/Properties[FilteredStates]" />
+        <WcfRiaProperty Name="FilteredCountries"
+                        Property="UserPostListFilterItem/Properties[FilteredCountries]" />
+        <WcfRiaProperty Name="ShowResponded"
+                        Property="UserPostListFilterItem/Properties[ShowResponded]" />
+        <WcfRiaProperty Name="ShowNotResponded"
+                        Property="UserPostListFilterItem/Properties[ShowNotResponded]" />
+        <WcfRiaProperty Name="FiltersEnabled"
+                        Property="UserPostListFilterItem/Properties[FiltersEnabled]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <QueryOperationMapping Operation="GetUserPostListItemByUserId">
+      <QueryOperationMapping.Attributes>
+        <WcfRiaQueryOperation Name="GetUserPostListItemByUserId" />
+        <WcfRiaQueryOperationParameter Name="userId"
+                                       QueryOperationParameter="MarketingDomainServiceData/Members[GetUserPostListItemByUserId]/Parameters[userId]" />
+      </QueryOperationMapping.Attributes>
+    </QueryOperationMapping>
+    <EntitySetMapping EntitySet="BugReportItems">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultBugReportItems"
+                         EntityTypeName="Marketing.Services.BugReportItem" />
+        <WcfRiaProperty Name="Id"
+                        Property="BugReportItem/Properties[Id]" />
+        <WcfRiaProperty Name="Description"
+                        Property="BugReportItem/Properties[Description]" />
+        <WcfRiaProperty Name="Resolution"
+                        Property="BugReportItem/Properties[Resolution]" />
+        <WcfRiaProperty Name="ReproductionSteps"
+                        Property="BugReportItem/Properties[ReproductionSteps]" />
+        <WcfRiaProperty Name="Resolved"
+                        Property="BugReportItem/Properties[Resolved]" />
+        <WcfRiaProperty Name="Reported"
+                        Property="BugReportItem/Properties[Reported]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+
 
 
   

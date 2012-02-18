@@ -60,7 +60,7 @@
                                   <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
                                   <InArgument x:TypeArguments="md:UserListingUrl">[item]</InArgument>
                                   <InArgument x:TypeArguments="scg3:List(md:UserKeyword)">[userKeywords]</InArgument>
-                                  <InArgument x:TypeArguments="x:String">[listingContent.PostContent]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[listingContentItem.ContentHtml.ToString()]</InArgument>
                                 </InvokeMethod>
                                 <If Condition="[userListingKeyword.KeywordScore &gt;= minimumKeywordScore]" DisplayName="If Has Minimum Keyword Score">
                                   <If.Then>

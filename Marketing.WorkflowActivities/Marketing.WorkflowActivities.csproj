@@ -143,13 +143,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <XamlAppDef Include="RefreshUserListingKeywordScoreActivity.xaml">
+    <XamlAppDef Include="PurgePostsActivity.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </XamlAppDef>
   </ItemGroup>
   <ItemGroup>
-    <XamlAppDef Include="PurgePostsActivity.xaml">
+    <XamlAppDef Include="RefreshUserKeywordScoresActivity.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </XamlAppDef>

@@ -45,7 +45,7 @@ namespace Marketing.Services.Extensions
                         join uc in context.UserCities.Where(x => x.UserId == userId)
                         on city.Id equals uc.CityId into usc
                         from item in usc.DefaultIfEmpty()
-                        select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : true, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item != null };
+                        select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : false, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item.UserId != null };
 
             return query.AsQueryable();
         }
@@ -369,7 +369,27 @@ namespace Marketing.Services.Extensions
             context.SaveChanges();
             return result;
         }
-        public static UserPreference GetUserPreferenceSelectionByUserId(this MarketingEntities context, Guid userId)
+        static UserPreferenceSelection ToUserPreferenceSelection(this UserPreference userPreference)
+        {
+            var result = new UserPreferenceSelection
+            {
+                BCCEmailAddress = userPreference.BCCEmailAddress,
+                Id = userPreference.Id,
+                LiveMode = userPreference.LiveMode,
+                MinimumKeywordScore = userPreference.MinimumKeywordScore,
+                RequiresSSL = userPreference.RequiresSSL,
+                SMTPPassword = userPreference.SMTPPassword,
+                SMTPPort = userPreference.SMTPPort,
+                SMTPServer = userPreference.SMTPServer,
+                SMTPUsername = userPreference.SMTPUser,
+                UserId = userPreference.UserId
+            };
+            return result;
+
+
+                     
+        }
+        public static UserPreferenceSelection GetUserPreferenceSelectionByUserId(this MarketingEntities context, Guid userId)
         {
 
             var result = context.UserPreferences.SingleOrDefault(x => x.UserId == userId);
@@ -385,7 +405,7 @@ namespace Marketing.Services.Extensions
                 context.UserPreferences.AddObject(result);
                 context.SaveChanges();
             }
-            return result;
+            return result.ToUserPreferenceSelection();
         }
         public static UserListingItem GetUserListingItemById(this MarketingEntities context, Guid id)
         {

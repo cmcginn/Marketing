@@ -81,7 +81,7 @@
                         <av:Size x:Key="ShapeSize">200,49</av:Size>
                       </scg3:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ForEach x:TypeArguments="md:UserListingUrl" DisplayName="ForEach&lt;UserListingUrl&gt;" sap:VirtualizedContainerService.HintSize="534,1654" Values="[userListingUrls]">
+                    <ForEach x:TypeArguments="md:UserListingUrl" DisplayName="ForEach&lt;UserListingUrl&gt;" sap:VirtualizedContainerService.HintSize="444,415" Values="[userListingUrls]">
                       <ActivityAction x:TypeArguments="md:UserListingUrl">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="md:UserListingUrl" Name="item" />
@@ -109,7 +109,7 @@
                                 <InArgument x:TypeArguments="md:MarketingEntities">[domainContext]</InArgument>
                                 <InArgument x:TypeArguments="md:UserListingUrl">[item]</InArgument>
                                 <InArgument x:TypeArguments="scg3:List(md:UserKeyword)">[userKeywords]</InArgument>
-                                <InArgument x:TypeArguments="x:String">[listingContent.PostContent]</InArgument>
+                                <InArgument x:TypeArguments="x:String">[listingContentItem.ContentHtml.ToString()]</InArgument>
                               </InvokeMethod>
                               <If Condition="[userListingKeyword.KeywordScore &gt;= minimumKeywordScore]" DisplayName="If Has Minimum Keyword Score" sap:VirtualizedContainerService.HintSize="464,1020">
                                 <If.Then>
@@ -162,7 +162,7 @@
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                 </ActivityAction.Argument>
-                                <InvokeMethod DisplayName="Invoke Logging" sap:VirtualizedContainerService.HintSize="484,127" MethodName="Write" TargetType="mpel:Logger">
+                                <InvokeMethod DisplayName="Invoke Logging" sap:VirtualizedContainerService.HintSize="394,127" MethodName="Write" TargetType="mpel:Logger">
                                   <InArgument x:TypeArguments="s:Exception">[exception]</InArgument>
                                 </InvokeMethod>
                               </ActivityAction>

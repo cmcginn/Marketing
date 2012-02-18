@@ -93,6 +93,12 @@ namespace Marketing.Services {
 
 
     #region QueryBy Ids
+    public UserPreferenceSelection GetUserPreferenceSelectionByUserId(Guid? userId)
+    {
+        var id = userId.GetValueOrDefault();
+        var result = Context.GetUserPreferenceSelectionByUserId(id);
+        return result;
+    }
     public IQueryable<UserKeywordSelection> GetUserKeywordSelectionByUserId(Guid? userId)
     {
         var result = Context.GetUserKeywordSelectionByUserId(userId.GetValueOrDefault());
@@ -258,7 +264,7 @@ namespace Marketing.Services {
     public void RunKeywordRefresh(Operation operation)
     {
         //call host eventually
-        var invoker = new WorkflowInvoker(new RefreshUserListingKeywordScoreActivity());
+        var invoker = new WorkflowInvoker(new RefreshUserKeywordScoresActivity());
         Task t = new Task(() =>
         {
             Dictionary<string, object> inputs = new Dictionary<string, object> { { "UserId", operation.UserId } };
