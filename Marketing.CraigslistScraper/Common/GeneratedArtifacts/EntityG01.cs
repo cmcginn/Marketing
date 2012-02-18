@@ -83,7 +83,7 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool Selected
+        public global::System.Nullable<bool> Selected
         {
             get
             {
@@ -352,11 +352,11 @@ namespace LightSwitchApplication
                 {
                 }
     
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool> Selected
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Nullable<bool>> Selected
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Selected) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>;
+                        return base.GetItem(global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties.Selected) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Nullable<bool>>;
                     }
                 }
                 
@@ -422,7 +422,7 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1034:NestedTypesShouldNotBeVisible")]
             public interface IImplementation : global::Microsoft.LightSwitch.Internal.IEntityImplementation
             {
-                new bool Selected { get; set; }
+                new global::System.Nullable<bool> Selected { get; set; }
                 new global::System.Guid UserId { get; set; }
                 new string CityName { get; set; }
                 new string RegionName { get; set; }
@@ -440,8 +440,8 @@ namespace LightSwitchApplication
             {
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Entry
-                    Selected = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Nullable<bool>>.Entry
+                    Selected = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Nullable<bool>>.Entry(
                         "Selected",
                         global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_Stub,
                         global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_ComputeIsReadOnly,
@@ -449,7 +449,7 @@ namespace LightSwitchApplication
                         global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_GetImplementationValue,
                         global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_SetImplementationValue,
                         global::LightSwitchApplication.UserCitySelection.DetailsClass.PropertySetProperties._Selected_OnValueChanged);
-                private static void _Selected_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
+                private static void _Selected_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserCitySelection.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Nullable<bool>>.Data> c, global::LightSwitchApplication.UserCitySelection.DetailsClass d, object sf)
                 {
                     c(d, ref d._Selected, sf);
                 }
@@ -463,11 +463,11 @@ namespace LightSwitchApplication
                 {
                     e.Selected_Validate(r);
                 }
-                private static bool _Selected_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
+                private static global::System.Nullable<bool> _Selected_GetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d)
                 {
                     return d.ImplementationEntity.Selected;
                 }
-                private static void _Selected_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, bool v)
+                private static void _Selected_SetImplementationValue(global::LightSwitchApplication.UserCitySelection.DetailsClass d, global::System.Nullable<bool> v)
                 {
                     d.ImplementationEntity.Selected = v;
                 }
@@ -738,7 +738,7 @@ namespace LightSwitchApplication
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, bool>.Data _Selected;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Nullable<bool>>.Data _Selected;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserCitySelection, global::LightSwitchApplication.UserCitySelection.DetailsClass, global::System.Guid>.Data _UserId;

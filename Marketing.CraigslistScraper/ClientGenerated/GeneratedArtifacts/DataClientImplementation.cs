@@ -29,7 +29,7 @@ namespace LightSwitchApplication.Implementation
         }
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public bool Selected
+        public global::System.Nullable<bool> Selected
         {
             get
             {
@@ -46,7 +46,7 @@ namespace LightSwitchApplication.Implementation
                 }
             }
         }
-        private bool _Selected;
+        private global::System.Nullable<bool> _Selected;
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]

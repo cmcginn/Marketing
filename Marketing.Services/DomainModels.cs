@@ -15,7 +15,7 @@ namespace Marketing.Services {
   public class UserCitySelection {
    
     public Guid Id { get; set; }
-    public bool Selected { get; set; }
+    public bool? Selected { get; set; }
      [Key]
     public Guid CityId { get; set; }
     public Guid UserId { get; set; }

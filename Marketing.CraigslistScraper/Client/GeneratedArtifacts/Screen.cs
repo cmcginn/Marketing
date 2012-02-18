@@ -199,6 +199,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void GetUserPreferenceSelectionByUserId_Validate(global::Microsoft.LightSwitch.Framework.Client.ScreenValidationResultsBuilder results);
  
+        /// <summary>
+        /// Calls the SelectAll screen method.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void SelectAll()
+        {
+            this.Details.Methods.SelectAll.CreateInvocation().Execute();
+        }
+        partial void SelectAll_CanExecute(ref bool result);
+        partial void SelectAll_Execute();
+
+        /// <summary>
+        /// Calls the DeselectAll screen method.
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public void DeselectAll()
+        {
+            this.Details.Methods.DeselectAll.CreateInvocation().Execute();
+        }
+        partial void DeselectAll_CanExecute(ref bool result);
+        partial void DeselectAll_Execute();
+
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -209,6 +233,8 @@ namespace LightSwitchApplication
             static DetailsClass()
             {
                 var initializePropertyEntry = global::LightSwitchApplication.Preferences.DetailsClass.PropertySetProperties.UserCitySelections;
+                var initializeCommandEntry = global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties.SelectAll;
+                var initializeMethodEntry = global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties.SelectAll;
             }
 
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -328,6 +354,18 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenReferenceProperty<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass, global::LightSwitchApplication.UserPreferenceSelection>.Data _GetUserPreferenceSelectionByUserId;
 
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data _SelectAllCommand;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data _DeselectAllCommand;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data _SelectAllMethod;
+
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data _DeselectAllMethod;
+
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -391,6 +429,23 @@ namespace LightSwitchApplication
             public sealed class CommandSet
                 : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommandSet<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>
             {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass> SelectAll
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties.SelectAll);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass> DeselectAll
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties.DeselectAll);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -399,6 +454,23 @@ namespace LightSwitchApplication
             public sealed class MethodSet
                 : global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethodSet<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>
             {
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass> SelectAll
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties.SelectAll);
+                    }
+                }
+
+                public global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass> DeselectAll
+                {
+                    get
+                    {
+                        return (global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>)base.GetItem(global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties.DeselectAll);
+                    }
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -600,6 +672,35 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal sealed class CommandSetProperties
             {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry
+                    SelectAll = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry(
+                        "SelectAll",
+                        global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties._SelectAll_Stub,
+                        global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties._SelectAll_CreateExecutableObject);
+                private static void _SelectAll_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SelectAllCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _SelectAll_CreateExecutableObject(global::LightSwitchApplication.Preferences.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Preferences.DetailsClass)d).Methods.SelectAll.CreateInvocation();
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry
+                    DeselectAll = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry(
+                        "DeselectAll",
+                        global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties._DeselectAll_Stub,
+                        global::LightSwitchApplication.Preferences.DetailsClass.CommandSetProperties._DeselectAll_CreateExecutableObject);
+                private static void _DeselectAll_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenCommand<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
+                {
+                    c(d, ref d._DeselectAllCommand, sf);
+                }
+                private static global::Microsoft.LightSwitch.IExecutable _DeselectAll_CreateExecutableObject(global::LightSwitchApplication.Preferences.DetailsClass d)
+                {
+                    return ((global::LightSwitchApplication.Preferences.DetailsClass)d).Methods.DeselectAll.CreateInvocation();
+                }
+
             }
 
             [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -607,6 +708,49 @@ namespace LightSwitchApplication
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal sealed class MethodSetProperties
             {
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry
+                    SelectAll = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry(
+                        "SelectAll",
+                        global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties._SelectAll_Stub,
+                        global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties._SelectAll_CanInvoke,
+                        global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties._SelectAll_InvokeMethod);
+                private static void _SelectAll_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
+                {
+                    c(d, ref d._SelectAllMethod, sf);
+                }
+                private static global::System.Exception _SelectAll_CanInvoke(global::LightSwitchApplication.Preferences.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Screen.SelectAll_CanExecute(ref result);
+                    return result ? null : ex;
+                }
+                private static void _SelectAll_InvokeMethod(global::LightSwitchApplication.Preferences.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    d.Screen.SelectAll_Execute();
+                }
+
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry
+                    DeselectAll = new global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Entry(
+                        "DeselectAll",
+                        global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties._DeselectAll_Stub,
+                        global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties._DeselectAll_CanInvoke,
+                        global::LightSwitchApplication.Preferences.DetailsClass.MethodSetProperties._DeselectAll_InvokeMethod);
+                private static void _DeselectAll_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Preferences.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.Client.ScreenMethod<global::LightSwitchApplication.Preferences, global::LightSwitchApplication.Preferences.DetailsClass>.Data> c, global::LightSwitchApplication.Preferences.DetailsClass d, object sf)
+                {
+                    c(d, ref d._DeselectAllMethod, sf);
+                }
+                private static global::System.Exception _DeselectAll_CanInvoke(global::LightSwitchApplication.Preferences.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
+                {
+                    bool result = true;
+                    d.Screen.DeselectAll_CanExecute(ref result);
+                    return result ? null : ex;
+                }
+                private static void _DeselectAll_InvokeMethod(global::LightSwitchApplication.Preferences.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
+                {
+                    d.Screen.DeselectAll_Execute();
+                }
+
             }
         }
     }

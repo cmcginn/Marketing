@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="CityId" />
     </Key>
-    <Property Name="Selected" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Selected" Type="Boolean" ConcurrencyMode="Fixed" />
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="CityName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="RegionName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />

@@ -17,7 +17,7 @@
     <Key>
       <PropertyRef Name="CityId" />
     </Key>
-    <Property Name="Selected" Type="bit" Nullable="false" />
+    <Property Name="Selected" Type="bit" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityName" Type="nvarchar(max)" />
     <Property Name="RegionName" Type="nvarchar(max)" />

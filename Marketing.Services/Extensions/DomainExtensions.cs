@@ -45,7 +45,7 @@ namespace Marketing.Services.Extensions
                         join uc in context.UserCities.Where(x => x.UserId == userId)
                         on city.Id equals uc.CityId into usc
                         from item in usc.DefaultIfEmpty()
-                        select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : false, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item.UserId != null };
+                        select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : false, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected =item.Active };
 
             return query.AsQueryable();
         }

@@ -210,12 +210,12 @@ namespace Marketing.Services {
     public void UpdateUserCitySelection(UserCitySelection userCitySelection)
     {
         var target = Context.UserCities.SingleOrDefault(x => x.UserId == userCitySelection.UserId && x.CityId == userCitySelection.CityId);
-        if (target == null && userCitySelection.Selected)
+        if (target == null && userCitySelection.Selected.GetValueOrDefault())
         {
-            var item = new UserCity { CityId = userCitySelection.CityId, UserId = userCitySelection.UserId, Id = Guid.NewGuid(), Active = userCitySelection.Selected };
+            var item = new UserCity { CityId = userCitySelection.CityId, UserId = userCitySelection.UserId, Id = Guid.NewGuid(), Active = userCitySelection.Selected.GetValueOrDefault() };
             Context.UserCities.AddObject(item);
         }
-        else if (!userCitySelection.Selected)
+        else if (!userCitySelection.Selected.GetValueOrDefault())
         {
             Context.UserCities.DeleteObject(target);
         }

@@ -787,15 +787,13 @@ namespace MarketingDomainServiceData.Implementation
         /// <summary>
         /// Create a new UserCitySelection object.
         /// </summary>
-        /// <param name="selected">Initial value of the Selected property.</param>
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="active">Initial value of the Active property.</param>
         /// <param name="cityId">Initial value of the CityId property.</param>
         /// <param name="id">Initial value of the Id property.</param>
-        public static UserCitySelection CreateUserCitySelection(global::System.Boolean selected, global::System.Guid userId, global::System.Boolean active, global::System.Guid cityId, global::System.Guid id)
+        public static UserCitySelection CreateUserCitySelection(global::System.Guid userId, global::System.Boolean active, global::System.Guid cityId, global::System.Guid id)
         {
             UserCitySelection userCitySelection = new UserCitySelection();
-            userCitySelection.Selected = selected;
             userCitySelection.UserId = userId;
             userCitySelection.Active = active;
             userCitySelection.CityId = cityId;
@@ -809,9 +807,9 @@ namespace MarketingDomainServiceData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Boolean Selected
+        public Nullable<global::System.Boolean> Selected
         {
             get
             {
@@ -826,8 +824,8 @@ namespace MarketingDomainServiceData.Implementation
                 OnSelectedChanged();
             }
         }
-        private global::System.Boolean _Selected;
-        partial void OnSelectedChanging(global::System.Boolean value);
+        private Nullable<global::System.Boolean> _Selected;
+        partial void OnSelectedChanging(Nullable<global::System.Boolean> value);
         partial void OnSelectedChanged();
     
         /// <summary>

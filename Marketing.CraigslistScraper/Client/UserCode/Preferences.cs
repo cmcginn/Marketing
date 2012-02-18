@@ -39,6 +39,18 @@ namespace LightSwitchApplication
         this.Close( false );
       }
 
+      partial void SelectAll_Execute()
+      {
+          this.GetUserCitySelectionByUserId.ToList().ForEach(n => n.Selected = true);
+
+      }
+
+      partial void DeselectAll_Execute()
+      {
+          this.GetUserCitySelectionByUserId.ToList().ForEach(n => n.Selected = false);
+
+      }
+
 
 
     }
