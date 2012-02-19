@@ -4,3 +4,5 @@ obj\Release\GetCraigslistListingUrlsActivity.g.cs
 obj\Release\RefreshUserCraigslistContent.g.cs
 obj\Release\GetListingContentActivity.g.cs
 obj\Release\RefreshUserDataActivity.g.cs
+obj\Release\PurgePostsActivity.g.cs
+obj\Release\RefreshUserKeywordScoresActivity.g.cs

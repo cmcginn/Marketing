@@ -81,6 +81,7 @@
           <ScalarProperty Name="UseDefaultResponse" ColumnName="UseDefaultResponse" />
           <ScalarProperty Name="PostDate" ColumnName="PostDate" />
           <ScalarProperty Name="PostText" ColumnName="PostText" />
+          <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -157,6 +158,29 @@
           <ScalarProperty Name="ReproductionSteps" ColumnName="ReproductionSteps" />
           <ScalarProperty Name="Resolved" ColumnName="Resolved" />
           <ScalarProperty Name="Reported" ColumnName="Reported" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Errors">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.c_Error)">
+        <MappingFragment StoreEntitySet="DefaultErrors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OriginatingClassName" ColumnName="OriginatingClassName" />
+          <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+          <ScalarProperty Name="ExceptionTypeName" ColumnName="ExceptionTypeName" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="ErrorData" ColumnName="ErrorData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorDisplays">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.ErrorDisplay)">
+        <MappingFragment StoreEntitySet="GetDefaultErrorDisplays">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

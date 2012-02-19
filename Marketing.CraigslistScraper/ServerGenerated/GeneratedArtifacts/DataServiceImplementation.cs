@@ -355,6 +355,66 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region c_Error
+    
+        public void Insertc_Error(global::MarketingDomainServiceData.Implementation.c_Error entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.Errors.AddObject(entity);
+            }
+        }
+    
+        public void Updatec_Error(global::MarketingDomainServiceData.Implementation.c_Error currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.Errors, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void Deletec_Error(global::MarketingDomainServiceData.Implementation.c_Error entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.Errors.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
+    #region ErrorDisplay
+    
+        public void InsertErrorDisplay(global::MarketingDomainServiceData.Implementation.ErrorDisplay entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.ErrorDisplays.AddObject(entity);
+            }
+        }
+    
+        public void UpdateErrorDisplay(global::MarketingDomainServiceData.Implementation.ErrorDisplay currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.ErrorDisplays, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteErrorDisplay(global::MarketingDomainServiceData.Implementation.ErrorDisplay entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ErrorDisplays.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
@@ -589,6 +649,36 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection> GetUserPreferenceSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserPreferenceSelection>("GetUserPreferenceSelectionByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> Errors_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.c_Error>("Errors_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> Errors_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.c_Error>("Errors_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> Errors_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.c_Error>("Errors_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> ErrorDisplays_Single(string frameworkOperators, string Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.ErrorDisplay>("ErrorDisplays_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> ErrorDisplays_SingleOrDefault(string frameworkOperators, string Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.ErrorDisplay>("ErrorDisplays_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> ErrorDisplays_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.ErrorDisplay>("ErrorDisplays_All", frameworkOperators);
         }
     
     #endregion
@@ -1031,6 +1121,56 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> Errors_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.c_Error>("Errors_All"),
+                (c) => (Id.HasValue && (c.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> Errors_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.c_Error>("Errors_All"),
+                (c) => (Id.HasValue && (c.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> Errors_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.c_Error> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.c_Error>("DefaultErrors").AsQueryable();
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> ErrorDisplays_Single(string Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.ErrorDisplay>("ErrorDisplays_All"),
+                (e) => (e.Id.CompareTo(Id) == 0));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> ErrorDisplays_SingleOrDefault(string Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.ErrorDisplay>("ErrorDisplays_All"),
+                (e) => (e.Id.CompareTo(Id) == 0));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> ErrorDisplays_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.ErrorDisplay> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.ErrorDisplay>("GetDefaultErrorDisplays").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -1079,6 +1219,14 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.BugReportItem))
             {
                 return new global::MarketingDomainServiceData.Implementation.BugReportItem();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.c_Error))
+            {
+                return new global::MarketingDomainServiceData.Implementation.c_Error();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.ErrorDisplay))
+            {
+                return new global::MarketingDomainServiceData.Implementation.ErrorDisplay();
             }
     
             return base.CreateObject(type);
@@ -1138,6 +1286,14 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.BugReportItem();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.c_Error))
+            {
+                return new global::MarketingDomainServiceData.Implementation.c_Error();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.ErrorDisplay))
+            {
+                return new global::MarketingDomainServiceData.Implementation.ErrorDisplay();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -1185,6 +1341,14 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.BugReportItem))
             {
                 return typeof(global::Marketing.Services.BugReportItem);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.c_Error))
+            {
+                return typeof(global::Marketing.Services.Error);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.ErrorDisplay))
+            {
+                return typeof(global::Marketing.Services.ErrorDisplay);
             }
             return base.ConvertType(outerType);
         }
@@ -1271,6 +1435,7 @@ namespace LightSwitchApplication.Implementation
                 result.UseDefaultResponse = userListingItem.UseDefaultResponse;
                 result.PostDate = userListingItem.PostDate;
                 result.PostText = userListingItem.PostText;
+                result.IsHidden = userListingItem.IsHidden;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1347,6 +1512,29 @@ namespace LightSwitchApplication.Implementation
                 result.ReproductionSteps = bugReportItem.ReproductionSteps;
                 result.Resolved = bugReportItem.Resolved;
                 result.Reported = bugReportItem.Reported;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.c_Error c_Error = outerEntity as global::MarketingDomainServiceData.Implementation.c_Error;
+            if (c_Error != null)
+            {
+                global::Marketing.Services.Error result = new global::Marketing.Services.Error();
+                result.Id = c_Error.Id;
+                result.OriginatingClassName = c_Error.OriginatingClassName;
+                result.MethodName = c_Error.MethodName;
+                result.ExceptionTypeName = c_Error.ExceptionTypeName;
+                result.ExceptionMessage = c_Error.ExceptionMessage;
+                result.ErrorMessage = c_Error.ErrorMessage;
+                result.ErrorData = c_Error.ErrorData;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.ErrorDisplay errorDisplay = outerEntity as global::MarketingDomainServiceData.Implementation.ErrorDisplay;
+            if (errorDisplay != null)
+            {
+                global::Marketing.Services.ErrorDisplay result = new global::Marketing.Services.ErrorDisplay();
+                result.Id = errorDisplay.Id;
+                result.Timestamp = errorDisplay.Timestamp;
+                result.Title = errorDisplay.Title;
+                result.Message = errorDisplay.Message;
                 return result;
             }
             return null;
@@ -1436,6 +1624,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.UseDefaultResponse = innerUserListingItem.UseDefaultResponse;
                 outerUserListingItem.PostDate = innerUserListingItem.PostDate;
                 outerUserListingItem.PostText = innerUserListingItem.PostText;
+                outerUserListingItem.IsHidden = innerUserListingItem.IsHidden;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1512,6 +1701,29 @@ namespace LightSwitchApplication.Implementation
                 outerBugReportItem.ReproductionSteps = innerBugReportItem.ReproductionSteps;
                 outerBugReportItem.Resolved = innerBugReportItem.Resolved;
                 outerBugReportItem.Reported = innerBugReportItem.Reported;
+                return;
+            }
+            global::MarketingDomainServiceData.Implementation.c_Error outerc_Error = outerEntity as global::MarketingDomainServiceData.Implementation.c_Error;
+            global::Marketing.Services.Error innerc_Error = innerResult as global::Marketing.Services.Error;
+            if ((outerc_Error != null) && (innerc_Error != null))
+            {
+                outerc_Error.Id = innerc_Error.Id;
+                outerc_Error.OriginatingClassName = innerc_Error.OriginatingClassName;
+                outerc_Error.MethodName = innerc_Error.MethodName;
+                outerc_Error.ExceptionTypeName = innerc_Error.ExceptionTypeName;
+                outerc_Error.ExceptionMessage = innerc_Error.ExceptionMessage;
+                outerc_Error.ErrorMessage = innerc_Error.ErrorMessage;
+                outerc_Error.ErrorData = innerc_Error.ErrorData;
+                return;
+            }
+            global::MarketingDomainServiceData.Implementation.ErrorDisplay outerErrorDisplay = outerEntity as global::MarketingDomainServiceData.Implementation.ErrorDisplay;
+            global::Marketing.Services.ErrorDisplay innerErrorDisplay = innerResult as global::Marketing.Services.ErrorDisplay;
+            if ((outerErrorDisplay != null) && (innerErrorDisplay != null))
+            {
+                outerErrorDisplay.Id = innerErrorDisplay.Id;
+                outerErrorDisplay.Timestamp = innerErrorDisplay.Timestamp;
+                outerErrorDisplay.Title = innerErrorDisplay.Title;
+                outerErrorDisplay.Message = innerErrorDisplay.Message;
                 return;
             }
         }
@@ -1601,6 +1813,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.BugReportItem) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.BugReportItem);
+            }
+            if (typeof(global::LightSwitchApplication.c_Error) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.c_Error);
+            }
+            if (typeof(global::LightSwitchApplication.ErrorDisplay) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.ErrorDisplay);
             }
             return null;
         }
@@ -1944,6 +2164,72 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class BugReportItem :
         global::LightSwitchApplication.BugReportItem.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class c_Error :
+        global::LightSwitchApplication.c_Error.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class ErrorDisplay :
+        global::LightSwitchApplication.ErrorDisplay.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

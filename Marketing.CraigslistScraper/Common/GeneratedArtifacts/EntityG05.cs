@@ -557,7 +557,7 @@ namespace LightSwitchApplication
         /// </summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public int KeywordScore
+        public global::System.Nullable<int> KeywordScore
         {
             get
             {
@@ -671,6 +671,30 @@ namespace LightSwitchApplication
         partial void PostText_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void PostText_Changed();
+
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public bool IsHidden
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.IsHidden);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.IsHidden, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void IsHidden_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void IsHidden_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void IsHidden_Changed();
 
         #endregion
     
@@ -914,11 +938,11 @@ namespace LightSwitchApplication
                     }
                 }
                 
-                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, int> KeywordScore
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<int>> KeywordScore
                 {
                     get
                     {
-                        return base.GetItem(global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.KeywordScore) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, int>;
+                        return base.GetItem(global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.KeywordScore) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<int>>;
                     }
                 }
                 
@@ -954,6 +978,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool> IsHidden
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.IsHidden) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -979,11 +1011,12 @@ namespace LightSwitchApplication
                 new bool CityActive { get; set; }
                 new bool UserCityActive { get; set; }
                 new bool ListingCategoryActive { get; set; }
-                new int KeywordScore { get; set; }
+                new global::System.Nullable<int> KeywordScore { get; set; }
                 new string KeywordDisplay { get; set; }
                 new bool UseDefaultResponse { get; set; }
                 new global::System.DateTime PostDate { get; set; }
                 new string PostText { get; set; }
+                new bool IsHidden { get; set; }
             }
             #pragma warning restore 109
     
@@ -1719,8 +1752,8 @@ namespace LightSwitchApplication
                 }
     
                 [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, int>.Entry
-                    KeywordScore = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, int>.Entry(
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<int>>.Entry
+                    KeywordScore = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<int>>.Entry(
                         "KeywordScore",
                         global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._KeywordScore_Stub,
                         global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._KeywordScore_ComputeIsReadOnly,
@@ -1728,7 +1761,7 @@ namespace LightSwitchApplication
                         global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._KeywordScore_GetImplementationValue,
                         global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._KeywordScore_SetImplementationValue,
                         global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._KeywordScore_OnValueChanged);
-                private static void _KeywordScore_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, int>.Data> c, global::LightSwitchApplication.UserListingItem.DetailsClass d, object sf)
+                private static void _KeywordScore_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<int>>.Data> c, global::LightSwitchApplication.UserListingItem.DetailsClass d, object sf)
                 {
                     c(d, ref d._KeywordScore, sf);
                 }
@@ -1742,11 +1775,11 @@ namespace LightSwitchApplication
                 {
                     e.KeywordScore_Validate(r);
                 }
-                private static int _KeywordScore_GetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d)
+                private static global::System.Nullable<int> _KeywordScore_GetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d)
                 {
                     return d.ImplementationEntity.KeywordScore;
                 }
-                private static void _KeywordScore_SetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d, int v)
+                private static void _KeywordScore_SetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d, global::System.Nullable<int> v)
                 {
                     d.ImplementationEntity.KeywordScore = v;
                 }
@@ -1903,6 +1936,43 @@ namespace LightSwitchApplication
                     e.PostText_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Entry
+                    IsHidden = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Entry(
+                        "IsHidden",
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._IsHidden_Stub,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._IsHidden_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._IsHidden_Validate,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._IsHidden_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._IsHidden_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._IsHidden_OnValueChanged);
+                private static void _IsHidden_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Data> c, global::LightSwitchApplication.UserListingItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._IsHidden, sf);
+                }
+                private static bool _IsHidden_ComputeIsReadOnly(global::LightSwitchApplication.UserListingItem e)
+                {
+                    bool result = false;
+                    e.IsHidden_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _IsHidden_Validate(global::LightSwitchApplication.UserListingItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.IsHidden_Validate(r);
+                }
+                private static bool _IsHidden_GetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.IsHidden;
+                }
+                private static void _IsHidden_SetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d, bool v)
+                {
+                    d.ImplementationEntity.IsHidden = v;
+                }
+                private static void _IsHidden_OnValueChanged(global::LightSwitchApplication.UserListingItem e)
+                {
+                    e.IsHidden_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -1966,7 +2036,7 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Data _ListingCategoryActive;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
-            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, int>.Data _KeywordScore;
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<int>>.Data _KeywordScore;
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Data _KeywordDisplay;
@@ -1979,6 +2049,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, string>.Data _PostText;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Data _IsHidden;
             
         }
     

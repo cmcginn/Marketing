@@ -1,0 +1,25 @@
+﻿
+<Configuration>
+  <Manifests>
+    <Manifest>Microsoft.LightSwitch.Base.Client.Manifest.xml</Manifest>
+    <Manifest>Microsoft.LightSwitch.Client.Internal.Manifest.xml</Manifest>
+  </Manifests>
+  <SubsystemPackages>
+    <SubsystemPackage>ModelLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeExtensionLoader</SubsystemPackage>
+    <SubsystemPackage>PresentationRuntimeLoader</SubsystemPackage>
+    <SubsystemPackage>ReportingLoader</SubsystemPackage>
+    <SubsystemPackage>RulesLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeServicesLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeShellLoader</SubsystemPackage>
+    <SubsystemPackage>ThemingRuntimeLoader</SubsystemPackage>
+    <SubsystemPackage>UtilitiesLoader</SubsystemPackage>
+    <SubsystemPackage>BaseServicesLoader</SubsystemPackage>
+    <SubsystemPackage>DiagnosticsLoader</SubsystemPackage>
+    <SubsystemPackage>RuntimeUserCodeLoader</SubsystemPackage>
+  </SubsystemPackages>
+  <UserCodeAssemblies><UserCodeAssembly>Application.Common, Version=1.2.28.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.Client, Version=1.2.28.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.ClientGenerated, Version=1.2.28.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
+  <ExtensionAssemblies>
+    <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
+  </ExtensionAssemblies>
+<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129740572625339766</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.2.28.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>

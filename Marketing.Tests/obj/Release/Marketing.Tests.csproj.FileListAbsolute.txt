@@ -19,7 +19,6 @@ C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Microsoft.Practices.Uni
 C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Marketing.Data.pdb
 C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Marketing.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Marketing.WorkflowActivities.pdb
-C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.xml
 C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.xml
 C:\Projects\Urbana\Marketing\Marketing.Tests\bin\Release\Microsoft.Practices.EnterpriseLibrary.Logging.xml

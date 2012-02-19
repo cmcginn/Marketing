@@ -3,8 +3,6 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Release\Appl
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Release\Application.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Release\Application.Server.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Release\Application.Common.dll
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Release\ExtensionsMadeEasy.Common.dll
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\bin\Release\ExtensionsMadeEasy.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\obj\Release\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\obj\Release\Application.Server.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Server\obj\Release\Application.Server.pdb

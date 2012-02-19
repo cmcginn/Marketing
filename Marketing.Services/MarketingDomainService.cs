@@ -89,6 +89,17 @@ namespace Marketing.Services {
         var result = Context.GetDefaultBugReports();
         return result;
     }
+    [Query(IsDefault = true)]
+    public IQueryable<Error> DefaultErrors()
+    {
+        return new List<Error>().AsQueryable();
+    }
+    [Query(IsDefault = true)]
+    public IQueryable<ErrorDisplay> GetDefaultErrorDisplays()
+    {
+        var result = Context.GetDefaultErrorDisplays();
+        return result;
+    }
     #endregion
 
 
@@ -162,13 +173,19 @@ namespace Marketing.Services {
     {
         Context.SaveUserListingResponse(item);
 
-    }
+    }    
     public void UpdateUserListingItem(UserListingItem item)
     {
-        if (item.UseDefaultResponse)
-            Context.SetDefaultUserTemplateItem(item);
-        var response = Context.SaveUserListingResponse(item);
-        Context.SendUserListingResponse(response);
+        if (item.IsHidden)
+            Context.UpdateUserListingItemVisibility(item);
+        else
+        {
+            if (item.UseDefaultResponse)
+                Context.SetDefaultUserTemplateItem(item);
+            var response = Context.SaveUserListingResponse(item);
+
+            Context.SendUserListingResponse(response);
+        }
     }
     public void UpdateUserPreferenceSelection(UserPreferenceSelection userPreferenceSelection)
     {
@@ -241,12 +258,21 @@ namespace Marketing.Services {
     {
         Context.UpdateBugReportItem(item);
     }
+    public void AddError(Error item)
+    {
+        item.InsertError();
+    }
     public UserListingItem GetUserListingItemById(Guid? id)
     {
         var userListingUrlId = id.GetValueOrDefault();
         var result = Context.GetUserListingItemById(userListingUrlId);
         return result;
     }
+    public void DeleteBugReportItem(BugReportItem item)
+    {
+        Context.DeleteBugReportItem(item);
+    }
+       
     #endregion
 
 

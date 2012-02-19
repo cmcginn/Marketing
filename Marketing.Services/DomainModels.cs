@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using Microsoft.Practices.EnterpriseLibrary.Logging;
 namespace Marketing.Services {
  
   public class User {
@@ -76,11 +77,12 @@ namespace Marketing.Services {
     public bool CityActive { get; set; }
     public bool UserCityActive { get; set; }
     public bool ListingCategoryActive { get; set; }
-    public int KeywordScore { get; set; }
+    public int? KeywordScore { get; set; }
     public string KeywordDisplay { get; set; }
     public bool UseDefaultResponse { get; set; }
     public DateTime PostDate { get; set; }
     public string PostText { get; set; }
+    public bool IsHidden { get; set; }
   }
   public class UserListingResponseItem {
     [Key]
@@ -140,5 +142,25 @@ namespace Marketing.Services {
       public string ReproductionSteps { get; set; }
       public DateTime? Resolved { get; set; }
       public DateTime Reported { get; set; }
+  }
+  public class Error
+  {
+      [Key]
+      public Guid Id { get; set; }
+      public string OriginatingClassName { get; set; }
+      public string MethodName { get; set; }
+      public string ExceptionTypeName { get; set; }
+      public string ExceptionMessage { get; set; }
+      public string ErrorMessage { get; set; }
+      public string ErrorData { get; set; }
+  }
+  public class ErrorDisplay
+  {
+      [Key]
+      public string Id { get; set; }
+      public DateTime Timestamp { get; set; }
+      public string Title { get; set; }
+      public string Message { get; set; }
+      
   }
 }

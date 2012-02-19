@@ -47,16 +47,6 @@
     <Reference Include="Common.Utils">
       <HintPath>..\Marketing.WorkflowActivities\bin\Debug\Common.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="Marketing.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0bb84bb3252f8737, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Marketing.WorkflowActivities\bin\Debug\Marketing.Data.dll</HintPath>
-    </Reference>
-    <Reference Include="Marketing.Utils">
-      <HintPath>..\Marketing.WorkflowActivities\bin\Debug\Marketing.Utils.dll</HintPath>
-    </Reference>
-    <Reference Include="Marketing.WorkflowActivities">
-      <HintPath>..\Marketing.WorkflowActivities\bin\Debug\Marketing.WorkflowActivities.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Marketing.WorkflowActivities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
@@ -111,7 +101,23 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Marketing.Data\Marketing.Data.csproj">
+      <Project>{71410B27-532E-439F-A8CB-EB27FBD19193}</Project>
+      <Name>Marketing.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketing.Utils\Marketing.Utils.csproj">
+      <Project>{913FE413-0156-44E9-BC06-F04BFA44C2C7}</Project>
+      <Name>Marketing.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Marketing.WorkflowActivities\Marketing.WorkflowActivities.csproj">
+      <Project>{53864F10-0A6F-4DCB-9539-F300D3CA9F88}</Project>
+      <Name>Marketing.WorkflowActivities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

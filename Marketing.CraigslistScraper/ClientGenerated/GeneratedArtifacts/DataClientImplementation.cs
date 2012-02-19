@@ -1222,7 +1222,7 @@ namespace LightSwitchApplication.Implementation
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
-        public int KeywordScore
+        public global::System.Nullable<int> KeywordScore
         {
             get
             {
@@ -1239,7 +1239,7 @@ namespace LightSwitchApplication.Implementation
                 }
             }
         }
-        private int _KeywordScore;
+        private global::System.Nullable<int> _KeywordScore;
         
         [global::System.Runtime.Serialization.DataMember()]
         [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
@@ -1324,6 +1324,27 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _PostText;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public bool IsHidden
+        {
+            get
+            {
+                return this._IsHidden;
+            }
+            set
+            {
+                if (this._IsHidden != value)
+                {
+                    this.RaiseDataMemberChanging("IsHidden");
+                    this.ValidateProperty("IsHidden", value);
+                    this._IsHidden = value;
+                    this.RaiseDataMemberChanged("IsHidden");
+                }
+            }
+        }
+        private bool _IsHidden;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
@@ -2469,6 +2490,329 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region c_Error
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class c_Error :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.c_Error.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string OriginatingClassName
+        {
+            get
+            {
+                return this._OriginatingClassName;
+            }
+            set
+            {
+                if (this._OriginatingClassName != value)
+                {
+                    this.RaiseDataMemberChanging("OriginatingClassName");
+                    this.ValidateProperty("OriginatingClassName", value);
+                    this._OriginatingClassName = value;
+                    this.RaiseDataMemberChanged("OriginatingClassName");
+                }
+            }
+        }
+        private string _OriginatingClassName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string MethodName
+        {
+            get
+            {
+                return this._MethodName;
+            }
+            set
+            {
+                if (this._MethodName != value)
+                {
+                    this.RaiseDataMemberChanging("MethodName");
+                    this.ValidateProperty("MethodName", value);
+                    this._MethodName = value;
+                    this.RaiseDataMemberChanged("MethodName");
+                }
+            }
+        }
+        private string _MethodName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string ExceptionTypeName
+        {
+            get
+            {
+                return this._ExceptionTypeName;
+            }
+            set
+            {
+                if (this._ExceptionTypeName != value)
+                {
+                    this.RaiseDataMemberChanging("ExceptionTypeName");
+                    this.ValidateProperty("ExceptionTypeName", value);
+                    this._ExceptionTypeName = value;
+                    this.RaiseDataMemberChanged("ExceptionTypeName");
+                }
+            }
+        }
+        private string _ExceptionTypeName;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string ExceptionMessage
+        {
+            get
+            {
+                return this._ExceptionMessage;
+            }
+            set
+            {
+                if (this._ExceptionMessage != value)
+                {
+                    this.RaiseDataMemberChanging("ExceptionMessage");
+                    this.ValidateProperty("ExceptionMessage", value);
+                    this._ExceptionMessage = value;
+                    this.RaiseDataMemberChanged("ExceptionMessage");
+                }
+            }
+        }
+        private string _ExceptionMessage;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string ErrorMessage
+        {
+            get
+            {
+                return this._ErrorMessage;
+            }
+            set
+            {
+                if (this._ErrorMessage != value)
+                {
+                    this.RaiseDataMemberChanging("ErrorMessage");
+                    this.ValidateProperty("ErrorMessage", value);
+                    this._ErrorMessage = value;
+                    this.RaiseDataMemberChanged("ErrorMessage");
+                }
+            }
+        }
+        private string _ErrorMessage;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string ErrorData
+        {
+            get
+            {
+                return this._ErrorData;
+            }
+            set
+            {
+                if (this._ErrorData != value)
+                {
+                    this.RaiseDataMemberChanging("ErrorData");
+                    this.ValidateProperty("ErrorData", value);
+                    this._ErrorData = value;
+                    this.RaiseDataMemberChanged("ErrorData");
+                }
+            }
+        }
+        private string _ErrorData;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
+    #region ErrorDisplay
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class ErrorDisplay :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.ErrorDisplay.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private string _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime Timestamp
+        {
+            get
+            {
+                return this._Timestamp;
+            }
+            set
+            {
+                if (this._Timestamp != value)
+                {
+                    this.RaiseDataMemberChanging("Timestamp");
+                    this.ValidateProperty("Timestamp", value);
+                    this._Timestamp = value;
+                    this.RaiseDataMemberChanged("Timestamp");
+                }
+            }
+        }
+        private global::System.DateTime _Timestamp;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Title
+        {
+            get
+            {
+                return this._Title;
+            }
+            set
+            {
+                if (this._Title != value)
+                {
+                    this.RaiseDataMemberChanging("Title");
+                    this.ValidateProperty("Title", value);
+                    this._Title = value;
+                    this.RaiseDataMemberChanged("Title");
+                }
+            }
+        }
+        private string _Title;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Message
+        {
+            get
+            {
+                return this._Message;
+            }
+            set
+            {
+                if (this._Message != value)
+                {
+                    this.RaiseDataMemberChanging("Message");
+                    this.ValidateProperty("Message", value);
+                    this._Message = value;
+                    this.RaiseDataMemberChanged("Message");
+                }
+            }
+        }
+        private string _Message;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
     #region MarketingDomainServiceData
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2557,6 +2901,20 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.BugReportItem>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.c_Error> c_ErrorEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.c_Error>();
+            }
+        }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.ErrorDisplay> ErrorDisplayEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.ErrorDisplay>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDomainServiceDataEntityContainer();
@@ -2577,6 +2935,8 @@ namespace LightSwitchApplication.Implementation
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserTemplateItem>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserPostListFilterItem>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.BugReportItem>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.c_Error>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.ErrorDisplay>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -2867,6 +3227,42 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginGetUserPreferenceSelectionByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserPreferenceSelection> EndGetUserPreferenceSelectionByUserId(global::System.IAsyncResult result);
             
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginErrors_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.c_Error> EndErrors_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginErrors_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.c_Error> EndErrors_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/Errors_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginErrors_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.c_Error> EndErrors_All(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginErrorDisplays_Single(string frameworkOperators, string Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ErrorDisplay> EndErrorDisplays_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginErrorDisplays_SingleOrDefault(string frameworkOperators, string Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ErrorDisplay> EndErrorDisplays_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/ErrorDisplays_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginErrorDisplays_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ErrorDisplay> EndErrorDisplays_All(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
@@ -2933,6 +3329,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.BugReportItem))
             {
                 return new global::LightSwitchApplication.Implementation.BugReportItem();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.c_Error))
+            {
+                return new global::LightSwitchApplication.Implementation.c_Error();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.ErrorDisplay))
+            {
+                return new global::LightSwitchApplication.Implementation.ErrorDisplay();
             }
             return null;
         }
@@ -3020,6 +3424,14 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.BugReportItem) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.BugReportItem);
+            }
+            if (typeof(global::LightSwitchApplication.c_Error) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.c_Error);
+            }
+            if (typeof(global::LightSwitchApplication.ErrorDisplay) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.ErrorDisplay);
             }
             return null;
         }

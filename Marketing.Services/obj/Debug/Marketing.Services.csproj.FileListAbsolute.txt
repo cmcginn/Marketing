@@ -28,3 +28,17 @@ C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Un
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.dll
 C:\Projects\Urbana\Marketing\Marketing.Services\obj\Debug\Marketing.Services.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Logging.Database.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Interception.xml
+C:\Projects\Urbana\Marketing\Marketing.Services\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.xml

@@ -3,11 +3,14 @@
   <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BugReport" EntityType="Marketing.CraigslistScraperModel.Store.BugReport" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Category" EntityType="Marketing.CraigslistScraperModel.Store.Category" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryLog" EntityType="Marketing.CraigslistScraperModel.Store.CategoryLog" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingContent" EntityType="Marketing.CraigslistScraperModel.Store.ListingContent" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Log" EntityType="Marketing.CraigslistScraperModel.Store.Log" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
@@ -57,7 +60,8 @@
       [UserListingData].[ReplyTo] AS [ReplyTo], 
       [UserListingData].[ListingContentCreated] AS [ListingContentCreated], 
       [UserListingData].[KeywordScore] AS [KeywordScore], 
-      [UserListingData].[KeywordDisplay] AS [KeywordDisplay]
+      [UserListingData].[KeywordDisplay] AS [KeywordDisplay], 
+      [UserListingData].[IsHidden] AS [IsHidden]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -96,6 +100,14 @@
       [vw_aspnet_MembershipUsers].[LastActivityDate] AS [LastActivityDate]
       FROM [dbo].[vw_aspnet_MembershipUsers] AS [vw_aspnet_MembershipUsers]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_CategoryLog_Category" Association="Marketing.CraigslistScraperModel.Store.FK_CategoryLog_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="CategoryLog" EntitySet="CategoryLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoryLog_Log" Association="Marketing.CraigslistScraperModel.Store.FK_CategoryLog_Log">
+      <End Role="Log" EntitySet="Log" />
+      <End Role="CategoryLog" EntitySet="CategoryLog" />
+    </AssociationSet>
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
       <End Role="ListingGroup" EntitySet="ListingGroup" />
       <End Role="ListingCategory" EntitySet="ListingCategory" />
@@ -104,12 +116,20 @@
       <End Role="ListingUrl" EntitySet="ListingUrl" />
       <End Role="ListingContent" EntitySet="ListingContent" />
     </AssociationSet>
+    <AssociationSet Name="FK_ListingUrl_City" Association="Marketing.CraigslistScraperModel.Store.FK_ListingUrl_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="ListingUrl" EntitySet="ListingUrl" />
+    </AssociationSet>
     <AssociationSet Name="FK_ListingUrl_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_ListingUrl_ListingCategory">
       <End Role="ListingCategory" EntitySet="ListingCategory" />
       <End Role="ListingUrl" EntitySet="ListingUrl" />
     </AssociationSet>
     <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserCity" EntitySet="UserCity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCity_City" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_City">
+      <End Role="City" EntitySet="City" />
       <End Role="UserCity" EntitySet="UserCity" />
     </AssociationSet>
     <AssociationSet Name="FK_UserFilter_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFilter_aspnet_Membership">
@@ -194,6 +214,21 @@
     <Property Name="Reported" Type="datetime" Nullable="false" />
     <Property Name="Resolved" Type="datetime" />
   </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="64" />
+  </EntityType>
+  <EntityType Name="CategoryLog">
+    <Key>
+      <PropertyRef Name="CategoryLogID" />
+    </Key>
+    <Property Name="CategoryLogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="LogID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="City">
     <Key>
       <PropertyRef Name="Id" />
@@ -247,6 +282,25 @@
     <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="PostId" Type="bigint" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="int" />
+    <Property Name="Priority" Type="int" Nullable="false" />
+    <Property Name="Severity" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Title" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="MachineName" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="AppDomainName" Type="nvarchar" Nullable="false" MaxLength="512" />
+    <Property Name="ProcessID" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="ProcessName" Type="nvarchar" Nullable="false" MaxLength="512" />
+    <Property Name="ThreadName" Type="nvarchar" MaxLength="512" />
+    <Property Name="Win32ThreadId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Message" Type="nvarchar" MaxLength="1500" />
+    <Property Name="FormattedMessage" Type="ntext" />
   </EntityType>
   <EntityType Name="UserCity">
     <Key>
@@ -322,6 +376,7 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="IsHidden" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="UserPreference">
     <Key>
@@ -384,8 +439,7 @@
       <PropertyRef Name="PostDate" />
       <PropertyRef Name="ReplyTo" />
       <PropertyRef Name="ListingContentCreated" />
-      <PropertyRef Name="PostContent" />
-      <PropertyRef Name="PostElement" />
+      <PropertyRef Name="IsHidden" />
     </Key>
     <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
@@ -419,13 +473,14 @@
     <Property Name="UserListingResponseId" Type="uniqueidentifier" />
     <Property Name="ListingContentId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PostText" Type="nvarchar(max)" />
-    <Property Name="PostContent" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="PostElement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostContent" Type="nvarchar(max)" />
+    <Property Name="PostElement" Type="nvarchar(max)" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="ReplyTo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ListingContentCreated" Type="datetime" Nullable="false" />
     <Property Name="KeywordScore" Type="int" />
     <Property Name="KeywordDisplay" Type="nvarchar(max)" />
+    <Property Name="IsHidden" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -490,6 +545,30 @@
     <Property Name="IsAnonymous" Type="bit" Nullable="false" />
     <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <Association Name="FK_CategoryLog_Category">
+    <End Role="Category" Type="Marketing.CraigslistScraperModel.Store.Category" Multiplicity="1" />
+    <End Role="CategoryLog" Type="Marketing.CraigslistScraperModel.Store.CategoryLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="CategoryLog">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoryLog_Log">
+    <End Role="Log" Type="Marketing.CraigslistScraperModel.Store.Log" Multiplicity="1" />
+    <End Role="CategoryLog" Type="Marketing.CraigslistScraperModel.Store.CategoryLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Log">
+        <PropertyRef Name="LogID" />
+      </Principal>
+      <Dependent Role="CategoryLog">
+        <PropertyRef Name="LogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ListingCategory_ListingGroup">
     <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
     <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
@@ -516,6 +595,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ListingUrl_City">
+    <End Role="City" Type="Marketing.CraigslistScraperModel.Store.City" Multiplicity="1" />
+    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListingUrl">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ListingUrl_ListingCategory">
     <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="1" />
     <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="*" />
@@ -537,6 +628,18 @@
       </Principal>
       <Dependent Role="UserCity">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCity_City">
+    <End Role="City" Type="Marketing.CraigslistScraperModel.Store.City" Multiplicity="1" />
+    <End Role="UserCity" Type="Marketing.CraigslistScraperModel.Store.UserCity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserCity">
+        <PropertyRef Name="CityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

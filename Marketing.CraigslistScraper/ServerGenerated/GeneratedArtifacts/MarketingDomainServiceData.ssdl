@@ -12,6 +12,8 @@
     <EntitySet Name="DefaultUserTemplates" EntityType="MarketingDomainServiceDataStore.UserTemplateItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserTemplateItem" />
     <EntitySet Name="GetDefaultUserPostListFilterItems" EntityType="MarketingDomainServiceDataStore.UserPostListFilterItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserPostListFilterItem" />
     <EntitySet Name="DefaultBugReportItems" EntityType="MarketingDomainServiceDataStore.BugReportItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.BugReportItem" />
+    <EntitySet Name="DefaultErrors" EntityType="MarketingDomainServiceDataStore.c_Error" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Error" />
+    <EntitySet Name="GetDefaultErrorDisplays" EntityType="MarketingDomainServiceDataStore.ErrorDisplay" store:Type="Tables" Schema="dbo" Table="Marketing.Services.ErrorDisplay" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -85,11 +87,12 @@
     <Property Name="CityActive" Type="bit" Nullable="false" />
     <Property Name="UserCityActive" Type="bit" Nullable="false" />
     <Property Name="ListingCategoryActive" Type="bit" Nullable="false" />
-    <Property Name="KeywordScore" Type="int" Nullable="false" />
+    <Property Name="KeywordScore" Type="int" />
     <Property Name="KeywordDisplay" Type="nvarchar(max)" />
     <Property Name="UseDefaultResponse" Type="bit" Nullable="false" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="PostText" Type="nvarchar(max)" />
+    <Property Name="IsHidden" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -160,5 +163,26 @@
     <Property Name="ReproductionSteps" Type="nvarchar(max)" />
     <Property Name="Resolved" Type="datetime" />
     <Property Name="Reported" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="c_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OriginatingClassName" Type="nvarchar(max)" />
+    <Property Name="MethodName" Type="nvarchar(max)" />
+    <Property Name="ExceptionTypeName" Type="nvarchar(max)" />
+    <Property Name="ExceptionMessage" Type="nvarchar(max)" />
+    <Property Name="ErrorMessage" Type="nvarchar(max)" />
+    <Property Name="ErrorData" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ErrorDisplay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Timestamp" Type="datetime" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" />
+    <Property Name="Message" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

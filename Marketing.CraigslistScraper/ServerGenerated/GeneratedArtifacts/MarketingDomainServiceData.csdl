@@ -72,11 +72,12 @@
     <Property Name="CityActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="UserCityActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="ListingCategoryActive" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
-    <Property Name="KeywordScore" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="KeywordScore" Type="Int32" ConcurrencyMode="Fixed" />
     <Property Name="KeywordDisplay" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="UseDefaultResponse" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="PostDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="PostText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="IsHidden" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -148,6 +149,27 @@
     <Property Name="Resolved" Type="DateTime" ConcurrencyMode="Fixed" />
     <Property Name="Reported" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="c_Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="OriginatingClassName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="MethodName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ExceptionTypeName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ErrorMessage" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ErrorData" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
+  <EntityType Name="ErrorDisplay">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Timestamp" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Title" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Message" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -160,5 +182,7 @@
     <EntitySet Name="UserTemplateItems" EntityType="MarketingDomainServiceData.UserTemplateItem" />
     <EntitySet Name="UserPostListFilterItems" EntityType="MarketingDomainServiceData.UserPostListFilterItem" />
     <EntitySet Name="BugReportItems" EntityType="MarketingDomainServiceData.BugReportItem" />
+    <EntitySet Name="Errors" EntityType="MarketingDomainServiceData.c_Error" />
+    <EntitySet Name="ErrorDisplays" EntityType="MarketingDomainServiceData.ErrorDisplay" />
   </EntityContainer>
 </Schema>

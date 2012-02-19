@@ -3,3 +3,5 @@ obj\Release\GetCraigslistListingUrlsActivity.g.xaml
 obj\Release\RefreshUserCraigslistContent.g.xaml
 obj\Release\GetListingContentActivity.g.xaml
 obj\Release\RefreshUserDataActivity.g.xaml
+obj\Release\PurgePostsActivity.g.xaml
+obj\Release\RefreshUserKeywordScoresActivity.g.xaml

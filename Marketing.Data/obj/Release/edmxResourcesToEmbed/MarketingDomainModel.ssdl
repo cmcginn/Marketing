@@ -2,17 +2,21 @@
 <Schema Namespace="Marketing.CraigslistScraperModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BugReport" EntityType="Marketing.CraigslistScraperModel.Store.BugReport" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingContent" EntityType="Marketing.CraigslistScraperModel.Store.ListingContent" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingKeywordScore" EntityType="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingResponse" EntityType="Marketing.CraigslistScraperModel.Store.UserListingResponse" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.UserListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTemplate" EntityType="Marketing.CraigslistScraperModel.Store.UserTemplate" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingData" EntityType="Marketing.CraigslistScraperModel.Store.UserListingData" store:Type="Views" store:Schema="dbo" store:Name="UserListingData">
       <DefiningQuery>SELECT 
       [UserListingData].[UserListingUrlId] AS [UserListingUrlId], 
@@ -46,11 +50,14 @@
       [UserListingData].[ListingGroupId] AS [ListingGroupId], 
       [UserListingData].[UserListingResponseId] AS [UserListingResponseId], 
       [UserListingData].[ListingContentId] AS [ListingContentId], 
+      [UserListingData].[PostText] AS [PostText], 
       [UserListingData].[PostContent] AS [PostContent], 
       [UserListingData].[PostElement] AS [PostElement], 
       [UserListingData].[PostDate] AS [PostDate], 
       [UserListingData].[ReplyTo] AS [ReplyTo], 
-      [UserListingData].[ListingContentCreated] AS [ListingContentCreated]
+      [UserListingData].[ListingContentCreated] AS [ListingContentCreated], 
+      [UserListingData].[KeywordScore] AS [KeywordScore], 
+      [UserListingData].[KeywordDisplay] AS [KeywordDisplay]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -61,6 +68,33 @@
       [UserListingRefresh].[ListingGroupId] AS [ListingGroupId], 
       [UserListingRefresh].[CityId] AS [CityId]
       FROM [dbo].[UserListingRefresh] AS [UserListingRefresh]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vw_aspnet_MembershipUsers" EntityType="Marketing.CraigslistScraperModel.Store.vw_aspnet_MembershipUsers" store:Type="Views" store:Schema="dbo" store:Name="vw_aspnet_MembershipUsers">
+      <DefiningQuery>SELECT 
+      [vw_aspnet_MembershipUsers].[UserId] AS [UserId], 
+      [vw_aspnet_MembershipUsers].[PasswordFormat] AS [PasswordFormat], 
+      [vw_aspnet_MembershipUsers].[MobilePIN] AS [MobilePIN], 
+      [vw_aspnet_MembershipUsers].[Email] AS [Email], 
+      [vw_aspnet_MembershipUsers].[LoweredEmail] AS [LoweredEmail], 
+      [vw_aspnet_MembershipUsers].[PasswordQuestion] AS [PasswordQuestion], 
+      [vw_aspnet_MembershipUsers].[PasswordAnswer] AS [PasswordAnswer], 
+      [vw_aspnet_MembershipUsers].[IsApproved] AS [IsApproved], 
+      [vw_aspnet_MembershipUsers].[IsLockedOut] AS [IsLockedOut], 
+      [vw_aspnet_MembershipUsers].[CreateDate] AS [CreateDate], 
+      [vw_aspnet_MembershipUsers].[LastLoginDate] AS [LastLoginDate], 
+      [vw_aspnet_MembershipUsers].[LastPasswordChangedDate] AS [LastPasswordChangedDate], 
+      [vw_aspnet_MembershipUsers].[LastLockoutDate] AS [LastLockoutDate], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAttemptCount] AS [FailedPasswordAttemptCount], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAttemptWindowStart] AS [FailedPasswordAttemptWindowStart], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAnswerAttemptCount] AS [FailedPasswordAnswerAttemptCount], 
+      [vw_aspnet_MembershipUsers].[FailedPasswordAnswerAttemptWindowStart] AS [FailedPasswordAnswerAttemptWindowStart], 
+      [vw_aspnet_MembershipUsers].[Comment] AS [Comment], 
+      [vw_aspnet_MembershipUsers].[ApplicationId] AS [ApplicationId], 
+      [vw_aspnet_MembershipUsers].[UserName] AS [UserName], 
+      [vw_aspnet_MembershipUsers].[MobileAlias] AS [MobileAlias], 
+      [vw_aspnet_MembershipUsers].[IsAnonymous] AS [IsAnonymous], 
+      [vw_aspnet_MembershipUsers].[LastActivityDate] AS [LastActivityDate]
+      FROM [dbo].[vw_aspnet_MembershipUsers] AS [vw_aspnet_MembershipUsers]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
       <End Role="ListingGroup" EntitySet="ListingGroup" />
@@ -78,6 +112,10 @@
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserCity" EntitySet="UserCity" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserFilter_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFilter_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserFilter" EntitySet="UserFilter" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserKeyword_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserKeyword_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserKeyword" EntitySet="UserKeyword" />
@@ -89,6 +127,14 @@
     <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_ListingCategory">
       <End Role="ListingCategory" EntitySet="ListingCategory" />
       <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserListingKeywordScore_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingKeywordScore_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserListingKeywordScore_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingKeywordScore_UserListingUrl">
+      <End Role="UserListingUrl" EntitySet="UserListingUrl" />
+      <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingUrl">
       <End Role="UserListingUrl" EntitySet="UserListingUrl" />
@@ -105,6 +151,10 @@
     <AssociationSet Name="FK_UserPreference_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserPreference_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserPreference" EntitySet="UserPreference" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTemplate_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserTemplate" EntitySet="UserTemplate" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
@@ -132,6 +182,17 @@
     <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
     <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
     <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="BugReport">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Resolution" Type="nvarchar(max)" />
+    <Property Name="ReproductionSteps" Type="nvarchar(max)" />
+    <Property Name="Reported" Type="datetime" Nullable="false" />
+    <Property Name="Resolved" Type="datetime" />
   </EntityType>
   <EntityType Name="City">
     <Key>
@@ -196,6 +257,24 @@
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="UserFilter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PostStart" Type="datetime" />
+    <Property Name="PostEnd" Type="datetime" />
+    <Property Name="ResponseStart" Type="datetime" />
+    <Property Name="ResponseEnd" Type="datetime" />
+    <Property Name="FilteredCities" Type="nvarchar(max)" />
+    <Property Name="FilteredStates" Type="nvarchar(max)" />
+    <Property Name="FilteredCountries" Type="nvarchar(max)" />
+    <Property Name="FilteredKeywords" Type="nvarchar(max)" />
+    <Property Name="ShowResponded" Type="bit" Nullable="false" />
+    <Property Name="ShowNotResponded" Type="bit" Nullable="false" />
+    <Property Name="FiltersEnabled" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="UserKeyword">
     <Key>
       <PropertyRef Name="Id" />
@@ -213,6 +292,16 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserListingKeywordScore">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserListingId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
+    <Property Name="KeywordScore" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="UserListingResponse">
     <Key>
@@ -247,6 +336,20 @@
     <Property Name="SMTPPort" Type="int" Nullable="false" />
     <Property Name="SMTPPassword" Type="nvarchar" MaxLength="50" />
     <Property Name="RequiresSSL" Type="bit" Nullable="false" />
+    <Property Name="MinimumKeywordScore" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTemplate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsDefault" Type="bit" Nullable="false" />
+    <Property Name="TemplateName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="TemplateHtml" Type="xml" Nullable="false" />
+    <Property Name="TemplateText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -278,11 +381,11 @@
       <PropertyRef Name="ListingCategoryId" />
       <PropertyRef Name="ListingGroupId" />
       <PropertyRef Name="ListingContentId" />
-      <PropertyRef Name="PostContent" />
-      <PropertyRef Name="PostElement" />
       <PropertyRef Name="PostDate" />
       <PropertyRef Name="ReplyTo" />
       <PropertyRef Name="ListingContentCreated" />
+      <PropertyRef Name="PostContent" />
+      <PropertyRef Name="PostElement" />
     </Key>
     <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
@@ -302,7 +405,7 @@
     <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="CityActive" Type="bit" Nullable="false" />
-    <Property Name="Response" Type="xml" />
+    <Property Name="Response" Type="nvarchar(max)" />
     <Property Name="ResponseText" Type="nvarchar(max)" />
     <Property Name="ResponseSent" Type="datetime" />
     <Property Name="UserListingCategoryActive" Type="bit" Nullable="false" />
@@ -315,11 +418,14 @@
     <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserListingResponseId" Type="uniqueidentifier" />
     <Property Name="ListingContentId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostContent" Type="xml" Nullable="false" />
-    <Property Name="PostElement" Type="xml" Nullable="false" />
+    <Property Name="PostText" Type="nvarchar(max)" />
+    <Property Name="PostContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostElement" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
-    <Property Name="ReplyTo" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="ReplyTo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ListingContentCreated" Type="datetime" Nullable="false" />
+    <Property Name="KeywordScore" Type="int" />
+    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -338,6 +444,52 @@
     <Property Name="ListingGroupId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.vw_aspnet_MembershipUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="vw_aspnet_MembershipUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <Association Name="FK_ListingCategory_ListingGroup">
     <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
     <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
@@ -351,7 +503,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListingContent_ListingUrl">
-    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="1" />
+    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ListingContent" Type="Marketing.CraigslistScraperModel.Store.ListingContent" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ListingUrl">
@@ -382,6 +536,18 @@
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="UserCity">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFilter_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserFilter" Type="Marketing.CraigslistScraperModel.Store.UserFilter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFilter">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
@@ -422,8 +588,36 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserListingKeywordScore_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserListingKeywordScore" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserListingKeywordScore">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserListingKeywordScore_UserListingUrl">
+    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserListingKeywordScore" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserListingUrl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserListingKeywordScore">
+        <PropertyRef Name="UserListingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserListingResponse_UserListingUrl">
-    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1" />
+    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="UserListingResponse" Type="Marketing.CraigslistScraperModel.Store.UserListingResponse" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserListingUrl">
@@ -447,7 +641,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingUrl_ListingUrl">
-    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="1" />
+    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ListingUrl">
@@ -466,6 +662,18 @@
         <PropertyRef Name="UserId" />
       </Principal>
       <Dependent Role="UserPreference">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTemplate_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserTemplate" Type="Marketing.CraigslistScraperModel.Store.UserTemplate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserTemplate">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>

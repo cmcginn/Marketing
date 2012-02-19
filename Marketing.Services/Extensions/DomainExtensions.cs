@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using Marketing.Utils.Extensions;
 using System.Net.Mail;
 using System.Web;
+using Microsoft.Practices.EnterpriseLibrary.Logging;
 namespace Marketing.Services.Extensions
 {
     public static class DomainExtensions
@@ -45,7 +46,7 @@ namespace Marketing.Services.Extensions
                         join uc in context.UserCities.Where(x => x.UserId == userId)
                         on city.Id equals uc.CityId into usc
                         from item in usc.DefaultIfEmpty()
-                        select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : false, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected =item.Active };
+                        select new UserCitySelection { Id = item != null ? item.Id : Guid.Empty, Active = item.Active != null ? item.Active : false, CityId = city.Id, CityName = city.CityName, StateProvince = city.StateProvince, RegionName = city.RegionName, UserId = item.UserId != Guid.Empty ? item.UserId : userId, Selected = item.Active };
 
             return query.AsQueryable();
         }
@@ -70,7 +71,7 @@ namespace Marketing.Services.Extensions
         public static IQueryable<UserListingItem> GetUserListingItems(this MarketingEntities context)
         {
             var expired = System.DateTime.Now.AddDays(-30);
-            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserCityActive && x.UserListingCategoryActive && x.ListingGroupActive && x.PostDate >= expired)
+            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserCityActive && x.UserListingCategoryActive && x.ListingGroupActive && x.PostDate >= expired && x.IsHidden==false)
                         select new UserListingItem
                         {
                             Id = userListingData.UserListingUrlId,
@@ -93,7 +94,9 @@ namespace Marketing.Services.Extensions
                             UserCityActive = userListingData.UserCityActive,
                             ListingCategoryActive = userListingData.ListingCategoryActive,
                             KeywordScore = userListingData.KeywordScore,
-                            KeywordDisplay = userListingData.KeywordDisplay
+                            KeywordDisplay = userListingData.KeywordDisplay,
+                            IsHidden = userListingData.IsHidden
+                            
                         };
 
             return query;
@@ -101,7 +104,7 @@ namespace Marketing.Services.Extensions
         public static IQueryable<UserListingItem> GetUserFilteredUserListingItems(this MarketingEntities context, Guid? userId, bool? filtersEnabled, bool? showResponded, bool? showNotResponded, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
         {
             var expiration = System.DateTime.Now.AddDays(-30);
-            var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.PostDate > expiration);
+            var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.PostDate > expiration && x.IsHidden==false);
 
             var userIdValue = userId.GetValueOrDefault();
             var postStartDateValue = postStartDate.GetValueOrDefault();
@@ -147,7 +150,7 @@ namespace Marketing.Services.Extensions
                 if (!showNotResponded.GetValueOrDefault())
                     items = items.Where(n => n.Responded != null);
             }
-            
+
             var query = from userListingData in items
                         select new UserListingItem
                         {
@@ -171,14 +174,15 @@ namespace Marketing.Services.Extensions
                             UserCityActive = userListingData.UserCityActive,
                             ListingCategoryActive = userListingData.ListingCategoryActive,
                             KeywordScore = userListingData.KeywordScore,
-                            KeywordDisplay = userListingData.KeywordDisplay
+                            KeywordDisplay = userListingData.KeywordDisplay,
+                            IsHidden = userListingData.IsHidden
                         };
 
             return query;
         }
         public static IQueryable<UserListingItem> GetUserListingItemsByUserId(this MarketingEntities context, Guid userId)
         {
-            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserId == userId)
+            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserId == userId && x.IsHidden==false)
                         select new UserListingItem
                         {
                             Id = userListingData.UserListingUrlId,
@@ -201,7 +205,8 @@ namespace Marketing.Services.Extensions
                             UserCityActive = userListingData.UserCityActive,
                             ListingCategoryActive = userListingData.ListingCategoryActive,
                             KeywordScore = userListingData.KeywordScore,
-                            KeywordDisplay = userListingData.KeywordDisplay
+                            KeywordDisplay = userListingData.KeywordDisplay,
+                            IsHidden = userListingData.IsHidden
                         };
             return query;
         }
@@ -233,6 +238,18 @@ namespace Marketing.Services.Extensions
             });
             return result;
         }
+        public static IQueryable<ErrorDisplay> GetDefaultErrorDisplays(this MarketingEntities context)
+        {
+            var query = context.Logs.Where(n => n.EventID == 9000).Select(n => new ErrorDisplay
+            {
+                Id = n.EntityKey.ToString(),
+                Message = n.FormattedMessage,
+                Timestamp = n.Timestamp,
+                Title = n.Title
+
+            });
+            return query;
+        }
         public static void DeleteUserTemplateItem(this MarketingEntities context, UserTemplateItem item)
         {
             var target = context.UserTemplates.Single(x => x.Id == item.Id);
@@ -253,7 +270,7 @@ namespace Marketing.Services.Extensions
         }
         public static void AddUserTemplateItem(this MarketingEntities context, UserTemplateItem userTemplateItem)
         {
-       
+
             var template = new UserTemplate
             {
                 Id = userTemplateItem.Id,
@@ -281,6 +298,12 @@ namespace Marketing.Services.Extensions
             context.SetDefaultUserTemplateItems(template);
             context.SaveChanges();
         }
+        public static void UpdateUserListingItemVisibility(this MarketingEntities context, UserListingItem userListingItem)
+        {
+            var item = context.UserListingUrls.Single(n => n.Id == userListingItem.Id);
+            item.IsHidden = userListingItem.IsHidden;
+            context.SaveChanges();
+        }
         public static UserListingResponse SaveUserListingResponse(this MarketingEntities context, UserListingItem item)
         {
             UserListingResponse result = null;
@@ -303,6 +326,7 @@ namespace Marketing.Services.Extensions
                 };
                 context.UserListingResponses.AddObject(result);
             }
+            
             result.Response = responseElement;
             result.ResponseText = item.ResponseText;
             context.SaveChanges();
@@ -387,7 +411,7 @@ namespace Marketing.Services.Extensions
             return result;
 
 
-                     
+
         }
         public static UserPreferenceSelection GetUserPreferenceSelectionByUserId(this MarketingEntities context, Guid userId)
         {
@@ -436,7 +460,8 @@ namespace Marketing.Services.Extensions
                 UserCityActive = userListingData.UserCityActive,
                 ListingCategoryActive = userListingData.ListingCategoryActive,
                 PostDate = userListingData.PostDate,
-                PostText = userListingData.PostContent
+                PostText = userListingData.PostContent,
+                IsHidden = userListingData.IsHidden
             };
             return result;
         }
@@ -550,14 +575,67 @@ namespace Marketing.Services.Extensions
             //handle title
             var head = element.Descendants("head").First();
             var title = element.Descendants("title").FirstOrDefault();
-            
+
             if (title == null)
             {
                 head.Add(new XElement("title", "Untitled Document"));
-            }else if(String.IsNullOrEmpty(title.Value))
+            }
+            else if (String.IsNullOrEmpty(title.Value))
                 title.Value = "Untitled Document";
 
             return element.ToString();
+        }
+        public static void DeleteBugReportItem(this MarketingEntities context, BugReportItem bugReportItem)
+        {
+            var item = context.BugReports.Single(n => n.Id == bugReportItem.Id);
+            context.BugReports.DeleteObject(item);
+            context.SaveChanges();
+        }
+        public static void InsertError(string className, string methodName, string message)
+        {
+            try
+            {
+                var logEntry = new LogEntry
+                {
+                    ActivityId = Guid.NewGuid(),
+                    AppDomainName = "Marketing.CraigslistScraper",
+                    Categories = new List<string> { "All", "Application" },
+                    EventId = 9000,
+                    Priority = 1,
+                    Severity = System.Diagnostics.TraceEventType.Error,
+                    TimeStamp = System.DateTime.Now
+                };
+                logEntry.Title = className;
+                logEntry.AddErrorMessage(String.Format("Class Name:{0};Method Name:{1};Application Error Message:{2}", className, methodName, message));
+                Logger.Write(logEntry);
+            }
+            catch
+            {
+                //swallow, loggers should not throw exceptions in this instance
+            }
+        }
+        public static void InsertError(this Error error)
+        {
+            try
+            {
+                var logEntry = new LogEntry
+                {
+                    ActivityId = error.Id,
+                    AppDomainName = "Marketing.CraigslistScraper",
+                    Categories = new List<string> { "All", "Application" },
+                    EventId = 9000,
+                    Priority = 1,
+                    Severity = System.Diagnostics.TraceEventType.Error,
+                    TimeStamp = System.DateTime.Now
+                };
+                logEntry.Title = error.OriginatingClassName;
+                logEntry.AddErrorMessage(String.Format("Class Name:{0};Method Name:{1};Application Error Message:{2};Error Data:{3};Exception Type Name:{4};Exception Message:{5}", error.OriginatingClassName, error.MethodName, error.ErrorMessage, error.ErrorData, error.ExceptionTypeName, error.ExceptionMessage));
+                Logger.Write(logEntry);
+            }
+            catch
+            {
+                //swallow, loggers should not throw exceptions in this instance
+            }
         }
     }
 }

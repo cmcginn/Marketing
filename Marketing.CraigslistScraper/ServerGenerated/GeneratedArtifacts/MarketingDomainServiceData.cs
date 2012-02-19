@@ -237,6 +237,38 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<BugReportItem> _BugReportItems;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<c_Error> Errors
+        {
+            get
+            {
+                if ((_Errors == null))
+                {
+                    _Errors = base.CreateObjectSet<c_Error>("Errors");
+                }
+                return _Errors;
+            }
+        }
+        private ObjectSet<c_Error> _Errors;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ErrorDisplay> ErrorDisplays
+        {
+            get
+            {
+                if ((_ErrorDisplays == null))
+                {
+                    _ErrorDisplays = base.CreateObjectSet<ErrorDisplay>("ErrorDisplays");
+                }
+                return _ErrorDisplays;
+            }
+        }
+        private ObjectSet<ErrorDisplay> _ErrorDisplays;
 
         #endregion
         #region AddTo Methods
@@ -327,6 +359,22 @@ namespace MarketingDomainServiceData.Implementation
         public void AddToBugReportItems(BugReportItem bugReportItem)
         {
             base.AddObject("BugReportItems", bugReportItem);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Errors EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToErrors(c_Error c_Error)
+        {
+            base.AddObject("Errors", c_Error);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ErrorDisplays EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToErrorDisplays(ErrorDisplay errorDisplay)
+        {
+            base.AddObject("ErrorDisplays", errorDisplay);
         }
 
         #endregion
@@ -509,6 +557,334 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.DateTime _Reported;
         partial void OnReportedChanging(global::System.DateTime value);
         partial void OnReportedChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="c_Error")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class c_Error : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new c_Error object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        public static c_Error Createc_Error(global::System.Guid id)
+        {
+            c_Error c_Error = new c_Error();
+            c_Error.Id = id;
+            return c_Error;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OriginatingClassName
+        {
+            get
+            {
+                return _OriginatingClassName;
+            }
+            set
+            {
+                OnOriginatingClassNameChanging(value);
+                ReportPropertyChanging("OriginatingClassName");
+                _OriginatingClassName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("OriginatingClassName");
+                OnOriginatingClassNameChanged();
+            }
+        }
+        private global::System.String _OriginatingClassName;
+        partial void OnOriginatingClassNameChanging(global::System.String value);
+        partial void OnOriginatingClassNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MethodName
+        {
+            get
+            {
+                return _MethodName;
+            }
+            set
+            {
+                OnMethodNameChanging(value);
+                ReportPropertyChanging("MethodName");
+                _MethodName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MethodName");
+                OnMethodNameChanged();
+            }
+        }
+        private global::System.String _MethodName;
+        partial void OnMethodNameChanging(global::System.String value);
+        partial void OnMethodNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ExceptionTypeName
+        {
+            get
+            {
+                return _ExceptionTypeName;
+            }
+            set
+            {
+                OnExceptionTypeNameChanging(value);
+                ReportPropertyChanging("ExceptionTypeName");
+                _ExceptionTypeName = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ExceptionTypeName");
+                OnExceptionTypeNameChanged();
+            }
+        }
+        private global::System.String _ExceptionTypeName;
+        partial void OnExceptionTypeNameChanging(global::System.String value);
+        partial void OnExceptionTypeNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ExceptionMessage
+        {
+            get
+            {
+                return _ExceptionMessage;
+            }
+            set
+            {
+                OnExceptionMessageChanging(value);
+                ReportPropertyChanging("ExceptionMessage");
+                _ExceptionMessage = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ExceptionMessage");
+                OnExceptionMessageChanged();
+            }
+        }
+        private global::System.String _ExceptionMessage;
+        partial void OnExceptionMessageChanging(global::System.String value);
+        partial void OnExceptionMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ErrorMessage
+        {
+            get
+            {
+                return _ErrorMessage;
+            }
+            set
+            {
+                OnErrorMessageChanging(value);
+                ReportPropertyChanging("ErrorMessage");
+                _ErrorMessage = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ErrorMessage");
+                OnErrorMessageChanged();
+            }
+        }
+        private global::System.String _ErrorMessage;
+        partial void OnErrorMessageChanging(global::System.String value);
+        partial void OnErrorMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ErrorData
+        {
+            get
+            {
+                return _ErrorData;
+            }
+            set
+            {
+                OnErrorDataChanging(value);
+                ReportPropertyChanging("ErrorData");
+                _ErrorData = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ErrorData");
+                OnErrorDataChanged();
+            }
+        }
+        private global::System.String _ErrorData;
+        partial void OnErrorDataChanging(global::System.String value);
+        partial void OnErrorDataChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="ErrorDisplay")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ErrorDisplay : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ErrorDisplay object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="timestamp">Initial value of the Timestamp property.</param>
+        public static ErrorDisplay CreateErrorDisplay(global::System.String id, global::System.DateTime timestamp)
+        {
+            ErrorDisplay errorDisplay = new ErrorDisplay();
+            errorDisplay.Id = id;
+            errorDisplay.Timestamp = timestamp;
+            return errorDisplay;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.String _Id;
+        partial void OnIdChanging(global::System.String value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Timestamp
+        {
+            get
+            {
+                return _Timestamp;
+            }
+            set
+            {
+                OnTimestampChanging(value);
+                ReportPropertyChanging("Timestamp");
+                _Timestamp = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Timestamp");
+                OnTimestampChanged();
+            }
+        }
+        private global::System.DateTime _Timestamp;
+        partial void OnTimestampChanging(global::System.DateTime value);
+        partial void OnTimestampChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Message
+        {
+            get
+            {
+                return _Message;
+            }
+            set
+            {
+                OnMessageChanging(value);
+                ReportPropertyChanging("Message");
+                _Message = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Message");
+                OnMessageChanged();
+            }
+        }
+        private global::System.String _Message;
+        partial void OnMessageChanging(global::System.String value);
+        partial void OnMessageChanged();
 
         #endregion
     
@@ -1360,10 +1736,10 @@ namespace MarketingDomainServiceData.Implementation
         /// <param name="cityActive">Initial value of the CityActive property.</param>
         /// <param name="userCityActive">Initial value of the UserCityActive property.</param>
         /// <param name="listingCategoryActive">Initial value of the ListingCategoryActive property.</param>
-        /// <param name="keywordScore">Initial value of the KeywordScore property.</param>
         /// <param name="useDefaultResponse">Initial value of the UseDefaultResponse property.</param>
         /// <param name="postDate">Initial value of the PostDate property.</param>
-        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Int32 keywordScore, global::System.Boolean useDefaultResponse, global::System.DateTime postDate)
+        /// <param name="isHidden">Initial value of the IsHidden property.</param>
+        public static UserListingItem CreateUserListingItem(global::System.Guid id, global::System.DateTime created, global::System.Guid userId, global::System.Boolean cityActive, global::System.Boolean userCityActive, global::System.Boolean listingCategoryActive, global::System.Boolean useDefaultResponse, global::System.DateTime postDate, global::System.Boolean isHidden)
         {
             UserListingItem userListingItem = new UserListingItem();
             userListingItem.Id = id;
@@ -1372,9 +1748,9 @@ namespace MarketingDomainServiceData.Implementation
             userListingItem.CityActive = cityActive;
             userListingItem.UserCityActive = userCityActive;
             userListingItem.ListingCategoryActive = listingCategoryActive;
-            userListingItem.KeywordScore = keywordScore;
             userListingItem.UseDefaultResponse = useDefaultResponse;
             userListingItem.PostDate = postDate;
+            userListingItem.IsHidden = isHidden;
             return userListingItem;
         }
 
@@ -1843,9 +2219,9 @@ namespace MarketingDomainServiceData.Implementation
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 KeywordScore
+        public Nullable<global::System.Int32> KeywordScore
         {
             get
             {
@@ -1860,8 +2236,8 @@ namespace MarketingDomainServiceData.Implementation
                 OnKeywordScoreChanged();
             }
         }
-        private global::System.Int32 _KeywordScore;
-        partial void OnKeywordScoreChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _KeywordScore;
+        partial void OnKeywordScoreChanging(Nullable<global::System.Int32> value);
         partial void OnKeywordScoreChanged();
     
         /// <summary>
@@ -1959,6 +2335,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _PostText;
         partial void OnPostTextChanging(global::System.String value);
         partial void OnPostTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsHidden
+        {
+            get
+            {
+                return _IsHidden;
+            }
+            set
+            {
+                OnIsHiddenChanging(value);
+                ReportPropertyChanging("IsHidden");
+                _IsHidden = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsHidden");
+                OnIsHiddenChanged();
+            }
+        }
+        private global::System.Boolean _IsHidden;
+        partial void OnIsHiddenChanging(global::System.Boolean value);
+        partial void OnIsHiddenChanged();
 
         #endregion
     
