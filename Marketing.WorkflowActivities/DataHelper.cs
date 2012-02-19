@@ -41,7 +41,7 @@ namespace Marketing.WorkflowActivities
         }
         public static List<UserListingUrl> GetListingUrlsForUser(MarketingEntities context, Guid userId)
         {
-            var query = from userListing in context.UserListingUrls.Where(x => x.UserId == userId)
+            var query = from userListing in context.UserListingUrls.Where(x => x.UserId == userId && x.IsHidden==false)
                         join listing in context.ListingUrls
                         on userListing.ListingUrlId equals listing.Id
                         join listingContent in context.ListingContents

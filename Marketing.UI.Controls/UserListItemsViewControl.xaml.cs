@@ -46,6 +46,8 @@ namespace Marketing.UI.Controls
         }
         public virtual void OnSendDefaultLinkClick(object sender, EventArgs e)
         {
+            var link = sender as System.Windows.Controls.HyperlinkButton;
+            link.IsEnabled = false;
             EventHandler handler = SendDefaultLinkClick;
             if (handler != null)
                 handler(sender, e);

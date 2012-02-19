@@ -182,9 +182,17 @@ namespace Marketing.Services {
         {
             if (item.UseDefaultResponse)
                 Context.SetDefaultUserTemplateItem(item);
-            var response = Context.SaveUserListingResponse(item);
 
-            Context.SendUserListingResponse(response);
+            
+            Task t = new Task(() =>
+            {
+                var ctx = new MarketingEntities();
+                var response = ctx.SaveUserListingResponse(item);
+                ctx.SendUserListingResponse(response);
+            });
+            t.Start();
+
+            
         }
     }
     public void UpdateUserPreferenceSelection(UserPreferenceSelection userPreferenceSelection)

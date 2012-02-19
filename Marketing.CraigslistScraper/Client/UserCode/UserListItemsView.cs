@@ -81,15 +81,19 @@ namespace LightSwitchApplication {
     }
 
     void OnSendDefaultLinkClick( object sender, EventArgs e ) {
-      var userListingResponse = this.GetFilteredUserListingItems.SelectedItem;
-      userListingResponse.UseDefaultResponse = true;
-      userListingResponse.Responded = System.DateTime.Now;
-      userListingResponse.ResponseSent = System.DateTime.Now;
+        if (this.GetFilteredUserListingItems.SelectedItem != null)
+        {
+            this.GetFilteredUserListingItems.SelectedItem.UseDefaultResponse = true;
+        }
+
+      //userListingResponse.UseDefaultResponse = true;
+      //userListingResponse.Responded = System.DateTime.Now;
+      //userListingResponse.ResponseSent = System.DateTime.Now;
       
-      this.Details.Dispatcher.BeginInvoke( () => {
-        this.Save();
+      //this.Details.Dispatcher.BeginInvoke( () => {
+      //  this.Save();
        
-      } );
+      //} );
     }
 
     void OnOpenViewLinkClick( object sender, EventArgs e ) {

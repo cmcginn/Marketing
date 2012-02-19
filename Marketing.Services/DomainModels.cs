@@ -83,6 +83,7 @@ namespace Marketing.Services {
     public DateTime PostDate { get; set; }
     public string PostText { get; set; }
     public bool IsHidden { get; set; }
+   
   }
   public class UserListingResponseItem {
     [Key]
