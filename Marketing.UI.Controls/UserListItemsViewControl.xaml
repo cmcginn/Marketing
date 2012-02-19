@@ -15,8 +15,8 @@
     		<my:TitleValueConverter x:Key="TitleDisplayValueConverter" />
     		<my:DefaultResponseEnabledValueConverter x:Key="DefaultResponseEnabledValueConverterResource" />
     		<DataTemplate x:Key="PostDetailsCardCellTemplate">
-    			<Grid>
-    				<StackPanel Orientation="Horizontal" Margin="10,0">
+    			<Grid Name="RowGrid">
+    				<StackPanel Orientation="Horizontal" Margin="10,0" Name="GridRowStack">
     					<StackPanel Orientation="Vertical" VerticalAlignment="Top" Width="400">
     						<StackPanel Orientation="Horizontal">
     							<TextBlock FontWeight="Bold" Width="70" TextWrapping="Wrap" Text="Title:" FontSize="13.333" />
@@ -38,6 +38,7 @@
     					<StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Right">
     						<HyperlinkButton Content="Open View" Click="OnOpenViewLinkClick" FontSize="12" />
     						<HyperlinkButton Content="Send Default" Click="OnSendDefaultLinkClick" FontSize="12" IsEnabled="{Binding ResponseSent, Converter={StaticResource DefaultResponseEnabledValueConverterResource}}" />
+                            <HyperlinkButton Content="Exclude" FontSize="12" Click="OnExcludeLinkClick" CommandParameter="{Binding ElementName=RowGrid}"></HyperlinkButton>
     					</StackPanel>
     				</StackPanel>
     			</Grid>

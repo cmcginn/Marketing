@@ -62,11 +62,17 @@ namespace LightSwitchApplication {
         {
             _UserListItemsViewControl = e.Control as Marketing.UI.Controls.UserListItemsViewControl;
             _UserListItemsViewControl.OpenViewLinkClick += new EventHandler(OnOpenViewLinkClick);
-            _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler(OnSendDefaultLinkClick); 
-           
+            _UserListItemsViewControl.SendDefaultLinkClick += new EventHandler(OnSendDefaultLinkClick);
+            _UserListItemsViewControl.ExcludeLinkClick += new EventHandler(_UserListItemsViewControl_ExcludeLinkClick);
             
         }
 
+    }
+
+    void _UserListItemsViewControl_ExcludeLinkClick(object sender, EventArgs e)
+    {
+        if (this.GetFilteredUserListingItems.SelectedItem != null)
+            this.GetFilteredUserListingItems.SelectedItem.IsHidden = true;
     }
 
     void _Pager_PropertyChanged( object sender, System.ComponentModel.PropertyChangedEventArgs e ) {

@@ -18,6 +18,8 @@ namespace Marketing.UI.Controls
 
         public event EventHandler SendDefaultLinkClick;
 
+        public event EventHandler ExcludeLinkClick;
+
         public UserListItemsViewControl()
         {
             InitializeComponent();
@@ -30,11 +32,25 @@ namespace Marketing.UI.Controls
             if (handler != null)
                 handler(sender, e);
         }
+        
+        public virtual void OnExcludeLinkClick(object sender, EventArgs e)
+        {
+            var link = sender as System.Windows.Controls.HyperlinkButton;
+            var grid = link.CommandParameter as System.Windows.Controls.Grid;
+            var cell = grid.Parent as System.Windows.Controls.DataGridCell;
+            var presenter = cell.Parent as System.Windows.Controls.Primitives.DataGridCellsPresenter;
+            presenter.Visibility = Visibility.Collapsed;
+            EventHandler handler = ExcludeLinkClick;
+            if (handler != null)
+                handler(sender, e);
+        }
         public virtual void OnSendDefaultLinkClick(object sender, EventArgs e)
         {
             EventHandler handler = SendDefaultLinkClick;
             if (handler != null)
                 handler(sender, e);
         }
+
+
     }
 }
