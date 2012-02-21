@@ -120,6 +120,7 @@
     <EntitySetMapping Name="UserListingUrls">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingUrl">
         <MappingFragment StoreEntitySet="UserListingUrl">
+          <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="ListingUrlId" ColumnName="ListingUrlId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -206,51 +207,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserListingDatas">
-      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
-        <MappingFragment StoreEntitySet="UserListingData">
-          <ScalarProperty Name="PostText" ColumnName="PostText" />
-          <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
-          <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
-          <ScalarProperty Name="ListingContentCreated" ColumnName="ListingContentCreated" />
-          <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
-          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
-          <ScalarProperty Name="PostElement" ColumnName="PostElement" />
-          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
-          <ScalarProperty Name="ListingContentId" ColumnName="ListingContentId" />
-          <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
-          <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
-          <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
-          <ScalarProperty Name="UserCityId" ColumnName="UserCityId" />
-          <ScalarProperty Name="UserListingCategoryId" ColumnName="UserListingCategoryId" />
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-          <ScalarProperty Name="Responded" ColumnName="Responded" />
-          <ScalarProperty Name="UserCityActive" ColumnName="UserCityActive" />
-          <ScalarProperty Name="UserListingCategoryActive" ColumnName="UserListingCategoryActive" />
-          <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
-          <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
-          <ScalarProperty Name="Response" ColumnName="Response" />
-          <ScalarProperty Name="CityActive" ColumnName="CityActive" />
-          <ScalarProperty Name="CityBaseUrl" ColumnName="CityBaseUrl" />
-          <ScalarProperty Name="CityName" ColumnName="CityName" />
-          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
-          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
-          <ScalarProperty Name="ListingGroupActive" ColumnName="ListingGroupActive" />
-          <ScalarProperty Name="ListingBaseUrl" ColumnName="ListingBaseUrl" />
-          <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
-          <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
-          <ScalarProperty Name="CategoryBaseUrl" ColumnName="CategoryBaseUrl" />
-          <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
-          <ScalarProperty Name="ListingUrlCreated" ColumnName="ListingUrlCreated" />
-          <ScalarProperty Name="PostId" ColumnName="PostId" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="Url" ColumnName="Url" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="ListingUrlId" ColumnName="ListingUrlId" />
-          <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="UserTemplates">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserTemplate">
         <MappingFragment StoreEntitySet="UserTemplate">
@@ -293,6 +249,89 @@
           <ScalarProperty Name="Resolution" ColumnName="Resolution" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryLogs">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.CategoryLog">
+        <MappingFragment StoreEntitySet="CategoryLog">
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryLogID" ColumnName="CategoryLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logs">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.Log">
+        <MappingFragment StoreEntitySet="Log">
+          <ScalarProperty Name="FormattedMessage" ColumnName="FormattedMessage" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Win32ThreadId" ColumnName="Win32ThreadId" />
+          <ScalarProperty Name="ThreadName" ColumnName="ThreadName" />
+          <ScalarProperty Name="ProcessName" ColumnName="ProcessName" />
+          <ScalarProperty Name="ProcessID" ColumnName="ProcessID" />
+          <ScalarProperty Name="AppDomainName" ColumnName="AppDomainName" />
+          <ScalarProperty Name="MachineName" ColumnName="MachineName" />
+          <ScalarProperty Name="Timestamp" ColumnName="Timestamp" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserListingDatas">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
+        <MappingFragment StoreEntitySet="UserListingData">
+          <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+          <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
+          <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
+          <ScalarProperty Name="ListingContentCreated" ColumnName="ListingContentCreated" />
+          <ScalarProperty Name="ReplyTo" ColumnName="ReplyTo" />
+          <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+          <ScalarProperty Name="PostElement" ColumnName="PostElement" />
+          <ScalarProperty Name="PostContent" ColumnName="PostContent" />
+          <ScalarProperty Name="PostText" ColumnName="PostText" />
+          <ScalarProperty Name="ListingContentId" ColumnName="ListingContentId" />
+          <ScalarProperty Name="UserListingResponseId" ColumnName="UserListingResponseId" />
+          <ScalarProperty Name="ListingGroupId" ColumnName="ListingGroupId" />
+          <ScalarProperty Name="ListingCategoryId" ColumnName="ListingCategoryId" />
+          <ScalarProperty Name="UserCityId" ColumnName="UserCityId" />
+          <ScalarProperty Name="UserListingCategoryId" ColumnName="UserListingCategoryId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Responded" ColumnName="Responded" />
+          <ScalarProperty Name="UserCityActive" ColumnName="UserCityActive" />
+          <ScalarProperty Name="UserListingCategoryActive" ColumnName="UserListingCategoryActive" />
+          <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
+          <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
+          <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="CityActive" ColumnName="CityActive" />
+          <ScalarProperty Name="CityBaseUrl" ColumnName="CityBaseUrl" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="RegionName" ColumnName="RegionName" />
+          <ScalarProperty Name="ListingGroupActive" ColumnName="ListingGroupActive" />
+          <ScalarProperty Name="ListingBaseUrl" ColumnName="ListingBaseUrl" />
+          <ScalarProperty Name="ListingGroupName" ColumnName="ListingGroupName" />
+          <ScalarProperty Name="ListingCategoryActive" ColumnName="ListingCategoryActive" />
+          <ScalarProperty Name="CategoryBaseUrl" ColumnName="CategoryBaseUrl" />
+          <ScalarProperty Name="ListingCategoryName" ColumnName="ListingCategoryName" />
+          <ScalarProperty Name="ListingUrlCreated" ColumnName="ListingUrlCreated" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Url" ColumnName="Url" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ListingUrlId" ColumnName="ListingUrlId" />
+          <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

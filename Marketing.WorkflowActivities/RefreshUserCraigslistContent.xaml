@@ -34,7 +34,7 @@
             <av:PointCollection x:Key="ConnectorLocation">300,263.5 300,293.5 300,316.5</av:PointCollection>
           </scg3:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <InvokeMethod DisplayName="Assign Listing Urls For User Without COntent" sap:VirtualizedContainerService.HintSize="208,127" MethodName="GetListingUrlsForUser" TargetType="local:DataHelper">
+        <InvokeMethod DisplayName="Assign Listing Urls For User Without COntent" sap:VirtualizedContainerService.HintSize="208,127" MethodName="GetListingUrlsWithoutContentForUser" TargetType="local:DataHelper">
           <InvokeMethod.Result>
             <OutArgument x:TypeArguments="scg3:List(md:UserListingUrl)">[userListingUrls]</OutArgument>
           </InvokeMethod.Result>
@@ -81,7 +81,7 @@
                         <av:Size x:Key="ShapeSize">200,49</av:Size>
                       </scg3:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ForEach x:TypeArguments="md:UserListingUrl" DisplayName="ForEach&lt;UserListingUrl&gt;" sap:VirtualizedContainerService.HintSize="444,415" Values="[userListingUrls]">
+                    <ForEach x:TypeArguments="md:UserListingUrl" DisplayName="ForEach&lt;UserListingUrl&gt;" sap:VirtualizedContainerService.HintSize="200,49" Values="[userListingUrls]">
                       <ActivityAction x:TypeArguments="md:UserListingUrl">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="md:UserListingUrl" Name="item" />

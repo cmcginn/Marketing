@@ -10,7 +10,7 @@
       </Flowchart.Variables>
       <Flowchart.StartNode>
         <FlowStep x:Name="__ReferenceID0">
-          <InvokeMethod DisplayName="Assign Listing Urls For User Without COntent" MethodName="GetListingUrlsForUser" TargetType="local:DataHelper">
+          <InvokeMethod DisplayName="Assign Listing Urls For User Without COntent" MethodName="GetListingUrlsWithoutContentForUser" TargetType="local:DataHelper">
             <InvokeMethod.Result>
               <OutArgument x:TypeArguments="scg3:List(md:UserListingUrl)">[userListingUrls]</OutArgument>
             </InvokeMethod.Result>

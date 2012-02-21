@@ -39,16 +39,19 @@ namespace Marketing.WorkflowActivities
             var result = context.UserListingUrls.SingleOrDefault(n => n.ListingUrlId == listingUrl.Id && n.UserId == userId);
             return result;
         }
+        public static List<UserListingUrl> GetListingUrlsWithoutContentForUser(MarketingEntities context, Guid userId)
+        {
+            var query = from userData in context.UserListingDatas.Where(n => n.UserId == userId && n.CityActive && n.ListingCategoryActive && n.PostContent == null).Select(n => n.UserListingUrlId)
+                        join userListing in context.UserListingUrls on userData equals userListing.Id
+                        select userListing;
+            return query.ToList();
+        }
+
         public static List<UserListingUrl> GetListingUrlsForUser(MarketingEntities context, Guid userId)
         {
-            var query = from userListing in context.UserListingUrls.Where(x => x.UserId == userId && x.IsHidden==false)
-                        join listing in context.ListingUrls
-                        on userListing.ListingUrlId equals listing.Id
-                        join listingContent in context.ListingContents
-                        on listing.Id equals listingContent.ListingUrlId into contents
-                        from content in contents.DefaultIfEmpty()
-                        where content == null
-                        select userListing;
+            var query = from userData in context.UserListingDatas.Where(n => n.UserId == userId && n.CityActive && n.ListingCategoryActive).Select(n => n.UserListingUrlId)
+            join userListing in context.UserListingUrls on userData equals userListing.Id
+            select userListing;
             return query.ToList();
 
         }
@@ -110,7 +113,10 @@ namespace Marketing.WorkflowActivities
                 {
                     //we need to purge this record only if no response sent
                     if (userListingUrl.UserListingResponses.Count == 0)
+                    {
+                        context.UserListingKeywordScores.DeleteObject(defaultKeywordScore);
                         context.UserListingUrls.DeleteObject(userListingUrl);
+                    }
                 }
                 else
                 {

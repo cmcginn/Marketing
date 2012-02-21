@@ -18,8 +18,8 @@
     <SubsystemPackage>DiagnosticsLoader</SubsystemPackage>
     <SubsystemPackage>RuntimeUserCodeLoader</SubsystemPackage>
   </SubsystemPackages>
-  <UserCodeAssemblies><UserCodeAssembly>Application.Common, Version=1.2.28.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.Client, Version=1.2.28.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.ClientGenerated, Version=1.2.28.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
+  <UserCodeAssemblies><UserCodeAssembly>Application.Common, Version=1.4.30.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.Client, Version=1.4.30.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly><UserCodeAssembly>Marketing_CraigslistScraper.ClientGenerated, Version=1.4.30.0, Culture=neutral, PublicKeyToken=null</UserCodeAssembly></UserCodeAssemblies>
   <ExtensionAssemblies>
     <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
   </ExtensionAssemblies>
-<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129740572625339766</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.2.28.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>
+<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129742993932263985</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.4.30.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>

@@ -13,7 +13,8 @@ namespace LightSwitchApplication {
     private Guid _UserId;
     partial void Application_LoggedIn() {
       var workspace = this.CreateDataWorkspace().MarketingDomainServiceData;
-      UserId = workspace.Users.Where( x => x.Username == this.User.Name ).Single().Id;    
+      UserId = workspace.Users.Where( x => x.Username == this.User.Name ).Single().Id; 
+   
     }
     public Guid UserId {
       get {

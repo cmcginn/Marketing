@@ -17,10 +17,10 @@ C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.Uni
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.Unity.dll
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.Unity.Interception.Configuration.dll
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.Unity.Interception.dll
-C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Marketing.Data.pdb
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Marketing.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Marketing.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Common.Utils.pdb
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.EnterpriseLibrary.Common.xml
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.EnterpriseLibrary.Data.xml
 C:\Projects\Urbana\Marketing\Marketing.Batch\bin\Release\Microsoft.Practices.EnterpriseLibrary.Logging.xml

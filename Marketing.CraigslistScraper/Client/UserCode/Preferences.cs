@@ -35,8 +35,7 @@ namespace LightSwitchApplication
       partial void Preferences_Saved() {
         var keywordRefreshOperation = this.DataWorkspace.MarketingDomainServiceData.Operations.Where( n => n.OperationName == "Refresh Keyword Scores" ).Single();
         keywordRefreshOperation.UserId = this.Application.UserId;
-        this.DataWorkspace.MarketingDomainServiceData.SaveChanges();
-        this.Close( false );
+        this.DataWorkspace.MarketingDomainServiceData.SaveChanges();        
       }
 
       partial void SelectAll_Execute()
