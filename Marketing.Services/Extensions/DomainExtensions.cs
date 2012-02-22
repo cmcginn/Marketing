@@ -363,7 +363,7 @@ namespace Marketing.Services.Extensions
             var nvc = System.Web.HttpUtility.ParseQueryString(uri.Query);
             var address = String.Format("{0}@{1}", uri.UserInfo, uri.DnsSafeHost);
             var subject = nvc[0];
-            var body = item.Response.ToString();
+            var body = item.ResponseText;
             //if( nvc.Count > 1 )
             //  body = String.Format( "{0}{1}{2}", body, System.Environment.NewLine, nvc[ 1 ] ); 
 
@@ -373,9 +373,9 @@ namespace Marketing.Services.Extensions
             if (!userPreference.LiveMode)
                 address = fromAddress;
             result = new MailMessage(fromAddress, address, subject, body);
-            result.IsBodyHtml = true;
+            result.IsBodyHtml = false;
             result.Bcc.Add(fromAddress);
-            result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.Response, null, "text/html"));
+            //result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.Response, null, "text/html"));
             result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.ResponseText, null, "text/plain"));
             return result;
         }
