@@ -69,6 +69,7 @@
     <Reference Include="DevExpress.Xpf.RichEdit.v11.1, Version=11.1.8.5, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <HintPath>..\Dependencies\DevExpress.Xpf.RichEdit.v11.1.dll</HintPath>
     </Reference>
+    <Reference Include="FJ.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="mscorlib" />
     <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217" />
@@ -88,9 +89,17 @@
     <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ByteConverter.cs" />
     <Compile Include="CustomDataPagerControl.cs" />
     <Compile Include="DefaultResponseEnabledValueConverter.cs" />
     <Compile Include="Extensions\DocumentExtensions.cs" />
+    <Compile Include="FileUpload.cs" />
+    <Compile Include="FileUploadControl.xaml.cs">
+      <DependentUpon>FileUploadControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FileUploadRowControl.xaml.cs">
+      <DependentUpon>FileUploadRowControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PageControl.xaml.cs">
       <DependentUpon>PageControl.xaml</DependentUpon>
     </Compile>
@@ -104,6 +113,7 @@
     <Compile Include="ScoreControl.xaml.cs">
       <DependentUpon>ScoreControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScrollHelper.cs" />
     <Compile Include="ServerOperationList.xaml.cs">
       <DependentUpon>ServerOperationList.xaml</DependentUpon>
     </Compile>
@@ -111,6 +121,7 @@
       <DependentUpon>TemplateEditorControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="TitleValueConverter.cs" />
+    <Compile Include="UploadProgressChangedEventArgs.cs" />
     <Compile Include="UserListItemsViewControl.xaml.cs">
       <DependentUpon>UserListItemsViewControl.xaml</DependentUpon>
     </Compile>
@@ -124,6 +135,14 @@
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Page Include="FileUploadControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="FileUploadRowControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="GridStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

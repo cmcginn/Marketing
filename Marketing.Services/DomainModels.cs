@@ -164,4 +164,16 @@ namespace Marketing.Services {
       public string Message { get; set; }
       
   }
+  public class UserFile
+  {
+      [Key]
+      public Guid Id { get; set; }
+      public Guid UserId { get; set; }
+      public string Filename { get; set; }
+      public string Extension { get; set; }
+      public DateTime Created { get; set; }
+      public DateTime? Deleted { get; set; }
+      public long ByteCount { get; set; }
+      public byte[] RawFile { get; set; }
+  }
 }

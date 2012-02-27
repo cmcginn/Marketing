@@ -218,3 +218,5 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\ServerOperationList
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\TemplateEditorControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserListItemsViewControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserTemplateViewControl.g.i.cs
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\FileUploadControl.g.i.cs
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\FileUploadRowControl.g.i.cs

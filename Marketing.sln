@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketing.Utils", "Marketin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketing.Batch", "Marketing.Batch\Marketing.Batch.csproj", "{86A3209B-D362-47C9-8204-C14837BEEE20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketing.Web", "Marketing.Web\Marketing.Web.csproj", "{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Marketing.vsmdi
@@ -168,6 +170,16 @@ Global
 		{CA7B0F2F-EBB2-4ACB-99C6-3B9DC41CEBDE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CA7B0F2F-EBB2-4ACB-99C6-3B9DC41CEBDE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CA7B0F2F-EBB2-4ACB-99C6-3B9DC41CEBDE}.Release|x86.ActiveCfg = Release|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{00F77A95-50F2-4C35-912F-86DAEFF7C7C1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

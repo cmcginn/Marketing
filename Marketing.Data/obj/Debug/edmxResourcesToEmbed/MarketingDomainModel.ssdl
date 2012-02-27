@@ -12,6 +12,7 @@
     <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Log" EntityType="Marketing.CraigslistScraperModel.Store.Log" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFile" EntityType="Marketing.CraigslistScraperModel.Store.UserFile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
@@ -131,6 +132,10 @@
     <AssociationSet Name="FK_UserCity_City" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_City">
       <End Role="City" EntitySet="City" />
       <End Role="UserCity" EntitySet="UserCity" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserFile_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFile_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserFile" EntitySet="UserFile" />
     </AssociationSet>
     <AssociationSet Name="FK_UserFilter_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFilter_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
@@ -310,6 +315,19 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Filename" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Extension" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="RawFile" Type="image" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="datetime" />
+    <Property Name="ByteCount" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="UserFilter">
     <Key>
@@ -640,6 +658,18 @@
       </Principal>
       <Dependent Role="UserCity">
         <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserFile_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFile">
+        <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -14,6 +14,7 @@
     <EntitySet Name="DefaultBugReportItems" EntityType="MarketingDomainServiceDataStore.BugReportItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.BugReportItem" />
     <EntitySet Name="DefaultErrors" EntityType="MarketingDomainServiceDataStore.c_Error" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Error" />
     <EntitySet Name="GetDefaultErrorDisplays" EntityType="MarketingDomainServiceDataStore.ErrorDisplay" store:Type="Tables" Schema="dbo" Table="Marketing.Services.ErrorDisplay" />
+    <EntitySet Name="DefaultUserFiles" EntityType="MarketingDomainServiceDataStore.UserFile" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserFile" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -184,5 +185,18 @@
     <Property Name="Timestamp" Type="datetime" Nullable="false" />
     <Property Name="Title" Type="nvarchar(max)" />
     <Property Name="Message" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="UserFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Filename" Type="nvarchar(max)" />
+    <Property Name="Extension" Type="nvarchar(max)" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="datetime" />
+    <Property Name="ByteCount" Type="bigint" Nullable="false" />
+    <Property Name="RawFile" Type="varbinary(max)" />
   </EntityType>
 </Schema>

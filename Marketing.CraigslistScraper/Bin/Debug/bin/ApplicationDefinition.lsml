@@ -79,7 +79,7 @@
     </Application.Attributes>
     <Application.NavigationItems>
       <ApplicationNavigationGroup Name="Tasks"
-                                  DefaultItem="!module/NavigationItems[Tasks]/Children[UserListItemsView]">
+                                  DefaultItem="!module/NavigationItems[Tasks]/Children[Workflows]">
         <ApplicationNavigationGroup.Attributes>
           <DisplayName Value="Tasks" />
         </ApplicationNavigationGroup.Attributes>
@@ -1754,6 +1754,88 @@
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
     </QueryOperation>
+    <EntitySet EntityType="UserFile"
+               Name="UserFiles" />
+  
+    <QueryOperation Name="UserFiles_Single"
+                    ReturnType="UserFile">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserFiles" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserFiles_SingleOrDefault"
+                    ReturnType="UserFile">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserFiles" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter Name="Id"
+                               ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  
+    <QueryOperation Name="UserFiles_All"
+                    ReturnType="UserFile*">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description Value="Returns all entities contained in the entity set." />
+      </QueryOperation.Attributes>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression Member="UserFiles" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  
   
   
   
@@ -1922,7 +2004,7 @@
       </ScreenProperty>
     </Screen.Properties>
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -2616,7 +2698,7 @@
   
   <Screen Name="UserListItemsView">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
       <DisplayName Value="Posts" />
     </Screen.Attributes>
     <Screen.Methods>
@@ -3675,7 +3757,7 @@
 
   <Screen Name="Workflows">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -3850,6 +3932,23 @@
               </ContentItem>
             </ContentItem>
           </ContentItem>
+          <ContentItem Kind="Group"
+                       Name="Group"
+                       View=":ModalWindow">
+            <ContentItem Kind="ScreenContent"
+                         Name="ScreenContent">
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="Marketing.UI.Controls.FileUploadControl, Marketing.UI.Controls" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+          </ContentItem>
         </ContentItem>
       </ContentItem>
     </Screen.RootContentItem>
@@ -3857,7 +3956,7 @@
 
   <Screen Name="RunWorkflow">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4071,7 +4170,7 @@
   
   <Screen Name="UserTemplateDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4365,7 +4464,7 @@
 
   <Screen Name="BugReports">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4695,7 +4794,7 @@
 
   <Screen Name="GetUserListingItemByIdDetail">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4832,7 +4931,7 @@
   </Screen>
   <Screen Name="Templates">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -4925,7 +5024,8 @@
           </ContentItem>
         </ContentItem.CommandItems>
         <ContentItem Kind="Group"
-                     Name="ScreenLayout">
+                     Name="ScreenLayout"
+                     View=":TabsLayout">
           <ContentItem DataType="CollectionView$UserTemplateItem"
                        Kind="Collection"
                        Name="grid">
@@ -5129,7 +5229,7 @@
 
   <Screen Name="TemplateEdit">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -5380,7 +5480,7 @@
   <Screen LaunchMode="Multiple"
           Name="CreateNewTemplate">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -5661,7 +5761,7 @@
 
   <Screen Name="SearchErrors">
     <Screen.Attributes>
-      <SaveChangesTo DataService="MarketingDomainServiceDataDataService" />
+      <SaveChangesTo DataService="MarketingDomainServiceDataDataService1" />
     </Screen.Attributes>
     <Screen.Methods>
       <ScreenMethod Name="Save">
@@ -5883,10 +5983,65 @@
       </ContentItem>
     </Screen.RootContentItem>
   </Screen>
+  <EntityType Name="UserFile">
+    <EntityType.Methods>
+      <EntityMethod Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty Name="Id"
+                   PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty Name="UserId"
+                      PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Filename"
+                      PropertyType=":String?" />
+      <EntityProperty Name="Extension"
+                      PropertyType=":String?" />
+      <EntityProperty Name="Created"
+                      PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="Deleted"
+                      PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="ByteCount"
+                      PropertyType=":Int64">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty Name="RawFile"
+                      PropertyType=":Binary?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
 
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
-               Name="MarketingDomainServiceDataDataService">
+               Name="MarketingDomainServiceDataDataService1">
     <DataService.ConnectionProperties>
       <ConnectionProperty Name="AssemblyName"
                           Value="Marketing.Services" />
@@ -5936,6 +6091,28 @@
                                        QueryOperationParameter="MarketingDomainServiceData/Members[GetUserCitySelectionByUserId]/Parameters[userId]" />
       </QueryOperationMapping.Attributes>
     </QueryOperationMapping>
+    <EntitySetMapping EntitySet="UserFiles">
+      <EntitySetMapping.Attributes>
+        <WcfRiaEntitySet EntitySetQuery="DefaultUserFiles"
+                         EntityTypeName="Marketing.Services.UserFile" />
+        <WcfRiaProperty Name="Id"
+                        Property="UserFile/Properties[Id]" />
+        <WcfRiaProperty Name="UserId"
+                        Property="UserFile/Properties[UserId]" />
+        <WcfRiaProperty Name="Filename"
+                        Property="UserFile/Properties[Filename]" />
+        <WcfRiaProperty Name="Extension"
+                        Property="UserFile/Properties[Extension]" />
+        <WcfRiaProperty Name="Created"
+                        Property="UserFile/Properties[Created]" />
+        <WcfRiaProperty Name="Deleted"
+                        Property="UserFile/Properties[Deleted]" />
+        <WcfRiaProperty Name="ByteCount"
+                        Property="UserFile/Properties[ByteCount]" />
+        <WcfRiaProperty Name="RawFile"
+                        Property="UserFile/Properties[RawFile]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
     <EntitySetMapping EntitySet="UserListingCategorySelections">
       <EntitySetMapping.Attributes>
         <WcfRiaEntitySet EntitySetQuery="DefaultUserListingCategorySelection"
@@ -6264,6 +6441,9 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+
+  
 
   
 

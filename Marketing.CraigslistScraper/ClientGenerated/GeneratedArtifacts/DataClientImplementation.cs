@@ -2813,6 +2813,220 @@ namespace LightSwitchApplication.Implementation
     }
     #endregion
     
+    #region UserFile
+    [global::System.Runtime.Serialization.DataContract(Namespace = "http://schemas.datacontract.org/2004/07/MarketingDomainServiceData.Implementation")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public sealed class UserFile :
+        global::System.ServiceModel.DomainServices.Client.Entity,
+        global::LightSwitchApplication.UserFile.DetailsClass.IImplementation
+    {
+        public override object GetIdentity()
+        {
+            if (this.__host != null && this.__host.IsNewlyAdded)
+            {
+                return null;
+            }
+    
+            return this._Id;
+        }
+        [global::System.ComponentModel.DataAnnotations.Key()]
+        [global::System.ComponentModel.DataAnnotations.Editable(false, AllowInitialValue = true)]
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return this._Id;
+            }
+            set
+            {
+                if (this._Id != value)
+                {
+                    this.ValidateProperty("Id", value);
+                    this._Id = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return this._UserId;
+            }
+            set
+            {
+                if (this._UserId != value)
+                {
+                    this.RaiseDataMemberChanging("UserId");
+                    this.ValidateProperty("UserId", value);
+                    this._UserId = value;
+                    this.RaiseDataMemberChanged("UserId");
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Filename
+        {
+            get
+            {
+                return this._Filename;
+            }
+            set
+            {
+                if (this._Filename != value)
+                {
+                    this.RaiseDataMemberChanging("Filename");
+                    this.ValidateProperty("Filename", value);
+                    this._Filename = value;
+                    this.RaiseDataMemberChanged("Filename");
+                }
+            }
+        }
+        private string _Filename;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public string Extension
+        {
+            get
+            {
+                return this._Extension;
+            }
+            set
+            {
+                if (this._Extension != value)
+                {
+                    this.RaiseDataMemberChanging("Extension");
+                    this.ValidateProperty("Extension", value);
+                    this._Extension = value;
+                    this.RaiseDataMemberChanged("Extension");
+                }
+            }
+        }
+        private string _Extension;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return this._Created;
+            }
+            set
+            {
+                if (this._Created != value)
+                {
+                    this.RaiseDataMemberChanging("Created");
+                    this.ValidateProperty("Created", value);
+                    this._Created = value;
+                    this.RaiseDataMemberChanged("Created");
+                }
+            }
+        }
+        private global::System.DateTime _Created;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.DateTime> Deleted
+        {
+            get
+            {
+                return this._Deleted;
+            }
+            set
+            {
+                if (this._Deleted != value)
+                {
+                    this.RaiseDataMemberChanging("Deleted");
+                    this.ValidateProperty("Deleted", value);
+                    this._Deleted = value;
+                    this.RaiseDataMemberChanged("Deleted");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.DateTime> _Deleted;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public long ByteCount
+        {
+            get
+            {
+                return this._ByteCount;
+            }
+            set
+            {
+                if (this._ByteCount != value)
+                {
+                    this.RaiseDataMemberChanging("ByteCount");
+                    this.ValidateProperty("ByteCount", value);
+                    this._ByteCount = value;
+                    this.RaiseDataMemberChanged("ByteCount");
+                }
+            }
+        }
+        private long _ByteCount;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public byte[] RawFile
+        {
+            get
+            {
+                return this._RawFile;
+            }
+            set
+            {
+                if (this._RawFile != value)
+                {
+                    this.RaiseDataMemberChanging("RawFile");
+                    this.ValidateProperty("RawFile", value);
+                    this._RawFile = value;
+                    this.RaiseDataMemberChanged("RawFile");
+                }
+            }
+        }
+        private byte[] _RawFile;
+        
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(global::System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnPropertyChanged(e);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(e.PropertyName);
+            }
+        }
+        #endregion
+    }
+    #endregion
+    
     #region MarketingDomainServiceData
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2915,6 +3129,13 @@ namespace LightSwitchApplication.Implementation
                 return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.ErrorDisplay>();
             }
         }
+        public global::System.ServiceModel.DomainServices.Client.EntitySet<global::LightSwitchApplication.Implementation.UserFile> UserFileEntityList
+        {
+            get
+            {
+                return base.EntityContainer.GetEntitySet<global::LightSwitchApplication.Implementation.UserFile>();
+            }
+        }
         protected override global::System.ServiceModel.DomainServices.Client.EntityContainer CreateEntityContainer()
         {
             return new MarketingDomainServiceDataEntityContainer();
@@ -2937,6 +3158,7 @@ namespace LightSwitchApplication.Implementation
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.BugReportItem>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.c_Error>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
                 this.CreateEntitySet<global::LightSwitchApplication.Implementation.ErrorDisplay>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
+                this.CreateEntitySet<global::LightSwitchApplication.Implementation.UserFile>(global::System.ServiceModel.DomainServices.Client.EntitySetOperations.All);
             }
         }
     
@@ -3263,6 +3485,24 @@ namespace LightSwitchApplication.Implementation
             global::System.IAsyncResult BeginErrorDisplays_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
             global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.ErrorDisplay> EndErrorDisplays_All(global::System.IAsyncResult result);
             
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_Single", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_SingleResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_SingleDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserFiles_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserFile> EndUserFiles_Single(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_SingleOrDefault", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_SingleOrDefaultResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_SingleOrDefaultDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserFiles_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserFile> EndUserFiles_SingleOrDefault(global::System.IAsyncResult result);
+            
+            [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_All", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_AllResponse"),
+             global::System.ServiceModel.Web.WebGet(),
+             global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/UserFiles_AllDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
+            global::System.IAsyncResult BeginUserFiles_All(string frameworkOperators, global::System.AsyncCallback callback, global::System.Object asyncState);
+            global::System.ServiceModel.DomainServices.Client.QueryResult<global::LightSwitchApplication.Implementation.UserFile> EndUserFiles_All(global::System.IAsyncResult result);
+            
             [global::System.ServiceModel.OperationContract(AsyncPattern = true, Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChanges", ReplyAction = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesResponse"),
              global::System.ServiceModel.FaultContract(typeof(global::System.ServiceModel.DomainServices.Client.DomainServiceFault), Action = "http://tempuri.org/MarketingDomainServiceDataDomainService/SubmitChangesDomainServiceFault", Name = "DomainServiceFault", Namespace = "DomainServices")]
             global::System.IAsyncResult BeginSubmitChanges(global::System.Collections.Generic.IEnumerable<global::System.ServiceModel.DomainServices.Client.ChangeSetEntry> changeSet, global::System.AsyncCallback callback, global::System.Object asyncState);
@@ -3337,6 +3577,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(T) == typeof(global::LightSwitchApplication.ErrorDisplay))
             {
                 return new global::LightSwitchApplication.Implementation.ErrorDisplay();
+            }
+            if (typeof(T) == typeof(global::LightSwitchApplication.UserFile))
+            {
+                return new global::LightSwitchApplication.Implementation.UserFile();
             }
             return null;
         }
@@ -3432,6 +3676,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.ErrorDisplay) == definitionType)
             {
                 return typeof(global::LightSwitchApplication.Implementation.ErrorDisplay);
+            }
+            if (typeof(global::LightSwitchApplication.UserFile) == definitionType)
+            {
+                return typeof(global::LightSwitchApplication.Implementation.UserFile);
             }
             return null;
         }

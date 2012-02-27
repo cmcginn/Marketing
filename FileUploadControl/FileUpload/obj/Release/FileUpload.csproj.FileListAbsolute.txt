@@ -1,0 +1,15 @@
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\Bin\Release\DC.FileUpload.dll
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\Bin\Release\DC.FileUpload.pdb
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\Bin\Release\AppManifest.xaml
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\Bin\Release\FileUpload.xap
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\Bin\Release\TestPage.html
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\Bin\Release\FJ.Core.dll
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\ResolveAssemblyReference.cache
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\App.g.cs
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\FileUploadControl.g.cs
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\FileUploadRowControl.g.cs
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\Page.g.cs
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\DC.FileUpload.g.resources
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\DC.FileUpload.dll
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\DC.FileUpload.pdb
+C:\Projects\Samples\SilverlightFileUploadSrc\FileUpload\obj\Release\XapCacheFile.xml

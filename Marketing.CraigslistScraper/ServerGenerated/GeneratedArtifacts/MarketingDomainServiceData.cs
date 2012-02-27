@@ -269,6 +269,22 @@ namespace MarketingDomainServiceData.Implementation
             }
         }
         private ObjectSet<ErrorDisplay> _ErrorDisplays;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserFile> UserFiles
+        {
+            get
+            {
+                if ((_UserFiles == null))
+                {
+                    _UserFiles = base.CreateObjectSet<UserFile>("UserFiles");
+                }
+                return _UserFiles;
+            }
+        }
+        private ObjectSet<UserFile> _UserFiles;
 
         #endregion
         #region AddTo Methods
@@ -375,6 +391,14 @@ namespace MarketingDomainServiceData.Implementation
         public void AddToErrorDisplays(ErrorDisplay errorDisplay)
         {
             base.AddObject("ErrorDisplays", errorDisplay);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserFiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserFiles(UserFile userFile)
+        {
+            base.AddObject("UserFiles", userFile);
         }
 
         #endregion
@@ -1374,6 +1398,235 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MarketingDomainServiceData", Name="UserFile")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UserFile : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UserFile object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="userId">Initial value of the UserId property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        /// <param name="byteCount">Initial value of the ByteCount property.</param>
+        public static UserFile CreateUserFile(global::System.Guid id, global::System.Guid userId, global::System.DateTime created, global::System.Int64 byteCount)
+        {
+            UserFile userFile = new UserFile();
+            userFile.Id = id;
+            userFile.UserId = userId;
+            userFile.Created = created;
+            userFile.ByteCount = byteCount;
+            return userFile;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Filename
+        {
+            get
+            {
+                return _Filename;
+            }
+            set
+            {
+                OnFilenameChanging(value);
+                ReportPropertyChanging("Filename");
+                _Filename = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Filename");
+                OnFilenameChanged();
+            }
+        }
+        private global::System.String _Filename;
+        partial void OnFilenameChanging(global::System.String value);
+        partial void OnFilenameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Extension
+        {
+            get
+            {
+                return _Extension;
+            }
+            set
+            {
+                OnExtensionChanging(value);
+                ReportPropertyChanging("Extension");
+                _Extension = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Extension");
+                OnExtensionChanged();
+            }
+        }
+        private global::System.String _Extension;
+        partial void OnExtensionChanging(global::System.String value);
+        partial void OnExtensionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Deleted
+        {
+            get
+            {
+                return _Deleted;
+            }
+            set
+            {
+                OnDeletedChanging(value);
+                ReportPropertyChanging("Deleted");
+                _Deleted = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Deleted");
+                OnDeletedChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Deleted;
+        partial void OnDeletedChanging(Nullable<global::System.DateTime> value);
+        partial void OnDeletedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ByteCount
+        {
+            get
+            {
+                return _ByteCount;
+            }
+            set
+            {
+                OnByteCountChanging(value);
+                ReportPropertyChanging("ByteCount");
+                _ByteCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ByteCount");
+                OnByteCountChanged();
+            }
+        }
+        private global::System.Int64 _ByteCount;
+        partial void OnByteCountChanging(global::System.Int64 value);
+        partial void OnByteCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] RawFile
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_RawFile);
+            }
+            set
+            {
+                OnRawFileChanging(value);
+                ReportPropertyChanging("RawFile");
+                _RawFile = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("RawFile");
+                OnRawFileChanged();
+            }
+        }
+        private global::System.Byte[] _RawFile;
+        partial void OnRawFileChanging(global::System.Byte[] value);
+        partial void OnRawFileChanged();
 
         #endregion
     

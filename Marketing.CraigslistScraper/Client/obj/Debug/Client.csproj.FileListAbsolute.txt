@@ -84,3 +84,4 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.Internals.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\System.Windows.Controls.Toolkit.xml
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Debug\FJ.Core.dll

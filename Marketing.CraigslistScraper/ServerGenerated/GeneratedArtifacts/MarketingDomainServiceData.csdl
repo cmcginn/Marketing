@@ -170,6 +170,19 @@
     <Property Name="Title" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="Message" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="UserFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Filename" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Extension" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Deleted" Type="DateTime" ConcurrencyMode="Fixed" />
+    <Property Name="ByteCount" Type="Int64" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="RawFile" Type="Binary" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -184,5 +197,6 @@
     <EntitySet Name="BugReportItems" EntityType="MarketingDomainServiceData.BugReportItem" />
     <EntitySet Name="Errors" EntityType="MarketingDomainServiceData.c_Error" />
     <EntitySet Name="ErrorDisplays" EntityType="MarketingDomainServiceData.ErrorDisplay" />
+    <EntitySet Name="UserFiles" EntityType="MarketingDomainServiceData.UserFile" />
   </EntityContainer>
 </Schema>

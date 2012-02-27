@@ -1,0 +1,1 @@
+C:\Projects\Samples\SilverlightFileUploadSrc\SilverlightFileUploadWeb\obj\Release\ResolveAssemblyReference.cache

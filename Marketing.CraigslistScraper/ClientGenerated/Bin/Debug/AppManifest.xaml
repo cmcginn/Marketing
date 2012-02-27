@@ -38,6 +38,7 @@
     <AssemblyPart x:Name="DevExpress.Xpf.Core.v11.1" Source="DevExpress.Xpf.Core.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v11.1" Source="DevExpress.Xpf.Ribbon.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.RichEdit.v11.1.Core" Source="DevExpress.RichEdit.v11.1.Core.dll" />
+    <AssemblyPart x:Name="FJ.Core" Source="FJ.Core.dll" />
     <AssemblyPart x:Name="System.Xml.Serialization" Source="System.Xml.Serialization.dll" />
     <AssemblyPart x:Name="DevExpress.Data.v11.1" Source="DevExpress.Data.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.Data.v11.1.Linq" Source="DevExpress.Data.v11.1.Linq.dll" />

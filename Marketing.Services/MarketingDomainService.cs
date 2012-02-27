@@ -31,7 +31,11 @@ namespace Marketing.Services {
         var result = Context.GetUserCitySelections();
         return result;
     }
-
+    [Query(IsDefault = true)]
+    public IQueryable<UserFile> DefaultUserFiles()
+    {
+        return new List<UserFile>().AsQueryable();
+    }
     [Query(IsDefault = true)]
     public IQueryable<UserListingCategorySelection> DefaultUserListingCategorySelection()
     {
