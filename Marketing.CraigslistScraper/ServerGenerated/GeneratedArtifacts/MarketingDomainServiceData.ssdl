@@ -15,6 +15,7 @@
     <EntitySet Name="DefaultErrors" EntityType="MarketingDomainServiceDataStore.c_Error" store:Type="Tables" Schema="dbo" Table="Marketing.Services.Error" />
     <EntitySet Name="GetDefaultErrorDisplays" EntityType="MarketingDomainServiceDataStore.ErrorDisplay" store:Type="Tables" Schema="dbo" Table="Marketing.Services.ErrorDisplay" />
     <EntitySet Name="DefaultUserFiles" EntityType="MarketingDomainServiceDataStore.UserFile" store:Type="Tables" Schema="dbo" Table="Marketing.Services.UserFile" />
+    <EntitySet Name="GetDefaultSystemSettingItems" EntityType="MarketingDomainServiceDataStore.SystemSettingItem" store:Type="Tables" Schema="dbo" Table="Marketing.Services.SystemSettingItem" />
   </EntityContainer>
   <EntityType Name="UserCitySelection">
     <Key>
@@ -198,5 +199,13 @@
     <Property Name="Deleted" Type="datetime" />
     <Property Name="ByteCount" Type="bigint" Nullable="false" />
     <Property Name="RawFile" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="SystemSettingItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SettingName" Type="nvarchar(max)" />
+    <Property Name="SettingValue" Type="nvarchar(max)" />
   </EntityType>
 </Schema>

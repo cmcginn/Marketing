@@ -242,14 +242,15 @@ namespace Marketing.UI.Controls
                 Status = FileUploadStatus.Removed;
         }
 
+        public Guid UserId { get; set; }
         public void UploadFileEx()
         {
             Status = FileUploadStatus.Uploading;
             long temp = FileLength - BytesUploaded;
 
             UriBuilder ub = new UriBuilder(UploadUrl);
-            bool complete = temp <= ChunkSize;            
-            ub.Query = string.Format("{3}filename={0}&StartByte={1}&Complete={2}", File.Name, BytesUploaded, complete, string.IsNullOrEmpty(ub.Query) ? "" : ub.Query.Remove(0,1) + "&");
+            bool complete = temp <= ChunkSize;
+            ub.Query = string.Format("{3}filename={0}&StartByte={1}&Complete={2}",File.Name, BytesUploaded, complete, string.IsNullOrEmpty(ub.Query) ? "" : ub.Query.Remove(0, 1) + "&");
 
             HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(ub.Uri);
             webrequest.Method = "POST";

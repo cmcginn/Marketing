@@ -176,4 +176,11 @@ namespace Marketing.Services {
       public long ByteCount { get; set; }
       public byte[] RawFile { get; set; }
   }
+  public class SystemSettingItem
+  {
+      [Key]
+      public Guid Id { get; set; }
+      public string SettingName { get; set; }
+      public string SettingValue { get; set; }
+  }
 }

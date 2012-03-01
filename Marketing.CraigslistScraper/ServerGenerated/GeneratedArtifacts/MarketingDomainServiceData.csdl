@@ -183,6 +183,14 @@
     <Property Name="ByteCount" Type="Int64" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="RawFile" Type="Binary" MaxLength="Max" ConcurrencyMode="Fixed" />
   </EntityType>
+  <EntityType Name="SystemSettingItem">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="SettingName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="SettingValue" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+  </EntityType>
   <EntityContainer Name="MarketingDomainServiceDataObjectContext">
     <EntitySet Name="UserCitySelections" EntityType="MarketingDomainServiceData.UserCitySelection" />
     <EntitySet Name="UserListingCategorySelections" EntityType="MarketingDomainServiceData.UserListingCategorySelection" />
@@ -198,5 +206,6 @@
     <EntitySet Name="Errors" EntityType="MarketingDomainServiceData.c_Error" />
     <EntitySet Name="ErrorDisplays" EntityType="MarketingDomainServiceData.ErrorDisplay" />
     <EntitySet Name="UserFiles" EntityType="MarketingDomainServiceData.UserFile" />
+    <EntitySet Name="SystemSettingItems" EntityType="MarketingDomainServiceData.SystemSettingItem" />
   </EntityContainer>
 </Schema>

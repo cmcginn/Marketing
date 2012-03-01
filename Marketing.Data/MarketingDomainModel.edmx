@@ -16,6 +16,7 @@
           <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Log" EntityType="Marketing.CraigslistScraperModel.Store.Log" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SystemSetting" EntityType="Marketing.CraigslistScraperModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserFile" EntityType="Marketing.CraigslistScraperModel.Store.UserFile" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
@@ -311,6 +312,16 @@
           <Property Name="Win32ThreadId" Type="nvarchar" MaxLength="128" />
           <Property Name="Message" Type="nvarchar" MaxLength="1500" />
           <Property Name="FormattedMessage" Type="ntext" />
+        </EntityType>
+        <EntityType Name="SystemSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="SettingValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Updated" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="UserCity">
           <Key>
@@ -924,6 +935,7 @@
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
             <End Role="UserFile" EntitySet="UserFiles" />
           </AssociationSet>
+          <EntitySet Name="SystemSettings" EntityType="Marketing.CraigslistScraperModel.SystemSetting" />
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -1577,6 +1589,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SystemSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="SettingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SettingValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1931,6 +1953,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="SystemSettings">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.SystemSetting">
+              <MappingFragment StoreEntitySet="SystemSetting">
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2101,8 +2134,8 @@
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_CategoryLog_Log" >
           <ConnectorPoint PointX="12.875" PointY="17.825063476562498" />
-          <ConnectorPoint PointX="14.375" PointY="17.825063476562498" />
-          <ConnectorPoint PointX="14.375" PointY="6.6316536458333388" />
+          <ConnectorPoint PointX="14.53125" PointY="17.825063476562498" />
+          <ConnectorPoint PointX="14.53125" PointY="6.6316536458333388" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="10.375" PointY="7.75" Height="7.34446289062501" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingUrl_City" >
@@ -2119,6 +2152,7 @@
           <ConnectorPoint PointX="2.625" PointY="28.957021484374998" />
           <ConnectorPoint PointX="3" PointY="28.957021484374998" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.SystemSetting" Width="1.5" PointX="12.375" PointY="7.75" Height="1.7566536458333246" />
         </Diagram>
     </Diagrams>
   </Designer>

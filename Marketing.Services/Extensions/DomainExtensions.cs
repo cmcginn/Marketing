@@ -71,7 +71,7 @@ namespace Marketing.Services.Extensions
         public static IQueryable<UserListingItem> GetUserListingItems(this MarketingEntities context)
         {
             var expired = System.DateTime.Now.AddDays(-30);
-            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserCityActive && x.UserListingCategoryActive && x.ListingGroupActive && x.PostDate >= expired && x.IsHidden==false)
+            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserCityActive && x.UserListingCategoryActive && x.ListingGroupActive && x.PostDate >= expired && x.IsHidden == false)
                         select new UserListingItem
                         {
                             Id = userListingData.UserListingUrlId,
@@ -96,7 +96,7 @@ namespace Marketing.Services.Extensions
                             KeywordScore = userListingData.KeywordScore,
                             KeywordDisplay = userListingData.KeywordDisplay,
                             IsHidden = userListingData.IsHidden
-                            
+
                         };
 
             return query;
@@ -104,7 +104,7 @@ namespace Marketing.Services.Extensions
         public static IQueryable<UserListingItem> GetUserFilteredUserListingItems(this MarketingEntities context, Guid? userId, bool? filtersEnabled, bool? showResponded, bool? showNotResponded, DateTime? postStartDate, DateTime? postEndDate, DateTime? responseStartDate, DateTime? responseEndDate, string keywords, string regionsFilter, string statesFilter, string citiesFilter)
         {
             var expiration = System.DateTime.Now.AddDays(-30);
-            var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.PostDate > expiration && x.IsHidden==false);
+            var items = context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.PostDate > expiration && x.IsHidden == false);
 
             var userIdValue = userId.GetValueOrDefault();
             var postStartDateValue = postStartDate.GetValueOrDefault();
@@ -182,7 +182,7 @@ namespace Marketing.Services.Extensions
         }
         public static IQueryable<UserListingItem> GetUserListingItemsByUserId(this MarketingEntities context, Guid userId)
         {
-            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserId == userId && x.IsHidden==false)
+            var query = from userListingData in context.UserListingDatas.Where(x => x.PostContent != null & !String.IsNullOrEmpty(x.ReplyTo) && x.UserId == userId && x.IsHidden == false)
                         select new UserListingItem
                         {
                             Id = userListingData.UserListingUrlId,
@@ -326,7 +326,7 @@ namespace Marketing.Services.Extensions
                 };
                 context.UserListingResponses.AddObject(result);
             }
-            
+
             result.Response = responseElement;
             result.ResponseText = item.ResponseText;
             context.SaveChanges();
@@ -636,6 +636,47 @@ namespace Marketing.Services.Extensions
             {
                 //swallow, loggers should not throw exceptions in this instance
             }
+        }
+        public static void InsertUserFile(this MarketingEntities context, UserFile userFile)
+        {
+            if (context.UserFiles.Where(n => n.Filename.ToLower() == userFile.Filename.ToLower() && n.UserId == userFile.UserId).Count() > 0)
+                throw new System.ArgumentException(String.Format("A file named {0} already exists. Filenames must be unique", userFile.Filename));
+            var item = new Marketing.Data.UserFile
+            {
+                Filename = userFile.Filename,
+                ByteCount = userFile.ByteCount,
+                Created = userFile.Created,
+                Id = userFile.Id,
+                Extension = userFile.Extension,
+                UserId = userFile.UserId,
+                RawFile = userFile.RawFile
+
+            };
+            context.UserFiles.AddObject(item);
+            context.SaveChanges();
+        }
+        public static IQueryable<UserFile> GetDefaultUserFiles(this MarketingEntities context)
+        {
+            var result = context.UserFiles.Where(n => n.Deleted.HasValue == false).Select(n => new UserFile
+                {
+                    Id = n.Id,
+                    ByteCount = n.ByteCount,
+                    Created = n.Created,
+                    Filename = n.Filename,
+                    Extension = n.Extension,
+                    UserId = n.UserId
+                });
+            return result;
+        }
+        public static IQueryable<SystemSettingItem> DefaultGetSystemSettingItems(this MarketingEntities context)
+        {
+            var result = context.SystemSettings.Select(n => new SystemSettingItem
+                {
+                    Id = n.Id,
+                    SettingName = n.SettingName,
+                    SettingValue = n.SettingValue
+                });
+            return result;
         }
     }
 }

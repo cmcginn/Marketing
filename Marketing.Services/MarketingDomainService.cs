@@ -34,7 +34,7 @@ namespace Marketing.Services {
     [Query(IsDefault = true)]
     public IQueryable<UserFile> DefaultUserFiles()
     {
-        return new List<UserFile>().AsQueryable();
+        return Context.GetDefaultUserFiles();
     }
     [Query(IsDefault = true)]
     public IQueryable<UserListingCategorySelection> DefaultUserListingCategorySelection()
@@ -103,6 +103,11 @@ namespace Marketing.Services {
     {
         var result = Context.GetDefaultErrorDisplays();
         return result;
+    }
+    [Query(IsDefault = true)]
+    public IQueryable<SystemSettingItem> GetDefaultSystemSettingItems()
+    {
+        return Context.DefaultGetSystemSettingItems();
     }
     #endregion
 
@@ -284,7 +289,10 @@ namespace Marketing.Services {
     {
         Context.DeleteBugReportItem(item);
     }
-       
+    public void AddUserFile(UserFile userFile)
+    {
+        Context.InsertUserFile(userFile);
+    }
     #endregion
 
 

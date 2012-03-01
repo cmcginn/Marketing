@@ -104,6 +104,7 @@
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserFile" EntitySet="UserFiles" />
     </AssociationSet>
+    <EntitySet Name="SystemSettings" EntityType="Marketing.CraigslistScraperModel.SystemSetting" />
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -757,4 +758,14 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SettingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SettingValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created" Nullable="false" />
+    <Property Type="DateTime" Name="Updated" Nullable="false" />
+  </EntityType>
 </Schema>

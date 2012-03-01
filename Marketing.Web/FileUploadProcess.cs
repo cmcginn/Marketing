@@ -37,7 +37,7 @@ namespace Marketing.Web
 
         public void ProcessRequest(HttpContext context, string uploadPath)
         {
-            string filename = context.Request.QueryString["filename"];
+            string filename = Guid.NewGuid().ToString() + context.Request.QueryString["filename"];
             bool complete = string.IsNullOrEmpty(context.Request.QueryString["Complete"]) ? true : bool.Parse(context.Request.QueryString["Complete"]);
             bool getBytes = string.IsNullOrEmpty(context.Request.QueryString["GetBytes"]) ? false : bool.Parse(context.Request.QueryString["GetBytes"]);
             long startByte = string.IsNullOrEmpty(context.Request.QueryString["StartByte"]) ? 0 : long.Parse(context.Request.QueryString["StartByte"]); ;
@@ -96,6 +96,7 @@ namespace Marketing.Web
                     {
                         FileUploadCompletedEventArgs args = new FileUploadCompletedEventArgs(filename, filePath);
                         FileUploadCompleted(this, args);
+                        
                     }
                 }
             }

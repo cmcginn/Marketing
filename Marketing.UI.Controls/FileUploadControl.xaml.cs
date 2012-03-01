@@ -17,6 +17,32 @@ namespace Marketing.UI.Controls
 {
     public partial class FileUploadControl : UserControl
     {
+        public event EventHandler FileUploadComplete;
+
+        public void OnFileUploadComplete()
+        {
+            if (null != FileUploadComplete)
+                FileUploadComplete(this, EventArgs.Empty);
+        }
+
+        FileUpload _CurrentFile;
+
+        public FileUpload CurrentFile
+        {
+            get { return _CurrentFile; }
+            set { _CurrentFile = value; }
+        }
+
+
+        public byte[] GetBytes()
+        {
+            var readStream = _CurrentFile.File.OpenRead();
+            var bytes = new byte[(int)readStream.Length];
+            readStream.Read(bytes, 0, (int)readStream.Length);
+            readStream.Close();
+            return bytes;
+        }
+
         public int MaxConcurrentUploads { get; set; }
         public long UploadChunkSize { get; set; }
         public bool ResizeImage { get; set; }
@@ -75,13 +101,11 @@ namespace Marketing.UI.Controls
 
         private ScrollHelper helper;
 
-        private ObservableCollection<FileUpload> files;
-
+        private ObservableCollection<FileUpload> files;        
 
         public FileUploadControl()
         {
-            InitializeComponent();
-            this.UploadUrl = new Uri("http://localhost:31489/FileUpload.ashx");
+            InitializeComponent();            
             files = new ObservableCollection<FileUpload>();
             files.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(files_CollectionChanged);
             MaxConcurrentUploads = 1;
@@ -245,7 +269,11 @@ namespace Marketing.UI.Controls
             if (fu.Status == FileUploadStatus.Complete)
             {
                 if (uploading)
+                {
                     UploadFiles();
+                    _CurrentFile = fu;
+                    OnFileUploadComplete();
+                }
             }
             else if (fu.Status == FileUploadStatus.Removed)
             {

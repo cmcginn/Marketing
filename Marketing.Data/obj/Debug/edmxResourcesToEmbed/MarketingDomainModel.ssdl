@@ -11,6 +11,7 @@
     <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Log" EntityType="Marketing.CraigslistScraperModel.Store.Log" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SystemSetting" EntityType="Marketing.CraigslistScraperModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserFile" EntityType="Marketing.CraigslistScraperModel.Store.UserFile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
@@ -306,6 +307,16 @@
     <Property Name="Win32ThreadId" Type="nvarchar" MaxLength="128" />
     <Property Name="Message" Type="nvarchar" MaxLength="1500" />
     <Property Name="FormattedMessage" Type="ntext" />
+  </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SettingValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="UserCity">
     <Key>

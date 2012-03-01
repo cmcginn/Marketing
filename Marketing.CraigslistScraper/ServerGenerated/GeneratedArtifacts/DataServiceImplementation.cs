@@ -445,6 +445,36 @@ namespace LightSwitchApplication.Implementation
         }
     #endregion
     
+    #region SystemSettingItem
+    
+        public void InsertSystemSettingItem(global::MarketingDomainServiceData.Implementation.SystemSettingItem entity)
+        {
+            if (entity.EntityState != global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.ObjectStateManager.ChangeObjectState(entity, global::System.Data.EntityState.Added);
+            }
+            else
+            {
+                this.ObjectContext.SystemSettingItems.AddObject(entity);
+            }
+        }
+    
+        public void UpdateSystemSettingItem(global::MarketingDomainServiceData.Implementation.SystemSettingItem currentEntity)
+        {
+            global::System.ServiceModel.DomainServices.EntityFramework.ObjectContextExtensions.AttachAsModified(this.ObjectContext.SystemSettingItems, currentEntity, this.ChangeSet.GetOriginal(currentEntity));
+        }
+    
+        public void DeleteSystemSettingItem(global::MarketingDomainServiceData.Implementation.SystemSettingItem entity)
+        {
+            if (entity.EntityState == global::System.Data.EntityState.Detached)
+            {
+                this.ObjectContext.SystemSettingItems.Attach(entity);
+            }
+    
+            this.DeleteEntity(entity);
+        }
+    #endregion
+    
     #region Queries
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserCitySelection> UserCitySelections_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> CityId)
         {
@@ -724,6 +754,26 @@ namespace LightSwitchApplication.Implementation
         public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserFile> UserFiles_All(string frameworkOperators)
         {
             return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserFile>("UserFiles_All", frameworkOperators);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserFile> GetUserFilesByUserId(string frameworkOperators, global::System.Nullable<global::System.Guid> userId)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.UserFile>("GetUserFilesByUserId", frameworkOperators, userId);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> SystemSettingItems_Single(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.SystemSettingItem>("SystemSettingItems_Single", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> SystemSettingItems_SingleOrDefault(string frameworkOperators, global::System.Nullable<global::System.Guid> Id)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.SystemSettingItem>("SystemSettingItems_SingleOrDefault", frameworkOperators, Id);
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> SystemSettingItems_All(string frameworkOperators)
+        {
+            return this.GetQuery<global::MarketingDomainServiceData.Implementation.SystemSettingItem>("SystemSettingItems_All", frameworkOperators);
         }
     
     #endregion
@@ -1241,6 +1291,40 @@ namespace LightSwitchApplication.Implementation
             return query;
         }
     
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserFile> GetUserFilesByUserId(global::System.Nullable<global::System.Guid> userId)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.UserFile> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.UserFile>("UserFiles_All"),
+                (u) => (userId.HasValue && (u.UserId == userId)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> SystemSettingItems_Single(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.SystemSettingItem>("SystemSettingItems_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> SystemSettingItems_SingleOrDefault(global::System.Nullable<global::System.Guid> Id)
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> query;
+            query = global::System.Linq.Queryable.Where(
+                this.GetQuery<global::MarketingDomainServiceData.Implementation.SystemSettingItem>("SystemSettingItems_All"),
+                (s) => (Id.HasValue && (s.Id == Id)));
+            return query;
+        }
+    
+        public global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> SystemSettingItems_All()
+        {
+            global::System.Linq.IQueryable<global::MarketingDomainServiceData.Implementation.SystemSettingItem> query;
+            query = base.CreateQuery<global::MarketingDomainServiceData.Implementation.SystemSettingItem>("GetDefaultSystemSettingItems").AsQueryable();
+            return query;
+        }
+    
     #endregion
 
     #region Protected Methods
@@ -1301,6 +1385,10 @@ namespace LightSwitchApplication.Implementation
             if (type == typeof(global::MarketingDomainServiceData.Implementation.UserFile))
             {
                 return new global::MarketingDomainServiceData.Implementation.UserFile();
+            }
+            if (type == typeof(global::MarketingDomainServiceData.Implementation.SystemSettingItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.SystemSettingItem();
             }
     
             return base.CreateObject(type);
@@ -1372,6 +1460,10 @@ namespace LightSwitchApplication.Implementation
             {
                 return new global::MarketingDomainServiceData.Implementation.UserFile();
             }
+            if (typeof(T) == typeof(global::LightSwitchApplication.SystemSettingItem))
+            {
+                return new global::MarketingDomainServiceData.Implementation.SystemSettingItem();
+            }
             return null;
         }
         protected override global::System.Type ConvertType(global::System.Type outerType)
@@ -1431,6 +1523,10 @@ namespace LightSwitchApplication.Implementation
             if (outerType == typeof(global::MarketingDomainServiceData.Implementation.UserFile))
             {
                 return typeof(global::Marketing.Services.UserFile);
+            }
+            if (outerType == typeof(global::MarketingDomainServiceData.Implementation.SystemSettingItem))
+            {
+                return typeof(global::Marketing.Services.SystemSettingItem);
             }
             return base.ConvertType(outerType);
         }
@@ -1631,6 +1727,15 @@ namespace LightSwitchApplication.Implementation
                 result.Deleted = userFile.Deleted;
                 result.ByteCount = userFile.ByteCount;
                 result.RawFile = userFile.RawFile;
+                return result;
+            }
+            global::MarketingDomainServiceData.Implementation.SystemSettingItem systemSettingItem = outerEntity as global::MarketingDomainServiceData.Implementation.SystemSettingItem;
+            if (systemSettingItem != null)
+            {
+                global::Marketing.Services.SystemSettingItem result = new global::Marketing.Services.SystemSettingItem();
+                result.Id = systemSettingItem.Id;
+                result.SettingName = systemSettingItem.SettingName;
+                result.SettingValue = systemSettingItem.SettingValue;
                 return result;
             }
             return null;
@@ -1836,6 +1941,15 @@ namespace LightSwitchApplication.Implementation
                 outerUserFile.RawFile = innerUserFile.RawFile;
                 return;
             }
+            global::MarketingDomainServiceData.Implementation.SystemSettingItem outerSystemSettingItem = outerEntity as global::MarketingDomainServiceData.Implementation.SystemSettingItem;
+            global::Marketing.Services.SystemSettingItem innerSystemSettingItem = innerResult as global::Marketing.Services.SystemSettingItem;
+            if ((outerSystemSettingItem != null) && (innerSystemSettingItem != null))
+            {
+                outerSystemSettingItem.Id = innerSystemSettingItem.Id;
+                outerSystemSettingItem.SettingName = innerSystemSettingItem.SettingName;
+                outerSystemSettingItem.SettingValue = innerSystemSettingItem.SettingValue;
+                return;
+            }
         }
     
     #endregion
@@ -1935,6 +2049,10 @@ namespace LightSwitchApplication.Implementation
             if (typeof(global::LightSwitchApplication.UserFile) == definitionType)
             {
                 return typeof(global::MarketingDomainServiceData.Implementation.UserFile);
+            }
+            if (typeof(global::LightSwitchApplication.SystemSettingItem) == definitionType)
+            {
+                return typeof(global::MarketingDomainServiceData.Implementation.SystemSettingItem);
             }
             return null;
         }
@@ -2377,6 +2495,39 @@ namespace MarketingDomainServiceData.Implementation
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     public partial class UserFile :
         global::LightSwitchApplication.UserFile.DetailsClass.IImplementation
+    {
+    
+        #region IEntityImplementation Members
+        private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
+        
+        global::Microsoft.LightSwitch.Internal.IEntityImplementationHost global::Microsoft.LightSwitch.Internal.IEntityImplementation.Host
+        {
+            get
+            {
+                return this.__host;
+            }
+        }
+        
+        void global::Microsoft.LightSwitch.Internal.IEntityImplementation.Initialize(global::Microsoft.LightSwitch.Internal.IEntityImplementationHost host)
+        {
+            this.__host = host;
+        }
+        
+        protected override void OnPropertyChanged(string propertyName)
+        {
+            base.OnPropertyChanged(propertyName);
+            if (this.__host != null)
+            {
+                this.__host.RaisePropertyChanged(propertyName);
+            }
+        }
+        #endregion
+    }
+    
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    public partial class SystemSettingItem :
+        global::LightSwitchApplication.SystemSettingItem.DetailsClass.IImplementation
     {
     
         #region IEntityImplementation Members

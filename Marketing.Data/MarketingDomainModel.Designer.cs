@@ -456,6 +456,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserFile> _UserFiles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SystemSetting> SystemSettings
+        {
+            get
+            {
+                if ((_SystemSettings == null))
+                {
+                    _SystemSettings = base.CreateObjectSet<SystemSetting>("SystemSettings");
+                }
+                return _SystemSettings;
+            }
+        }
+        private ObjectSet<SystemSetting> _SystemSettings;
 
         #endregion
         #region AddTo Methods
@@ -642,6 +658,14 @@ namespace Marketing.Data
         public void AddToUserFiles(UserFile userFile)
         {
             base.AddObject("UserFiles", userFile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SystemSettings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSystemSettings(SystemSetting systemSetting)
+        {
+            base.AddObject("SystemSettings", systemSetting);
         }
 
         #endregion
@@ -3511,6 +3535,165 @@ namespace Marketing.Data
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Marketing.CraigslistScraperModel", Name="SystemSetting")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SystemSetting : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SystemSetting object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="settingName">Initial value of the SettingName property.</param>
+        /// <param name="settingValue">Initial value of the SettingValue property.</param>
+        /// <param name="created">Initial value of the Created property.</param>
+        /// <param name="updated">Initial value of the Updated property.</param>
+        public static SystemSetting CreateSystemSetting(global::System.Guid id, global::System.String settingName, global::System.String settingValue, global::System.DateTime created, global::System.DateTime updated)
+        {
+            SystemSetting systemSetting = new SystemSetting();
+            systemSetting.Id = id;
+            systemSetting.SettingName = settingName;
+            systemSetting.SettingValue = settingValue;
+            systemSetting.Created = created;
+            systemSetting.Updated = updated;
+            return systemSetting;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _Id;
+        partial void OnIdChanging(global::System.Guid value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SettingName
+        {
+            get
+            {
+                return _SettingName;
+            }
+            set
+            {
+                OnSettingNameChanging(value);
+                ReportPropertyChanging("SettingName");
+                _SettingName = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SettingName");
+                OnSettingNameChanged();
+            }
+        }
+        private global::System.String _SettingName;
+        partial void OnSettingNameChanging(global::System.String value);
+        partial void OnSettingNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String SettingValue
+        {
+            get
+            {
+                return _SettingValue;
+            }
+            set
+            {
+                OnSettingValueChanging(value);
+                ReportPropertyChanging("SettingValue");
+                _SettingValue = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("SettingValue");
+                OnSettingValueChanged();
+            }
+        }
+        private global::System.String _SettingValue;
+        partial void OnSettingValueChanging(global::System.String value);
+        partial void OnSettingValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Created
+        {
+            get
+            {
+                return _Created;
+            }
+            set
+            {
+                OnCreatedChanging(value);
+                ReportPropertyChanging("Created");
+                _Created = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Created");
+                OnCreatedChanged();
+            }
+        }
+        private global::System.DateTime _Created;
+        partial void OnCreatedChanging(global::System.DateTime value);
+        partial void OnCreatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Updated
+        {
+            get
+            {
+                return _Updated;
+            }
+            set
+            {
+                OnUpdatedChanging(value);
+                ReportPropertyChanging("Updated");
+                _Updated = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Updated");
+                OnUpdatedChanged();
+            }
+        }
+        private global::System.DateTime _Updated;
+        partial void OnUpdatedChanging(global::System.DateTime value);
+        partial void OnUpdatedChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

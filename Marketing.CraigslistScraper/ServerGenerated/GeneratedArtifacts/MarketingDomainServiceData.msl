@@ -198,5 +198,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="SystemSettingItems">
+      <EntityTypeMapping TypeName="IsTypeOf(MarketingDomainServiceData.SystemSettingItem)">
+        <MappingFragment StoreEntitySet="GetDefaultSystemSettingItems">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+          <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
