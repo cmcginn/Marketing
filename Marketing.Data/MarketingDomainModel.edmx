@@ -68,7 +68,8 @@
       [UserListingData].[ListingContentCreated] AS [ListingContentCreated], 
       [UserListingData].[KeywordScore] AS [KeywordScore], 
       [UserListingData].[KeywordDisplay] AS [KeywordDisplay], 
-      [UserListingData].[IsHidden] AS [IsHidden]
+      [UserListingData].[IsHidden] AS [IsHidden], 
+      [UserListingData].[UserFileId] AS [UserFileId]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -167,6 +168,10 @@
             <End Role="UserListingUrl" EntitySet="UserListingUrl" />
             <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
           </AssociationSet>
+          <AssociationSet Name="FK_UserListingResponse_UserListingResponse" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingResponse">
+            <End Role="UserFile" EntitySet="UserFile" />
+            <End Role="UserListingResponse" EntitySet="UserListingResponse" />
+          </AssociationSet>
           <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingUrl">
             <End Role="UserListingUrl" EntitySet="UserListingUrl" />
             <End Role="UserListingResponse" EntitySet="UserListingResponse" />
@@ -185,6 +190,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_UserTemplate_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_aspnet_Membership">
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+            <End Role="UserTemplate" EntitySet="UserTemplate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTemplate_UserFile" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_UserFile">
+            <End Role="UserFile" EntitySet="UserFile" />
             <End Role="UserTemplate" EntitySet="UserTemplate" />
           </AssociationSet>
         </EntityContainer>
@@ -401,6 +410,7 @@
           <Property Name="ResponseText" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="ResponseSent" Type="datetime" />
+          <Property Name="UserFileId" Type="uniqueidentifier" />
         </EntityType>
         <EntityType Name="UserListingUrl">
           <Key>
@@ -439,6 +449,7 @@
           <Property Name="TemplateText" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="Updated" Type="datetime" />
+          <Property Name="UserFileId" Type="uniqueidentifier" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -515,6 +526,7 @@
           <Property Name="KeywordScore" Type="int" />
           <Property Name="KeywordDisplay" Type="nvarchar(max)" />
           <Property Name="IsHidden" Type="bit" Nullable="false" />
+          <Property Name="UserFileId" Type="uniqueidentifier" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -763,6 +775,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UserListingResponse_UserListingResponse">
+          <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="0..1" />
+          <End Role="UserListingResponse" Type="Marketing.CraigslistScraperModel.Store.UserListingResponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserListingResponse">
+              <PropertyRef Name="UserFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_UserListingResponse_UserListingUrl">
           <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -824,6 +848,18 @@
             </Principal>
             <Dependent Role="UserTemplate">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTemplate_UserFile">
+          <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="0..1" />
+          <End Role="UserTemplate" Type="Marketing.CraigslistScraperModel.Store.UserTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTemplate">
+              <PropertyRef Name="UserFileId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -925,7 +961,6 @@
             <End Role="Log" EntitySet="Logs" />
             <End Role="CategoryLog" EntitySet="CategoryLogs" />
           </AssociationSet>
-          <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
           <AssociationSet Name="FK_ListingUrl_City" Association="Marketing.CraigslistScraperModel.FK_ListingUrl_City">
             <End Role="City" EntitySet="Cities" />
             <End Role="ListingUrl" EntitySet="ListingUrls" />
@@ -936,6 +971,15 @@
             <End Role="UserFile" EntitySet="UserFiles" />
           </AssociationSet>
           <EntitySet Name="SystemSettings" EntityType="Marketing.CraigslistScraperModel.SystemSetting" />
+          <AssociationSet Name="FK_UserListingResponse_UserListingResponse" Association="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse">
+            <End Role="UserFile" EntitySet="UserFiles" />
+            <End Role="UserListingResponse" EntitySet="UserListingResponses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserTemplate_UserFile" Association="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile">
+            <End Role="UserFile" EntitySet="UserFiles" />
+            <End Role="UserTemplate" EntitySet="UserTemplates" />
+          </AssociationSet>
+          <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
         </EntityContainer>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -1228,6 +1272,8 @@
           <Property Type="DateTime" Name="ResponseSent" />
           <NavigationProperty Name="UserListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" FromRole="UserListingResponse" ToRole="UserListingUrl" />
           <Property Type="String" Name="ResponseText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Guid" Name="UserFileId" />
+          <NavigationProperty Name="UserFile" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse" FromRole="UserListingResponse" ToRole="UserFile" />
         </EntityType>
         <Association Name="FK_UserListingResponse_UserListingUrl">
           <End Type="Marketing.CraigslistScraperModel.UserListingUrl" Role="UserListingUrl" Multiplicity="1" />
@@ -1361,6 +1407,8 @@
           <Property Type="DateTime" Name="Created" Nullable="false" />
           <Property Type="DateTime" Name="Updated" />
           <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership" FromRole="UserTemplate" ToRole="aspnet_Membership" />
+          <Property Type="Guid" Name="UserFileId" />
+          <NavigationProperty Name="UserFile" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile" FromRole="UserTemplate" ToRole="UserFile" />
         </EntityType>
         <Association Name="FK_UserTemplate_aspnet_Membership">
           <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
@@ -1478,6 +1526,80 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ListingUrl_City">
+          <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.ListingUrl" Role="ListingUrl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ListingUrl">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Filename" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Extension" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="RawFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="DateTime" Name="Deleted" />
+          <Property Type="Int64" Name="ByteCount" Nullable="false" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership" FromRole="UserFile" ToRole="aspnet_Membership" />
+          <NavigationProperty Name="UserListingResponses" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse" FromRole="UserFile" ToRole="UserListingResponse" />
+          <NavigationProperty Name="UserTemplates" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile" FromRole="UserFile" ToRole="UserTemplate" />
+        </EntityType>
+        <Association Name="FK_UserFile_aspnet_Membership">
+          <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+          <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="UserFile">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Guid" Name="Id" Nullable="false" />
+          <Property Type="String" Name="SettingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SettingValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" />
+          <Property Type="DateTime" Name="Updated" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_UserListingResponse_UserListingResponse">
+          <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="0..1" />
+          <End Type="Marketing.CraigslistScraperModel.UserListingResponse" Role="UserListingResponse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserListingResponse">
+              <PropertyRef Name="UserFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserTemplate_UserFile">
+          <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="0..1" />
+          <End Type="Marketing.CraigslistScraperModel.UserTemplate" Role="UserTemplate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserFile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserTemplate">
+              <PropertyRef Name="UserFileId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="UserListingData">
           <Key>
             <PropertyRef Name="UserListingUrlId" />
@@ -1550,54 +1672,7 @@
           <Property Type="Int32" Name="KeywordScore" />
           <Property Type="String" Name="KeywordDisplay" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsHidden" Nullable="false" />
-        </EntityType>
-        <Association Name="FK_ListingUrl_City">
-          <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
-          <End Type="Marketing.CraigslistScraperModel.ListingUrl" Role="ListingUrl" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="City">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ListingUrl">
-              <PropertyRef Name="CityId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="UserFile">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="Guid" Name="UserId" Nullable="false" />
-          <Property Type="String" Name="Filename" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Extension" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-          <Property Type="Binary" Name="RawFile" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Type="DateTime" Name="Created" Nullable="false" />
-          <Property Type="DateTime" Name="Deleted" />
-          <Property Type="Int64" Name="ByteCount" Nullable="false" />
-          <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership" FromRole="UserFile" ToRole="aspnet_Membership" />
-        </EntityType>
-        <Association Name="FK_UserFile_aspnet_Membership">
-          <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
-          <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="aspnet_Membership">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="UserFile">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SystemSetting">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="String" Name="SettingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SettingValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="Created" Nullable="false" />
-          <Property Type="DateTime" Name="Updated" Nullable="false" />
+          <Property Type="Guid" Name="UserFileId" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1746,6 +1821,7 @@
           <EntitySetMapping Name="UserListingResponses">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingResponse">
               <MappingFragment StoreEntitySet="UserListingResponse">
+                <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
                 <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
                 <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
@@ -1814,6 +1890,7 @@
           <EntitySetMapping Name="UserTemplates">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserTemplate">
               <MappingFragment StoreEntitySet="UserTemplate">
+                <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
                 <ScalarProperty Name="Updated" ColumnName="Updated" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="TemplateText" ColumnName="TemplateText" />
@@ -1893,9 +1970,35 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="UserFiles">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserFile">
+              <MappingFragment StoreEntitySet="UserFile">
+                <ScalarProperty Name="ByteCount" ColumnName="ByteCount" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="RawFile" ColumnName="RawFile" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemSettings">
+            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.SystemSetting">
+              <MappingFragment StoreEntitySet="SystemSetting">
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="UserListingDatas">
             <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
               <MappingFragment StoreEntitySet="UserListingData">
+                <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
                 <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
                 <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
                 <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
@@ -1936,31 +2039,6 @@
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="ListingUrlId" ColumnName="ListingUrlId" />
                 <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserFiles">
-            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserFile">
-              <MappingFragment StoreEntitySet="UserFile">
-                <ScalarProperty Name="ByteCount" ColumnName="ByteCount" />
-                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="RawFile" ColumnName="RawFile" />
-                <ScalarProperty Name="Extension" ColumnName="Extension" />
-                <ScalarProperty Name="Filename" ColumnName="Filename" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SystemSettings">
-            <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.SystemSetting">
-              <MappingFragment StoreEntitySet="SystemSetting">
-                <ScalarProperty Name="Updated" ColumnName="Updated" />
-                <ScalarProperty Name="Created" ColumnName="Created" />
-                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
-                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2019,13 +2097,15 @@
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory" >
           <ConnectorPoint PointX="2.25" PointY="10.26127197265625" />
           <ConnectorPoint PointX="2.5416666666666665" PointY="10.261271972656248" />
-          <ConnectorPoint PointX="2.8020833333333335" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="10.26127197265625" />
           <ConnectorPoint PointX="3.6354141666666666" PointY="10.26127197265625" />
           <ConnectorPoint PointX="3.8020808333333336" PointY="10.26127197265625" />
           <ConnectorPoint PointX="4.791666666666667" PointY="10.26127197265625" />
           <ConnectorPoint PointX="4.958333333333333" PointY="10.26127197265625" />
           <ConnectorPoint PointX="7.010416666666667" PointY="10.26127197265625" />
           <ConnectorPoint PointX="7.177083333333333" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="8.8854166666666661" PointY="10.26127197265625" />
+          <ConnectorPoint PointX="9.0520833333333339" PointY="10.26127197265625" />
           <ConnectorPoint PointX="9.1875" PointY="10.26127197265625" />
           <ConnectorPoint PointX="9.1875" PointY="3.6710009765624996" />
         </AssociationConnector>
@@ -2040,20 +2120,20 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingRefresh" PointX="9.375" PointY="4.75" Width="1.5" Height="1.7566536458333388" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="6.8180282217548074" />
-          <ConnectorPoint PointX="2.40625" PointY="6.9742782217548074" />
-          <ConnectorPoint PointX="2.40625" PointY="9.03904296875" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="9.0390429687499978" />
-          <ConnectorPoint PointX="2.8020833333333335" PointY="9.03904296875" />
-          <ConnectorPoint PointX="4.791666666666667" PointY="9.03904296875" />
-          <ConnectorPoint PointX="4.958333333333333" PointY="9.03904296875" />
-          <ConnectorPoint PointX="5.1261528461538468" PointY="9.03904296875" />
+          <ConnectorPoint PointX="2.515625" PointY="7.0836532217548074" />
+          <ConnectorPoint PointX="2.515625" PointY="9.16404296875" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="9.1640429687499978" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="9.16404296875" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="9.16404296875" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="9.16404296875" />
+          <ConnectorPoint PointX="5.0011528461538468" PointY="9.16404296875" />
           <ConnectorPoint PointX="5.2511528461538459" PointY="8.91404296875" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingUrl_ListingCategory" >
-          <ConnectorPoint PointX="2.25" PointY="9.349383486328124" />
-          <ConnectorPoint PointX="2.5416666666666665" PointY="9.3493834863281222" />
-          <ConnectorPoint PointX="2.8020833333333335" PointY="9.349383486328124" />
-          <ConnectorPoint PointX="3.7187475" PointY="9.349383486328124" />
+          <ConnectorPoint PointX="2.25" PointY="9.6814049707031238" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="9.681404970703122" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="9.6814049707031238" />
+          <ConnectorPoint PointX="3.7187475" PointY="9.6814049707031238" />
           <ConnectorPoint PointX="3.7187475" PointY="11.375" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingContent_ListingUrl" >
@@ -2076,8 +2156,8 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserPreference" Width="1.5" PointX="3" PointY="15.375" Height="2.5783902994791674" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserPreference_aspnet_Membership" >
           <ConnectorPoint PointX="2.25" PointY="6.8422589909855764" />
-          <ConnectorPoint PointX="2.6875" PointY="7.2797589909855764" />
-          <ConnectorPoint PointX="2.6875" PointY="16.746368815104169" />
+          <ConnectorPoint PointX="2.75" PointY="7.3422589909855764" />
+          <ConnectorPoint PointX="2.75" PointY="16.746368815104169" />
           <ConnectorPoint PointX="3" PointY="16.746368815104169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.vw_aspnet_MembershipUsers" Width="1.5" PointX="7.375" PointY="10.75" Height="4.7149055989583388" />
@@ -2113,15 +2193,15 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserTemplate" Width="1.5" PointX="3" PointY="19.5" Height="2.4140429687500031" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership" >
           <ConnectorPoint PointX="2.2488461538461539" PointY="6.8653369140625" />
-          <ConnectorPoint PointX="2.71875" PointY="7.3352407602163456" />
-          <ConnectorPoint PointX="2.71875" PointY="20.707021484375" />
-          <ConnectorPoint PointX="3" PointY="20.707021484375" />
+          <ConnectorPoint PointX="2.671875" PointY="7.2883657602163456" />
+          <ConnectorPoint PointX="2.671875" PointY="20.871368815104169" />
+          <ConnectorPoint PointX="3" PointY="20.871368815104169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserFilter" Width="1.5" PointX="3" PointY="23.25" Height="3.2357796223958388" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership" >
-          <ConnectorPoint PointX="2.25" PointY="6.8595666832932682" />
-          <ConnectorPoint PointX="2.65625" PointY="7.2658166832932682" />
-          <ConnectorPoint PointX="2.65625" PointY="24.867889811197919" />
+          <ConnectorPoint PointX="2.2246153846153844" PointY="6.8653369140625" />
+          <ConnectorPoint PointX="2.71875" PointY="7.3594715294471147" />
+          <ConnectorPoint PointX="2.71875" PointY="24.867889811197919" />
           <ConnectorPoint PointX="3" PointY="24.867889811197919" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.BugReport" Width="1.5" PointX="5.375" PointY="3.75" Height="1.9210009765625031" />
@@ -2133,11 +2213,10 @@
           <ConnectorPoint PointX="13.625" PointY="5.8389794921875016" />
         </AssociationConnector>
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_CategoryLog_Log" >
-          <ConnectorPoint PointX="12.875" PointY="17.825063476562498" />
-          <ConnectorPoint PointX="14.53125" PointY="17.825063476562498" />
-          <ConnectorPoint PointX="14.53125" PointY="6.6316536458333388" />
+          <ConnectorPoint PointX="12.875" PointY="19.00539225260416" />
+          <ConnectorPoint PointX="15.03125" PointY="19.00539225260416" />
+          <ConnectorPoint PointX="15.03125" PointY="6.6316536458333388" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="10.375" PointY="7.75" Height="7.34446289062501" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_ListingUrl_City" >
           <ConnectorPoint PointX="7.09375" PointY="2.9996956380208331" />
           <ConnectorPoint PointX="7.09375" PointY="14.027466634114582" />
@@ -2146,13 +2225,27 @@
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserFile" Width="1.5" PointX="3" PointY="27.75" Height="2.414042968749996" />
         <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership" >
           <ConnectorPoint PointX="2.2003846153846158" PointY="6.8653369140625" />
-          <ConnectorPoint PointX="2.3473244349011213" PointY="7.0122767335790046" />
-          <ConnectorPoint PointX="2.4651755650988791" PointY="7.1301278637767629" />
+          <ConnectorPoint PointX="2.4566994349011213" PointY="7.1216517335790046" />
+          <ConnectorPoint PointX="2.5745505650988791" PointY="7.2395028637767629" />
           <ConnectorPoint PointX="2.625" PointY="7.2899522986778837" />
-          <ConnectorPoint PointX="2.625" PointY="28.957021484374998" />
-          <ConnectorPoint PointX="3" PointY="28.957021484374998" />
+          <ConnectorPoint PointX="2.625" PointY="29.121368815104169" />
+          <ConnectorPoint PointX="3" PointY="29.121368815104169" />
         </AssociationConnector>
         <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.SystemSetting" Width="1.5" PointX="12.375" PointY="7.75" Height="1.7566536458333246" />
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse" >
+          <ConnectorPoint PointX="4.5" PointY="29.121368815104169" />
+          <ConnectorPoint PointX="8.96875" PointY="29.121368815104169" />
+          <ConnectorPoint PointX="8.96875" PointY="10.03904296875" />
+        </AssociationConnector>
+        <AssociationConnector Association="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile" >
+          <ConnectorPoint PointX="3.0323066923076918" PointY="27.75" />
+          <ConnectorPoint PointX="2.65625" PointY="27.373943307692308" />
+          <ConnectorPoint PointX="2.65625" PointY="22.587640476362186" />
+          <ConnectorPoint PointX="2.6598244349011209" PointY="22.584066041461064" />
+          <ConnectorPoint PointX="2.7776755650988787" PointY="22.466214911263307" />
+          <ConnectorPoint PointX="3.0011528461538495" PointY="22.242737630208335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="Marketing.CraigslistScraperModel.UserListingData" Width="1.5" PointX="13.375" PointY="10.75" Height="7.6731575520833246" />
         </Diagram>
     </Diagrams>
   </Designer>

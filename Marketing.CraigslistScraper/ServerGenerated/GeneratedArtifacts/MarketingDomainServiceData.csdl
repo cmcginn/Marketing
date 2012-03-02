@@ -78,6 +78,7 @@
     <Property Name="PostDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="PostText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="IsHidden" Type="Boolean" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UserFileId" Type="Guid" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -88,6 +89,7 @@
     <Property Name="UserId" Type="Guid" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Created" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
     <Property Name="Response" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="UserFileId" Type="Guid" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="Operation">
     <Key>
@@ -119,6 +121,7 @@
     <Property Name="TemplateName" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="TemplateHtml" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
     <Property Name="TemplateText" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="UserFileId" Type="Guid" ConcurrencyMode="Fixed" />
   </EntityType>
   <EntityType Name="UserPostListFilterItem">
     <Key>

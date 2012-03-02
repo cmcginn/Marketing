@@ -1346,6 +1346,27 @@ namespace LightSwitchApplication.Implementation
         }
         private bool _IsHidden;
         
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return this._UserFileId;
+            }
+            set
+            {
+                if (this._UserFileId != value)
+                {
+                    this.RaiseDataMemberChanging("UserFileId");
+                    this.ValidateProperty("UserFileId", value);
+                    this._UserFileId = value;
+                    this.RaiseDataMemberChanged("UserFileId");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.Guid> _UserFileId;
+        
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
         
@@ -1496,6 +1517,27 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _Response;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return this._UserFileId;
+            }
+            set
+            {
+                if (this._UserFileId != value)
+                {
+                    this.RaiseDataMemberChanging("UserFileId");
+                    this.ValidateProperty("UserFileId", value);
+                    this._UserFileId = value;
+                    this.RaiseDataMemberChanged("UserFileId");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.Guid> _UserFileId;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;
@@ -1970,6 +2012,27 @@ namespace LightSwitchApplication.Implementation
             }
         }
         private string _TemplateText;
+        
+        [global::System.Runtime.Serialization.DataMember()]
+        [global::System.ComponentModel.DataAnnotations.RoundtripOriginal()]
+        public global::System.Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return this._UserFileId;
+            }
+            set
+            {
+                if (this._UserFileId != value)
+                {
+                    this.RaiseDataMemberChanging("UserFileId");
+                    this.ValidateProperty("UserFileId", value);
+                    this._UserFileId = value;
+                    this.RaiseDataMemberChanged("UserFileId");
+                }
+            }
+        }
+        private global::System.Nullable<global::System.Guid> _UserFileId;
         
         #region IEntityImplementation Members
         private global::Microsoft.LightSwitch.Internal.IEntityImplementationHost __host;

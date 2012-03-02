@@ -1614,6 +1614,7 @@ namespace LightSwitchApplication.Implementation
                 result.PostDate = userListingItem.PostDate;
                 result.PostText = userListingItem.PostText;
                 result.IsHidden = userListingItem.IsHidden;
+                result.UserFileId = userListingItem.UserFileId;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem userListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1625,6 +1626,7 @@ namespace LightSwitchApplication.Implementation
                 result.UserId = userListingResponseItem.UserId;
                 result.Created = userListingResponseItem.Created;
                 result.Response = userListingResponseItem.Response;
+                result.UserFileId = userListingResponseItem.UserFileId;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.Operation operation = outerEntity as global::MarketingDomainServiceData.Implementation.Operation;
@@ -1659,6 +1661,7 @@ namespace LightSwitchApplication.Implementation
                 result.TemplateName = userTemplateItem.TemplateName;
                 result.TemplateHtml = userTemplateItem.TemplateHtml;
                 result.TemplateText = userTemplateItem.TemplateText;
+                result.UserFileId = userTemplateItem.UserFileId;
                 return result;
             }
             global::MarketingDomainServiceData.Implementation.UserPostListFilterItem userPostListFilterItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserPostListFilterItem;
@@ -1826,6 +1829,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingItem.PostDate = innerUserListingItem.PostDate;
                 outerUserListingItem.PostText = innerUserListingItem.PostText;
                 outerUserListingItem.IsHidden = innerUserListingItem.IsHidden;
+                outerUserListingItem.UserFileId = innerUserListingItem.UserFileId;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserListingResponseItem outerUserListingResponseItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserListingResponseItem;
@@ -1837,6 +1841,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserListingResponseItem.UserId = innerUserListingResponseItem.UserId;
                 outerUserListingResponseItem.Created = innerUserListingResponseItem.Created;
                 outerUserListingResponseItem.Response = innerUserListingResponseItem.Response;
+                outerUserListingResponseItem.UserFileId = innerUserListingResponseItem.UserFileId;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.Operation outerOperation = outerEntity as global::MarketingDomainServiceData.Implementation.Operation;
@@ -1871,6 +1876,7 @@ namespace LightSwitchApplication.Implementation
                 outerUserTemplateItem.TemplateName = innerUserTemplateItem.TemplateName;
                 outerUserTemplateItem.TemplateHtml = innerUserTemplateItem.TemplateHtml;
                 outerUserTemplateItem.TemplateText = innerUserTemplateItem.TemplateText;
+                outerUserTemplateItem.UserFileId = innerUserTemplateItem.UserFileId;
                 return;
             }
             global::MarketingDomainServiceData.Implementation.UserPostListFilterItem outerUserPostListFilterItem = outerEntity as global::MarketingDomainServiceData.Implementation.UserPostListFilterItem;

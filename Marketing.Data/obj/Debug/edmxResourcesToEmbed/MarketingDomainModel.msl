@@ -142,6 +142,7 @@
     <EntitySetMapping Name="UserListingResponses">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingResponse">
         <MappingFragment StoreEntitySet="UserListingResponse">
+          <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
           <ScalarProperty Name="ResponseText" ColumnName="ResponseText" />
           <ScalarProperty Name="ResponseSent" ColumnName="ResponseSent" />
           <ScalarProperty Name="Created" ColumnName="Created" />
@@ -210,6 +211,7 @@
     <EntitySetMapping Name="UserTemplates">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserTemplate">
         <MappingFragment StoreEntitySet="UserTemplate">
+          <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
           <ScalarProperty Name="Updated" ColumnName="Updated" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="TemplateText" ColumnName="TemplateText" />
@@ -289,9 +291,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="UserFiles">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserFile">
+        <MappingFragment StoreEntitySet="UserFile">
+          <ScalarProperty Name="ByteCount" ColumnName="ByteCount" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="RawFile" ColumnName="RawFile" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SystemSettings">
+      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.SystemSetting">
+        <MappingFragment StoreEntitySet="SystemSetting">
+          <ScalarProperty Name="Updated" ColumnName="Updated" />
+          <ScalarProperty Name="Created" ColumnName="Created" />
+          <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+          <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="UserListingDatas">
       <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserListingData">
         <MappingFragment StoreEntitySet="UserListingData">
+          <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
           <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
           <ScalarProperty Name="KeywordDisplay" ColumnName="KeywordDisplay" />
           <ScalarProperty Name="KeywordScore" ColumnName="KeywordScore" />
@@ -332,31 +360,6 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="ListingUrlId" ColumnName="ListingUrlId" />
           <ScalarProperty Name="UserListingUrlId" ColumnName="UserListingUrlId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="UserFiles">
-      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.UserFile">
-        <MappingFragment StoreEntitySet="UserFile">
-          <ScalarProperty Name="ByteCount" ColumnName="ByteCount" />
-          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="RawFile" ColumnName="RawFile" />
-          <ScalarProperty Name="Extension" ColumnName="Extension" />
-          <ScalarProperty Name="Filename" ColumnName="Filename" />
-          <ScalarProperty Name="UserId" ColumnName="UserId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="SystemSettings">
-      <EntityTypeMapping TypeName="Marketing.CraigslistScraperModel.SystemSetting">
-        <MappingFragment StoreEntitySet="SystemSetting">
-          <ScalarProperty Name="Updated" ColumnName="Updated" />
-          <ScalarProperty Name="Created" ColumnName="Created" />
-          <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
-          <ScalarProperty Name="SettingName" ColumnName="SettingName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

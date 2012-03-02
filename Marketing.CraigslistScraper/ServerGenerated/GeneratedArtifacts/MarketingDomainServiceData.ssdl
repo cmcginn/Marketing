@@ -95,6 +95,7 @@
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="PostText" Type="nvarchar(max)" />
     <Property Name="IsHidden" Type="bit" Nullable="false" />
+    <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="UserListingResponseItem">
     <Key>
@@ -105,6 +106,7 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Response" Type="nvarchar(max)" />
+    <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="Operation">
     <Key>
@@ -136,6 +138,7 @@
     <Property Name="TemplateName" Type="nvarchar(max)" />
     <Property Name="TemplateHtml" Type="nvarchar(max)" />
     <Property Name="TemplateText" Type="nvarchar(max)" />
+    <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="UserPostListFilterItem">
     <Key>

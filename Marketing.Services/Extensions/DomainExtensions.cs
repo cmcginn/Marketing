@@ -95,7 +95,8 @@ namespace Marketing.Services.Extensions
                             ListingCategoryActive = userListingData.ListingCategoryActive,
                             KeywordScore = userListingData.KeywordScore,
                             KeywordDisplay = userListingData.KeywordDisplay,
-                            IsHidden = userListingData.IsHidden
+                            IsHidden = userListingData.IsHidden,
+                            UserFileId = userListingData.UserFileId
 
                         };
 
@@ -175,7 +176,8 @@ namespace Marketing.Services.Extensions
                             ListingCategoryActive = userListingData.ListingCategoryActive,
                             KeywordScore = userListingData.KeywordScore,
                             KeywordDisplay = userListingData.KeywordDisplay,
-                            IsHidden = userListingData.IsHidden
+                            IsHidden = userListingData.IsHidden,
+                            UserFileId = userListingData.UserFileId
                         };
 
             return query;
@@ -206,7 +208,8 @@ namespace Marketing.Services.Extensions
                             ListingCategoryActive = userListingData.ListingCategoryActive,
                             KeywordScore = userListingData.KeywordScore,
                             KeywordDisplay = userListingData.KeywordDisplay,
-                            IsHidden = userListingData.IsHidden
+                            IsHidden = userListingData.IsHidden,
+                            UserFileId = userListingData.UserFileId
                         };
             return query;
         }
@@ -219,7 +222,8 @@ namespace Marketing.Services.Extensions
                             Created = userListingResponse.Created,
                             UserId = userListingResponse.UserListingUrl.UserId,
                             UserListingUrlId = userListingResponse.UserListingUrlId,
-                            Response = userListingResponse.Response
+                            Response = userListingResponse.Response,
+                            UserFileId = userListingResponse.UserFileId
                         };
             return query;
         }
@@ -234,7 +238,8 @@ namespace Marketing.Services.Extensions
                 TemplateHtml = n.TemplateHtml,
                 TemplateText = n.TemplateText,
                 TemplateName = n.TemplateName,
-                UserId = n.UserId
+                UserId = n.UserId,
+                UserFileId = n.UserFileId
             });
             return result;
         }
@@ -279,7 +284,8 @@ namespace Marketing.Services.Extensions
                 TemplateHtml = userTemplateItem.TemplateHtml.NormalizeHtml(),
                 TemplateText = userTemplateItem.TemplateText,
                 TemplateName = userTemplateItem.TemplateName,
-                IsDefault = userTemplateItem.IsDefault
+                IsDefault = userTemplateItem.IsDefault,
+                UserFileId = userTemplateItem.UserFileId
 
             };
             context.SetDefaultUserTemplateItems(template);
@@ -293,6 +299,7 @@ namespace Marketing.Services.Extensions
             template.TemplateHtml = userTemplateItem.TemplateHtml.NormalizeHtml();
             template.TemplateText = userTemplateItem.TemplateText;
             template.TemplateName = userTemplateItem.TemplateName;
+            template.UserFileId = userTemplateItem.UserFileId;
             template.IsDefault = userTemplateItem.IsDefault;
             template.Updated = System.DateTime.Now;
             context.SetDefaultUserTemplateItems(template);
@@ -326,7 +333,7 @@ namespace Marketing.Services.Extensions
                 };
                 context.UserListingResponses.AddObject(result);
             }
-
+            result.UserFileId = item.UserFileId;
             result.Response = responseElement;
             result.ResponseText = item.ResponseText;
             context.SaveChanges();
@@ -461,7 +468,8 @@ namespace Marketing.Services.Extensions
                 ListingCategoryActive = userListingData.ListingCategoryActive,
                 PostDate = userListingData.PostDate,
                 PostText = userListingData.PostContent,
-                IsHidden = userListingData.IsHidden
+                IsHidden = userListingData.IsHidden,
+                UserFileId = userListingData.UserFileId
             };
             return result;
         }
@@ -677,6 +685,13 @@ namespace Marketing.Services.Extensions
                     SettingValue = n.SettingValue
                 });
             return result;
+        }
+        public static void DeleteUserFile(this MarketingEntities context,UserFile userFile)
+        {
+
+            var item = context.UserFiles.Single(n => n.Id == userFile.Id);
+            item.Deleted = System.DateTime.Now;
+            context.SaveChanges();
         }
     }
 }

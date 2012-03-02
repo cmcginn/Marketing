@@ -82,6 +82,7 @@
           <ScalarProperty Name="PostDate" ColumnName="PostDate" />
           <ScalarProperty Name="PostText" ColumnName="PostText" />
           <ScalarProperty Name="IsHidden" ColumnName="IsHidden" />
+          <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -93,6 +94,7 @@
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="Created" ColumnName="Created" />
           <ScalarProperty Name="Response" ColumnName="Response" />
+          <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -127,6 +129,7 @@
           <ScalarProperty Name="TemplateName" ColumnName="TemplateName" />
           <ScalarProperty Name="TemplateHtml" ColumnName="TemplateHtml" />
           <ScalarProperty Name="TemplateText" ColumnName="TemplateText" />
+          <ScalarProperty Name="UserFileId" ColumnName="UserFileId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

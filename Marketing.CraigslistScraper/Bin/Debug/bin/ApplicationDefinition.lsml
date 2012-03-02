@@ -1763,7 +1763,8 @@
     </QueryOperation>
     <EntitySet EntityType="UserFile"
                Name="UserFiles"
-               CanInsert="True" />
+               CanInsert="True"
+               CanDelete="True" />
   
     <QueryOperation Name="UserFiles_Single"
                     ReturnType="UserFile">
@@ -2803,6 +2804,12 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty Name="UserFileId"
+                      PropertyType=":Guid?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -3813,6 +3820,12 @@
       </EntityProperty>
       <EntityProperty Name="Response"
                       PropertyType=":String?" />
+      <EntityProperty Name="UserFileId"
+                      PropertyType=":Guid?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   
@@ -4273,6 +4286,12 @@
                       PropertyType=":String?" />
       <EntityProperty Name="TemplateText"
                       PropertyType=":String?" />
+      <EntityProperty Name="UserFileId"
+                      PropertyType=":Guid?">
+        <EntityProperty.Attributes>
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -4330,6 +4349,30 @@
           <IsParameter />
         </ScreenProperty.Attributes>
       </ScreenProperty>
+      <ScreenCollectionProperty Name="GetUserFilesByUserId"
+                                PageSize="45"
+                                PropertyType="CollectionView$UserFile">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition Name="GetUserFilesByUserIdQuery"
+                                 ReturnType="UserFile*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression Member="MarketingDomainServiceData/Members[GetUserFilesByUserId]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression Target="UserTemplateDetail/Properties[GetUserFilesByUserId]/Query">
+              <ArgumentExpression Parameter="userId" />
+            </CallExpression>
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
     <Screen.RootContentItem>
       <ContentItem Kind="Screen"
@@ -5825,6 +5868,39 @@
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
             </ContentItem>
+            <ContentItem DataType=":Guid?"
+                         Kind="Value"
+                         Name="UserFileId"
+                         View=":ValueCustomContentControl">
+              <ContentItem.Attributes>
+                <DisplayName Value="Attachment" />
+              </ContentItem.Attributes>
+              <ContentItem.PropertySources>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootCustomContentControl/Properties[CustomControl]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":String"
+                                          Value="System.Windows.Controls.ComboBox, System.Windows" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+                <ControlPropertySource Property="Microsoft.LightSwitch:RootControl/Properties[MinWidth]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <ConstantExpression ResultType=":Double"
+                                          Value="400" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression Member="UserTemplateItem/Properties[UserFileId]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
             <ContentItem DataType=":String?"
                          Kind="Value"
                          Name="TemplateHtml"
@@ -5879,7 +5955,8 @@
             </ContentItem>
             <ContentItem DataType=":String?"
                          Kind="Value"
-                         Name="TemplateHtml1">
+                         Name="TemplateHtml1"
+                         IsHidden="True">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -6735,7 +6812,6 @@
                       PropertyType=":String?" />
     </EntityType.Properties>
   </EntityType>
-
   <DataService DataProvider="CustomDataProvider"
                EntityContainer="MarketingDomainServiceData"
                Name="MarketingDomainServiceDataDataService">
@@ -6945,6 +7021,8 @@
                         Property="UserListingItem/Properties[PostText]" />
         <WcfRiaProperty Name="IsHidden"
                         Property="UserListingItem/Properties[IsHidden]" />
+        <WcfRiaProperty Name="UserFileId"
+                        Property="UserListingItem/Properties[UserFileId]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <QueryOperationMapping Operation="GetFilteredUserListingItems">
@@ -6997,6 +7075,8 @@
                         Property="UserListingResponseItem/Properties[Created]" />
         <WcfRiaProperty Name="Response"
                         Property="UserListingResponseItem/Properties[Response]" />
+        <WcfRiaProperty Name="UserFileId"
+                        Property="UserListingResponseItem/Properties[UserFileId]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <EntitySetMapping EntitySet="Operations">
@@ -7037,6 +7117,8 @@
                         Property="UserTemplateItem/Properties[TemplateText]" />
         <WcfRiaProperty Name="TemplateName"
                         Property="UserTemplateItem/Properties[TemplateName]" />
+        <WcfRiaProperty Name="UserFileId"
+                        Property="UserTemplateItem/Properties[UserFileId]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
     <QueryOperationMapping Operation="GetUserTemplateItemById">
@@ -7150,6 +7232,11 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+
+  
+
+
+  
 
 
 

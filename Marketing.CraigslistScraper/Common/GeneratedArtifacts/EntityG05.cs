@@ -696,6 +696,30 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void IsHidden_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserListingItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.UserFileId);
+            }
+            set
+            {
+                global::LightSwitchApplication.UserListingItem.DetailsClass.SetValue(this, global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.UserFileId, value);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserFileId_IsReadOnly(ref bool result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserFileId_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserFileId_Changed();
+
         #endregion
     
         #region Details Class
@@ -986,6 +1010,14 @@ namespace LightSwitchApplication
                     }
                 }
                 
+                public global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<global::System.Guid>> UserFileId
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties.UserFileId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<global::System.Guid>>;
+                    }
+                }
+                
             }
     
             #pragma warning disable 109
@@ -1017,6 +1049,7 @@ namespace LightSwitchApplication
                 new global::System.DateTime PostDate { get; set; }
                 new string PostText { get; set; }
                 new bool IsHidden { get; set; }
+                new global::System.Nullable<global::System.Guid> UserFileId { get; set; }
             }
             #pragma warning restore 109
     
@@ -1973,6 +2006,43 @@ namespace LightSwitchApplication
                     e.IsHidden_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<global::System.Guid>>.Entry
+                    UserFileId = new global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<global::System.Guid>>.Entry(
+                        "UserFileId",
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UserFileId_Stub,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UserFileId_ComputeIsReadOnly,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UserFileId_Validate,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UserFileId_GetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UserFileId_SetImplementationValue,
+                        global::LightSwitchApplication.UserListingItem.DetailsClass.PropertySetProperties._UserFileId_OnValueChanged);
+                private static void _UserFileId_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserListingItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<global::System.Guid>>.Data> c, global::LightSwitchApplication.UserListingItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._UserFileId, sf);
+                }
+                private static bool _UserFileId_ComputeIsReadOnly(global::LightSwitchApplication.UserListingItem e)
+                {
+                    bool result = false;
+                    e.UserFileId_IsReadOnly(ref result);
+                    return result;
+                }
+                private static void _UserFileId_Validate(global::LightSwitchApplication.UserListingItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.UserFileId_Validate(r);
+                }
+                private static global::System.Nullable<global::System.Guid> _UserFileId_GetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d)
+                {
+                    return d.ImplementationEntity.UserFileId;
+                }
+                private static void _UserFileId_SetImplementationValue(global::LightSwitchApplication.UserListingItem.DetailsClass d, global::System.Nullable<global::System.Guid> v)
+                {
+                    d.ImplementationEntity.UserFileId = v;
+                }
+                private static void _UserFileId_OnValueChanged(global::LightSwitchApplication.UserListingItem e)
+                {
+                    e.UserFileId_Changed();
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -2052,6 +2122,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, bool>.Data _IsHidden;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserListingItem, global::LightSwitchApplication.UserListingItem.DetailsClass, global::System.Nullable<global::System.Guid>>.Data _UserFileId;
             
         }
     

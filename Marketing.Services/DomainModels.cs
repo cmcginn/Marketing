@@ -83,6 +83,7 @@ namespace Marketing.Services {
     public DateTime PostDate { get; set; }
     public string PostText { get; set; }
     public bool IsHidden { get; set; }
+    public Guid? UserFileId { get; set; }
    
   }
   public class UserListingResponseItem {
@@ -92,6 +93,7 @@ namespace Marketing.Services {
     public Guid UserId { get; set; }
     public DateTime Created { get; set; }
     public string Response { get; set; }
+    public Guid? UserFileId { get; set; }
     
   }
   public class Operation {
@@ -114,6 +116,7 @@ namespace Marketing.Services {
     public string TemplateHtml { get; set; }
     public string TemplateText { get; set; }
     public string TemplateName { get; set; }
+    public Guid? UserFileId { get; set; }
   }
   public class UserPostListFilterItem
   {

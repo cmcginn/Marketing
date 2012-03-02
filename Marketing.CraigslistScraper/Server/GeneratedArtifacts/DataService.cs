@@ -294,6 +294,9 @@ namespace LightSwitchApplication
         partial void UserFiles_CanInsert(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserFiles_CanDelete(ref bool result);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserFiles_CanRead(ref bool result);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -301,6 +304,12 @@ namespace LightSwitchApplication
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserFiles_Inserted(global::LightSwitchApplication.UserFile entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserFiles_Deleting(global::LightSwitchApplication.UserFile entity);
+    
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void UserFiles_Deleted(global::LightSwitchApplication.UserFile entity);
     
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserFiles_Validate(global::LightSwitchApplication.UserFile entity, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder results);
@@ -1819,19 +1828,25 @@ namespace LightSwitchApplication
                     "UserFiles",
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_CanInsert,
                     null,
-                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_CanDelete,
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_CanRead,
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_Inserting,
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_Inserted,
                     null,
                     null,
-                    null,
-                    null,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_Deleting,
+                    global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_Deleted,
                     global::LightSwitchApplication.MarketingDomainServiceDataService.DetailsClass.__UserFiles_Validate);
             private static bool __UserFiles_CanInsert(global::LightSwitchApplication.MarketingDomainServiceDataService d)
             {
                 bool result = true;
                 d.UserFiles_CanInsert(ref result);
+                return result;
+            }
+            private static bool __UserFiles_CanDelete(global::LightSwitchApplication.MarketingDomainServiceDataService d)
+            {
+                bool result = true;
+                d.UserFiles_CanDelete(ref result);
                 return result;
             }
             private static bool __UserFiles_CanRead(global::LightSwitchApplication.MarketingDomainServiceDataService d)
@@ -1847,6 +1862,14 @@ namespace LightSwitchApplication
             private static void __UserFiles_Inserted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserFile e)
             {
                 d.UserFiles_Inserted(e);
+            }
+            private static void __UserFiles_Deleting(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserFile e)
+            {
+                d.UserFiles_Deleting(e);
+            }
+            private static void __UserFiles_Deleted(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserFile e)
+            {
+                d.UserFiles_Deleted(e);
             }
             private static void __UserFiles_Validate(global::LightSwitchApplication.MarketingDomainServiceDataService d, global::LightSwitchApplication.UserFile e, global::Microsoft.LightSwitch.EntitySetValidationResultsBuilder r)
             {

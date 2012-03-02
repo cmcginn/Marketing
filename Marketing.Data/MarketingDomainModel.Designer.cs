@@ -38,6 +38,8 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_CategoryLog_Log", "Log", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.Log), "CategoryLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CategoryLog), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingUrl_City", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City), "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserFile), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingResponse", "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Marketing.Data.UserFile), "UserListingResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingResponse), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_UserFile", "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Marketing.Data.UserFile), "UserTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserTemplate), true)]
 
 #endregion
 
@@ -428,22 +430,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserListingData> UserListingDatas
-        {
-            get
-            {
-                if ((_UserListingDatas == null))
-                {
-                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
-                }
-                return _UserListingDatas;
-            }
-        }
-        private ObjectSet<UserListingData> _UserListingDatas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<UserFile> UserFiles
         {
             get
@@ -472,6 +458,22 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<SystemSetting> _SystemSettings;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UserListingData> UserListingDatas
+        {
+            get
+            {
+                if ((_UserListingDatas == null))
+                {
+                    _UserListingDatas = base.CreateObjectSet<UserListingData>("UserListingDatas");
+                }
+                return _UserListingDatas;
+            }
+        }
+        private ObjectSet<UserListingData> _UserListingDatas;
 
         #endregion
         #region AddTo Methods
@@ -645,14 +647,6 @@ namespace Marketing.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserListingDatas(UserListingData userListingData)
-        {
-            base.AddObject("UserListingDatas", userListingData);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the UserFiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUserFiles(UserFile userFile)
@@ -666,6 +660,14 @@ namespace Marketing.Data
         public void AddToSystemSettings(SystemSetting systemSetting)
         {
             base.AddObject("SystemSettings", systemSetting);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingDatas(UserListingData userListingData)
+        {
+            base.AddObject("UserListingDatas", userListingData);
         }
 
         #endregion
@@ -4180,6 +4182,50 @@ namespace Marketing.Data
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingResponse", "UserListingResponse")]
+        public EntityCollection<UserListingResponse> UserListingResponses
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingResponse>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse", "UserListingResponse");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingResponse>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse", "UserListingResponse", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_UserFile", "UserTemplate")]
+        public EntityCollection<UserTemplate> UserTemplates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserTemplate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserTemplate", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -6088,6 +6134,30 @@ namespace Marketing.Data
         private global::System.Boolean _IsHidden;
         partial void OnIsHiddenChanging(global::System.Boolean value);
         partial void OnIsHiddenChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
 
         #endregion
     
@@ -6678,6 +6748,30 @@ namespace Marketing.Data
         private global::System.String _ResponseText;
         partial void OnResponseTextChanging(global::System.String value);
         partial void OnResponseTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
 
         #endregion
     
@@ -6717,6 +6811,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl", "UserListingUrl", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingResponse", "UserFile")]
+        public UserFile UserFile
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse", "UserFile").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse", "UserFile").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserFile> UserFileReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse", "UserFile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse", "UserFile", value);
                 }
             }
         }
@@ -7560,6 +7692,30 @@ namespace Marketing.Data
         private Nullable<global::System.DateTime> _Updated;
         partial void OnUpdatedChanging(Nullable<global::System.DateTime> value);
         partial void OnUpdatedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
 
         #endregion
     
@@ -7599,6 +7755,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_UserFile", "UserFile")]
+        public UserFile UserFile
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserFile").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserFile").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<UserFile> UserFileReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserFile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserFile", value);
                 }
             }
         }

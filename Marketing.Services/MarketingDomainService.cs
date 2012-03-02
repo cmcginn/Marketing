@@ -293,6 +293,10 @@ namespace Marketing.Services {
     {
         Context.InsertUserFile(userFile);
     }
+    public void DeleteUserFile(UserFile userFile)
+    {
+        Context.DeleteUserFile(userFile);
+    }
     #endregion
 
 

@@ -94,7 +94,6 @@
       <End Role="Log" EntitySet="Logs" />
       <End Role="CategoryLog" EntitySet="CategoryLogs" />
     </AssociationSet>
-    <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
     <AssociationSet Name="FK_ListingUrl_City" Association="Marketing.CraigslistScraperModel.FK_ListingUrl_City">
       <End Role="City" EntitySet="Cities" />
       <End Role="ListingUrl" EntitySet="ListingUrls" />
@@ -105,6 +104,15 @@
       <End Role="UserFile" EntitySet="UserFiles" />
     </AssociationSet>
     <EntitySet Name="SystemSettings" EntityType="Marketing.CraigslistScraperModel.SystemSetting" />
+    <AssociationSet Name="FK_UserListingResponse_UserListingResponse" Association="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse">
+      <End Role="UserFile" EntitySet="UserFiles" />
+      <End Role="UserListingResponse" EntitySet="UserListingResponses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTemplate_UserFile" Association="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile">
+      <End Role="UserFile" EntitySet="UserFiles" />
+      <End Role="UserTemplate" EntitySet="UserTemplates" />
+    </AssociationSet>
+    <EntitySet Name="UserListingDatas" EntityType="Marketing.CraigslistScraperModel.UserListingData" />
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -397,6 +405,8 @@
     <Property Type="DateTime" Name="ResponseSent" />
     <NavigationProperty Name="UserListingUrl" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingUrl" FromRole="UserListingResponse" ToRole="UserListingUrl" />
     <Property Type="String" Name="ResponseText" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Guid" Name="UserFileId" />
+    <NavigationProperty Name="UserFile" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse" FromRole="UserListingResponse" ToRole="UserFile" />
   </EntityType>
   <Association Name="FK_UserListingResponse_UserListingUrl">
     <End Type="Marketing.CraigslistScraperModel.UserListingUrl" Role="UserListingUrl" Multiplicity="1" />
@@ -530,6 +540,8 @@
     <Property Type="DateTime" Name="Created" Nullable="false" />
     <Property Type="DateTime" Name="Updated" />
     <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership" FromRole="UserTemplate" ToRole="aspnet_Membership" />
+    <Property Type="Guid" Name="UserFileId" />
+    <NavigationProperty Name="UserFile" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile" FromRole="UserTemplate" ToRole="UserFile" />
   </EntityType>
   <Association Name="FK_UserTemplate_aspnet_Membership">
     <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
@@ -647,6 +659,80 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ListingUrl_City">
+    <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
+    <End Type="Marketing.CraigslistScraperModel.ListingUrl" Role="ListingUrl" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ListingUrl">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Filename" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Extension" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Type="Binary" Name="RawFile" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Type="DateTime" Name="Created" Nullable="false" />
+    <Property Type="DateTime" Name="Deleted" />
+    <Property Type="Int64" Name="ByteCount" Nullable="false" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership" FromRole="UserFile" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="UserListingResponses" Relationship="Marketing.CraigslistScraperModel.FK_UserListingResponse_UserListingResponse" FromRole="UserFile" ToRole="UserListingResponse" />
+    <NavigationProperty Name="UserTemplates" Relationship="Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile" FromRole="UserFile" ToRole="UserTemplate" />
+  </EntityType>
+  <Association Name="FK_UserFile_aspnet_Membership">
+    <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
+    <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="SettingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SettingValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Created" Nullable="false" />
+    <Property Type="DateTime" Name="Updated" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_UserListingResponse_UserListingResponse">
+    <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="0..1" />
+    <End Type="Marketing.CraigslistScraperModel.UserListingResponse" Role="UserListingResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserListingResponse">
+        <PropertyRef Name="UserFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTemplate_UserFile">
+    <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="0..1" />
+    <End Type="Marketing.CraigslistScraperModel.UserTemplate" Role="UserTemplate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTemplate">
+        <PropertyRef Name="UserFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="UserListingData">
     <Key>
       <PropertyRef Name="UserListingUrlId" />
@@ -719,53 +805,6 @@
     <Property Type="Int32" Name="KeywordScore" />
     <Property Type="String" Name="KeywordDisplay" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="IsHidden" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_ListingUrl_City">
-    <End Type="Marketing.CraigslistScraperModel.City" Role="City" Multiplicity="1" />
-    <End Type="Marketing.CraigslistScraperModel.ListingUrl" Role="ListingUrl" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="City">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ListingUrl">
-        <PropertyRef Name="CityId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="UserFile">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Guid" Name="Id" Nullable="false" />
-    <Property Type="Guid" Name="UserId" Nullable="false" />
-    <Property Type="String" Name="Filename" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Extension" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Type="Binary" Name="RawFile" Nullable="false" MaxLength="Max" FixedLength="false" />
-    <Property Type="DateTime" Name="Created" Nullable="false" />
-    <Property Type="DateTime" Name="Deleted" />
-    <Property Type="Int64" Name="ByteCount" Nullable="false" />
-    <NavigationProperty Name="aspnet_Membership" Relationship="Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership" FromRole="UserFile" ToRole="aspnet_Membership" />
-  </EntityType>
-  <Association Name="FK_UserFile_aspnet_Membership">
-    <End Type="Marketing.CraigslistScraperModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="1" />
-    <End Type="Marketing.CraigslistScraperModel.UserFile" Role="UserFile" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="aspnet_Membership">
-        <PropertyRef Name="UserId" />
-      </Principal>
-      <Dependent Role="UserFile">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="SystemSetting">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Guid" Name="Id" Nullable="false" />
-    <Property Type="String" Name="SettingName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="SettingValue" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="Created" Nullable="false" />
-    <Property Type="DateTime" Name="Updated" Nullable="false" />
+    <Property Type="Guid" Name="UserFileId" />
   </EntityType>
 </Schema>

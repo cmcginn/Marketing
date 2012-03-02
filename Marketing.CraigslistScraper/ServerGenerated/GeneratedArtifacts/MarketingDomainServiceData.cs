@@ -2739,6 +2739,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.Boolean _IsHidden;
         partial void OnIsHiddenChanging(global::System.Boolean value);
         partial void OnIsHiddenChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
 
         #endregion
     
@@ -2896,6 +2920,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _Response;
         partial void OnResponseChanging(global::System.String value);
         partial void OnResponseChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
 
         #endregion
     
@@ -3757,6 +3805,30 @@ namespace MarketingDomainServiceData.Implementation
         private global::System.String _TemplateText;
         partial void OnTemplateTextChanging(global::System.String value);
         partial void OnTemplateTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
 
         #endregion
     
