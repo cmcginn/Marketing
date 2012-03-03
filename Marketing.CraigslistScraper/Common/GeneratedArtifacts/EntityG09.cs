@@ -294,6 +294,24 @@ namespace LightSwitchApplication
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void UserFileId_Changed();
 
+        /// <summary>
+        /// No Modeled Description Available
+        /// </summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string AttachmentName
+        {
+            get
+            {
+                return global::LightSwitchApplication.UserTemplateItem.DetailsClass.GetValue(this, global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.AttachmentName);
+            }
+        }
+        
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void AttachmentName_Compute(ref string result);
+        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
+        partial void AttachmentName_Validate(global::Microsoft.LightSwitch.EntityValidationResultsBuilder results);
+
         #endregion
     
         #region Details Class
@@ -445,6 +463,14 @@ namespace LightSwitchApplication
                     get
                     {
                         return base.GetItem(global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.UserFileId) as global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, global::System.Nullable<global::System.Guid>>;
+                    }
+                }
+                
+                public global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string> AttachmentName
+                {
+                    get
+                    {
+                        return base.GetItem(global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties.AttachmentName) as global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>;
                     }
                 }
                 
@@ -805,6 +831,28 @@ namespace LightSwitchApplication
                     e.UserFileId_Changed();
                 }
     
+                [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+                public static readonly global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry
+                    AttachmentName = new global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Entry(
+                        "AttachmentName",
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._AttachmentName_Stub,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._AttachmentName_Validate,
+                        global::LightSwitchApplication.UserTemplateItem.DetailsClass.PropertySetProperties._AttachmentName_ComputeValue);
+                private static void _AttachmentName_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.UserTemplateItem.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data> c, global::LightSwitchApplication.UserTemplateItem.DetailsClass d, object sf)
+                {
+                    c(d, ref d._AttachmentName, sf);
+                }
+                private static void _AttachmentName_Validate(global::LightSwitchApplication.UserTemplateItem e, global::Microsoft.LightSwitch.EntityValidationResultsBuilder r)
+                {
+                    e.AttachmentName_Validate(r);
+                }
+                private static string _AttachmentName_ComputeValue(global::LightSwitchApplication.UserTemplateItem e)
+                {
+                    string value = default(string);
+                    e.AttachmentName_Compute(ref value);
+                    return value;
+                }
+    
             }
     
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
@@ -833,6 +881,9 @@ namespace LightSwitchApplication
             
             [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
             private global::Microsoft.LightSwitch.Details.Framework.EntityStorageProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, global::System.Nullable<global::System.Guid>>.Data _UserFileId;
+            
+            [global::System.Diagnostics.DebuggerBrowsable(global::System.Diagnostics.DebuggerBrowsableState.Never)]
+            private global::Microsoft.LightSwitch.Details.Framework.EntityComputedProperty<global::LightSwitchApplication.UserTemplateItem, global::LightSwitchApplication.UserTemplateItem.DetailsClass, string>.Data _AttachmentName;
             
         }
     

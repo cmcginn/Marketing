@@ -4292,6 +4292,15 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <EntityProperty IsReadOnly="True"
+                      Name="AttachmentName"
+                      PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
 
@@ -5388,6 +5397,20 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression Member="UserTemplateItem/Properties[TemplateName]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem DataType=":String"
+                           Kind="Value"
+                           Name="AttachmentName">
+                <ContentItem.Attributes>
+                  <DisplayName Value="Attachment" />
+                </ContentItem.Attributes>
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression Member="UserTemplateItem/Properties[AttachmentName]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>

@@ -40,9 +40,12 @@ namespace LightSwitchApplication
         
         partial void TemplateEdit_Saving(ref bool handled)
         {
-  
+
             if (_selectedAttachmentId != Guid.Empty)
                 this.UserTemplateItem.UserFileId = _selectedAttachmentId;
+            else
+                this.UserTemplateItem.UserFileId = null;
+
             this.UserTemplateItem.TemplateHtml = _TemplateEditor.TemplateHtml;
             this.UserTemplateItem.TemplateText = _TemplateEditor.TemplateText;
             this.UserTemplateItem.LastUpdated = System.DateTime.Now;
@@ -59,6 +62,7 @@ namespace LightSwitchApplication
         {
 
             _UserFileId = e.Control as System.Windows.Controls.ComboBox;
+            _UserFiles.Add(Guid.Empty, "<None>");
             _UserFileId.ItemsSource = _UserFiles;
             _UserFileId.DisplayMemberPath = "Value";
             _UserFileId.SelectedValuePath = "Key";

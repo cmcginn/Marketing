@@ -48,5 +48,3 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\Marketing.Wo
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\Marketing.WorkflowActivities.pdb
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\RefreshUserKeywordScoresActivity.g.xaml
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\RefreshUserKeywordScoresActivity.g.cs
-C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.dll
-C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Debug\_XamlTemporaryAssembly_.pdb

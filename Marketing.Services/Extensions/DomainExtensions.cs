@@ -362,9 +362,10 @@ namespace Marketing.Services.Extensions
       };
             return result.AsQueryable();
         }
-        public static System.Net.Mail.MailMessage GetMailMessage(this UserListingResponse item)
+        public static System.Net.Mail.MailMessage GetMailMessage(this MarketingEntities context, UserListingResponse item)
         {
             var userPreference = item.UserListingUrl.aspnet_Membership.UserPreferences.Single(x => x.UserId == item.UserListingUrl.UserId);
+           
             System.Net.Mail.MailMessage result = null;
             var uri = new Uri(item.UserListingUrl.ListingUrl.ListingContents.First().ReplyTo);
             var nvc = System.Web.HttpUtility.ParseQueryString(uri.Query);
@@ -382,6 +383,15 @@ namespace Marketing.Services.Extensions
             result = new MailMessage(fromAddress, address, subject, body);
             result.IsBodyHtml = false;
             result.Bcc.Add(fromAddress);
+            if (item.UserFileId.HasValue && item.UserFileId.Value != Guid.Empty)
+            {
+
+                var userFile = context.UserFiles.Single(n => n.Id == item.UserFileId.Value);
+                var memoryStream = new System.IO.MemoryStream(userFile.RawFile);
+                var attachment = new Attachment(memoryStream, userFile.Filename);
+                result.Attachments.Add(attachment);
+
+            }
             //result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.Response, null, "text/html"));
             result.AlternateViews.Add(System.Net.Mail.AlternateView.CreateAlternateViewFromString(item.ResponseText, null, "text/plain"));
             return result;
@@ -389,7 +399,7 @@ namespace Marketing.Services.Extensions
         public static bool SendUserListingResponse(this MarketingEntities context, UserListingResponse response)
         {
             bool result = false;
-            var mailMessage = response.GetMailMessage();
+            var mailMessage = context.GetMailMessage(response);
             var userPreferences = response.UserListingUrl.aspnet_Membership.UserPreferences.First();
             var client = new System.Net.Mail.SmtpClient(userPreferences.SMTPServer, userPreferences.SMTPPort);
             client.Credentials = new System.Net.NetworkCredential(userPreferences.SMTPUser, userPreferences.SMTPPassword);
@@ -477,6 +487,7 @@ namespace Marketing.Services.Extensions
         {
             var template = context.UserTemplates.Single(n => n.UserId == userListingItem.UserId && n.IsDefault);
             userListingItem.Response = XElement.Parse(template.TemplateHtml).ToString();
+            userListingItem.UserFileId = template.UserFileId;
             userListingItem.ResponseText = template.TemplateText;
         }
         static UserFilter InsertDefaultUserFilterListItem(this MarketingEntities context, Guid userId)
