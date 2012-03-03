@@ -658,7 +658,7 @@ namespace Marketing.Services.Extensions
         }
         public static void InsertUserFile(this MarketingEntities context, UserFile userFile)
         {
-            if (context.UserFiles.Where(n => n.Filename.ToLower() == userFile.Filename.ToLower() && n.UserId == userFile.UserId).Count() > 0)
+            if (context.UserFiles.Where(n => n.Filename.ToLower() == userFile.Filename.ToLower() && n.UserId == userFile.UserId &! n.Deleted.HasValue).Count() > 0)
                 throw new System.ArgumentException(String.Format("A file named {0} already exists. Filenames must be unique", userFile.Filename));
             var item = new Marketing.Data.UserFile
             {

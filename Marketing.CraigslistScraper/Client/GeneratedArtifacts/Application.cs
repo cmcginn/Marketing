@@ -94,21 +94,6 @@ namespace LightSwitchApplication
         }
         
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserTemplateDetail_CanRun(ref bool result, global::System.Guid UserTemplateItemId);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void UserTemplateDetail_Run(ref bool handled, global::System.Guid UserTemplateItemId);
-    
-        /// <summary>
-        /// Opens the ShowUserTemplateDetail screen.  If the screen is already opened, it is activated and shown.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public void ShowUserTemplateDetail(global::System.Guid UserTemplateItemId)
-        {
-            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowUserTemplateDetail, UserTemplateItemId);
-        }
-        
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void BugReports_CanRun(ref bool result);
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         partial void BugReports_Run(ref bool handled);
@@ -198,21 +183,6 @@ namespace LightSwitchApplication
             ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowSearchErrors);
         }
         
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void AddUserFile_CanRun(ref bool result, global::System.Guid UserFileId);
-        [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        partial void AddUserFile_Run(ref bool handled, global::System.Guid UserFileId);
-    
-        /// <summary>
-        /// Opens the ShowAddUserFile screen.  If the screen is already opened, it is activated and shown.
-        /// </summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public void ShowAddUserFile(global::System.Guid UserFileId)
-        {
-            ((global::Microsoft.LightSwitch.Details.Client.IClientApplicationDetails)this.Details).InvokeMethod(this.Details.Methods.ShowAddUserFile, UserFileId);
-        }
-        
         [global::System.ComponentModel.EditorBrowsable(global::System.ComponentModel.EditorBrowsableState.Never)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.LightSwitch.BuildTasks.CodeGen", "10.0.0.0")]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -280,8 +250,6 @@ namespace LightSwitchApplication
                         return global::LightSwitchApplication.Workflows.CreateInstance();
                     case "RunWorkflow":
                         return global::LightSwitchApplication.RunWorkflow.CreateInstance((int)args[0]);
-                    case "UserTemplateDetail":
-                        return global::LightSwitchApplication.UserTemplateDetail.CreateInstance((global::System.Guid)args[0]);
                     case "BugReports":
                         return global::LightSwitchApplication.BugReports.CreateInstance();
                     case "GetUserListingItemByIdDetail":
@@ -294,8 +262,6 @@ namespace LightSwitchApplication
                         return global::LightSwitchApplication.CreateNewTemplate.CreateInstance();
                     case "SearchErrors":
                         return global::LightSwitchApplication.SearchErrors.CreateInstance();
-                    case "AddUserFile":
-                        return global::LightSwitchApplication.AddUserFile.CreateInstance((global::System.Guid)args[0]);
                 }
             
                 return base.CreateScreen(screenName, args);
@@ -425,15 +391,6 @@ namespace LightSwitchApplication
                     }
                 }
 
-                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowUserTemplateDetail
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
-                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowUserTemplateDetail);
-                    }
-                }
-
                 public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowBugReports
                 {
                     get
@@ -485,15 +442,6 @@ namespace LightSwitchApplication
                     {
                         return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
                                base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowSearchErrors);
-                    }
-                }
-
-                public global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass> ShowAddUserFile
-                {
-                    get
-                    {
-                        return (global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>)
-                               base.GetItem(global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties.ShowAddUserFile);
                     }
                 }
 
@@ -724,32 +672,6 @@ namespace LightSwitchApplication
                 }
  
                 public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
-                    ShowUserTemplateDetail = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
-                        "ShowUserTemplateDetail",
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserTemplateDetail_Stub,
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserTemplateDetail_CanInvoke,
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowUserTemplateDetail_InvokeMethod);
-                private static void _ShowUserTemplateDetail_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
-                {
-                    c(d, ref d._ShowUserTemplateDetailMethod, sf);
-                }
-                private static global::System.Exception _ShowUserTemplateDetail_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
-                {
-                    bool result = true;
-                    d.Application.UserTemplateDetail_CanRun(ref result, (global::System.Guid)args[0]);
-                    return result ? null : ex;
-                }
-                private static void _ShowUserTemplateDetail_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
-                {
-                    bool handled = false;
-                    d.Application.UserTemplateDetail_Run(ref handled, (global::System.Guid)args[0]);
-                    if (!handled)
-                    {
-                        d.ShowScreen("LightSwitchApplication:UserTemplateDetail", () => global::LightSwitchApplication.UserTemplateDetail.CreateInstance((global::System.Guid)args[0]), args);
-                    }
-                }
- 
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
                     ShowBugReports = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
                         "ShowBugReports",
                         global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowBugReports_Stub,
@@ -905,32 +827,6 @@ namespace LightSwitchApplication
                     }
                 }
  
-                public static readonly global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry
-                    ShowAddUserFile = new global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Entry(
-                        "ShowAddUserFile",
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowAddUserFile_Stub,
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowAddUserFile_CanInvoke,
-                        global::LightSwitchApplication.Application.DetailsClass.MethodSetProperties._ShowAddUserFile_InvokeMethod);
-                private static void _ShowAddUserFile_Stub(global::Microsoft.LightSwitch.Details.Framework.Base.DetailsCallback<global::LightSwitchApplication.Application.DetailsClass, global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data> c, global::LightSwitchApplication.Application.DetailsClass d, object sf)
-                {
-                    c(d, ref d._ShowAddUserFileMethod, sf);
-                }
-                private static global::System.Exception _ShowAddUserFile_CanInvoke(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args, global::System.Exception ex)
-                {
-                    bool result = true;
-                    d.Application.AddUserFile_CanRun(ref result, (global::System.Guid)args[0]);
-                    return result ? null : ex;
-                }
-                private static void _ShowAddUserFile_InvokeMethod(global::LightSwitchApplication.Application.DetailsClass d, global::System.Collections.ObjectModel.ReadOnlyCollection<object> args)
-                {
-                    bool handled = false;
-                    d.Application.AddUserFile_Run(ref handled, (global::System.Guid)args[0]);
-                    if (!handled)
-                    {
-                        d.ShowScreen("LightSwitchApplication:AddUserFile", () => global::LightSwitchApplication.AddUserFile.CreateInstance((global::System.Guid)args[0]), args);
-                    }
-                }
- 
             }
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesMethod;
@@ -940,8 +836,6 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowWorkflowsMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowRunWorkflowMethod;
-
-            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowUserTemplateDetailMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowBugReportsMethod;
 
@@ -954,8 +848,6 @@ namespace LightSwitchApplication
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowCreateNewTemplateMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowSearchErrorsMethod;
-
-            private global::Microsoft.LightSwitch.Details.Framework.ApplicationMethod<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowAddUserFileMethod;
 
             private global::Microsoft.LightSwitch.Details.Framework.Base.ApplicationCommand<global::LightSwitchApplication.Application, global::LightSwitchApplication.Application.DetailsClass>.Data _ShowPreferencesCommand;
 
