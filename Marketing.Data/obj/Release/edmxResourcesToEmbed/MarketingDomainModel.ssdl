@@ -11,7 +11,9 @@
     <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Log" EntityType="Marketing.CraigslistScraperModel.Store.Log" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SystemSetting" EntityType="Marketing.CraigslistScraperModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFile" EntityType="Marketing.CraigslistScraperModel.Store.UserFile" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
@@ -61,7 +63,8 @@
       [UserListingData].[ListingContentCreated] AS [ListingContentCreated], 
       [UserListingData].[KeywordScore] AS [KeywordScore], 
       [UserListingData].[KeywordDisplay] AS [KeywordDisplay], 
-      [UserListingData].[IsHidden] AS [IsHidden]
+      [UserListingData].[IsHidden] AS [IsHidden], 
+      [UserListingData].[UserFileId] AS [UserFileId]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -132,6 +135,10 @@
       <End Role="City" EntitySet="City" />
       <End Role="UserCity" EntitySet="UserCity" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserFile_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFile_aspnet_Membership">
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserFile" EntitySet="UserFile" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserFilter_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFilter_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
       <End Role="UserFilter" EntitySet="UserFilter" />
@@ -156,6 +163,10 @@
       <End Role="UserListingUrl" EntitySet="UserListingUrl" />
       <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
     </AssociationSet>
+    <AssociationSet Name="FK_UserListingResponse_UserListingResponse" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingResponse">
+      <End Role="UserFile" EntitySet="UserFile" />
+      <End Role="UserListingResponse" EntitySet="UserListingResponse" />
+    </AssociationSet>
     <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingUrl">
       <End Role="UserListingUrl" EntitySet="UserListingUrl" />
       <End Role="UserListingResponse" EntitySet="UserListingResponse" />
@@ -174,6 +185,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_UserTemplate_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+      <End Role="UserTemplate" EntitySet="UserTemplate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTemplate_UserFile" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_UserFile">
+      <End Role="UserFile" EntitySet="UserFile" />
       <End Role="UserTemplate" EntitySet="UserTemplate" />
     </AssociationSet>
   </EntityContainer>
@@ -302,6 +317,16 @@
     <Property Name="Message" Type="nvarchar" MaxLength="1500" />
     <Property Name="FormattedMessage" Type="ntext" />
   </EntityType>
+  <EntityType Name="SystemSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SettingName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SettingValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Updated" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="UserCity">
     <Key>
       <PropertyRef Name="Id" />
@@ -310,6 +335,19 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Filename" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Extension" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="RawFile" Type="image" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Deleted" Type="datetime" />
+    <Property Name="ByteCount" Type="bigint" Nullable="false" />
   </EntityType>
   <EntityType Name="UserFilter">
     <Key>
@@ -367,6 +405,7 @@
     <Property Name="ResponseText" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="ResponseSent" Type="datetime" />
+    <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
   <EntityType Name="UserListingUrl">
     <Key>
@@ -405,6 +444,7 @@
     <Property Name="TemplateText" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Updated" Type="datetime" />
+    <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -481,6 +521,7 @@
     <Property Name="KeywordScore" Type="int" />
     <Property Name="KeywordDisplay" Type="nvarchar(max)" />
     <Property Name="IsHidden" Type="bit" Nullable="false" />
+    <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -643,6 +684,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserFile_aspnet_Membership">
+    <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
+    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="UserFile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserFilter_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
     <End Role="UserFilter" Type="Marketing.CraigslistScraperModel.Store.UserFilter" Multiplicity="*" />
@@ -717,6 +770,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_UserListingResponse_UserListingResponse">
+    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="0..1" />
+    <End Role="UserListingResponse" Type="Marketing.CraigslistScraperModel.Store.UserListingResponse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserListingResponse">
+        <PropertyRef Name="UserFileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_UserListingResponse_UserListingUrl">
     <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -778,6 +843,18 @@
       </Principal>
       <Dependent Role="UserTemplate">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTemplate_UserFile">
+    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="0..1" />
+    <End Role="UserTemplate" Type="Marketing.CraigslistScraperModel.Store.UserTemplate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserFile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserTemplate">
+        <PropertyRef Name="UserFileId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -1,4 +1,5 @@
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\LSCodeGeneratorsTask.mcs
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Release\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\Marketing_CraigslistScraper.Client.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\Marketing_CraigslistScraper.Client.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\Application.Common.dll
@@ -12,6 +13,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\DevE
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\DevExpress.Xpf.Core.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\DevExpress.Xpf.Ribbon.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\DevExpress.RichEdit.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\FJ.Core.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\System.Windows.Controls.Toolkit.Internals.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\DevExpress.Data.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\DevExpress.Data.v11.1.Linq.dll
@@ -81,6 +83,5 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\ko\M
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\ru\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\zh-Hans\Microsoft.CSharp.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\Bin\Release\zh-Hant\Microsoft.CSharp.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Release\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Release\Marketing_CraigslistScraper.Client.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\Client\obj\Release\Marketing_CraigslistScraper.Client.pdb

@@ -1,4 +1,5 @@
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\LSCodeGeneratorsTask.mcs
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\obj\Release\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\Marketing_CraigslistScraper.ClientGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\Marketing_CraigslistScraper.ClientGenerated.pdb
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\AppManifest.xaml
@@ -40,6 +41,7 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Rel
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\DevExpress.Xpf.Core.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\DevExpress.Xpf.Ribbon.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\DevExpress.RichEdit.v11.1.Core.dll
+C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\FJ.Core.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\System.Xml.Serialization.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\DevExpress.Data.v11.1.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\DevExpress.Data.v11.1.Linq.dll
@@ -658,6 +660,5 @@ C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Rel
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\ru\System.Xml.Serialization.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\zh-Hans\System.Xml.Serialization.resources.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\Bin\Release\zh-Hant\System.Xml.Serialization.resources.dll
-C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\obj\Release\ResolveAssemblyReference.cache
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\obj\Release\Marketing_CraigslistScraper.ClientGenerated.dll
 C:\Projects\Urbana\Marketing\Marketing.CraigslistScraper\ClientGenerated\obj\Release\Marketing_CraigslistScraper.ClientGenerated.pdb

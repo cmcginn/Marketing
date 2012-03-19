@@ -41,11 +41,15 @@ namespace Marketing.WorkflowActivities
         }
         public static List<UserListingUrl> GetListingUrlsWithoutContentForUser(MarketingEntities context, Guid userId)
         {
-            var query = from userData in context.UserListingDatas.Where(n => n.UserId == userId && n.CityActive && n.ListingCategoryActive && n.PostContent == null).Select(n => n.UserListingUrlId)
-                        join userListing in context.UserListingUrls on userData equals userListing.Id
-                        select userListing;
+            var query = from ul in context.UserListingUrls.Where(n => n.UserId == userId)
+                        join listingUrl in context.ListingUrls
+                        on ul.ListingUrlId equals listingUrl.Id
+                        join c in context.ListingContents on listingUrl.Id equals c.ListingUrlId into listingContents
+                        from listingContent in listingContents.DefaultIfEmpty()
+                        where listingContent == null
+                        select ul;
             return query.ToList();
-        }
+        }   
 
         public static List<UserListingUrl> GetListingUrlsForUser(MarketingEntities context, Guid userId)
         {

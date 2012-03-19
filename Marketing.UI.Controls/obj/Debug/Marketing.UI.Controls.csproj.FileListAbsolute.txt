@@ -220,3 +220,4 @@ C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserListItemsViewCo
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\UserTemplateViewControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\FileUploadControl.g.i.cs
 C:\Projects\Urbana\Marketing\Marketing.UI.Controls\obj\Debug\FileUploadRowControl.g.i.cs
+C:\Projects\Urbana\Marketing\Marketing.UI.Controls\Bin\Debug\FJ.Core.dll
