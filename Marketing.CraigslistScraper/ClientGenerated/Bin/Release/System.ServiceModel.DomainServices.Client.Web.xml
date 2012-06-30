@@ -300,17 +300,6 @@
             <param name="type">The type to check.</param>
             <returns>True if the type is a complex type, false otherwise.</returns>
         </member>
-        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.Assembly)">
-            <summary>
-            Performs a check against an assembly to determine if it's a known
-            System assembly.
-            </summary>
-            <remarks>
-            We can't use Assembly.GetName().GetPublicKeyToken() since that requires FileIOPermissions.
-            </remarks>
-            <param name="assembly">The assembly to check.</param>
-            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
-        </member>
         <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsComplexTypeCollection(System.Type)">
             <summary>
             Determines whether the specified type is one of the supported collection types
@@ -372,6 +361,33 @@
             null when the method return false.
             </param>
             <returns>Whether the type definition is assignable from the derived type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.Assembly)">
+            <summary>
+            Performs a check against an assembly to determine if it's a known
+            System assembly.
+            </summary>
+            <param name="assembly">The assembly to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.AssemblyName)">
+            <summary>
+            Performs a check against an <see cref="T:System.Reflection.AssemblyName"/> to determine if it's a known
+            System assembly.
+            </summary>
+            <param name="assemblyName">The assembly name to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.String)">
+            <summary>
+            Performs a check against an assembly's full name to determine if it's a known
+            System assembly.
+            </summary>
+            <remarks>
+            We can't use Assembly.GetName().GetPublicKeyToken() since that requires FileIOPermissions.
+            </remarks>
+            <param name="assemblyFullName">The <see cref="P:System.Reflection.AssemblyName.FullName"/> to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
         </member>
         <member name="M:System.ServiceModel.DomainServices.ExceptionHandlingUtility.IsFatal(System.Exception)">
             <summary>

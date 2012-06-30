@@ -18,28 +18,28 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingCategory_ListingGroup", "ListingGroup", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingGroup), "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingCategory), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserKeyword_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserKeyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserKeyword), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingUrl_ListingCategory", "ListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingCategory), "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingContent_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "ListingContent", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingContent), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_ListingUrl", "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.ListingUrl), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingResponse), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserPreference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserPreference), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.UserListingUrl), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserTemplate), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserFilter", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserFilter), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_CategoryLog_Category", "Category", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.Category), "CategoryLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CategoryLog), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_CategoryLog_Log", "Log", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.Log), "CategoryLog", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.CategoryLog), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_ListingUrl_City", "City", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.City), "ListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.ListingUrl), true)]
-[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserFile), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingResponse", "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Marketing.Data.UserFile), "UserListingResponse", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingResponse), true)]
 [assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_UserFile", "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Marketing.Data.UserFile), "UserTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserTemplate), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserCity", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserCity), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserFile), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserFilter", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserFilter), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserKeyword_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserKeyword", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserKeyword), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingCategory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingCategory), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingKeywordScore", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingKeywordScore), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserListingUrl", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserListingUrl), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserPreference_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserPreference", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserPreference), true)]
+[assembly: EdmRelationshipAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Marketing.Data.aspnet_Membership), "UserTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Marketing.Data.UserTemplate), true)]
 
 #endregion
 
@@ -90,22 +90,6 @@ namespace Marketing.Data
         #endregion
     
         #region ObjectSet Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<aspnet_Membership> aspnet_Membership
-        {
-            get
-            {
-                if ((_aspnet_Membership == null))
-                {
-                    _aspnet_Membership = base.CreateObjectSet<aspnet_Membership>("aspnet_Membership");
-                }
-                return _aspnet_Membership;
-            }
-        }
-        private ObjectSet<aspnet_Membership> _aspnet_Membership;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -254,22 +238,6 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<UserListingRefresh> UserListingRefreshes
-        {
-            get
-            {
-                if ((_UserListingRefreshes == null))
-                {
-                    _UserListingRefreshes = base.CreateObjectSet<UserListingRefresh>("UserListingRefreshes");
-                }
-                return _UserListingRefreshes;
-            }
-        }
-        private ObjectSet<UserListingRefresh> _UserListingRefreshes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<UserListingResponse> UserListingResponses
         {
             get
@@ -298,22 +266,6 @@ namespace Marketing.Data
             }
         }
         private ObjectSet<UserPreference> _UserPreferences;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<vw_aspnet_MembershipUsers> vw_aspnet_MembershipUsers
-        {
-            get
-            {
-                if ((_vw_aspnet_MembershipUsers == null))
-                {
-                    _vw_aspnet_MembershipUsers = base.CreateObjectSet<vw_aspnet_MembershipUsers>("vw_aspnet_MembershipUsers");
-                }
-                return _vw_aspnet_MembershipUsers;
-            }
-        }
-        private ObjectSet<vw_aspnet_MembershipUsers> _vw_aspnet_MembershipUsers;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -462,6 +414,54 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<UserListingRefresh> UserListingRefreshes
+        {
+            get
+            {
+                if ((_UserListingRefreshes == null))
+                {
+                    _UserListingRefreshes = base.CreateObjectSet<UserListingRefresh>("UserListingRefreshes");
+                }
+                return _UserListingRefreshes;
+            }
+        }
+        private ObjectSet<UserListingRefresh> _UserListingRefreshes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<aspnet_Membership> aspnet_Membership
+        {
+            get
+            {
+                if ((_aspnet_Membership == null))
+                {
+                    _aspnet_Membership = base.CreateObjectSet<aspnet_Membership>("aspnet_Membership");
+                }
+                return _aspnet_Membership;
+            }
+        }
+        private ObjectSet<aspnet_Membership> _aspnet_Membership;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<vw_aspnet_MembershipUsers> vw_aspnet_MembershipUsers
+        {
+            get
+            {
+                if ((_vw_aspnet_MembershipUsers == null))
+                {
+                    _vw_aspnet_MembershipUsers = base.CreateObjectSet<vw_aspnet_MembershipUsers>("vw_aspnet_MembershipUsers");
+                }
+                return _vw_aspnet_MembershipUsers;
+            }
+        }
+        private ObjectSet<vw_aspnet_MembershipUsers> _vw_aspnet_MembershipUsers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<UserListingData> UserListingDatas
         {
             get
@@ -477,14 +477,6 @@ namespace Marketing.Data
 
         #endregion
         #region AddTo Methods
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the aspnet_Membership EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToaspnet_Membership(aspnet_Membership aspnet_Membership)
-        {
-            base.AddObject("aspnet_Membership", aspnet_Membership);
-        }
     
         /// <summary>
         /// Deprecated Method for adding a new object to the Cities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
@@ -559,14 +551,6 @@ namespace Marketing.Data
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the UserListingRefreshes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToUserListingRefreshes(UserListingRefresh userListingRefresh)
-        {
-            base.AddObject("UserListingRefreshes", userListingRefresh);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the UserListingResponses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUserListingResponses(UserListingResponse userListingResponse)
@@ -580,14 +564,6 @@ namespace Marketing.Data
         public void AddToUserPreferences(UserPreference userPreference)
         {
             base.AddObject("UserPreferences", userPreference);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the vw_aspnet_MembershipUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddTovw_aspnet_MembershipUsers(vw_aspnet_MembershipUsers vw_aspnet_MembershipUsers)
-        {
-            base.AddObject("vw_aspnet_MembershipUsers", vw_aspnet_MembershipUsers);
         }
     
         /// <summary>
@@ -660,6 +636,30 @@ namespace Marketing.Data
         public void AddToSystemSettings(SystemSetting systemSetting)
         {
             base.AddObject("SystemSettings", systemSetting);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UserListingRefreshes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUserListingRefreshes(UserListingRefresh userListingRefresh)
+        {
+            base.AddObject("UserListingRefreshes", userListingRefresh);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the aspnet_Membership EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToaspnet_Membership(aspnet_Membership aspnet_Membership)
+        {
+            base.AddObject("aspnet_Membership", aspnet_Membership);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the vw_aspnet_MembershipUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTovw_aspnet_MembershipUsers(vw_aspnet_MembershipUsers vw_aspnet_MembershipUsers)
+        {
+            base.AddObject("vw_aspnet_MembershipUsers", vw_aspnet_MembershipUsers);
         }
     
         /// <summary>
@@ -1269,18 +1269,40 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "UserListingCategory")]
-        public EntityCollection<UserListingCategory> UserListingCategories
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "UserFile")]
+        public EntityCollection<UserFile> UserFiles
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserFile>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "UserFile");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserFile>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "UserFile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "UserFilter")]
+        public EntityCollection<UserFilter> UserFilters
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserFilter>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "UserFilter");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserFilter>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "UserFilter", value);
                 }
             }
         }
@@ -1303,6 +1325,50 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserKeyword>("Marketing.CraigslistScraperModel.FK_UserKeyword_aspnet_Membership", "UserKeyword", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "UserListingCategory")]
+        public EntityCollection<UserListingCategory> UserListingCategories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "UserListingCategory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore")]
+        public EntityCollection<UserListingKeywordScore> UserListingKeywordScores
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore", value);
                 }
             }
         }
@@ -1357,28 +1423,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore")]
-        public EntityCollection<UserListingKeywordScore> UserListingKeywordScores
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "UserListingKeywordScore", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "UserTemplate")]
         public EntityCollection<UserTemplate> UserTemplates
         {
@@ -1391,50 +1435,6 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "UserTemplate", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFilter_aspnet_Membership", "UserFilter")]
-        public EntityCollection<UserFilter> UserFilters
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserFilter>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "UserFilter");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserFilter>("Marketing.CraigslistScraperModel.FK_UserFilter_aspnet_Membership", "UserFilter", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "UserFile")]
-        public EntityCollection<UserFile> UserFiles
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<UserFile>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "UserFile");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserFile>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "UserFile", value);
                 }
             }
         }
@@ -3837,44 +3837,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership")]
-        public aspnet_Membership aspnet_Membership
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Membership> aspnet_MembershipReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "UserCityCity", "City")]
         public City Cities
         {
@@ -3903,6 +3865,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<City>("Marketing.CraigslistScraperModel.UserCityCity", "City", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserCity_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserCity_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
@@ -4151,44 +4151,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "aspnet_Membership")]
-        public aspnet_Membership aspnet_Membership
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Membership> aspnet_MembershipReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingResponse_UserListingResponse", "UserListingResponse")]
         public EntityCollection<UserListingResponse> UserListingResponses
         {
@@ -4223,6 +4185,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserTemplate>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserTemplate", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserFile_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserFile_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
@@ -4935,44 +4935,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership")]
-        public aspnet_Membership aspnet_Membership
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Membership> aspnet_MembershipReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_ListingCategory", "ListingCategory")]
         public ListingCategory ListingCategory
         {
@@ -5001,6 +4963,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<ListingCategory>("Marketing.CraigslistScraperModel.FK_UserListingCategory_ListingCategory", "ListingCategory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingCategory_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingCategory_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
@@ -6111,6 +6111,30 @@ namespace Marketing.Data
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserFileId
+        {
+            get
+            {
+                return _UserFileId;
+            }
+            set
+            {
+                OnUserFileIdChanging(value);
+                ReportPropertyChanging("UserFileId");
+                _UserFileId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UserFileId");
+                OnUserFileIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserFileId;
+        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserFileIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsHidden
@@ -6134,30 +6158,6 @@ namespace Marketing.Data
         private global::System.Boolean _IsHidden;
         partial void OnIsHiddenChanging(global::System.Boolean value);
         partial void OnIsHiddenChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Guid> UserFileId
-        {
-            get
-            {
-                return _UserFileId;
-            }
-            set
-            {
-                OnUserFileIdChanging(value);
-                ReportPropertyChanging("UserFileId");
-                _UserFileId = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("UserFileId");
-                OnUserFileIdChanged();
-            }
-        }
-        private Nullable<global::System.Guid> _UserFileId;
-        partial void OnUserFileIdChanging(Nullable<global::System.Guid> value);
-        partial void OnUserFileIdChanged();
 
         #endregion
     
@@ -6326,44 +6326,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership")]
-        public aspnet_Membership aspnet_Membership
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Membership> aspnet_MembershipReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl")]
         public UserListingUrl UserListingUrl
         {
@@ -6392,6 +6354,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserListingUrl>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingUrl", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
@@ -7021,44 +7021,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_aspnet_Membership", "aspnet_Membership")]
-        public aspnet_Membership aspnet_Membership
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Membership> aspnet_MembershipReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_ListingUrl", "ListingUrl")]
         public ListingUrl ListingUrl
         {
@@ -7131,6 +7093,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<UserListingKeywordScore>("Marketing.CraigslistScraperModel.FK_UserListingKeywordScore_UserListingUrl", "UserListingKeywordScore", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserListingUrl_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserListingUrl_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }
@@ -7727,44 +7727,6 @@ namespace Marketing.Data
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership")]
-        public aspnet_Membership aspnet_Membership
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<aspnet_Membership> aspnet_MembershipReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_UserFile", "UserFile")]
         public UserFile UserFile
         {
@@ -7793,6 +7755,44 @@ namespace Marketing.Data
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<UserFile>("Marketing.CraigslistScraperModel.FK_UserTemplate_UserFile", "UserFile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Marketing.CraigslistScraperModel", "FK_UserTemplate_aspnet_Membership", "aspnet_Membership")]
+        public aspnet_Membership aspnet_Membership
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<aspnet_Membership> aspnet_MembershipReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("Marketing.CraigslistScraperModel.FK_UserTemplate_aspnet_Membership", "aspnet_Membership", value);
                 }
             }
         }

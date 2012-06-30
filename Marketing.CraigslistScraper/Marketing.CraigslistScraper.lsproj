@@ -29,7 +29,7 @@
     <AdministratorFullName>Administrator</AdministratorFullName>
     <AdministratorUserName>Administrator</AdministratorUserName>
     <AllowUntrustedCertificate>False</AllowUntrustedCertificate>
-    <AddAdministrator>False</AddAdministrator>
+    <AddAdministrator>True</AddAdministrator>
     <BootstrapperComponentsUrl />
     <DefaultInstallLocation>Marketing_CraigslistScraper</DefaultInstallLocation>
     <DeploySchema>True</DeploySchema>

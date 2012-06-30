@@ -12,7 +12,7 @@
     <xsl:variable name="head" select="/html/body//div[@class='bchead']"></xsl:variable>
     <xsl:element name="Post">
       <xsl:attribute name="datetime">
-        <xsl:value-of select="substring-before(substring-after($body,'Date: '),'&#xA;')"/>
+        <xsl:value-of select="substring(substring-before(substring-after($body,'Date: '),'&#xA;'),0,20)"/>
       </xsl:attribute>
       <xsl:call-template name="head"></xsl:call-template>
       <xsl:call-template name="contact"></xsl:call-template>

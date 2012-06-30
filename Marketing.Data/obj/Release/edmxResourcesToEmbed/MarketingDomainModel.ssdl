@@ -2,26 +2,26 @@
 <Schema Namespace="Marketing.CraigslistScraperModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="MarketingCraigslistScraperModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Marketing.CraigslistScraperModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="BugReport" EntityType="Marketing.CraigslistScraperModel.Store.BugReport" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Category" EntityType="Marketing.CraigslistScraperModel.Store.Category" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CategoryLog" EntityType="Marketing.CraigslistScraperModel.Store.CategoryLog" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="City" EntityType="Marketing.CraigslistScraperModel.Store.City" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategory" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ListingContent" EntityType="Marketing.CraigslistScraperModel.Store.ListingContent" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ListingGroup" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroup" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="ListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrl" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Log" EntityType="Marketing.CraigslistScraperModel.Store.Log" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="SystemSetting" EntityType="Marketing.CraigslistScraperModel.Store.SystemSetting" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserCity" EntityType="Marketing.CraigslistScraperModel.Store.UserCity" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserFile" EntityType="Marketing.CraigslistScraperModel.Store.UserFile" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserFilter" EntityType="Marketing.CraigslistScraperModel.Store.UserFilter" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserKeyword" EntityType="Marketing.CraigslistScraperModel.Store.UserKeyword" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserListingCategory" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategory" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserListingKeywordScore" EntityType="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserListingResponse" EntityType="Marketing.CraigslistScraperModel.Store.UserListingResponse" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserListingUrl" EntityType="Marketing.CraigslistScraperModel.Store.UserListingUrl" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserPreference" EntityType="Marketing.CraigslistScraperModel.Store.UserPreference" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserTemplate" EntityType="Marketing.CraigslistScraperModel.Store.UserTemplate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BugReports" EntityType="Marketing.CraigslistScraperModel.Store.BugReports" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Categories" EntityType="Marketing.CraigslistScraperModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CategoryLogs" EntityType="Marketing.CraigslistScraperModel.Store.CategoryLogs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Cities" EntityType="Marketing.CraigslistScraperModel.Store.Cities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListingCategories" EntityType="Marketing.CraigslistScraperModel.Store.ListingCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListingContents" EntityType="Marketing.CraigslistScraperModel.Store.ListingContents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListingGroups" EntityType="Marketing.CraigslistScraperModel.Store.ListingGroups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ListingUrls" EntityType="Marketing.CraigslistScraperModel.Store.ListingUrls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Logs" EntityType="Marketing.CraigslistScraperModel.Store.Logs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SystemSettings" EntityType="Marketing.CraigslistScraperModel.Store.SystemSettings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserCities" EntityType="Marketing.CraigslistScraperModel.Store.UserCities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFiles" EntityType="Marketing.CraigslistScraperModel.Store.UserFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserFilters" EntityType="Marketing.CraigslistScraperModel.Store.UserFilters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserKeywords" EntityType="Marketing.CraigslistScraperModel.Store.UserKeywords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingCategories" EntityType="Marketing.CraigslistScraperModel.Store.UserListingCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingKeywordScores" EntityType="Marketing.CraigslistScraperModel.Store.UserListingKeywordScores" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingResponses" EntityType="Marketing.CraigslistScraperModel.Store.UserListingResponses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserListingUrls" EntityType="Marketing.CraigslistScraperModel.Store.UserListingUrls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserPreferences" EntityType="Marketing.CraigslistScraperModel.Store.UserPreferences" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserTemplates" EntityType="Marketing.CraigslistScraperModel.Store.UserTemplates" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="UserListingData" EntityType="Marketing.CraigslistScraperModel.Store.UserListingData" store:Type="Views" store:Schema="dbo" store:Name="UserListingData">
       <DefiningQuery>SELECT 
       [UserListingData].[UserListingUrlId] AS [UserListingUrlId], 
@@ -63,8 +63,8 @@
       [UserListingData].[ListingContentCreated] AS [ListingContentCreated], 
       [UserListingData].[KeywordScore] AS [KeywordScore], 
       [UserListingData].[KeywordDisplay] AS [KeywordDisplay], 
-      [UserListingData].[IsHidden] AS [IsHidden], 
-      [UserListingData].[UserFileId] AS [UserFileId]
+      [UserListingData].[UserFileId] AS [UserFileId], 
+      [UserListingData].[IsHidden] AS [IsHidden]
       FROM [dbo].[UserListingData] AS [UserListingData]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="UserListingRefresh" EntityType="Marketing.CraigslistScraperModel.Store.UserListingRefresh" store:Type="Views" store:Schema="dbo" store:Name="UserListingRefresh">
@@ -104,92 +104,92 @@
       FROM [dbo].[vw_aspnet_MembershipUsers] AS [vw_aspnet_MembershipUsers]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK_CategoryLog_Category" Association="Marketing.CraigslistScraperModel.Store.FK_CategoryLog_Category">
-      <End Role="Category" EntitySet="Category" />
-      <End Role="CategoryLog" EntitySet="CategoryLog" />
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="CategoryLogs" EntitySet="CategoryLogs" />
     </AssociationSet>
     <AssociationSet Name="FK_CategoryLog_Log" Association="Marketing.CraigslistScraperModel.Store.FK_CategoryLog_Log">
-      <End Role="Log" EntitySet="Log" />
-      <End Role="CategoryLog" EntitySet="CategoryLog" />
+      <End Role="Logs" EntitySet="Logs" />
+      <End Role="CategoryLogs" EntitySet="CategoryLogs" />
     </AssociationSet>
     <AssociationSet Name="FK_ListingCategory_ListingGroup" Association="Marketing.CraigslistScraperModel.Store.FK_ListingCategory_ListingGroup">
-      <End Role="ListingGroup" EntitySet="ListingGroup" />
-      <End Role="ListingCategory" EntitySet="ListingCategory" />
+      <End Role="ListingGroups" EntitySet="ListingGroups" />
+      <End Role="ListingCategories" EntitySet="ListingCategories" />
     </AssociationSet>
     <AssociationSet Name="FK_ListingContent_ListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_ListingContent_ListingUrl">
-      <End Role="ListingUrl" EntitySet="ListingUrl" />
-      <End Role="ListingContent" EntitySet="ListingContent" />
+      <End Role="ListingUrls" EntitySet="ListingUrls" />
+      <End Role="ListingContents" EntitySet="ListingContents" />
     </AssociationSet>
     <AssociationSet Name="FK_ListingUrl_City" Association="Marketing.CraigslistScraperModel.Store.FK_ListingUrl_City">
-      <End Role="City" EntitySet="City" />
-      <End Role="ListingUrl" EntitySet="ListingUrl" />
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="ListingUrls" EntitySet="ListingUrls" />
     </AssociationSet>
     <AssociationSet Name="FK_ListingUrl_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_ListingUrl_ListingCategory">
-      <End Role="ListingCategory" EntitySet="ListingCategory" />
-      <End Role="ListingUrl" EntitySet="ListingUrl" />
+      <End Role="ListingCategories" EntitySet="ListingCategories" />
+      <End Role="ListingUrls" EntitySet="ListingUrls" />
     </AssociationSet>
     <AssociationSet Name="FK_UserCity_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserCity" EntitySet="UserCity" />
+      <End Role="UserCities" EntitySet="UserCities" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserCity_City" Association="Marketing.CraigslistScraperModel.Store.FK_UserCity_City">
-      <End Role="City" EntitySet="City" />
-      <End Role="UserCity" EntitySet="UserCity" />
+    <AssociationSet Name="FK_UserCityCity" Association="Marketing.CraigslistScraperModel.Store.FK_UserCityCity">
+      <End Role="Cities" EntitySet="Cities" />
+      <End Role="UserCities" EntitySet="UserCities" />
     </AssociationSet>
     <AssociationSet Name="FK_UserFile_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFile_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserFile" EntitySet="UserFile" />
+      <End Role="UserFiles" EntitySet="UserFiles" />
     </AssociationSet>
     <AssociationSet Name="FK_UserFilter_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserFilter_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserFilter" EntitySet="UserFilter" />
+      <End Role="UserFilters" EntitySet="UserFilters" />
     </AssociationSet>
     <AssociationSet Name="FK_UserKeyword_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserKeyword_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserKeyword" EntitySet="UserKeyword" />
+      <End Role="UserKeywords" EntitySet="UserKeywords" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingCategory_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+      <End Role="UserListingCategories" EntitySet="UserListingCategories" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingCategory_ListingCategory" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingCategory_ListingCategory">
-      <End Role="ListingCategory" EntitySet="ListingCategory" />
-      <End Role="UserListingCategory" EntitySet="UserListingCategory" />
+      <End Role="ListingCategories" EntitySet="ListingCategories" />
+      <End Role="UserListingCategories" EntitySet="UserListingCategories" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingKeywordScore_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingKeywordScore_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
+      <End Role="UserListingKeywordScores" EntitySet="UserListingKeywordScores" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingKeywordScore_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingKeywordScore_UserListingUrl">
-      <End Role="UserListingUrl" EntitySet="UserListingUrl" />
-      <End Role="UserListingKeywordScore" EntitySet="UserListingKeywordScore" />
+      <End Role="UserListingUrls" EntitySet="UserListingUrls" />
+      <End Role="UserListingKeywordScores" EntitySet="UserListingKeywordScores" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingResponse_UserListingResponse" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingResponse">
-      <End Role="UserFile" EntitySet="UserFile" />
-      <End Role="UserListingResponse" EntitySet="UserListingResponse" />
+      <End Role="UserFiles" EntitySet="UserFiles" />
+      <End Role="UserListingResponses" EntitySet="UserListingResponses" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingResponse_UserListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingResponse_UserListingUrl">
-      <End Role="UserListingUrl" EntitySet="UserListingUrl" />
-      <End Role="UserListingResponse" EntitySet="UserListingResponse" />
+      <End Role="UserListingUrls" EntitySet="UserListingUrls" />
+      <End Role="UserListingResponses" EntitySet="UserListingResponses" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingUrl_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingUrl_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserListingUrl" EntitySet="UserListingUrl" />
+      <End Role="UserListingUrls" EntitySet="UserListingUrls" />
     </AssociationSet>
     <AssociationSet Name="FK_UserListingUrl_ListingUrl" Association="Marketing.CraigslistScraperModel.Store.FK_UserListingUrl_ListingUrl">
-      <End Role="ListingUrl" EntitySet="ListingUrl" />
-      <End Role="UserListingUrl" EntitySet="UserListingUrl" />
+      <End Role="ListingUrls" EntitySet="ListingUrls" />
+      <End Role="UserListingUrls" EntitySet="UserListingUrls" />
     </AssociationSet>
     <AssociationSet Name="FK_UserPreference_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserPreference_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserPreference" EntitySet="UserPreference" />
+      <End Role="UserPreferences" EntitySet="UserPreferences" />
     </AssociationSet>
     <AssociationSet Name="FK_UserTemplate_aspnet_Membership" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_aspnet_Membership">
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-      <End Role="UserTemplate" EntitySet="UserTemplate" />
+      <End Role="UserTemplates" EntitySet="UserTemplates" />
     </AssociationSet>
     <AssociationSet Name="FK_UserTemplate_UserFile" Association="Marketing.CraigslistScraperModel.Store.FK_UserTemplate_UserFile">
-      <End Role="UserFile" EntitySet="UserFile" />
-      <End Role="UserTemplate" EntitySet="UserTemplate" />
+      <End Role="UserFiles" EntitySet="UserFiles" />
+      <End Role="UserTemplates" EntitySet="UserTemplates" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="aspnet_Membership">
@@ -216,9 +216,9 @@
     <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
     <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
     <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
-    <Property Name="Comment" Type="ntext" />
+    <Property Name="Comment" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="BugReport">
+  <EntityType Name="BugReports">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -229,14 +229,14 @@
     <Property Name="Reported" Type="datetime" Nullable="false" />
     <Property Name="Resolved" Type="datetime" />
   </EntityType>
-  <EntityType Name="Category">
+  <EntityType Name="Categories">
     <Key>
       <PropertyRef Name="CategoryID" />
     </Key>
     <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="CategoryName" Type="nvarchar" Nullable="false" MaxLength="64" />
   </EntityType>
-  <EntityType Name="CategoryLog">
+  <EntityType Name="CategoryLogs">
     <Key>
       <PropertyRef Name="CategoryLogID" />
     </Key>
@@ -244,18 +244,18 @@
     <Property Name="CategoryID" Type="int" Nullable="false" />
     <Property Name="LogID" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="City">
+  <EntityType Name="Cities">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="RegionName" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="StateProvince" Type="nvarchar" MaxLength="50" />
     <Property Name="CityName" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="CityBaseUrl" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="StateProvince" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="ListingCategory">
+  <EntityType Name="ListingCategories">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -265,19 +265,19 @@
     <Property Name="CategoryBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="ListingContent">
+  <EntityType Name="ListingContents">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="ListingUrlId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PostContent" Type="xml" Nullable="false" />
-    <Property Name="PostElement" Type="xml" Nullable="false" />
+    <Property Name="PostContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PostElement" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="PostDate" Type="datetime" Nullable="false" />
     <Property Name="ReplyTo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Created" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="ListingGroup">
+  <EntityType Name="ListingGroups">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -286,7 +286,7 @@
     <Property Name="ListingBaseUrl" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="ListingUrl">
+  <EntityType Name="ListingUrls">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -298,7 +298,7 @@
     <Property Name="PostId" Type="bigint" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="Log">
+  <EntityType Name="Logs">
     <Key>
       <PropertyRef Name="LogID" />
     </Key>
@@ -315,9 +315,9 @@
     <Property Name="ThreadName" Type="nvarchar" MaxLength="512" />
     <Property Name="Win32ThreadId" Type="nvarchar" MaxLength="128" />
     <Property Name="Message" Type="nvarchar" MaxLength="1500" />
-    <Property Name="FormattedMessage" Type="ntext" />
+    <Property Name="FormattedMessage" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="SystemSetting">
+  <EntityType Name="SystemSettings">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -327,7 +327,7 @@
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Updated" Type="datetime" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserCity">
+  <EntityType Name="UserCities">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -336,7 +336,7 @@
     <Property Name="CityId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserFile">
+  <EntityType Name="UserFiles">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -344,12 +344,12 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Filename" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="Extension" Type="nvarchar" Nullable="false" MaxLength="5" />
-    <Property Name="RawFile" Type="image" Nullable="false" />
+    <Property Name="RawFile" Type="varbinary(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Deleted" Type="datetime" />
     <Property Name="ByteCount" Type="bigint" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserFilter">
+  <EntityType Name="UserFilters">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -367,7 +367,7 @@
     <Property Name="ShowNotResponded" Type="bit" Nullable="false" />
     <Property Name="FiltersEnabled" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserKeyword">
+  <EntityType Name="UserKeywords">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -376,7 +376,7 @@
     <Property Name="Keyword" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="WeightedScore" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserListingCategory">
+  <EntityType Name="UserListingCategories">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -385,29 +385,29 @@
     <Property Name="ListingCategoryId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Active" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserListingKeywordScore">
+  <EntityType Name="UserListingKeywordScores">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserListingId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
     <Property Name="KeywordScore" Type="int" Nullable="false" />
+    <Property Name="KeywordDisplay" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="UserListingResponse">
+  <EntityType Name="UserListingResponses">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserListingUrlId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="Response" Type="xml" Nullable="false" />
-    <Property Name="ResponseText" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Response" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="ResponseSent" Type="datetime" />
+    <Property Name="ResponseText" Type="nvarchar(max)" Nullable="false" />
     <Property Name="UserFileId" Type="uniqueidentifier" />
   </EntityType>
-  <EntityType Name="UserListingUrl">
+  <EntityType Name="UserListingUrls">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -417,7 +417,7 @@
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="IsHidden" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserPreference">
+  <EntityType Name="UserPreferences">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -432,7 +432,7 @@
     <Property Name="RequiresSSL" Type="bit" Nullable="false" />
     <Property Name="MinimumKeywordScore" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="UserTemplate">
+  <EntityType Name="UserTemplates">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
@@ -440,7 +440,7 @@
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="IsDefault" Type="bit" Nullable="false" />
     <Property Name="TemplateName" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="TemplateHtml" Type="xml" Nullable="false" />
+    <Property Name="TemplateHtml" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TemplateText" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Updated" Type="datetime" />
@@ -520,8 +520,8 @@
     <Property Name="ListingContentCreated" Type="datetime" Nullable="false" />
     <Property Name="KeywordScore" Type="int" />
     <Property Name="KeywordDisplay" Type="nvarchar(max)" />
-    <Property Name="IsHidden" Type="bit" Nullable="false" />
     <Property Name="UserFileId" Type="uniqueidentifier" />
+    <Property Name="IsHidden" Type="bit" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
       warning 6002: The table/view 'Marketing.CraigslistScraper.dbo.UserListingRefresh' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -587,273 +587,265 @@
     <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
   </EntityType>
   <Association Name="FK_CategoryLog_Category">
-    <End Role="Category" Type="Marketing.CraigslistScraperModel.Store.Category" Multiplicity="1" />
-    <End Role="CategoryLog" Type="Marketing.CraigslistScraperModel.Store.CategoryLog" Multiplicity="*" />
+    <End Role="Categories" Type="Marketing.CraigslistScraperModel.Store.Categories" Multiplicity="1" />
+    <End Role="CategoryLogs" Type="Marketing.CraigslistScraperModel.Store.CategoryLogs" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Category">
+      <Principal Role="Categories">
         <PropertyRef Name="CategoryID" />
       </Principal>
-      <Dependent Role="CategoryLog">
+      <Dependent Role="CategoryLogs">
         <PropertyRef Name="CategoryID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CategoryLog_Log">
-    <End Role="Log" Type="Marketing.CraigslistScraperModel.Store.Log" Multiplicity="1" />
-    <End Role="CategoryLog" Type="Marketing.CraigslistScraperModel.Store.CategoryLog" Multiplicity="*" />
+    <End Role="Logs" Type="Marketing.CraigslistScraperModel.Store.Logs" Multiplicity="1" />
+    <End Role="CategoryLogs" Type="Marketing.CraigslistScraperModel.Store.CategoryLogs" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Log">
+      <Principal Role="Logs">
         <PropertyRef Name="LogID" />
       </Principal>
-      <Dependent Role="CategoryLog">
+      <Dependent Role="CategoryLogs">
         <PropertyRef Name="LogID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListingCategory_ListingGroup">
-    <End Role="ListingGroup" Type="Marketing.CraigslistScraperModel.Store.ListingGroup" Multiplicity="1" />
-    <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="*" />
+    <End Role="ListingGroups" Type="Marketing.CraigslistScraperModel.Store.ListingGroups" Multiplicity="1" />
+    <End Role="ListingCategories" Type="Marketing.CraigslistScraperModel.Store.ListingCategories" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ListingGroup">
+      <Principal Role="ListingGroups">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ListingCategory">
+      <Dependent Role="ListingCategories">
         <PropertyRef Name="ListingGroupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListingContent_ListingUrl">
-    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ListingContent" Type="Marketing.CraigslistScraperModel.Store.ListingContent" Multiplicity="*" />
+    <End Role="ListingUrls" Type="Marketing.CraigslistScraperModel.Store.ListingUrls" Multiplicity="1" />
+    <End Role="ListingContents" Type="Marketing.CraigslistScraperModel.Store.ListingContents" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ListingUrl">
+      <Principal Role="ListingUrls">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ListingContent">
+      <Dependent Role="ListingContents">
         <PropertyRef Name="ListingUrlId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListingUrl_City">
-    <End Role="City" Type="Marketing.CraigslistScraperModel.Store.City" Multiplicity="1" />
-    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="*" />
+    <End Role="Cities" Type="Marketing.CraigslistScraperModel.Store.Cities" Multiplicity="1" />
+    <End Role="ListingUrls" Type="Marketing.CraigslistScraperModel.Store.ListingUrls" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="City">
+      <Principal Role="Cities">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ListingUrl">
+      <Dependent Role="ListingUrls">
         <PropertyRef Name="CityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ListingUrl_ListingCategory">
-    <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="1" />
-    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="*" />
+    <End Role="ListingCategories" Type="Marketing.CraigslistScraperModel.Store.ListingCategories" Multiplicity="1" />
+    <End Role="ListingUrls" Type="Marketing.CraigslistScraperModel.Store.ListingUrls" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ListingCategory">
+      <Principal Role="ListingCategories">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="ListingUrl">
+      <Dependent Role="ListingUrls">
         <PropertyRef Name="ListingCategoryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserCity_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserCity" Type="Marketing.CraigslistScraperModel.Store.UserCity" Multiplicity="*" />
+    <End Role="UserCities" Type="Marketing.CraigslistScraperModel.Store.UserCities" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserCity">
+      <Dependent Role="UserCities">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserCity_City">
-    <End Role="City" Type="Marketing.CraigslistScraperModel.Store.City" Multiplicity="1" />
-    <End Role="UserCity" Type="Marketing.CraigslistScraperModel.Store.UserCity" Multiplicity="*" />
+  <Association Name="FK_UserCityCity">
+    <End Role="Cities" Type="Marketing.CraigslistScraperModel.Store.Cities" Multiplicity="1" />
+    <End Role="UserCities" Type="Marketing.CraigslistScraperModel.Store.UserCities" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="City">
+      <Principal Role="Cities">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserCity">
+      <Dependent Role="UserCities">
         <PropertyRef Name="CityId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserFile_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="*" />
+    <End Role="UserFiles" Type="Marketing.CraigslistScraperModel.Store.UserFiles" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserFile">
+      <Dependent Role="UserFiles">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserFilter_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserFilter" Type="Marketing.CraigslistScraperModel.Store.UserFilter" Multiplicity="*" />
+    <End Role="UserFilters" Type="Marketing.CraigslistScraperModel.Store.UserFilters" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserFilter">
+      <Dependent Role="UserFilters">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserKeyword_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserKeyword" Type="Marketing.CraigslistScraperModel.Store.UserKeyword" Multiplicity="*" />
+    <End Role="UserKeywords" Type="Marketing.CraigslistScraperModel.Store.UserKeywords" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserKeyword">
+      <Dependent Role="UserKeywords">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingCategory_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserListingCategory" Type="Marketing.CraigslistScraperModel.Store.UserListingCategory" Multiplicity="*" />
+    <End Role="UserListingCategories" Type="Marketing.CraigslistScraperModel.Store.UserListingCategories" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserListingCategory">
+      <Dependent Role="UserListingCategories">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingCategory_ListingCategory">
-    <End Role="ListingCategory" Type="Marketing.CraigslistScraperModel.Store.ListingCategory" Multiplicity="1" />
-    <End Role="UserListingCategory" Type="Marketing.CraigslistScraperModel.Store.UserListingCategory" Multiplicity="*" />
+    <End Role="ListingCategories" Type="Marketing.CraigslistScraperModel.Store.ListingCategories" Multiplicity="1" />
+    <End Role="UserListingCategories" Type="Marketing.CraigslistScraperModel.Store.UserListingCategories" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ListingCategory">
+      <Principal Role="ListingCategories">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserListingCategory">
+      <Dependent Role="UserListingCategories">
         <PropertyRef Name="ListingCategoryId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingKeywordScore_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserListingKeywordScore" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" Multiplicity="*" />
+    <End Role="UserListingKeywordScores" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScores" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserListingKeywordScore">
+      <Dependent Role="UserListingKeywordScores">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingKeywordScore_UserListingUrl">
-    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="UserListingKeywordScore" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScore" Multiplicity="*" />
+    <End Role="UserListingUrls" Type="Marketing.CraigslistScraperModel.Store.UserListingUrls" Multiplicity="1" />
+    <End Role="UserListingKeywordScores" Type="Marketing.CraigslistScraperModel.Store.UserListingKeywordScores" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserListingUrl">
+      <Principal Role="UserListingUrls">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserListingKeywordScore">
+      <Dependent Role="UserListingKeywordScores">
         <PropertyRef Name="UserListingId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingResponse_UserListingResponse">
-    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="0..1" />
-    <End Role="UserListingResponse" Type="Marketing.CraigslistScraperModel.Store.UserListingResponse" Multiplicity="*" />
+    <End Role="UserFiles" Type="Marketing.CraigslistScraperModel.Store.UserFiles" Multiplicity="0..1" />
+    <End Role="UserListingResponses" Type="Marketing.CraigslistScraperModel.Store.UserListingResponses" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserFile">
+      <Principal Role="UserFiles">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserListingResponse">
+      <Dependent Role="UserListingResponses">
         <PropertyRef Name="UserFileId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingResponse_UserListingUrl">
-    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="UserListingResponse" Type="Marketing.CraigslistScraperModel.Store.UserListingResponse" Multiplicity="*" />
+    <End Role="UserListingUrls" Type="Marketing.CraigslistScraperModel.Store.UserListingUrls" Multiplicity="1" />
+    <End Role="UserListingResponses" Type="Marketing.CraigslistScraperModel.Store.UserListingResponses" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserListingUrl">
+      <Principal Role="UserListingUrls">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserListingResponse">
+      <Dependent Role="UserListingResponses">
         <PropertyRef Name="UserListingUrlId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingUrl_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="*" />
+    <End Role="UserListingUrls" Type="Marketing.CraigslistScraperModel.Store.UserListingUrls" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserListingUrl">
+      <Dependent Role="UserListingUrls">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserListingUrl_ListingUrl">
-    <End Role="ListingUrl" Type="Marketing.CraigslistScraperModel.Store.ListingUrl" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="UserListingUrl" Type="Marketing.CraigslistScraperModel.Store.UserListingUrl" Multiplicity="*" />
+    <End Role="ListingUrls" Type="Marketing.CraigslistScraperModel.Store.ListingUrls" Multiplicity="1" />
+    <End Role="UserListingUrls" Type="Marketing.CraigslistScraperModel.Store.UserListingUrls" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ListingUrl">
+      <Principal Role="ListingUrls">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserListingUrl">
+      <Dependent Role="UserListingUrls">
         <PropertyRef Name="ListingUrlId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserPreference_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserPreference" Type="Marketing.CraigslistScraperModel.Store.UserPreference" Multiplicity="*" />
+    <End Role="UserPreferences" Type="Marketing.CraigslistScraperModel.Store.UserPreferences" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserPreference">
+      <Dependent Role="UserPreferences">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserTemplate_aspnet_Membership">
     <End Role="aspnet_Membership" Type="Marketing.CraigslistScraperModel.Store.aspnet_Membership" Multiplicity="1" />
-    <End Role="UserTemplate" Type="Marketing.CraigslistScraperModel.Store.UserTemplate" Multiplicity="*" />
+    <End Role="UserTemplates" Type="Marketing.CraigslistScraperModel.Store.UserTemplates" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
       </Principal>
-      <Dependent Role="UserTemplate">
+      <Dependent Role="UserTemplates">
         <PropertyRef Name="UserId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserTemplate_UserFile">
-    <End Role="UserFile" Type="Marketing.CraigslistScraperModel.Store.UserFile" Multiplicity="0..1" />
-    <End Role="UserTemplate" Type="Marketing.CraigslistScraperModel.Store.UserTemplate" Multiplicity="*" />
+    <End Role="UserFiles" Type="Marketing.CraigslistScraperModel.Store.UserFiles" Multiplicity="0..1" />
+    <End Role="UserTemplates" Type="Marketing.CraigslistScraperModel.Store.UserTemplates" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="UserFile">
+      <Principal Role="UserFiles">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="UserTemplate">
+      <Dependent Role="UserTemplates">
         <PropertyRef Name="UserFileId" />
       </Dependent>
     </ReferentialConstraint>
