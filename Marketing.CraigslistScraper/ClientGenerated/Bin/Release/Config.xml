@@ -22,4 +22,4 @@
   <ExtensionAssemblies>
     <ExtensionAssembly>Microsoft.LightSwitch.Extensions.Client, Version=10.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35</ExtensionAssembly>
   </ExtensionAssemblies>
-<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129855429869443359</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.5.32.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>
+<ApplicationCulture>en-US</ApplicationCulture><ManifestTimeStamp>129855469778857421</ManifestTimeStamp><ApplicationName>Marketing_CraigslistScraper</ApplicationName><Version>1.5.32.0</Version><RootProjectGuid>af5c1313-1997-4206-abdd-ecaeafc0ca26</RootProjectGuid></Configuration>

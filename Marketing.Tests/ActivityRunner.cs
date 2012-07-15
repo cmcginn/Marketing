@@ -60,12 +60,18 @@ namespace Marketing.Tests {
 
     [TestMethod]
     public void RunActivity() {
-     
-      var inputs = new Dictionary<string, object>();
-      var userId = new Guid("D1111E48-27EF-4774-9DEF-40B4A03D1925");
-      inputs.Add( "UserId", userId );
-      var host = new WorkflowInvoker( new RefreshUserDataActivity() );
-      host.Invoke(inputs);
+        try
+        {
+            var inputs = new Dictionary<string, object>();
+            var userId = new Guid("E9B5D8E7-E37A-45BF-B431-FF5FD621A6BC");
+            inputs.Add("UserId", userId);
+            var host = new WorkflowInvoker(new RefreshUserDataActivity());
+            host.Invoke(inputs);
+        }
+        catch (System.Exception ex)
+        {
+            Logger.Write(ex.Message);
+        }
      
     }
   }

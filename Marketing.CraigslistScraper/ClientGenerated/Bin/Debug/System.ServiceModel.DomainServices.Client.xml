@@ -1779,6 +1779,11 @@
             Gets the concurrency version member for this type. May be null.
             </summary>
         </member>
+        <member name="P:System.ServiceModel.DomainServices.Client.MetaType.Members">
+            <summary>
+            Gets the collection of members for this Type.
+            </summary>
+        </member>
         <member name="P:System.ServiceModel.DomainServices.Client.MetaType.KeyMembers">
             <summary>
             Gets the collection of key members for this entity Type.
@@ -3663,6 +3668,19 @@
             </remarks>
             <typeparam name="T">The entity type of this proxy</typeparam>
         </member>
+        <member name="T:System.ServiceModel.DomainServices.Client.ICollectionChangedListener">
+            <summary>
+            Interface to handle collection changed events through a weak listener.
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.ICollectionChangedListener.OnCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Called by the <see cref="T:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener"/> when a collection
+            changed event occurs.
+            </summary>
+            <param name="sender">The event sender</param>
+            <param name="e">The event args</param>
+        </member>
         <member name="T:System.ServiceModel.DomainServices.Client.EntityConflict">
             <summary>
             Represents an entity conflict.
@@ -5266,19 +5284,6 @@
             <param name="parentContext">Optional context to inherit from.  May be null.</param>
             <returns>A new validation context.</returns>
         </member>
-        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.ValidateMethodCall(System.String,System.ComponentModel.DataAnnotations.ValidationContext,System.Object[])">
-            <summary>
-            Throws a <see cref="T:System.ComponentModel.DataAnnotations.ValidationException"/> if it is not valid to call the specified method.
-            </summary>
-            <remarks>This method evaluates all the <see cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute"/>s associated with the
-            method and its parameters. It does not do deep validation of parameter instances. Any failure will cause the exception to be thrown.
-            </remarks>
-            <param name="methodName">The name of the method to be called</param>
-            <param name="validationContext">Describes the method being called.</param>
-            <param name="parameters">The parameter values to be passed to the method.  They will be validated.</param>
-            <exception cref="T:System.ArgumentNullException">When <paramref name="validationContext"/> is null</exception>
-            <exception cref="T:System.ComponentModel.DataAnnotations.ValidationException"> When it is not valid to call the specified method</exception>
-        </member>
         <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.GetMethod(System.Object,System.String,System.Object[])">
             <summary>
             Internal helper method for getting a method from an object instance that matches
@@ -5297,13 +5302,6 @@
             <param name="method">The method to validate the set of parameters against.</param>
             <param name="parameters">The set of parameters to check.</param>
             <returns><c>true</c> if the set of parameters can be passed to the specified method.</returns>
-        </member>
-        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.GetDisplayAttribute(System.Reflection.ICustomAttributeProvider)">
-            <summary>
-            Gets the DisplayAttribute that applies to a method, parameter, property, etc.
-            </summary>
-            <param name="member">A <see cref="T:System.Reflection.ICustomAttributeProvider"/> member to query for <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/>s.</param>
-            <returns>A <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> found or <c>null</c> if none is found</returns>
         </member>
         <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.ApplyMemberPath(System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult},System.String)">
             <summary>
@@ -5330,6 +5328,36 @@
             <param name="validationResults">The validation results</param>
             <returns>True if the object is valid, false otherwise.</returns>
         </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.ValidateObjectRecursive(System.Object,System.String,System.ComponentModel.DataAnnotations.ValidationContext,System.Collections.Generic.List{System.ComponentModel.DataAnnotations.ValidationResult})">
+            <summary>
+            This method recursively validates an object, first validating all properties, then
+            validating the type. This method implements the classic Try pattern. However it serves
+            as code sharing for the validation pattern where an exception is thrown on first error.
+            </summary>
+            <param name="instance">The object to validate.</param>
+            <param name="memberPath">The dotted path of the member.</param>
+            <param name="validationContext">The validation context.</param>
+            <param name="validationResults">The collection in which the validation results will be
+            stored. The collection can be <c>null</c>.</param>
+            <returns><c>True</c> if the object was successfully validated with no errors.</returns>
+            <exception cref="T:System.ComponentModel.DataAnnotations.ValidationException">When <paramref name="validationResults"/> is
+            <c>null</c> and the object has a validation error.</exception>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.ValidateComplexCollection(System.Collections.IEnumerable,System.String,System.ComponentModel.DataAnnotations.ValidationContext,System.Collections.Generic.List{System.ComponentModel.DataAnnotations.ValidationResult})">
+            <summary>
+            This method deeply validates all objects in a collection. This method implements the
+            classic Try pattern. However it serves as code sharing for the validation pattern where
+            an exception is thrown on first error.
+            </summary>
+            <param name="elements">The enumerable containing the objects to validate.</param>
+            <param name="memberPath">The dotted path of the member.</param>
+            <param name="validationContext">The validation context.</param>
+            <param name="validationResults">The collection in which the validation results will be
+            stored. The collection can be <c>null</c>.</param>
+            <returns><c>True</c> if the object was successfully validated with no errors.</returns>
+            <exception cref="T:System.ComponentModel.DataAnnotations.ValidationException">When <paramref name="validationResults"/> is
+            <c>null</c> and the object has a validation error.</exception>
+        </member>
         <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.RemoveMemberPrefix(System.Collections.Generic.IEnumerable{System.ComponentModel.DataAnnotations.ValidationResult},System.String)">
             <summary>
             Removes the specified member name prefix from the member names in the validation 
@@ -5349,7 +5377,7 @@
             <param name="instance">The target entity or complex type to apply the errors to.</param>
             <param name="validationResults">The validation results to apply.</param>
         </member>
-        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.TryValidateMethodCall(System.String,System.ComponentModel.DataAnnotations.ValidationContext,System.Object[],System.Collections.Generic.ICollection{System.ComponentModel.DataAnnotations.ValidationResult})">
+        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.TryValidateCustomUpdateMethodCall(System.String,System.ComponentModel.DataAnnotations.ValidationContext,System.Object[],System.Collections.Generic.List{System.ComponentModel.DataAnnotations.ValidationResult})">
             <summary>
             Determines whether it is valid to call the specified method.
             </summary>
@@ -5362,18 +5390,38 @@
             <param name="validationResults">Optional collection to receive validation results for failed validations.</param>
             <returns><c>true</c> if the method is valid.</returns>
         </member>
-        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.TryValidateMethodCall(System.Reflection.MethodInfo,System.ComponentModel.DataAnnotations.ValidationContext,System.Object[],System.Collections.Generic.ICollection{System.ComponentModel.DataAnnotations.ValidationResult})">
+        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.ValidateMethodCall(System.String,System.ComponentModel.DataAnnotations.ValidationContext,System.Object[])">
             <summary>
             Determines whether it is valid to call the specified method.
             </summary>
-            <remarks>
-            This method evaluates all <see cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute"/>s associated with the method and its parameters.  Any failure returns <c>false</c>.
+            <remarks>This method evaluates all the <see cref="T:System.ComponentModel.DataAnnotations.ValidationAttribute"/>s associated
+            with the method and its parameters. It does not do deep validation of parameter
+            instances. Any failure will cause the exception to be thrown.
             </remarks>
-            <param name="method">The method to be called</param>
-            <param name="validationContext">Describes the method being tested</param>
-            <param name="parameters">The parameter values to be passed to the method.  They will be validated.</param>
-            <param name="validationResults">Optional collection to receive validation results for failed validations.</param>
-            <returns><c>true</c> if the method is valid.</returns>
+            <param name="methodName">The name of the method to be called</param>
+            <param name="validationContext">Describes the method being called.</param>
+            <param name="parameters">The parameter values to be passed to the method.  They will be
+            validated.</param>
+            <exception cref="T:System.ArgumentNullException">When <paramref name="methodName"/> or
+            <paramref name="validationContext"/> is null.</exception>
+            <exception cref="T:System.ComponentModel.DataAnnotations.ValidationException"> When it is not valid to call the specified
+            method.</exception>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.GetDisplayAttribute(System.Reflection.ICustomAttributeProvider)">
+            <summary>
+            Gets the DisplayAttribute that applies to a method, parameter, property, etc.
+            </summary>
+            <param name="member">A <see cref="T:System.Reflection.ICustomAttributeProvider"/> member to query for <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/>s.</param>
+            <returns>A <see cref="T:System.ComponentModel.DataAnnotations.DisplayAttribute"/> found or <c>null</c> if none is found</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.ValidationUtilities.NormalizeMemberPath(System.String,System.Type)">
+            <summary>
+            Adds the collection token '()' to the <paramref name="memberPath"/> if the
+            <paramref name="memberType"/> is an IEnumerable.
+            </summary>
+            <param name="memberPath">The path of the member.</param>
+            <param name="memberType">The type of the member.</param>
+            <returns>The correct member representation.</returns>
         </member>
         <member name="T:System.ServiceModel.DomainServices.Client.ApplicationServices.LoginParameters">
             <summary>
@@ -5501,17 +5549,6 @@
             <param name="type">The type to check.</param>
             <returns>True if the type is a complex type, false otherwise.</returns>
         </member>
-        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.Assembly)">
-            <summary>
-            Performs a check against an assembly to determine if it's a known
-            System assembly.
-            </summary>
-            <remarks>
-            We can't use Assembly.GetName().GetPublicKeyToken() since that requires FileIOPermissions.
-            </remarks>
-            <param name="assembly">The assembly to check.</param>
-            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
-        </member>
         <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsComplexTypeCollection(System.Type)">
             <summary>
             Determines whether the specified type is one of the supported collection types
@@ -5573,6 +5610,33 @@
             null when the method return false.
             </param>
             <returns>Whether the type definition is assignable from the derived type</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.Assembly)">
+            <summary>
+            Performs a check against an assembly to determine if it's a known
+            System assembly.
+            </summary>
+            <param name="assembly">The assembly to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.Reflection.AssemblyName)">
+            <summary>
+            Performs a check against an <see cref="T:System.Reflection.AssemblyName"/> to determine if it's a known
+            System assembly.
+            </summary>
+            <param name="assemblyName">The assembly name to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.TypeUtility.IsSystemAssembly(System.String)">
+            <summary>
+            Performs a check against an assembly's full name to determine if it's a known
+            System assembly.
+            </summary>
+            <remarks>
+            We can't use Assembly.GetName().GetPublicKeyToken() since that requires FileIOPermissions.
+            </remarks>
+            <param name="assemblyFullName">The <see cref="P:System.Reflection.AssemblyName.FullName"/> to check.</param>
+            <returns><c>true</c> if the assembly is known to be a system assembly, otherwise <c>false</c>.</returns>
         </member>
         <member name="T:System.ServiceModel.DomainServices.Client.Resources">
             <summary>
@@ -6299,6 +6363,38 @@
         <member name="E:System.ServiceModel.DomainServices.Client.ApplicationServices.AuthenticationService.System#ComponentModel#INotifyPropertyChanged#PropertyChanged">
             <summary>
             Raised every time a property value changes. See <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/>.
+            </summary>
+        </member>
+        <member name="T:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener">
+            <summary>
+            A collection change listener that subscribes to the source using a weak reference
+            </summary>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener.#ctor(System.Collections.Specialized.INotifyCollectionChanged,System.ServiceModel.DomainServices.Client.ICollectionChangedListener)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener"/>
+            </summary>
+            <param name="source">The source event source</param>
+            <param name="listener">The listener event listener</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener.CreateIfNecessary(System.Object,System.ServiceModel.DomainServices.Client.ICollectionChangedListener)">
+            <summary>
+            Creates a weak listener if the source implements <see cref="T:System.Collections.Specialized.INotifyCollectionChanged"/>
+            </summary>
+            <param name="source">The source to subscribe to</param>
+            <param name="listener">The collection change listener</param>
+            <returns>A weak listener instance</returns>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener.SourceCollectionChanged(System.Object,System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>
+            Handles collection changed events raised by the source
+            </summary>
+            <param name="sender">The source collection</param>
+            <param name="e">The event args</param>
+        </member>
+        <member name="M:System.ServiceModel.DomainServices.Client.WeakCollectionChangedListener.Disconnect">
+            <summary>
+            Disconnects this listener from the collection change event
             </summary>
         </member>
     </members>

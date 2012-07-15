@@ -17,8 +17,8 @@
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <BaseIntermediateOutputPath>bin</BaseIntermediateOutputPath>
-    <ApplicationClientType>Browser</ApplicationClientType>
-    <ApplicationServerType>IIS</ApplicationServerType>
+    <ApplicationClientType>Desktop</ApplicationClientType>
+    <ApplicationServerType>LocalHost</ApplicationServerType>
     <RequireSecureConnection>true</RequireSecureConnection>
     <AuthenticationType>Forms</AuthenticationType>
     <ApplicationName>Marketing_CraigslistScraper</ApplicationName>
@@ -29,7 +29,7 @@
     <AdministratorFullName>Administrator</AdministratorFullName>
     <AdministratorUserName>Administrator</AdministratorUserName>
     <AllowUntrustedCertificate>False</AllowUntrustedCertificate>
-    <AddAdministrator>True</AddAdministrator>
+    <AddAdministrator>False</AddAdministrator>
     <BootstrapperComponentsUrl />
     <DefaultInstallLocation>Marketing_CraigslistScraper</DefaultInstallLocation>
     <DeploySchema>True</DeploySchema>

@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="UserCode\UserListItemsView.cs" />
     <Compile Include="UserCode\Preferences.cs" />
+    <Compile Include="UserCode\Workflows.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="..\Data\ApplicationDefinition.lsml">

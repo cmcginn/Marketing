@@ -48,3 +48,5 @@ C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Release\Marketing.
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Release\Marketing.WorkflowActivities.csproj.XamlGeneratedXamlFileListAbsolute.txt
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Release\Marketing.WorkflowActivities.dll
 C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Release\Marketing.WorkflowActivities.pdb
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Release\_XamlTemporaryAssembly_.dll
+C:\Projects\Urbana\Marketing\Marketing.WorkflowActivities\obj\Release\_XamlTemporaryAssembly_.pdb

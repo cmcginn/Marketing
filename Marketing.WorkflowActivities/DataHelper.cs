@@ -95,7 +95,8 @@ namespace Marketing.WorkflowActivities
         }
         public static int GetMinimumKeywordScoreByUserId(MarketingEntities context, Guid userId)
         {
-            var result = context.UserPreferences.Single(n => n.UserId == userId).MinimumKeywordScore;
+            var keywordScore = context.UserPreferences.SingleOrDefault(n => n.UserId == userId);
+            int result = keywordScore != null ? keywordScore.MinimumKeywordScore : 0;
             return result;
         }
         public static void RefreshUserListingKeywordScoreForUser(MarketingEntities context, UserListingUrl userListingUrl, List<UserKeyword> keywords,int minimumKeywordScore)

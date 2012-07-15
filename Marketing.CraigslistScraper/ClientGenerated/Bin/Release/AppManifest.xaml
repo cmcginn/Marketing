@@ -32,8 +32,8 @@
     <AssemblyPart x:Name="System.Windows.Controls.Toolkit.Internals" Source="System.Windows.Controls.Toolkit.Internals.dll" />
     <AssemblyPart x:Name="System.Windows.Data" Source="System.Windows.Data.dll" />
     <AssemblyPart x:Name="System.Xml.Linq" Source="System.Xml.Linq.dll" />
-    <AssemblyPart x:Name="DevExpress.Xpf.RichEdit.v11.1" Source="DevExpress.Xpf.RichEdit.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Core.v11.1" Source="DevExpress.Xpf.Core.v11.1.dll" />
+    <AssemblyPart x:Name="DevExpress.Xpf.RichEdit.v11.1" Source="DevExpress.Xpf.RichEdit.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.Xpf.Ribbon.v11.1" Source="DevExpress.Xpf.Ribbon.v11.1.dll" />
     <AssemblyPart x:Name="DevExpress.RichEdit.v11.1.Core" Source="DevExpress.RichEdit.v11.1.Core.dll" />
     <AssemblyPart x:Name="FJ.Core" Source="FJ.Core.dll" />
